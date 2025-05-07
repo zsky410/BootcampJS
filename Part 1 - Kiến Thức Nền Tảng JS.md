@@ -831,7 +831,7 @@ Trước khi đi vào các câu lệnh điều kiện, chúng ta cần hiểu v�
 | `>=`    | Lớn hơn hoặc bằng                              | `10 >= 10` (true)   |
 | `<=`    | Nhỏ hơn hoặc bằng                              | `5 <= 10` (true)    |
 
-#### So sánh bằng lỏng lẻo (``==``) vs nghiêm ngặt (``===``)
+#### So sánh bằng lỏng lẻo (`==`) vs nghiêm ngặt (`===`)
 
 JavaScript cung cấp hai cách để so sánh bằng:
 

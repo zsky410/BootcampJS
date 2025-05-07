@@ -1,0 +1,74 @@
+Dựa trên cấu trúc nội dung từ ảnh bạn cung cấp, mình sẽ chia toàn bộ 34 thư mục thành **7 phần (Part)** hợp lý theo chủ đề học tập, từ cơ bản đến nâng cao và thực hành thực tế như sau:
+
+---
+
+### **📘 Part 1: Kiến thức nền tảng về JavaScript**
+
+* 01 - Introduction
+* 02 - JS Values & Variables
+* 03 - How to Model Data Efficiently
+* 04 - Controlling Program Logic and Flow
+
+---
+
+### **📊 Part 2: Làm việc với Dữ liệu và Cấu trúc dữ liệu**
+
+* 05 - Capture Collections of Data with Arrays
+* 06 - Objects - The Core of Javascript
+* 07 - The World of Loops
+* 08 - Writing Reusable Code with Functions
+* 09 - An Advanced Look at Functions
+* 10 - Apply Functions to Collections of Data
+
+---
+
+### **⚙️ Part 3: Kỹ thuật nâng cao & tính năng đặc biệt**
+
+* 11 - A Few Miscellaneous JS Features
+* 12 - Object Methods and the 'This' Keyword
+* 13 - JS In the Browser - DOM Manipulation
+* 14 - Twisting the DOM to Our Will!
+* 15 - Communicating with Events
+
+---
+
+### **🔁 Part 4: Lập trình Bất đồng bộ và Giao tiếp mạng**
+
+* 16 - Asynchronous Code, Callbacks & Promises
+* 17 - Making HTTP Requests
+* 18 - Async & Await JS Magic
+
+---
+
+### **🏗️ Part 5: Lập trình hướng đối tượng & Kiến trúc dự án**
+
+* 19 - Prototypes, Classes, & The New Operator
+* 21 - Application Design Patterns
+* 28 - Production-Grade Authentication
+* 29 - Structuring Javascript Projects
+
+---
+
+### **🎨 Part 6: Tích hợp, Tương tác & UI nâng cao**
+
+* 20 - Drawing Animations
+* 22 - Javascript with the Canvas API
+* 30 - Image and File Upload
+
+---
+
+### **🚀 Part 7: Dự án Thực tế & Kiểm thử**
+
+* 23 - Make a Secret-Message Sharing App
+* 24 - Create Node JS Command Line Tools
+* 25 - Create Your Own Project Runner
+* 26 - Project Start - E-Commerce App
+* 27 - Design a Custom Database
+* 31 - Building a Shopping Cart
+* 32 - The Basics of Testing
+* 33 - Building a Testing Framework From Scratch
+* 34 - Bonus!
+
+---
+
+Bạn có muốn mình tạo file `.md` hoặc HTML để trình bày mục lục này gọn đẹp không?
