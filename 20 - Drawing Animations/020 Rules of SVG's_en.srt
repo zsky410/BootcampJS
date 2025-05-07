@@ -1,0 +1,440 @@
+1
+00:00:01,190 --> 00:00:02,640
+We got an SVG to show up.
+
+2
+00:00:02,660 --> 00:00:06,560
+Let's now take a look at a couple of diagrams and understand how we work with them in general.
+
+3
+00:00:07,340 --> 00:00:07,910
+Okay.
+
+4
+00:00:07,910 --> 00:00:09,050
+Here we go.
+
+5
+00:00:09,050 --> 00:00:09,800
+Right here.
+
+6
+00:00:10,310 --> 00:00:11,330
+So first things first.
+
+7
+00:00:11,330 --> 00:00:16,700
+Whenever we want to show a SVG or essentially some set of random shapes that we want to draw onto the
+
+8
+00:00:16,700 --> 00:00:19,690
+screen, we're going to place an SVG element.
+
+9
+00:00:19,700 --> 00:00:23,960
+When we create an SVG element, we're going to assign it a height and a width.
+
+10
+00:00:24,110 --> 00:00:28,160
+So you can see that we did back that back inside the markup that we just put together right here.
+
+11
+00:00:28,760 --> 00:00:34,280
+So when we wrote that out, it essentially created a big square inside of our HTML document that was
+
+12
+00:00:34,280 --> 00:00:36,680
+200 pixels tall, 200 pixels wide.
+
+13
+00:00:36,920 --> 00:00:43,010
+This SVG element is kind of like a canvas of sorts, and on this canvas we can draw different shapes.
+
+14
+00:00:43,520 --> 00:00:46,310
+We can very easily see the SVG element in action.
+
+15
+00:00:46,310 --> 00:00:53,450
+If we go back over to our index.html file, use our element inspector and then hover over the SVG so
+
+16
+00:00:53,450 --> 00:00:55,980
+we can very easily see the full span of the SVG.
+
+17
+00:00:56,000 --> 00:00:59,660
+Now, so again, this is kind of like a canvas of sorts or kind of like an area.
+
+18
+00:00:59,660 --> 00:01:02,330
+We can draw as much stuff as we want to.
+
+19
+00:01:04,280 --> 00:01:07,940
+The SVG element has a couple of interesting properties around it.
+
+20
+00:01:08,030 --> 00:01:13,250
+One of the most important things we need to understand is the axes that it has or those dimensions.
+
+21
+00:01:13,670 --> 00:01:19,820
+So the top left corner of the SVG SVG element is what we refer to as the origin.
+
+22
+00:01:20,360 --> 00:01:25,820
+We're going to be working with a lot of coordinate pairs, so like x y values in order to place in size
+
+23
+00:01:25,820 --> 00:01:28,160
+different shapes inside the SVG element.
+
+24
+00:01:28,760 --> 00:01:30,750
+All the coordinate pairs that we are going to work with.
+
+25
+00:01:30,770 --> 00:01:33,590
+Use the origin of the top left hand side.
+
+26
+00:01:34,010 --> 00:01:35,030
+The x axis.
+
+27
+00:01:35,030 --> 00:01:40,130
+Then increases from left to right, and the y axis increases from top to bottom.
+
+28
+00:01:40,820 --> 00:01:47,810
+So if we were to try to show some different points on here, a point right here might be at about 175
+
+29
+00:01:47,810 --> 00:01:49,630
+pixels along the X direction.
+
+30
+00:01:49,640 --> 00:01:56,000
+So that means we go over 175 pixels from left to right and then 20 pixels in the Y direction.
+
+31
+00:01:56,000 --> 00:02:00,170
+So that means we go down from 0 to 20 in the vertical direction.
+
+32
+00:02:02,040 --> 00:02:07,740
+Then down here, this would be 190 pixels over to the right in 190 pixels down.
+
+33
+00:02:08,220 --> 00:02:14,190
+So again, origin is always at the top left and we have our x axis running from left to right, and
+
+34
+00:02:14,190 --> 00:02:17,100
+the y axis goes from top down to the bottom.
+
+35
+00:02:17,850 --> 00:02:24,690
+So we're going to very rarely for our application anyways have negative x or y values because negative
+
+36
+00:02:24,690 --> 00:02:31,650
+x or y would mean that we are trying to place a point outside of our available area of the SVG.
+
+37
+00:02:31,680 --> 00:02:37,800
+So like out over here and that would not display inside the SVG for something to display it must have
+
+38
+00:02:37,800 --> 00:02:41,760
+an x and y coordinate within the bounds of our SVG.
+
+39
+00:02:42,460 --> 00:02:44,760
+Right now we've got 200 pixels wide and tall.
+
+40
+00:02:44,770 --> 00:02:50,950
+So in other words, anything that we want to show up must be placed within 0 to 200 on the x axis and
+
+41
+00:02:50,950 --> 00:02:52,990
+0 to 200 on the Y axis.
+
+42
+00:02:54,380 --> 00:02:57,350
+So that's a bit more about SVG elements in general.
+
+43
+00:02:58,540 --> 00:03:04,870
+Now inside of an SVG element, we can place a variety of different other elements, such as a circle,
+
+44
+00:03:04,900 --> 00:03:08,290
+and as you would guess, this is going to draw a circle out onto the screen.
+
+45
+00:03:08,800 --> 00:03:11,170
+There are several other shapes we can place as well.
+
+46
+00:03:11,320 --> 00:03:16,060
+So we can do a polygon, which is essentially a shape with an arbitrary number of sides.
+
+47
+00:03:16,240 --> 00:03:18,430
+We can do a circle, which is what we just did.
+
+48
+00:03:18,460 --> 00:03:22,540
+We can draw any lips or a square or otherwise a rectangle.
+
+49
+00:03:22,840 --> 00:03:29,740
+We could also draw a path, which is essentially a line that has some arbitrary kind of direction to
+
+50
+00:03:29,740 --> 00:03:30,090
+it.
+
+51
+00:03:30,100 --> 00:03:34,510
+So we can draw out a path that kind of like curves and twists around as much as we please.
+
+52
+00:03:35,340 --> 00:03:36,330
+For our application.
+
+53
+00:03:36,330 --> 00:03:39,930
+As you probably guess, we're going to end up drawing a circle.
+
+54
+00:03:40,790 --> 00:03:46,700
+So we're going to draw a really big circle like so and we're going to place our timer text.
+
+55
+00:03:46,700 --> 00:03:51,230
+So like the countdown thing, that text input, all that kind of stuff is going to be placed inside
+
+56
+00:03:51,230 --> 00:03:52,100
+of this circle.
+
+57
+00:03:53,910 --> 00:03:55,010
+Now the circle itself.
+
+58
+00:03:55,020 --> 00:03:57,510
+There are a couple of different properties we need to understand.
+
+59
+00:03:57,810 --> 00:03:59,340
+These are pretty basic properties.
+
+60
+00:03:59,340 --> 00:04:01,890
+So are is the radius of the circle.
+
+61
+00:04:01,920 --> 00:04:08,490
+Remember, a radius is from the center point out to a edge that is separate from the diameter, which
+
+62
+00:04:08,490 --> 00:04:12,030
+is the full distance from one edge to the opposite edge.
+
+63
+00:04:12,420 --> 00:04:15,150
+So in this case, we created a circle with the radius of 20.
+
+64
+00:04:17,029 --> 00:04:24,200
+The C, X and C values are the center point of the circle or where to place the circle on the SVG.
+
+65
+00:04:24,440 --> 00:04:30,290
+So in our case, because we said C and C of 30, that meant that we could go back over to like this
+
+66
+00:04:30,290 --> 00:04:31,400
+diagram right here.
+
+67
+00:04:32,410 --> 00:04:38,980
+So we went over 30 units and then down 30 units and then we placed our circle, the center point of
+
+68
+00:04:38,980 --> 00:04:40,390
+it at that location.
+
+69
+00:04:40,390 --> 00:04:47,110
+So you can imagine 30, 30 might be like right there or so we can see that as plainly what happened
+
+70
+00:04:47,110 --> 00:04:48,610
+inside of our drawing over here.
+
+71
+00:04:49,880 --> 00:04:50,070
+Okay.
+
+72
+00:04:50,120 --> 00:04:52,220
+So that's some more about drawing a circle.
+
+73
+00:04:52,250 --> 00:04:57,050
+So now if we want to, we could easily play around with some of these R values and see and see.
+
+74
+00:04:57,110 --> 00:05:03,740
+So, for example, I can move my circle to the right by increasing the C value that is going to increase
+
+75
+00:05:03,740 --> 00:05:07,490
+the X value or the center point of the X value for the circle.
+
+76
+00:05:07,820 --> 00:05:13,370
+So go to like 130 and I'll expect to see this thing shift over by a hundred pixels.
+
+77
+00:05:14,000 --> 00:05:14,300
+Yep.
+
+78
+00:05:14,300 --> 00:05:14,990
+There we go.
+
+79
+00:05:16,980 --> 00:05:22,260
+I'm going to revert the C to 30 and I'll try increasing C Y to 130 as well.
+
+80
+00:05:22,290 --> 00:05:25,860
+So that should move our circle downwards by about 100 pixels.
+
+81
+00:05:26,070 --> 00:05:26,580
+Yep.
+
+82
+00:05:26,580 --> 00:05:27,540
+Definitely happen.
+
+83
+00:05:28,230 --> 00:05:30,600
+And then, of course, we can start to increase the R value.
+
+84
+00:05:30,600 --> 00:05:33,000
+So it could go up to say 120.
+
+85
+00:05:33,510 --> 00:05:36,510
+And now the radius of our circle is going to be significantly larger.
+
+86
+00:05:37,560 --> 00:05:41,220
+So now the circle is so large that it actually flows off the SVG.
+
+87
+00:05:41,430 --> 00:05:45,310
+If something is outside the SVG, it means that we just plain can't see it.
+
+88
+00:05:45,330 --> 00:05:50,100
+So even though the circle is technically off the edge, well, we can't really see it because the SVG
+
+89
+00:05:50,100 --> 00:05:51,900
+itself is going to clip that.
+
+90
+00:05:53,720 --> 00:05:54,020
+Okay.
+
+91
+00:05:54,020 --> 00:05:56,360
+So that is the SVG and the circle.
+
+92
+00:05:56,780 --> 00:06:02,000
+Now, last thing I'm going to do, I'm going to revert the circle back to an R of 20, a C of 30 and
+
+93
+00:06:02,000 --> 00:06:03,080
+a C of 30.
+
+94
+00:06:03,500 --> 00:06:06,710
+And then I'm going to copy paste this circle down twice.
+
+95
+00:06:08,080 --> 00:06:11,320
+Then on the second one, I'll change the course to 130.
+
+96
+00:06:12,590 --> 00:06:15,860
+And on the third one, I'll change the CI to 130 as well.
+
+97
+00:06:17,670 --> 00:06:20,490
+And so now I can see very easily three circles on the screen.
+
+98
+00:06:20,520 --> 00:06:24,960
+So for us, we're just going to show one circle, but I just want you to know that we could show as
+
+99
+00:06:24,960 --> 00:06:27,360
+many shapes inside of an SVG as we wish.
+
+100
+00:06:27,360 --> 00:06:28,620
+Within reason, of course.
+
+101
+00:06:29,560 --> 00:06:32,650
+So I'm going to reduce this back down to just one circle like so.
+
+102
+00:06:33,630 --> 00:06:33,960
+All right.
+
+103
+00:06:33,960 --> 00:06:39,990
+So we now understand some of the basics around drawing a shape inside of an SVG and some properties
+
+104
+00:06:39,990 --> 00:06:41,460
+around SVG as well.
+
+105
+00:06:41,520 --> 00:06:45,870
+But now we need to understand how we can actually draw something like, well, what we were going for
+
+106
+00:06:45,870 --> 00:06:49,740
+before this thing over here where we only see the outline of a circle.
+
+107
+00:06:49,920 --> 00:06:54,480
+In addition, we want to make sure that we can kind of like have a line of sorts that goes around at
+
+108
+00:06:54,480 --> 00:06:55,350
+the same time.
+
+109
+00:06:55,890 --> 00:06:59,070
+So we still need to understand a little bit more about how we're going to achieve that.
+
+110
+00:06:59,070 --> 00:07:01,770
+So quick pause right here and I'll see you in just a minute.
+

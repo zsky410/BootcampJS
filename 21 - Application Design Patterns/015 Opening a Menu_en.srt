@@ -1,0 +1,292 @@
+1
+00:00:00,650 --> 00:00:04,560
+We can now show a list of movie posters and the title of each respective movie.
+
+2
+00:00:04,580 --> 00:00:09,200
+So now all we really have to do, believe it or not, is kind of work on the styling a little bit.
+
+3
+00:00:09,500 --> 00:00:13,580
+In particular, we need to make sure that all these images are small, that they show up next to their
+
+4
+00:00:13,580 --> 00:00:19,520
+titles, and that they all appear in a kind of menu directly underneath that little input right there.
+
+5
+00:00:20,060 --> 00:00:24,800
+So to do so, we're going to use some CSS that is included inside of this project.
+
+6
+00:00:24,980 --> 00:00:30,020
+Remember, at the very start of this section, we downloaded a boiler plate project wired up inside.
+
+7
+00:00:30,020 --> 00:00:33,710
+This project is a CSS framework called Boma CSS.
+
+8
+00:00:34,430 --> 00:00:40,100
+Oma CSS has a collection of different CSS rules that allow you to very quickly style an application.
+
+9
+00:00:40,550 --> 00:00:45,590
+We're going to take a look at a component or essentially a set of CSS rules that are going to allow
+
+10
+00:00:45,590 --> 00:00:50,720
+us to very quickly turn the content that we have right here into what we're really looking for.
+
+11
+00:00:51,380 --> 00:00:54,980
+So I'm going to open up a new browser tab and navigate to this documentation.
+
+12
+00:00:57,220 --> 00:00:57,520
+Okay.
+
+13
+00:00:57,520 --> 00:01:02,380
+So if we go down on the left hand side just a little bit, we'll see a demo of what they call a dropdown.
+
+14
+00:01:02,770 --> 00:01:06,100
+Now, you might look at this and say, Stephen, we're not making a dropdown.
+
+15
+00:01:06,100 --> 00:01:08,110
+We're making kind of an autocomplete thing.
+
+16
+00:01:08,320 --> 00:01:09,490
+Yes, that's correct.
+
+17
+00:01:09,490 --> 00:01:15,670
+But we can kind of use some of the CSS that's been implemented to make this dropdown to kind of leverage
+
+18
+00:01:15,670 --> 00:01:17,410
+it for what we are trying to create.
+
+19
+00:01:17,740 --> 00:01:22,780
+So the only effective difference between what you see right here and what we are trying to make is the
+
+20
+00:01:22,780 --> 00:01:26,380
+fact that we want to show a text input right there instead of a button.
+
+21
+00:01:27,350 --> 00:01:28,090
+They have a button.
+
+22
+00:01:28,100 --> 00:01:33,770
+We just want to have a text input so we can very easily swap that out to get something like what you
+
+23
+00:01:33,770 --> 00:01:34,450
+see right here.
+
+24
+00:01:34,460 --> 00:01:38,990
+All we really have to do is replicate the HTML structure that they have over here on the right hand
+
+25
+00:01:38,990 --> 00:01:39,560
+side.
+
+26
+00:01:40,100 --> 00:01:44,360
+Now, I'm not going to ask you to like read over all that CSS and memorize it instead.
+
+27
+00:01:44,360 --> 00:01:46,100
+Let's go back over to our project.
+
+28
+00:01:46,100 --> 00:01:51,290
+We're going to write in some of the CSS that you see right here directly to our HTML file, and I'll
+
+29
+00:01:51,290 --> 00:01:55,790
+show you how quickly and easily we can replicate something that looks like that.
+
+30
+00:01:56,700 --> 00:01:57,020
+Okay.
+
+31
+00:01:57,030 --> 00:01:57,930
+So back over.
+
+32
+00:01:59,430 --> 00:02:02,040
+I'm going to find my index.html file.
+
+33
+00:02:02,730 --> 00:02:04,290
+I'm going to go down to the very bottom.
+
+34
+00:02:05,360 --> 00:02:07,550
+And I'm going to find my input element.
+
+35
+00:02:08,250 --> 00:02:09,780
+Right above that input element.
+
+36
+00:02:09,810 --> 00:02:11,490
+I'm going to add in a new div.
+
+37
+00:02:14,250 --> 00:02:19,260
+With a class of dropdown and is dash active.
+
+38
+00:02:20,030 --> 00:02:23,000
+I'm going to put the closing div on the other side of the input.
+
+39
+00:02:23,000 --> 00:02:26,030
+So this div right here is going to wrap our input element.
+
+40
+00:02:27,780 --> 00:02:33,360
+Then immediately after that I'm going to create another div with a class of dropdown menu.
+
+41
+00:02:34,870 --> 00:02:35,920
+I'll close it off.
+
+42
+00:02:36,620 --> 00:02:37,190
+Inside of there.
+
+43
+00:02:37,190 --> 00:02:41,420
+I'm going to create another diff with the class of dropdown dash content.
+
+44
+00:02:42,510 --> 00:02:43,530
+Close that one off.
+
+45
+00:02:43,800 --> 00:02:46,590
+And then finally I'm going to make a couple of anchor tags.
+
+46
+00:02:46,800 --> 00:02:51,780
+So an anchor tag like so with a class of dropdown item.
+
+47
+00:02:52,750 --> 00:02:58,000
+I'll then close off the anchor tag and inside the anchor tag I'll put in movie number one.
+
+48
+00:02:59,510 --> 00:03:04,400
+And then I'm going to copy paste that anchor tag twice like so and just update the text.
+
+49
+00:03:05,140 --> 00:03:10,570
+So all I'm doing here is using the same HTML that we just saw inside the Bouma documentation by using
+
+50
+00:03:10,570 --> 00:03:15,460
+the same HTML, the same class names, all the Boma CSS rules that are included inside this project
+
+51
+00:03:15,460 --> 00:03:20,200
+are going to kick, in effect and try to style this block of HTML right here.
+
+52
+00:03:20,350 --> 00:03:25,150
+So even though we are not trying to create a dropdown per se, we can still leverage that set of CSS
+
+53
+00:03:25,150 --> 00:03:27,340
+rules for styling our application.
+
+54
+00:03:28,320 --> 00:03:28,530
+Yes.
+
+55
+00:03:28,530 --> 00:03:29,520
+I'm going to save this.
+
+56
+00:03:29,760 --> 00:03:30,930
+I'm going to flip back over.
+
+57
+00:03:31,710 --> 00:03:32,520
+Refresh.
+
+58
+00:03:32,610 --> 00:03:35,670
+And now I see at least what kind of looks like a menu right here.
+
+59
+00:03:35,670 --> 00:03:36,410
+Of sorts.
+
+60
+00:03:36,420 --> 00:03:36,810
+I know.
+
+61
+00:03:36,810 --> 00:03:38,760
+It's, like, pushed up against the left hand side.
+
+62
+00:03:39,470 --> 00:03:41,630
+But it kind of looks like what we're going for.
+
+63
+00:03:41,750 --> 00:03:44,780
+I've got a list of items I can kind of hover over them.
+
+64
+00:03:44,780 --> 00:03:48,860
+When I hover over them, I get that nice little pointer cursor thing, like with the hand, with the
+
+65
+00:03:48,860 --> 00:03:49,580
+little finger.
+
+66
+00:03:49,580 --> 00:03:52,280
+And so it's very evident to a user that I can click on this.
+
+67
+00:03:52,910 --> 00:03:58,160
+So all you and I really have to do now is instead of showing these anchor tags that say movie number
+
+68
+00:03:58,160 --> 00:04:01,970
+one, two and three, we need to just take our movie images.
+
+69
+00:04:01,970 --> 00:04:06,080
+So like the poster and movie title and stick it into this anchor tag.
+
+70
+00:04:06,230 --> 00:04:10,970
+And then everything should essentially show up correctly and nicely styled in our application.
+
+71
+00:04:12,620 --> 00:04:15,220
+So now we understand what our goal is in the short term.
+
+72
+00:04:15,230 --> 00:04:20,160
+Let's take a quick pause because there is something to kind of think about on how we approach this problem.
+
+73
+00:04:20,180 --> 00:04:24,350
+So quick pause and we'll discuss a little interesting side topic in the next video.
+

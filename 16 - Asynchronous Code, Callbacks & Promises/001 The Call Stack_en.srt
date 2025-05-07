@@ -1,0 +1,512 @@
+1
+00:00:00,270 --> 00:00:00,660
+All right.
+
+2
+00:00:00,660 --> 00:00:01,380
+Welcome back.
+
+3
+00:00:01,410 --> 00:00:02,730
+We've got a big section here.
+
+4
+00:00:02,730 --> 00:00:04,980
+It includes a couple of different topics by the end.
+
+5
+00:00:05,010 --> 00:00:10,620
+Our main goal is to make HTTP requests from JavaScript, from the client or from the browser.
+
+6
+00:00:10,620 --> 00:00:13,950
+So load data from an API send a request somewhere.
+
+7
+00:00:14,070 --> 00:00:18,360
+So very important stuff that you do all the time if you make single page apps.
+
+8
+00:00:18,360 --> 00:00:23,010
+And in the projects that we build later on, there's at least a couple of examples where we're working
+
+9
+00:00:23,010 --> 00:00:29,340
+with HTTP requests in the browser, but before we do that, we'll talk about promises and how we use
+
+10
+00:00:29,340 --> 00:00:32,460
+promises to manage asynchronous code and make our life easier.
+
+11
+00:00:32,460 --> 00:00:37,920
+But before we do that, we're going to talk about asynchronous code or async JavaScript, what it actually
+
+12
+00:00:37,920 --> 00:00:38,640
+means.
+
+13
+00:00:38,970 --> 00:00:42,930
+And in order to do that, we need to understand how JavaScript works behind the scenes.
+
+14
+00:00:42,930 --> 00:00:46,890
+At least we don't have to go crazy into detail, but we need to understand the basics.
+
+15
+00:00:46,890 --> 00:00:48,870
+So that's where we're going to start in this video.
+
+16
+00:00:48,870 --> 00:00:51,690
+We're going to talk about something called the call stack.
+
+17
+00:00:51,870 --> 00:00:56,730
+So the call stack is a tool or a feature of JavaScript.
+
+18
+00:00:57,030 --> 00:01:00,300
+It's also something you see in tons of other programming languages.
+
+19
+00:01:00,390 --> 00:01:06,990
+What it does is it helps JavaScript keep track of where it is in your code if you have multiple functions.
+
+20
+00:01:06,990 --> 00:01:12,720
+And some of those functions may call other functions, which often we have functions that call functions,
+
+21
+00:01:12,720 --> 00:01:13,890
+that call functions.
+
+22
+00:01:13,980 --> 00:01:19,440
+The call stack is the mechanism by which the JavaScript interpreter keeps track of its place.
+
+23
+00:01:19,560 --> 00:01:25,140
+It's how JavaScript knows which function is currently being run, which functions are not done yet,
+
+24
+00:01:25,140 --> 00:01:27,990
+what's waiting on results or return values?
+
+25
+00:01:27,990 --> 00:01:30,810
+You can kind of think of it as this diagram here.
+
+26
+00:01:30,810 --> 00:01:36,540
+If your script with a bunch of function calls is a massive book, the call stack is the bookmark or
+
+27
+00:01:36,540 --> 00:01:40,770
+your finger that you use to to figure out where you are to keep track of your current place.
+
+28
+00:01:40,890 --> 00:01:45,120
+And before we go into any more detail, let's talk about the stack part.
+
+29
+00:01:45,120 --> 00:01:48,270
+I think call in call stack makes some sense.
+
+30
+00:01:48,270 --> 00:01:54,030
+It has to do with function calls, which functions are being called, what is or what's been called,
+
+31
+00:01:54,030 --> 00:01:56,070
+what is waiting on a result to come back.
+
+32
+00:01:56,070 --> 00:02:01,680
+The stack part has to do with a data structure in computer science called a stack.
+
+33
+00:02:02,040 --> 00:02:04,440
+A stack is a very simple data structure.
+
+34
+00:02:04,470 --> 00:02:11,540
+All you need to know is that just like a stack of books on your your desk or a stack of plates on your
+
+35
+00:02:11,540 --> 00:02:17,520
+or in your sink, the last thing that you put in is going to be on top, and that will be the first
+
+36
+00:02:17,520 --> 00:02:19,080
+thing that you remove.
+
+37
+00:02:19,230 --> 00:02:25,770
+So the last thing that was added, the most recently placed item in our case, this apple on top will
+
+38
+00:02:25,770 --> 00:02:27,210
+be the first thing out.
+
+39
+00:02:27,390 --> 00:02:32,490
+You don't grab from the bottom of a stack of papers, you grab from the top the most recently added
+
+40
+00:02:32,490 --> 00:02:33,720
+thing to that stack.
+
+41
+00:02:34,200 --> 00:02:37,110
+And that's important because that's how the call stack works.
+
+42
+00:02:37,500 --> 00:02:39,690
+So we're going to walk through a simple example.
+
+43
+00:02:39,870 --> 00:02:44,490
+Here's what you need to know when a script has some number of function calls.
+
+44
+00:02:44,490 --> 00:02:50,400
+The very first function call that the JavaScript interpreter hits or reaches will be added to the call
+
+45
+00:02:50,400 --> 00:02:51,000
+stack.
+
+46
+00:02:51,000 --> 00:02:56,640
+That function will be carried out, and if there are any other function calls within that first function,
+
+47
+00:02:56,640 --> 00:03:02,490
+they will be added to the top of the call stack and that continues until one of those functions returns
+
+48
+00:03:02,490 --> 00:03:06,570
+a value, at which point it's removed from the stack, it's gone.
+
+49
+00:03:06,900 --> 00:03:11,100
+And then the function that came before it will hopefully finish.
+
+50
+00:03:11,100 --> 00:03:15,870
+Maybe there are some other function calls, in which case those are added to the top of the stack and
+
+51
+00:03:15,870 --> 00:03:18,930
+then removed or popped off as they complete.
+
+52
+00:03:18,930 --> 00:03:21,510
+I think this will become clear if we have an example.
+
+53
+00:03:21,600 --> 00:03:23,940
+So on the left I have a couple of different functions.
+
+54
+00:03:24,210 --> 00:03:26,550
+The first one is called is right triangle.
+
+55
+00:03:26,550 --> 00:03:32,610
+It accepts three different arguments A, B and C, three different numbers, and it should return true.
+
+56
+00:03:32,610 --> 00:03:38,280
+If A and B, if we square them and add them together, you get C squared, A squared plus B squared
+
+57
+00:03:38,280 --> 00:03:39,270
+equals C squared.
+
+58
+00:03:39,270 --> 00:03:44,040
+So if something is a right triangle, the third value here C would be the hypotenuse.
+
+59
+00:03:44,070 --> 00:03:49,350
+These two would be the other sides can't remember what they're called, but we have two sides on a triangle
+
+60
+00:03:49,350 --> 00:03:51,480
+and then the hypotenuse in a right triangle.
+
+61
+00:03:51,990 --> 00:03:58,380
+So nine would be three times three, 16 four times four and 25, five times five.
+
+62
+00:03:58,380 --> 00:04:01,740
+And that indeed would be a real right triangle.
+
+63
+00:04:01,800 --> 00:04:04,320
+Nine plus 16 does equal 25.
+
+64
+00:04:04,350 --> 00:04:09,240
+Okay, so is right triangle is not a function that just returns something immediately.
+
+65
+00:04:09,240 --> 00:04:11,070
+It needs to call other functions.
+
+66
+00:04:11,070 --> 00:04:17,100
+It's going to return if the square of a plus, the square of B is triple equals to the square of C,
+
+67
+00:04:17,550 --> 00:04:23,370
+so square of A needs to be called, and that in turn calls multiply x times x.
+
+68
+00:04:23,370 --> 00:04:29,970
+So we pass in three, multiply three times three, which is a different function, which returns two
+
+69
+00:04:29,970 --> 00:04:32,010
+values, the product of them.
+
+70
+00:04:32,430 --> 00:04:37,830
+So when the interpreter encounters the very first function, call is right triangle three, four, five.
+
+71
+00:04:37,830 --> 00:04:41,040
+It's added to the call stack, which is what I'm representing over here.
+
+72
+00:04:41,490 --> 00:04:44,550
+And we can't just get a value back immediately.
+
+73
+00:04:44,730 --> 00:04:47,880
+There are multiple function calls in here that happen first.
+
+74
+00:04:47,880 --> 00:04:54,660
+So square of a which is three in our case, square of three will be the first thing to be added to the
+
+75
+00:04:54,660 --> 00:04:57,330
+call stack, which is what this slide is.
+
+76
+00:04:57,330 --> 00:04:59,850
+A square of three does not return anything i.
+
+77
+00:05:00,640 --> 00:05:02,290
+It calls a different function.
+
+78
+00:05:02,290 --> 00:05:05,860
+Multiply three, comma three, which I'm showing here.
+
+79
+00:05:05,920 --> 00:05:08,380
+So then multiply is added to the stack.
+
+80
+00:05:08,800 --> 00:05:10,770
+So this function has not finished running.
+
+81
+00:05:10,780 --> 00:05:12,140
+This one has not finished.
+
+82
+00:05:12,160 --> 00:05:18,010
+This one doesn't call any other functions, so it returns three times three, which is nine.
+
+83
+00:05:18,280 --> 00:05:21,610
+And when it returns a value, it is removed from the stack.
+
+84
+00:05:21,640 --> 00:05:24,070
+The last thing in is the first thing out.
+
+85
+00:05:24,220 --> 00:05:29,560
+So then square of three now has a value back from Multiply, which was nine.
+
+86
+00:05:29,560 --> 00:05:31,360
+So it can return that value.
+
+87
+00:05:31,690 --> 00:05:33,010
+So it's popped off.
+
+88
+00:05:33,850 --> 00:05:35,410
+Now we end up with is right.
+
+89
+00:05:35,440 --> 00:05:35,860
+Triangle.
+
+90
+00:05:35,860 --> 00:05:38,440
+That's the current function that is being executed.
+
+91
+00:05:38,470 --> 00:05:43,360
+It's been waiting a while because those I mean a wireless relative, but it had to wait for two other
+
+92
+00:05:43,360 --> 00:05:44,800
+function calls to return.
+
+93
+00:05:44,980 --> 00:05:47,260
+So now you can kind of fill in the blank here.
+
+94
+00:05:47,290 --> 00:05:51,010
+The first part square of a square of three is nine.
+
+95
+00:05:51,010 --> 00:05:52,930
+We have a value, then it moves on.
+
+96
+00:05:52,930 --> 00:05:53,200
+All right.
+
+97
+00:05:53,200 --> 00:05:54,460
+Is there another function call?
+
+98
+00:05:54,490 --> 00:06:01,690
+Yep, there is square of four, which is B, so square of B, so square is added to the top of the call
+
+99
+00:06:01,690 --> 00:06:02,230
+stack.
+
+100
+00:06:02,230 --> 00:06:07,810
+And when I say top, it's not really a top and bottom situation, it's just a data structure.
+
+101
+00:06:07,900 --> 00:06:10,480
+Think of it kind of like an array, but much simpler.
+
+102
+00:06:10,720 --> 00:06:14,680
+But I'm just using top and bottom here to help explain visually what's going on.
+
+103
+00:06:14,680 --> 00:06:19,300
+Like a stack of books so square of four doesn't return a value right away.
+
+104
+00:06:19,300 --> 00:06:22,240
+At least it has to call multiply four, comma four.
+
+105
+00:06:22,630 --> 00:06:24,730
+So that's added to the top of the stack.
+
+106
+00:06:24,730 --> 00:06:30,760
+That does return a value x times y, four times four is 16 so that pops off the stack.
+
+107
+00:06:30,760 --> 00:06:33,580
+Then square of four now has a value for this.
+
+108
+00:06:33,580 --> 00:06:40,570
+It fills in that blank 16, which means that it's done because it returns 16 and then we fill in the
+
+109
+00:06:40,570 --> 00:06:42,550
+blank and is right triangle.
+
+110
+00:06:42,550 --> 00:06:49,330
+We now have this done, this done and then we have our triple equals square of C square of five.
+
+111
+00:06:49,330 --> 00:06:53,050
+So five is added to the call stack that doesn't return a value yet.
+
+112
+00:06:53,050 --> 00:06:56,380
+It has to figure out what multiply of five comma five is.
+
+113
+00:06:56,380 --> 00:07:02,620
+So that is the next function call added to the call stack that returns 25, which means that square
+
+114
+00:07:02,650 --> 00:07:03,640
+now has a value.
+
+115
+00:07:03,640 --> 00:07:07,720
+So both of those are popped off and then we end up with 25 here.
+
+116
+00:07:07,840 --> 00:07:11,470
+No more function calls now, just some simple math.
+
+117
+00:07:11,470 --> 00:07:16,840
+And actually the order here, it probably evaluates this first anyway, nine plus 16, it doesn't actually
+
+118
+00:07:16,840 --> 00:07:17,590
+matter here.
+
+119
+00:07:17,590 --> 00:07:23,050
+We're just talking about function calls, but we end up with nine plus 16 equals 25.
+
+120
+00:07:23,560 --> 00:07:24,730
+That is true.
+
+121
+00:07:24,970 --> 00:07:31,180
+So this function finally returns true, at least in this case and it is popped off the stack.
+
+122
+00:07:31,300 --> 00:07:34,390
+The call stack is empty, it returns true and we're done.
+
+123
+00:07:34,390 --> 00:07:36,910
+So that is a brief intro to the call stack.
+
+124
+00:07:36,910 --> 00:07:41,440
+In the next video, I'll show you an example of how you can actually see it using the DevTools, or
+
+125
+00:07:41,440 --> 00:07:44,020
+at least a representation of it with your own code.
+
+126
+00:07:44,020 --> 00:07:46,000
+And you can step through it step by step.
+
+127
+00:07:46,420 --> 00:07:46,750
+All right.
+
+128
+00:07:46,750 --> 00:07:47,710
+So let's do that next.
+

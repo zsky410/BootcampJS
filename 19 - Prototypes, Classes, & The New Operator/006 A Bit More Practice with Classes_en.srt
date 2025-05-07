@@ -1,0 +1,656 @@
+1
+00:00:00,120 --> 00:00:05,200
+Next up, we'll continue to add on to our color class so we can get more practice adding methods.
+
+2
+00:00:05,220 --> 00:00:09,180
+So I have a very long, complicated function I found online.
+
+3
+00:00:09,180 --> 00:00:10,410
+I did not write this.
+
+4
+00:00:10,410 --> 00:00:15,630
+This function converts a RGB color into a HSL color.
+
+5
+00:00:16,379 --> 00:00:18,900
+HSL is a very interesting color system.
+
+6
+00:00:18,900 --> 00:00:22,980
+It stands for hue, saturation and lightness, and it looks like this.
+
+7
+00:00:23,160 --> 00:00:30,120
+HSL And then we have a hue at the beginning from 0 to 360, like a degree around the color wheel.
+
+8
+00:00:30,330 --> 00:00:37,920
+So let's do 130 then we have saturation, which is a percentage, let's go with 50%.
+
+9
+00:00:37,920 --> 00:00:43,170
+And then we have lightness, which is also a percentage from 0 to 180%.
+
+10
+00:00:43,920 --> 00:00:45,420
+So that is the resulting color.
+
+11
+00:00:45,420 --> 00:00:50,280
+Apparently, if I change lightness to be 100%, it's extremely light.
+
+12
+00:00:50,280 --> 00:00:53,550
+If I go to 20%, it's a darker green.
+
+13
+00:00:54,360 --> 00:00:55,590
+Let's go to 40.
+
+14
+00:00:56,070 --> 00:01:00,240
+If I change saturation to 100%, it's very saturated.
+
+15
+00:01:00,270 --> 00:01:03,480
+If I go down to 10%, it is not at all saturated.
+
+16
+00:01:03,780 --> 00:01:05,220
+Let's go around 80.
+
+17
+00:01:05,700 --> 00:01:12,270
+And then Hue is interesting because I can completely change the value of that color, the hue of the
+
+18
+00:01:12,270 --> 00:01:20,670
+color by just affecting one value so I can do zero will give me red apparently if I do 80.
+
+19
+00:01:21,670 --> 00:01:22,570
+90.
+
+20
+00:01:23,700 --> 00:01:27,150
+100, 200, 300.
+
+21
+00:01:27,150 --> 00:01:34,080
+I'm making my way around the wheel all the way to 360 where I'm back to read so I can change the color
+
+22
+00:01:34,080 --> 00:01:35,170
+very easily.
+
+23
+00:01:35,220 --> 00:01:40,290
+I could make a more saturated color by impacting the second value, the saturation.
+
+24
+00:01:40,470 --> 00:01:42,690
+I could make a different value entirely.
+
+25
+00:01:42,690 --> 00:01:46,230
+I could go from red to the polar opposite by adding 180.
+
+26
+00:01:46,230 --> 00:01:54,360
+So if 30 is the hue, I add 180, but it's 180 plus 3210, which gives me this blue and I can easily
+
+27
+00:01:54,360 --> 00:01:55,440
+lighten something.
+
+28
+00:01:55,560 --> 00:02:01,860
+Well, 100% it will be white, but I could do 90% to get a very light blue, or I could darken it to
+
+29
+00:02:01,860 --> 00:02:02,850
+a very dark blue.
+
+30
+00:02:03,420 --> 00:02:05,070
+So let's make a function.
+
+31
+00:02:05,070 --> 00:02:12,930
+I already have the logic, but let's use it to create HSL values and let's actually store HS and L on
+
+32
+00:02:12,930 --> 00:02:16,620
+our class instances because we could reuse them for different functions.
+
+33
+00:02:16,620 --> 00:02:22,410
+If I want to make a light in function or a darker or a full saturation or something like that, I want
+
+34
+00:02:22,410 --> 00:02:24,270
+to use those HS and L values.
+
+35
+00:02:24,570 --> 00:02:24,930
+All right.
+
+36
+00:02:24,930 --> 00:02:26,220
+So here's the function.
+
+37
+00:02:26,250 --> 00:02:28,200
+It's called Calc HSL.
+
+38
+00:02:28,230 --> 00:02:32,820
+It expects three arguments, and at the end we have three variables.
+
+39
+00:02:32,820 --> 00:02:36,870
+They're not being returned, but we could return H, s and L as an array.
+
+40
+00:02:36,900 --> 00:02:38,550
+Maybe we can make a string.
+
+41
+00:02:38,580 --> 00:02:40,740
+This has nothing to do with the class at the moment.
+
+42
+00:02:41,190 --> 00:02:45,120
+I'm going to move this into my class.
+
+43
+00:02:45,780 --> 00:02:48,390
+I'll put it down at the bottom because it's so long and ugly.
+
+44
+00:02:49,170 --> 00:02:55,050
+And I don't want to pass in RJ and B, I have access to them on this.
+
+45
+00:02:56,280 --> 00:03:00,900
+So my constructor runs right RG and B are set based off of whatever I pass in.
+
+46
+00:03:01,380 --> 00:03:09,870
+If I ever call Calc HSL, RG and B will be on this, then what I'm going to do is actually assign a
+
+47
+00:03:10,200 --> 00:03:13,140
+channel to the object to the instance.
+
+48
+00:03:13,140 --> 00:03:13,620
+I'll do this.
+
+49
+00:03:13,830 --> 00:03:15,240
+H equals h.
+
+50
+00:03:15,390 --> 00:03:21,100
+H is calculated up here as is calculated in the same function.
+
+51
+00:03:21,120 --> 00:03:23,070
+Again, the logic does not matter.
+
+52
+00:03:23,070 --> 00:03:24,780
+I have not even glanced at it.
+
+53
+00:03:24,780 --> 00:03:26,220
+I just took it from a website.
+
+54
+00:03:27,000 --> 00:03:27,690
+What did I find?
+
+55
+00:03:27,690 --> 00:03:29,280
+This they come Stack Overflow.
+
+56
+00:03:29,610 --> 00:03:30,630
+But it does work.
+
+57
+00:03:30,630 --> 00:03:32,940
+Who knows how elegant it is, but it works.
+
+58
+00:03:33,360 --> 00:03:40,260
+So now channel exist on the individual instances as long as I call calc HSL.
+
+59
+00:03:40,260 --> 00:03:41,240
+So let's try it.
+
+60
+00:03:41,250 --> 00:03:42,290
+I have.
+
+61
+00:03:42,300 --> 00:03:43,380
+Why don't we go with the white one?
+
+62
+00:03:43,380 --> 00:03:46,650
+Because white is probably easiest for us to tell if it's working.
+
+63
+00:03:47,130 --> 00:03:52,140
+So I'm going to refresh this and call white dot calc HSL.
+
+64
+00:03:52,150 --> 00:03:55,710
+And if I just look at white to begin with, it only has four properties.
+
+65
+00:03:55,710 --> 00:04:03,270
+RG Be in name if I call white calc HSL Assignment two constant my bed.
+
+66
+00:04:03,600 --> 00:04:08,490
+I think I can't use const here because the way the function is written it is updating.
+
+67
+00:04:08,670 --> 00:04:11,940
+As you can see here, divide equals slash equals.
+
+68
+00:04:11,940 --> 00:04:14,970
+So I'll use lit and now we should pick it to go.
+
+69
+00:04:16,700 --> 00:04:17,000
+All right.
+
+70
+00:04:17,000 --> 00:04:17,990
+So we don't return anything.
+
+71
+00:04:17,990 --> 00:04:25,880
+But if we look at white, it now has H, s and L and lightness is set to 100, which makes sense as
+
+72
+00:04:25,880 --> 00:04:27,710
+we experimented with a couple of minutes ago.
+
+73
+00:04:27,740 --> 00:04:29,780
+Lightness of 100 gives us white.
+
+74
+00:04:30,440 --> 00:04:37,520
+So now let's make a function called HSL that will actually display the HSL correct format string.
+
+75
+00:04:38,060 --> 00:04:43,640
+And to start before I get there, I'm going to show you that we can call a function from within the
+
+76
+00:04:43,640 --> 00:04:44,090
+constructor.
+
+77
+00:04:44,090 --> 00:04:47,870
+We can call one of these methods like this Calc HSL.
+
+78
+00:04:48,050 --> 00:04:52,190
+We'll just call it immediately after we assign our job in name.
+
+79
+00:04:52,310 --> 00:04:54,560
+We'll call that function automatically.
+
+80
+00:04:54,560 --> 00:05:00,380
+Whenever you make a new color, we'll calculate the HSL based off of the RGB that was passed in that
+
+81
+00:05:00,380 --> 00:05:03,890
+we then added to the object this is called it looks up.
+
+82
+00:05:03,890 --> 00:05:10,250
+RG And B from the instance of the actual class, the instance that was just created and then it adds
+
+83
+00:05:10,250 --> 00:05:13,790
+on it, tags its own new properties onto that instance.
+
+84
+00:05:14,330 --> 00:05:24,110
+So let's make our function called just HSL and it will extract the structure HS and L from this.
+
+85
+00:05:24,500 --> 00:05:30,110
+And then we can return our template literal, which is going to be HSL.
+
+86
+00:05:30,200 --> 00:05:31,460
+We need parentheses.
+
+87
+00:05:31,460 --> 00:05:34,190
+Then we have the hue, which is not a percentage.
+
+88
+00:05:34,190 --> 00:05:35,900
+It goes from 0 to 360.
+
+89
+00:05:35,900 --> 00:05:40,910
+Then we have saturation, which is a percentage, so we need to add the percent.
+
+90
+00:05:40,910 --> 00:05:44,870
+Then we have lightness, which is also a percentage.
+
+91
+00:05:45,950 --> 00:05:47,180
+Let's see if that works.
+
+92
+00:05:47,960 --> 00:05:51,410
+Refresh over here we have our color white.
+
+93
+00:05:51,770 --> 00:05:59,780
+It was created and now it automatically has S and L properties and I should be able to call White HSL
+
+94
+00:05:59,810 --> 00:06:01,010
+and get a string.
+
+95
+00:06:01,700 --> 00:06:03,290
+Let's verify on a different color.
+
+96
+00:06:03,290 --> 00:06:04,310
+We have red.
+
+97
+00:06:04,430 --> 00:06:05,690
+Let's verify that it works.
+
+98
+00:06:05,690 --> 00:06:06,290
+Documents.
+
+99
+00:06:06,320 --> 00:06:08,030
+Body style.
+
+100
+00:06:08,420 --> 00:06:09,920
+Background color again.
+
+101
+00:06:12,430 --> 00:06:15,190
+Equals Red Dot HSL.
+
+102
+00:06:15,820 --> 00:06:16,780
+And it works.
+
+103
+00:06:17,050 --> 00:06:17,710
+Okay.
+
+104
+00:06:17,740 --> 00:06:22,980
+So now we could have a little bit of fun and define some other methods, like one that I'll show you.
+
+105
+00:06:22,990 --> 00:06:28,450
+We'll call opposite, which will take H and generate an opposite color.
+
+106
+00:06:28,450 --> 00:06:30,970
+Remember to color wheel from 0 to 360.
+
+107
+00:06:31,210 --> 00:06:38,080
+So I'll just add a method called opposite and we can start by just duplicating this.
+
+108
+00:06:39,370 --> 00:06:47,170
+We're going to want to use H, but we're also going to want to make a new H, new hue equals.
+
+109
+00:06:47,230 --> 00:06:49,900
+And what we'll do is add 180.
+
+110
+00:06:50,320 --> 00:06:57,190
+So if we had 60 before we add 180, if we had zero before we add 180, it's 180 degrees.
+
+111
+00:06:57,190 --> 00:07:00,250
+The other side directly across that circle, the color wheel.
+
+112
+00:07:00,640 --> 00:07:07,930
+But if we're above 180, then if we add another 180, like if we're at 200 and you add 180, we're suddenly
+
+113
+00:07:07,930 --> 00:07:09,040
+at 380.
+
+114
+00:07:09,370 --> 00:07:15,160
+So what we can then do is modulo by 360, which will take us back to 20.
+
+115
+00:07:16,270 --> 00:07:18,290
+If you're lost on the logic, don't worry too much.
+
+116
+00:07:18,310 --> 00:07:19,360
+It's not that important.
+
+117
+00:07:19,360 --> 00:07:28,820
+But we can do h plus 180, modulo 360 to keep us on that 360 degree wheel.
+
+118
+00:07:28,840 --> 00:07:31,390
+If we go too far, we just start back at zero.
+
+119
+00:07:31,930 --> 00:07:32,620
+All right.
+
+120
+00:07:33,010 --> 00:07:39,820
+So then here we would put new hue instead of the existing hue.
+
+121
+00:07:39,850 --> 00:07:42,940
+H Let's try it out.
+
+122
+00:07:42,940 --> 00:07:44,320
+So I'm going to refresh.
+
+123
+00:07:44,410 --> 00:07:47,380
+I'll run the same code red HSL.
+
+124
+00:07:47,680 --> 00:07:48,520
+Did I lose the line?
+
+125
+00:07:48,520 --> 00:07:50,650
+Here we go to update the body.
+
+126
+00:07:50,800 --> 00:07:55,780
+Now let's do red dot opposite, which gives us that color.
+
+127
+00:07:56,320 --> 00:08:01,930
+They are opposite on the color wheel, at least as far as the hue, the saturation and lightness are
+
+128
+00:08:01,930 --> 00:08:02,800
+still the same.
+
+129
+00:08:03,730 --> 00:08:05,260
+Let's do one last one.
+
+130
+00:08:05,260 --> 00:08:07,660
+Let's make one called full saturation.
+
+131
+00:08:08,380 --> 00:08:15,730
+And it's just going to have the existing hue, the existing lightness, but set saturation to 100 full
+
+132
+00:08:15,730 --> 00:08:18,970
+saturation or fully saturated.
+
+133
+00:08:20,640 --> 00:08:22,380
+All we need are H and L.
+
+134
+00:08:22,410 --> 00:08:30,360
+We don't care about saturation because we're always going to return saturation set to 100%.
+
+135
+00:08:31,270 --> 00:08:32,620
+Let's see if that one works.
+
+136
+00:08:34,299 --> 00:08:41,080
+So we'll set the background color to read HSL and then we'll update it to Fully Saturated.
+
+137
+00:08:42,130 --> 00:08:44,980
+And was it already at 100?
+
+138
+00:08:45,100 --> 00:08:47,290
+Well, that's disappointing.
+
+139
+00:08:47,410 --> 00:08:49,360
+It was already 100 saturation.
+
+140
+00:08:49,390 --> 00:08:50,840
+Let's try another example.
+
+141
+00:08:50,860 --> 00:08:52,030
+Here's a different color.
+
+142
+00:08:52,120 --> 00:08:57,580
+I'm giving it a name which I have been leaving off for the record, which is actually not the best idea.
+
+143
+00:08:57,730 --> 00:09:03,490
+So I should either add a default name, which I can do just like any other default parameter, or I
+
+144
+00:09:03,490 --> 00:09:05,560
+should just pass in a name like I did here.
+
+145
+00:09:05,860 --> 00:09:08,650
+Even though we're not using it anywhere, it's just good to have on there.
+
+146
+00:09:08,710 --> 00:09:11,230
+We don't want to have just undefined all over the place.
+
+147
+00:09:11,740 --> 00:09:17,860
+So let's save that to a variable const orange and then we'll do the same thing where we change the background
+
+148
+00:09:17,860 --> 00:09:23,290
+color, but we'll change it to Orange Dot, HSL or RGB.
+
+149
+00:09:23,320 --> 00:09:23,860
+It doesn't matter.
+
+150
+00:09:23,860 --> 00:09:25,090
+We should get the same thing.
+
+151
+00:09:25,900 --> 00:09:26,940
+It's not 100.
+
+152
+00:09:26,950 --> 00:09:30,580
+Now let's do full, saturated or fully saturated.
+
+153
+00:09:30,610 --> 00:09:33,190
+I don't know if you could see that, but it did change.
+
+154
+00:09:33,820 --> 00:09:40,030
+If you go back to RDB or Hex or any of these other ones, it's slightly duller now, fully saturated.
+
+155
+00:09:40,570 --> 00:09:42,100
+And how about opposite?
+
+156
+00:09:42,100 --> 00:09:43,510
+So be our last one.
+
+157
+00:09:45,460 --> 00:09:47,230
+Hey, nice, beautiful blue.
+
+158
+00:09:48,790 --> 00:09:50,530
+So this is our color class.
+
+159
+00:09:50,890 --> 00:09:57,300
+A lot of the logic to calculate the HSL to convert from RGB to HEX really doesn't matter.
+
+160
+00:09:57,310 --> 00:09:58,550
+Don't focus on that.
+
+161
+00:09:58,570 --> 00:10:00,720
+Focus on the interplay of the keyword.
+
+162
+00:10:00,730 --> 00:10:08,680
+This the idea of the constructor adding in values to this to the individual instance as properties calling
+
+163
+00:10:08,680 --> 00:10:15,940
+methods on this which allows us to access other methods in the same class and then using the new keyword
+
+164
+00:10:15,940 --> 00:10:18,010
+to instantiate new colors.
+

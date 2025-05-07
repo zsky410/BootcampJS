@@ -1,0 +1,464 @@
+1
+00:00:00,640 --> 00:00:05,080
+In the last video, we wrote out a little bit of code to get a simple rectangle to show up on the screen.
+
+2
+00:00:05,200 --> 00:00:09,100
+In this video, I want to go over some of the code that we wrote just a little bit more and clarify
+
+3
+00:00:09,100 --> 00:00:10,120
+a couple of points.
+
+4
+00:00:10,180 --> 00:00:13,930
+Once we get this final clarification out of the way, we'll then start to work much more quickly on
+
+5
+00:00:13,930 --> 00:00:15,520
+the application that we're trying to build.
+
+6
+00:00:16,149 --> 00:00:21,130
+So back inside my index file, the first thing I want to point out is where we had created that render
+
+7
+00:00:21,130 --> 00:00:21,850
+object.
+
+8
+00:00:22,150 --> 00:00:29,200
+As I mentioned, we provide the element property and this tells matter where we want to show our essentially
+
+9
+00:00:29,200 --> 00:00:31,570
+drawing of the world inside the dom.
+
+10
+00:00:32,080 --> 00:00:38,240
+If we open up our element inspector inside of our development tools, we can see that this representation
+
+11
+00:00:38,240 --> 00:00:42,520
+in the world or this drawing is a type of HTML element called a canvas.
+
+12
+00:00:43,000 --> 00:00:49,630
+A canvas element is, for lack of a better term, a canvas of sorts that we can use to draw any kind
+
+13
+00:00:49,630 --> 00:00:51,550
+of arbitrary shape that we want.
+
+14
+00:00:52,490 --> 00:00:58,970
+Usually we might use some kind of third party library like Canvas or like Mat or JSS to work with canvas
+
+15
+00:00:58,970 --> 00:00:59,660
+elements.
+
+16
+00:00:59,750 --> 00:01:04,610
+We can work with canvas elements directly using some browser based APIs, but they are just a little
+
+17
+00:01:04,610 --> 00:01:05,610
+bit tedious.
+
+18
+00:01:05,630 --> 00:01:10,970
+So usually any time we want to use a canvas, we will commonly make use of a third party library like
+
+19
+00:01:10,970 --> 00:01:12,980
+MAT or JZ or something similar.
+
+20
+00:01:13,920 --> 00:01:17,880
+When we created the canvas, we assigned a height and width to it.
+
+21
+00:01:18,210 --> 00:01:22,800
+So if we ever want to change the height or the width of that canvas element, we could easily modify
+
+22
+00:01:22,800 --> 00:01:23,550
+it right here.
+
+23
+00:01:23,700 --> 00:01:26,670
+So for example, I could decrease the width to 400.
+
+24
+00:01:26,910 --> 00:01:30,660
+And if I save and refresh now, this thing is going to be half as wide.
+
+25
+00:01:32,870 --> 00:01:38,450
+The first half of this application, we're going to just show a canvas element of 800 by 600.
+
+26
+00:01:38,870 --> 00:01:45,410
+But if we have our final product, like our actual maize show up in just that 800 by 600 frame, then
+
+27
+00:01:45,410 --> 00:01:50,150
+it's not going to be that great because if some user tries to play our maize game on a really, really
+
+28
+00:01:50,150 --> 00:01:54,110
+big monitor, the maize is going to appear to be really, really small to them.
+
+29
+00:01:54,590 --> 00:01:59,750
+So we're going to eventually add in some code to make sure that our canvas element spans the entire
+
+30
+00:01:59,750 --> 00:02:02,420
+width of the screen and the entire height as well.
+
+31
+00:02:02,420 --> 00:02:07,970
+So it's going to play equally as well on a small screen as a large one, but we're going to worry about
+
+32
+00:02:07,970 --> 00:02:09,110
+that later on.
+
+33
+00:02:10,979 --> 00:02:11,200
+Okay.
+
+34
+00:02:11,220 --> 00:02:12,060
+So back over here.
+
+35
+00:02:12,060 --> 00:02:13,920
+Just a couple more things I want to point out.
+
+36
+00:02:14,010 --> 00:02:17,730
+Down at the bottom, we use that bodies object to create a new rectangle.
+
+37
+00:02:18,500 --> 00:02:23,240
+When we created the rectangle, we assigned it to the variable shape and then had a second line of code
+
+38
+00:02:23,240 --> 00:02:25,490
+to add it to the world object.
+
+39
+00:02:26,030 --> 00:02:30,080
+Just creating a shape or creating a rectangle doesn't make it show up on the screen.
+
+40
+00:02:30,440 --> 00:02:33,890
+So, for example, if I comment out the world, add statement.
+
+41
+00:02:34,810 --> 00:02:35,860
+And then refresh.
+
+42
+00:02:35,890 --> 00:02:37,870
+Well, nothing appears whatsoever.
+
+43
+00:02:38,290 --> 00:02:40,360
+So we can create as many shapes as we want.
+
+44
+00:02:40,360 --> 00:02:45,850
+But they all have to eventually be added to our world object in order to get them to actually show up.
+
+45
+00:02:46,740 --> 00:02:50,250
+I want to show you something kind of interesting around that world object as well.
+
+46
+00:02:50,880 --> 00:02:55,530
+Several times as we are writing out this application, I would encourage you on your own to open up
+
+47
+00:02:55,530 --> 00:02:58,620
+your console and print out the world variable.
+
+48
+00:02:58,770 --> 00:03:02,780
+So this world variable is the same one that we have created back right here.
+
+49
+00:03:02,790 --> 00:03:06,390
+Well, technically up here, but the same one we are referring to right here.
+
+50
+00:03:06,930 --> 00:03:12,330
+So as I've mentioned, this world variable contains a representation of all the different shapes inside
+
+51
+00:03:12,330 --> 00:03:13,170
+of our world.
+
+52
+00:03:14,750 --> 00:03:20,060
+If we print out the word variable, we can then expand it and see that it has several different properties.
+
+53
+00:03:20,510 --> 00:03:22,040
+One property in particular.
+
+54
+00:03:22,070 --> 00:03:23,000
+Well, let me refresh.
+
+55
+00:03:23,000 --> 00:03:23,780
+Sorry, really quick.
+
+56
+00:03:23,780 --> 00:03:25,780
+I need to make sure the shape is visible.
+
+57
+00:03:25,790 --> 00:03:31,070
+So once the shape is very visible, I'll look at world again and then look at the body's property.
+
+58
+00:03:31,700 --> 00:03:35,040
+As soon as I do so, I'll see that there is a single object inside there.
+
+59
+00:03:35,060 --> 00:03:38,510
+This is the object that represents this rectangle shape.
+
+60
+00:03:39,250 --> 00:03:43,900
+It has a lot of different properties in it that describe its physical representation in the world.
+
+61
+00:03:44,140 --> 00:03:49,930
+So for example, it has an angular velocity, which is how quickly this thing is rotating and which
+
+62
+00:03:49,930 --> 00:03:51,820
+direction it is rotating as well.
+
+63
+00:03:52,530 --> 00:03:55,290
+It also has some other properties such as position.
+
+64
+00:03:55,290 --> 00:03:59,010
+So that is the physical position in the world in X and y coordinates.
+
+65
+00:03:59,430 --> 00:04:03,900
+And then it also has a velocity property that describes how quickly this thing is moving to the left
+
+66
+00:04:03,900 --> 00:04:06,000
+or right or up and down.
+
+67
+00:04:09,120 --> 00:04:09,780
+Okay.
+
+68
+00:04:10,140 --> 00:04:11,490
+One or two more things here.
+
+69
+00:04:12,860 --> 00:04:16,910
+When we created our rectangle, we passed in in options object of is static.
+
+70
+00:04:16,910 --> 00:04:17,600
+True.
+
+71
+00:04:17,630 --> 00:04:23,450
+That means that we want to show the shape and we don't want it to ever move under any circumstance.
+
+72
+00:04:23,810 --> 00:04:29,930
+If we remove that property and then save and refresh, we'll see that the shape then falls down to the
+
+73
+00:04:29,930 --> 00:04:30,440
+bottom.
+
+74
+00:04:30,440 --> 00:04:34,250
+And every time I refresh, it starts back at the same spot and falls again.
+
+75
+00:04:34,760 --> 00:04:41,030
+So by default, gravity is enabled in our simulation, so gravity is going to take that shape and automatically
+
+76
+00:04:41,030 --> 00:04:42,440
+accelerate it downwards.
+
+77
+00:04:42,920 --> 00:04:48,470
+So it is the static is static true property right here that's going to make the shape stay exactly where
+
+78
+00:04:48,470 --> 00:04:49,130
+it is.
+
+79
+00:04:49,640 --> 00:04:52,730
+So if I save again now the shape stays right there.
+
+80
+00:04:53,850 --> 00:04:57,810
+Last thing I want to mention is some of the different dimensions or values we are passing in when we
+
+81
+00:04:57,810 --> 00:04:59,070
+are creating the rectangle.
+
+82
+00:04:59,580 --> 00:05:04,710
+The first two numbers represent the position in the world to place this rectangle at.
+
+83
+00:05:05,310 --> 00:05:11,640
+These dimensions are measured from the top left corner to the center of the square.
+
+84
+00:05:12,770 --> 00:05:14,330
+Just to make sure that's really clear.
+
+85
+00:05:15,350 --> 00:05:20,720
+The top left corner of our canvas element is the 00. of our entire world.
+
+86
+00:05:21,080 --> 00:05:26,810
+Our x axis or the x direction runs from left to right, and the y axis goes up to down.
+
+87
+00:05:27,410 --> 00:05:33,650
+So when we say place a shape or a rectangle at 202 hundred, that means start right there on the top
+
+88
+00:05:33,650 --> 00:05:37,040
+left corner, go over 200 units and then down.
+
+89
+00:05:38,200 --> 00:05:41,860
+And or see me go over 200 units and down 200 units.
+
+90
+00:05:41,860 --> 00:05:44,890
+And that is where the center of our rectangle should be.
+
+91
+00:05:46,230 --> 00:05:52,500
+We can verify that by trying to do the same kind of rectangle, but instead placing it at zero zero.
+
+92
+00:05:52,680 --> 00:05:58,380
+If we do so, then I would expect to see the rectangle or the center of the rectangle based on like
+
+93
+00:05:58,380 --> 00:05:59,940
+right there.
+
+94
+00:06:00,270 --> 00:06:04,440
+So we're just going to see the bottom right corner of the triangle or seeing the rectangle now.
+
+95
+00:06:04,770 --> 00:06:05,910
+So if I now refresh.
+
+96
+00:06:05,910 --> 00:06:06,210
+Yep.
+
+97
+00:06:06,210 --> 00:06:08,250
+Sure enough, I just see the bottom right corner.
+
+98
+00:06:09,090 --> 00:06:14,580
+So as you would probably guess, the other two numbers inside of here, the 50 and 50 are how wide we
+
+99
+00:06:14,580 --> 00:06:17,490
+want the rectangle to be and how tall it should be.
+
+100
+00:06:17,910 --> 00:06:24,270
+So I can change the width to 100 and now this thing is going to be significantly wider and I can change
+
+101
+00:06:24,270 --> 00:06:25,860
+the height to 200.
+
+102
+00:06:26,880 --> 00:06:28,530
+And it'll be significantly taller.
+
+103
+00:06:30,170 --> 00:06:30,440
+Okay.
+
+104
+00:06:30,470 --> 00:06:31,710
+So that's pretty much it.
+
+105
+00:06:31,730 --> 00:06:34,280
+That is some of the very basics of matter.
+
+106
+00:06:34,280 --> 00:06:36,080
+Jazz essentially.
+
+107
+00:06:36,080 --> 00:06:41,210
+Once again, everything that we wrote down to about line 14 or so is all boilerplate code, and we're
+
+108
+00:06:41,210 --> 00:06:43,310
+not going to really change that stuff very often.
+
+109
+00:06:43,580 --> 00:06:47,900
+In order to get some more functionality inside of our app, we're going to be creating a variety of
+
+110
+00:06:47,900 --> 00:06:54,050
+different shapes or rectangles or circles or whatever else, and then adding them all to our world.
+
+111
+00:06:54,050 --> 00:06:55,220
+That is the primary means.
+
+112
+00:06:55,220 --> 00:06:59,900
+So we get some level of functionality inside of our matter app and that's pretty much exactly what we're
+
+113
+00:06:59,900 --> 00:07:04,640
+going to be doing for the vast majority of our maze application as we start to put it together.
+
+114
+00:07:05,590 --> 00:07:05,820
+Okay.
+
+115
+00:07:05,860 --> 00:07:09,190
+So now that we've got a better idea of what's going on, another quick pause and we'll start writing
+
+116
+00:07:09,190 --> 00:07:10,780
+some more code in the next video.
+

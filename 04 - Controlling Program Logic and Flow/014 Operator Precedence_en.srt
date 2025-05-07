@@ -1,0 +1,288 @@
+1
+00:00:00,240 --> 00:00:00,720
+All right.
+
+2
+00:00:00,720 --> 00:00:02,009
+I've got a question for you.
+
+3
+00:00:02,190 --> 00:00:03,960
+I have a simple expression.
+
+4
+00:00:03,960 --> 00:00:09,070
+I'm combining awe and and equality greater than.
+
+5
+00:00:09,090 --> 00:00:10,920
+I have a variable called X.
+
+6
+00:00:10,920 --> 00:00:12,120
+It's set to seven.
+
+7
+00:00:12,120 --> 00:00:15,330
+And my question is, what does this evaluate to?
+
+8
+00:00:16,230 --> 00:00:20,340
+And the reason I'm asking is that it has to do with operator precedence.
+
+9
+00:00:20,340 --> 00:00:26,160
+So this will be a very quick video, but it's very important when we're working with all operators,
+
+10
+00:00:26,160 --> 00:00:31,020
+as we've already seen with addition subtraction, multiplication, division, certain operators have
+
+11
+00:00:31,020 --> 00:00:32,520
+precedence over others.
+
+12
+00:00:32,520 --> 00:00:35,760
+For example, division happens before subtraction.
+
+13
+00:00:36,000 --> 00:00:41,640
+That also applies with logical operators and it applies with operators like this one here.
+
+14
+00:00:41,670 --> 00:00:46,200
+Greater than a logical guess would be to assume it goes from left to right.
+
+15
+00:00:46,200 --> 00:00:49,350
+So we would have x equals seven.
+
+16
+00:00:49,350 --> 00:00:50,370
+Well, that's true.
+
+17
+00:00:50,610 --> 00:00:54,390
+Then we have true or x equals three.
+
+18
+00:00:54,390 --> 00:00:55,350
+That's false.
+
+19
+00:00:55,680 --> 00:01:02,880
+So this whole thing, since we have the OR right there, this whole thing becomes true and then we have
+
+20
+00:01:02,880 --> 00:01:07,290
+true and x greater than ten.
+
+21
+00:01:07,560 --> 00:01:08,880
+Well, that's not the case.
+
+22
+00:01:08,880 --> 00:01:10,440
+Right, x is seven.
+
+23
+00:01:10,440 --> 00:01:11,490
+So that's false.
+
+24
+00:01:11,490 --> 00:01:13,560
+So then the whole thing becomes false.
+
+25
+00:01:14,190 --> 00:01:16,680
+That's what you might think the answer is.
+
+26
+00:01:16,830 --> 00:01:21,390
+But if we actually look and we paste it in, the answer is true.
+
+27
+00:01:22,140 --> 00:01:28,350
+And the reason for this is because the and operator takes precedence over or so.
+
+28
+00:01:28,350 --> 00:01:32,850
+This is going to run first and it's going to look for a left and a right.
+
+29
+00:01:33,120 --> 00:01:35,790
+And you can think of it as this right here.
+
+30
+00:01:36,540 --> 00:01:38,250
+So is x equal to three?
+
+31
+00:01:38,280 --> 00:01:38,970
+Nope.
+
+32
+00:01:39,360 --> 00:01:40,560
+So that's false.
+
+33
+00:01:40,860 --> 00:01:41,910
+X greater than ten?
+
+34
+00:01:41,910 --> 00:01:42,180
+Nope.
+
+35
+00:01:42,180 --> 00:01:43,890
+So the whole thing is false.
+
+36
+00:01:43,920 --> 00:01:45,690
+Only one part needed to be false.
+
+37
+00:01:45,690 --> 00:01:52,260
+So this is false or true, which is going to give us true, false or true.
+
+38
+00:01:52,290 --> 00:01:53,700
+We need one side to be true.
+
+39
+00:01:54,480 --> 00:02:00,210
+If we wanted the logic to actually work the way that we thought it did from left to right, we need
+
+40
+00:02:00,210 --> 00:02:02,370
+to use parentheses to group this.
+
+41
+00:02:02,370 --> 00:02:10,530
+We want this to run first, and if we run that, you'll see we get false because now we're checking
+
+42
+00:02:10,530 --> 00:02:11,700
+this first.
+
+43
+00:02:11,700 --> 00:02:19,170
+This thing evaluates to true and then this thing evaluates to false and the whole thing becomes false
+
+44
+00:02:19,320 --> 00:02:21,120
+rather than what we had here.
+
+45
+00:02:21,300 --> 00:02:27,150
+So the order does matter when we're working with these operators, especially the logical ones.
+
+46
+00:02:27,150 --> 00:02:28,200
+This is the rough order.
+
+47
+00:02:28,200 --> 00:02:29,910
+Well, this is the exact order.
+
+48
+00:02:30,480 --> 00:02:39,390
+Logical not is going to run first, then logical and then or it can be confusing to remember all of
+
+49
+00:02:39,390 --> 00:02:41,190
+this and keep track of it.
+
+50
+00:02:41,190 --> 00:02:44,460
+So if you ever have any doubt, put parentheses in there.
+
+51
+00:02:44,460 --> 00:02:49,800
+Parentheses will trump everything and it makes it clearer how things are supposed to run.
+
+52
+00:02:49,800 --> 00:02:56,190
+There's no shame in adding extra parens and if you go to MDM, this is kind of an interesting chart.
+
+53
+00:02:56,190 --> 00:03:02,430
+There is a table that shows the precedence of every single operator and you can see at the very top
+
+54
+00:03:02,430 --> 00:03:07,980
+the highest precedence is parentheses that always wins, that always runs first.
+
+55
+00:03:08,400 --> 00:03:12,930
+And as we scroll down, we can see we encounter logical not.
+
+56
+00:03:13,800 --> 00:03:21,570
+And that comes before logical and which is all the way down here and logical or so and before or and
+
+57
+00:03:21,570 --> 00:03:23,520
+not before both of those.
+
+58
+00:03:23,880 --> 00:03:34,440
+And this also explains why something like this works x less than three and X greater than one.
+
+59
+00:03:35,040 --> 00:03:37,470
+This is an operator and this is an operator.
+
+60
+00:03:37,500 --> 00:03:39,560
+These are going to run first.
+
+61
+00:03:39,570 --> 00:03:45,660
+So this on the left runs this on the right runs and then and does its thing.
+
+62
+00:03:46,290 --> 00:03:51,090
+So we know that because we've been using and for a while at this point and we've seen how it works.
+
+63
+00:03:51,090 --> 00:03:52,850
+But this chart explains that.
+
+64
+00:03:52,860 --> 00:04:01,380
+As you can see, if I scroll down greater than less, then all those operators come first before and
+
+65
+00:04:01,380 --> 00:04:02,250
+and or.
+
+66
+00:04:02,910 --> 00:04:03,180
+All right.
+
+67
+00:04:03,180 --> 00:04:04,280
+So that's it for this video.
+
+68
+00:04:04,290 --> 00:04:05,760
+I just wanted to make that clear.
+
+69
+00:04:05,760 --> 00:04:09,140
+There is an order and it can be confusing to remember.
+
+70
+00:04:09,150 --> 00:04:11,970
+So if you ever have any doubts, add in parens.
+
+71
+00:04:11,970 --> 00:04:16,709
+It also makes it clearer for anyone else who's reading it because not all developers happen to remember
+
+72
+00:04:16,709 --> 00:04:18,600
+that order off the top of their head either.
+

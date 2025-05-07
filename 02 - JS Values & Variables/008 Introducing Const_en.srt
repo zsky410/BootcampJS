@@ -1,0 +1,172 @@
+1
+00:00:00,090 --> 00:00:04,650
+Two videos ago, I mentioned that let is one option for making a variable.
+
+2
+00:00:04,680 --> 00:00:07,360
+There's also another keyword called const.
+
+3
+00:00:07,380 --> 00:00:10,350
+It stands for constant, so it works the same way.
+
+4
+00:00:10,350 --> 00:00:15,750
+We use the keyword const space and then a variable name equals a value.
+
+5
+00:00:15,900 --> 00:00:21,000
+But there's one really essential difference, which is that you cannot change the value of const.
+
+6
+00:00:21,030 --> 00:00:26,490
+Once you set it, once it's initialized with the value, it is set, it's constant.
+
+7
+00:00:26,730 --> 00:00:30,990
+So if you try to do this const age equals 17, that's fine.
+
+8
+00:00:30,990 --> 00:00:34,410
+But then if you try and add one to age, you'll get an error.
+
+9
+00:00:34,530 --> 00:00:35,610
+It's not allowed.
+
+10
+00:00:35,610 --> 00:00:36,870
+You'll get in trouble.
+
+11
+00:00:37,080 --> 00:00:37,950
+So let's try it.
+
+12
+00:00:37,950 --> 00:00:42,420
+Let's do const year equals 1973.
+
+13
+00:00:43,620 --> 00:00:50,250
+If I try and do year plus equals one type error assignment to constant variable.
+
+14
+00:00:50,250 --> 00:00:51,420
+You cannot do that.
+
+15
+00:00:51,420 --> 00:00:53,190
+I can't change it at all.
+
+16
+00:00:53,190 --> 00:00:56,280
+I can't do plus plus I can't do.
+
+17
+00:00:56,320 --> 00:00:59,970
+Year equals 2010.
+
+18
+00:00:59,970 --> 00:01:02,310
+It is set and it's there for good.
+
+19
+00:01:02,820 --> 00:01:04,560
+So why would you use const?
+
+20
+00:01:04,680 --> 00:01:11,400
+Well, here's a couple of simple scenarios where you just need a label, a name for always constant
+
+21
+00:01:11,400 --> 00:01:14,670
+value, something that you'll use in your code, for example.
+
+22
+00:01:14,670 --> 00:01:20,790
+PY It's a constant, you'll use it or you could use it if you were making some sort of app with circles
+
+23
+00:01:20,790 --> 00:01:21,930
+that were being drawn all the time.
+
+24
+00:01:21,930 --> 00:01:23,340
+You need to calculate parts.
+
+25
+00:01:23,550 --> 00:01:28,020
+I don't know different things in the circle you could use PY and give it a name instead of having your
+
+26
+00:01:28,020 --> 00:01:30,720
+code riddled with 3.14159.
+
+27
+00:01:31,080 --> 00:01:35,580
+Same thing days in a week min height for ride instead of just a number.
+
+28
+00:01:35,580 --> 00:01:40,980
+That doesn't really make sense to look at you give it a label and this also makes sure that it doesn't
+
+29
+00:01:40,980 --> 00:01:41,520
+change.
+
+30
+00:01:41,520 --> 00:01:43,470
+But that's not the only use for Const.
+
+31
+00:01:43,470 --> 00:01:48,690
+In fact, later on when we talk about arrays and objects, you'll see that const is more useful than
+
+32
+00:01:48,690 --> 00:01:49,680
+you might think.
+
+33
+00:01:49,680 --> 00:01:55,230
+When we get to those data structures, more complicated types for values, you'll see that it's a lot
+
+34
+00:01:55,230 --> 00:01:55,920
+more useful.
+
+35
+00:01:55,920 --> 00:01:58,800
+And it's not just for making things that never change.
+
+36
+00:01:59,430 --> 00:02:04,740
+I won't get into it now, but for now what we know is that lit allows you to define a variable as this
+
+37
+00:02:04,740 --> 00:02:08,520
+const let allows you to change that variable whenever you want.
+
+38
+00:02:08,520 --> 00:02:09,900
+Const does not.
+
+39
+00:02:09,900 --> 00:02:18,330
+Also, if we do define a variable with const or let let's pick one like people count equals ten.
+
+40
+00:02:18,660 --> 00:02:25,110
+If I want to define a variable using lit, I cannot use people count even though I'm using a different
+
+41
+00:02:25,110 --> 00:02:29,730
+keyword let instead of const people count has been taken.
+
+42
+00:02:29,850 --> 00:02:34,230
+It's not available, so you cannot have variables with the same name.
+
+43
+00:02:34,230 --> 00:02:36,240
+Even though one is constant, one is let.
+

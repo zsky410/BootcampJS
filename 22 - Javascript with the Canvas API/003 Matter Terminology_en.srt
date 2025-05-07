@@ -1,0 +1,288 @@
+1
+00:00:00,530 --> 00:00:04,130
+Now that we have done a little bit of project set up, I want to give you some high level notes on the
+
+2
+00:00:04,130 --> 00:00:04,370
+matter.
+
+3
+00:00:04,370 --> 00:00:05,450
+Just library.
+
+4
+00:00:05,630 --> 00:00:06,740
+Just so you know, matter.
+
+5
+00:00:06,740 --> 00:00:12,630
+Case has some really good documentation and you can always read it by going to the main page, the RMI
+
+6
+00:00:13,100 --> 00:00:17,180
+matter JS and then finding documentation on the left hand side.
+
+7
+00:00:18,030 --> 00:00:22,200
+On the left here, you're going to see all the different objects inside of this library.
+
+8
+00:00:22,230 --> 00:00:24,980
+I'm going to tell you about all the different objects you need to be aware of.
+
+9
+00:00:24,990 --> 00:00:29,610
+But if you get stuck at any point in time throughout this application, you can always come and check
+
+10
+00:00:29,610 --> 00:00:34,560
+out the documentation to get a better idea of exactly what we're working with inside this library.
+
+11
+00:00:35,300 --> 00:00:38,840
+I want to give you a couple of highlights of the different things we're going to be working with in
+
+12
+00:00:38,840 --> 00:00:39,330
+here.
+
+13
+00:00:39,350 --> 00:00:43,400
+In general, this is just going to be some terminology so that you understand some of the code that
+
+14
+00:00:43,400 --> 00:00:45,020
+we're going to be writing very soon.
+
+15
+00:00:45,880 --> 00:00:46,200
+Okay.
+
+16
+00:00:46,210 --> 00:00:49,810
+So here are some of the important pieces of terminology that you need to be aware of.
+
+17
+00:00:50,230 --> 00:00:54,910
+The first piece of terminology that is used inside of the matter Library is World.
+
+18
+00:00:55,240 --> 00:01:00,610
+This is an object that contains all the different things or shapes inside of our application.
+
+19
+00:01:01,180 --> 00:01:06,880
+So if we go back over to the official docs or the official page and take a look at all the demos and
+
+20
+00:01:06,880 --> 00:01:11,410
+look at the Mixed Shape demo, you're going to see a bunch of different shapes all over the screen.
+
+21
+00:01:12,670 --> 00:01:18,340
+The entire scene that we see right here is essentially represented inside of that world object.
+
+22
+00:01:18,670 --> 00:01:24,220
+So this world thing that we're talking about right here, it tracks the location, position, speed,
+
+23
+00:01:24,220 --> 00:01:25,780
+because see how these things can move.
+
+24
+00:01:25,810 --> 00:01:30,430
+So the velocity of each item as well, they all get tracked inside that world object.
+
+25
+00:01:31,700 --> 00:01:34,490
+The next piece of terminology we need to be aware of is engine.
+
+26
+00:01:34,760 --> 00:01:40,460
+This is a object that has a bunch of different functions in it that's going to read in the current state
+
+27
+00:01:40,460 --> 00:01:42,980
+of the world from the world object.
+
+28
+00:01:43,340 --> 00:01:46,310
+So the world object knows where every shape is right now.
+
+29
+00:01:46,310 --> 00:01:49,250
+It knows every shapes, velocity, weight and so on.
+
+30
+00:01:49,280 --> 00:01:55,010
+The engine is going to read in all that data and it's going to calculate changes in positions for all
+
+31
+00:01:55,010 --> 00:01:56,180
+those different shapes.
+
+32
+00:01:56,540 --> 00:02:01,310
+So we can imagine that the world is kind of like a snapshot of everything as it stands in an instant
+
+33
+00:02:01,310 --> 00:02:02,090
+in time.
+
+34
+00:02:02,300 --> 00:02:07,370
+The engine is responsible for transitioning from one snapshot to another.
+
+35
+00:02:09,120 --> 00:02:12,510
+The runner is what makes the world an engine work together.
+
+36
+00:02:12,750 --> 00:02:18,990
+So the runner is going to essentially run about 60 times per second until the engine to process all
+
+37
+00:02:18,990 --> 00:02:21,330
+the data stored inside the world object.
+
+38
+00:02:23,000 --> 00:02:25,610
+The next big thing is the render object.
+
+39
+00:02:26,120 --> 00:02:31,520
+So whenever the engine processes an update and says, okay, here's a new snapshot of data, here's
+
+40
+00:02:31,520 --> 00:02:36,650
+a new version of the world, the render object is going to take a look at all those different shapes
+
+41
+00:02:36,650 --> 00:02:38,930
+and it's going to show them all on the screen.
+
+42
+00:02:39,470 --> 00:02:44,420
+So the render object is essentially what takes all of our data and shows it in this little element right
+
+43
+00:02:44,420 --> 00:02:45,800
+here that we're playing around with.
+
+44
+00:02:48,030 --> 00:02:51,120
+Finally, last piece of terminology is body.
+
+45
+00:02:51,450 --> 00:02:53,940
+This is going to be a shape that gets displayed.
+
+46
+00:02:53,970 --> 00:02:57,990
+There are many different types of bodies available to us when we're making use of matter DJ's.
+
+47
+00:02:58,140 --> 00:03:04,320
+So we can create a body that represents a circle or a rectangle or an oval or a triangle, or just about
+
+48
+00:03:04,320 --> 00:03:05,430
+anything else.
+
+49
+00:03:05,430 --> 00:03:10,530
+Any kind of arbitrary shaped polygon can be created using the body object.
+
+50
+00:03:10,920 --> 00:03:14,640
+So the application that we're going to create, the Maze Game, is going to have many of these different
+
+51
+00:03:14,640 --> 00:03:16,110
+bodies inside of it.
+
+52
+00:03:17,060 --> 00:03:20,840
+Now, one thing I want to mention here is that I'm going over this terminology rather quickly, because
+
+53
+00:03:20,840 --> 00:03:26,000
+at the end of the day, you don't really need to understand the terminology here to write a better job
+
+54
+00:03:26,030 --> 00:03:26,670
+application.
+
+55
+00:03:26,690 --> 00:03:27,950
+That's kind of the beauty of it.
+
+56
+00:03:28,070 --> 00:03:31,640
+The only reason I'm telling you about these different pieces of terminology is that we're going to very
+
+57
+00:03:31,640 --> 00:03:36,140
+quickly start to write some kind of boilerplate code to set our application up.
+
+58
+00:03:36,770 --> 00:03:42,350
+And so I just want you to have some idea of what all these different terms mean for the purpose of writing
+
+59
+00:03:42,350 --> 00:03:43,660
+that boilerplate code.
+
+60
+00:03:43,670 --> 00:03:48,620
+But honestly, it's essentially write that code once to set up the application, and that's pretty much
+
+61
+00:03:48,620 --> 00:03:48,930
+it.
+
+62
+00:03:48,950 --> 00:03:54,110
+After that, the only things that we really need to be aware of is the body object, because the vast
+
+63
+00:03:54,110 --> 00:03:57,650
+majority of code that we're going to write inside of our application is all about showing different
+
+64
+00:03:57,650 --> 00:04:03,260
+bodies on the screen, essentially the different walls of our maze and the ball that the user is going
+
+65
+00:04:03,260 --> 00:04:04,310
+to be manipulating.
+
+66
+00:04:04,310 --> 00:04:09,890
+And this green square at the bottom, every shape inside of this diagram right here will be represented
+
+67
+00:04:09,890 --> 00:04:12,030
+inside of our wrap with a body.
+
+68
+00:04:12,050 --> 00:04:16,940
+So again, we really just need to understand what a body is and all those other pieces of terminology
+
+69
+00:04:16,940 --> 00:04:20,269
+I'm just throwing out there so that you're vaguely aware that they exist.
+
+70
+00:04:21,019 --> 00:04:21,160
+Okay.
+
+71
+00:04:21,350 --> 00:04:23,500
+So now we've got a little bit of terminology put together.
+
+72
+00:04:23,510 --> 00:04:26,870
+Let's take one more pause and we'll start writing some code in the next video.
+

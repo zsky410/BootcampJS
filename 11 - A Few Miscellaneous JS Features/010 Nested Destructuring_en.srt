@@ -1,0 +1,168 @@
+1
+00:00:00,090 --> 00:00:05,130
+Next up, sticking with the structuring, I'd like to show you how we can work with nested objects and
+
+2
+00:00:05,130 --> 00:00:11,610
+arrays and combine what we've seen so far to extract individual values into variables to unpack them.
+
+3
+00:00:11,730 --> 00:00:15,660
+So I have an array of objects still going with the marathon theme.
+
+4
+00:00:15,660 --> 00:00:21,750
+So each object is a marathon runner and they are ordered still by finishing position.
+
+5
+00:00:21,750 --> 00:00:27,570
+So we have gold, silver and bronze from the 2016 Olympic Marathon, the men's marathon.
+
+6
+00:00:27,780 --> 00:00:37,620
+If I wanted to extract, let's say, the country of second place right here, Ethiopia using D structuring,
+
+7
+00:00:37,830 --> 00:00:39,390
+I'm inside of an array.
+
+8
+00:00:39,420 --> 00:00:42,060
+So I'm going to start with the array braces.
+
+9
+00:00:42,060 --> 00:00:44,100
+I'm going to set the whole thing equal to results.
+
+10
+00:00:44,790 --> 00:00:47,940
+And in this array I want the second element.
+
+11
+00:00:48,420 --> 00:00:55,020
+So I'm going to skip the first one and then I'm now in the second element or I'm in that position and
+
+12
+00:00:55,020 --> 00:00:56,160
+we have an object.
+
+13
+00:00:57,090 --> 00:00:59,790
+So inside of that object I want country.
+
+14
+00:01:02,450 --> 00:01:06,980
+It's kind of annoying that my editor is putting it on multiple lines, so I'll leave it like this so
+
+15
+00:01:06,980 --> 00:01:08,000
+you can see it here.
+
+16
+00:01:08,120 --> 00:01:11,390
+If I run it right now, let's see what we get in country.
+
+17
+00:01:11,540 --> 00:01:13,160
+We get Ethiopia.
+
+18
+00:01:13,700 --> 00:01:15,560
+So this comma is crucial.
+
+19
+00:01:15,680 --> 00:01:17,490
+We're skipping that first element.
+
+20
+00:01:17,510 --> 00:01:21,600
+If I wanted to extract something from that first object.
+
+21
+00:01:21,620 --> 00:01:24,980
+Let's say I wanted to get first name, which is Eliot.
+
+22
+00:01:25,220 --> 00:01:26,750
+So I'll write first.
+
+23
+00:01:26,750 --> 00:01:32,960
+And if I want to give it a different name or a different variable name, let's go with gold winner.
+
+24
+00:01:35,800 --> 00:01:38,580
+I'll refresh and I'll look at gold winner.
+
+25
+00:01:38,590 --> 00:01:43,330
+It said to Eliot and our country variable is still set to Ethiopia.
+
+26
+00:01:43,360 --> 00:01:49,000
+So the point here is just to show you that we can combine the syntax, it can get a little crazy.
+
+27
+00:01:49,000 --> 00:01:53,890
+And I don't recommend nesting and doing a whole bunch of structuring with nested structures.
+
+28
+00:01:53,890 --> 00:01:59,410
+Instead, if you have like super nested stuff, I think it's a lot easier to understand what's going
+
+29
+00:01:59,410 --> 00:01:59,710
+on.
+
+30
+00:01:59,710 --> 00:02:06,130
+If so, rather than getting country this way, maybe it would be easier to understand if we did const
+
+31
+00:02:06,130 --> 00:02:16,600
+skip the first element and then go with silver medal equals results and then from inside of silver metal
+
+32
+00:02:16,630 --> 00:02:19,420
+we could extract country.
+
+33
+00:02:22,580 --> 00:02:26,480
+So it's an extra line, but some might say it's easier to read.
+
+34
+00:02:26,840 --> 00:02:32,060
+This isn't bad, but if you had more nesting that you were trying to work with and continue to structure
+
+35
+00:02:32,060 --> 00:02:35,780
+from, let's say, instead of country, we had an array.
+
+36
+00:02:35,810 --> 00:02:41,420
+Maybe someone is from multiple countries or they've competed for multiple countries before and we wanted
+
+37
+00:02:41,420 --> 00:02:44,010
+to extract something or unpack a value from there.
+
+38
+00:02:44,030 --> 00:02:49,080
+Then we would have another array and it just gets complicated to the structure from.
+
+39
+00:02:49,100 --> 00:02:50,560
+So just keep that in mind.
+
+40
+00:02:50,570 --> 00:02:51,840
+You can nest it.
+
+41
+00:02:51,860 --> 00:02:52,640
+That's it.
+
+42
+00:02:53,060 --> 00:02:53,690
+I'm done.
+

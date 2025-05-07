@@ -1,0 +1,564 @@
+1
+00:00:00,150 --> 00:00:02,940
+Next up, let's talk about function arguments.
+
+2
+00:00:03,030 --> 00:00:06,960
+Arguments is really a fancy term for inputs to a function.
+
+3
+00:00:06,960 --> 00:00:11,400
+And right now, our functions don't expect they don't accept any inputs.
+
+4
+00:00:11,400 --> 00:00:13,700
+They behave the same way every time.
+
+5
+00:00:13,710 --> 00:00:16,320
+So we wrote that silly grumpy function.
+
+6
+00:00:16,320 --> 00:00:22,890
+And this is kind of what happens here visually, at least if this is the function we don't pass any
+
+7
+00:00:22,890 --> 00:00:28,260
+inputs in, we just call Grumpy's the exact same way every time and we get the same output.
+
+8
+00:00:28,260 --> 00:00:30,090
+Those three consort logs.
+
+9
+00:00:30,090 --> 00:00:32,790
+Now, I didn't write them here because they took up too much space.
+
+10
+00:00:32,790 --> 00:00:38,490
+So we get this little grumpy kid instead, but it's the same output every time, the same three lines
+
+11
+00:00:38,490 --> 00:00:39,350
+that are printed.
+
+12
+00:00:39,360 --> 00:00:42,510
+Here's another example a function that I'm calling greet.
+
+13
+00:00:42,540 --> 00:00:47,910
+Just type it up very quickly and all it does is console, dot, log, hi.
+
+14
+00:00:47,940 --> 00:00:49,260
+Every single time.
+
+15
+00:00:49,260 --> 00:00:53,730
+If I run it and I call greet, we can't impact it.
+
+16
+00:00:53,730 --> 00:00:55,110
+We don't pass anything in.
+
+17
+00:00:55,140 --> 00:00:56,370
+It works the same way.
+
+18
+00:00:56,370 --> 00:00:58,590
+No inputs, same output.
+
+19
+00:00:59,220 --> 00:01:05,160
+Now this doesn't necessarily mean we'll always get the exact same output as we saw with our roll die
+
+20
+00:01:05,190 --> 00:01:06,030
+function.
+
+21
+00:01:06,030 --> 00:01:11,790
+We did get a different output because we're using random numbers, but we're not altering the behavior.
+
+22
+00:01:11,790 --> 00:01:15,960
+When we call it, we call role die the exact same way every single time.
+
+23
+00:01:15,960 --> 00:01:17,250
+We're not impacting it.
+
+24
+00:01:17,280 --> 00:01:19,950
+We're just saying roll a die and it picks random number.
+
+25
+00:01:20,070 --> 00:01:26,460
+But it would be nice if we could specify if this was a six sided die or a 12 sided die or something
+
+26
+00:01:26,460 --> 00:01:27,060
+like that.
+
+27
+00:01:27,060 --> 00:01:29,730
+And we would do that by passing in an argument.
+
+28
+00:01:30,030 --> 00:01:34,890
+So those inputs that we pass in, as I've already mentioned, are called arguments.
+
+29
+00:01:35,130 --> 00:01:41,400
+Here's an example of an updated version of greet where we could pass in a value for someone's name.
+
+30
+00:01:41,400 --> 00:01:46,560
+So if we call greet and then we pass in Tim, the output could be, Hi Tim.
+
+31
+00:01:46,560 --> 00:01:50,430
+If we did it with Ana, we could get the output of high on you.
+
+32
+00:01:50,460 --> 00:01:52,170
+Still very simple stuff.
+
+33
+00:01:52,170 --> 00:01:59,370
+Here's another example a hypothetical function called average, and it takes multiple arguments two
+
+34
+00:01:59,490 --> 00:02:03,930
+or four, maybe ten, and the output will be the average.
+
+35
+00:02:03,930 --> 00:02:08,340
+So it will sum them all together and then divide by the number of inputs.
+
+36
+00:02:08,340 --> 00:02:11,730
+So 20 plus, 25 divided by to 22.5.
+
+37
+00:02:11,760 --> 00:02:15,090
+These four numbers divided by four gives us four.
+
+38
+00:02:15,090 --> 00:02:19,890
+And we've already seen arguments quite a bit in the built in methods we've been working with.
+
+39
+00:02:20,040 --> 00:02:23,250
+Something like two uppercase expects no inputs.
+
+40
+00:02:23,250 --> 00:02:24,960
+We don't pass anything in it.
+
+41
+00:02:24,960 --> 00:02:26,520
+Just uppercase is something.
+
+42
+00:02:26,520 --> 00:02:29,160
+It's kind of like our initial version of greet.
+
+43
+00:02:29,160 --> 00:02:35,970
+It does the same thing, but then we have things like index of or includes or splice or slice where
+
+44
+00:02:35,970 --> 00:02:37,470
+we have to specify inputs.
+
+45
+00:02:37,470 --> 00:02:42,630
+We have to tell it in the case of index of what string we're looking for in hello.
+
+46
+00:02:42,870 --> 00:02:49,050
+And we get different behaviors and different outcomes if we pass in an H index of zero, if we pass
+
+47
+00:02:49,050 --> 00:02:53,100
+in an O, we get index of four, we're specifying additional information.
+
+48
+00:02:53,100 --> 00:02:54,990
+So how do we make our functions?
+
+49
+00:02:54,990 --> 00:02:59,400
+Expect arguments and use those values in the code, in the function body?
+
+50
+00:02:59,550 --> 00:03:00,720
+It's pretty simple.
+
+51
+00:03:00,900 --> 00:03:07,170
+All we do is instead of our function definition, instead of empty parentheses, we add in some variable
+
+52
+00:03:07,170 --> 00:03:07,620
+name.
+
+53
+00:03:07,800 --> 00:03:11,040
+So this has to be a valid JavaScript identifier.
+
+54
+00:03:11,130 --> 00:03:16,020
+It can't have spaces, it can't start with a number, but otherwise we can name it whatever we want.
+
+55
+00:03:16,350 --> 00:03:25,030
+And just like with a four of loop where we had four, let X of some array, let's say the array 1 to
+
+56
+00:03:25,030 --> 00:03:25,350
+3.
+
+57
+00:03:25,590 --> 00:03:30,720
+This X doesn't matter what we call it at all, but it will hold the value each time.
+
+58
+00:03:30,720 --> 00:03:36,240
+Through this loop of one of these elements, we kind of do the same thing for a function.
+
+59
+00:03:36,300 --> 00:03:43,590
+If we wanted to update our greet function to accept somebody's name, I would go maybe with nickname
+
+60
+00:03:43,590 --> 00:03:46,320
+or person and we put that in the parentheses.
+
+61
+00:03:47,100 --> 00:03:49,080
+This does not do anything on its own.
+
+62
+00:03:49,080 --> 00:03:55,080
+It will only work if we pass in a string or a number or some value when we call greet.
+
+63
+00:03:55,080 --> 00:03:56,550
+But let's console.log.
+
+64
+00:03:56,550 --> 00:04:05,010
+Nickname nickname will hold the value of whatever is passed in JavaScript doesn't care what the type
+
+65
+00:04:05,010 --> 00:04:05,340
+is.
+
+66
+00:04:05,340 --> 00:04:11,160
+If it's a string or even an array, it just cares that it's the first thing that was passed in and it
+
+67
+00:04:11,160 --> 00:04:13,050
+will be assigned to nickname.
+
+68
+00:04:13,050 --> 00:04:15,330
+That's just a sort of a placeholder name.
+
+69
+00:04:15,540 --> 00:04:18,630
+You want to give it something that makes sense, a name that is logical.
+
+70
+00:04:18,630 --> 00:04:19,829
+So nickname is fine.
+
+71
+00:04:20,100 --> 00:04:21,029
+Let's see what happens.
+
+72
+00:04:21,029 --> 00:04:27,600
+Now I'm printing out nickname on the first line that's called greet and then pass in Tim.
+
+73
+00:04:28,840 --> 00:04:29,490
+And there we go.
+
+74
+00:04:29,510 --> 00:04:33,830
+You can see the first contact log says nickname, which is Tim.
+
+75
+00:04:34,550 --> 00:04:38,480
+So nickname had the value of Tim because that's what I passed in.
+
+76
+00:04:39,050 --> 00:04:41,620
+If I pass something else in like a number.
+
+77
+00:04:41,990 --> 00:04:43,790
+Nickname has that value.
+
+78
+00:04:43,820 --> 00:04:45,260
+It could be an array.
+
+79
+00:04:45,290 --> 00:04:46,460
+How about an empty array?
+
+80
+00:04:47,300 --> 00:04:48,470
+We canceled that log.
+
+81
+00:04:48,470 --> 00:04:49,340
+Empty array.
+
+82
+00:04:49,580 --> 00:04:51,620
+And what if I don't pass anything in?
+
+83
+00:04:52,550 --> 00:04:55,040
+In some languages, this could cause an error.
+
+84
+00:04:55,040 --> 00:04:57,080
+In JavaScript, it doesn't care.
+
+85
+00:04:57,320 --> 00:04:58,790
+It says there's no value.
+
+86
+00:04:58,790 --> 00:05:01,010
+It's undefined, but it doesn't break anything.
+
+87
+00:05:01,010 --> 00:05:02,030
+It's just not there.
+
+88
+00:05:02,060 --> 00:05:04,100
+Nickname just didn't have a value.
+
+89
+00:05:04,190 --> 00:05:07,790
+So let's rewrite this just to be slightly nicer.
+
+90
+00:05:07,790 --> 00:05:15,590
+We'll use back ticks and we'll greet the person high and then dollar sign nickname and maybe an exclamation
+
+91
+00:05:15,590 --> 00:05:16,610
+point afterwards.
+
+92
+00:05:16,610 --> 00:05:17,780
+Run it again.
+
+93
+00:05:17,900 --> 00:05:18,740
+Greet.
+
+94
+00:05:19,520 --> 00:05:20,240
+Tim.
+
+95
+00:05:22,040 --> 00:05:22,860
+Hi, Tim.
+
+96
+00:05:23,630 --> 00:05:27,560
+So we're constantly logging something different based off of the input.
+
+97
+00:05:27,590 --> 00:05:31,700
+The input has a direct impact on what the function actually does.
+
+98
+00:05:32,240 --> 00:05:36,020
+Next up, let's try modifying roll, die or throw dice.
+
+99
+00:05:36,320 --> 00:05:38,270
+These two functions, let's pick one.
+
+100
+00:05:38,540 --> 00:05:40,040
+I'll uncomment them both.
+
+101
+00:05:40,190 --> 00:05:42,250
+Let's go with throw dice.
+
+102
+00:05:42,260 --> 00:05:45,590
+So right now, throw dice always calls, roll dice.
+
+103
+00:05:45,620 --> 00:05:46,580
+Six times.
+
+104
+00:05:46,580 --> 00:05:49,460
+If I call it over here, throw dice.
+
+105
+00:05:51,050 --> 00:05:52,850
+It rolls six dice.
+
+106
+00:05:53,150 --> 00:05:54,890
+It calls roll dice six times.
+
+107
+00:05:54,890 --> 00:05:59,630
+But what if we could specify a number of times how many times we actually want to roll?
+
+108
+00:05:59,630 --> 00:06:04,010
+Maybe we're playing a game where you have two dice, but maybe we're playing another game like Yahtzee
+
+109
+00:06:04,010 --> 00:06:05,630
+where you have five or six.
+
+110
+00:06:05,630 --> 00:06:11,150
+I don't remember how many it actually uses, but it's more than two we could pass in an argument and
+
+111
+00:06:11,150 --> 00:06:12,350
+let's give it a name.
+
+112
+00:06:12,830 --> 00:06:14,630
+We'll talk more about terminology here.
+
+113
+00:06:14,630 --> 00:06:19,070
+Technically, the variables we write here are called parameters, not arguments.
+
+114
+00:06:19,070 --> 00:06:23,180
+Let's go with times or num rolls.
+
+115
+00:06:23,450 --> 00:06:24,460
+Maybe that's better.
+
+116
+00:06:24,470 --> 00:06:25,970
+Num rolls.
+
+117
+00:06:25,970 --> 00:06:29,810
+And then in here we'll use this to repeat roll die.
+
+118
+00:06:29,810 --> 00:06:31,520
+So how do we repeat something?
+
+119
+00:06:31,520 --> 00:06:32,720
+We'll use a loop.
+
+120
+00:06:33,110 --> 00:06:35,150
+So we'll loop four.
+
+121
+00:06:35,180 --> 00:06:36,320
+We'll just do a for loop.
+
+122
+00:06:36,650 --> 00:06:39,320
+Let's I equals zero.
+
+123
+00:06:39,320 --> 00:06:41,750
+Well is less than num rolls.
+
+124
+00:06:42,800 --> 00:06:47,450
+Add one to I each time and we'll call roll die.
+
+125
+00:06:48,860 --> 00:06:54,800
+So if we pass in five we'll go from zero and then up to five, but not including five.
+
+126
+00:06:55,040 --> 00:06:59,900
+Or we could go from one and then less than or equal to num rolls.
+
+127
+00:06:59,900 --> 00:07:03,380
+I'll just go with zero because we don't care about what I actually is.
+
+128
+00:07:03,380 --> 00:07:07,010
+We just want a certain number of times, so let's see if it works.
+
+129
+00:07:08,330 --> 00:07:14,600
+Throw dice and I do need to pass in a number like three.
+
+130
+00:07:15,660 --> 00:07:16,680
+We got three rolls.
+
+131
+00:07:16,680 --> 00:07:18,600
+How about five?
+
+132
+00:07:18,960 --> 00:07:20,110
+We get five roles.
+
+133
+00:07:20,130 --> 00:07:22,560
+It combined two of them because they were identical.
+
+134
+00:07:22,590 --> 00:07:23,100
+Thanks.
+
+135
+00:07:23,100 --> 00:07:25,200
+Chrome console nine.
+
+136
+00:07:25,200 --> 00:07:26,580
+We get nine roles now.
+
+137
+00:07:26,580 --> 00:07:31,380
+We've written it so that we can impact the way it behaves based off of a single input.
+
+138
+00:07:31,830 --> 00:07:32,100
+All right.
+
+139
+00:07:32,100 --> 00:07:33,300
+So that's good enough for now.
+
+140
+00:07:33,300 --> 00:07:37,950
+In the next video, we'll see how we can have multiple arguments, how the order matters, and we'll
+
+141
+00:07:37,950 --> 00:07:40,110
+start writing some more complicated functions.
+

@@ -1,0 +1,304 @@
+1
+00:00:00,090 --> 00:00:03,600
+The next thing you should know about strings is that they are indexed.
+
+2
+00:00:03,660 --> 00:00:10,020
+Every character in a string is assigned a corresponding number based off of its position in the string.
+
+3
+00:00:10,020 --> 00:00:12,800
+So they go from left to right, starting from zero.
+
+4
+00:00:12,810 --> 00:00:18,780
+So the first character in a string is always at position zero, or it has an index of zero and then
+
+5
+00:00:18,780 --> 00:00:21,840
+it goes up to the end of the string incrementing each character.
+
+6
+00:00:22,080 --> 00:00:27,540
+So in the case of chicken, which is a seven character string, one, two, three, four, five, six,
+
+7
+00:00:27,540 --> 00:00:28,050
+seven.
+
+8
+00:00:28,260 --> 00:00:30,810
+The lowest index is zero, as always.
+
+9
+00:00:30,810 --> 00:00:35,730
+And the greatest index for that last end, or the only NN is six.
+
+10
+00:00:36,030 --> 00:00:41,580
+So these are really useful for a variety of reasons, but largely for some of the methods we're about
+
+11
+00:00:41,580 --> 00:00:47,850
+to see in the next couple of videos where we can pass in indices to search for portions of a string
+
+12
+00:00:47,850 --> 00:00:51,660
+or to copy portions of a string into a new variable, things like that.
+
+13
+00:00:52,110 --> 00:00:59,010
+There's one other thing I'd like to show you, which is every string has a property called length.
+
+14
+00:00:59,280 --> 00:01:01,380
+We haven't really talked about properties.
+
+15
+00:01:01,380 --> 00:01:08,460
+Properties are just values we can access, so we can ask for length off of hello, what is hello length.
+
+16
+00:01:08,460 --> 00:01:09,570
+It gives us five.
+
+17
+00:01:09,570 --> 00:01:11,370
+That is the number of characters.
+
+18
+00:01:11,370 --> 00:01:12,690
+One, two, three, four, five.
+
+19
+00:01:13,110 --> 00:01:13,860
+If I have.
+
+20
+00:01:14,070 --> 00:01:15,840
+Ole, ole, ole, ole, ole, ole.
+
+21
+00:01:15,840 --> 00:01:16,770
+Dot length.
+
+22
+00:01:17,910 --> 00:01:19,380
+I have no idea what we'll get.
+
+23
+00:01:19,380 --> 00:01:21,780
+13 we have 13 characters.
+
+24
+00:01:21,780 --> 00:01:27,930
+And just so we're clear here, every single character in a string matters and is counted.
+
+25
+00:01:27,930 --> 00:01:31,020
+So not just letters or numbers, but spaces.
+
+26
+00:01:31,140 --> 00:01:32,820
+There's also a period in there.
+
+27
+00:01:32,820 --> 00:01:37,980
+It was added automatically by Chrome and I hit two spaces, but that is ten characters.
+
+28
+00:01:37,980 --> 00:01:43,350
+Even though this has one traditional character, what we would call a character, it's ten characters
+
+29
+00:01:43,350 --> 00:01:45,180
+long in JavaScript land.
+
+30
+00:01:45,540 --> 00:01:48,810
+So length is something that we can access if we need it.
+
+31
+00:01:49,140 --> 00:01:51,150
+But let's go back to these indices.
+
+32
+00:01:51,150 --> 00:01:52,680
+So let's make a variable.
+
+33
+00:01:52,710 --> 00:02:01,290
+We'll go with Let My Song Equals Surfin USA, and I think there's an apostrophe there.
+
+34
+00:02:02,070 --> 00:02:05,580
+So good thing I use double quotes so you can put that single quote there.
+
+35
+00:02:05,940 --> 00:02:10,530
+And if we look at my song length, it has a length of 11.
+
+36
+00:02:10,949 --> 00:02:17,100
+The next piece of syntax I'll show you is how we can use those indices to access individual characters.
+
+37
+00:02:17,490 --> 00:02:22,410
+So if I want the very first character of this string, here's some new syntax.
+
+38
+00:02:22,410 --> 00:02:27,870
+We use square brackets and we pass in a number corresponding to the position.
+
+39
+00:02:28,170 --> 00:02:35,940
+So index of zero should be the first character which is s index of one gives me u index of two and so
+
+40
+00:02:35,940 --> 00:02:36,300
+on.
+
+41
+00:02:37,140 --> 00:02:45,870
+Now if we take the length again, which is 11, what happens when I try and access my song square brackets?
+
+42
+00:02:45,900 --> 00:02:53,040
+11 We get a value called undefined, so we're going to talk more about undefined and another primitive
+
+43
+00:02:53,040 --> 00:02:54,060
+called null.
+
+44
+00:02:54,060 --> 00:02:56,580
+But undefined means there's nothing there.
+
+45
+00:02:56,580 --> 00:03:01,800
+There isn't a character at index 11 or for that matter, index 110.
+
+46
+00:03:01,800 --> 00:03:07,230
+It's the same exact scenario, it's a different number, but neither of them exists in our string.
+
+47
+00:03:08,370 --> 00:03:12,420
+So the length is always one greater than the last index.
+
+48
+00:03:12,420 --> 00:03:14,220
+In our case, length was 11.
+
+49
+00:03:14,220 --> 00:03:17,460
+So the greatest index that we have is ten.
+
+50
+00:03:17,460 --> 00:03:19,170
+That gives us uppercase.
+
+51
+00:03:19,200 --> 00:03:24,390
+A strings are not the only things that are indexed by position in JavaScript.
+
+52
+00:03:24,390 --> 00:03:28,200
+We'll see arrays later on which use the exact same syntax.
+
+53
+00:03:28,470 --> 00:03:31,740
+They also have a length, so it's a pattern that comes up more than once.
+
+54
+00:03:31,740 --> 00:03:35,520
+Let's say I had some long variable with some gibberish in it.
+
+55
+00:03:35,970 --> 00:03:37,770
+Oh, I messed myself up there.
+
+56
+00:03:37,770 --> 00:03:45,540
+This works though, and if I wanted to access that last character, I could do this gibberish of gibberish,
+
+57
+00:03:45,560 --> 00:03:47,400
+dot length minus one.
+
+58
+00:03:47,880 --> 00:03:49,980
+And that will give me the very last character.
+
+59
+00:03:49,980 --> 00:03:55,770
+Find the length of the string, whatever it is, subtract one and use that as an index and we get this
+
+60
+00:03:55,770 --> 00:03:56,670
+character there.
+
+61
+00:03:57,510 --> 00:04:00,990
+One last thing to know about strings and indices.
+
+62
+00:04:00,990 --> 00:04:04,170
+If we have, let's go back to our fave song variable.
+
+63
+00:04:04,800 --> 00:04:13,350
+If I wanted to change this, let's say I want to change the uppercase S to a uppercase D for Dauphin
+
+64
+00:04:13,350 --> 00:04:14,250
+USA.
+
+65
+00:04:14,730 --> 00:04:22,320
+If I tried to do that fave song of zero equals DX, we look at fave song.
+
+66
+00:04:22,320 --> 00:04:27,690
+It's still Surfin USA, so we can actually change strings this way.
+
+67
+00:04:27,810 --> 00:04:33,420
+Strings are immutable in JavaScript, meaning that the individual value is not changeable.
+
+68
+00:04:33,420 --> 00:04:37,110
+In some other languages you can manipulate one character at a time.
+
+69
+00:04:37,380 --> 00:04:44,220
+If we wanted to create a string that was Irfan USA plus a D at the beginning we would have to make a
+
+70
+00:04:44,220 --> 00:04:50,100
+brand new string and a new variable and take D and then add it to this substring which we haven't seen
+
+71
+00:04:50,100 --> 00:04:50,910
+how to do yet.
+
+72
+00:04:51,150 --> 00:04:55,380
+So just know that if you're coming from another programming language, or if it seems logical to you
+
+73
+00:04:55,380 --> 00:04:59,370
+that you should be able to change individual characters, you cannot do that.
+
+74
+00:04:59,580 --> 00:05:00,660
+In a given string.
+
+75
+00:05:00,660 --> 00:05:02,100
+That string is the same.
+
+76
+00:05:02,100 --> 00:05:02,970
+It's immutable.
+

@@ -1,0 +1,208 @@
+1
+00:00:00,660 --> 00:00:04,130
+All right, my friends, in this video, we're going to do a quick wrap up of this application.
+
+2
+00:00:04,140 --> 00:00:08,460
+There's just a couple of things I want to point out really quickly that were really important to understand
+
+3
+00:00:08,940 --> 00:00:09,390
+or none.
+
+4
+00:00:09,420 --> 00:00:13,980
+The most important thing about this application was to understand the create autocomplete function.
+
+5
+00:00:14,070 --> 00:00:18,330
+The entire goal here was to create a widget that was entirely reusable in nature.
+
+6
+00:00:18,330 --> 00:00:23,430
+And we saw a little bit earlier how we could very easily swap out a source of data with the fetch data
+
+7
+00:00:23,430 --> 00:00:29,220
+function and the render option function as well to customize what the autocomplete looked like and that
+
+8
+00:00:29,490 --> 00:00:30,780
+was done very easily.
+
+9
+00:00:31,230 --> 00:00:36,090
+Think about how we would customize this widget if we didn't have access to this options object.
+
+10
+00:00:36,090 --> 00:00:41,400
+We would have had to go through all the code inside of here and customize each line one by one to change
+
+11
+00:00:41,400 --> 00:00:45,120
+the source of information or change how each option was displayed.
+
+12
+00:00:46,400 --> 00:00:52,310
+So by extracting all this logic into the separate file, you can now take this file right here, add
+
+13
+00:00:52,310 --> 00:00:57,980
+it to any other project that uses the Boma CSS framework and ta dah!
+
+14
+00:00:58,010 --> 00:01:00,210
+You've got a working autocomplete.
+
+15
+00:01:00,230 --> 00:01:01,370
+That's pretty much it.
+
+16
+00:01:02,320 --> 00:01:06,490
+The other big thing we learned about was that whenever we wanted to create a reusable widget, it was
+
+17
+00:01:06,490 --> 00:01:12,700
+kind of important to locate all the HTML for that inside the widget itself as opposed to our HTML file.
+
+18
+00:01:13,030 --> 00:01:18,520
+Again, if we had tried to keep our HTML inside of the HTML document around the autocomplete, you and
+
+19
+00:01:18,520 --> 00:01:23,260
+I, for every autocomplete we want to show, would have had to put something inside of here of like
+
+20
+00:01:23,260 --> 00:01:27,520
+input and then a div with a class of dropdown.
+
+21
+00:01:29,570 --> 00:01:33,830
+And then inside there another one with dropdown menu and so on.
+
+22
+00:01:33,890 --> 00:01:38,480
+And that would have had to have been done every single time we wanted to show an autocomplete.
+
+23
+00:01:38,750 --> 00:01:41,500
+So we got around that by instead saying, You know what?
+
+24
+00:01:41,510 --> 00:01:45,630
+Inside of our HTML document, we're going to show just the absolute minimum.
+
+25
+00:01:45,650 --> 00:01:49,250
+Kind of like a placeholder to display the autocomplete.
+
+26
+00:01:49,730 --> 00:01:53,930
+It was then up to the widgets code to initialize the HTML inside there.
+
+27
+00:01:54,140 --> 00:01:59,090
+And so again, this is what made our widget very reusable because now we don't really care about what
+
+28
+00:01:59,090 --> 00:02:00,420
+has to be displayed inside of it.
+
+29
+00:02:00,440 --> 00:02:05,480
+We can just say create autocomplete and the widget is going to set itself up automatically.
+
+30
+00:02:07,400 --> 00:02:10,729
+The last thing we really focused on while we focused on a lot.
+
+31
+00:02:10,729 --> 00:02:16,040
+But definitely one of the bigger items was to really figure out how to run that comparison appropriately.
+
+32
+00:02:16,250 --> 00:02:21,380
+So in this scenario, we realize that trying to pull stats out after the fact from our different movie
+
+33
+00:02:21,380 --> 00:02:27,290
+objects would probably be really challenging because we would be limited to being to how often we could
+
+34
+00:02:27,290 --> 00:02:30,020
+reorganize or reorder the different statistics.
+
+35
+00:02:30,350 --> 00:02:37,040
+So instead inside of our movie template, we decided up front to extract all the relevant values and
+
+36
+00:02:37,040 --> 00:02:38,990
+store those values inside of our DOM.
+
+37
+00:02:39,440 --> 00:02:44,780
+So then we could easily pull those values out later on from the run comparison function by just finding
+
+38
+00:02:44,780 --> 00:02:48,560
+those elements and then referencing the appropriate data set value.
+
+39
+00:02:49,160 --> 00:02:53,510
+Then we could do a very easy comparison without having to worry about what we were actually comparing.
+
+40
+00:02:54,050 --> 00:03:00,230
+Imagine what we would have had to write in here if we were trying to throw in like the entire awards
+
+41
+00:03:00,230 --> 00:03:02,930
+string into each DOM element.
+
+42
+00:03:03,200 --> 00:03:07,730
+We would have had to say something like left side value right here, and then we would have to do some
+
+43
+00:03:07,730 --> 00:03:08,030
+code.
+
+44
+00:03:08,030 --> 00:03:15,020
+Like if left side value contains awards or something like that, we've had to write some code like that
+
+45
+00:03:15,020 --> 00:03:20,240
+to determine or try to figure out whether or not we were working with the award string.
+
+46
+00:03:20,600 --> 00:03:23,000
+So doing that after the fact would have been really challenging.
+
+47
+00:03:23,000 --> 00:03:28,160
+So instead we just did all the processing up front and that made our life down the road way easier.
+
+48
+00:03:29,920 --> 00:03:30,200
+Okay.
+
+49
+00:03:30,220 --> 00:03:31,840
+So that's pretty much it for this application.
+
+50
+00:03:31,840 --> 00:03:33,430
+So let's take a quick pause right here.
+
+51
+00:03:33,430 --> 00:03:35,170
+We still have a ton to learn.
+
+52
+00:03:35,170 --> 00:03:36,790
+We'll continue in the next video.
+

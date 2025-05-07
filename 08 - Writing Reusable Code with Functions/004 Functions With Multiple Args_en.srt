@@ -1,0 +1,300 @@
+1
+00:00:00,090 --> 00:00:00,930
+In this video.
+
+2
+00:00:00,930 --> 00:00:05,370
+We'll see how we can have multiple inputs, multiple arguments for a single function.
+
+3
+00:00:05,460 --> 00:00:08,540
+First, we need to talk about terminology very quickly.
+
+4
+00:00:08,550 --> 00:00:14,930
+If we have some function, let's call it square and square, except a single input.
+
+5
+00:00:14,940 --> 00:00:20,010
+Let's just call it num and we'll console.log num times num.
+
+6
+00:00:23,070 --> 00:00:24,410
+We'll call it over here.
+
+7
+00:00:24,420 --> 00:00:28,200
+Square of four it prints 16.
+
+8
+00:00:28,440 --> 00:00:30,510
+So I said, I want to talk about terminology.
+
+9
+00:00:30,540 --> 00:00:35,450
+We've been using the word argument to refer to the input, which is correct.
+
+10
+00:00:35,460 --> 00:00:37,020
+Four is an argument.
+
+11
+00:00:37,020 --> 00:00:39,810
+The actual value we pass in is an argument.
+
+12
+00:00:39,840 --> 00:00:43,140
+This right here num is not an argument.
+
+13
+00:00:43,230 --> 00:00:46,530
+The real term, the correct terminology is parameter.
+
+14
+00:00:46,530 --> 00:00:49,000
+And if I hover it actually tells me here.
+
+15
+00:00:49,020 --> 00:00:50,940
+Parameter called num.
+
+16
+00:00:51,120 --> 00:00:53,690
+A parameter is like the placeholder name.
+
+17
+00:00:53,700 --> 00:00:59,910
+It is this variable that we define when we're writing our function and then when we execute the function,
+
+18
+00:01:00,330 --> 00:01:01,590
+we pass in a value.
+
+19
+00:01:01,590 --> 00:01:04,290
+And that number here is the argument.
+
+20
+00:01:04,560 --> 00:01:10,740
+So argument when we call it parameter, when we define it, it doesn't really impact how anything works
+
+21
+00:01:10,740 --> 00:01:12,830
+or how you should understand all of this.
+
+22
+00:01:12,840 --> 00:01:18,480
+It's just technical stuff that sometimes people mix up and it's just important to get that out of the
+
+23
+00:01:18,480 --> 00:01:18,960
+way.
+
+24
+00:01:19,350 --> 00:01:19,830
+All right.
+
+25
+00:01:19,830 --> 00:01:25,560
+So let's see how we define a function with multiple parameters or another way of saying it is a function
+
+26
+00:01:25,560 --> 00:01:28,440
+that expects multiple arguments to be passed in.
+
+27
+00:01:28,470 --> 00:01:32,670
+Let's start with the classic super simple to argument function.
+
+28
+00:01:33,150 --> 00:01:35,250
+Some there are two parameters.
+
+29
+00:01:35,250 --> 00:01:38,190
+I'll call them X and Y and we will add them together.
+
+30
+00:01:38,190 --> 00:01:41,100
+Console.log x plus y.
+
+31
+00:01:41,580 --> 00:01:42,690
+Nice and easy.
+
+32
+00:01:42,990 --> 00:01:44,850
+We separate them by commas.
+
+33
+00:01:44,880 --> 00:01:46,920
+Otherwise it's the exact same syntax.
+
+34
+00:01:46,920 --> 00:01:53,340
+We just put some name in there, a valid identifier, and it will hold whatever value is passed to it.
+
+35
+00:01:53,610 --> 00:01:55,320
+And the order does matter.
+
+36
+00:01:55,350 --> 00:02:00,780
+Now, this is not going to do a great job of illustrating that because X and Y won't matter.
+
+37
+00:02:00,780 --> 00:02:01,860
+As far as the order.
+
+38
+00:02:01,950 --> 00:02:04,690
+I can pass three, comma four or four, comma, three.
+
+39
+00:02:04,710 --> 00:02:07,440
+We'll still get seven, but let's just make sure it works.
+
+40
+00:02:07,440 --> 00:02:13,890
+Four and five gives us nine, and obviously five plus four also gives us nine.
+
+41
+00:02:13,920 --> 00:02:16,740
+So now let's do an example where order does matter.
+
+42
+00:02:16,830 --> 00:02:19,740
+Let's just do a simple division function.
+
+43
+00:02:19,740 --> 00:02:23,460
+We'll call it divide and we'll do instead of X and Y.
+
+44
+00:02:23,460 --> 00:02:30,960
+Why not A and B, I guess X and Y are more standard for algebra, but A and B work as well.
+
+45
+00:02:31,170 --> 00:02:37,080
+And all we'll do is cancel that log A divided by B.
+
+46
+00:02:38,420 --> 00:02:39,020
+Okay.
+
+47
+00:02:39,050 --> 00:02:40,380
+Now let's call it.
+
+48
+00:02:40,400 --> 00:02:45,500
+Divide one by four and we get 0.25.
+
+49
+00:02:45,500 --> 00:02:51,710
+So whichever argument was passed in first, whatever value one in this case will be assigned to A,
+
+50
+00:02:51,980 --> 00:02:57,200
+so a will be one, and then the second value will be four, which gets assigned to be.
+
+51
+00:02:57,320 --> 00:02:59,930
+So the order is very important in this case.
+
+52
+00:02:59,930 --> 00:03:04,100
+If I tried to do four comma one, it's completely different.
+
+53
+00:03:04,100 --> 00:03:07,370
+Now A is four and B is one.
+
+54
+00:03:07,640 --> 00:03:13,340
+The order that we define these parameters in dictates the order that they are filled in from left to
+
+55
+00:03:13,340 --> 00:03:13,760
+right.
+
+56
+00:03:13,760 --> 00:03:18,380
+So one came before four, so one goes before four.
+
+57
+00:03:18,620 --> 00:03:24,190
+And if we had written five parameters here A, B, C, D and E, they would be filled in that order.
+
+58
+00:03:24,200 --> 00:03:28,980
+First one would be a, second would be B, third would be C and so on.
+
+59
+00:03:29,000 --> 00:03:31,520
+There are many, many issues with this function.
+
+60
+00:03:31,520 --> 00:03:38,780
+First of all, I mean, it works with numbers, but if I pass something in like a string and a number,
+
+61
+00:03:38,780 --> 00:03:43,670
+we don't have any checks to make sure that we're working with numbers and that's okay.
+
+62
+00:03:43,670 --> 00:03:45,260
+We're not focused on that for now.
+
+63
+00:03:45,290 --> 00:03:48,830
+So it takes us and it divides by four, which is not a number.
+
+64
+00:03:48,830 --> 00:03:51,170
+But what I'm trying to show here is that the function doesn't care.
+
+65
+00:03:51,170 --> 00:03:52,910
+It is type agnostic.
+
+66
+00:03:53,030 --> 00:03:56,390
+It's just going to do whatever you tell it to do with these values.
+
+67
+00:03:56,390 --> 00:03:58,490
+So what if we just passed in five?
+
+68
+00:03:58,520 --> 00:04:03,440
+Well, A is going to be assigned five, B will be undefined.
+
+69
+00:04:03,740 --> 00:04:08,270
+So we just did B divided by undefined, which gives us not a number.
+
+70
+00:04:08,270 --> 00:04:13,970
+If an argument is missing that parameter, whatever it's called, in our case, B will have a value
+
+71
+00:04:13,970 --> 00:04:14,990
+of undefined.
+
+72
+00:04:14,990 --> 00:04:20,810
+Just like if we have a variable called B and we don't give it a value, it's set to undefined.
+
+73
+00:04:20,810 --> 00:04:21,950
+It's the same idea.
+
+74
+00:04:21,950 --> 00:04:26,270
+We're essentially saying Here's a variable called B and the value will be passed in.
+
+75
+00:04:26,270 --> 00:04:28,880
+But if we don't pass it in, it remains undefined.
+

@@ -1,0 +1,372 @@
+1
+00:00:00,300 --> 00:00:00,720
+All right.
+
+2
+00:00:00,720 --> 00:00:01,810
+Let's jump right in.
+
+3
+00:00:01,830 --> 00:00:03,660
+We're going to start with comparisons.
+
+4
+00:00:03,660 --> 00:00:08,070
+Being able to compare values is really important when making decisions.
+
+5
+00:00:08,189 --> 00:00:14,100
+As a really simple example, something like The New York Times or any website where you get a certain
+
+6
+00:00:14,100 --> 00:00:19,230
+number of free articles a month, they track the number of articles you've read each month when you're
+
+7
+00:00:19,230 --> 00:00:23,820
+not logged in, and then they have a maximum, whether it's ten or five, they're going to check.
+
+8
+00:00:23,850 --> 00:00:25,820
+Has this user seen more?
+
+9
+00:00:25,830 --> 00:00:29,340
+Have they seen fewer than the allotted or the allowed number?
+
+10
+00:00:29,610 --> 00:00:31,440
+So that's a comparison we're checking.
+
+11
+00:00:31,440 --> 00:00:34,200
+Is one value less than another value?
+
+12
+00:00:34,620 --> 00:00:40,200
+Other comparisons that are really common would be things like equality, checking to see if something
+
+13
+00:00:40,200 --> 00:00:41,480
+equals something else.
+
+14
+00:00:41,490 --> 00:00:46,360
+So this is a list of the different comparison operations we have in JavaScript.
+
+15
+00:00:46,380 --> 00:00:52,080
+There's quite a few, but there's a lot of overlap and we're going to skip over the bottom for those.
+
+16
+00:00:52,080 --> 00:00:58,100
+All have to do with equality, not equality, strict equality, strict non equality.
+
+17
+00:00:58,110 --> 00:01:03,690
+We're just going to focus on the first for greater than, less than, greater than or equal to and less
+
+18
+00:01:03,690 --> 00:01:05,069
+than or equal to.
+
+19
+00:01:05,430 --> 00:01:06,870
+So let's play around with them.
+
+20
+00:01:06,990 --> 00:01:10,830
+I'll show you a couple of examples over here in my console.
+
+21
+00:01:10,860 --> 00:01:12,320
+Let's try something like.
+
+22
+00:01:12,330 --> 00:01:15,810
+Is negative to greater than one.
+
+23
+00:01:16,770 --> 00:01:21,270
+You can see we get a boolean back, a false boolean value.
+
+24
+00:01:21,330 --> 00:01:23,640
+Remember Booleans are just two options.
+
+25
+00:01:23,640 --> 00:01:24,720
+True or false?
+
+26
+00:01:24,750 --> 00:01:32,190
+Every single one of these operators we see here, all of these on this page return true or false one
+
+27
+00:01:32,190 --> 00:01:33,030
+or the other.
+
+28
+00:01:33,630 --> 00:01:35,010
+So that is greater.
+
+29
+00:01:35,010 --> 00:01:43,050
+Then we can also do less than we have things like is ten less than 9999 without that period.
+
+30
+00:01:43,050 --> 00:01:43,730
+There we go.
+
+31
+00:01:43,740 --> 00:01:44,850
+That is true.
+
+32
+00:01:44,880 --> 00:01:47,490
+Ten is smaller than nine, nine, nine, nine.
+
+33
+00:01:47,820 --> 00:01:52,440
+We also have things like less than or equal to and greater than or equal to.
+
+34
+00:01:52,470 --> 00:01:56,400
+So we could do is to greater than or equal to two.
+
+35
+00:01:56,670 --> 00:01:57,720
+That's true.
+
+36
+00:01:58,110 --> 00:02:00,330
+Is to greater than or equal to five.
+
+37
+00:02:00,330 --> 00:02:03,660
+That's false to greater than or equal to one.
+
+38
+00:02:03,930 --> 00:02:07,110
+That is also true and less than or equal to.
+
+39
+00:02:07,110 --> 00:02:07,950
+Finally.
+
+40
+00:02:08,729 --> 00:02:11,540
+Hopefully these are relatively straightforward at this point.
+
+41
+00:02:11,600 --> 00:02:19,350
+Doesn't seem that useful on its own to just do something like 55.1 less than or equal to 55.5.
+
+42
+00:02:19,800 --> 00:02:21,720
+We know that we're typing it.
+
+43
+00:02:21,720 --> 00:02:26,880
+But just to let you know where we're going, we're learning these operators first, then we'll see how
+
+44
+00:02:26,880 --> 00:02:28,350
+we use them to make decisions.
+
+45
+00:02:28,350 --> 00:02:30,000
+Right now, we're not deciding anything.
+
+46
+00:02:30,000 --> 00:02:33,510
+We're not changing the code that runs based off of these.
+
+47
+00:02:33,510 --> 00:02:36,570
+We're simply evaluating these to be true or false.
+
+48
+00:02:36,570 --> 00:02:42,450
+So most of the time when we do comparisons involving less than or greater than or less than or equal
+
+49
+00:02:42,450 --> 00:02:46,500
+to, greater than or equal to, we're working with numbers in some form.
+
+50
+00:02:46,500 --> 00:02:48,480
+It might be the length of a string.
+
+51
+00:02:48,510 --> 00:02:49,650
+It might be something like this.
+
+52
+00:02:49,650 --> 00:02:51,660
+Hello length.
+
+53
+00:02:53,840 --> 00:02:58,190
+Greater than or equal to hello length.
+
+54
+00:03:00,900 --> 00:03:06,210
+Usually those would be variables, but you can see this is false because this is actually larger.
+
+55
+00:03:06,210 --> 00:03:07,320
+There's an exclamation point.
+
+56
+00:03:07,320 --> 00:03:09,240
+The length is longer than this one.
+
+57
+00:03:09,240 --> 00:03:13,440
+But the point is we're not usually just directly typing hardcoded values.
+
+58
+00:03:13,440 --> 00:03:15,000
+We know the answer already.
+
+59
+00:03:15,000 --> 00:03:19,890
+We're usually working with variables, things that are coming from a place that we're not controlling,
+
+60
+00:03:19,890 --> 00:03:22,320
+where we don't exactly know the values.
+
+61
+00:03:23,040 --> 00:03:25,290
+So anyway, numbers are really common.
+
+62
+00:03:25,290 --> 00:03:32,310
+When we're dealing with greater than and less, then we can compare strings and it's it's not that common.
+
+63
+00:03:32,310 --> 00:03:33,780
+And you'll see why in a moment.
+
+64
+00:03:33,780 --> 00:03:39,660
+The way that strings are ordered, it's not always the most intuitive, but I can give you a quick example.
+
+65
+00:03:39,780 --> 00:03:43,890
+Let's start with lowercase a and compare it to uppercase A.
+
+66
+00:03:44,460 --> 00:03:51,960
+So from this comparison we can see uppercase A is less than lowercase a, as you can see here.
+
+67
+00:03:52,200 --> 00:03:54,510
+Now what about Uppercase B?
+
+68
+00:03:54,510 --> 00:03:57,690
+How does that compare to lowercase A?
+
+69
+00:03:58,200 --> 00:04:06,600
+So Uppercase B comes before lowercase a, which is not really the standard alphabetical order most people
+
+70
+00:04:06,600 --> 00:04:07,860
+would assume.
+
+71
+00:04:08,010 --> 00:04:13,050
+So all uppercase letters are less than any lowercase letters.
+
+72
+00:04:13,500 --> 00:04:19,800
+Then we also have confusing things like dollar signs and symbols and punctuation and accent marks.
+
+73
+00:04:19,800 --> 00:04:21,029
+Spaces.
+
+74
+00:04:21,029 --> 00:04:26,100
+If you're curious how it works, what the algorithm is, or what the comparison is, actually behind
+
+75
+00:04:26,100 --> 00:04:29,220
+the scenes, it has to do with something called Unicode.
+
+76
+00:04:29,700 --> 00:04:35,430
+All that you need to know is that every character in JavaScript when it's in a string, has a Unicode
+
+77
+00:04:35,430 --> 00:04:40,170
+representation, it has a number behind it, and you can see them here.
+
+78
+00:04:40,440 --> 00:04:48,720
+There's a long, long article on Wikipedia that details all of the different codes per each letter character
+
+79
+00:04:48,720 --> 00:04:49,440
+symbol.
+
+80
+00:04:49,530 --> 00:04:55,050
+So you can see, for example, the very first code, very first character is zero.
+
+81
+00:04:55,050 --> 00:05:00,900
+And if we look at two other let's go with hash sign and dollar sign, we can see the hash sign comes
+
+82
+00:05:00,900 --> 00:05:02,310
+before the dollar sign.
+
+83
+00:05:02,310 --> 00:05:07,860
+So it should stand to reason that hash sign is less than dollar sign.
+
+84
+00:05:08,340 --> 00:05:09,420
+And that's true.
+
+85
+00:05:10,630 --> 00:05:13,480
+So this is not something you need to know and memorize.
+
+86
+00:05:13,510 --> 00:05:18,970
+I just wanted to explain how it works because I've seen a lot of students just assume it's all alphabetical
+
+87
+00:05:18,970 --> 00:05:22,780
+order, which would make sense if we were strictly dealing with letters.
+
+88
+00:05:22,780 --> 00:05:27,280
+But when we deal with a whole bunch of other characters and symbols and accents and punctuation, it's
+
+89
+00:05:27,280 --> 00:05:28,360
+more complicated.
+
+90
+00:05:28,660 --> 00:05:33,610
+So comparisons, at least the ones I've shown so far, are usually done between numbers.
+
+91
+00:05:33,610 --> 00:05:38,980
+But we have this whole other group that we haven't talked about around equality and non equality.
+
+92
+00:05:38,980 --> 00:05:40,190
+That's coming up next.
+
+93
+00:05:40,210 --> 00:05:41,020
+I'll see you then.
+

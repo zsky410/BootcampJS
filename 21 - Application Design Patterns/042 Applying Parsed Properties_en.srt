@@ -1,0 +1,244 @@
+1
+00:00:01,200 --> 00:00:04,560
+All right, now that we've got all these statistics, let's make sure that we add each of them to the
+
+2
+00:00:04,560 --> 00:00:07,260
+appropriate article elements inside of our template.
+
+3
+00:00:07,830 --> 00:00:13,320
+So down here I have my first article right there that is meant to show the number of awards.
+
+4
+00:00:13,590 --> 00:00:20,970
+So on that article element, I'm going to add in a data value property and I'm going to inject the value
+
+5
+00:00:21,090 --> 00:00:22,320
+awards to it.
+
+6
+00:00:23,250 --> 00:00:26,130
+And we can repeat that same process for the other articles as well.
+
+7
+00:00:26,490 --> 00:00:29,070
+So the next one is supposed to show box office.
+
+8
+00:00:29,070 --> 00:00:32,229
+I think we called the relevant statistic dollars.
+
+9
+00:00:32,250 --> 00:00:33,360
+Yeah, there it is right there.
+
+10
+00:00:33,900 --> 00:00:35,400
+So I'm going to go back down.
+
+11
+00:00:35,700 --> 00:00:37,980
+There is the box office statistic on the article.
+
+12
+00:00:37,980 --> 00:00:39,330
+I'll do a data value.
+
+13
+00:00:40,440 --> 00:00:41,400
+Of dollars.
+
+14
+00:00:42,340 --> 00:00:47,140
+The next one is a data value of metascore.
+
+15
+00:00:48,870 --> 00:00:50,790
+And we've got our IMDB rating.
+
+16
+00:00:51,550 --> 00:00:55,960
+So data value of IMDB rating.
+
+17
+00:00:56,350 --> 00:00:58,510
+And then finally, data value.
+
+18
+00:00:59,270 --> 00:01:01,220
+IMDB votes.
+
+19
+00:01:02,180 --> 00:01:03,320
+And that should be it.
+
+20
+00:01:05,090 --> 00:01:07,460
+As usual, we'll do a quick save and a test.
+
+21
+00:01:07,790 --> 00:01:12,890
+So the test in this case is to inspect our DOM elements and just make sure that we are assigning some
+
+22
+00:01:12,890 --> 00:01:14,330
+reasonable values to each one.
+
+23
+00:01:14,750 --> 00:01:16,040
+So I will refresh.
+
+24
+00:01:16,730 --> 00:01:18,110
+I'll look up Avengers.
+
+25
+00:01:18,590 --> 00:01:19,070
+Whoops.
+
+26
+00:01:19,220 --> 00:01:21,990
+I accidentally typed dollar instead of dollars.
+
+27
+00:01:22,010 --> 00:01:22,730
+My mistake.
+
+28
+00:01:23,300 --> 00:01:23,930
+There we go.
+
+29
+00:01:23,960 --> 00:01:25,190
+Dollars on the second one.
+
+30
+00:01:27,760 --> 00:01:29,040
+Avengers again.
+
+31
+00:01:29,040 --> 00:01:30,100
+I like it.
+
+32
+00:01:30,100 --> 00:01:30,860
+That's better.
+
+33
+00:01:30,880 --> 00:01:32,760
+So now I can inspect my Dom.
+
+34
+00:01:32,770 --> 00:01:36,580
+I'm going to look at each of these elements and just make sure that they have the appropriate value
+
+35
+00:01:36,580 --> 00:01:37,270
+property.
+
+36
+00:01:38,230 --> 00:01:38,950
+And there we go.
+
+37
+00:01:38,950 --> 00:01:40,600
+So I can see the list of articles.
+
+38
+00:01:40,600 --> 00:01:41,440
+There's the first one.
+
+39
+00:01:41,440 --> 00:01:43,330
+It has a data value of 118.
+
+40
+00:01:43,660 --> 00:01:49,810
+Then I've got the number value for the dollars, then the METASCORE, the IMDB rating, and finally
+
+41
+00:01:49,810 --> 00:01:50,950
+the number of votes.
+
+42
+00:01:52,050 --> 00:01:53,070
+So that's pretty much it.
+
+43
+00:01:53,190 --> 00:01:57,220
+We can now repeat that same process for this stuff on the right hand side as well.
+
+44
+00:01:57,240 --> 00:01:59,010
+So over here I'll look up Dark Knight.
+
+45
+00:02:00,690 --> 00:02:03,000
+I'll do an inspect of that element right there.
+
+46
+00:02:04,330 --> 00:02:06,820
+And I get 309 awards.
+
+47
+00:02:06,820 --> 00:02:07,990
+Wow, that's pretty crazy.
+
+48
+00:02:08,320 --> 00:02:15,640
+Then I get the about 533 million, then 84 METASCORE and nine IMDB rating.
+
+49
+00:02:15,640 --> 00:02:17,830
+And finally, 2 million votes.
+
+50
+00:02:19,330 --> 00:02:19,620
+Okay.
+
+51
+00:02:19,690 --> 00:02:20,560
+So that's it.
+
+52
+00:02:21,070 --> 00:02:26,720
+Now, the very last thing we have to do inside of our compare run comparison function right here.
+
+53
+00:02:26,740 --> 00:02:30,040
+We can now iterate over all those different article elements.
+
+54
+00:02:30,040 --> 00:02:32,350
+So we're going to iterate over both them at the same time.
+
+55
+00:02:32,350 --> 00:02:37,180
+Basically, basically get this collection on the left hand side and this collection on the right hand
+
+56
+00:02:37,180 --> 00:02:43,240
+side, and then we'll compare each of them one by one by looking at their data value properties, whichever
+
+57
+00:02:43,240 --> 00:02:43,900
+one is greater.
+
+58
+00:02:43,900 --> 00:02:47,110
+We're going to apply some classes to to colored as yellow.
+
+59
+00:02:47,110 --> 00:02:50,110
+Otherwise we'll leave it as is and just leave it green.
+
+60
+00:02:50,970 --> 00:02:52,020
+It's that's the idea.
+
+61
+00:02:52,050 --> 00:02:54,960
+One more quick pause and we're going to wrap this thing up in the next video.
+

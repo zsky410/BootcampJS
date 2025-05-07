@@ -1,0 +1,152 @@
+1
+00:00:00,120 --> 00:00:02,009
+Well, I may have just lied to you.
+
+2
+00:00:02,040 --> 00:00:03,450
+We're not quite at variables.
+
+3
+00:00:03,450 --> 00:00:06,540
+We have one more very quick topic to discuss with numbers.
+
+4
+00:00:06,540 --> 00:00:08,070
+Something called Nan.
+
+5
+00:00:08,100 --> 00:00:10,260
+It is a special value in JavaScript.
+
+6
+00:00:10,260 --> 00:00:14,340
+It stands for not a number and it is a number in JavaScript.
+
+7
+00:00:14,340 --> 00:00:18,570
+It's considered a numeric value that represents something that is not a number.
+
+8
+00:00:18,930 --> 00:00:22,140
+So there's a couple of different ways you could arrive at not a number.
+
+9
+00:00:22,230 --> 00:00:23,850
+Here are two simple ones.
+
+10
+00:00:23,850 --> 00:00:27,540
+If you try and divide zero by zero, you'll get not a number.
+
+11
+00:00:27,630 --> 00:00:33,450
+If you try and take not a number and add a number to it, the answer is still not a number, which makes
+
+12
+00:00:33,450 --> 00:00:34,020
+sense.
+
+13
+00:00:34,020 --> 00:00:37,020
+You couldn't take not a number and add five to it.
+
+14
+00:00:37,050 --> 00:00:39,540
+The answer logically would be not a number.
+
+15
+00:00:40,290 --> 00:00:42,030
+So you can type, not a number like this.
+
+16
+00:00:42,030 --> 00:00:43,980
+It is capital n a n.
+
+17
+00:00:44,310 --> 00:00:47,880
+If you did n a n like this, it's not really going to work.
+
+18
+00:00:47,910 --> 00:00:49,710
+It needs to be capitalized correctly.
+
+19
+00:00:49,710 --> 00:00:54,570
+It's a very special value in JavaScript and it is a number, as I mentioned already.
+
+20
+00:00:54,720 --> 00:00:57,990
+If we do zero divided by zero, we get not a number.
+
+21
+00:00:58,020 --> 00:01:00,470
+If we take not a number, we add five.
+
+22
+00:01:00,480 --> 00:01:01,830
+It's still not a number.
+
+23
+00:01:02,040 --> 00:01:04,110
+There are two other values I mentioned.
+
+24
+00:01:04,140 --> 00:01:09,750
+We have infinity, which we can generate by doing something like one divided by zero.
+
+25
+00:01:09,990 --> 00:01:13,970
+JavaScript just has a way of representing a value of infinity.
+
+26
+00:01:13,980 --> 00:01:18,330
+There's no way to store that as a number, an actual number that you could see.
+
+27
+00:01:18,330 --> 00:01:20,700
+So we have a special value called infinity.
+
+28
+00:01:20,700 --> 00:01:24,120
+There's also a negative infinity, as you can see here.
+
+29
+00:01:24,330 --> 00:01:30,300
+And we also have zero and -0, which sometimes throws people off.
+
+30
+00:01:30,300 --> 00:01:33,260
+-0 is its own value in JavaScript as well.
+
+31
+00:01:33,270 --> 00:01:35,420
+But the point here is really about not a number.
+
+32
+00:01:35,430 --> 00:01:40,500
+If you do encounter not a number, it is a value that means this is not a number.
+
+33
+00:01:40,530 --> 00:01:42,990
+It doesn't necessarily mean something went wrong.
+
+34
+00:01:42,990 --> 00:01:48,210
+Sometimes you have code where you're expecting not a number or it could be a possibility.
+
+35
+00:01:48,210 --> 00:01:53,730
+So it's not an error necessarily, but it means this is not standard math or JavaScript is going to
+
+36
+00:01:53,730 --> 00:01:58,350
+have a hard time representing this number or this value as a true numeric value.
+
+37
+00:01:58,350 --> 00:02:00,480
+So that's nine, not a number.
+
+38
+00:02:00,480 --> 00:02:02,520
+Now we're actually going on to variables.
+

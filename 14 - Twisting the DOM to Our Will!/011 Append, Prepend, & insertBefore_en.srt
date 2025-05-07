@@ -1,0 +1,644 @@
+1
+00:00:00,150 --> 00:00:04,600
+Next up, we'll see a few other methods we can use to add new elements to the DOM.
+
+2
+00:00:04,620 --> 00:00:06,780
+We've seen a Penn child so far.
+
+3
+00:00:06,810 --> 00:00:08,100
+We'll see other options.
+
+4
+00:00:08,100 --> 00:00:10,050
+And we'll also talk about removing elements.
+
+5
+00:00:10,050 --> 00:00:14,070
+How do we delete something from the DOM as we saw in the very last video?
+
+6
+00:00:14,130 --> 00:00:19,860
+Append child takes a new element, but it's a method that we call on a parent.
+
+7
+00:00:19,860 --> 00:00:27,720
+So to add a new ally to this list, I need to select the list so I could do document query selector.
+
+8
+00:00:28,560 --> 00:00:29,550
+Take the first.
+
+9
+00:00:29,700 --> 00:00:33,120
+I think it's a UL query selector of UL.
+
+10
+00:00:33,150 --> 00:00:34,950
+I'll call this parent UL.
+
+11
+00:00:36,120 --> 00:00:37,500
+So I have that parent.
+
+12
+00:00:37,660 --> 00:00:41,250
+Well, I'll make a new lie concept.
+
+13
+00:00:41,250 --> 00:00:47,310
+New lie equals document create element of lie.
+
+14
+00:00:47,730 --> 00:00:54,540
+And then I will set its inner text just to be something like I am a new lie.
+
+15
+00:00:56,360 --> 00:00:57,440
+So we have that.
+
+16
+00:00:57,770 --> 00:01:00,050
+Now I need to make sure my quotes match.
+
+17
+00:01:00,590 --> 00:01:05,720
+When I do a pen child, it becomes the last element, the last child of the parent.
+
+18
+00:01:05,720 --> 00:01:12,770
+So parent ul append child of new ly.
+
+19
+00:01:13,070 --> 00:01:16,130
+That's what we get and that is useful sometimes.
+
+20
+00:01:16,130 --> 00:01:19,460
+You do want to append at the end the last child of an element.
+
+21
+00:01:19,460 --> 00:01:24,020
+But what if we wanted to put it at the beginning, make a new top to do?
+
+22
+00:01:24,050 --> 00:01:29,480
+Maybe these are ordered by priority or, you know, due date or something like that.
+
+23
+00:01:29,480 --> 00:01:33,950
+And I want my new to do to go up here or what if I want it to go in the middle?
+
+24
+00:01:34,070 --> 00:01:39,020
+We have a different method called insert before now insert before.
+
+25
+00:01:39,020 --> 00:01:45,080
+Sounds like the way that it would work is that we select a node and call insert before on it.
+
+26
+00:01:45,080 --> 00:01:53,660
+So if I wanted to insert before this ally, you might think I select that ly and then I call first ly
+
+27
+00:01:54,110 --> 00:01:56,480
+insert before new ly.
+
+28
+00:01:57,050 --> 00:01:58,490
+But that's not how it works.
+
+29
+00:01:58,490 --> 00:02:04,340
+We actually still have to select the parent and we have to select the element we want to insert before.
+
+30
+00:02:04,400 --> 00:02:09,830
+It's kind of annoying, not not knowing enough that you shouldn't use it, but it's just kind of cumbersome.
+
+31
+00:02:09,830 --> 00:02:15,170
+So if I want to make this ally that I have down here, I want it to go up top above, mow the lawn.
+
+32
+00:02:15,170 --> 00:02:22,190
+I need to first select mow the lawn so I'll make a variable called first ly equals document.
+
+33
+00:02:22,190 --> 00:02:23,810
+And what's the best way to select it?
+
+34
+00:02:23,810 --> 00:02:26,720
+I think it's the very first ly on the entire page.
+
+35
+00:02:27,380 --> 00:02:29,270
+Let me just double check over here.
+
+36
+00:02:29,420 --> 00:02:30,470
+We've got.
+
+37
+00:02:30,470 --> 00:02:30,860
+Yeah.
+
+38
+00:02:30,860 --> 00:02:32,600
+Or it's the first to do on the page.
+
+39
+00:02:32,600 --> 00:02:33,560
+We could do it that way.
+
+40
+00:02:33,560 --> 00:02:39,890
+If you want to get more specific the first ly with the class of to do and if we look at it there it
+
+41
+00:02:39,890 --> 00:02:40,370
+is.
+
+42
+00:02:40,880 --> 00:02:42,470
+So I have all the pieces I need.
+
+43
+00:02:42,470 --> 00:02:45,620
+I have my new ally that I've made right now.
+
+44
+00:02:45,620 --> 00:02:48,170
+It's down here, but I still have a reference to that.
+
+45
+00:02:48,170 --> 00:02:50,990
+So if I move it, it will move from down here.
+
+46
+00:02:51,170 --> 00:02:56,900
+Then we also have the first ly I want to insert before and I have the parent you will.
+
+47
+00:02:56,900 --> 00:03:03,020
+So here is how I would insert my ly at the top of the ul i call parent ul.
+
+48
+00:03:03,790 --> 00:03:06,340
+Dot and then insert before.
+
+49
+00:03:07,600 --> 00:03:14,680
+And then the annoying part is we have to say the new thing, we want to insert new lie and where I want
+
+50
+00:03:14,680 --> 00:03:21,740
+to insert it, where I want to insert it before I want to insert it before the first lie.
+
+51
+00:03:22,870 --> 00:03:23,230
+Okay.
+
+52
+00:03:23,680 --> 00:03:29,140
+So the way it structured again, we have to have the parent of what we're trying to insert into and
+
+53
+00:03:29,140 --> 00:03:34,390
+then we also have to select what we want to insert before and then what we are actually inserting.
+
+54
+00:03:34,780 --> 00:03:35,800
+And there we go.
+
+55
+00:03:36,190 --> 00:03:38,980
+It's now inserted as a child of parent.
+
+56
+00:03:38,990 --> 00:03:45,940
+Well, but it's also before first lie and if I wanted to move it right above feed the alpacas, I need
+
+57
+00:03:45,940 --> 00:03:47,080
+to select that one.
+
+58
+00:03:47,080 --> 00:03:49,540
+So I'll call that last ul Konst.
+
+59
+00:03:49,540 --> 00:03:53,350
+The last you will equals document query selector.
+
+60
+00:03:53,470 --> 00:04:01,210
+I'm going to do selector all of lie with the class of to do and then take the index of two, which is
+
+61
+00:04:01,210 --> 00:04:02,770
+the third 101.
+
+62
+00:04:02,770 --> 00:04:08,080
+Nope, it's the third one or it's a fourth one index of three because we inserted this so that should
+
+63
+00:04:08,080 --> 00:04:08,860
+give me.
+
+64
+00:04:09,010 --> 00:04:10,660
+No that did not give it to me.
+
+65
+00:04:11,140 --> 00:04:13,540
+Let's see last Uhl.
+
+66
+00:04:13,570 --> 00:04:15,280
+Actually, I was wrong here.
+
+67
+00:04:15,880 --> 00:04:20,380
+Index of three is only going to work if I actually had four elements with the class of two.
+
+68
+00:04:20,380 --> 00:04:24,430
+Do I forgot that this one up top does not have to do so.
+
+69
+00:04:24,430 --> 00:04:27,610
+We'll get rid of that and change it to index of two.
+
+70
+00:04:27,760 --> 00:04:32,830
+But I've already declared this variable, so I'm going to call this last to do.
+
+71
+00:04:33,280 --> 00:04:43,390
+So now I can insert I'll do parent ul dot insert before and then I want to insert the new ly before
+
+72
+00:04:43,420 --> 00:04:45,070
+the last to do.
+
+73
+00:04:45,980 --> 00:04:47,000
+And there we go.
+
+74
+00:04:47,030 --> 00:04:51,110
+It now is right before the last two do feed the alpacas.
+
+75
+00:04:51,140 --> 00:04:55,810
+We also have a completely different method that we could use called insert adjacent element.
+
+76
+00:04:55,820 --> 00:04:58,010
+And this one's a bit more complicated.
+
+77
+00:04:58,040 --> 00:04:59,390
+We passed in an element.
+
+78
+00:04:59,390 --> 00:05:05,750
+We have to have a target element, but then we also pass in a position and this is a string which might
+
+79
+00:05:05,750 --> 00:05:12,560
+seem odd, but we have four choices before begin, after begin, before end and after end.
+
+80
+00:05:12,860 --> 00:05:16,400
+So if you imagine that this is our target, we have a paragraph.
+
+81
+00:05:16,550 --> 00:05:22,370
+If we want to insert something before this paragraph, we would pass in before begin.
+
+82
+00:05:22,370 --> 00:05:28,220
+If we want to insert it after we use after end and then if we want to insert it as the first child of
+
+83
+00:05:28,220 --> 00:05:32,600
+the paragraph after begin and before end will be the last child.
+
+84
+00:05:33,550 --> 00:05:35,830
+So let's try this just one or two times.
+
+85
+00:05:35,830 --> 00:05:37,960
+We can use the same lie, I guess.
+
+86
+00:05:37,960 --> 00:05:41,140
+Or actually let's make a new element and we'll just be a bold tag.
+
+87
+00:05:41,170 --> 00:05:42,330
+Or how about an eye tag?
+
+88
+00:05:42,340 --> 00:05:46,990
+Document creates element of eye.
+
+89
+00:05:48,530 --> 00:05:52,850
+And we'll call this eye tag or I whatever.
+
+90
+00:05:52,850 --> 00:05:54,410
+It's not a great name, but that's fine.
+
+91
+00:05:54,860 --> 00:05:59,570
+And then we'll do I enter text equals I am italics.
+
+92
+00:06:01,100 --> 00:06:02,450
+So we have our eye tag.
+
+93
+00:06:02,630 --> 00:06:05,120
+Now let's select one of these elements.
+
+94
+00:06:05,120 --> 00:06:08,480
+How about the very first paragraph on our page?
+
+95
+00:06:08,480 --> 00:06:12,290
+So that will be document query selector p.
+
+96
+00:06:13,870 --> 00:06:16,450
+Save that to const first p.
+
+97
+00:06:17,840 --> 00:06:24,210
+Now I can call first p insert adjacent element and then I have to specify where.
+
+98
+00:06:24,230 --> 00:06:27,170
+So if I do before I begin.
+
+99
+00:06:28,860 --> 00:06:34,050
+And this method, I think, is kind of unpopular, mainly because you have to remember these strings
+
+100
+00:06:34,050 --> 00:06:38,220
+and a lot of the time you just want to insert something as the last child anyway, so you can use a
+
+101
+00:06:38,220 --> 00:06:43,290
+pen child and shortly I'll show you two other methods append and pretend.
+
+102
+00:06:43,290 --> 00:06:47,460
+But here we can pass in before begin and then our new AI element.
+
+103
+00:06:48,210 --> 00:06:53,280
+And if we take a look, it was inserted before the paragraph began.
+
+104
+00:06:53,490 --> 00:06:56,730
+So that's a way of inserting something before the paragraph.
+
+105
+00:06:56,730 --> 00:07:01,860
+And I personally think this is nicer, even if you have to remember before begin, it's better than
+
+106
+00:07:01,860 --> 00:07:09,000
+what we did earlier when we had to select the parent, insert before the target, and then the new element.
+
+107
+00:07:09,000 --> 00:07:13,260
+Let's try the same line, but we'll do after end.
+
+108
+00:07:14,580 --> 00:07:19,020
+Now it goes after the paragraph, after the paragraph ends.
+
+109
+00:07:19,230 --> 00:07:22,440
+And if we do after begin.
+
+110
+00:07:24,110 --> 00:07:26,960
+It goes into the paragraph element itself.
+
+111
+00:07:27,350 --> 00:07:29,720
+After the opening tag, the beginning tag.
+
+112
+00:07:29,750 --> 00:07:30,710
+It goes right there.
+
+113
+00:07:30,710 --> 00:07:36,980
+And then we have the final option before end, which we'll put it right here before the end of the paragraph.
+
+114
+00:07:37,580 --> 00:07:38,630
+One more time.
+
+115
+00:07:38,630 --> 00:07:40,280
+Before end.
+
+116
+00:07:40,640 --> 00:07:41,660
+For end.
+
+117
+00:07:42,230 --> 00:07:43,550
+And there it is.
+
+118
+00:07:43,640 --> 00:07:45,950
+So another option for inserting.
+
+119
+00:07:46,400 --> 00:07:52,030
+I did mention there are two other methods we can talk about called append and present.
+
+120
+00:07:52,760 --> 00:07:53,580
+These are newer.
+
+121
+00:07:53,600 --> 00:07:59,330
+They do not work in Internet Explorer, of course, and they're just a little bit simpler than append
+
+122
+00:07:59,330 --> 00:08:00,050
+child.
+
+123
+00:08:00,320 --> 00:08:02,280
+And also there is no pre pen child.
+
+124
+00:08:02,300 --> 00:08:08,270
+So Append is different from a pen child in that we can actually insert multiple elements at once.
+
+125
+00:08:08,450 --> 00:08:11,030
+So if I have this paragraph tag, let's see.
+
+126
+00:08:11,030 --> 00:08:14,330
+I have my eye still and I have my new ally, right?
+
+127
+00:08:14,960 --> 00:08:15,590
+Nope.
+
+128
+00:08:15,620 --> 00:08:16,220
+What do I.
+
+129
+00:08:16,560 --> 00:08:20,570
+New ly all caps or l capital i capital.
+
+130
+00:08:20,720 --> 00:08:21,980
+So we have two elements.
+
+131
+00:08:21,980 --> 00:08:27,500
+If I want to insert both of them into this paragraph, which we shouldn't really just put an ly in a
+
+132
+00:08:27,500 --> 00:08:28,130
+paragraph.
+
+133
+00:08:28,130 --> 00:08:31,010
+But if I wanted to I could use append.
+
+134
+00:08:31,010 --> 00:08:32,440
+So it looks like this.
+
+135
+00:08:32,450 --> 00:08:40,070
+The first paragraph that we already selected append and then we can pass in AI and new ly.
+
+136
+00:08:40,159 --> 00:08:44,240
+And now both of them have been appended inside that paragraph.
+
+137
+00:08:44,330 --> 00:08:48,920
+The italics tag was already there, so it kind of looks like nothing happened.
+
+138
+00:08:49,160 --> 00:08:50,950
+But it did happen, I promise.
+
+139
+00:08:50,960 --> 00:08:58,220
+And we also have pre penned, which is the same idea, except it will make things a first child.
+
+140
+00:08:58,220 --> 00:09:03,080
+So it still will be a child of the paragraph, but it will go to the beginning of the paragraph.
+
+141
+00:09:03,830 --> 00:09:04,750
+And there we go.
+
+142
+00:09:04,760 --> 00:09:07,370
+If we look, we've got am italics.
+
+143
+00:09:07,370 --> 00:09:08,390
+I am a new ly.
+
+144
+00:09:08,420 --> 00:09:12,020
+They're still inside the paragraph, but they are at the very beginning.
+
+145
+00:09:12,410 --> 00:09:14,360
+So append and pretend are nice.
+
+146
+00:09:14,360 --> 00:09:15,080
+They're short.
+
+147
+00:09:15,080 --> 00:09:16,610
+You don't have to do a pen child.
+
+148
+00:09:16,610 --> 00:09:21,140
+I mean, you just save a couple of letters, but with a pen child you cannot insert multiple.
+
+149
+00:09:21,530 --> 00:09:25,670
+If I did a pen child here, it's not going to be happy with me.
+
+150
+00:09:25,880 --> 00:09:28,190
+We get the one element inserted.
+
+151
+00:09:28,340 --> 00:09:31,570
+I am italics, but the ly was never added.
+
+152
+00:09:31,580 --> 00:09:33,160
+It just stayed where it was.
+
+153
+00:09:33,170 --> 00:09:39,380
+So append is cool because you can do that but it does not work in i e neither does pre penned woof.
+
+154
+00:09:39,380 --> 00:09:41,540
+So many different ways of adding elements.
+
+155
+00:09:41,810 --> 00:09:43,030
+Stick with the couple.
+
+156
+00:09:43,040 --> 00:09:44,870
+You don't have to master all of them.
+
+157
+00:09:45,530 --> 00:09:47,270
+A pen child is usually good enough.
+
+158
+00:09:47,270 --> 00:09:49,070
+If you have multiple you can do append.
+
+159
+00:09:49,070 --> 00:09:51,770
+Maybe you can do insert adjacent element.
+
+160
+00:09:51,770 --> 00:09:54,690
+You just have to remember the syntax you've got pre penned.
+
+161
+00:09:54,710 --> 00:09:57,110
+Next I'll show you some ways of removing elements.
+

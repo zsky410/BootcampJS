@@ -1,0 +1,504 @@
+1
+00:00:00,150 --> 00:00:03,270
+Next up, another practice problem with functions.
+
+2
+00:00:03,390 --> 00:00:06,600
+So this one involves something called a pan gram.
+
+3
+00:00:06,840 --> 00:00:11,640
+Not a palindrome, not a ten gram, but pan gram.
+
+4
+00:00:12,000 --> 00:00:16,890
+And a pan gram is a sentence that contains every letter of the alphabet.
+
+5
+00:00:17,250 --> 00:00:22,320
+The most famous one, at least in English, is the quick brown fox jumps over the lazy dog.
+
+6
+00:00:22,620 --> 00:00:27,120
+So there is at least one A, one B, one C all the way through Z.
+
+7
+00:00:27,120 --> 00:00:32,910
+In this sentence, that doesn't mean there's only one A and only one B, there just has to be at least
+
+8
+00:00:32,910 --> 00:00:40,110
+one quick side note there is such a thing as a perfect pan gram where each letter is only used one time,
+
+9
+00:00:40,110 --> 00:00:47,310
+but in English apparently it's impossible unless you use abbreviations like FD and GQ.
+
+10
+00:00:47,460 --> 00:00:48,990
+So we're not worried about those.
+
+11
+00:00:48,990 --> 00:00:50,820
+We're focusing on a traditional pan.
+
+12
+00:00:50,820 --> 00:00:54,510
+Graham Where each letter can be used more than once so quick.
+
+13
+00:00:54,510 --> 00:00:56,300
+Brown Fox What else?
+
+14
+00:00:56,310 --> 00:00:57,540
+Sphinx of Black Courts.
+
+15
+00:00:57,540 --> 00:01:01,830
+Judge my vow packed my box with five dozen liquor jugs.
+
+16
+00:01:02,310 --> 00:01:06,720
+So I'd like for you to write a function called is Pan Gram, which accepts a sentence.
+
+17
+00:01:06,720 --> 00:01:08,220
+We can assume it is a string.
+
+18
+00:01:08,220 --> 00:01:12,750
+You don't need to check to see if it's a number or anything like that, and it should return true or
+
+19
+00:01:12,750 --> 00:01:18,570
+false, depending on whether that input string does in fact contain every letter in the English alphabet.
+
+20
+00:01:18,690 --> 00:01:23,700
+So A, B, C, all the way through z and it should not care about casing.
+
+21
+00:01:23,700 --> 00:01:28,980
+So as an example, this string right here, the five boxing wizards jump quickly.
+
+22
+00:01:29,220 --> 00:01:30,540
+This is a pan.
+
+23
+00:01:30,540 --> 00:01:32,580
+Graham It does include every letter.
+
+24
+00:01:32,910 --> 00:01:37,080
+It's an uppercase T at the beginning, not a lowercase t, it should still return.
+
+25
+00:01:37,080 --> 00:01:37,650
+True.
+
+26
+00:01:37,800 --> 00:01:40,440
+So you don't need to manually check.
+
+27
+00:01:40,590 --> 00:01:41,940
+Does it contain uppercase D?
+
+28
+00:01:41,970 --> 00:01:43,620
+Does it contain lowercase t?
+
+29
+00:01:43,620 --> 00:01:45,570
+You can get around that pretty easily.
+
+30
+00:01:45,810 --> 00:01:50,610
+And then here's an example where it's almost the same sentence, but it's missing the L and the Y at
+
+31
+00:01:50,610 --> 00:01:51,240
+the end.
+
+32
+00:01:51,240 --> 00:01:54,870
+So it does not have every letter it returns false.
+
+33
+00:01:55,920 --> 00:01:56,760
+So pause.
+
+34
+00:01:56,790 --> 00:01:58,080
+Give it a shot if you'd like.
+
+35
+00:01:58,080 --> 00:01:59,670
+And here's my attempt.
+
+36
+00:02:00,180 --> 00:02:04,800
+I'll define a function called is pen graham and it takes.
+
+37
+00:02:05,070 --> 00:02:10,020
+How about sentence or phrase str string?
+
+38
+00:02:10,350 --> 00:02:16,260
+And then what we need to do essentially is loop over every letter in the alphabet and check if that
+
+39
+00:02:16,260 --> 00:02:17,700
+letter is in sentence.
+
+40
+00:02:17,970 --> 00:02:25,710
+The naive approach would be if sentence and then we have multiple ways to check for the existence of
+
+41
+00:02:25,710 --> 00:02:31,590
+a character we could do index of and we want to make sure it's not equal to negative one.
+
+42
+00:02:31,710 --> 00:02:37,530
+So we could do that and then do it for B and C and D and E and our code would be quite long.
+
+43
+00:02:37,530 --> 00:02:40,650
+So instead we can do it dynamically using a loop.
+
+44
+00:02:40,920 --> 00:02:46,500
+But how do we loop over every character in the alphabet aside from creating an array from scratch and
+
+45
+00:02:46,500 --> 00:02:48,510
+putting every letter in there as a string?
+
+46
+00:02:49,060 --> 00:02:52,830
+An easier way, in my opinion, is to just loop over a string.
+
+47
+00:02:52,830 --> 00:03:02,700
+So we still have to type every character a, b, c, d, e, fghijklmn0pqrstuvwx, y and z.
+
+48
+00:03:03,510 --> 00:03:07,080
+We have it now in a single string and we can loop over this.
+
+49
+00:03:07,290 --> 00:03:19,830
+You could put this in a variable or we could just do four let let's go with character of ABCD to Z just
+
+50
+00:03:19,830 --> 00:03:20,670
+to make sure it works.
+
+51
+00:03:20,670 --> 00:03:23,070
+We can cancel that log character.
+
+52
+00:03:23,100 --> 00:03:28,260
+We do need to use a four of or a regular for loop that would work with an AI.
+
+53
+00:03:28,290 --> 00:03:33,300
+It's just annoying to deal with the index if we don't need to, we'll just use each individual character.
+
+54
+00:03:33,390 --> 00:03:34,230
+Let's try running.
+
+55
+00:03:34,230 --> 00:03:38,040
+It is Pam Graham and we do get every letter.
+
+56
+00:03:39,120 --> 00:03:40,290
+So that's working.
+
+57
+00:03:40,290 --> 00:03:43,650
+Now we just want to check if that letter is in sentence.
+
+58
+00:03:43,650 --> 00:03:48,600
+And as soon as we find one that is not in the sentence, we want to return false.
+
+59
+00:03:48,600 --> 00:03:49,770
+That means it's not a pen.
+
+60
+00:03:49,770 --> 00:03:50,280
+Graham.
+
+61
+00:03:50,280 --> 00:03:53,400
+It just takes one letter not being there for the whole thing to return.
+
+62
+00:03:53,400 --> 00:03:54,000
+False.
+
+63
+00:03:54,510 --> 00:04:02,370
+So we could use index of if sentence dot index of character.
+
+64
+00:04:03,320 --> 00:04:07,780
+Remember Index of returns, negative one if it can't find that character.
+
+65
+00:04:07,790 --> 00:04:11,870
+So if it's equal to negative one, we could return.
+
+66
+00:04:11,870 --> 00:04:12,680
+False.
+
+67
+00:04:14,360 --> 00:04:16,370
+And then where do we put the return?
+
+68
+00:04:16,370 --> 00:04:17,120
+True.
+
+69
+00:04:17,149 --> 00:04:19,220
+All the way after the entire loop.
+
+70
+00:04:19,910 --> 00:04:23,750
+If we make it all the way here, it means every character was found.
+
+71
+00:04:23,780 --> 00:04:26,180
+As soon as one character is not found, we return.
+
+72
+00:04:26,180 --> 00:04:26,750
+False.
+
+73
+00:04:27,200 --> 00:04:30,330
+So down here, that means every character is there.
+
+74
+00:04:30,350 --> 00:04:31,580
+Let's verify it.
+
+75
+00:04:31,580 --> 00:04:32,120
+Refresh.
+
+76
+00:04:32,120 --> 00:04:34,130
+Over here is Pan Gram.
+
+77
+00:04:34,160 --> 00:04:36,260
+I'll pass in this string.
+
+78
+00:04:36,260 --> 00:04:42,800
+Although there is a problem with this string, we have a capital T at the beginning, so I do need to
+
+79
+00:04:42,800 --> 00:04:46,760
+update that for now to a lowercase t and we get true.
+
+80
+00:04:47,090 --> 00:04:49,010
+Let's try deleting a single letter.
+
+81
+00:04:49,010 --> 00:04:53,480
+We now get false some other letter still false.
+
+82
+00:04:54,110 --> 00:04:55,520
+It appears to be working.
+
+83
+00:04:55,880 --> 00:04:58,940
+Now let's make it work with all string casings.
+
+84
+00:04:58,940 --> 00:05:02,390
+I don't know why I said it all with uppercase and lowercase letters.
+
+85
+00:05:02,630 --> 00:05:07,340
+The easiest way to account for different casings is just to equalize them.
+
+86
+00:05:07,340 --> 00:05:10,610
+So our string right here is all lowercase letters.
+
+87
+00:05:10,730 --> 00:05:13,640
+So let's make sentence all lowercase as well.
+
+88
+00:05:13,910 --> 00:05:16,790
+So let's call sentence two lowercase.
+
+89
+00:05:17,300 --> 00:05:20,030
+But remember, this does not update sentence.
+
+90
+00:05:20,180 --> 00:05:25,700
+The string itself is immutable, it returns a lowercase version of sentence.
+
+91
+00:05:25,700 --> 00:05:27,620
+So let's save that to a variable.
+
+92
+00:05:27,620 --> 00:05:29,800
+Let's call it lowercase.
+
+93
+00:05:30,980 --> 00:05:37,550
+And then instead of doing sentence index of will do lowercase index of.
+
+94
+00:05:38,540 --> 00:05:45,290
+So all we did was now use a lowercase version of whatever sentence is passed in and compare it to only
+
+95
+00:05:45,290 --> 00:05:46,580
+lowercase letters.
+
+96
+00:05:46,580 --> 00:05:51,950
+And we could go the other way, we could make it all caps, and then this string would need to be a
+
+97
+00:05:51,980 --> 00:05:53,990
+BCD in all caps as well.
+
+98
+00:05:54,620 --> 00:05:56,120
+Let's see if it works again.
+
+99
+00:05:57,290 --> 00:05:59,330
+Here is the original all lowercase.
+
+100
+00:05:59,330 --> 00:06:00,200
+It still works.
+
+101
+00:06:00,200 --> 00:06:01,820
+Let's make an uppercase y.
+
+102
+00:06:01,850 --> 00:06:02,780
+It still works.
+
+103
+00:06:02,780 --> 00:06:05,360
+But if that y is missing, it's false.
+
+104
+00:06:05,360 --> 00:06:06,680
+It's not a pen grab.
+
+105
+00:06:07,070 --> 00:06:07,700
+Cool.
+
+106
+00:06:07,940 --> 00:06:13,730
+There is another small change we could make instead of using index of we could use a different method.
+
+107
+00:06:13,730 --> 00:06:15,110
+Like includes.
+
+108
+00:06:15,110 --> 00:06:15,830
+Includes.
+
+109
+00:06:15,830 --> 00:06:20,780
+It's great, but the downside is it's not supported in i.e. Internet Explorer.
+
+110
+00:06:20,780 --> 00:06:24,860
+It's a newer method, but let's just write it anyway.
+
+111
+00:06:24,860 --> 00:06:30,560
+I think it makes the code easier to read instead of this index of equals negative one, we could rewrite
+
+112
+00:06:30,560 --> 00:06:38,690
+it as lowercase, includes character, but we want to say if it does not include that character, return
+
+113
+00:06:38,690 --> 00:06:39,260
+false.
+
+114
+00:06:40,400 --> 00:06:46,610
+In my opinion this is a little cleaner than index of character equals equals equals negative one.
+
+115
+00:06:46,970 --> 00:06:52,640
+It's not a big deal, obviously, but since it includes as a boolean method, it returns true or false
+
+116
+00:06:52,640 --> 00:06:53,390
+right away.
+
+117
+00:06:53,420 --> 00:06:58,250
+We don't have to do a comparison and we'll return false if the string does not include it.
+
+118
+00:06:59,060 --> 00:07:00,410
+Let's make sure it works.
+
+119
+00:07:02,510 --> 00:07:03,050
+It does.
+
+120
+00:07:03,050 --> 00:07:03,830
+We remove that.
+
+121
+00:07:03,830 --> 00:07:04,520
+Why?
+
+122
+00:07:04,550 --> 00:07:05,600
+It does not work.
+
+123
+00:07:05,600 --> 00:07:08,210
+We'll put the Y back and remove something else.
+
+124
+00:07:08,810 --> 00:07:13,160
+If we add in extra characters, as long as they put that ebacc, it still should work.
+
+125
+00:07:13,310 --> 00:07:15,110
+We're not looking for a perfect pen.
+
+126
+00:07:15,110 --> 00:07:16,730
+Graham All right.
+

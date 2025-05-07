@@ -1,0 +1,544 @@
+1
+00:00:00,090 --> 00:00:00,660
+All right.
+
+2
+00:00:15,010 --> 00:00:16,210
+It's called Hex.
+
+3
+00:00:16,210 --> 00:00:16,740
+We could call.
+
+4
+00:00:17,770 --> 00:00:20,560
+It simply takes some RTB value.
+
+5
+00:00:20,560 --> 00:00:22,750
+So three arguments we passed in.
+
+6
+00:00:22,750 --> 00:00:31,840
+Let's go with 255 125 that will spit back to us a hexadecimal color that looks like that.
+
+7
+00:00:32,049 --> 00:00:36,310
+So if I put this in my VTS code, you can see the color there.
+
+8
+00:00:36,430 --> 00:00:37,810
+It's an orange color.
+
+9
+00:00:37,930 --> 00:00:42,520
+And if I wrote the correct GB string just so we can double check.
+
+10
+00:00:42,970 --> 00:00:47,980
+It needs to be GB and then 255 125.
+
+11
+00:00:48,760 --> 00:00:51,880
+It's the same color, at least according to VTS code.
+
+12
+00:00:52,810 --> 00:00:54,200
+So we have this function.
+
+13
+00:00:54,220 --> 00:01:00,190
+I could also write another function to take three numbers like we have here RG and B and actually return
+
+14
+00:01:00,190 --> 00:01:03,490
+a valid GB string for use in CCIS.
+
+15
+00:01:03,550 --> 00:01:06,040
+I could just call that function GB.
+
+16
+00:01:06,070 --> 00:01:14,680
+It accepts our G and B and then it returns a template literal where we have our GB and then dollar sign
+
+17
+00:01:14,680 --> 00:01:20,500
+r comma dollars dollar sign B, comma dollar sign C.
+
+18
+00:01:21,160 --> 00:01:22,480
+And that should be it.
+
+19
+00:01:22,780 --> 00:01:24,070
+Let's make sure that works.
+
+20
+00:01:24,070 --> 00:01:27,430
+If I use the same values, but I call GB instead.
+
+21
+00:01:27,430 --> 00:01:31,870
+That's the name of our function which the VTS code extension is actually already giving me a preview
+
+22
+00:01:31,870 --> 00:01:32,320
+of.
+
+23
+00:01:32,410 --> 00:01:34,390
+Oh, this should be g.
+
+24
+00:01:34,570 --> 00:01:37,650
+Not sure where c came from if I tried running this.
+
+25
+00:01:37,660 --> 00:01:38,950
+All right, we get our string.
+
+26
+00:01:39,400 --> 00:01:39,880
+Okay.
+
+27
+00:01:40,390 --> 00:01:42,400
+So we have two different functions.
+
+28
+00:01:42,400 --> 00:01:45,160
+They are perfectly fine on their own, as is.
+
+29
+00:01:45,160 --> 00:01:51,880
+But if I wanted to make a nice little object where I can convert back and forth from GB to hex without
+
+30
+00:01:51,880 --> 00:01:54,070
+having to pass in numbers each time.
+
+31
+00:01:54,190 --> 00:02:00,100
+Kind of what I showed you in the last video, I could use a factory function which would make me an
+
+32
+00:02:00,100 --> 00:02:09,460
+object that automatically had a hex method and an RTP method and it stored the ARG and v values as values
+
+33
+00:02:09,460 --> 00:02:11,440
+or properties on the object.
+
+34
+00:02:12,280 --> 00:02:18,880
+So we could just make a function function and give it a name like colour, make or make colour.
+
+35
+00:02:21,340 --> 00:02:30,880
+And we would pass in R, G and B and then in here I could make a new object const color equals an empty
+
+36
+00:02:30,880 --> 00:02:31,650
+object.
+
+37
+00:02:31,660 --> 00:02:39,940
+I'm going to add some stuff into that, but at the end I'll return color so I could say color r equals
+
+38
+00:02:39,940 --> 00:02:45,610
+r, color g equals g, color dot B equals B.
+
+39
+00:02:45,610 --> 00:02:47,470
+Those are the values that were passed in.
+
+40
+00:02:47,830 --> 00:02:58,060
+So I would use this if I run the code by calling make color pass in some numbers like 30 5255255 and
+
+41
+00:02:58,060 --> 00:03:03,760
+then I get back this object r 30 5g255b255.
+
+42
+00:03:04,600 --> 00:03:09,130
+Now I could add in a method on this object color dot.
+
+43
+00:03:09,160 --> 00:03:12,670
+Let's go with our GB equals a function.
+
+44
+00:03:13,330 --> 00:03:17,170
+So I'm building up an object, hence the term factory.
+
+45
+00:03:17,500 --> 00:03:23,350
+We pass in some values and this factory makes us an object and returns it at the end so that I can use
+
+46
+00:03:23,350 --> 00:03:23,680
+it.
+
+47
+00:03:24,730 --> 00:03:25,210
+Okay.
+
+48
+00:03:25,210 --> 00:03:27,280
+So color ruby equals.
+
+49
+00:03:27,280 --> 00:03:29,470
+And then I'll basically copy this.
+
+50
+00:03:29,650 --> 00:03:33,820
+But instead of GB are B and g.
+
+51
+00:03:34,060 --> 00:03:35,860
+I just realized they're in the wrong order.
+
+52
+00:03:36,070 --> 00:03:37,510
+Are g b.
+
+53
+00:03:38,920 --> 00:03:45,520
+But instead of doing this in hard coding it, I'm going to use the keyword this which we also saw back
+
+54
+00:03:45,520 --> 00:03:54,190
+in that secret life of object section, the keyword this in this context, if I were to call first color
+
+55
+00:03:54,580 --> 00:04:02,410
+const, first color equals and then make color, I pass in some numbers three, five, two, five,
+
+56
+00:04:02,410 --> 00:04:04,090
+five and 150.
+
+57
+00:04:04,840 --> 00:04:14,050
+If I call first color GB in this method our GB right here, the value of this will refer to this object
+
+58
+00:04:14,050 --> 00:04:15,820
+to the left of the dot.
+
+59
+00:04:16,240 --> 00:04:22,960
+So if I use this, I can access this dot r, this dot g and if I just console.log this.
+
+60
+00:04:22,960 --> 00:04:28,900
+Just to give you a refresher, because that section was a while ago, I'll comment that line out.
+
+61
+00:04:29,080 --> 00:04:32,140
+We're simply printing this inside of this method.
+
+62
+00:04:32,440 --> 00:04:38,150
+So if I call make color some numbers three five, 150, 140.
+
+63
+00:04:38,200 --> 00:04:39,730
+Save that to a variable.
+
+64
+00:04:39,730 --> 00:04:43,090
+I'll call it C and I call C GB.
+
+65
+00:04:44,290 --> 00:04:53,350
+You can see that this is set to the same color object to C, so it has access to our G and B via this.
+
+66
+00:04:53,890 --> 00:05:02,440
+So what I would do is probably extract or D structure from this are G and B instead of having to create
+
+67
+00:05:02,440 --> 00:05:08,170
+my string and access to this are this dot G and this dot B, it gets kind of annoying.
+
+68
+00:05:08,530 --> 00:05:10,810
+So instead we can leave this as is.
+
+69
+00:05:11,110 --> 00:05:13,720
+And now the structure from this.
+
+70
+00:05:14,350 --> 00:05:15,310
+Let's see if it works.
+
+71
+00:05:15,310 --> 00:05:16,990
+I have this first color.
+
+72
+00:05:18,410 --> 00:05:19,820
+All access first colour.
+
+73
+00:05:20,210 --> 00:05:23,660
+JB and I have an R GB string.
+
+74
+00:05:24,770 --> 00:05:33,440
+I could also add in a hex function like we saw earlier, so I'll just paste it in and then I'll adapt
+
+75
+00:05:33,440 --> 00:05:33,860
+it.
+
+76
+00:05:34,610 --> 00:05:39,110
+I'm going to write color hex equals a function.
+
+77
+00:05:39,200 --> 00:05:45,470
+No arguments necessary unlike here where I have to pass them in each time to the function by storing
+
+78
+00:05:45,470 --> 00:05:47,450
+these methods on an object.
+
+79
+00:05:47,450 --> 00:05:50,240
+I'm calling it color here, but I'm returning it at the end.
+
+80
+00:05:50,240 --> 00:05:56,570
+The name doesn't matter, but because I store the methods on the object and that object also contains
+
+81
+00:05:56,570 --> 00:06:00,470
+the arg and V properties, I can access them just like I did here.
+
+82
+00:06:00,830 --> 00:06:04,790
+So I'm just going to repeat this line to extract or D structure.
+
+83
+00:06:04,790 --> 00:06:14,000
+RG And B from this just like in this function here, this referred to this color object, this entire
+
+84
+00:06:14,000 --> 00:06:21,590
+object we've been adding on to as long as I'm calling it like first color dot, GB or hex, just like
+
+85
+00:06:21,590 --> 00:06:24,650
+we would call some array dot push.
+
+86
+00:06:24,680 --> 00:06:25,400
+Right.
+
+87
+00:06:25,430 --> 00:06:27,350
+The dot is very important here.
+
+88
+00:06:27,380 --> 00:06:29,810
+We're not calling push and passing in the array.
+
+89
+00:06:29,840 --> 00:06:32,510
+We're not calling hex and passing in some numbers.
+
+90
+00:06:32,510 --> 00:06:34,850
+We're calling some colored dot hex.
+
+91
+00:06:34,850 --> 00:06:36,410
+We don't provide arguments.
+
+92
+00:06:36,440 --> 00:06:38,480
+It looks on this object.
+
+93
+00:06:38,480 --> 00:06:43,790
+So I could have another color, you know, I could have purple dot GB Purple Hex.
+
+94
+00:06:44,720 --> 00:06:46,430
+All right, so this should work.
+
+95
+00:06:46,430 --> 00:06:49,910
+Let's make sure the math doesn't matter whatsoever.
+
+96
+00:06:49,910 --> 00:06:50,540
+It's not the point.
+
+97
+00:06:50,540 --> 00:06:54,740
+I don't even want to take time to explain it honestly, because I haven't even looked at how it works.
+
+98
+00:06:54,740 --> 00:06:58,290
+I know that it's going to convert to base 16 at some point, I think.
+
+99
+00:06:58,340 --> 00:07:02,360
+Yeah, it's doing that right here, but really it does not matter to this video.
+
+100
+00:07:02,900 --> 00:07:03,260
+All right.
+
+101
+00:07:03,260 --> 00:07:04,130
+So it returns that.
+
+102
+00:07:04,130 --> 00:07:05,510
+Let's make sure it works.
+
+103
+00:07:05,570 --> 00:07:07,880
+I call first color dot hex.
+
+104
+00:07:08,810 --> 00:07:09,590
+There we go.
+
+105
+00:07:09,980 --> 00:07:11,840
+First color GB.
+
+106
+00:07:13,070 --> 00:07:16,820
+And I could also change the R value or the G value at any point.
+
+107
+00:07:16,820 --> 00:07:21,800
+I could say R is now going to be two, five, five full are.
+
+108
+00:07:23,170 --> 00:07:24,010
+Full red.
+
+109
+00:07:24,010 --> 00:07:29,140
+And now if I look at first color GB, it reflects that change.
+
+110
+00:07:29,980 --> 00:07:35,860
+So it may not be the most useful object on earth, but it can be nice because if you do have these color
+
+111
+00:07:35,860 --> 00:07:38,860
+values, working with them, converting them can suck.
+
+112
+00:07:38,860 --> 00:07:44,770
+And later on we'll add some more useful methods, like a light and method or a darken or a saturation.
+
+113
+00:07:45,100 --> 00:07:47,220
+All those different things opposite color.
+
+114
+00:07:47,230 --> 00:07:50,590
+Anyway, the focus here is on this function.
+
+115
+00:07:50,590 --> 00:07:53,200
+This function makes us an object.
+
+116
+00:07:53,950 --> 00:07:59,290
+It starts empty, but then we add some properties based off of arguments that we were provided.
+
+117
+00:07:59,290 --> 00:08:03,070
+Then we add some methods and then we return that object.
+
+118
+00:08:03,520 --> 00:08:06,700
+This is called a factory function and it does work.
+
+119
+00:08:06,700 --> 00:08:11,500
+This is one way of making objects based off of a pattern or a recipe.
+
+120
+00:08:11,500 --> 00:08:15,970
+We've defined a recipe for a color we call make color.
+
+121
+00:08:15,970 --> 00:08:18,700
+We pass in three numbers and we get back an object.
+
+122
+00:08:18,700 --> 00:08:21,250
+And that object contains a whole bunch of things.
+
+123
+00:08:21,250 --> 00:08:23,080
+Well, a whole bunch is an exaggeration.
+
+124
+00:08:23,110 --> 00:08:27,220
+It contains three properties that are numbers and then two methods.
+
+125
+00:08:27,220 --> 00:08:28,870
+And I could make another color, right?
+
+126
+00:08:28,960 --> 00:08:35,409
+Make color where let's say it's 000, same pattern, different values.
+
+127
+00:08:35,409 --> 00:08:39,190
+I get different outcomes from the methods, but the same pattern in general.
+
+128
+00:08:39,190 --> 00:08:43,270
+But this is actually not the main way most people create objects based off of a pattern.
+
+129
+00:08:43,270 --> 00:08:45,670
+This is not how people like to do it.
+
+130
+00:08:45,670 --> 00:08:50,710
+And to understand why, we're going to have to talk about our friend prototype in the next video and
+
+131
+00:08:50,710 --> 00:08:52,120
+we'll see a better approach.
+
+132
+00:08:52,450 --> 00:08:54,130
+So there's nothing wrong with this.
+
+133
+00:08:54,130 --> 00:08:56,830
+It's just not as ideal as it could be.
+
+134
+00:08:56,860 --> 00:08:58,360
+So we'll see another option.
+
+135
+00:08:58,360 --> 00:08:59,290
+Just hang in there.
+
+136
+00:08:59,290 --> 00:09:00,190
+So that's coming up.
+

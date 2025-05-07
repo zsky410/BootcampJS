@@ -1,0 +1,436 @@
+1
+00:00:01,760 --> 00:00:05,870
+Our method definitely works, but I want to point out something kind of awkward about it right now.
+
+2
+00:00:06,380 --> 00:00:10,580
+Right now, in order to figure out what the current value of our time remaining is, we're going to
+
+3
+00:00:10,580 --> 00:00:16,550
+always have to run that chunk of code right there at present inside of our tick class or assuming our
+
+4
+00:00:16,550 --> 00:00:17,440
+timer class.
+
+5
+00:00:17,450 --> 00:00:21,740
+This is the only location where we really need to figure out what the current time remaining is.
+
+6
+00:00:21,770 --> 00:00:25,580
+However, in the future, we might have many different methods inside of our class.
+
+7
+00:00:25,580 --> 00:00:29,120
+In each of those, different methods might need to access the current time.
+
+8
+00:00:29,120 --> 00:00:32,659
+And so they would all have that little repeated piece of code right there.
+
+9
+00:00:34,190 --> 00:00:37,520
+The same thing is true of updating the value inside the input as well.
+
+10
+00:00:37,550 --> 00:00:42,890
+Every single time we want to update the value, we have to reference this dot duration input value which
+
+11
+00:00:42,890 --> 00:00:45,740
+again starts to get just a little bit old pretty quickly.
+
+12
+00:00:46,010 --> 00:00:51,500
+So in this video, I want you to try to extract that little expression right there where we get a value
+
+13
+00:00:51,500 --> 00:00:54,710
+out of our text input and parse it with the parse float method.
+
+14
+00:00:55,100 --> 00:01:01,460
+And I want to extract out that part right there where we set the value of our duration input as well.
+
+15
+00:01:02,190 --> 00:01:06,330
+So to do this, we could define two helper methods inside of our class.
+
+16
+00:01:06,330 --> 00:01:08,550
+We could say something like Get time.
+
+17
+00:01:10,060 --> 00:01:12,520
+Or get time remaining or something like that.
+
+18
+00:01:12,760 --> 00:01:13,870
+I'll go with get time.
+
+19
+00:01:15,540 --> 00:01:18,180
+And we could also define set time as well.
+
+20
+00:01:19,200 --> 00:01:22,110
+So instead of get time, we could do something like return.
+
+21
+00:01:23,510 --> 00:01:26,780
+Our float this duration input value.
+
+22
+00:01:27,680 --> 00:01:30,860
+And on set time, we could receive some new time.
+
+23
+00:01:31,580 --> 00:01:35,510
+And then set that inside of the duration input like so.
+
+24
+00:01:36,600 --> 00:01:38,760
+So this is definitely an approach that would work.
+
+25
+00:01:38,920 --> 00:01:41,010
+Anytime we want to get our time, call that method.
+
+26
+00:01:41,010 --> 00:01:42,840
+Anytime we want to set it, call that method.
+
+27
+00:01:42,840 --> 00:01:48,060
+And we no longer have to worry or remember at all about how we actually get a value out of there.
+
+28
+00:01:48,450 --> 00:01:53,700
+But rather than using these two functions, there's a little bit better way of handling this by using
+
+29
+00:01:53,700 --> 00:01:56,130
+a feature inside of our JavaScript classes.
+
+30
+00:01:56,460 --> 00:02:00,720
+So the better way of handling this is to use a getter and a setter method.
+
+31
+00:02:01,290 --> 00:02:02,700
+Let's figure out how those work.
+
+32
+00:02:02,700 --> 00:02:08,250
+It's going to delete those two methods, and I'm going to set up a getter and a setter for a new property
+
+33
+00:02:08,250 --> 00:02:10,620
+that I'm going to call time remaining.
+
+34
+00:02:12,230 --> 00:02:15,500
+So I'm going to say get time remaining.
+
+35
+00:02:16,680 --> 00:02:19,650
+So notice how I've got a keyword in front of the method name.
+
+36
+00:02:20,340 --> 00:02:24,600
+So inside of here, we're going to write out the code that's going to get the time remaining out of
+
+37
+00:02:24,600 --> 00:02:25,830
+our duration input.
+
+38
+00:02:25,830 --> 00:02:27,270
+So I will return.
+
+39
+00:02:28,360 --> 00:02:29,560
+Hearse float.
+
+40
+00:02:31,130 --> 00:02:34,100
+This dot duration input value.
+
+41
+00:02:35,360 --> 00:02:40,580
+So now because we have to get keyword right here in order to run this method, rather than saying something
+
+42
+00:02:40,580 --> 00:02:43,880
+like back up inside of TTIC, we're going to eventually replace that right there.
+
+43
+00:02:43,890 --> 00:02:45,270
+So I'm just going to delete it right away.
+
+44
+00:02:45,290 --> 00:02:51,590
+So rather than saying this time remaining and calling it like a method because the JIT keyword is right
+
+45
+00:02:51,590 --> 00:02:57,950
+here, we can instead treat this as though it were an instance variable so we can just say this time
+
+46
+00:02:57,950 --> 00:03:03,500
+remaining that is going to automatically invoke this function right here, even though we don't have
+
+47
+00:03:03,500 --> 00:03:04,970
+the parentheses on the end.
+
+48
+00:03:05,390 --> 00:03:08,210
+The reason it gets invoked is because of that JIT keyword.
+
+49
+00:03:08,210 --> 00:03:09,460
+We set up a jitter.
+
+50
+00:03:09,470 --> 00:03:14,330
+This is how we add in some logic that's going to essentially retrieve a variable inside of our class
+
+51
+00:03:14,540 --> 00:03:17,390
+and we don't have to call a method or anything like that.
+
+52
+00:03:17,690 --> 00:03:19,580
+So this might seem like a very small difference.
+
+53
+00:03:19,580 --> 00:03:24,080
+Like at the end of the day, what is the difference between putting on time remaining with the parentheses
+
+54
+00:03:24,080 --> 00:03:24,920
+and not?
+
+55
+00:03:25,250 --> 00:03:29,840
+Well, the difference is that when we are able to write out just this time remaining, it makes it kind
+
+56
+00:03:29,840 --> 00:03:34,040
+of a little bit more clear to other engineers or we kind of trick other engineers.
+
+57
+00:03:34,070 --> 00:03:39,140
+Another way of putting it and to thinking that we are just retrieving a instance variable or like a
+
+58
+00:03:39,140 --> 00:03:40,520
+property of the class.
+
+59
+00:03:42,140 --> 00:03:47,840
+And we are essentially hiding away all the confusion about what is really going on with trying to get
+
+60
+00:03:47,840 --> 00:03:53,450
+some value out of that input inside the Skitter so we could even like collapse this thing right here
+
+61
+00:03:53,960 --> 00:03:56,630
+and we could forget about the implementation entirely.
+
+62
+00:03:56,630 --> 00:04:00,410
+And as far as another engineer is concerned as they read this, they're just going to look at this and
+
+63
+00:04:00,410 --> 00:04:04,400
+think, okay, there's like a time remaining instance variable and they won't have to worry about the
+
+64
+00:04:04,400 --> 00:04:08,150
+fact that this actually technically is a function or anything like that.
+
+65
+00:04:09,350 --> 00:04:11,140
+Now we can use a very similar approach.
+
+66
+00:04:11,150 --> 00:04:16,760
+We can set up a setter to change the value inside the input, and once again, we can essentially hide
+
+67
+00:04:16,760 --> 00:04:20,329
+away all the complexity around actually setting the value as well.
+
+68
+00:04:20,970 --> 00:04:23,820
+So I can say set time remaining.
+
+69
+00:04:25,530 --> 00:04:27,750
+So we're going to call this with the updated time.
+
+70
+00:04:28,140 --> 00:04:31,030
+And inside of here, we'll have the same implementation we had before.
+
+71
+00:04:31,050 --> 00:04:33,600
+So we'll say this dot duration, input value.
+
+72
+00:04:34,510 --> 00:04:35,410
+Equals time.
+
+73
+00:04:38,090 --> 00:04:44,060
+Start to make use of the setter, we can just attempt to set a value to the variable time remaining.
+
+74
+00:04:44,240 --> 00:04:49,730
+So back up here, rather than saying this dot duration input value, we could instead just say this
+
+75
+00:04:49,730 --> 00:04:54,650
+dot time remaining equals time remaining, minus one.
+
+76
+00:04:55,740 --> 00:05:01,260
+So in this case, we are attempting to set a value or essentially assign a value to the value or to
+
+77
+00:05:01,260 --> 00:05:01,710
+the property.
+
+78
+00:05:01,710 --> 00:05:06,670
+Time remaining time remaining is actually technically a function, but again, because we put the set
+
+79
+00:05:06,690 --> 00:05:12,060
+keyword inside of here, when we assign a value to it, whatever this value is right here is going to
+
+80
+00:05:12,060 --> 00:05:15,990
+be automatically provided as the argument right here of time.
+
+81
+00:05:16,590 --> 00:05:21,510
+And so again, we're essentially going to hide away all the complexity around how we actually update
+
+82
+00:05:21,510 --> 00:05:24,030
+the variable time remaining inside of our class.
+
+83
+00:05:25,020 --> 00:05:31,620
+So now in total, this entire tick method can be condensed down to just this time remaining.
+
+84
+00:05:33,170 --> 00:05:34,010
+Equals.
+
+85
+00:05:34,880 --> 00:05:37,820
+This time remaining minus one.
+
+86
+00:05:38,800 --> 00:05:43,230
+So again, behind the scenes, we are calling the Gitter right there to retrieve that value.
+
+87
+00:05:43,240 --> 00:05:47,620
+And we're calling the center right here whenever we want to update the value.
+
+88
+00:05:48,290 --> 00:05:49,190
+And I can't say enough.
+
+89
+00:05:49,190 --> 00:05:53,540
+I'm going to say it for like the fourth time inside this video, we have hidden away all the complexity
+
+90
+00:05:53,540 --> 00:05:56,990
+on how we get at that value and how we set it.
+
+91
+00:05:58,930 --> 00:06:04,810
+So I would definitely say this is a big improvement and this is another good reason in this particular
+
+92
+00:06:04,810 --> 00:06:05,400
+case.
+
+93
+00:06:05,410 --> 00:06:09,700
+Again, this is not super popular approach these days, but it's a good reason to go with option number
+
+94
+00:06:09,700 --> 00:06:15,280
+two, because one of the reasons that in the past we as JavaScript developers kind of moved away from
+
+95
+00:06:15,280 --> 00:06:20,620
+option number two is that we always had to write out some really confusing code like this right here
+
+96
+00:06:20,620 --> 00:06:26,920
+and this right here in order to update values inside the DOM whenever we are storing values on DOM elements.
+
+97
+00:06:26,920 --> 00:06:31,840
+But because we now have access to getters and setters, which are a newer feature inside of JavaScript,
+
+98
+00:06:31,840 --> 00:06:36,460
+we can write out methods that look like this that makes storing this data a lot easier than it had been
+
+99
+00:06:36,460 --> 00:06:37,270
+in the past.
+
+100
+00:06:39,530 --> 00:06:39,720
+Okay.
+
+101
+00:06:39,740 --> 00:06:40,730
+So let's save this.
+
+102
+00:06:40,730 --> 00:06:42,170
+We're going to do another quick test.
+
+103
+00:06:42,170 --> 00:06:43,190
+So I'll flip back over.
+
+104
+00:06:43,190 --> 00:06:44,090
+I'll refresh.
+
+105
+00:06:44,120 --> 00:06:47,390
+Hit start and we are still counting down successfully.
+
+106
+00:06:47,870 --> 00:06:53,150
+I can pause again, update the value hit start and it still works correctly.
+
+107
+00:06:54,040 --> 00:06:54,280
+Okay.
+
+108
+00:06:54,280 --> 00:06:56,020
+So this is definitely looking pretty good.
+
+109
+00:06:56,530 --> 00:06:59,650
+Let's take a quick pause right here and continue in just a moment.
+

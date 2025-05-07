@@ -1,0 +1,364 @@
+1
+00:00:00,240 --> 00:00:00,750
+All right.
+
+2
+00:00:00,750 --> 00:00:05,640
+Now that we've seen how to run code from a file, we can start writing slightly longer, slightly more
+
+3
+00:00:05,640 --> 00:00:10,740
+complex scripts to add logic into our code to actually make decisions.
+
+4
+00:00:10,740 --> 00:00:14,790
+The key mechanism we use is something called a conditional statement.
+
+5
+00:00:14,790 --> 00:00:21,780
+Now, a conditional statement can have three different pieces in if an elseif and an else, and we'll
+
+6
+00:00:21,780 --> 00:00:22,860
+go through them in order.
+
+7
+00:00:22,860 --> 00:00:27,780
+And we're going to start with if so, if allows us to run certain code.
+
+8
+00:00:27,780 --> 00:00:33,120
+If a given condition is true, we spend a healthy amount of time talking about these different operators
+
+9
+00:00:33,120 --> 00:00:35,520
+and they all evaluate to true or false.
+
+10
+00:00:35,520 --> 00:00:37,590
+They all evaluate to a boolean.
+
+11
+00:00:37,590 --> 00:00:43,230
+Now we can use them inside of a conditional where we end up with either a true or a false.
+
+12
+00:00:43,230 --> 00:00:47,370
+And if that thing is true, if the condition is true, our code will run.
+
+13
+00:00:47,460 --> 00:00:50,250
+So let me show you the simplest example that we could do.
+
+14
+00:00:50,850 --> 00:00:52,770
+I'm working in an app JS file.
+
+15
+00:00:52,770 --> 00:00:55,170
+It's connected to my index HTML.
+
+16
+00:00:55,200 --> 00:00:57,330
+I have my index opened up over here.
+
+17
+00:00:57,330 --> 00:00:58,620
+I'm looking at the console.
+
+18
+00:00:58,890 --> 00:01:00,720
+Let's delete what I had in there.
+
+19
+00:01:01,830 --> 00:01:03,780
+I'll close down my sidebar.
+
+20
+00:01:04,560 --> 00:01:11,250
+The simplest possible conditional looks like this if something this isn't valid as it is right now,
+
+21
+00:01:11,250 --> 00:01:15,060
+but if some condition that becomes either true or false.
+
+22
+00:01:15,150 --> 00:01:17,880
+If it's true, run the code in here.
+
+23
+00:01:18,300 --> 00:01:23,790
+So let's do something like if one equals one console.log.
+
+24
+00:01:25,170 --> 00:01:26,310
+It's true.
+
+25
+00:01:28,360 --> 00:01:29,320
+We'll save.
+
+26
+00:01:29,470 --> 00:01:32,910
+I'll refresh my page and we end up with.
+
+27
+00:01:32,920 --> 00:01:33,820
+It's true.
+
+28
+00:01:34,000 --> 00:01:35,280
+This code runs.
+
+29
+00:01:35,290 --> 00:01:39,730
+If this becomes true, if you were to copy that and paste it here, we get true.
+
+30
+00:01:39,760 --> 00:01:45,670
+Now, if we did something like this, if one is not equal to one, we know that that is false.
+
+31
+00:01:45,700 --> 00:01:46,450
+It gives us false.
+
+32
+00:01:46,480 --> 00:01:49,440
+I'll refresh my page now and we don't see anything.
+
+33
+00:01:49,450 --> 00:01:50,890
+This code does not run.
+
+34
+00:01:51,400 --> 00:01:56,920
+So we've written our first simple piece of logic, our first decision that actually impacts which code
+
+35
+00:01:56,920 --> 00:01:59,200
+runs based off of this condition.
+
+36
+00:01:59,440 --> 00:02:02,980
+Now we'll learn how to write much more complex ones, but let's take a look at a couple of different
+
+37
+00:02:02,980 --> 00:02:03,690
+examples.
+
+38
+00:02:03,700 --> 00:02:08,740
+Here's one where I'm modeling a typical performance review you might have at a company where your manager
+
+39
+00:02:08,740 --> 00:02:11,770
+or your peers rate you on a certain scale.
+
+40
+00:02:12,100 --> 00:02:17,650
+And we're translating that numeric rating to feedback like, you're a superstar, you need improvement,
+
+41
+00:02:17,650 --> 00:02:19,120
+you meet expectations.
+
+42
+00:02:19,540 --> 00:02:21,160
+We could model that over here.
+
+43
+00:02:21,160 --> 00:02:22,760
+I'll just write a quick comment.
+
+44
+00:02:22,780 --> 00:02:30,040
+Example two We'll have a rating variable and set it equal to three, and we can simply check if rating
+
+45
+00:02:30,040 --> 00:02:34,360
+is equal to three, we'll console.log.
+
+46
+00:02:35,140 --> 00:02:36,910
+You are a superstar.
+
+47
+00:02:36,910 --> 00:02:39,820
+I don't know why it's all caps, but it works.
+
+48
+00:02:40,810 --> 00:02:44,970
+We'll refresh the page and we end up with You are a superstar.
+
+49
+00:02:44,980 --> 00:02:46,660
+We change rating to two.
+
+50
+00:02:46,870 --> 00:02:47,980
+We need improvement.
+
+51
+00:02:47,980 --> 00:02:49,480
+We don't get that printed out.
+
+52
+00:02:49,900 --> 00:02:57,010
+We could also do something like if rating is less than three instead of printing, you are a superstar.
+
+53
+00:02:57,010 --> 00:02:58,960
+We could print console.log.
+
+54
+00:02:58,990 --> 00:03:00,280
+How about we just go back to what we had?
+
+55
+00:03:00,280 --> 00:03:04,240
+You are not a superstar because only three is a superstar.
+
+56
+00:03:04,690 --> 00:03:05,470
+I'll refresh.
+
+57
+00:03:05,470 --> 00:03:06,640
+We don't see anything.
+
+58
+00:03:06,640 --> 00:03:11,230
+But if I change it to two, we get the slightly harsh feedback.
+
+59
+00:03:11,260 --> 00:03:16,720
+You are not a superstar in all caps, so I'm going to undo that and go back to what we had because we're
+
+60
+00:03:16,720 --> 00:03:18,790
+going to build on this example in just a bit.
+
+61
+00:03:19,270 --> 00:03:21,730
+So this is the first part of a conditional I mentioned.
+
+62
+00:03:21,730 --> 00:03:24,070
+There are two other things we can add on.
+
+63
+00:03:24,070 --> 00:03:29,470
+This is checking for a single condition and we can have multiple of these if we wanted to.
+
+64
+00:03:29,530 --> 00:03:31,990
+We actually already have two of them in a single file.
+
+65
+00:03:31,990 --> 00:03:34,000
+Both of them are being evaluated.
+
+66
+00:03:34,000 --> 00:03:34,990
+This one is false.
+
+67
+00:03:34,990 --> 00:03:36,310
+So that doesn't run.
+
+68
+00:03:36,310 --> 00:03:37,930
+This one is true.
+
+69
+00:03:37,930 --> 00:03:38,920
+So it does run.
+
+70
+00:03:38,920 --> 00:03:41,410
+But if we change rating, it may not run.
+
+71
+00:03:41,440 --> 00:03:42,940
+Here's one more example.
+
+72
+00:03:42,970 --> 00:03:44,020
+Nice and simple.
+
+73
+00:03:44,020 --> 00:03:48,760
+Let's say we have a number let numb and it's equal to 37.
+
+74
+00:03:49,000 --> 00:03:53,470
+Let's print out something if the number is even or let's go with something.
+
+75
+00:03:53,470 --> 00:03:56,680
+If the number is odd, how do we tell if a number is odd?
+
+76
+00:03:56,920 --> 00:04:03,130
+We go back to that modulo operator we saw early on the percent sign using the remainder.
+
+77
+00:04:03,130 --> 00:04:07,420
+So we divide by two and check the remainder using modulo.
+
+78
+00:04:07,480 --> 00:04:12,880
+And if two goes evenly into a number, that means it's an even number.
+
+79
+00:04:12,970 --> 00:04:14,770
+So the remainder would be zero.
+
+80
+00:04:15,010 --> 00:04:19,990
+So for an odd number, we'll just check if the remainder is not zero.
+
+81
+00:04:21,269 --> 00:04:28,530
+So let me show you that if num mod two is not equal to zero.
+
+82
+00:04:29,310 --> 00:04:30,660
+Console.log.
+
+83
+00:04:31,500 --> 00:04:32,700
+Odd number.
+
+84
+00:04:33,900 --> 00:04:36,030
+Let's see what we get when I refresh.
+
+85
+00:04:36,120 --> 00:04:41,460
+We should see odd number if I change it to 38, nothing.
+
+86
+00:04:42,090 --> 00:04:42,480
+All right.
+
+87
+00:04:42,480 --> 00:04:45,720
+So those are three simple examples of conditionals.
+
+88
+00:04:45,810 --> 00:04:49,500
+Very short ones, where we only have one piece, one condition.
+
+89
+00:04:49,500 --> 00:04:52,860
+And if this is not the case, we just keep moving on.
+
+90
+00:04:52,860 --> 00:04:55,320
+Whatever code comes after will be run.
+
+91
+00:04:55,470 --> 00:04:59,430
+Next we're going to see elseif, which we can chain on with our if.
+

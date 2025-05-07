@@ -1,0 +1,492 @@
+1
+00:00:00,180 --> 00:00:00,930
+Welcome back.
+
+2
+00:00:00,960 --> 00:00:06,810
+Now that we've seen the very basics of functions and their syntax arguments, return values, etc..
+
+3
+00:00:06,900 --> 00:00:12,000
+We're now going to talk about some other details, some important things you need to know about functions
+
+4
+00:00:12,000 --> 00:00:14,370
+and function adjacent topics.
+
+5
+00:00:14,370 --> 00:00:19,950
+So this section is not really one monolithic topic, but a couple of related things that I've put together
+
+6
+00:00:19,950 --> 00:00:21,300
+into one section.
+
+7
+00:00:21,690 --> 00:00:23,010
+So we have a couple of goals.
+
+8
+00:00:23,010 --> 00:00:25,440
+The first is to understand scope.
+
+9
+00:00:25,560 --> 00:00:31,560
+When I introduced LUDDEN and and briefly talked about Var, I mentioned we would come back and discuss
+
+10
+00:00:31,560 --> 00:00:35,040
+scope and how those different keywords impact scope.
+
+11
+00:00:35,040 --> 00:00:37,620
+We're going to start by talking about that in this section.
+
+12
+00:00:37,620 --> 00:00:39,300
+It does relate to functions.
+
+13
+00:00:39,300 --> 00:00:45,000
+Then we'll talk a lot about higher order functions, functions as a value in JavaScript, how we can
+
+14
+00:00:45,000 --> 00:00:47,190
+pass functions to other functions.
+
+15
+00:00:47,190 --> 00:00:53,160
+We'll take a look at some existing built in functions and methods that expect you to pass a function
+
+16
+00:00:53,160 --> 00:00:54,090
+as an argument.
+
+17
+00:00:54,210 --> 00:00:57,270
+And that's our main goal or goals for this section.
+
+18
+00:00:57,270 --> 00:00:59,130
+So we're going to start with scope.
+
+19
+00:00:59,370 --> 00:01:02,880
+Scope is kind of like variable visibility.
+
+20
+00:01:02,880 --> 00:01:08,940
+It's it's this idea that depending on where you define a variable, other pieces of your code may or
+
+21
+00:01:08,940 --> 00:01:11,070
+may not have access to that value.
+
+22
+00:01:11,070 --> 00:01:13,620
+And the variable scope is that window.
+
+23
+00:01:13,620 --> 00:01:19,680
+It's the portion of your code where other values have access to it or other functions or other pieces
+
+24
+00:01:19,680 --> 00:01:22,800
+of the code can access and manipulate that value.
+
+25
+00:01:23,040 --> 00:01:27,600
+So there's multiple pieces, different ways that scope behaves in JavaScript, and that's what we're
+
+26
+00:01:27,600 --> 00:01:29,580
+going to talk about in the next few videos.
+
+27
+00:01:29,580 --> 00:01:33,120
+And the first type of scope is called function scope.
+
+28
+00:01:33,760 --> 00:01:38,620
+So when we define a variable in a function like I have right here, it doesn't matter what the function
+
+29
+00:01:38,620 --> 00:01:38,800
+is.
+
+30
+00:01:38,800 --> 00:01:39,820
+It's called Help me.
+
+31
+00:01:39,820 --> 00:01:41,710
+We have a variable called message.
+
+32
+00:01:41,710 --> 00:01:44,600
+I'm on fire inside the function.
+
+33
+00:01:44,620 --> 00:01:46,610
+Of course we have access to message.
+
+34
+00:01:46,630 --> 00:01:50,430
+If I were to log it or just get the value, it's I'm on fire.
+
+35
+00:01:50,440 --> 00:01:54,120
+But outside the bound to that function, we don't have access.
+
+36
+00:01:54,130 --> 00:01:59,230
+I get an error if I try and access message down here it is scoped to this function.
+
+37
+00:01:59,230 --> 00:02:01,180
+That's what this box is representing.
+
+38
+00:02:01,810 --> 00:02:05,860
+So this probably makes sense and you may have encountered this already.
+
+39
+00:02:05,890 --> 00:02:08,289
+If you're brand new, you might have played around still.
+
+40
+00:02:08,289 --> 00:02:10,660
+If we have some function, it doesn't matter what it's called.
+
+41
+00:02:10,660 --> 00:02:14,710
+Let's just go with lol and then I define some variable in there.
+
+42
+00:02:14,710 --> 00:02:25,840
+Let person equals tom and then let's also do one with const const age equals 45 and let's do one with
+
+43
+00:02:25,840 --> 00:02:26,260
+var.
+
+44
+00:02:26,290 --> 00:02:29,350
+So var color equals teal.
+
+45
+00:02:30,530 --> 00:02:31,160
+Okay.
+
+46
+00:02:31,190 --> 00:02:33,290
+So we have three variables going on.
+
+47
+00:02:33,320 --> 00:02:39,800
+If I try and access any of them outside of this lol function like let's start with person console.log
+
+48
+00:02:39,800 --> 00:02:40,550
+person.
+
+49
+00:02:42,110 --> 00:02:43,370
+We're not going to have a good time.
+
+50
+00:02:43,820 --> 00:02:49,940
+Person is not defined and you might think well maybe if you call lol then those variables will be they'll
+
+51
+00:02:49,940 --> 00:02:51,110
+come into existence.
+
+52
+00:02:51,110 --> 00:02:54,710
+Right now we're defining that function, but this code is not executing.
+
+53
+00:02:54,710 --> 00:03:01,280
+So if I execute it first, same problem person is scoped to this function lol.
+
+54
+00:03:01,310 --> 00:03:04,610
+I have access to it in here of course, but not outside.
+
+55
+00:03:04,610 --> 00:03:09,740
+And if I tried that instead with age which is defined with const, same error.
+
+56
+00:03:09,740 --> 00:03:15,980
+And if I try it with color which is defined with var once again we get the exact same error just for
+
+57
+00:03:15,980 --> 00:03:19,180
+a different name for a variable person, age and color.
+
+58
+00:03:19,190 --> 00:03:22,520
+None of these exist outside the bounds of this function.
+
+59
+00:03:22,520 --> 00:03:23,600
+They're scoped to it.
+
+60
+00:03:23,600 --> 00:03:28,700
+So this means that we can have multiple functions that have similar or the same variable names.
+
+61
+00:03:28,700 --> 00:03:30,230
+I could have another function.
+
+62
+00:03:30,230 --> 00:03:32,630
+We'll call this one change color.
+
+63
+00:03:33,760 --> 00:03:36,580
+And I'll set a variable called color.
+
+64
+00:03:36,580 --> 00:03:39,580
+Let's go with lit color equals.
+
+65
+00:03:39,580 --> 00:03:41,410
+And this time it will be purple.
+
+66
+00:03:41,710 --> 00:03:45,220
+And we can also have let's do another age.
+
+67
+00:03:45,220 --> 00:03:48,250
+We'll do const age equals 19.
+
+68
+00:03:49,930 --> 00:03:51,760
+And we'll control that log one of them.
+
+69
+00:03:51,760 --> 00:03:55,770
+Let's console that log age here and let's also do it here.
+
+70
+00:03:55,780 --> 00:03:56,800
+Console.log.
+
+71
+00:03:56,830 --> 00:03:57,430
+Age.
+
+72
+00:03:59,660 --> 00:04:02,630
+And then we'll call lol and we'll call change color.
+
+73
+00:04:04,080 --> 00:04:06,620
+I'll get rid of this console.log at the bottom.
+
+74
+00:04:07,310 --> 00:04:10,660
+You can see we get unique values in this context.
+
+75
+00:04:10,670 --> 00:04:14,750
+Age is 45 and this context age is 19.
+
+76
+00:04:14,960 --> 00:04:16,250
+So they are scoped.
+
+77
+00:04:16,250 --> 00:04:20,680
+Those variables that we declared in a given function are scoped to that function.
+
+78
+00:04:20,690 --> 00:04:23,000
+They are visible only in here.
+
+79
+00:04:23,030 --> 00:04:29,300
+After the fact, we can call the function, but we cannot access or manipulate those variables from
+
+80
+00:04:29,300 --> 00:04:30,770
+down here or up top.
+
+81
+00:04:30,770 --> 00:04:32,600
+We are not in the same scope.
+
+82
+00:04:33,710 --> 00:04:35,140
+Here's another example.
+
+83
+00:04:35,150 --> 00:04:41,090
+This time I have a variable called bird that I've defined up top, or it could be down below.
+
+84
+00:04:41,090 --> 00:04:47,560
+It doesn't matter where it's defined, but I have bird and then I have another bird inside this function.
+
+85
+00:04:47,570 --> 00:04:50,600
+So now I have two variables with the exact same name.
+
+86
+00:04:50,600 --> 00:04:59,990
+And remember, if I try and do that in the same scope, like let high equals high and then let hi equal
+
+87
+00:05:00,020 --> 00:05:02,240
+three, I get an error.
+
+88
+00:05:02,240 --> 00:05:04,580
+It's telling me high has already been declared.
+
+89
+00:05:04,970 --> 00:05:09,710
+So it's not saying high has already been declared anywhere in your code you can only have one high.
+
+90
+00:05:09,740 --> 00:05:13,460
+It's more along the lines of high has been declared in this scope.
+
+91
+00:05:13,670 --> 00:05:16,910
+You cannot have another high declared in the same scope.
+
+92
+00:05:17,030 --> 00:05:18,830
+But we can do it like this.
+
+93
+00:05:18,830 --> 00:05:24,950
+We can have one variable with one name outside this function and another variable with the exact same
+
+94
+00:05:24,950 --> 00:05:26,540
+name in the function.
+
+95
+00:05:27,400 --> 00:05:29,330
+Compare that to what we had up top.
+
+96
+00:05:29,350 --> 00:05:30,250
+It was the same idea.
+
+97
+00:05:30,250 --> 00:05:34,780
+We had age in one function and age in a different function, different scopes.
+
+98
+00:05:34,960 --> 00:05:37,660
+So we have different scopes here to beautiful birds.
+
+99
+00:05:37,660 --> 00:05:39,940
+By the way, if you ever want to Google what these look like.
+
+100
+00:05:39,940 --> 00:05:43,330
+Oh, mandarin ducks, golden pheasants, really pretty birds.
+
+101
+00:05:43,660 --> 00:05:48,120
+Let's console.log bird down here and let's do the same thing at the very bottom.
+
+102
+00:05:48,130 --> 00:05:49,240
+Run my code.
+
+103
+00:05:49,510 --> 00:05:54,290
+Well, right now I'm not executing Birdwatch, but here bird is set to Mandarin Duck.
+
+104
+00:05:54,310 --> 00:05:55,900
+Let's call Birdwatch.
+
+105
+00:05:58,780 --> 00:06:02,230
+Now we get Birdwatch which runs console.log.
+
+106
+00:06:02,230 --> 00:06:03,170
+Golden pheasant.
+
+107
+00:06:03,190 --> 00:06:06,820
+It's finding the nearest bird which is in this scope.
+
+108
+00:06:07,090 --> 00:06:10,370
+Then we console.log bird outside the function.
+
+109
+00:06:10,390 --> 00:06:12,090
+Bird is set to Mandarin duck.
+
+110
+00:06:12,100 --> 00:06:14,860
+So this diagram kind of explains this scenario.
+
+111
+00:06:15,100 --> 00:06:16,600
+Here we have two scopes.
+
+112
+00:06:16,600 --> 00:06:22,150
+We have the orange or yellow box which represents the scope of this function bird where it's set to
+
+113
+00:06:22,150 --> 00:06:25,360
+golden pheasant is only accessible in birdwatch.
+
+114
+00:06:25,360 --> 00:06:30,880
+But then we have this larger scope where bird, the first bird, was declared outside the function.
+
+115
+00:06:30,880 --> 00:06:34,000
+So its pink box extends down below as well.
+
+116
+00:06:34,030 --> 00:06:36,820
+And that's pretty much all I want to show you in this video.
+
+117
+00:06:37,150 --> 00:06:43,510
+In this context, let and icons will behave the same way if I updated both, let's to instead be concerned
+
+118
+00:06:44,230 --> 00:06:45,100
+and run this.
+
+119
+00:06:45,100 --> 00:06:46,420
+We get the same output.
+
+120
+00:06:46,420 --> 00:06:51,040
+If I update them to both be var, we get the same output as well.
+
+121
+00:06:51,160 --> 00:06:56,560
+But in the next video we'll see a very significant difference between how light and content behave and
+
+122
+00:06:56,560 --> 00:06:58,810
+how var behaves in certain scenarios.
+
+123
+00:06:58,810 --> 00:07:01,000
+So we have more scope to talk about that next.
+

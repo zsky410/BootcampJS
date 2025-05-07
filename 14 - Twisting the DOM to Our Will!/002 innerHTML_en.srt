@@ -1,0 +1,508 @@
+1
+00:00:00,120 --> 00:00:04,870
+Next up, we have another property that is kind of similar to inner text and text content.
+
+2
+00:00:04,890 --> 00:00:10,550
+It's called inner HTML, but it has a different name, obviously, and it has a different purpose.
+
+3
+00:00:10,560 --> 00:00:18,690
+So inner HTML is going to return or retrieve not only the text inside of an element, but also all other
+
+4
+00:00:18,690 --> 00:00:20,540
+tags inside of a given element.
+
+5
+00:00:20,550 --> 00:00:27,360
+So if I were to call form, if I select this form inner HTML, I would get all of these elements.
+
+6
+00:00:27,360 --> 00:00:29,520
+If I were to do form, enter text.
+
+7
+00:00:29,520 --> 00:00:32,640
+There is no inner text here, so let's try it out.
+
+8
+00:00:32,640 --> 00:00:38,820
+I'll select the form, I'll do a query selector document query selector of form.
+
+9
+00:00:39,150 --> 00:00:40,110
+There's only one form.
+
+10
+00:00:40,110 --> 00:00:47,160
+I'll get the first one, I'll save it to a variable called form and then form dot inner HTML.
+
+11
+00:00:48,180 --> 00:00:51,030
+All caps on the HTML portion.
+
+12
+00:00:51,610 --> 00:00:52,780
+Let's see what I get here.
+
+13
+00:00:52,780 --> 00:00:58,780
+I'm getting a string that contains all of the elements inside, so I get everything between those two
+
+14
+00:00:58,780 --> 00:00:59,470
+tags.
+
+15
+00:00:59,500 --> 00:01:01,840
+It could be text, it could be other tags.
+
+16
+00:01:01,900 --> 00:01:04,510
+It all just gets grouped into inner HTML.
+
+17
+00:01:05,080 --> 00:01:07,030
+If I were to try it on one more thing.
+
+18
+00:01:07,030 --> 00:01:09,550
+Let's select the first UL we find.
+
+19
+00:01:09,670 --> 00:01:12,110
+I'll do document query selector.
+
+20
+00:01:12,130 --> 00:01:14,560
+You will save that to a variable.
+
+21
+00:01:14,680 --> 00:01:16,480
+Just give it the name of UL.
+
+22
+00:01:16,510 --> 00:01:17,820
+Not very creative.
+
+23
+00:01:17,830 --> 00:01:18,190
+I do.
+
+24
+00:01:18,220 --> 00:01:19,380
+Ul inner text.
+
+25
+00:01:19,390 --> 00:01:21,220
+We saw this in the last video we get.
+
+26
+00:01:21,220 --> 00:01:23,140
+First thing, second thing, third thing.
+
+27
+00:01:23,290 --> 00:01:25,570
+And that's because that's the inner text.
+
+28
+00:01:25,580 --> 00:01:27,770
+It's skipping the actual tags.
+
+29
+00:01:27,790 --> 00:01:33,220
+Now if I do ul inner html, I get all of the content in there.
+
+30
+00:01:33,250 --> 00:01:35,020
+The li and the text.
+
+31
+00:01:35,020 --> 00:01:35,470
+The Li.
+
+32
+00:01:35,500 --> 00:01:35,950
+The text.
+
+33
+00:01:35,950 --> 00:01:37,000
+Li and the text.
+
+34
+00:01:37,180 --> 00:01:38,470
+All the attributes are there.
+
+35
+00:01:38,470 --> 00:01:46,300
+Everything that I wrote in the HTML is showing up and I can use inner html to update the insides of
+
+36
+00:01:46,300 --> 00:01:51,940
+an element the the insides to change the content in between the two tags if I wanted to.
+
+37
+00:01:51,970 --> 00:02:00,040
+So for the form which is right here, I could do this form in html equals and then just pass it in some
+
+38
+00:02:00,040 --> 00:02:01,450
+text if I wanted to.
+
+39
+00:02:02,790 --> 00:02:06,880
+And that entire form now only contains this text.
+
+40
+00:02:06,900 --> 00:02:10,320
+If I go to the Elements tab and I look at the form, that's it.
+
+41
+00:02:10,320 --> 00:02:12,680
+Everything that was there before is gone.
+
+42
+00:02:12,690 --> 00:02:18,420
+I kind of destroyed it, which is usually not what you want to do, but sometimes maybe it is.
+
+43
+00:02:18,600 --> 00:02:22,740
+And if we were just setting text, then I would probably use in text.
+
+44
+00:02:22,860 --> 00:02:25,500
+But we can also add HTML elements in.
+
+45
+00:02:25,530 --> 00:02:31,440
+The annoying part is that we have to make them a string inner text, inner HTML, text, content.
+
+46
+00:02:31,440 --> 00:02:33,150
+They all return strings.
+
+47
+00:02:33,150 --> 00:02:37,290
+So no objects are involved here except for the object that we're actually selecting.
+
+48
+00:02:37,290 --> 00:02:38,520
+I have my form.
+
+49
+00:02:38,820 --> 00:02:40,440
+That's an object, of course.
+
+50
+00:02:40,650 --> 00:02:49,170
+But if I do enter HTML again and I want to set it to contain some other element, I can pass in a string
+
+51
+00:02:49,320 --> 00:02:51,390
+and write HTML in there.
+
+52
+00:02:51,630 --> 00:02:56,550
+So this is fine for simple elements, but if you're doing something more complex, it can be kind of
+
+53
+00:02:56,550 --> 00:02:58,920
+annoying to type it all as a giant string.
+
+54
+00:02:58,920 --> 00:03:02,820
+And we'll see another way of adding elements later on in the same section.
+
+55
+00:03:02,820 --> 00:03:06,660
+But just to show that it works, let's do HTML equals.
+
+56
+00:03:06,660 --> 00:03:08,220
+What could we add inside the form?
+
+57
+00:03:08,220 --> 00:03:10,380
+How about a bold tag?
+
+58
+00:03:10,710 --> 00:03:12,830
+I am a bold tag.
+
+59
+00:03:13,470 --> 00:03:14,790
+Close it correctly.
+
+60
+00:03:15,060 --> 00:03:16,080
+We'll hit enter.
+
+61
+00:03:17,040 --> 00:03:18,990
+Now we have a bold tag in there.
+
+62
+00:03:18,990 --> 00:03:25,470
+So in our HTML allows us to pass in a string containing text containing HTML elements.
+
+63
+00:03:25,470 --> 00:03:30,360
+And what it will do is actually parse this string and look for those tags.
+
+64
+00:03:30,360 --> 00:03:34,020
+It's going through it and figuring out, okay, what is an element here?
+
+65
+00:03:34,020 --> 00:03:35,130
+What is just text?
+
+66
+00:03:35,130 --> 00:03:37,920
+And then it reflects those changes in the DOM.
+
+67
+00:03:37,920 --> 00:03:40,110
+And now if we look at form.
+
+68
+00:03:41,250 --> 00:03:42,840
+This is getting a bit ahead of ourselves.
+
+69
+00:03:42,840 --> 00:03:49,680
+But if we do a console that dear of form and if we look at its children, it has a new object.
+
+70
+00:03:49,680 --> 00:03:52,430
+As a child, it has a B object.
+
+71
+00:03:52,440 --> 00:03:53,580
+It's an element.
+
+72
+00:03:53,580 --> 00:03:59,970
+So it's not just about setting the text and the browser, just inserting that in between the the tags.
+
+73
+00:03:59,970 --> 00:04:06,390
+It's actually reading this and creating a bold object, a bold tag object, and that's what we see here.
+
+74
+00:04:06,570 --> 00:04:12,450
+So it does take more time because of that compared to inner text, if you're just setting text, but
+
+75
+00:04:12,450 --> 00:04:14,880
+if you need to add elements, you can do it this way.
+
+76
+00:04:14,880 --> 00:04:20,040
+But as I mentioned, it gets obnoxious, especially if you have attributes with quotation marks and
+
+77
+00:04:20,040 --> 00:04:21,750
+you've got to mix and match your quotes.
+
+78
+00:04:21,750 --> 00:04:26,910
+Now with template literal strings, it's not too bad, but still there are other ways of adding elements.
+
+79
+00:04:26,910 --> 00:04:28,050
+We're just not there yet.
+
+80
+00:04:28,380 --> 00:04:33,750
+Now the last thing about HTML versus inner text, let's select the H one.
+
+81
+00:04:33,750 --> 00:04:40,020
+So document query selector, I'm just going to stick to query selector for most of this because it's
+
+82
+00:04:40,020 --> 00:04:40,950
+our Swiss Army knife.
+
+83
+00:04:40,950 --> 00:04:42,000
+It's so versatile.
+
+84
+00:04:42,540 --> 00:04:44,880
+We'll save it to a variable called H one.
+
+85
+00:04:44,880 --> 00:04:46,500
+I now have h one.
+
+86
+00:04:46,500 --> 00:04:49,440
+We'll look at inner text, we'll look at inner HTML.
+
+87
+00:04:50,190 --> 00:04:50,790
+Great.
+
+88
+00:04:51,030 --> 00:04:57,450
+If I wanted to add something in to my web page, the first thing I'll show you that we haven't seen.
+
+89
+00:04:57,450 --> 00:04:58,530
+You can do this.
+
+90
+00:04:58,530 --> 00:04:59,970
+You can do plus equals.
+
+91
+00:04:59,970 --> 00:05:04,710
+If you don't want to completely override what's there, you want to keep my web page and for some reason
+
+92
+00:05:04,710 --> 00:05:07,740
+I also want to add is cool.
+
+93
+00:05:09,270 --> 00:05:14,190
+I'll put a space there because this string will just be added into what is already there.
+
+94
+00:05:14,580 --> 00:05:17,100
+And now we have my web page is cool.
+
+95
+00:05:17,670 --> 00:05:20,580
+Probably not that often that you would do it, but you can.
+
+96
+00:05:20,910 --> 00:05:25,830
+But what I want to show you here is that there is a difference between inner HTML and inner text when
+
+97
+00:05:25,830 --> 00:05:28,260
+you are setting them, when we retrieve them.
+
+98
+00:05:28,260 --> 00:05:33,750
+We've already seen the difference in our text does not give you the tags in or HTML does when you set
+
+99
+00:05:33,750 --> 00:05:34,020
+them.
+
+100
+00:05:34,020 --> 00:05:35,760
+It seems like you could use either.
+
+101
+00:05:35,760 --> 00:05:42,870
+If I want to add an element into this HTML tag or into this h one tag, let's say I want to I don't
+
+102
+00:05:42,870 --> 00:05:47,130
+know, plus equals a bold tag with a bunch of exclamation points.
+
+103
+00:05:47,130 --> 00:05:55,050
+I could do h one point in or html plus equals and then I'll write my bold tag and then some exclamation
+
+104
+00:05:55,050 --> 00:05:57,660
+points like that.
+
+105
+00:05:57,840 --> 00:05:59,070
+Close my quotes.
+
+106
+00:06:00,170 --> 00:06:03,920
+And those are I guess it's kind of hard to tell, but those are bolded.
+
+107
+00:06:04,250 --> 00:06:07,510
+They're part of a heading, but we can trust that they're bolded.
+
+108
+00:06:07,520 --> 00:06:11,120
+If we take a look at the H one, they are inside of a bold tag.
+
+109
+00:06:11,840 --> 00:06:14,810
+Now, if I instead do this with inner text.
+
+110
+00:06:16,440 --> 00:06:18,240
+I'll just add more exclamation points.
+
+111
+00:06:18,270 --> 00:06:18,840
+Sure.
+
+112
+00:06:19,770 --> 00:06:21,210
+What do you think is going to happen?
+
+113
+00:06:23,200 --> 00:06:24,370
+That's what happens.
+
+114
+00:06:24,370 --> 00:06:30,530
+So it doesn't ignore the tags, it just doesn't treat them as actual elements or tags for HTML.
+
+115
+00:06:30,550 --> 00:06:31,420
+It doesn't parse them.
+
+116
+00:06:31,420 --> 00:06:34,220
+It doesn't understand that they are bold tags.
+
+117
+00:06:34,240 --> 00:06:38,340
+Instead, it just takes this entire string and puts it in the element.
+
+118
+00:06:38,350 --> 00:06:41,440
+So we end up with the string of a bold tag.
+
+119
+00:06:42,130 --> 00:06:48,910
+So if you are trying to update HTML, you're trying to add an element with HTML, you need to use HTML
+
+120
+00:06:48,910 --> 00:06:50,020
+with inner text.
+
+121
+00:06:50,050 --> 00:06:52,210
+You can't actually create new elements.
+
+122
+00:06:52,210 --> 00:06:53,860
+You can't tell the browser.
+
+123
+00:06:53,860 --> 00:06:56,870
+I want to insert a bold tag or an image.
+
+124
+00:06:56,890 --> 00:07:00,550
+It will just insert the text that you pass in the literal string.
+
+125
+00:07:00,880 --> 00:07:02,890
+All right, so that's in our HTML.
+
+126
+00:07:02,920 --> 00:07:08,650
+Like I said, there are other ways of creating elements, so maybe not all that commonly used once you
+
+127
+00:07:08,650 --> 00:07:12,310
+see the other options, but it's important to cover already.
+

@@ -1,0 +1,616 @@
+1
+00:00:00,150 --> 00:00:01,140
+Hey, welcome back.
+
+2
+00:00:01,170 --> 00:00:05,160
+In this video, we'll make a tiny demo project using ad event listener.
+
+3
+00:00:05,160 --> 00:00:07,620
+I'm calling it the world's most annoying button.
+
+4
+00:00:07,620 --> 00:00:12,810
+It's a button that when you try and click it, it moves out of the way and you have to wrangle it.
+
+5
+00:00:12,810 --> 00:00:18,690
+You have to corner it into a corner or a small space in order to actually click it and defeat it.
+
+6
+00:00:18,990 --> 00:00:21,000
+So it'll be very simple.
+
+7
+00:00:21,000 --> 00:00:29,220
+We have a single button element and we'll add some text like try to click me and that's all we need
+
+8
+00:00:29,220 --> 00:00:30,300
+in our HTML.
+
+9
+00:00:30,690 --> 00:00:36,300
+Then in our JavaScript we're going to select that button and use the mouse over event.
+
+10
+00:00:36,300 --> 00:00:40,920
+So when you get near that, as soon as you mouse over that button, it's going to move.
+
+11
+00:00:40,920 --> 00:00:43,920
+So you can't click because it will be gone before you can click.
+
+12
+00:00:44,340 --> 00:00:48,810
+So let's do a document query selector to select that button.
+
+13
+00:00:50,340 --> 00:00:51,480
+We only have one.
+
+14
+00:00:51,480 --> 00:00:54,840
+We'll save this to a variable called BTN.
+
+15
+00:00:56,030 --> 00:01:05,090
+And then we'll add our event listener, BTN add event listener mouse over and our function will start
+
+16
+00:01:05,090 --> 00:01:10,190
+by just console logging, click to me or no mouse over me.
+
+17
+00:01:11,300 --> 00:01:12,950
+And just make sure that's showing up.
+
+18
+00:01:12,950 --> 00:01:16,370
+I always like to just test that things are connected the way they should be.
+
+19
+00:01:16,790 --> 00:01:22,730
+So if we refresh, open up my console, I'm way zoomed in, by the way, your button will probably look
+
+20
+00:01:22,730 --> 00:01:23,570
+a lot smaller.
+
+21
+00:01:24,080 --> 00:01:25,490
+Okay, mouse over me.
+
+22
+00:01:25,490 --> 00:01:26,780
+That is showing up.
+
+23
+00:01:27,480 --> 00:01:33,710
+Okay, so now what we want to do is when you mouse over, I'd like for it to randomly move somewhere
+
+24
+00:01:33,710 --> 00:01:34,850
+else on the screen.
+
+25
+00:01:35,030 --> 00:01:37,280
+And there's a lot of ways of moving elements.
+
+26
+00:01:37,280 --> 00:01:42,050
+I'm going to go with the very simplest one, which is not really ideal as far as performance.
+
+27
+00:01:42,050 --> 00:01:48,470
+I'm going to change the style dot top and style dot left.
+
+28
+00:01:48,470 --> 00:01:53,930
+Not this dot style, but BTN style top BTN style left.
+
+29
+00:01:53,930 --> 00:02:00,410
+This being a JavaScript course, I don't have time to go into a bunch of complex CSS animations and
+
+30
+00:02:00,440 --> 00:02:04,130
+optimizations, but you can check out some other courses that are online.
+
+31
+00:02:04,790 --> 00:02:06,470
+Other people have great courses.
+
+32
+00:02:06,470 --> 00:02:13,220
+You can check out my YouTube video on animations in CSS to understand why animating top and left and
+
+33
+00:02:13,220 --> 00:02:16,370
+a lot of different CSS properties is not really ideal.
+
+34
+00:02:16,370 --> 00:02:18,500
+But for this demo it totally works fine.
+
+35
+00:02:18,890 --> 00:02:21,140
+So I'm going to start by selecting all buttons.
+
+36
+00:02:21,140 --> 00:02:22,280
+We only have one.
+
+37
+00:02:22,580 --> 00:02:24,800
+I'm going to give it a position of absolute.
+
+38
+00:02:25,310 --> 00:02:29,240
+I'll give it a top of ten pixels and a left of ten pixels.
+
+39
+00:02:29,450 --> 00:02:31,370
+So now I have a top in the left.
+
+40
+00:02:31,370 --> 00:02:33,530
+Set and position is absolute.
+
+41
+00:02:33,740 --> 00:02:37,490
+I can now manipulate that inside of my function.
+
+42
+00:02:37,490 --> 00:02:39,920
+The callback for my add event listener.
+
+43
+00:02:39,920 --> 00:02:49,250
+So when mouse over occurs the first time, why don't we just set BTN style dot left equals and we can
+
+44
+00:02:49,250 --> 00:02:58,670
+just pick some number like 200 pixels and then BTN dot style dot top equals 100 pixels and let's make
+
+45
+00:02:58,670 --> 00:02:59,690
+sure it moves.
+
+46
+00:03:00,400 --> 00:03:01,510
+So refresh the page.
+
+47
+00:03:01,510 --> 00:03:03,280
+I hover and it moved.
+
+48
+00:03:03,990 --> 00:03:05,520
+Okay, so that's the first bit.
+
+49
+00:03:05,530 --> 00:03:06,680
+Relatively easy.
+
+50
+00:03:06,700 --> 00:03:08,560
+I'm still way zoomed in, aren't I?
+
+51
+00:03:08,590 --> 00:03:10,300
+250%.
+
+52
+00:03:11,470 --> 00:03:12,210
+So there we go.
+
+53
+00:03:12,220 --> 00:03:13,090
+It's moving.
+
+54
+00:03:13,870 --> 00:03:18,580
+Now, what I'd like to do is randomly pick a number and have it move that many pixels.
+
+55
+00:03:18,820 --> 00:03:22,000
+And ideally, that number would be on screen.
+
+56
+00:03:22,030 --> 00:03:28,420
+I don't want to just pick some random number between zero and, I don't know, 1000 because some people
+
+57
+00:03:28,420 --> 00:03:34,030
+might have a screen that's only 900 pixels or they might have a really big screen with thousands of
+
+58
+00:03:34,030 --> 00:03:34,720
+pixels.
+
+59
+00:03:34,750 --> 00:03:36,030
+I don't want to limit it.
+
+60
+00:03:36,040 --> 00:03:39,220
+So how do we get access to the size of the screen?
+
+61
+00:03:39,370 --> 00:03:42,610
+This is a bit of a side topic here, but it's worth going into.
+
+62
+00:03:42,790 --> 00:03:44,320
+There's a lot of different ways.
+
+63
+00:03:44,320 --> 00:03:45,820
+And unfortunately, it does.
+
+64
+00:03:45,820 --> 00:03:48,370
+It does vary a bit according to the browser.
+
+65
+00:03:48,370 --> 00:03:52,840
+A user is in especially older versions of browsers, but there are a couple of different options I'll
+
+66
+00:03:52,840 --> 00:03:53,440
+show you.
+
+67
+00:03:53,470 --> 00:03:56,160
+The first is on the window.
+
+68
+00:03:56,170 --> 00:04:03,220
+There is a property called screen, and if you look at screen, it has things like available height
+
+69
+00:04:03,220 --> 00:04:04,660
+and available width.
+
+70
+00:04:04,780 --> 00:04:09,160
+Now, this is the maximum dimensions of my actual screen on my computer.
+
+71
+00:04:09,460 --> 00:04:12,370
+This is not the dimensions of my browser window.
+
+72
+00:04:12,400 --> 00:04:17,740
+If I were to shrink this or change the size of the window we still end up with.
+
+73
+00:04:18,890 --> 00:04:21,709
+1200 or what is it, 19, 20 by 1200.
+
+74
+00:04:21,980 --> 00:04:27,950
+So that is not what we want to use here, because that would assume a user had their screen or their
+
+75
+00:04:27,950 --> 00:04:29,470
+browser window full screened.
+
+76
+00:04:29,480 --> 00:04:33,770
+But if we were doing it in a very small window, you want to account for that as well.
+
+77
+00:04:34,250 --> 00:04:35,930
+So we have another option.
+
+78
+00:04:36,680 --> 00:04:39,040
+This is just one of the many options we have.
+
+79
+00:04:39,050 --> 00:04:46,400
+If we look in window, again, there's a property called Inner Height and another one called Inner Width.
+
+80
+00:04:46,400 --> 00:04:49,610
+So right now my inner width is 818 pixels.
+
+81
+00:04:49,640 --> 00:04:52,760
+If I resize this, here's my actual window.
+
+82
+00:04:52,760 --> 00:04:56,420
+For this browser, it's down to 203.
+
+83
+00:04:56,780 --> 00:05:00,560
+If I bring it over here, it goes up to 1680.
+
+84
+00:05:00,920 --> 00:05:07,160
+So we want to use inner width and inner height to calculate how many pixels are to use to calculate
+
+85
+00:05:07,160 --> 00:05:08,750
+where we should move this button.
+
+86
+00:05:09,230 --> 00:05:14,390
+We'll just multiply a random number by the inner width and by the inner height turn it into pixels.
+
+87
+00:05:15,050 --> 00:05:16,620
+So I'll do that here.
+
+88
+00:05:16,640 --> 00:05:19,370
+Why don't we start with math random.
+
+89
+00:05:20,630 --> 00:05:24,860
+We'll multiply that by window dot inner height.
+
+90
+00:05:26,140 --> 00:05:28,870
+And we can floor it if we want to.
+
+91
+00:05:28,900 --> 00:05:36,100
+I think we can just use a fractional number of pixels as well in case I'm actually not positive.
+
+92
+00:05:36,100 --> 00:05:39,120
+I don't know if I've ever done that, but we'll floor it just to be safe.
+
+93
+00:05:39,130 --> 00:05:41,410
+So this will give us a height.
+
+94
+00:05:41,440 --> 00:05:44,380
+Let's make a variable for that const h.
+
+95
+00:05:45,980 --> 00:05:47,980
+And then we'll get a width.
+
+96
+00:05:47,990 --> 00:05:49,610
+So I'll just duplicate that.
+
+97
+00:05:50,120 --> 00:05:51,320
+I'll call it W.
+
+98
+00:05:51,350 --> 00:05:56,090
+Math flaw of math out random times window dot inner width.
+
+99
+00:05:56,090 --> 00:05:59,060
+Then we'll use that to set button style left.
+
+100
+00:05:59,060 --> 00:06:03,080
+So I'll use the width here and I'll do a template literal.
+
+101
+00:06:03,680 --> 00:06:12,620
+So I'll insert and I don't really like the name w I'll just do width height so with pixels.
+
+102
+00:06:12,890 --> 00:06:17,480
+And then the same thing for button style top.
+
+103
+00:06:18,930 --> 00:06:21,090
+I'll change this to height pixels.
+
+104
+00:06:21,360 --> 00:06:22,770
+Let's test it out here.
+
+105
+00:06:23,340 --> 00:06:25,890
+It appears to be staying on screen so far.
+
+106
+00:06:25,920 --> 00:06:32,970
+If I shrink my window down and I refresh again, it still stays within that window size.
+
+107
+00:06:33,540 --> 00:06:36,750
+Okay, so we have this part done.
+
+108
+00:06:36,780 --> 00:06:38,850
+What if we add some behavior in?
+
+109
+00:06:38,850 --> 00:06:44,910
+If the user does manage to click somehow and there is a way to do it, if you zoom way in and you make
+
+110
+00:06:44,910 --> 00:06:47,070
+your window super tiny, you can click.
+
+111
+00:06:47,430 --> 00:06:51,180
+So why don't we add another event listener on the button?
+
+112
+00:06:51,540 --> 00:06:56,430
+Add event listener when a user actually clicks if they can.
+
+113
+00:06:56,940 --> 00:06:59,900
+What should we do to reward the user?
+
+114
+00:06:59,910 --> 00:07:01,260
+It won't be much of a reward.
+
+115
+00:07:01,260 --> 00:07:02,340
+But let's do.
+
+116
+00:07:02,670 --> 00:07:04,860
+Let's change the inner text of the button.
+
+117
+00:07:05,220 --> 00:07:08,460
+Button enter text equals you got me.
+
+118
+00:07:09,600 --> 00:07:13,920
+And then let's make the body the background color turn green.
+
+119
+00:07:14,700 --> 00:07:19,290
+So to select the body, we can do document body and then style property.
+
+120
+00:07:19,560 --> 00:07:21,690
+We'll do background color, not color.
+
+121
+00:07:22,500 --> 00:07:25,020
+Camel cased equals green.
+
+122
+00:07:25,900 --> 00:07:27,430
+And is there anything else?
+
+123
+00:07:27,610 --> 00:07:28,710
+I guess that's good enough.
+
+124
+00:07:28,720 --> 00:07:31,330
+We could do an alert, but I'll leave it at this.
+
+125
+00:07:31,540 --> 00:07:37,240
+So in order to catch it and show it to you, I'll go into my case file and make the button a little
+
+126
+00:07:37,240 --> 00:07:37,780
+larger.
+
+127
+00:07:37,780 --> 00:07:45,280
+So I'll do height is maybe 50 pixels with is 100 pixels refresh.
+
+128
+00:07:45,280 --> 00:07:47,920
+And I'm also going to resize my window.
+
+129
+00:07:48,100 --> 00:07:54,580
+So if I resize this as small as I can go in chrome and refresh, it's still going to be tricky to click.
+
+130
+00:07:55,880 --> 00:07:57,950
+But what I'll do is zoom in.
+
+131
+00:07:58,760 --> 00:08:00,470
+Make the button really large.
+
+132
+00:08:00,710 --> 00:08:01,370
+Okay.
+
+133
+00:08:01,370 --> 00:08:02,360
+So now.
+
+134
+00:08:02,780 --> 00:08:04,920
+All right, I should be able to click close.
+
+135
+00:08:04,940 --> 00:08:05,690
+There we go.
+
+136
+00:08:05,720 --> 00:08:06,530
+I got it.
+
+137
+00:08:07,190 --> 00:08:08,000
+You got me.
+
+138
+00:08:08,000 --> 00:08:09,370
+And it turns green.
+
+139
+00:08:09,380 --> 00:08:10,390
+So I cheated.
+
+140
+00:08:10,400 --> 00:08:14,840
+I made the window way smaller, and I made the the button way bigger by zooming in.
+
+141
+00:08:14,960 --> 00:08:16,220
+But it works.
+
+142
+00:08:16,340 --> 00:08:22,940
+So this is a silly demo, but the point is that we can have multiple events on one element and we have
+
+143
+00:08:22,940 --> 00:08:24,530
+a mouse over, we've got a click.
+
+144
+00:08:24,530 --> 00:08:25,520
+It's moving.
+
+145
+00:08:25,520 --> 00:08:31,610
+So inside of this on click well it's not an on click inside of this event handler for mouse over we
+
+146
+00:08:31,610 --> 00:08:33,289
+are manipulating the button.
+
+147
+00:08:33,289 --> 00:08:33,950
+Same thing here.
+
+148
+00:08:33,950 --> 00:08:37,309
+We're changing the inner text and the background color of the body.
+
+149
+00:08:37,700 --> 00:08:39,669
+So this is kind of fun, silly stuff.
+
+150
+00:08:39,679 --> 00:08:43,730
+Next, I'm going to show you how we can add event listeners to a bunch of elements.
+
+151
+00:08:43,730 --> 00:08:49,610
+So how do we add an event listener to every comment on a page or every button on a page that should
+
+152
+00:08:49,610 --> 00:08:51,100
+behave in a particular way?
+
+153
+00:08:51,110 --> 00:08:52,940
+We don't have to do it one by one.
+
+154
+00:08:52,940 --> 00:08:54,230
+So that's coming up next.
+

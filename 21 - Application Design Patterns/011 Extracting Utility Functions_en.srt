@@ -1,0 +1,124 @@
+1
+00:00:00,920 --> 00:00:02,540
+Our demon's function is all done.
+
+2
+00:00:02,540 --> 00:00:04,939
+But there's one last, very quick thing I want to do with it.
+
+3
+00:00:05,150 --> 00:00:09,290
+Our index file is already getting a pretty good amount of code inside of it.
+
+4
+00:00:09,320 --> 00:00:14,300
+Right now we're at just 29 lines of code and we've barely really begun to start our application.
+
+5
+00:00:14,690 --> 00:00:19,730
+So I think that we could be well served to move this bounce function out into a separate file.
+
+6
+00:00:20,270 --> 00:00:23,900
+Inside of my root project directory, I'm going to make a new file called Utils.
+
+7
+00:00:24,180 --> 00:00:29,780
+JS The idea behind this file is that I'm going to place any utility functions that I create inside of
+
+8
+00:00:29,780 --> 00:00:30,210
+here.
+
+9
+00:00:30,230 --> 00:00:33,620
+So this is just so I can better organize the code inside of my project.
+
+10
+00:00:34,250 --> 00:00:36,230
+I'm going to go find the bounce function.
+
+11
+00:00:36,710 --> 00:00:41,210
+I'm going to cut it, move it over to utils eggs and paste it.
+
+12
+00:00:43,190 --> 00:00:47,440
+I then need to make sure that I include the utilized JS file inside of my HTML document.
+
+13
+00:00:47,450 --> 00:00:49,430
+So I'm going to open up the HTML document.
+
+14
+00:00:49,730 --> 00:00:51,710
+I'm going to go down to the very bottom of the file.
+
+15
+00:00:52,070 --> 00:00:57,650
+I'll find the existing script tag for indexed JS and I'm going to copy it and paste it right underneath
+
+16
+00:00:57,650 --> 00:00:58,310
+itself.
+
+17
+00:00:59,040 --> 00:01:03,420
+I'll then find the first script tag and change the source to utilize JJ's.
+
+18
+00:01:04,260 --> 00:01:09,420
+So now whenever we load up this HTML document are going to first load up and execute all the code inside
+
+19
+00:01:09,420 --> 00:01:16,650
+of utils that will define the bounds function well then load up and execute indexed JS which has a reference
+
+20
+00:01:16,650 --> 00:01:17,760
+to bounce.
+
+21
+00:01:18,090 --> 00:01:23,760
+So we need to make sure that we define UTILS first or include that file first so that we can define
+
+22
+00:01:23,760 --> 00:01:27,780
+the bounce function before we run it inside of indexes.
+
+23
+00:01:28,680 --> 00:01:28,820
+Okay.
+
+24
+00:01:29,000 --> 00:01:31,880
+So let's save all these files and make sure all three are saved.
+
+25
+00:01:32,480 --> 00:01:35,330
+I'll then go back over to my browser, do a quick refresh.
+
+26
+00:01:36,610 --> 00:01:40,860
+I'll search for Avengers again, and I'm just going to make sure that I still see my data getting fetched.
+
+27
+00:01:40,870 --> 00:01:42,340
+And yep, I definitely do.
+
+28
+00:01:43,080 --> 00:01:43,510
+Okay.
+
+29
+00:01:43,530 --> 00:01:44,470
+Quick little change.
+
+30
+00:01:44,490 --> 00:01:45,420
+All good to go.
+
+31
+00:01:45,450 --> 00:01:48,450
+Let's take another quick pause and continue with our app in the next video.
+

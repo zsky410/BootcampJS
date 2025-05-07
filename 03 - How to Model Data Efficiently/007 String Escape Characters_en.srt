@@ -1,0 +1,244 @@
+1
+00:00:00,150 --> 00:00:04,350
+Next up, string escapes, also known as escape characters.
+
+2
+00:00:04,350 --> 00:00:05,560
+Escape notation.
+
+3
+00:00:05,580 --> 00:00:09,600
+Escape sequences I think I've heard before, it doesn't really matter.
+
+4
+00:00:09,600 --> 00:00:14,910
+What they are, are combinations of characters that have a different meaning within a string.
+
+5
+00:00:14,910 --> 00:00:20,700
+Then the normal character would have, for example, a quote, a single quote or a double quote.
+
+6
+00:00:20,700 --> 00:00:25,080
+Those are particular special characters in JavaScript strings.
+
+7
+00:00:25,440 --> 00:00:33,270
+If we have single quotes around something he said and I wanted to quote La la, la, we've already seen
+
+8
+00:00:33,270 --> 00:00:35,070
+that this is problematic.
+
+9
+00:00:35,100 --> 00:00:41,200
+The easy solution would just be to use double quotes on the outside or double quotes on the inside and
+
+10
+00:00:41,200 --> 00:00:43,080
+a single on the outside like this.
+
+11
+00:00:43,080 --> 00:00:53,550
+But if I wanted all single quotes, like he said, I ain't happy and I want ain't to have a quote or
+
+12
+00:00:53,550 --> 00:00:55,410
+a single quote apostrophe there.
+
+13
+00:00:55,860 --> 00:00:57,030
+That's not going to work.
+
+14
+00:00:57,150 --> 00:01:02,250
+But if I use this special sequence where we have a backslash, notice all of them I'm showing you.
+
+15
+00:01:02,250 --> 00:01:03,480
+Start with a backslash.
+
+16
+00:01:03,930 --> 00:01:05,550
+Put that before the quote.
+
+17
+00:01:05,820 --> 00:01:11,250
+Our resulting string now has a single quote there, and this also works with double quotes.
+
+18
+00:01:11,250 --> 00:01:16,380
+So technically this string here, he said, I ain't happy, should have quotes around.
+
+19
+00:01:16,380 --> 00:01:21,180
+I ain't happy because he said it and then ain't should have that quote there.
+
+20
+00:01:21,510 --> 00:01:28,650
+So if we wanted to if we did this with double quotes, he said, and I want double quotes again, I
+
+21
+00:01:28,650 --> 00:01:30,000
+ain't happy.
+
+22
+00:01:30,800 --> 00:01:33,740
+I could escape those double quotes.
+
+23
+00:01:34,470 --> 00:01:35,370
+Like that.
+
+24
+00:01:35,640 --> 00:01:38,040
+And now we end up with double quotes around it.
+
+25
+00:01:38,670 --> 00:01:45,660
+And I could also go and add in that apostrophe either with just a single quote or backslash single quote
+
+26
+00:01:45,660 --> 00:01:48,120
+in this case, single quote will do it for me.
+
+27
+00:01:48,360 --> 00:01:52,370
+Not that commonly used honestly, but it is worth knowing about.
+
+28
+00:01:52,380 --> 00:01:53,640
+Sometimes you'll see them.
+
+29
+00:01:53,640 --> 00:01:57,890
+So those are the two characters you need to get a double quote or a single quote.
+
+30
+00:01:57,900 --> 00:02:00,930
+You just put a backslash before it and it changes the meaning.
+
+31
+00:02:00,930 --> 00:02:06,150
+It tells JavaScript, okay, this is not actually a quote to close a string or open a new string.
+
+32
+00:02:06,150 --> 00:02:09,389
+This is a quote character I want in the string.
+
+33
+00:02:10,050 --> 00:02:12,190
+We also have backslash n.
+
+34
+00:02:12,210 --> 00:02:14,490
+This one will give you a new line.
+
+35
+00:02:14,820 --> 00:02:22,650
+So if I clear here and I do hello and then backslash n goodbye and I hit enter.
+
+36
+00:02:23,010 --> 00:02:25,740
+You'll see that my string is now on two lines.
+
+37
+00:02:25,740 --> 00:02:27,870
+So that's how you can add a new line.
+
+38
+00:02:28,290 --> 00:02:34,470
+On the docs on MD n, there is a table talking about different escape characters.
+
+39
+00:02:34,650 --> 00:02:35,580
+Escape notation.
+
+40
+00:02:35,580 --> 00:02:36,570
+That's what they call it.
+
+41
+00:02:36,570 --> 00:02:38,430
+Most of these I've never used.
+
+42
+00:02:38,430 --> 00:02:45,330
+We have things like backslash t to make a tab so we could do this hit enter.
+
+43
+00:02:45,420 --> 00:02:51,090
+I don't know what that string actually means but ha with a tab in front of it, not that common.
+
+44
+00:02:51,180 --> 00:02:57,540
+And then one that definitely does come up is if you ever need a backslash in a string, all of these
+
+45
+00:02:57,540 --> 00:02:58,950
+start with a backslash.
+
+46
+00:02:59,400 --> 00:03:02,400
+And that means that the backslash itself has a special meaning.
+
+47
+00:03:02,400 --> 00:03:04,140
+It's a way of telling JavaScript.
+
+48
+00:03:04,140 --> 00:03:09,360
+This is about to be an escape, this is about to be a special character coming after me.
+
+49
+00:03:09,360 --> 00:03:14,160
+But if you just want a regular backslash, then we need to put two back slashes.
+
+50
+00:03:14,760 --> 00:03:18,060
+So that would look like this one backslash on its own.
+
+51
+00:03:19,780 --> 00:03:21,010
+Is invalid.
+
+52
+00:03:21,040 --> 00:03:23,950
+JavaScript thinks there's something that was supposed to come after it.
+
+53
+00:03:23,980 --> 00:03:27,250
+Is it backslash t backslash n backslash quote?
+
+54
+00:03:27,250 --> 00:03:31,720
+But if we instead do double backslash, it turns into a single backslash.
+
+55
+00:03:32,170 --> 00:03:35,030
+So that's the basics for escape notation.
+
+56
+00:03:35,050 --> 00:03:41,140
+Not really a huge topic and nothing you need to freak out about, but it occasionally will come up.
+
+57
+00:03:41,140 --> 00:03:42,220
+It's good to know about.
+
+58
+00:03:42,220 --> 00:03:45,870
+It's a topic that is pretty consistent across programming languages.
+
+59
+00:03:45,880 --> 00:03:51,700
+The actual character might change, but the idea of having an escape character or escape sequences is
+
+60
+00:03:51,700 --> 00:03:52,450
+pretty common.
+
+61
+00:03:53,080 --> 00:03:53,710
+All right.
+

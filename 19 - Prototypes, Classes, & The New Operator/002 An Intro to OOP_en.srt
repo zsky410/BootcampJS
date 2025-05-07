@@ -1,0 +1,604 @@
+1
+00:00:00,150 --> 00:00:00,630
+All right.
+
+2
+00:00:00,630 --> 00:00:06,180
+So now that we've seen a bit about prototypes, we are ready to move on to talking about basic object
+
+3
+00:00:06,180 --> 00:00:08,130
+oriented concepts in JavaScript.
+
+4
+00:00:08,130 --> 00:00:13,290
+So we have a lot to talk about, things like factory functions, constructor functions, the new class
+
+5
+00:00:13,290 --> 00:00:20,130
+keywords, constructors in a class, the new keyword, there's super inheritance, there's a lot of
+
+6
+00:00:20,130 --> 00:00:27,660
+stuff, but it all has to do with this one central idea, which is organizing our code, designing and
+
+7
+00:00:27,660 --> 00:00:33,240
+structuring our applications by breaking things up into distinct patterns of objects.
+
+8
+00:00:33,240 --> 00:00:37,980
+When I say patterns of objects can also think of recipes for objects.
+
+9
+00:00:38,400 --> 00:00:40,020
+So I have an example here.
+
+10
+00:00:40,320 --> 00:00:42,540
+This is a class that will be creating later on.
+
+11
+00:00:42,780 --> 00:00:44,040
+It's a little bit long.
+
+12
+00:00:44,040 --> 00:00:45,840
+It models a color.
+
+13
+00:00:46,470 --> 00:00:51,120
+Now that seems kind of stupid, but with colors we have so many different systems.
+
+14
+00:00:51,120 --> 00:00:55,620
+We have RGB colors where you can have a color like, I don't know this right here.
+
+15
+00:00:56,220 --> 00:00:58,590
+We also have hexadecimal colors.
+
+16
+00:00:58,590 --> 00:01:02,100
+I don't I don't know what the hexadecimal version of this color is.
+
+17
+00:01:02,220 --> 00:01:10,860
+I could just make something up f31 that is clearly not it vs code has given me a preview, but that
+
+18
+00:01:10,860 --> 00:01:12,480
+is another format for colors.
+
+19
+00:01:12,480 --> 00:01:18,240
+We also have HSL colors and HSL is is always tricky.
+
+20
+00:01:18,240 --> 00:01:22,680
+We have a number from 0 to 360 and then a percentage and another percentage.
+
+21
+00:01:23,280 --> 00:01:26,520
+And this gives me another format for colors.
+
+22
+00:01:26,550 --> 00:01:32,970
+Not to mention we also have Reba where we have an alpha channel for opacity, for how transparent a
+
+23
+00:01:32,970 --> 00:01:35,310
+color is from 0 to 1.
+
+24
+00:01:35,310 --> 00:01:41,280
+Now, a lot of the times when we're making colors or working with colors in the DOM, we frequently
+
+25
+00:01:41,280 --> 00:01:43,530
+may not need to translate between two.
+
+26
+00:01:43,530 --> 00:01:49,920
+Sometimes we would need to, but there are times where it would be easier if we had a color as HSL.
+
+27
+00:01:49,920 --> 00:01:55,860
+For example, if I want to find the opposite color of this color right here, it's pretty easy because
+
+28
+00:01:55,860 --> 00:01:57,060
+of this Hue channel.
+
+29
+00:01:57,060 --> 00:02:01,560
+So I don't want to go into too much detail, but we can take this hue and all you need to do is add
+
+30
+00:02:01,560 --> 00:02:04,140
+180 to it to figure out the opposite.
+
+31
+00:02:04,380 --> 00:02:10,169
+This is the saturation and the lightness, but all of the hue data is here versus RGV colors and hex
+
+32
+00:02:10,169 --> 00:02:10,830
+colors.
+
+33
+00:02:10,830 --> 00:02:13,680
+It's spread out across all of those different values.
+
+34
+00:02:13,680 --> 00:02:17,550
+So it's much, much more complicated to calculate an opposite color.
+
+35
+00:02:17,580 --> 00:02:25,020
+So I've made a class essentially a recipe for colors you pass in a name like Carat or Emerald, and
+
+36
+00:02:25,020 --> 00:02:31,380
+then our GB values, and we can easily translate between different colors.
+
+37
+00:02:31,380 --> 00:02:33,570
+So I have a color called nav color.
+
+38
+00:02:34,080 --> 00:02:39,300
+NAV color has a couple of different properties and it has some different methods.
+
+39
+00:02:39,300 --> 00:02:47,280
+If you look at these methods, things like opposite our GB, our GBR, so I could call nav color dot
+
+40
+00:02:48,030 --> 00:02:53,160
+GBA or let's do our GB and I get the GB representation.
+
+41
+00:02:53,160 --> 00:02:57,540
+But I could instead change that to Hex and I now have a hex color.
+
+42
+00:02:58,120 --> 00:03:02,530
+But what's more fun is that I can use it to find the opposite color.
+
+43
+00:03:02,530 --> 00:03:04,210
+I've added an opposite method.
+
+44
+00:03:05,110 --> 00:03:09,370
+So if I select that first H one, I'm selecting all of them.
+
+45
+00:03:09,370 --> 00:03:11,260
+I'm going to do it sort of in a hacky way.
+
+46
+00:03:11,290 --> 00:03:21,040
+Take the zero with one style background color and I set it equal to nav color dot and I'll just do an
+
+47
+00:03:21,040 --> 00:03:22,000
+RGB color.
+
+48
+00:03:22,750 --> 00:03:23,080
+All right.
+
+49
+00:03:23,080 --> 00:03:24,850
+So it gives me this orange color.
+
+50
+00:03:24,880 --> 00:03:32,290
+If I wanted to make this one the same color but slightly lighter, I could easily do it first by selecting
+
+51
+00:03:32,290 --> 00:03:39,880
+the correct H one and then calling the GBA method and passing in maybe 0.8 for the opacity.
+
+52
+00:03:40,180 --> 00:03:44,260
+Now I have a slightly lighter version, or I could keep going lighter.
+
+53
+00:03:44,260 --> 00:03:52,750
+I could do 0.5, or I could go with the opposite color opposite, which is another method I added,
+
+54
+00:03:53,830 --> 00:04:01,300
+which gives me an opposite hue across the color wheel, so orange to blue and it's all calculated using
+
+55
+00:04:01,300 --> 00:04:02,560
+these color values.
+
+56
+00:04:02,830 --> 00:04:08,260
+I also could go full saturation, which is another method I added I can't remember.
+
+57
+00:04:08,650 --> 00:04:13,690
+It's called full saturation, which will take the root orange color called carrot, I think, and make
+
+58
+00:04:13,690 --> 00:04:15,490
+it as saturated as possible.
+
+59
+00:04:15,790 --> 00:04:16,990
+As you can see there.
+
+60
+00:04:17,290 --> 00:04:19,060
+So there's many things we could do.
+
+61
+00:04:19,089 --> 00:04:25,630
+Point is that this color object for this carrot orange color has different values, that it's storing
+
+62
+00:04:25,630 --> 00:04:31,360
+different numbers and it has different methods, and they are grouped together in a repeatable reusable
+
+63
+00:04:31,360 --> 00:04:32,060
+object.
+
+64
+00:04:32,080 --> 00:04:35,860
+I made a second color here using the exact same pattern.
+
+65
+00:04:35,950 --> 00:04:42,430
+So this color, which I'm calling Emerald, has the same methods, but we get different results if I
+
+66
+00:04:42,430 --> 00:04:43,540
+use that color.
+
+67
+00:04:43,570 --> 00:04:45,670
+The variable name is logo color.
+
+68
+00:04:45,760 --> 00:04:46,900
+I'll clear this.
+
+69
+00:04:48,640 --> 00:04:53,890
+We run this code, but I instead use logo color, the name of that variable.
+
+70
+00:04:55,090 --> 00:05:04,330
+I now have that green and I could do the second H one and a slightly lighter version 0.7.
+
+71
+00:05:05,440 --> 00:05:06,490
+And it's lighter.
+
+72
+00:05:06,700 --> 00:05:14,650
+I could also do the opposite as we saw, and we get this purplish magenta ish color, the opposite on
+
+73
+00:05:14,650 --> 00:05:15,400
+the color wheel.
+
+74
+00:05:15,880 --> 00:05:23,020
+So the same pattern, the same recipe for a color, the same methods, the same properties, but they
+
+75
+00:05:23,020 --> 00:05:24,190
+have different values.
+
+76
+00:05:24,190 --> 00:05:26,080
+We get different results frequently.
+
+77
+00:05:26,620 --> 00:05:30,740
+So I could easily just have a bunch of functions and no objects whatsoever.
+
+78
+00:05:30,760 --> 00:05:36,880
+I could pass things around, which we've actually seen before back a couple of sections actually a while
+
+79
+00:05:36,880 --> 00:05:43,390
+ago when we were talking about this card deck example, I think this was in a section called The Secret
+
+80
+00:05:43,390 --> 00:05:44,350
+Life of Objects.
+
+81
+00:05:44,350 --> 00:05:51,760
+As part of an exercise I had, you create a function that returned an array representing a deck of cards,
+
+82
+00:05:51,760 --> 00:05:56,290
+so an array that had a bunch of objects where each one had a suit and a value.
+
+83
+00:05:56,290 --> 00:06:01,810
+So suit would be hearts and value would be, I don't know, five of hearts.
+
+84
+00:06:01,810 --> 00:06:05,050
+And then we'd have 52 of those objects in this array.
+
+85
+00:06:05,230 --> 00:06:08,770
+So we made a function to return that and it works fine.
+
+86
+00:06:08,800 --> 00:06:11,370
+I call it by calling initialized deck.
+
+87
+00:06:11,380 --> 00:06:14,290
+I'll run this code over here.
+
+88
+00:06:14,290 --> 00:06:15,250
+Refresh the page.
+
+89
+00:06:15,250 --> 00:06:20,590
+I can call initialize deck and I get a deck of cards back, but I have to save it to a variable.
+
+90
+00:06:20,590 --> 00:06:24,130
+So I'll call this DH or maybe deck one.
+
+91
+00:06:25,510 --> 00:06:29,010
+So I have that deck one if I want to shuffle it.
+
+92
+00:06:29,020 --> 00:06:30,970
+We made a function called shuffle.
+
+93
+00:06:30,970 --> 00:06:33,550
+Right now it's all in order for spades.
+
+94
+00:06:33,550 --> 00:06:34,930
+Four of clubs, four of hearts.
+
+95
+00:06:35,410 --> 00:06:39,610
+But I can turn it into a shuffle deck by calling the shuffle function.
+
+96
+00:06:40,090 --> 00:06:43,030
+So shuffle I have to pass in deck one.
+
+97
+00:06:45,200 --> 00:06:52,100
+And I get this shuffled deck, I can draw a card by calling the draw card function, but I have to pass
+
+98
+00:06:52,100 --> 00:06:53,060
+the deck in.
+
+99
+00:06:53,420 --> 00:06:54,650
+So this is fine.
+
+100
+00:06:54,650 --> 00:06:56,900
+This is what we started with back in that section.
+
+101
+00:06:56,900 --> 00:07:04,010
+But I made the point that it would be nice if we just had an easy way of making a new deck and it automatically
+
+102
+00:07:04,010 --> 00:07:07,100
+included the methods we wanted and the properties we wanted.
+
+103
+00:07:07,100 --> 00:07:09,080
+And we saw a way of doing that.
+
+104
+00:07:09,080 --> 00:07:10,910
+It looked like this right here.
+
+105
+00:07:11,300 --> 00:07:12,710
+I'll run it and show you.
+
+106
+00:07:13,040 --> 00:07:17,450
+We have a method called Make Deck and I save that to a variable.
+
+107
+00:07:17,450 --> 00:07:20,990
+I'll call this deck one equals make deck.
+
+108
+00:07:20,990 --> 00:07:27,800
+If we look at deck one, it now contains a whole bunch of methods draw card, draw, multiple, initialize
+
+109
+00:07:27,800 --> 00:07:28,940
+deck shuffle.
+
+110
+00:07:28,940 --> 00:07:31,370
+It has a deck here itself.
+
+111
+00:07:31,370 --> 00:07:32,210
+It's empty right now.
+
+112
+00:07:32,210 --> 00:07:37,880
+But if I called deck one dot initialized deck, now we look at deck one.
+
+113
+00:07:38,120 --> 00:07:39,290
+It's been updated.
+
+114
+00:07:40,070 --> 00:07:42,230
+All the values are in that deck array.
+
+115
+00:07:42,740 --> 00:07:44,420
+I can easily shuffle it.
+
+116
+00:07:44,420 --> 00:07:46,250
+I don't have to pass anything around.
+
+117
+00:07:46,250 --> 00:07:55,370
+I can call deck one dot draw card and all of my code is organized for all the values, the information
+
+118
+00:07:55,370 --> 00:07:59,090
+and the functions are organized in this one deck object.
+
+119
+00:07:59,300 --> 00:08:00,500
+And I can repeat it.
+
+120
+00:08:00,500 --> 00:08:01,640
+I could have a second deck.
+
+121
+00:08:01,640 --> 00:08:03,380
+If I was playing a different game.
+
+122
+00:08:03,380 --> 00:08:09,290
+I would just call, make deck and save it to another variable cost deck two.
+
+123
+00:08:10,730 --> 00:08:15,710
+And this is the basic pattern that we're going for, but we'll see some shortcomings with the approach
+
+124
+00:08:15,710 --> 00:08:17,360
+that we learned originally.
+
+125
+00:08:17,360 --> 00:08:24,680
+But this idea of having a repeatable recipe for other objects to be created based off of is central
+
+126
+00:08:24,680 --> 00:08:26,780
+to everything we'll see in this section.
+
+127
+00:08:27,170 --> 00:08:29,930
+And we've seen this before in a bunch of different contexts.
+
+128
+00:08:29,930 --> 00:08:38,929
+When we learned how to make Xlsx, which are XML HTTP requests, we ran this code new XML HTTP request,
+
+129
+00:08:38,929 --> 00:08:46,160
+save that to a variable like req request that made us an object with a bunch of different properties
+
+130
+00:08:46,160 --> 00:08:50,030
+and methods already baked in this line of code right here.
+
+131
+00:08:50,240 --> 00:08:53,540
+We haven't talked about this new keyword, but we'll get there.
+
+132
+00:08:53,540 --> 00:08:57,020
+But the key takeaway here is that we end up with this pattern.
+
+133
+00:08:57,020 --> 00:09:00,620
+Every time I make a new request, I end up with an object.
+
+134
+00:09:00,620 --> 00:09:06,110
+It may eventually have different values instead of just null everywhere, but it's the same pattern.
+
+135
+00:09:06,230 --> 00:09:10,400
+They're cut from the same cookie cutter, same thing with Dom stuff.
+
+136
+00:09:10,400 --> 00:09:18,110
+When we select an H one document query selector, just the first H one that h one.
+
+137
+00:09:18,470 --> 00:09:23,060
+If I do a console, dear, I forgot about that.
+
+138
+00:09:23,270 --> 00:09:24,860
+Let's take a look at that line there.
+
+139
+00:09:25,520 --> 00:09:31,700
+It's an object and it has the same properties we've come to expect, and that's because it is cut from
+
+140
+00:09:31,700 --> 00:09:34,520
+the same cookie cutter that all other heading elements are.
+
+141
+00:09:34,520 --> 00:09:37,010
+It's called the HTML heading element.
+
+142
+00:09:37,040 --> 00:09:40,220
+It is a recipe to make an object like this.
+
+143
+00:09:41,000 --> 00:09:43,070
+So I think I'm going on and on about this.
+
+144
+00:09:43,490 --> 00:09:49,310
+If you're already familiar with EOP, this idea of creating these classes or these object templates
+
+145
+00:09:49,310 --> 00:09:55,790
+that contain a definition of the properties and the methods for a given instance of that recipe or class,
+
+146
+00:09:55,790 --> 00:10:01,970
+this will all seem very basic and repetitive, but if you're new to this, it can be a little bit tricky
+
+147
+00:10:01,970 --> 00:10:03,470
+to wrap your head around up front.
+
+148
+00:10:03,470 --> 00:10:04,820
+So we're going to take it slow.
+
+149
+00:10:04,820 --> 00:10:11,180
+I'm going to start with one approach called a factory function, and I'll explain how it works and what
+
+150
+00:10:11,180 --> 00:10:12,530
+is not so great about it.
+
+151
+00:10:12,530 --> 00:10:13,850
+So that's coming up next.
+

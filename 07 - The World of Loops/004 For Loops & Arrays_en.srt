@@ -1,0 +1,672 @@
+1
+00:00:00,150 --> 00:00:05,460
+We can also use for loops to loop or iterate over a string or an array.
+
+2
+00:00:05,550 --> 00:00:09,030
+We still generate numbers, but we generate the indices.
+
+3
+00:00:09,030 --> 00:00:12,810
+So for a string like lions, it's in an array here.
+
+4
+00:00:12,810 --> 00:00:20,040
+But if we're working with a string lions, we would start with an index of zero and generate IE up until
+
+5
+00:00:20,040 --> 00:00:26,430
+we hit 401234 and once we hit four, we're done.
+
+6
+00:00:26,430 --> 00:00:30,890
+And then we can use that index that I to access each character.
+
+7
+00:00:30,900 --> 00:00:33,660
+Or we could do it for an array, which is what I'm doing here.
+
+8
+00:00:34,020 --> 00:00:35,730
+We have three items in here.
+
+9
+00:00:35,730 --> 00:00:44,490
+We start with index of zero and we loop as long as the IE variable is less than the length of the array.
+
+10
+00:00:44,970 --> 00:00:46,290
+So let's try it out.
+
+11
+00:00:47,220 --> 00:00:48,690
+We'll make an array over here.
+
+12
+00:00:50,190 --> 00:00:57,930
+So if I have an array called exam scores, it represents maybe the test scores of one student or of
+
+13
+00:00:57,930 --> 00:00:59,670
+a teacher who has multiple students.
+
+14
+00:00:59,670 --> 00:01:00,570
+These are all the scores.
+
+15
+00:01:00,570 --> 00:01:01,590
+It doesn't really matter.
+
+16
+00:01:01,590 --> 00:01:02,850
+It's a silly example.
+
+17
+00:01:02,850 --> 00:01:07,140
+Either way, if we wanted to print each score out, we'll start with that.
+
+18
+00:01:07,140 --> 00:01:14,130
+We would need to iterate over this array and generate an AI or any variable in a for loop that starts
+
+19
+00:01:14,130 --> 00:01:17,130
+at zero because the first element starts at index zero.
+
+20
+00:01:17,130 --> 00:01:21,000
+And then we want to go up until the end of that array, but we don't want to go past it.
+
+21
+00:01:21,900 --> 00:01:26,100
+So we'll do four let equals zero and we'll keep going.
+
+22
+00:01:26,100 --> 00:01:30,810
+While AI is less than exam scores dot length, not less than or equal to.
+
+23
+00:01:30,840 --> 00:01:34,770
+Because remember, the length is always one more than the greatest index.
+
+24
+00:01:34,770 --> 00:01:38,430
+So we have one, two, three, four, five, six elements.
+
+25
+00:01:38,430 --> 00:01:42,390
+But the last item, the last element has an index of five.
+
+26
+00:01:42,540 --> 00:01:48,030
+So if we did less than or equal to the length, which is six, then at the last turn of the loop, the
+
+27
+00:01:48,030 --> 00:01:53,010
+last iteration, we would be accessing exam scores of six, which is undefined.
+
+28
+00:01:53,820 --> 00:01:56,700
+So AI is less than exam scores length.
+
+29
+00:01:56,700 --> 00:02:00,780
+Or we could do less than or equal to exam scores dot length minus one.
+
+30
+00:02:00,960 --> 00:02:02,130
+But that's longer.
+
+31
+00:02:02,130 --> 00:02:08,669
+So I like to do it this way and then we'll add one to each time and we'll start by just constantly logging
+
+32
+00:02:08,940 --> 00:02:15,300
+exam scores of AI and we can also console.log.
+
+33
+00:02:15,300 --> 00:02:17,670
+I first let's run it.
+
+34
+00:02:18,390 --> 00:02:19,140
+There we go.
+
+35
+00:02:19,320 --> 00:02:25,800
+So I starts at zero then one, two, three, four, five, it stops at five because the next AI is going
+
+36
+00:02:25,800 --> 00:02:31,110
+to be six, which is no longer less than the length, because the length is six and six is not less
+
+37
+00:02:31,110 --> 00:02:31,830
+than six.
+
+38
+00:02:32,220 --> 00:02:36,180
+And then we access using square brackets each individual element.
+
+39
+00:02:36,180 --> 00:02:39,390
+So we get 98, 77, 84 and so on.
+
+40
+00:02:39,570 --> 00:02:42,480
+Now I'm going to make an adjustment to this variable.
+
+41
+00:02:42,510 --> 00:02:43,260
+I'll be right back.
+
+42
+00:02:43,260 --> 00:02:43,530
+Okay.
+
+43
+00:02:43,620 --> 00:02:45,900
+So I made an adjustment, actually, that's a lie.
+
+44
+00:02:45,900 --> 00:02:51,750
+I made a new variable called My Students, which now that I'm thinking about it, is a little arrogant
+
+45
+00:02:51,930 --> 00:02:54,030
+because all of these students are Greek gods.
+
+46
+00:02:54,030 --> 00:02:55,950
+They're not actually my students.
+
+47
+00:02:56,040 --> 00:03:00,420
+Unfortunately, I did have a serious obsession with Greek mythology as a kid.
+
+48
+00:03:00,420 --> 00:03:02,520
+So each student is an object.
+
+49
+00:03:02,520 --> 00:03:07,770
+We have an array, each element is an object and they have a grade each and a first name.
+
+50
+00:03:07,950 --> 00:03:14,580
+So why don't we start by just pointing out Zeus scored 86, Artemis scored 97, Hara scored 72.
+
+51
+00:03:14,580 --> 00:03:19,860
+So we'll need to loop over the array for we can do I again let I equals zero.
+
+52
+00:03:19,890 --> 00:03:22,560
+This is a standard pattern to loop over an array.
+
+53
+00:03:22,560 --> 00:03:28,320
+We always start at index of zero unless we want it to go backwards, in which case we would start with
+
+54
+00:03:28,320 --> 00:03:31,830
+the last index and loop until we hit index of zero.
+
+55
+00:03:32,160 --> 00:03:39,930
+But usually we go left to right, so we'll go while AI is less than my students length and we'll add
+
+56
+00:03:39,930 --> 00:03:42,180
+one to I each time I plus plus.
+
+57
+00:03:42,660 --> 00:03:50,490
+And then what I'm going to print out is a template literal, so console.log and then back ticks.
+
+58
+00:03:51,120 --> 00:03:56,490
+I'll put the first name and this line is going to get quite long if I don't make a separate variable
+
+59
+00:03:56,490 --> 00:03:58,830
+because I is just a number.
+
+60
+00:03:59,400 --> 00:04:02,760
+So if I print I, that's going to be 012.
+
+61
+00:04:02,760 --> 00:04:09,270
+In order to access first name for each one of these, I first have to go through my students of I will
+
+62
+00:04:09,270 --> 00:04:14,280
+give me each object, but if I just print out the object, that's not going to get me where I want.
+
+63
+00:04:14,280 --> 00:04:19,170
+I also need to access dot, first name or square bracket first name.
+
+64
+00:04:19,500 --> 00:04:25,260
+So what I'm going to do is put this in its own variable each time through the loop, I'll call this
+
+65
+00:04:25,260 --> 00:04:29,550
+Let student equals my student of I.
+
+66
+00:04:29,580 --> 00:04:35,040
+So now student is going to be an object if we just start by constant logging student.
+
+67
+00:04:37,320 --> 00:04:38,400
+Comment that out.
+
+68
+00:04:38,760 --> 00:04:39,900
+Refresh the page.
+
+69
+00:04:40,200 --> 00:04:41,720
+My student is not defined.
+
+70
+00:04:41,940 --> 00:04:43,020
+My students.
+
+71
+00:04:44,700 --> 00:04:45,410
+And there we go.
+
+72
+00:04:45,420 --> 00:04:51,180
+We're printing each object out because student is simply referencing each element in the array at the
+
+73
+00:04:51,180 --> 00:04:52,330
+appropriate index.
+
+74
+00:04:52,350 --> 00:04:57,150
+So now I want to access student dot first name and student grade.
+
+75
+00:04:57,150 --> 00:05:07,110
+So I'll do my back ticks and the pattern I'll follow is Apollo got a 98 or scored 98 so student which
+
+76
+00:05:07,110 --> 00:05:10,110
+is just a placeholder variable each time through the loop.
+
+77
+00:05:10,110 --> 00:05:19,830
+Student First name and then outside of the dollar sign curly braces but still in the back ticks scored
+
+78
+00:05:21,000 --> 00:05:30,180
+and then another dollar sign student dot grade save refresh There we go.
+
+79
+00:05:30,300 --> 00:05:33,510
+Zoo scored 86 or scored 97 and so on.
+
+80
+00:05:33,630 --> 00:05:38,430
+If you feel confident with looping through arrays at this point, skip ahead.
+
+81
+00:05:38,790 --> 00:05:42,840
+Otherwise I'll do a few more examples and I'll actually start with looping through a string.
+
+82
+00:05:42,840 --> 00:05:49,950
+It's the exact same approach, except instead of an array, we're accessing a string using those indices,
+
+83
+00:05:49,950 --> 00:05:51,510
+but we still start at zero.
+
+84
+00:05:51,870 --> 00:05:53,880
+I'll make a variable called word.
+
+85
+00:05:53,880 --> 00:06:00,990
+It will start as stressed and I use const, so it's going to stay as stressed, which is fine.
+
+86
+00:06:00,990 --> 00:06:06,030
+I'm just going to loop over it, but I'm going to loop backwards so we could do the exact same loop
+
+87
+00:06:06,030 --> 00:06:06,990
+we saw here.
+
+88
+00:06:07,320 --> 00:06:09,990
+But I think at this point you understand how that works.
+
+89
+00:06:09,990 --> 00:06:14,550
+We loop while I is less than the length of the array or the string in our case.
+
+90
+00:06:14,550 --> 00:06:21,090
+So to go backwards we'll write a for loop and instead of starting at zero, which would start with SE
+
+91
+00:06:21,090 --> 00:06:26,970
+the first character, we want the last index which is going to be the length of the array or the length
+
+92
+00:06:26,970 --> 00:06:27,480
+of the string.
+
+93
+00:06:27,480 --> 00:06:34,440
+In our case, word length minus one word length will give us one, two, three, four, five, six,
+
+94
+00:06:34,440 --> 00:06:35,040
+seven, eight.
+
+95
+00:06:35,040 --> 00:06:36,990
+So the last index is seven.
+
+96
+00:06:36,990 --> 00:06:40,020
+So we'll start with I equal to seven.
+
+97
+00:06:40,480 --> 00:06:45,660
+I'm not going to hard code that because we could have a different string here that is 20 characters
+
+98
+00:06:46,650 --> 00:06:51,600
+and then we're going to loop while I is greater than or equal to zero.
+
+99
+00:06:52,200 --> 00:06:57,180
+Or we could also say greater than negative one, but we want it to hit zero.
+
+100
+00:06:57,180 --> 00:06:59,040
+So greater than or equal to zero.
+
+101
+00:06:59,040 --> 00:07:05,310
+And then each time through we'll subtract one from I and then we can start by just cancel logging.
+
+102
+00:07:05,310 --> 00:07:10,230
+I make sure that we get seven, six, five, four three, two, one zero, which we do.
+
+103
+00:07:10,650 --> 00:07:15,480
+And now instead we'll come to that log word of I.
+
+104
+00:07:17,590 --> 00:07:20,620
+Refresh and it didn't work.
+
+105
+00:07:20,620 --> 00:07:21,640
+I planned this out.
+
+106
+00:07:22,150 --> 00:07:28,690
+It worked, but it combined the two S's, as you can see here, which is unfortunate because now you
+
+107
+00:07:28,690 --> 00:07:33,760
+can't read what it spells, but stressed spelled backwards is desserts.
+
+108
+00:07:34,000 --> 00:07:38,110
+So we're now printing out each character in the string in reverse order.
+
+109
+00:07:38,290 --> 00:07:45,160
+And if we wanted to, we could even make a new string entirely that holds the reversed word so we can
+
+110
+00:07:45,160 --> 00:07:47,980
+make a variable up here called let reversed.
+
+111
+00:07:48,700 --> 00:07:50,890
+Word equals an empty string.
+
+112
+00:07:50,890 --> 00:07:54,100
+And then each time through here we'll do reversed.
+
+113
+00:07:54,220 --> 00:07:58,870
+Word plus equals word of I.
+
+114
+00:08:00,100 --> 00:08:04,440
+So we're starting with index of what is it, seven at the beginning or No.
+
+115
+00:08:04,450 --> 00:08:10,120
+Six, whatever this index is, we take that letter and we add it into reversed word, which is empty.
+
+116
+00:08:10,120 --> 00:08:13,180
+So we start, we add a D and then the loop goes again.
+
+117
+00:08:13,180 --> 00:08:14,980
+This time I is one less.
+
+118
+00:08:14,980 --> 00:08:17,940
+So we're adding an E and then an S and so on.
+
+119
+00:08:17,950 --> 00:08:19,270
+Let's make sure it works.
+
+120
+00:08:19,540 --> 00:08:26,170
+So at the end we will print out actually, why don't we just print out console.log reversed word each
+
+121
+00:08:26,170 --> 00:08:26,830
+time.
+
+122
+00:08:28,060 --> 00:08:30,370
+Right there, refresh.
+
+123
+00:08:30,700 --> 00:08:31,540
+And there we go.
+
+124
+00:08:31,540 --> 00:08:35,380
+D Dee dee dee is death, dessert, dessert desserts.
+
+125
+00:08:36,250 --> 00:08:38,200
+And so I'll just print it out at the end.
+
+126
+00:08:38,350 --> 00:08:41,110
+And we have successfully reversed a word.
+
+127
+00:08:42,580 --> 00:08:43,080
+Awesome.
+
+128
+00:08:43,419 --> 00:08:45,250
+One more really quick example.
+
+129
+00:08:45,250 --> 00:08:48,340
+Instead of printing things out, we did something slightly different here.
+
+130
+00:08:48,340 --> 00:08:53,560
+We reversed a word into a new variable, but why don't we try averaging all of the grades?
+
+131
+00:08:54,130 --> 00:08:57,490
+So in my students, we have four students that each have a grade.
+
+132
+00:08:57,580 --> 00:09:01,720
+What we need to do is loop over all students for each one.
+
+133
+00:09:01,720 --> 00:09:04,090
+We need to sum the grades together.
+
+134
+00:09:04,090 --> 00:09:07,510
+So we need a variable to accumulate or to hold that sum.
+
+135
+00:09:07,510 --> 00:09:13,840
+And then after the loop is done, we'll have a total and we need to divide it by in this case, for
+
+136
+00:09:13,870 --> 00:09:20,410
+the length of my students so we can keep this loop, I'm just going to duplicate it, comment the original
+
+137
+00:09:20,410 --> 00:09:20,920
+out.
+
+138
+00:09:21,010 --> 00:09:28,750
+And instead of doing this here in concept logging, we need to add student dot grade to something.
+
+139
+00:09:28,780 --> 00:09:34,690
+Remember, student is equal to each individual object because I'm doing my students of I, which gives
+
+140
+00:09:34,690 --> 00:09:35,710
+me one of these objects.
+
+141
+00:09:35,710 --> 00:09:37,420
+Then the grade gives me that number.
+
+142
+00:09:37,630 --> 00:09:41,170
+So I'm going to make a variable and I need to make it outside the loop.
+
+143
+00:09:42,460 --> 00:09:48,550
+I'll call this total and it will start at zero if I put total equals zero in the loop.
+
+144
+00:09:48,550 --> 00:09:55,600
+If I move this line right here, I will be re creating a re assigning total to zero every time this
+
+145
+00:09:55,600 --> 00:09:59,170
+loop runs, so we'll never actually remember the previous result.
+
+146
+00:09:59,170 --> 00:10:03,310
+I need to have it up top where we actually can sum each grade together.
+
+147
+00:10:03,310 --> 00:10:07,750
+So student grade will do total plus equals.
+
+148
+00:10:08,530 --> 00:10:16,330
+So add that grade to the total and then at the end we'll call that log total and see what we get.
+
+149
+00:10:17,470 --> 00:10:18,700
+Three, four, five.
+
+150
+00:10:18,730 --> 00:10:20,310
+That seems appropriate, right?
+
+151
+00:10:20,330 --> 00:10:21,850
+It seems like it makes sense.
+
+152
+00:10:22,240 --> 00:10:23,590
+That's not the average.
+
+153
+00:10:23,620 --> 00:10:27,700
+To get the average, we need to divide not by four.
+
+154
+00:10:27,850 --> 00:10:28,990
+We do need to divide by four.
+
+155
+00:10:28,990 --> 00:10:32,650
+But I don't want a hard code four because we could have ten students in here.
+
+156
+00:10:32,650 --> 00:10:35,110
+So we'll divide by my students length.
+
+157
+00:10:35,110 --> 00:10:37,150
+That's the number of students in there.
+
+158
+00:10:37,150 --> 00:10:45,190
+So my students length, we'll save refresh and the average is 86.25.
+
+159
+00:10:45,580 --> 00:10:46,390
+There we go.
+
+160
+00:10:46,390 --> 00:10:51,610
+So we covered a lot of different problems and sort of different examples in this video.
+
+161
+00:10:51,610 --> 00:10:54,460
+But at its core, we did the same thing every time.
+
+162
+00:10:54,460 --> 00:11:01,480
+Whether it was a string or an array, we start looping at zero and we loop until the last index, adding
+
+163
+00:11:01,480 --> 00:11:08,290
+one to each time we use AI that number to access individual elements or individual characters.
+
+164
+00:11:09,040 --> 00:11:11,800
+In one case, we went backwards, but it's the same idea.
+
+165
+00:11:11,800 --> 00:11:17,440
+We start with the last index and we subtract one each time as long as we're greater than or equal to
+
+166
+00:11:17,470 --> 00:11:18,070
+zero.
+
+167
+00:11:18,070 --> 00:11:24,130
+So a really common pattern looping or iterating over a string, an array or any indexed collection,
+
+168
+00:11:24,130 --> 00:11:25,660
+you generate those indices.
+

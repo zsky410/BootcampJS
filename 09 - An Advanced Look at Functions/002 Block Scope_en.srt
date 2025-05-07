@@ -1,0 +1,756 @@
+1
+00:00:00,090 --> 00:00:05,070
+In the last video we talked about function scope, where if we declare a variable with any keyword,
+
+2
+00:00:05,070 --> 00:00:10,710
+whether it's lut, const or var within a given function, it is scoped to that function.
+
+3
+00:00:10,710 --> 00:00:13,530
+We don't have access to it outside that function.
+
+4
+00:00:13,680 --> 00:00:18,630
+Now we're going to see a different type of scope, which is called block scope, and it doesn't necessarily
+
+5
+00:00:18,630 --> 00:00:21,300
+have to do with functions, at least not directly.
+
+6
+00:00:21,300 --> 00:00:26,100
+But I did mention at the beginning of the section we would cover some function adjacent content.
+
+7
+00:00:26,100 --> 00:00:30,720
+And if you think back to one of the very first videos in the course when I introduced Let and Const
+
+8
+00:00:30,720 --> 00:00:33,960
+and also VAR, I said we would come back later on.
+
+9
+00:00:33,960 --> 00:00:34,530
+That's right.
+
+10
+00:00:34,530 --> 00:00:39,810
+Now to discuss one of the main distinctions between LUT and Const compared to VAR.
+
+11
+00:00:40,200 --> 00:00:42,000
+So this is it, block scope.
+
+12
+00:00:42,000 --> 00:00:46,080
+This is a very, very important concept around how variables work in JavaScript.
+
+13
+00:00:46,980 --> 00:00:49,230
+So let's start with a simple example.
+
+14
+00:00:50,250 --> 00:00:51,450
+Here's a conditional.
+
+15
+00:00:52,110 --> 00:00:54,720
+If true, it's always going to run.
+
+16
+00:00:54,720 --> 00:01:00,870
+Whatever code is in here, let's declare a variable called animal and set it equal to L.
+
+17
+00:01:02,190 --> 00:01:07,260
+If I console.log animal outside this block, what do you expect?
+
+18
+00:01:08,160 --> 00:01:09,600
+What will be printed out?
+
+19
+00:01:09,630 --> 00:01:10,590
+Let's try it.
+
+20
+00:01:11,520 --> 00:01:12,810
+Nothing we get an error.
+
+21
+00:01:12,810 --> 00:01:14,400
+Animal is not defined.
+
+22
+00:01:14,640 --> 00:01:16,110
+So what does this tell us?
+
+23
+00:01:16,290 --> 00:01:19,860
+It tells us that animal is scoped inside this conditional.
+
+24
+00:01:19,860 --> 00:01:22,260
+It is scoped to this block of code.
+
+25
+00:01:22,260 --> 00:01:25,650
+Blocks and JavaScript are denoted by curly braces.
+
+26
+00:01:26,250 --> 00:01:32,090
+Keep in mind, this is very different than an object literal, which is also curly braces.
+
+27
+00:01:32,100 --> 00:01:33,620
+This is an object.
+
+28
+00:01:33,630 --> 00:01:35,550
+This up here is a block.
+
+29
+00:01:35,550 --> 00:01:36,630
+So same thing.
+
+30
+00:01:36,630 --> 00:01:41,340
+If we had a while loop, if we had a four loop or a four of those are all blocks.
+
+31
+00:01:41,340 --> 00:01:43,470
+The code we write between the curly braces.
+
+32
+00:01:43,470 --> 00:01:49,290
+So this is not a function, but it appears that animal is still scoped to this block.
+
+33
+00:01:49,290 --> 00:01:53,400
+And if I console.log to animal here, of course it should work.
+
+34
+00:01:53,880 --> 00:01:54,600
+And it does.
+
+35
+00:01:54,600 --> 00:01:57,570
+We get eel and then animal is not defined.
+
+36
+00:01:57,840 --> 00:01:59,640
+So that's how it behaves.
+
+37
+00:01:59,640 --> 00:02:04,770
+And if I did change this to Const and I rerun it, we get the exact same output.
+
+38
+00:02:04,980 --> 00:02:08,850
+We have access to animal in the curly braces inside the conditional.
+
+39
+00:02:08,850 --> 00:02:10,949
+We do not have access to it out here.
+
+40
+00:02:11,490 --> 00:02:18,300
+Now if I duplicate this and I change this to instead use var, you can probably tell where I'm going
+
+41
+00:02:18,300 --> 00:02:20,070
+with this if I run it.
+
+42
+00:02:20,370 --> 00:02:22,380
+It works in both cases.
+
+43
+00:02:22,770 --> 00:02:26,490
+L is printed here in the block and outside the block.
+
+44
+00:02:26,610 --> 00:02:31,530
+So this tells us that Lutton can't have different scoping rules than Var.
+
+45
+00:02:31,830 --> 00:02:38,280
+Back in the day before let in cost, we only had var and var is scoped to functions what we covered
+
+46
+00:02:38,280 --> 00:02:39,390
+in the last video.
+
+47
+00:02:39,510 --> 00:02:42,090
+There is no block scope for var.
+
+48
+00:02:42,090 --> 00:02:49,830
+If we declare a variable using var in any block like a conditional a for loop a while loop, it is not
+
+49
+00:02:49,830 --> 00:02:51,000
+scoped to that block.
+
+50
+00:02:51,000 --> 00:02:54,840
+We have access to it outside and that could be problematic.
+
+51
+00:02:54,840 --> 00:02:59,730
+And that is different than how a lot of programming languages behave, which is why Lutton Const were
+
+52
+00:02:59,730 --> 00:03:01,530
+proposed, among other reasons.
+
+53
+00:03:01,530 --> 00:03:05,190
+So they also there's a distinction between const and lit.
+
+54
+00:03:05,220 --> 00:03:10,650
+That was one of the reasons they were added in to create constants in JavaScript, but also for scoping
+
+55
+00:03:10,650 --> 00:03:11,310
+reasons.
+
+56
+00:03:11,310 --> 00:03:13,620
+So why would this potentially be problematic?
+
+57
+00:03:13,620 --> 00:03:19,080
+What's wrong with having a variable declared in a block and having access to it afterwards?
+
+58
+00:03:19,590 --> 00:03:25,020
+There's a bunch of reasons, but let me illustrate a simple problem that used to come up occasionally
+
+59
+00:03:25,020 --> 00:03:27,330
+if we have a for loop using the var keyword.
+
+60
+00:03:27,330 --> 00:03:35,580
+So for var I equals zero I less than let's make an array called well, we'll just do animals, let animals
+
+61
+00:03:35,580 --> 00:03:38,130
+equal and then we'll have grizzly bear.
+
+62
+00:03:38,580 --> 00:03:48,990
+Let's do panda bear and spectacled bear spectacled bear and then we'll loop over this using a for loop.
+
+63
+00:03:49,200 --> 00:03:58,470
+I is less than animals at length I plus plus we'll console.log animals and let's also console.log I
+
+64
+00:04:00,780 --> 00:04:02,000
+so we get zero.
+
+65
+00:04:02,000 --> 00:04:07,380
+Oh well I didn't mean to cancel that log animals let's do animals of I instead of the whole array each
+
+66
+00:04:07,380 --> 00:04:11,400
+time we get zero grizzly bear, one panda bear, two spectacled bear.
+
+67
+00:04:12,120 --> 00:04:13,230
+But here's the thing.
+
+68
+00:04:13,260 --> 00:04:21,870
+Outside this loop, if I print I, it still exists and it's actually set to three because of the way
+
+69
+00:04:21,870 --> 00:04:24,390
+a four loop works, it starts at zero.
+
+70
+00:04:24,780 --> 00:04:26,640
+That's less than animal start length.
+
+71
+00:04:26,640 --> 00:04:34,200
+So we loop and we add one to IE and then it becomes one and then two and the last index in here is two.
+
+72
+00:04:34,350 --> 00:04:40,650
+So when I is two, we access the last element and then it's incremented to three.
+
+73
+00:04:40,680 --> 00:04:43,950
+The loop does not run again, but I doesn't cease to exist.
+
+74
+00:04:43,950 --> 00:04:45,210
+I is still here.
+
+75
+00:04:45,660 --> 00:04:51,600
+We have access to it and this could be problematic if you were relying on a variable called I, maybe
+
+76
+00:04:51,600 --> 00:04:55,260
+one you had defined somewhere else, like var I equals ten.
+
+77
+00:04:55,260 --> 00:04:58,470
+You might think that this I should remain as ten.
+
+78
+00:04:58,980 --> 00:04:59,820
+But if we print.
+
+79
+00:04:59,890 --> 00:05:04,660
+I down here, the only eye that we're getting is three from this loop.
+
+80
+00:05:04,660 --> 00:05:11,200
+So even though I had a different variable declared with var up top and it looks like at least sort of
+
+81
+00:05:11,200 --> 00:05:18,760
+upon first glance that I exist only in this loop because we use var it does not and that means that
+
+82
+00:05:18,760 --> 00:05:23,260
+we have access to it afterwards, which can have all sorts of unintended consequences.
+
+83
+00:05:23,260 --> 00:05:26,980
+It just makes it harder for you to know exactly where I stops.
+
+84
+00:05:27,010 --> 00:05:32,500
+It's not going to abide by these bounds if we use VAR because it's not block scoped.
+
+85
+00:05:32,500 --> 00:05:37,750
+Now, if I instead come down here and do this with let.
+
+86
+00:05:39,670 --> 00:05:40,960
+Let's see what happens now.
+
+87
+00:05:41,350 --> 00:05:43,150
+So the loop still works great.
+
+88
+00:05:43,240 --> 00:05:47,110
+But now when I console.log I at the bottom it's set to ten.
+
+89
+00:05:47,200 --> 00:05:54,220
+And that's because this I that we use let to declare is scoped to this block to the for loop so it doesn't
+
+90
+00:05:54,220 --> 00:05:55,410
+exist down here.
+
+91
+00:05:55,420 --> 00:06:00,130
+The only I that exists is this one here I used var but we could also use let.
+
+92
+00:06:01,850 --> 00:06:02,710
+And it works.
+
+93
+00:06:02,720 --> 00:06:06,320
+And if I did not have I declared up here, I try to print it out.
+
+94
+00:06:06,320 --> 00:06:07,220
+We get an error.
+
+95
+00:06:07,250 --> 00:06:08,380
+There is no I.
+
+96
+00:06:08,390 --> 00:06:10,490
+And the same holds true for Konst though.
+
+97
+00:06:10,490 --> 00:06:14,090
+You wouldn't use Konst in a for loop because it's being incremented.
+
+98
+00:06:14,090 --> 00:06:15,380
+That would break everything.
+
+99
+00:06:15,440 --> 00:06:19,510
+As you can see here, it will yell at me assignment to constant variable.
+
+100
+00:06:19,520 --> 00:06:23,780
+The first time it tries to add one, everything breaks, so I'll undo that change.
+
+101
+00:06:23,780 --> 00:06:24,920
+We'll go back to it.
+
+102
+00:06:25,370 --> 00:06:30,830
+The other thing that you can see right away, it tells you that these are not scoped the same way that
+
+103
+00:06:30,830 --> 00:06:32,210
+they exist in different scopes.
+
+104
+00:06:32,210 --> 00:06:37,250
+This I here and this I here is the fact that we don't get an error when we run this code.
+
+105
+00:06:37,460 --> 00:06:43,700
+Normally, if we have two variables in the same scope with a given name declared with lit or const,
+
+106
+00:06:43,730 --> 00:06:45,200
+let x equals ten.
+
+107
+00:06:45,200 --> 00:06:50,300
+If I try and make another x and set it equal to TW, we get an error.
+
+108
+00:06:50,300 --> 00:06:52,490
+Says Identifier X has already been declared.
+
+109
+00:06:52,490 --> 00:06:58,550
+In this case we're making a variable I with lit and then another I with lit on the very next line.
+
+110
+00:06:58,550 --> 00:06:59,990
+They exist in different scopes.
+
+111
+00:06:59,990 --> 00:07:05,120
+They are not conflicting once again compared to VAR, which is not block scoped.
+
+112
+00:07:05,120 --> 00:07:09,830
+This eye is the exact same eye down here, so they are in the same scope.
+
+113
+00:07:09,830 --> 00:07:13,850
+It starts as ten and then we are re declaring I as zero.
+
+114
+00:07:14,180 --> 00:07:16,400
+And you can do that with var in the same scope.
+
+115
+00:07:16,400 --> 00:07:24,920
+I can say var t equals one and then var t equals five, which I cannot do with an const.
+
+116
+00:07:24,920 --> 00:07:27,380
+I cannot use the same identifier twice.
+
+117
+00:07:27,800 --> 00:07:31,700
+So blocks also include things like while loops, conditionals.
+
+118
+00:07:31,700 --> 00:07:35,570
+As we saw, all of those rules apply for an const.
+
+119
+00:07:35,600 --> 00:07:37,520
+They are scoped to the block.
+
+120
+00:07:37,520 --> 00:07:44,060
+So now let's just write a function that also includes a block within it called double array, which
+
+121
+00:07:44,060 --> 00:07:46,310
+will double an array that is passed in.
+
+122
+00:07:46,460 --> 00:07:52,550
+So if we pass in the array of one, two, three, four or five, one, three, five, we should get
+
+123
+00:07:52,550 --> 00:07:56,390
+back two and then six and then ten.
+
+124
+00:07:56,390 --> 00:07:58,880
+Each element is doubled in a new array.
+
+125
+00:07:58,880 --> 00:08:06,110
+We're not updating the original, so I'm going to write a function that is expecting a R or some array
+
+126
+00:08:06,110 --> 00:08:06,890
+to be passed in.
+
+127
+00:08:06,890 --> 00:08:15,350
+We'll assume it's an array and then we'll loop over that array using a four let x of or let's call it
+
+128
+00:08:15,350 --> 00:08:18,350
+num num of array.
+
+129
+00:08:19,400 --> 00:08:22,070
+I'll make a variable in here called double.
+
+130
+00:08:23,910 --> 00:08:26,100
+Which is equal to numb times to.
+
+131
+00:08:27,410 --> 00:08:34,190
+And then up here I'll make a variable which will be an empty array and I will push double in for each
+
+132
+00:08:34,190 --> 00:08:34,820
+number.
+
+133
+00:08:34,850 --> 00:08:36,140
+So I'll start with one.
+
+134
+00:08:36,140 --> 00:08:37,400
+I'll double it, which I do.
+
+135
+00:08:37,429 --> 00:08:39,470
+Here I have a variable called double.
+
+136
+00:08:39,500 --> 00:08:44,590
+I will add that into a new empty array, which I'll call what should we call it?
+
+137
+00:08:44,600 --> 00:08:47,060
+I'll go with const because we're not going to change the reference.
+
+138
+00:08:47,060 --> 00:08:48,500
+We'll call this result.
+
+139
+00:08:49,310 --> 00:08:54,710
+It starts as an empty array and then result dot push double.
+
+140
+00:08:57,650 --> 00:08:59,300
+So what we have here is a function.
+
+141
+00:08:59,300 --> 00:09:05,750
+We have concert which is scoped to the entire function, which is why at the end I'm able to return
+
+142
+00:09:05,960 --> 00:09:10,870
+results because the result was defined in this function, not in a block.
+
+143
+00:09:10,880 --> 00:09:13,610
+Then we have double, which is scoped to this block.
+
+144
+00:09:13,820 --> 00:09:15,800
+We still have access to result.
+
+145
+00:09:15,800 --> 00:09:22,190
+So within a block we still have access to variables that were declared outside the block in this function.
+
+146
+00:09:22,850 --> 00:09:24,710
+So let's run this now.
+
+147
+00:09:24,740 --> 00:09:29,420
+We'll call double R on one, two and three.
+
+148
+00:09:29,720 --> 00:09:32,930
+So one, two, three, we get to four and six.
+
+149
+00:09:33,200 --> 00:09:39,020
+If I were to try and console.log, double and run the same line, it does not work.
+
+150
+00:09:39,020 --> 00:09:41,570
+If I instead use var for double.
+
+151
+00:09:43,580 --> 00:09:48,170
+It does work because VR does not cease to exist after this block.
+
+152
+00:09:48,170 --> 00:09:53,900
+Meaning the last time through the loop, which was on three double, is set to three times two, which
+
+153
+00:09:53,900 --> 00:09:54,500
+is six.
+
+154
+00:09:54,500 --> 00:09:57,800
+We have access to it down here, which is why we see six.
+
+155
+00:09:57,800 --> 00:10:01,460
+So this is just a quick example where we have different scopes going on.
+
+156
+00:10:01,460 --> 00:10:06,950
+We have const result, which is scope to the entire function because it's not inside of a block.
+
+157
+00:10:07,160 --> 00:10:13,910
+We have go back to let let double which is scoped to this block from a four of loop.
+
+158
+00:10:14,360 --> 00:10:18,530
+So down at the bottom we can still return results but we don't have access to double.
+
+159
+00:10:18,860 --> 00:10:24,590
+If we wanted for some reason to have access to double at the end, we could define it right here, let
+
+160
+00:10:24,590 --> 00:10:28,760
+double and we still have access to it here.
+
+161
+00:10:28,760 --> 00:10:30,890
+Double equals num times two.
+
+162
+00:10:31,340 --> 00:10:34,340
+If I run this code we still get two, four, six.
+
+163
+00:10:34,760 --> 00:10:38,060
+I don't know why you would want to access to double outside that block.
+
+164
+00:10:38,390 --> 00:10:42,380
+We're only using it to push a value in inside the loop.
+
+165
+00:10:42,380 --> 00:10:43,970
+But we, we do have access.
+
+166
+00:10:43,970 --> 00:10:50,360
+If you needed it, I can still access it even with let because I declared it in the function scope and
+
+167
+00:10:50,360 --> 00:10:52,880
+then I'm changing it within block scope.
+
+168
+00:10:54,190 --> 00:10:59,110
+But I'm going to undo that and go back to what we had earlier, where it only exists in the block.
+
+169
+00:11:00,430 --> 00:11:05,030
+So to sum this all up, let constant var are three ways of declaring a variable.
+
+170
+00:11:05,050 --> 00:11:10,420
+We've seen that there's a big difference between LUT and const because const cannot be reassigned.
+
+171
+00:11:10,420 --> 00:11:14,560
+It's a constant variable and both LUT and cons cannot be declared.
+
+172
+00:11:14,560 --> 00:11:16,510
+So we can't have what we've already seen.
+
+173
+00:11:16,510 --> 00:11:19,600
+Let X equals one, let x equals two.
+
+174
+00:11:19,690 --> 00:11:21,970
+We cannot re declare a new variable.
+
+175
+00:11:21,970 --> 00:11:27,370
+We can change it at any point, but I cannot re declare the same variable with the same name in the
+
+176
+00:11:27,370 --> 00:11:28,210
+same scope.
+
+177
+00:11:28,600 --> 00:11:33,310
+Var You can do whatever you want with it, but the very important difference that we covered here is
+
+178
+00:11:33,310 --> 00:11:38,980
+that on one side we have VAR which is not block scoped, on the other side we have LUT and const which
+
+179
+00:11:38,980 --> 00:11:40,150
+are block scoped.
+
+180
+00:11:40,150 --> 00:11:46,030
+So if you declare a variable with or const in a loop in a conditional in a for loop, in a wild loop,
+
+181
+00:11:46,030 --> 00:11:49,990
+those variables are scoped only to the confines of that block.
+
+182
+00:11:49,990 --> 00:11:55,330
+If they're not in a block, if they're defined in a function like we have here, we can access it within
+
+183
+00:11:55,330 --> 00:11:56,260
+that function.
+
+184
+00:11:56,290 --> 00:11:59,560
+It doesn't exist afterwards, which is what we saw in the last video.
+
+185
+00:11:59,560 --> 00:12:01,090
+And the same is true for var.
+
+186
+00:12:01,420 --> 00:12:04,060
+So Var was the only option a couple of years ago.
+
+187
+00:12:04,090 --> 00:12:05,350
+Function scoped now.
+
+188
+00:12:05,350 --> 00:12:06,490
+Lutton const are here.
+
+189
+00:12:06,490 --> 00:12:07,450
+BLOCK scoped.
+

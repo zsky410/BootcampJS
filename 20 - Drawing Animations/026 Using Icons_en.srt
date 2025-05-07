@@ -1,0 +1,332 @@
+1
+00:00:01,500 --> 00:00:05,340
+Now that our timer is working pretty well, we need to apply a little bit of styling just to make sure
+
+2
+00:00:05,340 --> 00:00:07,920
+that everything shows up inside of the actual timer.
+
+3
+00:00:08,189 --> 00:00:14,280
+The first thing I want to do is replace the start and pause buttons with the icons for like pause and
+
+4
+00:00:14,280 --> 00:00:15,960
+or start and pause right there.
+
+5
+00:00:16,680 --> 00:00:20,770
+So to show those icons, we're going to use a free icon library called Font.
+
+6
+00:00:20,790 --> 00:00:21,420
+Awesome.
+
+7
+00:00:21,750 --> 00:00:25,090
+I'm going to open up a new browser tab and navigate to font.
+
+8
+00:00:25,110 --> 00:00:25,620
+Awesome.
+
+9
+00:00:28,510 --> 00:00:33,190
+So this is a free resource so we can use to show tons of different icons inside of our application.
+
+10
+00:00:33,460 --> 00:00:36,790
+The first thing we have to do is wire up this library to our app.
+
+11
+00:00:37,120 --> 00:00:39,640
+To do so, we're going to open up one other page.
+
+12
+00:00:39,880 --> 00:00:42,130
+I'm going to go to CN JS.
+
+13
+00:00:44,040 --> 00:00:46,320
+Once here we can search for font.
+
+14
+00:00:47,040 --> 00:00:47,670
+Awesome.
+
+15
+00:00:48,770 --> 00:00:50,540
+And we'll see a link right here.
+
+16
+00:00:50,540 --> 00:00:52,580
+So notice that this is a CSS file.
+
+17
+00:00:52,580 --> 00:00:54,890
+That's how we make use of font awesome inside of our project.
+
+18
+00:00:54,890 --> 00:00:58,970
+We're going to hook it up as a CSS file, so I'm going to copy that link.
+
+19
+00:00:59,690 --> 00:01:02,210
+We'll then go back over to our HTML document.
+
+20
+00:01:03,500 --> 00:01:04,400
+Here it is right here.
+
+21
+00:01:04,760 --> 00:01:05,960
+I'll go up to my head.
+
+22
+00:01:08,000 --> 00:01:10,130
+And I'm going to add in a link tag.
+
+23
+00:01:10,160 --> 00:01:11,420
+So I'll say link.
+
+24
+00:01:11,450 --> 00:01:13,670
+We're going to use a rel of stylesheet.
+
+25
+00:01:15,770 --> 00:01:20,300
+And then an F and we can paste in that link that we just copied.
+
+26
+00:01:24,820 --> 00:01:25,060
+Okay.
+
+27
+00:01:25,060 --> 00:01:29,170
+So now that we've wired up font awesome, we can take a look at the font awesome documentation and figure
+
+28
+00:01:29,170 --> 00:01:30,790
+out which icon we want to show.
+
+29
+00:01:31,810 --> 00:01:34,360
+So go back over to the font documentation.
+
+30
+00:01:34,360 --> 00:01:37,270
+On the top left hand side is a little search box.
+
+31
+00:01:37,720 --> 00:01:41,800
+So when you first get start with the icons, of course, you're probably going not going to know exactly
+
+32
+00:01:41,800 --> 00:01:43,660
+what the name of any icon is.
+
+33
+00:01:43,660 --> 00:01:46,120
+So it's really up to you to just kind of take a guess.
+
+34
+00:01:46,210 --> 00:01:50,560
+When I look at these icons, the words that come to my mind are, play for that right there.
+
+35
+00:01:50,560 --> 00:01:52,870
+It's like a play icon and pause.
+
+36
+00:01:53,050 --> 00:01:56,350
+So I'm just going to take a guess and I'm going to search for play.
+
+37
+00:01:58,390 --> 00:02:01,090
+And when I search for play, we're going to eventually see some results.
+
+38
+00:02:01,210 --> 00:02:01,970
+Here we go.
+
+39
+00:02:01,990 --> 00:02:05,200
+So these are all the different icons that match that search string.
+
+40
+00:02:05,450 --> 00:02:06,330
+Looks like that one right there.
+
+41
+00:02:06,360 --> 00:02:07,100
+Looks pretty good.
+
+42
+00:02:07,120 --> 00:02:09,550
+So I'll click on that one to figure out how to use it.
+
+43
+00:02:10,240 --> 00:02:14,650
+Now sometimes font awesome website is a really slow, so I'm just going to give this a second to load
+
+44
+00:02:14,650 --> 00:02:14,830
+up.
+
+45
+00:02:14,830 --> 00:02:16,160
+Hopefully it resolves quickly.
+
+46
+00:02:16,180 --> 00:02:16,500
+Okay.
+
+47
+00:02:16,510 --> 00:02:17,210
+Very good.
+
+48
+00:02:17,230 --> 00:02:21,880
+So now to actually make use of this icon, you'll see right underneath play is a little eye tag right
+
+49
+00:02:21,880 --> 00:02:22,330
+there.
+
+50
+00:02:22,480 --> 00:02:26,190
+So that's the HTML that we're going to show in order to show that icon.
+
+51
+00:02:26,200 --> 00:02:27,970
+So I'll click that thing to copy it.
+
+52
+00:02:28,630 --> 00:02:30,790
+I'll go back over to my HTML document.
+
+53
+00:02:32,100 --> 00:02:34,950
+I'm going to find my button that says Start.
+
+54
+00:02:35,220 --> 00:02:39,000
+I'll delete the text that says Start and replace it with that ID tag.
+
+55
+00:02:40,460 --> 00:02:41,680
+So now I can save this.
+
+56
+00:02:41,920 --> 00:02:46,090
+Go back over to my browser, refresh and I'll see the play button right there.
+
+57
+00:02:46,910 --> 00:02:47,450
+Okay.
+
+58
+00:02:47,960 --> 00:02:48,920
+So that's definitely good.
+
+59
+00:02:48,920 --> 00:02:52,820
+So we can definitely repeat the same process to get the pause icon as well.
+
+60
+00:02:53,750 --> 00:02:55,100
+So I'll search for pores.
+
+61
+00:02:57,170 --> 00:03:00,530
+Wait another couple of seconds too for it to load?
+
+62
+00:03:00,560 --> 00:03:00,920
+Yup.
+
+63
+00:03:00,920 --> 00:03:01,850
+That definitely looks good.
+
+64
+00:03:01,850 --> 00:03:02,810
+So I'll click it.
+
+65
+00:03:06,080 --> 00:03:07,790
+And click on the eye tag again.
+
+66
+00:03:08,890 --> 00:03:11,440
+I'll go back over to my HTML document, find where we have.
+
+67
+00:03:11,440 --> 00:03:12,740
+Pause inside the button.
+
+68
+00:03:12,760 --> 00:03:15,280
+I'll delete it and replace it with the eye tag as well.
+
+69
+00:03:16,450 --> 00:03:16,720
+Yes.
+
+70
+00:03:16,720 --> 00:03:18,130
+I'll say this the second time.
+
+71
+00:03:18,870 --> 00:03:19,710
+Refresh.
+
+72
+00:03:20,300 --> 00:03:21,780
+Okay, well, that looks pretty good.
+
+73
+00:03:22,780 --> 00:03:23,290
+All right.
+
+74
+00:03:23,290 --> 00:03:27,550
+So for the rest of the styling, I'll be honest with you, it's really just a bunch of CSS and whatnot
+
+75
+00:03:27,550 --> 00:03:30,190
+that we're going to throw into our HTML document.
+
+76
+00:03:30,190 --> 00:03:34,660
+So we're going to take a quick pause right here in the next video attached to the video, you're going
+
+77
+00:03:34,660 --> 00:03:36,760
+to find a zip file inside.
+
+78
+00:03:36,760 --> 00:03:40,790
+That zip file is going to be an HTML document and a CSS file.
+
+79
+00:03:40,810 --> 00:03:42,610
+Make sure you download that zip file.
+
+80
+00:03:42,700 --> 00:03:47,920
+It's going to be called something like timer oh 25 template or something like that.
+
+81
+00:03:47,920 --> 00:03:52,420
+So make sure you download that zip file and find the HTML CSS file inside.
+
+82
+00:03:53,460 --> 00:03:57,540
+So make sure you grab that and we'll start to integrate that or merge it into our project in just a
+
+83
+00:03:57,540 --> 00:03:58,170
+moment.
+

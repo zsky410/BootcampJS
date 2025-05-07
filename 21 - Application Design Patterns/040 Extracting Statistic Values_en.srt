@@ -1,0 +1,388 @@
+1
+00:00:00,930 --> 00:00:01,290
+All right.
+
+2
+00:00:01,290 --> 00:00:05,240
+So like I said in this video, we're going to update our movie template function.
+
+3
+00:00:05,250 --> 00:00:09,270
+We're going to take a look at some of the different properties inside that movie detail object.
+
+4
+00:00:09,270 --> 00:00:15,000
+Remember movie details, an object with some expanded properties that describe a particular movie for
+
+5
+00:00:15,000 --> 00:00:18,150
+each of the different properties or statistics that we're printing out.
+
+6
+00:00:18,150 --> 00:00:23,220
+We're going to turn each of these into some easy to represent number value, and then we're going to
+
+7
+00:00:23,220 --> 00:00:26,880
+add each of them as a data property to each of these different articles.
+
+8
+00:00:26,880 --> 00:00:31,140
+And so that will make it really easy to compare these different values later on without having to worry
+
+9
+00:00:31,140 --> 00:00:34,290
+about the order in which they're being presented or anything like that.
+
+10
+00:00:35,010 --> 00:00:38,880
+So inside of here, the first thing we're going to do at the top of the function is take a look at some
+
+11
+00:00:38,880 --> 00:00:44,730
+of the different properties on movie detail and then turn them into a easy to compare number format.
+
+12
+00:00:45,030 --> 00:00:48,630
+So this is unfortunately going to be just once again a little bit challenging.
+
+13
+00:00:49,580 --> 00:00:54,980
+So the first number that we're going to try to generate is a number representation of the box office
+
+14
+00:00:54,980 --> 00:00:55,610
+value.
+
+15
+00:00:56,000 --> 00:00:59,990
+So I'm going to assign that to dollars because that's essentially how this is being represented.
+
+16
+00:01:00,230 --> 00:01:05,720
+So I want to take a look at the box office value, which currently is like that string right there,
+
+17
+00:01:05,930 --> 00:01:11,420
+number 623 with commas in it or 533 with commas in it and whatnot.
+
+18
+00:01:11,420 --> 00:01:15,560
+And I want to turn that into a normal integer that we can compare very easily.
+
+19
+00:01:16,470 --> 00:01:21,240
+So back over inside of here, I'm going to say that dollars is movie detail.
+
+20
+00:01:21,990 --> 00:01:24,720
+Box up Capital B box office.
+
+21
+00:01:26,190 --> 00:01:27,720
+So this right here is a string.
+
+22
+00:01:28,020 --> 00:01:33,680
+And once again, it's going to look something like this, maybe 629, blah, blah, blah.
+
+23
+00:01:34,290 --> 00:01:39,540
+So we want to remove the dollar sign and we also want to remove any commas in there as well.
+
+24
+00:01:39,990 --> 00:01:43,440
+So to do so, we can use some normal string manipulation methods.
+
+25
+00:01:43,890 --> 00:01:46,620
+On box office, I'm going to call replace.
+
+26
+00:01:47,220 --> 00:01:50,310
+I'm going to find any dollar sign character.
+
+27
+00:01:51,020 --> 00:01:56,540
+And replace it with an empty string, which essentially just removes it out of that string.
+
+28
+00:01:59,810 --> 00:02:03,110
+Now because I'm using a dollar sign inside of a regular expression right here.
+
+29
+00:02:03,110 --> 00:02:04,470
+I do have to escape it.
+
+30
+00:02:04,490 --> 00:02:07,880
+Remember what we spoke about earlier on inside the course about regular expressions.
+
+31
+00:02:07,880 --> 00:02:13,220
+Dollar sign is a protected value, so we just have to put a kind of backslash right in front of it.
+
+32
+00:02:14,320 --> 00:02:17,530
+So that's going to take the dollar sign out and just remove it entirely.
+
+33
+00:02:17,560 --> 00:02:21,430
+Now we need to repeat that same step for all the commas in here as well.
+
+34
+00:02:21,670 --> 00:02:23,500
+So once again, call, replace.
+
+35
+00:02:24,740 --> 00:02:26,780
+I'm going to find all the commas.
+
+36
+00:02:28,470 --> 00:02:30,000
+And replace them with empty string.
+
+37
+00:02:31,330 --> 00:02:33,130
+That's going to take out all the commas.
+
+38
+00:02:33,490 --> 00:02:37,240
+Now I just need to take this string and turn it into a number to do so.
+
+39
+00:02:37,240 --> 00:02:41,260
+I can call parse int on that entire expression.
+
+40
+00:02:41,690 --> 00:02:43,960
+So that's going to parse an integer out of that string.
+
+41
+00:02:45,080 --> 00:02:49,610
+Now as a quick test as usual, I'll just try to do a console log of dollars.
+
+42
+00:02:50,540 --> 00:02:51,420
+So I'll save that.
+
+43
+00:02:51,420 --> 00:02:52,390
+Flip back over.
+
+44
+00:02:52,410 --> 00:02:53,280
+Refresh.
+
+45
+00:02:54,500 --> 00:02:59,990
+I'll look for Avengers and I see a number version of 623 million appear.
+
+46
+00:03:00,500 --> 00:03:02,300
+So now we're going to repeat that same process.
+
+47
+00:03:02,300 --> 00:03:07,280
+For all the different values on here, we're going to essentially run some custom logic on each of them
+
+48
+00:03:07,280 --> 00:03:12,740
+to turn them into some number that we can insert for each article element and then compare later on.
+
+49
+00:03:13,220 --> 00:03:15,440
+The next one will do is the Metascore.
+
+50
+00:03:16,040 --> 00:03:21,140
+You might think that Metascore doesn't need any work whatsoever because it looks like it is a actual
+
+51
+00:03:21,140 --> 00:03:21,790
+number.
+
+52
+00:03:21,800 --> 00:03:26,420
+Well, if you go back to your network request log and look at the expanded detail requests that we're
+
+53
+00:03:26,420 --> 00:03:28,520
+making, metascore actually is a string.
+
+54
+00:03:28,520 --> 00:03:30,650
+Just about everything inside of here is a string.
+
+55
+00:03:30,890 --> 00:03:35,390
+So for every one of these different values, we need to parse them into a number and then throw them
+
+56
+00:03:35,390 --> 00:03:36,890
+into the DOM METASCORE.
+
+57
+00:03:36,920 --> 00:03:40,400
+IMDB rating and IMDB votes all included.
+
+58
+00:03:41,280 --> 00:03:44,940
+So the next one I'll do, I'm going to delete that console log and I'll do metascore.
+
+59
+00:03:44,970 --> 00:03:48,810
+That's going to be parse int out of movie.
+
+60
+00:03:49,730 --> 00:03:52,580
+Detail dot meta score.
+
+61
+00:03:55,650 --> 00:03:58,470
+Next one I'll do is how about IMDB rating?
+
+62
+00:03:58,740 --> 00:04:00,370
+This one's a little bit more challenging.
+
+63
+00:04:00,390 --> 00:04:03,480
+Notice how it can possibly have a decimal on it.
+
+64
+00:04:03,540 --> 00:04:08,520
+So in JavaScript there's a difference between parse int and another function called parse float.
+
+65
+00:04:08,610 --> 00:04:11,550
+Parse int is going to prevent us from having a decimal.
+
+66
+00:04:11,550 --> 00:04:16,890
+But if we use parse float, that can take a string that has a decimal on it or in it and turn that into
+
+67
+00:04:16,890 --> 00:04:18,750
+a full number with a decimal.
+
+68
+00:04:19,430 --> 00:04:24,350
+So for IMDB score or is it called rating?
+
+69
+00:04:25,180 --> 00:04:25,700
+Where is it?
+
+70
+00:04:25,760 --> 00:04:26,010
+Yep.
+
+71
+00:04:26,020 --> 00:04:27,040
+IMDB rating.
+
+72
+00:04:28,750 --> 00:04:34,990
+We're going to do a parse float with movie details IMDB rating.
+
+73
+00:04:36,520 --> 00:04:39,790
+Then we could do the same thing for the number of votes as well.
+
+74
+00:04:39,820 --> 00:04:42,940
+This one can use a parse int because there is no decimal on it.
+
+75
+00:04:42,970 --> 00:04:46,330
+However, we do have to remove all the commas in there.
+
+76
+00:04:47,810 --> 00:04:51,680
+So I'll do IMDB votes is PA's int.
+
+77
+00:04:52,340 --> 00:04:56,540
+Movie detail dot imdb votes.
+
+78
+00:04:57,350 --> 00:04:59,140
+It's going to double check that property name.
+
+79
+00:04:59,150 --> 00:04:59,360
+Yep.
+
+80
+00:04:59,360 --> 00:04:59,960
+That's it.
+
+81
+00:05:01,100 --> 00:05:02,240
+And IMDB votes.
+
+82
+00:05:02,240 --> 00:05:05,000
+We need to make sure that we go through that thing and replace.
+
+83
+00:05:06,390 --> 00:05:09,360
+Any comma we see with an empty string.
+
+84
+00:05:10,800 --> 00:05:13,290
+Yet as another quick test, lets console log out.
+
+85
+00:05:13,290 --> 00:05:14,250
+Metascore.
+
+86
+00:05:14,280 --> 00:05:17,790
+IMDB rating and imdb votes.
+
+87
+00:05:18,900 --> 00:05:21,300
+So I'll save this refresh.
+
+88
+00:05:22,850 --> 00:05:25,050
+I'm going to once again look for The Avengers.
+
+89
+00:05:25,070 --> 00:05:26,930
+I don't actually like The Avengers, by the way.
+
+90
+00:05:26,960 --> 00:05:32,030
+I'm a way bigger DC fan, but I figure everybody out there probably knows what Avengers is.
+
+91
+00:05:32,030 --> 00:05:33,200
+That's why I'm using it here.
+
+92
+00:05:33,230 --> 00:05:34,760
+Just a quick side note.
+
+93
+00:05:34,910 --> 00:05:39,320
+Okay, so we've got the numbers 69, eight and blah, blah, blah.
+
+94
+00:05:39,590 --> 00:05:42,350
+So it looks like we've got all of our values out of here appropriately.
+
+95
+00:05:43,170 --> 00:05:48,570
+The last one we have to take care of is the actual value right there, the number of awards.
+
+96
+00:05:49,020 --> 00:05:51,750
+Now, parsing a number out of here is going to be a little bit more challenging.
+
+97
+00:05:51,750 --> 00:05:54,360
+So, as usual, a quick pause and I'll see you in just a minute.
+

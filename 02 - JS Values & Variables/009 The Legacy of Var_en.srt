@@ -1,0 +1,192 @@
+1
+00:00:00,180 --> 00:00:04,080
+Next up, a quick side note about the old way of making variables.
+
+2
+00:00:04,080 --> 00:00:08,460
+Before letting cost were a thing, you had to use the var keyword.
+
+3
+00:00:08,460 --> 00:00:13,110
+So var and then the same exact format variable name equals some value.
+
+4
+00:00:13,470 --> 00:00:16,400
+Now I'm showing it to you, not because you should use it.
+
+5
+00:00:16,410 --> 00:00:22,530
+There's really no situation where it makes sense to use these days, but you will see it all the time.
+
+6
+00:00:22,530 --> 00:00:28,080
+If you research online, if you're looking at older code bases, even if you just Google variables and
+
+7
+00:00:28,080 --> 00:00:33,930
+JS, the first result still uses VAR, so it still works.
+
+8
+00:00:33,930 --> 00:00:36,480
+You can make a variable and do everything you need to do.
+
+9
+00:00:36,690 --> 00:00:43,050
+It's just not ideal and it's hard to explain exactly why right now until we talk about things like functions
+
+10
+00:00:43,050 --> 00:00:44,700
+and conditionals and blocks.
+
+11
+00:00:44,880 --> 00:00:48,300
+So for now, just know that var is the old way of doing it.
+
+12
+00:00:48,300 --> 00:00:53,820
+You shouldn't really be writing var declarations unless for some reason you're working on an old code
+
+13
+00:00:53,820 --> 00:00:55,770
+base where var is used everywhere.
+
+14
+00:00:55,770 --> 00:00:58,650
+But I did want to show it to you just so that you're aware of it.
+
+15
+00:00:58,650 --> 00:01:00,450
+It's something we can't really ignore.
+
+16
+00:01:00,540 --> 00:01:08,880
+So we could make a variable using var let's do var eggs equals 12 and we have eggs and everything else
+
+17
+00:01:08,880 --> 00:01:10,290
+works exactly the same.
+
+18
+00:01:10,380 --> 00:01:11,550
+Eggs plus.
+
+19
+00:01:11,550 --> 00:01:12,180
+Let's do plus.
+
+20
+00:01:12,180 --> 00:01:14,190
+Plus we now have 13 eggs.
+
+21
+00:01:14,910 --> 00:01:17,160
+We can reset it so it's not like.
+
+22
+00:01:17,160 --> 00:01:24,240
+KONST It's more like let let's go with eggs equals zero we ate all the eggs or maybe an evil raccoon
+
+23
+00:01:24,240 --> 00:01:26,340
+ate them all and now we're down to zero.
+
+24
+00:01:26,640 --> 00:01:27,420
+So that's it.
+
+25
+00:01:27,420 --> 00:01:29,010
+It works just like let.
+
+26
+00:01:29,010 --> 00:01:32,460
+But there are some significant differences once we talk about scoping.
+
+27
+00:01:32,460 --> 00:01:37,500
+So I don't want you to think that it's exactly identical to lit, otherwise there'd be no reason to
+
+28
+00:01:37,500 --> 00:01:38,550
+use that over var.
+
+29
+00:01:38,580 --> 00:01:42,180
+There are some differences in how they work in certain situations.
+
+30
+00:01:42,330 --> 00:01:45,090
+Also, I just want to talk about this briefly.
+
+31
+00:01:45,090 --> 00:01:46,410
+Light and cost are new.
+
+32
+00:01:46,410 --> 00:01:50,780
+As I mentioned, the relatively new at least compared to the lifespan of JavaScript.
+
+33
+00:01:50,790 --> 00:01:55,470
+If we go to MSDN, let's look at let it scroll down to the very bottom.
+
+34
+00:01:55,470 --> 00:02:02,250
+You'll see a browser support or browser compatibility chart or table, and it shows you green versus
+
+35
+00:02:02,250 --> 00:02:06,180
+yellow and red would be for no support in certain browsers.
+
+36
+00:02:06,390 --> 00:02:10,229
+You can see that LUT is supported across all the major browsers.
+
+37
+00:02:10,229 --> 00:02:15,450
+It looks like Internet Explorer doesn't fully support it, but if you click here, it's a very small
+
+38
+00:02:15,450 --> 00:02:17,070
+edge case or it's not an edge case.
+
+39
+00:02:17,190 --> 00:02:23,160
+There's a specific situation where light is not as optimized, but it still works, so it's not going
+
+40
+00:02:23,160 --> 00:02:25,320
+to cause any problems or errors anyway.
+
+41
+00:02:25,320 --> 00:02:29,310
+The point here is that light is supported everywhere you need to use it.
+
+42
+00:02:29,310 --> 00:02:33,060
+So because of that, there's not really a good reason to use VAR anymore.
+
+43
+00:02:33,090 --> 00:02:39,030
+It used to be that light and cost weren't fully supported in all the main browsers and that was a good
+
+44
+00:02:39,030 --> 00:02:43,110
+reason to at least know about Var and potentially use it.
+
+45
+00:02:43,110 --> 00:02:46,410
+These days there's not really a case for VAR, that's it.
+
+46
+00:02:46,410 --> 00:02:47,910
+Var is the old way of doing things.
+
+47
+00:02:47,910 --> 00:02:49,290
+You'll probably will see it.
+
+48
+00:02:49,290 --> 00:02:50,700
+I don't recommend you use it.
+

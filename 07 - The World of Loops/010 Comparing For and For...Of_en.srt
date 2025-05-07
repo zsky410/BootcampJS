@@ -1,0 +1,344 @@
+1
+00:00:00,090 --> 00:00:05,190
+Next up, I want to continue talking about for of we'll see another example and we'll also talk about
+
+2
+00:00:05,190 --> 00:00:07,320
+situations when it doesn't help you.
+
+3
+00:00:07,320 --> 00:00:11,880
+And you might actually prefer a standard for loop even if it's longer and uglier.
+
+4
+00:00:11,880 --> 00:00:14,400
+Here I have a simple two dimensional array.
+
+5
+00:00:14,430 --> 00:00:16,620
+It's representing a magic square.
+
+6
+00:00:16,620 --> 00:00:18,480
+It's I don't know if you've seen them before.
+
+7
+00:00:18,540 --> 00:00:25,230
+It's a square of numbers, a grid where each row sums to some number, in this case, 15.
+
+8
+00:00:25,590 --> 00:00:28,890
+So you can see all of them sum to 15 each vertical.
+
+9
+00:00:28,890 --> 00:00:36,000
+So each column also sums to 15 and each diagonal sums to 15 if it's a correct magic square.
+
+10
+00:00:36,330 --> 00:00:41,730
+Now we're not going to write code to verify every single direction, but if I wanted to just sum each
+
+11
+00:00:41,730 --> 00:00:48,420
+row and verify that they equal 15 using a for loop, a regular for loop, it's kind of annoying.
+
+12
+00:00:48,750 --> 00:00:50,880
+Let I equal zero.
+
+13
+00:00:51,120 --> 00:00:57,930
+I'm going to have to do a nested loop less than magic square dot length and then I plus plus.
+
+14
+00:00:57,930 --> 00:01:01,410
+And that's going to get me each row, one row at a time.
+
+15
+00:01:01,410 --> 00:01:06,270
+So then I need to loop again to get those inwards each element in the row.
+
+16
+00:01:06,510 --> 00:01:16,800
+And what I'd like to do is make a variable called row and just set it equal to magic square of I.
+
+17
+00:01:17,340 --> 00:01:23,910
+So now row in this loop is going to refer to one of these nested arrays and then I'll loop over row.
+
+18
+00:01:23,910 --> 00:01:37,560
+So for litt j equals zero j less than row length j plus plus, and then for each j we could start by
+
+19
+00:01:37,560 --> 00:01:39,900
+just contact logging j to make sure it works.
+
+20
+00:01:40,680 --> 00:01:41,610
+Does it work?
+
+21
+00:01:41,730 --> 00:01:45,150
+Okay, so kind of we're printing out the indices.
+
+22
+00:01:45,150 --> 00:01:50,070
+We need row of J and now we're getting those numbers.
+
+23
+00:01:50,160 --> 00:01:52,890
+But I want to sum them together three at a time.
+
+24
+00:01:52,890 --> 00:01:55,680
+Each element are all elements in one of those rows.
+
+25
+00:01:55,680 --> 00:01:58,980
+I want to sum them together and print out ideally 15.
+
+26
+00:01:59,220 --> 00:02:03,330
+So what I'm going to do is make another variable up top called sum.
+
+27
+00:02:04,560 --> 00:02:08,970
+So not all the way up top, but each time through the loop, the outer loop, I want to reset it to
+
+28
+00:02:08,970 --> 00:02:12,090
+zero because I'm looping over this, summing them together.
+
+29
+00:02:12,090 --> 00:02:15,120
+But the next time this outer loop goes, it iterates.
+
+30
+00:02:15,120 --> 00:02:20,760
+I want it to start again at zero so I can sum these up without having the previous sum in there as well.
+
+31
+00:02:21,180 --> 00:02:30,540
+And then I would just do some plus equals row of J and then after this inner loop I could console.log
+
+32
+00:02:30,540 --> 00:02:31,140
+some.
+
+33
+00:02:32,520 --> 00:02:42,390
+I'll probably do row added to I'll just add the whole row right there summed two and then dollar sign
+
+34
+00:02:42,390 --> 00:02:43,230
+sum.
+
+35
+00:02:44,670 --> 00:02:45,810
+Let's see what we get.
+
+36
+00:02:47,250 --> 00:02:49,530
+Two, seven, six, some to 15, some to 15.
+
+37
+00:02:50,040 --> 00:02:56,190
+So this is OC with a regular for loop, but if we instead rewrote it using a four of loop, I think
+
+38
+00:02:56,190 --> 00:02:57,270
+it's much cleaner.
+
+39
+00:02:57,270 --> 00:03:01,320
+We would just do four let row of magic square.
+
+40
+00:03:03,570 --> 00:03:09,870
+We'd still make our sum variable, let sum equals zero and then four let.
+
+41
+00:03:10,470 --> 00:03:12,960
+Let's go with numb element.
+
+42
+00:03:13,800 --> 00:03:15,030
+I'll just go with numb.
+
+43
+00:03:15,030 --> 00:03:21,630
+I think that's fine of row so I don't have to make the second variable here.
+
+44
+00:03:21,630 --> 00:03:25,530
+I don't have to use I or J just for let row.
+
+45
+00:03:25,560 --> 00:03:27,060
+I have access to row in here.
+
+46
+00:03:27,060 --> 00:03:30,990
+Row refers to each individual nested array each row.
+
+47
+00:03:30,990 --> 00:03:40,530
+Then for letting some of those rows of each row I'm going to sum plus equals num and then I'll copy
+
+48
+00:03:40,530 --> 00:03:44,940
+this line here this console.log down below.
+
+49
+00:03:45,360 --> 00:03:49,770
+I'll comment out that original one with the for loop and we get the exact same output.
+
+50
+00:03:50,070 --> 00:03:53,280
+But this is much cleaner and easier to see and understand.
+
+51
+00:03:53,310 --> 00:03:56,580
+So that's an example where a four of really helps.
+
+52
+00:03:56,580 --> 00:03:58,830
+And I also wanted to show a nested example.
+
+53
+00:03:59,010 --> 00:04:05,430
+Now here's another example where it's actually not to your advantage to use four of I have two arrays
+
+54
+00:04:05,430 --> 00:04:08,280
+of strings, words one and words two.
+
+55
+00:04:08,310 --> 00:04:16,350
+I want to loop over the first array and for each element I want to also print out the corresponding
+
+56
+00:04:16,350 --> 00:04:17,820
+element from words two.
+
+57
+00:04:17,820 --> 00:04:21,480
+So mailbox, milkshake, bathtub and BlackBerry.
+
+58
+00:04:22,560 --> 00:04:28,260
+Using a for a traditional for loop is the way to go because I need to have an index.
+
+59
+00:04:28,410 --> 00:04:33,450
+I need to know which number we're printing out or which index we're accessing in words one.
+
+60
+00:04:33,450 --> 00:04:35,910
+So I can do the same thing in words too.
+
+61
+00:04:36,360 --> 00:04:43,260
+If instead I did a four of loop, I would have each value mail and milk, but I wouldn't have that number,
+
+62
+00:04:43,260 --> 00:04:47,310
+that index to access the corresponding value from words to.
+
+63
+00:04:47,460 --> 00:04:57,600
+So I do want a regular for loop here let i equals zero I less than words one length I plus plus and
+
+64
+00:04:57,600 --> 00:04:59,790
+then I'll just simply console.log.
+
+65
+00:05:00,590 --> 00:05:06,380
+Words one of I comma words, two of the same I.
+
+66
+00:05:07,820 --> 00:05:12,020
+So I will be zero where it's one of zero male male words.
+
+67
+00:05:12,020 --> 00:05:13,400
+Two of zero bucks.
+
+68
+00:05:14,180 --> 00:05:15,320
+Let's test it out.
+
+69
+00:05:15,590 --> 00:05:16,700
+Mailbox milkshake.
+
+70
+00:05:16,700 --> 00:05:18,050
+Bathtub, BlackBerry.
+
+71
+00:05:18,710 --> 00:05:28,220
+Technically, if I wanted them to be one word, I could use tactics, interpolate each one, do it again,
+
+72
+00:05:28,220 --> 00:05:29,280
+maybe add a hyphen.
+
+73
+00:05:29,300 --> 00:05:31,190
+I don't know if they're supposed to be hyphenated.
+
+74
+00:05:31,760 --> 00:05:32,960
+We'll just do one word.
+
+75
+00:05:33,380 --> 00:05:34,460
+Same thing here.
+
+76
+00:05:36,710 --> 00:05:38,480
+So now we should just get one word.
+
+77
+00:05:39,140 --> 00:05:43,520
+If we tried to do this with a four of loop, it would not be easy at all.
+
+78
+00:05:43,550 --> 00:05:49,160
+We would have to use four of on this first loop and then work backwards to figure out what number,
+
+79
+00:05:49,160 --> 00:05:52,310
+what index is male at, what index is milk at.
+
+80
+00:05:52,430 --> 00:05:58,190
+We could do something like index of and then get that number and then take that number and plug it plug
+
+81
+00:05:58,190 --> 00:06:00,270
+it into words two, which is just not ideal.
+
+82
+00:06:00,290 --> 00:06:06,620
+So my point here is that four of is great a lot of the time and it's really common just to need the
+
+83
+00:06:06,620 --> 00:06:08,840
+data in an array or a string.
+
+84
+00:06:08,840 --> 00:06:14,180
+But if you need to care about the index, the position like we did here, then it's not going to work
+
+85
+00:06:14,180 --> 00:06:20,060
+out for you or it won't be as easy as it would be to just generate those indices using a traditional
+
+86
+00:06:20,060 --> 00:06:21,050
+four loop instead.
+

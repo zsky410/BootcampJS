@@ -1,0 +1,276 @@
+1
+00:00:01,090 --> 00:00:01,420
+Okay.
+
+2
+00:00:01,450 --> 00:00:05,050
+So in the last video, we had a long discussion about where we're going to store data inside of our
+
+3
+00:00:05,050 --> 00:00:05,740
+application.
+
+4
+00:00:05,740 --> 00:00:10,120
+So again, we're going to store the current time inside of that input element.
+
+5
+00:00:10,120 --> 00:00:11,920
+That is going to be our source of truth.
+
+6
+00:00:11,920 --> 00:00:17,020
+That is really going to be the only place that has any information about what our current timer is.
+
+7
+00:00:17,680 --> 00:00:23,110
+So in order to actually get some value inside there in updated over time, I'm going to first go over
+
+8
+00:00:23,110 --> 00:00:26,050
+to my index.html file inside of here.
+
+9
+00:00:26,050 --> 00:00:27,640
+I'm going to find that input element.
+
+10
+00:00:28,500 --> 00:00:31,560
+And I'm going to give it a value property.
+
+11
+00:00:32,360 --> 00:00:33,980
+And I'll start it off as 30.
+
+12
+00:00:34,340 --> 00:00:37,990
+Now, whenever we assign an HTML attribute, it always has to be a string.
+
+13
+00:00:38,000 --> 00:00:40,550
+So notice how this is a string that says 30.
+
+14
+00:00:40,880 --> 00:00:42,500
+So we just need to keep that in mind.
+
+15
+00:00:42,500 --> 00:00:47,060
+As soon as we start to read a value out of this text input to figure out how much time is left on our
+
+16
+00:00:47,060 --> 00:00:47,600
+timer.
+
+17
+00:00:47,630 --> 00:00:51,530
+We're going to get a string and we're going to have to convert it into a number.
+
+18
+00:00:53,880 --> 00:00:56,280
+I'll then go back over to my index file.
+
+19
+00:00:56,930 --> 00:01:00,290
+So over here, I'm then going to go down to my tick method.
+
+20
+00:01:00,740 --> 00:01:02,900
+I'm going to delete that console log of tick.
+
+21
+00:01:04,080 --> 00:01:08,020
+And inside of here, I'm going to add in some code to reach into the text input.
+
+22
+00:01:08,040 --> 00:01:09,960
+I'm going to get the current value out of it.
+
+23
+00:01:09,990 --> 00:01:15,120
+We're going to subtract one from it and then throw that updated value back inside the input.
+
+24
+00:01:16,090 --> 00:01:19,870
+So to do so, we're going to first get a reference to the text input.
+
+25
+00:01:19,870 --> 00:01:24,850
+Remember, we already have a reference to it inside of our class as this duration input.
+
+26
+00:01:24,850 --> 00:01:27,010
+That was one of the arguments to our constructor.
+
+27
+00:01:28,010 --> 00:01:36,230
+So inside of here, I'll say time remaining is going to be this duration, input, value.
+
+28
+00:01:37,810 --> 00:01:40,780
+Now the value right here, once again, that is going to be a string.
+
+29
+00:01:40,780 --> 00:01:44,590
+So we have to take that string and turn it into a number to do so.
+
+30
+00:01:44,590 --> 00:01:48,430
+We're going to wrap that thing inside of Parse Float.
+
+31
+00:01:50,480 --> 00:01:54,770
+The parts float function is built into the JavaScript language, so we can just freely reference it
+
+32
+00:01:54,770 --> 00:01:56,030
+at any point in time.
+
+33
+00:01:56,210 --> 00:02:00,860
+This function is going to take a string that contains a number and it's going to pull out just the number
+
+34
+00:02:00,860 --> 00:02:03,110
+part of that string and give it back to us.
+
+35
+00:02:03,990 --> 00:02:06,330
+There are two functions that do this kind of operation.
+
+36
+00:02:06,330 --> 00:02:13,020
+There's Parse, int and parse float, parse int is short for parse integer parse int will give us a
+
+37
+00:02:13,020 --> 00:02:18,030
+number that does not have a decimal, whereas parse float will give us a number that has decimal.
+
+38
+00:02:18,060 --> 00:02:24,780
+So just as a quick example, if we have some string that has like 10.1 inside of it and we ran it through
+
+39
+00:02:24,780 --> 00:02:26,790
+parse int that would give us ten.
+
+40
+00:02:27,880 --> 00:02:31,510
+If we ran it through past float, that would give us 10.1.
+
+41
+00:02:32,430 --> 00:02:37,050
+So we're going to use Parse Float because we're going to eventually support decimals inside of our timer.
+
+42
+00:02:39,530 --> 00:02:39,720
+Okay.
+
+43
+00:02:39,740 --> 00:02:41,360
+So after we get our time remaining.
+
+44
+00:02:43,080 --> 00:02:44,220
+We can then do.
+
+45
+00:02:45,560 --> 00:02:51,140
+A update to the value of time remaining and give the new value or throw the new value back into the
+
+46
+00:02:51,140 --> 00:02:53,450
+input element so we can say.
+
+47
+00:02:54,250 --> 00:02:58,780
+This duration, input value is going to be time remaining.
+
+48
+00:03:00,390 --> 00:03:01,410
+Minus one.
+
+49
+00:03:03,420 --> 00:03:04,950
+And that should pretty much be it.
+
+50
+00:03:04,980 --> 00:03:08,850
+So let's now go back over to our browser and to save both these files and test this out.
+
+51
+00:03:09,300 --> 00:03:10,470
+So I'm going to refresh over here.
+
+52
+00:03:10,470 --> 00:03:14,130
+I can now see the default value of 30, which I set inside the HTML file.
+
+53
+00:03:14,160 --> 00:03:17,820
+I'll then click on start and I'll see the timers start to count down.
+
+54
+00:03:18,820 --> 00:03:22,570
+Now, the very good thing about this approach or kind of the nice thing, if I click on pause right
+
+55
+00:03:22,570 --> 00:03:28,840
+here and I update that value to say 300 and then click on Start, my timer is just going to work right
+
+56
+00:03:28,840 --> 00:03:30,210
+away the way I expect.
+
+57
+00:03:30,220 --> 00:03:35,800
+We did not have to add in any additional event handlers to watch for a change event and change some
+
+58
+00:03:35,800 --> 00:03:39,340
+internal representation of that timer inside of our timer instance.
+
+59
+00:03:39,340 --> 00:03:42,910
+That's what we would have had to do to get a change to work correctly.
+
+60
+00:03:42,910 --> 00:03:47,440
+You and I would have had to set up that event listener watch for a change to the input element and then
+
+61
+00:03:47,440 --> 00:03:50,260
+throw that updated value back inside the timer instance.
+
+62
+00:03:50,590 --> 00:03:54,130
+So again, nice thing about this approach, a little bit less work from the get go.
+
+63
+00:03:56,100 --> 00:03:56,330
+Okay.
+
+64
+00:03:56,340 --> 00:03:57,540
+So it's definitely works.
+
+65
+00:03:57,540 --> 00:03:59,730
+But let's take a quick pause right here.
+
+66
+00:03:59,730 --> 00:04:04,140
+And I want to point out something about the current state of our code inside the tick method.
+
+67
+00:04:04,170 --> 00:04:07,890
+We're going to figure out some way to kind of condense the code we have inside of here just a little
+
+68
+00:04:07,890 --> 00:04:08,400
+bit.
+
+69
+00:04:08,520 --> 00:04:10,770
+So quick pause and I'll see you in just a moment.
+

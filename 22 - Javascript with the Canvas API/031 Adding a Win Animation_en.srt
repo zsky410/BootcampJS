@@ -1,0 +1,340 @@
+1
+00:00:00,670 --> 00:00:02,590
+Now that we can detect a wind condition.
+
+2
+00:00:02,590 --> 00:00:06,939
+So whenever a user goes and hits that kind of completion area right there, it would be kind of fun
+
+3
+00:00:06,939 --> 00:00:10,600
+to tell the user in a interesting way that they have won the game.
+
+4
+00:00:10,600 --> 00:00:12,910
+So something a little bit more interesting than a console log.
+
+5
+00:00:13,360 --> 00:00:16,400
+I've got an idea for kind of an interesting way of doing that.
+
+6
+00:00:16,420 --> 00:00:20,920
+I think that when a user wins and they hit the ball against that kind of goal rectangle right there,
+
+7
+00:00:21,130 --> 00:00:23,860
+let's try to turn gravity back on.
+
+8
+00:00:23,860 --> 00:00:29,560
+And simultaneously we'll also take all the different wall segments we have and remove these static flag
+
+9
+00:00:29,560 --> 00:00:30,190
+from them.
+
+10
+00:00:30,610 --> 00:00:35,770
+The net effect of both those changes is that essentially the entire maze is going to kind of fall apart
+
+11
+00:00:35,770 --> 00:00:39,670
+and fall down to the very bottom, followed to like the bottom edge of the screen.
+
+12
+00:00:40,120 --> 00:00:43,990
+So again, we're just doing this to make sure it's really clear to a user when they win a game.
+
+13
+00:00:44,800 --> 00:00:44,930
+Yes.
+
+14
+00:00:45,010 --> 00:00:46,120
+Let's give this a shot.
+
+15
+00:00:46,300 --> 00:00:49,270
+The first thing we'll do is find the if statement we were just working on.
+
+16
+00:00:49,600 --> 00:00:51,820
+I'm going to to replace that console.log right there.
+
+17
+00:00:52,790 --> 00:00:58,310
+So inside of here I'm going to turn gravity back on by writing out world dot gravity.
+
+18
+00:00:58,610 --> 00:01:00,470
+Y equals one.
+
+19
+00:01:00,710 --> 00:01:05,750
+So that's going to accelerate all the different shapes we have down towards the bottom edge of the screen.
+
+20
+00:01:06,800 --> 00:01:11,280
+The next thing I'm going to do is to loop over all the shapes inside of my world.
+
+21
+00:01:11,370 --> 00:01:13,950
+I'm going to try to find all the different wall segments.
+
+22
+00:01:13,950 --> 00:01:18,390
+So like these walls right here, and I'm going to remove the static flag from each of them.
+
+23
+00:01:19,180 --> 00:01:22,120
+To make sure that we can easily find all the different wall segments.
+
+24
+00:01:22,120 --> 00:01:26,590
+I'm going to go back up to where we create all of our walls so the two for each loops.
+
+25
+00:01:27,900 --> 00:01:29,070
+Here's one right here.
+
+26
+00:01:29,550 --> 00:01:30,570
+Four verticals.
+
+27
+00:01:31,800 --> 00:01:35,760
+I'm going to find the options object and I'm going to add on a flag to it.
+
+28
+00:01:35,760 --> 00:01:38,490
+I'm going to say label of wall.
+
+29
+00:01:38,790 --> 00:01:43,860
+So as we saw just a second ago, we can use labels that are being applied to a shape that we create
+
+30
+00:01:43,860 --> 00:01:47,430
+to easily figure out what type of shape it actually represents.
+
+31
+00:01:48,000 --> 00:01:55,140
+So if I save this just for verticals right now, we can then go back over refresh and I can get a better
+
+32
+00:01:55,140 --> 00:02:00,930
+idea of exactly what shapes our verticals by printing out WorldCat bodies.
+
+33
+00:02:01,870 --> 00:02:04,780
+So this is telling me that I have ten different shapes inside the world.
+
+34
+00:02:04,780 --> 00:02:09,400
+And if I look at the different label properties or Yeah, label right there, I'll see that one has
+
+35
+00:02:09,400 --> 00:02:10,780
+a label of wall.
+
+36
+00:02:10,810 --> 00:02:13,810
+So that represents the one vertical piece that we have right there.
+
+37
+00:02:14,410 --> 00:02:19,750
+So we can repeat that same label and throw it onto our horizontals as well.
+
+38
+00:02:20,430 --> 00:02:24,420
+So I'll go back up to the horizontal section and I'll add in to that.
+
+39
+00:02:24,420 --> 00:02:27,060
+Options Object a label of wall.
+
+40
+00:02:30,030 --> 00:02:34,020
+So now if we go back over again, refresh, print out world bodies.
+
+41
+00:02:35,290 --> 00:02:38,140
+We can see that we've got several different walls inside of here.
+
+42
+00:02:38,410 --> 00:02:44,290
+The remaining rectangles are the actual kind of barriers or borders around the outside edge of our canvas.
+
+43
+00:02:44,530 --> 00:02:46,780
+And of course, we have the goal and the ball as well.
+
+44
+00:02:47,620 --> 00:02:53,770
+So now whenever a user wins, we can iterate over world bodies and we can update the is static flag
+
+45
+00:02:53,770 --> 00:02:59,080
+for each of the wall labels or these wall objects to false.
+
+46
+00:02:59,080 --> 00:03:03,280
+And that's going to essentially allow gravity to affect all the different wall segments that will cause
+
+47
+00:03:03,280 --> 00:03:05,740
+them to kind of collapse down to the bottom edge of the screen.
+
+48
+00:03:06,950 --> 00:03:09,650
+So to actually write out the code for that, I'll go back over.
+
+49
+00:03:09,680 --> 00:03:12,770
+I'm going to go back down to where we are computing our win condition.
+
+50
+00:03:14,170 --> 00:03:20,620
+And after I update my gravity, I'm going to do a WorldCat bodies for each.
+
+51
+00:03:22,050 --> 00:03:27,630
+And for each body that I am iterating over, I'll say if body label.
+
+52
+00:03:29,090 --> 00:03:30,380
+Is segment.
+
+53
+00:03:31,820 --> 00:03:33,830
+So this is not a segment but a wall.
+
+54
+00:03:33,860 --> 00:03:37,730
+I had previously used the word segment, but I figured wall made a lot more sense.
+
+55
+00:03:37,730 --> 00:03:38,750
+So we'll stick with that.
+
+56
+00:03:39,290 --> 00:03:43,670
+And then to update the static property, we're going to once again use that body object that we spoke
+
+57
+00:03:43,670 --> 00:03:45,020
+about just a little bit ago.
+
+58
+00:03:45,470 --> 00:03:48,440
+I'm going to call the set static method on it.
+
+59
+00:03:48,440 --> 00:03:52,370
+As you could guess, that's going to update the static flag on an object.
+
+60
+00:03:52,850 --> 00:03:58,220
+So we're going to take the body and we're going to update the static flag to false to say this thing
+
+61
+00:03:58,220 --> 00:04:02,150
+is no longer static, so gravity and other forces can now affect it.
+
+62
+00:04:03,340 --> 00:04:04,360
+I'm going to save this.
+
+63
+00:04:05,450 --> 00:04:07,550
+Go back over refresh.
+
+64
+00:04:07,850 --> 00:04:09,440
+And now if I go ahead and win.
+
+65
+00:04:11,690 --> 00:04:13,100
+Everything kind of falls apart.
+
+66
+00:04:13,520 --> 00:04:16,310
+So again, it's just kind of a fun little animation that a user can see.
+
+67
+00:04:16,310 --> 00:04:21,500
+Once they actually win the maze, we will eventually put on a big message to the user that says, Hey,
+
+68
+00:04:21,500 --> 00:04:26,030
+you one right on the very center of the screen to make sure that it's just super clear that they won.
+
+69
+00:04:26,030 --> 00:04:29,060
+But we'll add in one or two other features before we take care of that.
+
+70
+00:04:29,760 --> 00:04:34,220
+So now for a really fun test, we can go and update the number of cells we have.
+
+71
+00:04:34,310 --> 00:04:37,730
+So I might go to like six or so just to make my maze a little bit more complex.
+
+72
+00:04:38,710 --> 00:04:40,120
+And now if I win.
+
+73
+00:04:42,490 --> 00:04:43,990
+Everything falls apart.
+
+74
+00:04:44,680 --> 00:04:49,210
+And then a user can still kind of mess around and move all these different segments around.
+
+75
+00:04:50,560 --> 00:04:50,830
+Okay.
+
+76
+00:04:50,890 --> 00:04:52,220
+So this is looking pretty good.
+
+77
+00:04:52,240 --> 00:04:56,890
+So the last really big thing that we have to accomplish inside this app is to make sure that it's not
+
+78
+00:04:56,890 --> 00:04:59,140
+limited to this fixed size right here.
+
+79
+00:04:59,770 --> 00:05:05,140
+At present, we've been saying many times that the height and width are always going to be identical.
+
+80
+00:05:05,500 --> 00:05:11,380
+So if we start to change one of these values, like let's say I change the height to 800 and refresh,
+
+81
+00:05:11,440 --> 00:05:14,260
+well, everything doesn't quite work as expected.
+
+82
+00:05:15,050 --> 00:05:17,840
+So we're going to make sure that we can have rectangular mazes.
+
+83
+00:05:17,870 --> 00:05:21,680
+We're going to in particular, make sure that we can have a maze that fills up the entire screen.
+
+84
+00:05:22,340 --> 00:05:26,300
+And so we're going to have to update several sections of code to accommodate for that.
+
+85
+00:05:26,570 --> 00:05:30,260
+So let's take a quick pause right here and start that refactor in the next video.
+

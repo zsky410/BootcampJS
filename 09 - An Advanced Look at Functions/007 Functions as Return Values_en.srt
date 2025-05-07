@@ -1,0 +1,812 @@
+1
+00:00:00,090 --> 00:00:05,580
+In the last video, we talked about one type of higher order function where a function accepts another
+
+2
+00:00:05,580 --> 00:00:07,020
+function as an argument.
+
+3
+00:00:07,050 --> 00:00:10,890
+Now let's talk about returning a function from within a function.
+
+4
+00:00:11,280 --> 00:00:12,820
+So I have an example of this.
+
+5
+00:00:12,840 --> 00:00:19,860
+It's a little bit trickier to explain, but you can kind of think of these functions as function factories.
+
+6
+00:00:20,280 --> 00:00:26,610
+The function itself returns another function, and in the examples I'll show you the functions on the
+
+7
+00:00:26,610 --> 00:00:27,030
+outside.
+
+8
+00:00:27,030 --> 00:00:31,170
+The outer functions are making new versions of a function.
+
+9
+00:00:31,170 --> 00:00:34,230
+They're tweaking a function and returning it so you can use it.
+
+10
+00:00:34,980 --> 00:00:36,870
+So let's start with a simple example.
+
+11
+00:00:37,050 --> 00:00:45,120
+We're going to make a function which we'll call multiply by, and when I call multiply by three, it
+
+12
+00:00:45,120 --> 00:00:49,650
+will return a function that triples a value any time I call it.
+
+13
+00:00:49,770 --> 00:00:57,450
+So I would do something like this const triple equals multiply by three and then I could call triple
+
+14
+00:00:57,450 --> 00:01:00,460
+on five and that would give me 15.
+
+15
+00:01:00,480 --> 00:01:08,670
+I could make another function from the same factory, const double equals multiplied by two.
+
+16
+00:01:08,670 --> 00:01:14,910
+And that returns to me a new function where I can call it and pass in a number and it will be multiplied
+
+17
+00:01:14,910 --> 00:01:15,550
+by two.
+
+18
+00:01:15,570 --> 00:01:20,570
+So if I call double of eight, I get 16.
+
+19
+00:01:20,580 --> 00:01:26,120
+So this multiplied by function returns a new function that we can save and use.
+
+20
+00:01:26,130 --> 00:01:33,810
+So we'll start by defining it, multiply by and it accepts a single number and we want it to return
+
+21
+00:01:33,810 --> 00:01:34,620
+a function.
+
+22
+00:01:34,860 --> 00:01:40,620
+Now this is where function expressions come in because we don't have to declare a separate function
+
+23
+00:01:40,620 --> 00:01:42,750
+first and then return that.
+
+24
+00:01:43,260 --> 00:01:46,800
+I can just write return function right here.
+
+25
+00:01:47,550 --> 00:01:54,900
+An anonymous function like we've seen where we could write const x equals function like this, a function
+
+26
+00:01:54,900 --> 00:01:55,380
+expression.
+
+27
+00:01:55,380 --> 00:01:56,310
+There's no name.
+
+28
+00:01:56,790 --> 00:02:01,260
+We don't have to have a name because we're returning this and we'll capture it in a variable.
+
+29
+00:02:01,500 --> 00:02:03,330
+So this doesn't work just yet.
+
+30
+00:02:03,330 --> 00:02:07,620
+It does return a function and if I put something in here console.log.
+
+31
+00:02:07,990 --> 00:02:08,699
+Hi.
+
+32
+00:02:10,080 --> 00:02:12,930
+We can call this if I run it over here.
+
+33
+00:02:12,930 --> 00:02:14,730
+If I call multiply by.
+
+34
+00:02:15,120 --> 00:02:20,010
+I don't even need to pass in a number because we're not using it and I save the result to a variable.
+
+35
+00:02:20,010 --> 00:02:23,640
+We'll just call it mystery equals multiplied by.
+
+36
+00:02:24,240 --> 00:02:30,900
+If we look at mystery, it holds a function and if I execute it, it runs this function.
+
+37
+00:02:30,900 --> 00:02:32,610
+This was the return value.
+
+38
+00:02:32,610 --> 00:02:34,980
+We could have done this on two separate lines.
+
+39
+00:02:35,070 --> 00:02:45,570
+I could have written a function in here like const f equals function, console.log blah and then I can
+
+40
+00:02:45,570 --> 00:02:47,490
+return F.
+
+41
+00:02:47,850 --> 00:02:50,460
+That also works if I do the same thing.
+
+42
+00:02:50,550 --> 00:02:53,940
+Mystery equals multiply by and now I take a look at mystery.
+
+43
+00:02:53,970 --> 00:02:59,550
+It holds a function and I can execute it, but I think it's easier just to return it at the same time.
+
+44
+00:02:59,550 --> 00:03:03,440
+Because we're not using it in this function, we're simply returning it.
+
+45
+00:03:03,450 --> 00:03:04,290
+That's it.
+
+46
+00:03:04,980 --> 00:03:11,940
+So to actually implement, multiplied by where we accept a number, what we want to do is return a function
+
+47
+00:03:12,030 --> 00:03:15,270
+that also accepts a single argument.
+
+48
+00:03:15,270 --> 00:03:22,530
+We'll just call it X and we want to return in that function x times num.
+
+49
+00:03:22,530 --> 00:03:24,150
+So let's think about how this works.
+
+50
+00:03:24,150 --> 00:03:27,960
+If I call multiply by with the number three.
+
+51
+00:03:28,950 --> 00:03:32,880
+Numb is three and it's going to return this function right here.
+
+52
+00:03:33,150 --> 00:03:36,270
+So let's just copy this on its own, paste it down here.
+
+53
+00:03:36,840 --> 00:03:43,380
+This won't stand as valid code, but if we just ignore that and think of how it works, this function
+
+54
+00:03:43,380 --> 00:03:44,470
+has numb.
+
+55
+00:03:44,490 --> 00:03:45,390
+Set to three.
+
+56
+00:03:45,390 --> 00:03:46,740
+That's what we passed in for.
+
+57
+00:03:46,740 --> 00:03:47,280
+Numb.
+
+58
+00:03:47,700 --> 00:03:54,600
+So now if I have this stored in a variable like I did up here and I call this function and I pass in
+
+59
+00:03:54,600 --> 00:03:57,240
+some value, let's say it's stored in a variable.
+
+60
+00:03:57,390 --> 00:03:59,400
+If we pass in three, I would call this triple.
+
+61
+00:03:59,400 --> 00:04:01,980
+So const triple equals this function.
+
+62
+00:04:02,430 --> 00:04:10,920
+If I call triple on six, x will be six and it returns six times three, which gives me 18.
+
+63
+00:04:11,310 --> 00:04:17,130
+But if I instead called multiply by five, num would be five.
+
+64
+00:04:17,130 --> 00:04:20,100
+So it would return this function right here.
+
+65
+00:04:21,620 --> 00:04:26,060
+Where we accept a single argument and we return that number times five.
+
+66
+00:04:26,540 --> 00:04:31,190
+So when I call it I pass in two, it returns two times five, which gives me ten.
+
+67
+00:04:31,490 --> 00:04:35,390
+So this function is a factory for making more functions.
+
+68
+00:04:35,390 --> 00:04:36,620
+It modifies them.
+
+69
+00:04:36,740 --> 00:04:42,320
+I like to think of it as a little conveyor belt going by and it's stamping them with a different number
+
+70
+00:04:42,320 --> 00:04:43,660
+or a different value.
+
+71
+00:04:43,670 --> 00:04:48,270
+In this case, num, it impacts how this actual function here behaves.
+
+72
+00:04:48,290 --> 00:04:52,130
+If we pass in eight, we'll get back a function that multiplies by eight.
+
+73
+00:04:52,250 --> 00:04:54,680
+So let's actually play with this now.
+
+74
+00:04:54,680 --> 00:04:56,660
+We have multiplied by everything.
+
+75
+00:04:56,660 --> 00:04:57,320
+Looks good here.
+
+76
+00:04:57,320 --> 00:04:58,610
+We're returning a new function.
+
+77
+00:04:58,610 --> 00:05:00,020
+Return X times num.
+
+78
+00:05:00,980 --> 00:05:04,880
+Let's make our triple function so const triple equals.
+
+79
+00:05:04,880 --> 00:05:06,410
+Multiply by three.
+
+80
+00:05:07,170 --> 00:05:08,610
+That gives me a new function.
+
+81
+00:05:08,610 --> 00:05:09,720
+If we look at triple.
+
+82
+00:05:10,440 --> 00:05:15,720
+We have a function and if I call it on a number like six, we get 18.
+
+83
+00:05:15,750 --> 00:05:17,630
+I call it on two, we get six.
+
+84
+00:05:17,640 --> 00:05:19,930
+I call it on nine, we get 27.
+
+85
+00:05:19,950 --> 00:05:22,860
+It's multiplying everything that I pass in by three.
+
+86
+00:05:23,400 --> 00:05:25,020
+Now let's make another one of these.
+
+87
+00:05:25,020 --> 00:05:26,340
+We'll call this double.
+
+88
+00:05:27,060 --> 00:05:29,010
+We'll multiply by two.
+
+89
+00:05:30,810 --> 00:05:34,350
+And if I call double on five, I get ten.
+
+90
+00:05:34,500 --> 00:05:37,260
+Triple on five, I get 15.
+
+91
+00:05:37,410 --> 00:05:40,680
+So this factory gave us two different functions.
+
+92
+00:05:40,680 --> 00:05:44,760
+They all followed the same pattern, but it plugged in a different number.
+
+93
+00:05:45,300 --> 00:05:46,830
+And I would do one more.
+
+94
+00:05:46,830 --> 00:05:50,580
+But other than triple, double, I guess quadruple is not too bad.
+
+95
+00:05:50,580 --> 00:06:00,690
+How about can't have to cut it in half so multiply by not mutation event multiply by 0.5.
+
+96
+00:06:01,890 --> 00:06:06,840
+Let's try that have of six gives me three of nine.
+
+97
+00:06:06,840 --> 00:06:08,070
+I get 4.5.
+
+98
+00:06:08,730 --> 00:06:09,030
+All right.
+
+99
+00:06:09,030 --> 00:06:10,520
+So this is our first example.
+
+100
+00:06:10,530 --> 00:06:14,750
+If you're struggling with this, I totally understand this is always a tough one to teach.
+
+101
+00:06:14,760 --> 00:06:17,490
+It's kind of a different way of thinking about functions.
+
+102
+00:06:17,490 --> 00:06:22,740
+But remember that functions are just values that can be passed around, whether as an argument like
+
+103
+00:06:22,740 --> 00:06:25,560
+we saw in the last video or as a return value.
+
+104
+00:06:25,560 --> 00:06:30,060
+And this multiply function is just changing the return value ever so slightly.
+
+105
+00:06:30,480 --> 00:06:35,370
+Also, remember how we talked about this idea of lexical scope a couple of videos ago.
+
+106
+00:06:35,370 --> 00:06:40,560
+A nested function has access to the scope of its parent function.
+
+107
+00:06:40,560 --> 00:06:47,100
+NUM is not defined in this function, it's defined up here, but we have access to it and it's returned
+
+108
+00:06:47,100 --> 00:06:49,200
+and num still has that value.
+
+109
+00:06:49,290 --> 00:06:50,220
+It persists.
+
+110
+00:06:50,220 --> 00:06:53,160
+So if we passed in three, NUM is always three.
+
+111
+00:06:53,160 --> 00:06:57,330
+In this function right here, num is always two, num is always 0.5.
+
+112
+00:06:57,630 --> 00:06:59,790
+So let's take a look at another example.
+
+113
+00:07:00,630 --> 00:07:06,750
+What we're going to do is make this function, which I'm calling make between func it will return a
+
+114
+00:07:06,750 --> 00:07:10,980
+function where we can check if a value is between two numbers.
+
+115
+00:07:10,980 --> 00:07:16,620
+So I would call it like this make between function and maybe we can come up with a better name for this
+
+116
+00:07:16,620 --> 00:07:21,840
+make between func zero and 18 and I'll save this to a variable.
+
+117
+00:07:21,840 --> 00:07:25,650
+Const is not adult is child.
+
+118
+00:07:27,000 --> 00:07:36,450
+So this should return to me a function where if I call it with a number like five, I get true because
+
+119
+00:07:36,450 --> 00:07:38,220
+it's between zero and 18.
+
+120
+00:07:38,340 --> 00:07:46,560
+If I call it with something like 67 or 68, I should get false because it's not within that range.
+
+121
+00:07:46,560 --> 00:07:53,940
+So we're making a factory for functions that serve to check if a value is between one number and another
+
+122
+00:07:53,940 --> 00:07:54,480
+number.
+
+123
+00:07:55,320 --> 00:07:56,670
+So I'll show you how it works.
+
+124
+00:07:56,910 --> 00:07:59,670
+That's probably very confusing just to see that explanation.
+
+125
+00:07:59,760 --> 00:08:01,290
+But we'll define our function.
+
+126
+00:08:01,290 --> 00:08:08,460
+We'll call it Make between func and it will accept two numbers X and Y.
+
+127
+00:08:09,640 --> 00:08:12,100
+And it needs to return a function.
+
+128
+00:08:13,960 --> 00:08:16,330
+And this function accepts a number.
+
+129
+00:08:17,230 --> 00:08:23,440
+This is the return value function will pass a value into it and we want to compare that value to X and
+
+130
+00:08:23,440 --> 00:08:23,950
+Y.
+
+131
+00:08:24,610 --> 00:08:31,060
+So if NUM is between X and Y, that means it is greater than X and less than Y.
+
+132
+00:08:31,090 --> 00:08:35,860
+Or we could make it inclusive so it's greater than or equal to x, less than or equal to y.
+
+133
+00:08:36,130 --> 00:08:45,490
+So we could just write if NUM is greater than or equal to x and num is less than or equal to y.
+
+134
+00:08:46,090 --> 00:08:46,930
+We could return.
+
+135
+00:08:46,930 --> 00:08:47,680
+True.
+
+136
+00:08:48,580 --> 00:08:50,350
+We could do it on multiple lines like this.
+
+137
+00:08:50,350 --> 00:08:51,480
+Return true.
+
+138
+00:08:51,850 --> 00:08:55,670
+Else we don't even need the L so we can just write return false.
+
+139
+00:08:55,690 --> 00:09:04,480
+But we can also shorten this even more and just say return num greater than or equal to x and num less
+
+140
+00:09:04,480 --> 00:09:05,620
+than or equal to y.
+
+141
+00:09:06,640 --> 00:09:08,080
+This is a boolean expression.
+
+142
+00:09:08,080 --> 00:09:09,460
+It gives us true or false.
+
+143
+00:09:10,420 --> 00:09:16,450
+So if we play around with this, if we call make between func and I pass in zero and 18, this returns
+
+144
+00:09:16,450 --> 00:09:24,160
+to me a function where you can imagine X is zero and Y is 18.
+
+145
+00:09:24,610 --> 00:09:28,360
+So now I have this function stored in a variable potentially.
+
+146
+00:09:28,450 --> 00:09:31,570
+Let's say it's called is child.
+
+147
+00:09:33,790 --> 00:09:41,350
+And then if I call is child with 17, num will be 17 and it's plugged in here.
+
+148
+00:09:41,380 --> 00:09:43,500
+Is 17 greater than or equal to zero?
+
+149
+00:09:43,510 --> 00:09:44,080
+Yes.
+
+150
+00:09:44,080 --> 00:09:46,350
+And is 17 less than or equal to 18?
+
+151
+00:09:46,360 --> 00:09:46,930
+Yes.
+
+152
+00:09:46,930 --> 00:09:48,580
+So this returns true?
+
+153
+00:09:48,700 --> 00:09:49,870
+So we get true.
+
+154
+00:09:50,050 --> 00:09:53,980
+If I pass it in a different value like 99, we would get false.
+
+155
+00:09:54,860 --> 00:10:00,740
+So it's a factory for making these between functions to check if a value is between two numbers.
+
+156
+00:10:00,740 --> 00:10:01,970
+So let's play around with it.
+
+157
+00:10:01,970 --> 00:10:10,430
+We'll do exactly what I just had is child equals make between func from 0 to 18.
+
+158
+00:10:11,310 --> 00:10:16,890
+And I'll call is child on 17 we get true.
+
+159
+00:10:16,920 --> 00:10:19,830
+If I call it on 99, we get false.
+
+160
+00:10:21,240 --> 00:10:26,880
+And we'll just do one more for good measure one true and 35 false.
+
+161
+00:10:27,870 --> 00:10:32,220
+But we can now make another between func we get a new return value.
+
+162
+00:10:32,430 --> 00:10:34,410
+Let's do make between funk.
+
+163
+00:10:34,500 --> 00:10:38,370
+What's something we would want to check if a number is between one number and another?
+
+164
+00:10:38,370 --> 00:10:52,080
+How about between 1990 and 2000 and we'll call this function is nineties so it doesn't really matter
+
+165
+00:10:52,080 --> 00:10:55,920
+but we'll call it that is nineties or is in nineties.
+
+166
+00:10:56,190 --> 00:10:58,860
+It's a very poor, very poor function name.
+
+167
+00:10:59,190 --> 00:11:08,520
+Now if I call is in nineties, if I run my code and I passed in 1989, that's false.
+
+168
+00:11:08,520 --> 00:11:10,530
+But if I pass in 1992.
+
+169
+00:11:10,560 --> 00:11:11,070
+True.
+
+170
+00:11:11,070 --> 00:11:18,030
+1993, technically it includes 2000 because of the way I wrote it, where it's less than or equal to
+
+171
+00:11:18,030 --> 00:11:20,040
+and greater than or equal to.
+
+172
+00:11:20,040 --> 00:11:22,530
+So we could rewrite it to not be inclusive.
+
+173
+00:11:22,680 --> 00:11:29,430
+Or I could just say if it's between 1990 and 1999, so now we have a second function.
+
+174
+00:11:29,430 --> 00:11:35,580
+It has the same behavior, the same pattern, the template of a function, if you will, but the X and
+
+175
+00:11:35,580 --> 00:11:37,740
+Y that have been plugged in are different.
+
+176
+00:11:38,160 --> 00:11:44,160
+So this outer function is decorating or it's finalizing this function that's being returned.
+
+177
+00:11:44,160 --> 00:11:45,420
+Let's do one more.
+
+178
+00:11:45,450 --> 00:11:50,430
+Let's make a function called is nice outside or is nice weather.
+
+179
+00:11:51,870 --> 00:11:55,210
+And our range of temperatures, I'm going to use Fahrenheit.
+
+180
+00:11:55,230 --> 00:11:57,060
+For those of you who use Celsius.
+
+181
+00:11:57,090 --> 00:11:58,440
+Go ahead and do that as well.
+
+182
+00:11:58,740 --> 00:12:04,440
+We'll go from 65 degrees to maybe like 80.
+
+183
+00:12:04,500 --> 00:12:05,910
+It's a bit too hot for me.
+
+184
+00:12:06,210 --> 00:12:06,990
+Start to sweat.
+
+185
+00:12:06,990 --> 00:12:11,850
+So maybe 79 degrees, let's say 60 to 79 degrees.
+
+186
+00:12:12,210 --> 00:12:17,700
+So make between funk between 60 and 79.
+
+187
+00:12:19,100 --> 00:12:23,240
+I'll call it is nice weather if it's 45 degrees out.
+
+188
+00:12:23,270 --> 00:12:24,350
+We get false.
+
+189
+00:12:24,650 --> 00:12:27,380
+If it's 76 degrees, we get true.
+
+190
+00:12:27,380 --> 00:12:30,710
+And if it's too hot, if it's 98 degrees, we get false.
+
+191
+00:12:31,250 --> 00:12:37,130
+So three different functions that behave kind of similarly, the same pattern of behavior.
+
+192
+00:12:37,160 --> 00:12:42,830
+But they have different values, different mince and maxes that have been baked in to the actual function.
+
+193
+00:12:43,130 --> 00:12:49,070
+So we've made a factory that returns a type of a function, a pattern, but they're all tweaked to be
+
+194
+00:12:49,070 --> 00:12:49,700
+different.
+
+195
+00:12:49,760 --> 00:12:51,500
+Just like we did up here as well.
+
+196
+00:12:51,500 --> 00:12:55,760
+So this whole function return value thing can take a little bit to get used to.
+
+197
+00:12:56,090 --> 00:13:00,230
+I would just take your time and don't panic about it if you're struggling with it.
+
+198
+00:13:00,230 --> 00:13:04,240
+Like I said, when I'm teaching in person, this is always one of the topics that I notice.
+
+199
+00:13:04,250 --> 00:13:09,320
+A lot of students take a while to wrap their head around, so play around with this and try modifying
+
+200
+00:13:09,320 --> 00:13:09,830
+the code.
+
+201
+00:13:09,830 --> 00:13:14,350
+Make your own versions come up with other functions instead of make between.
+
+202
+00:13:14,360 --> 00:13:19,520
+Make a function called make less than or make greater than or make not equal to.
+
+203
+00:13:19,580 --> 00:13:21,020
+And play around with that.
+

@@ -1,0 +1,460 @@
+1
+00:00:00,650 --> 00:00:05,630
+In this video, we're going to start to refactor our index file and get it ready for a maze.
+
+2
+00:00:05,840 --> 00:00:09,500
+So we've got some code inside of here right now for that quick little demo.
+
+3
+00:00:09,740 --> 00:00:12,230
+I'm going to delete a lot of the code related to this demo.
+
+4
+00:00:12,230 --> 00:00:17,300
+So if you want to, you can always make a copy or a backup of the index JS file as it is right now.
+
+5
+00:00:17,300 --> 00:00:22,010
+So you still have access to the code for the demo, but I don't really need that code anymore, so I'm
+
+6
+00:00:22,010 --> 00:00:25,370
+going to delete some of the stuff in here related to creating all those different shapes.
+
+7
+00:00:26,110 --> 00:00:32,110
+So inside my index file, I'm going to first get started by finding where we created that mouse constraint
+
+8
+00:00:32,110 --> 00:00:32,619
+right here.
+
+9
+00:00:32,650 --> 00:00:36,700
+Remember, this is what allowed us to do some click and drag on each of those different shapes.
+
+10
+00:00:37,150 --> 00:00:41,020
+Our Maze program is not going to have any click and drag functionality, so I'm going to delete all
+
+11
+00:00:41,020 --> 00:00:42,490
+that mouse related stuff.
+
+12
+00:00:43,910 --> 00:00:48,920
+I'll also go back up to the top and delete the two D structures we have for the mouse related stuff.
+
+13
+00:00:48,920 --> 00:00:50,930
+So mouse constraint and mouse.
+
+14
+00:00:53,170 --> 00:00:57,100
+Next up, I'll go down to the very bottom where we create our random shapes.
+
+15
+00:00:57,900 --> 00:00:59,790
+So I don't need any random shapes anymore.
+
+16
+00:00:59,800 --> 00:01:03,750
+It's going to take everything from that comment down to the very bottom and delete it.
+
+17
+00:01:07,080 --> 00:01:07,350
+All right.
+
+18
+00:01:07,350 --> 00:01:10,140
+So now the last thing I want to change really quickly, one more refactor.
+
+19
+00:01:10,320 --> 00:01:13,710
+If we go back up a little bit, you'll notice we've got the height and width right here.
+
+20
+00:01:15,010 --> 00:01:18,790
+I'm going to change the width to be exactly equal to the height.
+
+21
+00:01:18,790 --> 00:01:20,740
+So 605, 600.
+
+22
+00:01:21,310 --> 00:01:26,110
+The reason for this is that some of the logic around our maze actually ends up being a lot easier to
+
+23
+00:01:26,110 --> 00:01:28,750
+write if we have a perfectly square maize.
+
+24
+00:01:28,750 --> 00:01:30,700
+So as tall as it is wide.
+
+25
+00:01:31,210 --> 00:01:35,830
+As soon as we start to get a rectangular maize, some of the math gets just slightly more complicated.
+
+26
+00:01:36,160 --> 00:01:41,110
+So we're going to first build a version of our maize that works perfectly with it being square, and
+
+27
+00:01:41,110 --> 00:01:44,650
+then we're going to eventually refactor it to be rectangular in nature as well.
+
+28
+00:01:45,100 --> 00:01:49,480
+Ultimately, we're going to make sure that the maize spans the entire size of this window.
+
+29
+00:01:49,480 --> 00:01:52,150
+So like from this top left corner down here to the bottom.
+
+30
+00:01:52,150 --> 00:01:52,720
+Right.
+
+31
+00:01:52,930 --> 00:01:57,100
+But for the first implementation, we're going to have it fixed as just 600 by 600.
+
+32
+00:01:59,770 --> 00:02:04,870
+Now at the 600 by 600, that means we also have to update the placement of some of our different walls,
+
+33
+00:02:04,870 --> 00:02:10,750
+because these walls currently rely upon a 600 by or 800 by 600 canvas.
+
+34
+00:02:10,960 --> 00:02:13,510
+So now we have to go through here and update some of these values.
+
+35
+00:02:14,020 --> 00:02:18,520
+I want you to recall that one of the reasons I said that we would create the height and width variables
+
+36
+00:02:18,520 --> 00:02:23,230
+up here is to just have the ability to change these numbers right here and have all the appropriate
+
+37
+00:02:23,230 --> 00:02:25,120
+variables inside of our file update.
+
+38
+00:02:25,540 --> 00:02:30,700
+So as we start to rewrite or update some of the numbers inside of here, rather than using fixed values
+
+39
+00:02:30,700 --> 00:02:36,850
+like 406 hundred and 800, I'm going to instead have these numbers be references back up to the height
+
+40
+00:02:36,850 --> 00:02:38,530
+and width variables up at the top.
+
+41
+00:02:38,770 --> 00:02:44,410
+So in other words, we're going to have our walls lay themselves out automatically based upon the overall
+
+42
+00:02:44,410 --> 00:02:46,090
+dimensions of our canvas.
+
+43
+00:02:46,120 --> 00:02:48,880
+So that means that we will only have to do this one more update.
+
+44
+00:02:48,880 --> 00:02:54,190
+And then as we start to change these numbers later on, as we want to test out different shapes of mazes,
+
+45
+00:02:54,520 --> 00:02:58,870
+all of our different walls will relay themselves out appropriately without us messing around with this
+
+46
+00:02:58,870 --> 00:02:59,710
+code at all.
+
+47
+00:03:01,340 --> 00:03:04,130
+So we're going to go through here and update each of these rectangles.
+
+48
+00:03:04,130 --> 00:03:07,640
+We're going to have as few fixed constant numbers as possible.
+
+49
+00:03:08,180 --> 00:03:09,350
+So let's get to it.
+
+50
+00:03:09,830 --> 00:03:13,430
+The first rectangle we created represented the top rectangle.
+
+51
+00:03:13,670 --> 00:03:16,100
+So that's this one up here at the very top edge.
+
+52
+00:03:16,400 --> 00:03:22,340
+Remember, the first number represents the distance from the top left coordinate to the center of that
+
+53
+00:03:22,340 --> 00:03:23,090
+rectangle.
+
+54
+00:03:23,480 --> 00:03:26,600
+So that's essentially the width of our canvas divided by two.
+
+55
+00:03:27,140 --> 00:03:32,750
+Then the second number or the second argument represents how many units down from that top left corner.
+
+56
+00:03:33,080 --> 00:03:35,390
+In this case, we are zero units down.
+
+57
+00:03:36,890 --> 00:03:41,180
+Then the third number was the total width of that rectangle, which would be the width of the canvas
+
+58
+00:03:41,180 --> 00:03:44,090
+once again, and then the height of that rectangle.
+
+59
+00:03:44,390 --> 00:03:48,470
+We're going to leave the forties in here as forties, but we might eventually extract them to be assigned
+
+60
+00:03:48,470 --> 00:03:49,790
+by a variable as well.
+
+61
+00:03:50,450 --> 00:03:56,210
+All the other numbers inside of here are going to be either zeros or a kind of function based upon our
+
+62
+00:03:56,210 --> 00:03:57,260
+height in our width.
+
+63
+00:03:57,770 --> 00:03:59,210
+So let's do these updates.
+
+64
+00:04:00,560 --> 00:04:05,240
+So the first one right here, again, that's going to be our width divided by two because we're going
+
+65
+00:04:05,240 --> 00:04:08,510
+to go from the top left halfway over to right there.
+
+66
+00:04:08,510 --> 00:04:10,550
+So that's the entire width divided by two.
+
+67
+00:04:12,050 --> 00:04:17,089
+Then the second argument will continue to be zero, because we're going zero units down the entire width
+
+68
+00:04:17,089 --> 00:04:19,430
+of that rectangle is going to be with.
+
+69
+00:04:20,170 --> 00:04:21,880
+And then its height will just be 40.
+
+70
+00:04:21,880 --> 00:04:24,820
+Like I said, we'll leave that as a constant value inside of here for now.
+
+71
+00:04:26,560 --> 00:04:29,290
+The next rectangle is the one at the bottom of the edge.
+
+72
+00:04:29,290 --> 00:04:31,330
+So bottom edge of the canvas, that right there.
+
+73
+00:04:31,450 --> 00:04:36,430
+So in this case, we're going to once again go over width divided by two units, but we're going to
+
+74
+00:04:36,430 --> 00:04:38,830
+go down height units.
+
+75
+00:04:38,830 --> 00:04:42,640
+So the entire height of the canvas, we're going to go down the height of the canvas.
+
+76
+00:04:43,240 --> 00:04:47,350
+So once again, go over to the right with divided by two and I'll go down.
+
+77
+00:04:47,650 --> 00:04:48,820
+Height units.
+
+78
+00:04:49,750 --> 00:04:54,760
+The width will once again be width, and the height of the thing itself will be 40.
+
+79
+00:04:56,680 --> 00:04:57,790
+It's the next one.
+
+80
+00:04:57,820 --> 00:05:01,510
+The third rectangle that we created was the left hand wall.
+
+81
+00:05:01,540 --> 00:05:05,380
+So in this case, we are going to the right zero units.
+
+82
+00:05:05,380 --> 00:05:09,850
+So essentially staying in the same plane or we're going down height divided by two.
+
+83
+00:05:10,620 --> 00:05:11,880
+So that's still going to be zero.
+
+84
+00:05:12,640 --> 00:05:14,500
+We're going to have height divided by two.
+
+85
+00:05:17,370 --> 00:05:22,080
+The width of this thing is going to be 40 and the overall height of the shape itself will be height
+
+86
+00:05:22,080 --> 00:05:22,410
+units.
+
+87
+00:05:22,410 --> 00:05:24,510
+In other words, the entire height of the canvas.
+
+88
+00:05:25,350 --> 00:05:28,240
+And then finally we've got the right hand rectangle as well.
+
+89
+00:05:28,260 --> 00:05:31,410
+So with this one, we want to go over the entire width of the canvas.
+
+90
+00:05:32,010 --> 00:05:35,970
+We want to go down with divided by two or be height divided by two.
+
+91
+00:05:36,720 --> 00:05:37,350
+That's better.
+
+92
+00:05:39,230 --> 00:05:41,750
+And then the entire height of that rectangle will be height.
+
+93
+00:05:41,750 --> 00:05:43,910
+So same height as the canvas itself.
+
+94
+00:05:45,640 --> 00:05:46,690
+So let's save this.
+
+95
+00:05:47,950 --> 00:05:48,970
+I'm going to go back over.
+
+96
+00:05:48,970 --> 00:05:50,680
+I'm going to refresh and there we go.
+
+97
+00:05:50,680 --> 00:05:52,300
+So I've now got a square canvas.
+
+98
+00:05:52,300 --> 00:05:56,290
+The walls are kind of hard to see here just because the color is not that distinct.
+
+99
+00:05:56,290 --> 00:06:02,200
+So if I wanted to, I could disable wireframes mode so I could or I could enable wireframes mode so
+
+100
+00:06:02,200 --> 00:06:04,060
+I can set that to true refresh.
+
+101
+00:06:04,060 --> 00:06:05,980
+And now those walls are a little bit easier to see.
+
+102
+00:06:06,660 --> 00:06:10,680
+So as you can guess, the benefit to this approach is that we can now change height with as much as
+
+103
+00:06:10,680 --> 00:06:11,030
+we want.
+
+104
+00:06:11,040 --> 00:06:16,980
+So for example, I could go back to 800 by 600 and the walls are going to adjust themselves automatically.
+
+105
+00:06:17,010 --> 00:06:18,960
+I could go to 1200 by 600.
+
+106
+00:06:19,410 --> 00:06:25,020
+I could go to 1200 by, I don't know, five or how about 100?
+
+107
+00:06:25,020 --> 00:06:25,740
+Whatever.
+
+108
+00:06:25,860 --> 00:06:26,640
+Doesn't matter.
+
+109
+00:06:26,640 --> 00:06:29,640
+At the end of the day, the walls are going to lay themselves out appropriately.
+
+110
+00:06:30,430 --> 00:06:34,510
+We're going to try to write out code like this as much as possible, because, again, later on, as
+
+111
+00:06:34,510 --> 00:06:38,650
+we decide to mess around with some of the different values inside of here, it's going to be a lot easier
+
+112
+00:06:38,650 --> 00:06:43,540
+to change one number at the top as opposed to messing with a ton of code as we create all the different
+
+113
+00:06:43,540 --> 00:06:44,140
+shapes.
+
+114
+00:06:45,120 --> 00:06:45,750
+So it's looks good.
+
+115
+00:06:45,750 --> 00:06:48,360
+Let's take a pause right here and continue in the next video.
+

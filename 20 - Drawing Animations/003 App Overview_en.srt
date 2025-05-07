@@ -1,0 +1,180 @@
+1
+00:00:00,810 --> 00:00:05,490
+In this video, we're going to start working on a new little project based entirely inside the browser.
+
+2
+00:00:05,520 --> 00:00:10,770
+This is going to be a project focusing on just practicing some of our basic JavaScript skills, particularly
+
+3
+00:00:10,770 --> 00:00:12,600
+classes and functions.
+
+4
+00:00:12,660 --> 00:00:16,050
+So let's take a look at a mockup and get a better idea of what we're going to be building.
+
+5
+00:00:16,620 --> 00:00:16,980
+All right.
+
+6
+00:00:16,980 --> 00:00:17,640
+Here we go.
+
+7
+00:00:17,790 --> 00:00:21,960
+So we're going to be making a somewhat simple little timer application.
+
+8
+00:00:22,110 --> 00:00:24,790
+When a user visits our application inside the browser.
+
+9
+00:00:24,810 --> 00:00:29,640
+We're going to show them a number like 30 right there, a play button and a pause button.
+
+10
+00:00:30,000 --> 00:00:31,860
+Whenever the user clicks on play.
+
+11
+00:00:31,890 --> 00:00:33,960
+We're then going to count this timer down.
+
+12
+00:00:33,960 --> 00:00:36,590
+So in this case, it starts at 30 seconds.
+
+13
+00:00:36,600 --> 00:00:43,200
+After 1/2, we'll go down to 29, then 28, 27 and so on, until eventually gets all the way down to
+
+14
+00:00:43,200 --> 00:00:43,770
+zero.
+
+15
+00:00:44,420 --> 00:00:49,430
+As that timer is counting down, a user can pause it at any time by clicking on the pause button right
+
+16
+00:00:49,430 --> 00:00:52,100
+there and then resume it by clicking on play again.
+
+17
+00:00:53,180 --> 00:00:56,990
+Now, I'm sure this seems like a very simple and straightforward application, kind of basic, kind
+
+18
+00:00:56,990 --> 00:00:57,590
+of boring.
+
+19
+00:00:57,590 --> 00:01:01,010
+But there are going to be a couple of elements inside of here that kind of make it a little bit more
+
+20
+00:01:01,010 --> 00:01:03,680
+challenging and a little bit more interesting overall.
+
+21
+00:01:04,760 --> 00:01:08,840
+So first thing I want you to notice is that there's this circle around the timer itself.
+
+22
+00:01:09,080 --> 00:01:13,670
+We're going to have a circle kind of like drawn around the timer element.
+
+23
+00:01:13,730 --> 00:01:20,720
+And as this timer counts down from 32 to 27, 26 and so on, we're going to essentially revolve the
+
+24
+00:01:20,720 --> 00:01:21,350
+timer.
+
+25
+00:01:21,350 --> 00:01:26,450
+So you can imagine this as kind of being like a border, and the border is going to kind of fill up
+
+26
+00:01:26,480 --> 00:01:30,200
+around the outside all the way until it gets to the very top again.
+
+27
+00:01:30,680 --> 00:01:34,490
+Now, that's kind of a bad description of what's going on, but as soon as we start writing some code,
+
+28
+00:01:34,490 --> 00:01:35,630
+you'll get a better idea.
+
+29
+00:01:35,660 --> 00:01:39,950
+The point is that we're going to have an animated little border around the edge of this element.
+
+30
+00:01:41,080 --> 00:01:44,620
+The other thing we're going to do to make this just a little bit more interesting is we're going to
+
+31
+00:01:44,620 --> 00:01:47,650
+make sure that a user can click on that number right there.
+
+32
+00:01:47,650 --> 00:01:51,310
+And whenever they click on it, we're going to turn that thing into a text input.
+
+33
+00:01:51,370 --> 00:01:58,720
+So a user can change the timer to say, count down from 10 seconds or 5 seconds or whatever else so
+
+34
+00:01:58,720 --> 00:02:00,780
+it's not fixed at 30 or anything.
+
+35
+00:02:00,790 --> 00:02:03,310
+A user can change it to any time that they want.
+
+36
+00:02:03,490 --> 00:02:07,660
+And of course, once it counts down all the way to zero, the user can then click in there, update
+
+37
+00:02:07,660 --> 00:02:11,140
+the timer to say 60 seconds and start it all over again.
+
+38
+00:02:12,120 --> 00:02:12,450
+Okay.
+
+39
+00:02:12,450 --> 00:02:16,420
+So although it's going to be kind of straightforward in nature, there are these couple of extra things.
+
+40
+00:02:16,420 --> 00:02:20,490
+So we're definitely going to have to figure out and the border part in particular is going to actually
+
+41
+00:02:20,490 --> 00:02:21,670
+be kind of challenging.
+
+42
+00:02:21,690 --> 00:02:25,110
+We're going to have to figure out some interesting stuff in the browser to really make that work.
+
+43
+00:02:25,880 --> 00:02:26,150
+All right.
+
+44
+00:02:26,150 --> 00:02:29,150
+So now that we've got a better idea of what we're going to be working on, let's take a pause right
+
+45
+00:02:29,150 --> 00:02:31,880
+here and start to do some projects set up in the next video.
+

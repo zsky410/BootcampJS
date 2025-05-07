@@ -1,0 +1,552 @@
+1
+00:00:00,090 --> 00:00:03,430
+Next up, I'd like to introduce a different feature of JavaScript.
+
+2
+00:00:03,450 --> 00:00:06,160
+It has to do with decision making and logic.
+
+3
+00:00:06,180 --> 00:00:08,370
+It's called the switch statement.
+
+4
+00:00:08,400 --> 00:00:13,650
+It's not as commonly used as the typical conditional with if elseif and else.
+
+5
+00:00:13,740 --> 00:00:16,710
+But in certain scenarios it's really useful.
+
+6
+00:00:17,220 --> 00:00:19,740
+So let me show you what it looks like or why you would use it.
+
+7
+00:00:19,770 --> 00:00:24,420
+Imagine we have a variable with a number representing the day of the week.
+
+8
+00:00:24,600 --> 00:00:27,600
+So let's go with let day equals three.
+
+9
+00:00:28,170 --> 00:00:34,730
+If I wanted to translate a number going from 1 to 7 to Sunday, Monday, Tuesday, Wednesday, Thursday,
+
+10
+00:00:34,740 --> 00:00:35,460
+and so on.
+
+11
+00:00:36,090 --> 00:00:41,050
+Depending on where you are in the world, I think people use different start dates for the week.
+
+12
+00:00:41,070 --> 00:00:47,100
+I think outside of the U.S. and Canada, it's the week starts on Monday, which makes a lot more sense
+
+13
+00:00:47,100 --> 00:00:51,420
+than starting it on Sunday like we do in the U.S. So let's go with the international version.
+
+14
+00:00:51,570 --> 00:00:57,660
+Using a standard conditional, we would check if DE is equal to one and all.
+
+15
+00:00:57,660 --> 00:01:00,090
+Fast forward through this but we would console.log.
+
+16
+00:01:00,870 --> 00:01:02,490
+Sunday or no Monday.
+
+17
+00:01:02,850 --> 00:01:04,129
+Got to break that American habit.
+
+18
+00:01:04,140 --> 00:01:09,450
+We're going with international standard and then we would have else if de is two and I'll just type
+
+19
+00:01:09,450 --> 00:01:10,470
+this out quickly.
+
+20
+00:01:10,500 --> 00:01:11,670
+Okay, here we go.
+
+21
+00:01:11,700 --> 00:01:12,630
+It's quite long.
+
+22
+00:01:12,630 --> 00:01:16,830
+If day is one Monday to Tuesday and it's just a bunch of else ifs.
+
+23
+00:01:16,830 --> 00:01:21,300
+If I change the day to two, we get Tuesday.
+
+24
+00:01:21,300 --> 00:01:24,630
+If I change the day to seven, we get Sunday.
+
+25
+00:01:24,900 --> 00:01:26,910
+Let's also add in a fallback.
+
+26
+00:01:27,450 --> 00:01:33,780
+So if you didn't enter a number from 1 to 7, we'll console.log invalid day.
+
+27
+00:01:34,740 --> 00:01:42,090
+All right, so this is fine, but it's a lot of work and each time we're really just checking de against
+
+28
+00:01:42,090 --> 00:01:48,390
+one value over and over and over until we find a match or until we don't find a match in the else runs.
+
+29
+00:01:48,600 --> 00:01:54,450
+We can use a switch statement in a scenario like this where we're taking one value and we're just checking
+
+30
+00:01:54,450 --> 00:01:56,940
+it against multiple potential values.
+
+31
+00:01:57,270 --> 00:02:00,000
+So the syntax for switch is quite a bit different.
+
+32
+00:02:00,810 --> 00:02:04,620
+It looks like this switch and then the thing that we are checking.
+
+33
+00:02:04,620 --> 00:02:11,009
+So for us it would be de then we have our curly braces and then we have a bunch of cases.
+
+34
+00:02:11,400 --> 00:02:15,240
+So we would have case one meaning if DE is one.
+
+35
+00:02:16,630 --> 00:02:19,690
+And inside of that, we don't actually have to use curly braces.
+
+36
+00:02:20,320 --> 00:02:28,630
+We can console.log Monday and then we could have case to console.log Tuesday.
+
+37
+00:02:29,110 --> 00:02:30,910
+And let's just start with that.
+
+38
+00:02:31,270 --> 00:02:37,690
+So let's make a day to refresh the page and we get Tuesday, Tuesday.
+
+39
+00:02:37,720 --> 00:02:39,100
+As you can see here.
+
+40
+00:02:39,100 --> 00:02:41,830
+So I will flesh this out with the other days.
+
+41
+00:02:41,860 --> 00:02:42,770
+There we go.
+
+42
+00:02:42,790 --> 00:02:48,530
+So we have seven different cases when day is one due, this day is to do this three and so on.
+
+43
+00:02:48,550 --> 00:02:52,240
+I'll comment out the traditional conditional that we have up here.
+
+44
+00:02:52,690 --> 00:02:56,680
+There's a problem with our switch at the moment and you'll see it.
+
+45
+00:02:56,980 --> 00:02:58,780
+Day is set to two.
+
+46
+00:02:59,200 --> 00:03:01,300
+Let's see what we get when I refresh the page.
+
+47
+00:03:01,570 --> 00:03:02,500
+Oh, geez.
+
+48
+00:03:02,500 --> 00:03:04,960
+We got Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday.
+
+49
+00:03:04,960 --> 00:03:07,780
+We got everything except Monday.
+
+50
+00:03:08,820 --> 00:03:10,860
+What if we change day to be?
+
+51
+00:03:11,940 --> 00:03:12,690
+Four.
+
+52
+00:03:13,290 --> 00:03:14,940
+Refresh the page now.
+
+53
+00:03:14,940 --> 00:03:17,190
+We get Thursday, Friday, Saturday, Sunday.
+
+54
+00:03:18,180 --> 00:03:19,470
+So that's kind of odd.
+
+55
+00:03:19,680 --> 00:03:22,710
+It's giving us every value after it matches.
+
+56
+00:03:22,710 --> 00:03:26,910
+So if cases four, it does this, it does this, it does this and this.
+
+57
+00:03:26,910 --> 00:03:29,160
+If case is one, it does all of them.
+
+58
+00:03:29,580 --> 00:03:34,560
+If Case is six or if day is six, we do this one and this one.
+
+59
+00:03:35,040 --> 00:03:38,340
+So the reason this happens, it's kind of annoying.
+
+60
+00:03:38,340 --> 00:03:43,550
+But what's happening here is that as soon as one of them matches in our case four.
+
+61
+00:03:43,560 --> 00:03:44,850
+So day is four.
+
+62
+00:03:44,880 --> 00:03:45,930
+This is true.
+
+63
+00:03:46,170 --> 00:03:51,150
+None of these other cases are tested and it's almost like it turns into this.
+
+64
+00:03:51,540 --> 00:03:58,080
+All of that code runs without checking for a case, so it's looking for the first match and then as
+
+65
+00:03:58,080 --> 00:04:01,140
+soon as it finds it, everything else runs.
+
+66
+00:04:01,890 --> 00:04:03,390
+And that seems like an odd choice.
+
+67
+00:04:03,420 --> 00:04:05,470
+And we'll talk about why that happens in a moment.
+
+68
+00:04:05,490 --> 00:04:12,120
+The way to fix this, if you only want one of these to run, is to add a break after each statement,
+
+69
+00:04:12,120 --> 00:04:13,380
+after each case.
+
+70
+00:04:13,380 --> 00:04:19,870
+So I'll make multiple cursors by holding option and clicking and then ad break after each one.
+
+71
+00:04:19,890 --> 00:04:22,970
+Now, if I refresh, I only get the correct day.
+
+72
+00:04:22,980 --> 00:04:25,890
+So if day is seven, I only get Sunday.
+
+73
+00:04:25,920 --> 00:04:29,130
+If day is one, I should only get Monday.
+
+74
+00:04:29,580 --> 00:04:31,590
+We still don't have our fallback.
+
+75
+00:04:31,620 --> 00:04:37,200
+So if we have something like nine, we had that else earlier.
+
+76
+00:04:37,200 --> 00:04:38,700
+We don't have an else.
+
+77
+00:04:38,700 --> 00:04:46,530
+The way we write the equivalent instead of else we write default and default will run at the end.
+
+78
+00:04:46,830 --> 00:04:52,830
+So we would have invalid day and now we get invalid day.
+
+79
+00:04:53,340 --> 00:04:57,870
+If we have seven, we get Sunday and it all works.
+
+80
+00:04:59,190 --> 00:05:02,520
+So this is odd, but this is still much easier to read.
+
+81
+00:05:02,940 --> 00:05:06,660
+It's a lot of lines, but it's much easier to read, in my opinion, than this.
+
+82
+00:05:06,660 --> 00:05:09,780
+We don't have to do all of these parents and the curly braces.
+
+83
+00:05:09,780 --> 00:05:12,840
+We don't have to check with triple equals over and over and over.
+
+84
+00:05:13,530 --> 00:05:17,040
+You can just look at this and pretty quickly understand what's going on.
+
+85
+00:05:17,040 --> 00:05:18,300
+If day is one, do this.
+
+86
+00:05:18,300 --> 00:05:20,130
+If day is four, do this.
+
+87
+00:05:20,640 --> 00:05:22,440
+As long as we have those breaks in there.
+
+88
+00:05:22,800 --> 00:05:24,530
+Now, why do we have those breaks?
+
+89
+00:05:24,540 --> 00:05:26,340
+I'm going to show you another example.
+
+90
+00:05:26,460 --> 00:05:28,200
+I'll comment this out for a moment.
+
+91
+00:05:28,650 --> 00:05:30,210
+So here's a second example.
+
+92
+00:05:30,330 --> 00:05:31,950
+We are taking an emoji.
+
+93
+00:05:31,950 --> 00:05:37,230
+It's just a text description of an emoji like Happy Face and printing out the corresponding colour or
+
+94
+00:05:37,230 --> 00:05:38,040
+the main colour.
+
+95
+00:05:38,040 --> 00:05:43,890
+So a happy face is yellow, a sad face is yellow, eggplant is purple, heart is red and lips are also
+
+96
+00:05:43,890 --> 00:05:44,430
+red.
+
+97
+00:05:44,880 --> 00:05:47,190
+So right now they're all going to run well.
+
+98
+00:05:47,190 --> 00:05:48,870
+Everything after we find a match.
+
+99
+00:05:48,870 --> 00:05:52,230
+So happy face gives us yellow, yellow, purple, red, red.
+
+100
+00:05:52,800 --> 00:05:56,190
+But if we add in our breaks, as we've seen, that fixes the problem.
+
+101
+00:05:56,400 --> 00:05:59,370
+But we do have some duplicated conflict logs.
+
+102
+00:05:59,700 --> 00:06:03,450
+We have multiple things that are red and we have multiple that are yellow.
+
+103
+00:06:03,930 --> 00:06:10,380
+We could rewrite this because of the way switch statements work, because of how they're structured.
+
+104
+00:06:10,710 --> 00:06:14,850
+We can combine certain cases and the way we do it looks like this.
+
+105
+00:06:14,850 --> 00:06:16,680
+Let's do happy face and sad face.
+
+106
+00:06:17,310 --> 00:06:24,600
+I'm just going to delete this entire thing here and put case sad face right here.
+
+107
+00:06:25,490 --> 00:06:28,020
+Case sad face right above happy face.
+
+108
+00:06:28,020 --> 00:06:30,810
+And I don't have any code coming after it.
+
+109
+00:06:31,500 --> 00:06:35,250
+So what happens here is that sad face could be a match.
+
+110
+00:06:35,250 --> 00:06:36,210
+Let's say it is.
+
+111
+00:06:37,740 --> 00:06:38,790
+This is true.
+
+112
+00:06:38,820 --> 00:06:41,100
+There's no break right here.
+
+113
+00:06:41,970 --> 00:06:48,420
+And because there's no break, it moves on and it runs this code and then it hits a break so we can
+
+114
+00:06:48,420 --> 00:06:49,830
+do the same thing for heart.
+
+115
+00:06:49,830 --> 00:06:56,340
+And lips will do case lips, and then we can remove what we had down below.
+
+116
+00:06:57,620 --> 00:06:58,460
+Right here.
+
+117
+00:06:59,600 --> 00:07:00,790
+So same thing.
+
+118
+00:07:00,800 --> 00:07:03,320
+If emoji is heart.
+
+119
+00:07:03,860 --> 00:07:04,730
+This is not true.
+
+120
+00:07:04,730 --> 00:07:06,740
+Not nope, this is true.
+
+121
+00:07:06,920 --> 00:07:08,810
+And then there's no code to run.
+
+122
+00:07:08,810 --> 00:07:10,240
+But there wasn't a break.
+
+123
+00:07:10,250 --> 00:07:13,430
+So then it just runs this code as we saw.
+
+124
+00:07:13,430 --> 00:07:18,900
+If you don't use a break after one of these cases, it's going to just run all the code that it sees.
+
+125
+00:07:18,920 --> 00:07:20,810
+So at this point, let's try it out.
+
+126
+00:07:20,900 --> 00:07:22,700
+We get yellow for sad face.
+
+127
+00:07:22,700 --> 00:07:26,050
+Let's do lips, we get red.
+
+128
+00:07:26,060 --> 00:07:28,310
+If we do heart, we should also get red.
+
+129
+00:07:28,820 --> 00:07:31,160
+We don't have a default on this one and that's fine.
+
+130
+00:07:31,160 --> 00:07:33,110
+Sometimes you don't, so that's pretty much it.
+
+131
+00:07:33,110 --> 00:07:36,410
+For switches, the syntax is definitely a little different.
+
+132
+00:07:36,410 --> 00:07:43,190
+But if you have one variable, one thing that you are checking against multiple values like we're doing
+
+133
+00:07:43,190 --> 00:07:49,790
+here, it's a nice and easy to understand way of writing that logic compared to doing a ton of else
+
+134
+00:07:49,820 --> 00:07:50,390
+ifs.
+
+135
+00:07:50,780 --> 00:07:52,820
+There's just a couple of gotchas, as you saw.
+
+136
+00:07:52,850 --> 00:07:57,200
+You need to make sure there's really just one you have to use break when it makes sense.
+
+137
+00:07:57,200 --> 00:08:02,570
+Sometimes it doesn't if you're trying to have multiple cases that correspond to the same piece of code
+
+138
+00:08:03,050 --> 00:08:04,730
+anyway, that switch.
+

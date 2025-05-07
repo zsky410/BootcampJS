@@ -1,0 +1,128 @@
+1
+00:00:00,650 --> 00:00:04,939
+Now that we have a better idea of what we're trying to build, let's get started working on this application.
+
+2
+00:00:04,970 --> 00:00:09,290
+Before we write any code, however, I want to go through a couple of different steps here to make sure
+
+3
+00:00:09,290 --> 00:00:12,680
+that we've got a really solid plan on how we're going to tackle this application.
+
+4
+00:00:13,220 --> 00:00:17,210
+The first thing we're going to do is set up a little boilerplate for our project.
+
+5
+00:00:17,300 --> 00:00:21,770
+So attached to this video there is a zip file that has some starter files inside of it.
+
+6
+00:00:22,130 --> 00:00:26,240
+If you haven't downloaded that zip file already, then pause the video and download the zip file.
+
+7
+00:00:26,240 --> 00:00:31,670
+Right now I've already downloaded that zip file and I've extracted its contents onto my computer.
+
+8
+00:00:32,030 --> 00:00:37,250
+So inside of that zip file are three different files the indexed HTML file, a JavaScript file, and
+
+9
+00:00:37,250 --> 00:00:38,360
+a CSS file.
+
+10
+00:00:38,840 --> 00:00:43,580
+Once you get those files on your computer, make sure you also open them up inside of your code editor.
+
+11
+00:00:43,580 --> 00:00:45,110
+So I've already done that right here.
+
+12
+00:00:45,230 --> 00:00:49,040
+Here's the HTML file, the JavaScript file, and the CSS one.
+
+13
+00:00:50,300 --> 00:00:54,600
+And then finally make sure you open up the indexed HTML file inside of your browser.
+
+14
+00:00:54,620 --> 00:00:58,580
+Once you do so, you're going to see a initial screen like this right here.
+
+15
+00:00:59,730 --> 00:01:00,030
+Okay.
+
+16
+00:01:00,030 --> 00:01:04,440
+So once we've got that all set up, I want to very quickly just mention exactly what this term boilerplate
+
+17
+00:01:04,440 --> 00:01:05,489
+is referring to.
+
+18
+00:01:05,970 --> 00:01:11,430
+When we talk about a boilerplate package, we're talking about some essentially starter code for a project.
+
+19
+00:01:11,640 --> 00:01:16,080
+Usually a boilerplate will have a little bit of setup already done inside of it, and usually it's going
+
+20
+00:01:16,080 --> 00:01:22,350
+to have some code or HTML or styling that is generally kind of repetitive between different projects.
+
+21
+00:01:22,350 --> 00:01:25,410
+So it's really just a good starter point to begin from.
+
+22
+00:01:26,630 --> 00:01:31,310
+I know that sometimes using a starter package is kind of annoying and you might prefer to write out
+
+23
+00:01:31,310 --> 00:01:34,250
+everything from scratch so you really understand what is going on.
+
+24
+00:01:34,460 --> 00:01:39,680
+Just so you know, the only real setup that I've done inside of this little boilerplate package is,
+
+25
+00:01:39,680 --> 00:01:41,600
+for the most part, just some styling.
+
+26
+00:01:41,600 --> 00:01:47,420
+So just some CSS to make sure that the end product that we end up with is going to look really nice.
+
+27
+00:01:47,930 --> 00:01:53,660
+This is a course about JavaScript and not CSS, and that's why I did all the CSS for you up front.
+
+28
+00:01:53,930 --> 00:01:58,880
+You can't, of course, review that CSS file at the end of this application and get a better idea of
+
+29
+00:01:58,880 --> 00:02:00,860
+what's going on inside there if you want to.
+
+30
+00:02:01,880 --> 00:02:02,310
+Okay.
+
+31
+00:02:02,330 --> 00:02:06,440
+So now that we've got a little bit of setup done, let's take a pause right here and then identify some
+
+32
+00:02:06,440 --> 00:02:09,410
+challenging aspects of this project in the next video.
+

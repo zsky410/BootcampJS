@@ -1,0 +1,108 @@
+1
+00:00:00,120 --> 00:00:05,430
+One more thing before we really get rolling here, I want to talk about a website called MDM Mozilla
+
+2
+00:00:05,430 --> 00:00:06,510
+Developer Network.
+
+3
+00:00:06,540 --> 00:00:12,930
+MDM is just about the closest thing to an official documentation for JavaScript that we have.
+
+4
+00:00:13,290 --> 00:00:19,020
+If you watch the video where I talked about schema and script and different versions and new features
+
+5
+00:00:19,020 --> 00:00:25,440
+and how there's not really a official JavaScript that we can just go download that it's really an implementation
+
+6
+00:00:25,440 --> 00:00:28,960
+of this script spec across different browsers.
+
+7
+00:00:28,980 --> 00:00:32,520
+That's the same reason we don't have one official documentation.
+
+8
+00:00:32,549 --> 00:00:39,750
+It's not like a language like Python where you can go to Python or Python dot org and see the docs for
+
+9
+00:00:39,750 --> 00:00:41,530
+Python two or Python three.
+
+10
+00:00:41,550 --> 00:00:47,970
+With JavaScript, things are a little murkier, but MSDN is a really good resource.
+
+11
+00:00:47,970 --> 00:00:49,340
+So this is what it looks like.
+
+12
+00:00:49,350 --> 00:00:50,580
+Developer Mozilla.
+
+13
+00:00:50,790 --> 00:00:51,420
+Org.
+
+14
+00:00:51,960 --> 00:00:57,330
+What I do, if I'm ever googling something and I'm trying to understand how a feature works in JavaScript
+
+15
+00:00:57,330 --> 00:01:03,930
+or I can't remember the name of a particular method, I'll Google and add in at the end of my Google
+
+16
+00:01:03,930 --> 00:01:05,940
+search so I get these search results.
+
+17
+00:01:05,940 --> 00:01:10,350
+So just as a quick example here, we go to references and guides.
+
+18
+00:01:10,350 --> 00:01:16,410
+There are some tutorials here, but if you go to technologies and you look at JavaScript, this gives
+
+19
+00:01:16,410 --> 00:01:20,030
+you a whole reference of pretty much everything in JavaScript.
+
+20
+00:01:20,040 --> 00:01:26,490
+If we talk about arrays, which we will shortly in the course, if you go to the array page here, there's
+
+21
+00:01:26,490 --> 00:01:31,200
+all sorts of information and tons of links about all the different things that arrays can do.
+
+22
+00:01:31,230 --> 00:01:35,670
+So you'll see me reference MDM quite a bit in this course and I just thought I should take a moment
+
+23
+00:01:35,670 --> 00:01:43,260
+to address it, introduce the idea of MD and remember, it's not an official documentation for JavaScript.
+
+24
+00:01:43,260 --> 00:01:48,720
+It's put out by Mozilla, the company that makes Firefox, and it's just a great resource for learning
+
+25
+00:01:48,720 --> 00:01:55,470
+JavaScript, but it's also an invaluable reference for existing developers and maybe teachers who are
+
+26
+00:01:55,470 --> 00:01:59,280
+teaching Udemy courses who need to refresh their memories on certain things.
+
+27
+00:01:59,490 --> 00:02:01,140
+So you'll see it a lot in the course.
+

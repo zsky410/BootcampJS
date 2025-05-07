@@ -1,0 +1,400 @@
+1
+00:00:00,240 --> 00:00:06,000
+Next up, we'll see how we can chain requests one after another and avoid the messy callback situation
+
+2
+00:00:06,000 --> 00:00:08,230
+that we had here using XML.
+
+3
+00:00:08,250 --> 00:00:15,120
+HTTP request, really the main selling point of fetch that we don't have to use callbacks and ness things
+
+4
+00:00:15,120 --> 00:00:16,470
+and it just gets messy.
+
+5
+00:00:17,040 --> 00:00:24,090
+Instead, we can use the promises and chain a bunch of events as long as we return promises from then.
+
+6
+00:00:24,720 --> 00:00:31,020
+So if we go with the exact same idea what we had here, if we look at each planet, why don't we console.log
+
+7
+00:00:31,020 --> 00:00:38,190
+the entire planet instead of just the name or in addition to the name, and also make sure we're actually
+
+8
+00:00:38,190 --> 00:00:39,960
+requesting a valid URL now.
+
+9
+00:00:41,280 --> 00:00:42,120
+Here we go.
+
+10
+00:00:42,150 --> 00:00:47,540
+Each planet, as we saw, has films and also residents.
+
+11
+00:00:47,550 --> 00:00:49,620
+We could request residents instead.
+
+12
+00:00:49,770 --> 00:00:54,480
+Let's do films and we'll just look at the first film that the planet occurs in.
+
+13
+00:00:54,660 --> 00:00:57,300
+So we have all to run two films.
+
+14
+00:00:57,300 --> 00:01:01,920
+We'll take the first one just to match what we did earlier and send a request to this URL.
+
+15
+00:01:03,480 --> 00:01:06,600
+So with promises, we always have a lot of flexibility.
+
+16
+00:01:06,600 --> 00:01:10,780
+Do we want to do everything on one level, like one line of events?
+
+17
+00:01:10,800 --> 00:01:16,650
+Right now we have a dot then that is currently nested inside of this callback, but we could avoid that
+
+18
+00:01:16,650 --> 00:01:17,640
+if we wanted to.
+
+19
+00:01:17,970 --> 00:01:25,050
+If we just return the promise, we can actually take this then and move it outside.
+
+20
+00:01:25,050 --> 00:01:28,140
+Put it here as long as we return.
+
+21
+00:01:28,140 --> 00:01:31,110
+Response JSON which is a promise.
+
+22
+00:01:32,300 --> 00:01:34,310
+And doesn't like my semicolon.
+
+23
+00:01:34,580 --> 00:01:35,390
+There we go.
+
+24
+00:01:36,020 --> 00:01:42,770
+So now we return this promise and we add our dot then which will be run when this promise is resolved.
+
+25
+00:01:42,770 --> 00:01:44,950
+And if it's rejected, we have our catch.
+
+26
+00:01:44,960 --> 00:01:51,860
+So we just moved our code out and made it a little bit flatter, I guess less nested and it should still
+
+27
+00:01:51,860 --> 00:01:52,430
+work.
+
+28
+00:01:52,430 --> 00:01:53,480
+Let's check.
+
+29
+00:01:53,510 --> 00:01:54,230
+It does.
+
+30
+00:01:54,680 --> 00:01:55,220
+Okay.
+
+31
+00:01:55,220 --> 00:01:57,710
+So now what we can do is make our request.
+
+32
+00:01:58,160 --> 00:02:02,990
+We can still print the planet names out if we want, but I think I'll stop that for now.
+
+33
+00:02:03,020 --> 00:02:12,560
+We're going to take the data results dot films zero, which should give us a URL that we can now request.
+
+34
+00:02:12,560 --> 00:02:16,640
+Let's console that log and cannot read property zero of undefined.
+
+35
+00:02:16,760 --> 00:02:19,520
+Let's see dot then data.
+
+36
+00:02:21,050 --> 00:02:22,760
+Let's console.log data.
+
+37
+00:02:27,030 --> 00:02:28,230
+I think I did it wrong.
+
+38
+00:02:28,320 --> 00:02:30,160
+Results are.
+
+39
+00:02:30,330 --> 00:02:33,690
+That's why I'm not accessing the correct result.
+
+40
+00:02:34,710 --> 00:02:36,990
+We have to go to the first planet.
+
+41
+00:02:37,200 --> 00:02:40,080
+If we want the first planet, we could also pick a different planet.
+
+42
+00:02:40,380 --> 00:02:42,780
+But we'll go with the first one to match what we did here.
+
+43
+00:02:43,530 --> 00:02:45,660
+So this should work now.
+
+44
+00:02:45,780 --> 00:02:47,370
+Let's make sure I'm getting the correct URL.
+
+45
+00:02:47,400 --> 00:02:48,150
+Print it out.
+
+46
+00:02:48,600 --> 00:02:49,400
+There it is.
+
+47
+00:02:49,410 --> 00:02:52,950
+So we'll send another request here using fetch.
+
+48
+00:02:53,490 --> 00:02:55,970
+So fetch of this URL.
+
+49
+00:02:55,980 --> 00:02:57,440
+I'll save this to a variable.
+
+50
+00:02:57,450 --> 00:02:58,480
+What should we call it?
+
+51
+00:02:58,500 --> 00:03:01,050
+Let's go with concert film URL.
+
+52
+00:03:03,250 --> 00:03:05,560
+And fetch film URL.
+
+53
+00:03:06,560 --> 00:03:07,970
+Now this is a promise.
+
+54
+00:03:07,970 --> 00:03:16,490
+So I could put my dot then right here and do all that stuff nested or because it's a promise I can return
+
+55
+00:03:16,520 --> 00:03:16,970
+it.
+
+56
+00:03:17,270 --> 00:03:20,720
+So return that fetch and then put another dot.
+
+57
+00:03:20,720 --> 00:03:21,380
+Then here.
+
+58
+00:03:23,210 --> 00:03:25,500
+And I'll call this data also.
+
+59
+00:03:25,520 --> 00:03:30,650
+We could call it movie data and then we can go through this exact same process.
+
+60
+00:03:30,680 --> 00:03:38,420
+I could actually just copy this entire thing and response is a better name rather than data, because
+
+61
+00:03:38,420 --> 00:03:40,040
+that's what we actually get.
+
+62
+00:03:40,100 --> 00:03:43,420
+If fetch is resolved, it resolves with the response object.
+
+63
+00:03:43,430 --> 00:03:46,860
+We have to check if it's OC, then we parse it.
+
+64
+00:03:46,880 --> 00:03:51,890
+We call the JSON method, which itself returns a promise so we can add another then.
+
+65
+00:03:53,550 --> 00:03:54,390
+Data.
+
+66
+00:03:55,230 --> 00:03:57,030
+Why don't we console.log data?
+
+67
+00:03:59,320 --> 00:03:59,740
+Okay.
+
+68
+00:03:59,770 --> 00:04:00,910
+Moment of truth here.
+
+69
+00:04:04,300 --> 00:04:05,710
+Hey, take a look.
+
+70
+00:04:05,920 --> 00:04:07,870
+We're getting all of that movie data.
+
+71
+00:04:08,710 --> 00:04:13,960
+So we requested all the planets, which I guess I can add some concept logs in here.
+
+72
+00:04:14,290 --> 00:04:19,420
+We'll do a console.log fetched all planets.
+
+73
+00:04:19,420 --> 00:04:21,220
+Well, it's actually first ten.
+
+74
+00:04:21,220 --> 00:04:33,400
+Then down here we can console.log fetched first film based off of first planet and then we'll just do
+
+75
+00:04:33,400 --> 00:04:34,480
+data title.
+
+76
+00:04:36,110 --> 00:04:36,890
+Refresh.
+
+77
+00:04:38,190 --> 00:04:44,670
+Fetched planets first ten then fetched first film based off a first planet Revenge of the Sith.
+
+78
+00:04:45,060 --> 00:04:50,340
+So here we have multiple requests that are happening one after another, but there's not really any
+
+79
+00:04:50,340 --> 00:04:51,000
+nesting.
+
+80
+00:04:51,030 --> 00:04:52,590
+It's all very flat.
+
+81
+00:04:52,830 --> 00:04:58,380
+Yes, we have some repeated logic where we have this, where we are checking for the response being,
+
+82
+00:04:58,380 --> 00:05:01,750
+okay, we're checking for or we're parsing the JSON.
+
+83
+00:05:01,770 --> 00:05:04,770
+We duplicate that at least twice.
+
+84
+00:05:04,770 --> 00:05:07,380
+And if we made further requests, we would want to do the same thing.
+
+85
+00:05:07,710 --> 00:05:12,000
+But in the next video, I'll show you a way we can refactor it and clean it up even more.
+
+86
+00:05:12,540 --> 00:05:18,810
+So here, really, if we're making a comparison, the main points I would make is one I can never remember
+
+87
+00:05:18,810 --> 00:05:19,760
+the syntax.
+
+88
+00:05:19,770 --> 00:05:21,420
+I can never remember the different pieces.
+
+89
+00:05:21,420 --> 00:05:24,500
+We need the names, but that's just me.
+
+90
+00:05:24,510 --> 00:05:25,920
+So that's not a great reason.
+
+91
+00:05:26,130 --> 00:05:31,830
+The main reason that I think fetch is much better and almost everyone I think would agree with me is
+
+92
+00:05:31,830 --> 00:05:34,440
+that we have promises that are returned from fetch.
+
+93
+00:05:34,440 --> 00:05:35,910
+We can use those promises.
+
+94
+00:05:35,910 --> 00:05:44,010
+We can keep things flat, linear, non nested, even though this code here where we make a request to
+
+95
+00:05:44,010 --> 00:05:50,430
+get the film based off of this first request, this only runs if this happened.
+
+96
+00:05:50,640 --> 00:05:57,270
+So if everything was okay here, we got the JSON that finishes, then we make a second request and we
+
+97
+00:05:57,270 --> 00:06:01,170
+could have ten different requests that are dependent on one another, but we don't have to nest them
+
+98
+00:06:01,170 --> 00:06:03,840
+ten callbacks deep like we would up here.
+
+99
+00:06:04,350 --> 00:06:07,290
+So next we'll see a way of refactoring this and shortening it up.
+
+100
+00:06:07,290 --> 00:06:13,080
+Then we'll move on to my personal favorite, Axios, the crowning jewel of making requests, in my opinion.
+

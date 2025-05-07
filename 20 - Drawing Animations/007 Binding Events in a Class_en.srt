@@ -1,0 +1,488 @@
+1
+00:00:00,990 --> 00:00:01,370
+All right.
+
+2
+00:00:01,380 --> 00:00:04,500
+Now that we have a better idea of what we're going to do here at this class of timer, let's go back
+
+3
+00:00:04,500 --> 00:00:07,110
+over to our code editor and start implementing it again.
+
+4
+00:00:07,110 --> 00:00:10,140
+I want to repeat that if this seems really confusing right now, no problem.
+
+5
+00:00:10,140 --> 00:00:11,940
+I fully expect that it does.
+
+6
+00:00:11,940 --> 00:00:15,630
+As we start to write some code, you're going to very quickly get a better idea of what we're trying
+
+7
+00:00:15,630 --> 00:00:16,140
+to do.
+
+8
+00:00:16,830 --> 00:00:17,070
+Okay.
+
+9
+00:00:17,070 --> 00:00:20,520
+So I'm going to go back over to my index JS file inside of here.
+
+10
+00:00:20,520 --> 00:00:22,590
+We currently have our console log of hi there.
+
+11
+00:00:22,590 --> 00:00:25,560
+So I'll just delete that and I'll replace it with class timer.
+
+12
+00:00:26,380 --> 00:00:29,740
+So inside of here, I'm going to first define our constructor method.
+
+13
+00:00:29,830 --> 00:00:32,470
+Remember, the constructor is a very special function.
+
+14
+00:00:32,470 --> 00:00:36,100
+It's going to be called automatically whenever we create a new instance of timer.
+
+15
+00:00:36,430 --> 00:00:41,710
+So in other words, if I say down here, new timer and pass in an argument of like, hi there.
+
+16
+00:00:42,530 --> 00:00:45,890
+What actually gets called behind the scenes is the constructor function.
+
+17
+00:00:46,250 --> 00:00:50,870
+And the first argument to the constructor function will be that message of Hi there.
+
+18
+00:00:50,870 --> 00:00:54,890
+So if we receive that variable of message and like did a console log of it.
+
+19
+00:00:55,710 --> 00:00:57,960
+I would expect to see a console log of the string.
+
+20
+00:00:57,960 --> 00:00:58,440
+Hi there.
+
+21
+00:00:58,440 --> 00:00:59,880
+Appear inside of our console.
+
+22
+00:01:01,610 --> 00:01:02,660
+So for us.
+
+23
+00:01:03,680 --> 00:01:09,620
+We're going to eventually try to pass in references to DOM elements that our timer class are going to
+
+24
+00:01:09,620 --> 00:01:10,670
+listen into.
+
+25
+00:01:10,700 --> 00:01:15,770
+So our timer class is going to listen for, say, a click on the start button or click on the pause
+
+26
+00:01:15,770 --> 00:01:19,760
+button or someone to change the duration input right there as well.
+
+27
+00:01:20,090 --> 00:01:25,190
+Whenever those events occur, our timer class is going to run some method to find inside of it.
+
+28
+00:01:26,750 --> 00:01:31,700
+So inside of here, I'm going to look at the constructor and I'm going to receive an argument of duration
+
+29
+00:01:31,700 --> 00:01:32,390
+input.
+
+30
+00:01:32,630 --> 00:01:36,980
+So again, this is going to be a reference to a DOM element that is a text input.
+
+31
+00:01:37,190 --> 00:01:41,660
+So whenever we create a timer, we are going to have to make sure that we pass it as the first argument,
+
+32
+00:01:41,660 --> 00:01:43,580
+a reference to a text input.
+
+33
+00:01:44,800 --> 00:01:46,870
+Then our second will be the start button.
+
+34
+00:01:47,080 --> 00:01:49,870
+And then finally the third is the pause button.
+
+35
+00:01:51,420 --> 00:01:55,620
+Then inside of here, we're going to immediately take these three different arguments and assign them
+
+36
+00:01:55,620 --> 00:02:00,660
+to instance variables so we can refer back to these DOM elements from other methods inside of our class
+
+37
+00:02:00,660 --> 00:02:01,830
+if we so choose.
+
+38
+00:02:02,460 --> 00:02:04,590
+So I'll say this dot duration input.
+
+39
+00:02:06,330 --> 00:02:07,500
+Is duration input.
+
+40
+00:02:08,289 --> 00:02:11,260
+This dot start button is start button.
+
+41
+00:02:12,380 --> 00:02:14,090
+And this dot pause button.
+
+42
+00:02:16,040 --> 00:02:17,780
+Is Pause button.
+
+43
+00:02:20,280 --> 00:02:24,570
+Next thing we're going to do is set up some event handlers on these different elements.
+
+44
+00:02:24,570 --> 00:02:29,010
+So as I've said many times now, whenever users say clicks on the play button, we're going to want
+
+45
+00:02:29,010 --> 00:02:32,070
+to call a start method that is defined inside of our class.
+
+46
+00:02:32,430 --> 00:02:36,780
+So let's just start to worry about that pause or that play button for right now, we will worry about
+
+47
+00:02:36,780 --> 00:02:38,600
+pause or the text input.
+
+48
+00:02:38,610 --> 00:02:43,080
+Let's just try to make sure that whenever a user clicks on that play button, we end up calling some
+
+49
+00:02:43,080 --> 00:02:45,090
+method inside of our class called Start.
+
+50
+00:02:46,130 --> 00:02:46,910
+So back over here.
+
+51
+00:02:46,910 --> 00:02:48,950
+I'm going to first define a method called Start.
+
+52
+00:02:49,430 --> 00:02:54,680
+And inside there I'll do a console log of time to start the timer.
+
+53
+00:02:56,690 --> 00:02:58,460
+Then to make sure that we call this method.
+
+54
+00:02:58,460 --> 00:03:03,650
+Any time a user clicks on the start button, we could set up an event listener from directly inside
+
+55
+00:03:03,650 --> 00:03:04,640
+of our constructor.
+
+56
+00:03:05,340 --> 00:03:09,990
+So we'll say this start button add event listener.
+
+57
+00:03:10,500 --> 00:03:12,120
+We're going to watch for a click event.
+
+58
+00:03:12,300 --> 00:03:15,930
+And any time that occurs, we will call this dot start.
+
+59
+00:03:17,380 --> 00:03:18,340
+And that's pretty much it.
+
+60
+00:03:18,340 --> 00:03:21,820
+So that's how we're going to receive some arguments inside of our constructor.
+
+61
+00:03:21,970 --> 00:03:25,570
+We're going to store a reference to each of them in case we need to work with them at some point in
+
+62
+00:03:25,570 --> 00:03:27,750
+the future inside of all of our different methods.
+
+63
+00:03:27,760 --> 00:03:32,920
+And then right away we will bind some event listeners to those elements as well.
+
+64
+00:03:32,920 --> 00:03:36,730
+And that's how we're going to eventually call some method that is defined inside of our class.
+
+65
+00:03:37,970 --> 00:03:38,210
+Okay.
+
+66
+00:03:38,210 --> 00:03:39,460
+So now we've put this together.
+
+67
+00:03:39,470 --> 00:03:43,580
+Let's try to create a duration input inside of our HTML document.
+
+68
+00:03:43,580 --> 00:03:45,710
+We're going to create a start button and a pause button.
+
+69
+00:03:45,860 --> 00:03:51,680
+We will then create an instance of our timer class and pass in references to those three elements.
+
+70
+00:03:52,480 --> 00:03:55,180
+So I'm going to first go back to my index HTML file.
+
+71
+00:03:56,340 --> 00:03:58,800
+Over here, I'm going to create an input element.
+
+72
+00:04:00,110 --> 00:04:01,940
+And I'm going to give it an ID.
+
+73
+00:04:02,820 --> 00:04:05,550
+Of duration just to make it really easy to select.
+
+74
+00:04:06,450 --> 00:04:11,460
+I'll also make a button with an ID of start once again just to make it easy to select.
+
+75
+00:04:12,370 --> 00:04:15,330
+And I'll give that button some text like Start.
+
+76
+00:04:16,200 --> 00:04:17,100
+And then finally.
+
+77
+00:04:17,810 --> 00:04:19,640
+Another button with an idea of pause.
+
+78
+00:04:21,310 --> 00:04:24,190
+I'll give it some text, a pause and close off that tag as well.
+
+79
+00:04:25,020 --> 00:04:29,910
+So now we can attempt to select each of these three different elements and then create an instance out
+
+80
+00:04:29,910 --> 00:04:31,110
+of our timer using them.
+
+81
+00:04:32,260 --> 00:04:35,050
+So back inside of index dogs at the bottom of the file.
+
+82
+00:04:36,300 --> 00:04:39,840
+I'm going to select those three different elements using some query selectors.
+
+83
+00:04:40,170 --> 00:04:43,380
+We can either use a query selector or a JIT element by ID.
+
+84
+00:04:43,890 --> 00:04:49,050
+In this case, I'm just going to use the query selector method because honestly I just personally prefer
+
+85
+00:04:49,050 --> 00:04:49,580
+to use it.
+
+86
+00:04:49,590 --> 00:04:52,950
+You could definitely use a JIT element by ID if you so chose.
+
+87
+00:04:53,980 --> 00:04:55,900
+So I'll say duration input.
+
+88
+00:04:57,140 --> 00:05:01,040
+Will be document query selector lb duration.
+
+89
+00:05:01,040 --> 00:05:04,640
+So remember that is how we select an element by ID when we're using query selector.
+
+90
+00:05:05,460 --> 00:05:06,900
+Ben start button.
+
+91
+00:05:08,080 --> 00:05:10,000
+The document query selector.
+
+92
+00:05:11,120 --> 00:05:12,200
+LB start.
+
+93
+00:05:13,200 --> 00:05:14,640
+And finally pause button.
+
+94
+00:05:16,000 --> 00:05:17,020
+We document queries.
+
+95
+00:05:17,020 --> 00:05:18,010
+Cell lector.
+
+96
+00:05:18,670 --> 00:05:19,870
+Count pause.
+
+97
+00:05:21,030 --> 00:05:26,370
+And then finally we can create our instance of the timer and pass in those three elements that we just
+
+98
+00:05:26,370 --> 00:05:27,030
+selected.
+
+99
+00:05:27,800 --> 00:05:36,620
+So let's say a timer is a new timer and we will pass in duration, input, start button and pause button.
+
+100
+00:05:39,980 --> 00:05:40,610
+All right.
+
+101
+00:05:40,610 --> 00:05:45,800
+So now the instant that we create a new instance of the timer and pass in those three elements, our
+
+102
+00:05:45,800 --> 00:05:49,390
+timer class is going to automatically set up that event listener for us.
+
+103
+00:05:49,400 --> 00:05:52,940
+And whenever a user clicks on the start button, we're going to run that console log.
+
+104
+00:05:53,030 --> 00:05:58,160
+So right now this is some very basic interaction, but I'm sure you can start to imagine how over time
+
+105
+00:05:58,160 --> 00:06:02,480
+we might start to implement different parts of the timer by wiring up events that are occurring to those
+
+106
+00:06:02,480 --> 00:06:05,150
+different elements to different methods inside of our class.
+
+107
+00:06:07,370 --> 00:06:10,040
+All right, so let's go back over to our index.html file.
+
+108
+00:06:10,190 --> 00:06:14,090
+I'm going to refresh the page and I'll see those three elements appear.
+
+109
+00:06:14,480 --> 00:06:15,770
+I'm going to zoom in my screen.
+
+110
+00:06:15,770 --> 00:06:18,160
+Just you can see these different elements very easily.
+
+111
+00:06:18,170 --> 00:06:22,970
+Just remember that as you start to look at my screen, you're going to see these elements very large.
+
+112
+00:06:22,970 --> 00:06:26,540
+And they're only large on my screen because I'm very far zoomed in.
+
+113
+00:06:27,370 --> 00:06:31,810
+So now to test this, we'll click on the start button and as soon as we do so, we should see time to
+
+114
+00:06:31,810 --> 00:06:32,680
+start the timer.
+
+115
+00:06:33,040 --> 00:06:37,000
+So that's going to be our signal to start to run some code inside of our class.
+
+116
+00:06:37,000 --> 00:06:40,270
+That's going to start up the timer and start ticking down seconds.
+
+117
+00:06:40,270 --> 00:06:45,250
+And every time we tick over a second, we're going to update some text representation of the timer at
+
+118
+00:06:45,250 --> 00:06:46,030
+the same time.
+
+119
+00:06:47,200 --> 00:06:47,440
+Okay.
+
+120
+00:06:47,440 --> 00:06:49,290
+So we made some pretty good progress here.
+
+121
+00:06:49,300 --> 00:06:50,170
+Let's take a pause.
+
+122
+00:06:50,180 --> 00:06:53,890
+We're going to come back the next video and continue working on our timer class.
+

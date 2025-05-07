@@ -1,0 +1,116 @@
+1
+00:00:00,180 --> 00:00:00,450
+Hey.
+
+2
+00:00:00,450 --> 00:00:01,350
+Welcome, everyone.
+
+3
+00:00:01,350 --> 00:00:04,230
+In this section, we're doing things a little bit differently.
+
+4
+00:00:04,230 --> 00:00:10,350
+I'm calling it other useful things JavaScript assortment, hence the assorted bread on the right.
+
+5
+00:00:10,680 --> 00:00:16,260
+As we've gone through this course so far, I've been trying hard to integrate new features, new JavaScript
+
+6
+00:00:16,260 --> 00:00:19,680
+features as organically as possible, wherever they make sense.
+
+7
+00:00:19,800 --> 00:00:25,380
+So we introduced string template literals really early on when we were talking about strings, we talked
+
+8
+00:00:25,380 --> 00:00:28,860
+about Lead and Const, which are new ways of creating variables.
+
+9
+00:00:28,860 --> 00:00:29,940
+We talked about them right?
+
+10
+00:00:29,940 --> 00:00:35,460
+When we introduced variables, I introduced four of and four in along with the regular for loops and
+
+11
+00:00:35,460 --> 00:00:36,240
+while loops.
+
+12
+00:00:36,390 --> 00:00:41,880
+Now we can't do that for every single feature in JavaScript as much as I would like to, because some
+
+13
+00:00:41,880 --> 00:00:47,130
+of them are more advanced or they require a whole bunch of previous knowledge in order for them to be
+
+14
+00:00:47,130 --> 00:00:47,850
+useful.
+
+15
+00:00:47,850 --> 00:00:50,220
+So that's what this section is here for.
+
+16
+00:00:50,460 --> 00:00:54,780
+This section is going to cover this group of three new features in JavaScript.
+
+17
+00:00:54,780 --> 00:01:00,630
+It's really more than three rest and spread are kind of separate things, but these are not necessarily
+
+18
+00:01:00,630 --> 00:01:04,560
+related except in the fact that they are new features in JavaScript.
+
+19
+00:01:04,560 --> 00:01:10,140
+So I couldn't find an easy way to integrate them organically into another part of the course.
+
+20
+00:01:10,140 --> 00:01:13,020
+So they get lumped into this assortment section.
+
+21
+00:01:13,020 --> 00:01:17,370
+So we're going to talk about rest and spread de structuring and default function parameters.
+
+22
+00:01:17,610 --> 00:01:22,290
+We also have some other new features we haven't covered yet and those will get their own sections.
+
+23
+00:01:22,290 --> 00:01:24,150
+So we're going to return to objects.
+
+24
+00:01:24,150 --> 00:01:29,820
+Then we'll talk more about classes and then later on we'll also cover asynchronous JavaScript and async
+
+25
+00:01:29,820 --> 00:01:30,570
+functions.
+
+26
+00:01:30,660 --> 00:01:36,330
+So this section, as I mentioned, is really focused on rest and spread default function parameters
+
+27
+00:01:36,330 --> 00:01:37,650
+and D structuring.
+
+28
+00:01:37,650 --> 00:01:38,910
+So that's what we're here for.
+
+29
+00:01:38,940 --> 00:01:42,420
+We're going to start with the second one, default function parameters.
+

@@ -1,0 +1,748 @@
+1
+00:00:00,150 --> 00:00:01,930
+Next up, more practice.
+
+2
+00:00:01,950 --> 00:00:04,490
+Let's write a function called Get Card.
+
+3
+00:00:04,500 --> 00:00:07,320
+Now Get Card is going to accept no arguments.
+
+4
+00:00:07,320 --> 00:00:12,930
+We don't pass anything in and it will return an object representing a playing card, an object that
+
+5
+00:00:12,930 --> 00:00:19,170
+has a value like K for king or two for two and then a suit.
+
+6
+00:00:19,530 --> 00:00:22,230
+Clubs, diamonds, hearts or spades.
+
+7
+00:00:22,920 --> 00:00:26,940
+So all you need to do is pick one of these random values.
+
+8
+00:00:26,940 --> 00:00:29,190
+One, two, three, four, five, six, seven, eight, nine, ten.
+
+9
+00:00:29,190 --> 00:00:31,230
+Jack, Queen, King, Ace.
+
+10
+00:00:31,230 --> 00:00:34,920
+And you can just use letters there, so return a string here.
+
+11
+00:00:35,070 --> 00:00:41,700
+So we'll be working with strings like the string one, the string a four value and then pick a random
+
+12
+00:00:41,700 --> 00:00:47,880
+suit club, spades, hearts, diamonds, pick one of those and you return an object that has the key
+
+13
+00:00:47,880 --> 00:00:49,950
+of value and the key of suit.
+
+14
+00:00:50,400 --> 00:00:56,130
+So you do not need to worry about making this a consistent deck where there's 52 cards.
+
+15
+00:00:56,130 --> 00:01:01,140
+And once you've already picked the king of clubs, you can't pick the king of clubs again.
+
+16
+00:01:01,140 --> 00:01:02,430
+It's entirely random.
+
+17
+00:01:02,430 --> 00:01:04,050
+There is no continuity.
+
+18
+00:01:04,200 --> 00:01:07,500
+There's no memory of what you called or what you picked last time.
+
+19
+00:01:07,500 --> 00:01:09,480
+It's just a random card every time.
+
+20
+00:01:09,480 --> 00:01:14,340
+So no arguments, but return an object, which we haven't done very much of, if at all.
+
+21
+00:01:14,340 --> 00:01:17,190
+At this point, give it a shot or just watch.
+
+22
+00:01:17,190 --> 00:01:18,300
+Here's my attempt.
+
+23
+00:01:18,300 --> 00:01:20,730
+So I'm going to define a function called Get card.
+
+24
+00:01:23,760 --> 00:01:28,170
+We don't need to add any parameters and we know we need to pick a value.
+
+25
+00:01:28,170 --> 00:01:30,690
+We need to pick a suit and then return an object.
+
+26
+00:01:30,690 --> 00:01:33,480
+So let's start with picking a random value.
+
+27
+00:01:33,600 --> 00:01:37,770
+There are many ways of getting a random value from a list of values.
+
+28
+00:01:37,770 --> 00:01:42,270
+If this was all numbers instead of Jack, Queen, King and Ace, it would be easy.
+
+29
+00:01:42,270 --> 00:01:45,690
+We would just pick a random number from 1 to 10 using math at random.
+
+30
+00:01:45,840 --> 00:01:49,410
+But because we have these, we need to make everything a string.
+
+31
+00:01:49,410 --> 00:01:55,830
+So the easiest option would probably be to turn this into an array where each element is one of these
+
+32
+00:01:55,830 --> 00:01:56,520
+strings.
+
+33
+00:01:56,640 --> 00:01:57,840
+I'll make them strings.
+
+34
+00:01:58,260 --> 00:01:59,790
+So I made all of them strings.
+
+35
+00:01:59,790 --> 00:02:03,090
+I just put quotes around them and then I can make it an array.
+
+36
+00:02:03,480 --> 00:02:04,410
+I'll keep the commas.
+
+37
+00:02:04,410 --> 00:02:09,300
+Now we have an array here and let's make this just a variable called values.
+
+38
+00:02:11,430 --> 00:02:18,120
+So we have our array of values and then we want to pick one of them randomly and to pick something randomly
+
+39
+00:02:18,210 --> 00:02:19,140
+from an array.
+
+40
+00:02:19,140 --> 00:02:23,040
+We need to generate a random number that corresponds to an index.
+
+41
+00:02:23,040 --> 00:02:27,870
+So starting at zero index of zero up to whatever this index is.
+
+42
+00:02:27,870 --> 00:02:32,040
+So we've seen math at random that gives us a decimal.
+
+43
+00:02:32,670 --> 00:02:35,700
+All we need to do is multiply it by the length of the array.
+
+44
+00:02:35,730 --> 00:02:40,140
+This is a decimal from 0 to 1, but not including one.
+
+45
+00:02:40,740 --> 00:02:50,400
+So then I'm going to multiply that by values length and that will give me if my array is ten items long,
+
+46
+00:02:50,430 --> 00:02:56,310
+it will give me a decimal number from 0 to 9.9999999, not including ten.
+
+47
+00:02:56,520 --> 00:03:01,710
+And that's good because the last index we want is nine, but we don't have fractional indices, we don't
+
+48
+00:03:01,710 --> 00:03:02,460
+have decimals.
+
+49
+00:03:02,460 --> 00:03:07,830
+So we need to get rid of that, which we've seen a couple of times now with math flaw.
+
+50
+00:03:09,540 --> 00:03:11,850
+So this should give us a random index.
+
+51
+00:03:11,970 --> 00:03:20,910
+Let's make sure let's just make this variable called ID X and then let's return ID X and just make sure
+
+52
+00:03:20,910 --> 00:03:21,720
+it's working.
+
+53
+00:03:23,130 --> 00:03:24,660
+Let's call get card.
+
+54
+00:03:25,650 --> 00:03:27,180
+We get 412.
+
+55
+00:03:27,180 --> 00:03:29,010
+No, 11, ten.
+
+56
+00:03:29,010 --> 00:03:30,120
+How many items are in here?
+
+57
+00:03:30,120 --> 00:03:35,190
+One, two, three, four, five, six, seven, eight, nine, ten, 11, 12, 13, 14.
+
+58
+00:03:35,850 --> 00:03:43,110
+So the last index should be 13, which is what we got and we should not be able to get index of 14,
+
+59
+00:03:43,110 --> 00:03:44,400
+which is looking good.
+
+60
+00:03:44,490 --> 00:03:50,340
+This is not a conclusive test, but we know that the way we've written this, there's no way to get
+
+61
+00:03:50,340 --> 00:03:56,970
+14 if our array has 14 items, this random number goes from 0 to 1, but not including one.
+
+62
+00:03:56,970 --> 00:04:03,510
+We multiply it by 14, so we're going from 0 to 13.9999999 and then flooring it.
+
+63
+00:04:03,510 --> 00:04:05,370
+So we go from 0 to 13.
+
+64
+00:04:06,840 --> 00:04:07,320
+All right.
+
+65
+00:04:07,320 --> 00:04:11,370
+So we now need to use this index to pick one of these values.
+
+66
+00:04:11,550 --> 00:04:16,890
+So we'll just instead return values of index.
+
+67
+00:04:17,220 --> 00:04:18,450
+Now, this works.
+
+68
+00:04:18,839 --> 00:04:21,420
+We're not really completing the objective here.
+
+69
+00:04:21,420 --> 00:04:22,440
+We're not returning an object.
+
+70
+00:04:22,440 --> 00:04:25,500
+But this should at least give us one of those values.
+
+71
+00:04:25,500 --> 00:04:31,820
+So we get 518615 King OC.
+
+72
+00:04:32,520 --> 00:04:36,510
+So we'll keep this in a variable, we'll call it value.
+
+73
+00:04:37,470 --> 00:04:42,870
+Now we need to do the same thing for the suit, so I'll add my suits here.
+
+74
+00:04:42,870 --> 00:04:43,890
+I'll just type this.
+
+75
+00:04:43,890 --> 00:04:56,790
+We have clubs, spades, hearts and diamonds, and then we want to pick one of those and we can do the
+
+76
+00:04:56,790 --> 00:04:58,110
+exact same thing.
+
+77
+00:04:59,070 --> 00:04:59,970
+We can't name it.
+
+78
+00:05:00,060 --> 00:05:04,620
+Index, I guess we could call it AI or suit index.
+
+79
+00:05:05,130 --> 00:05:10,800
+Maybe that's what we'll do and we'll call this one VAL index and make sure we replace this here with
+
+80
+00:05:10,800 --> 00:05:12,750
+VAL Index.
+
+81
+00:05:14,460 --> 00:05:16,820
+So now we have two different random numbers.
+
+82
+00:05:16,830 --> 00:05:23,880
+This one will go from 0 to 13 and then this one will go from 0 to 3 because we have four items.
+
+83
+00:05:23,880 --> 00:05:27,060
+Index of three is the greatest index in this array.
+
+84
+00:05:27,750 --> 00:05:33,390
+Then let's return, let's console.log the suit that we get.
+
+85
+00:05:33,390 --> 00:05:43,410
+So we'll make another variable called suits and set that to suits of suit index and then console.log
+
+86
+00:05:43,410 --> 00:05:45,480
+value and suit.
+
+87
+00:05:45,660 --> 00:05:46,800
+Let's see what we get.
+
+88
+00:05:48,360 --> 00:05:50,130
+One and undefined.
+
+89
+00:05:50,130 --> 00:05:54,150
+Oh well, this is completely my fault and very stupid.
+
+90
+00:05:54,150 --> 00:05:56,990
+I never changed this suit index variable.
+
+91
+00:05:57,000 --> 00:06:03,390
+The code we're running is the exact same code we were using to get the values index a random value.
+
+92
+00:06:03,660 --> 00:06:09,000
+And I'm still using that values array even though I'm trying to access the suits array with it.
+
+93
+00:06:09,000 --> 00:06:13,290
+So I need to adjust this to multiply by suit style length.
+
+94
+00:06:13,470 --> 00:06:15,150
+So let's try running it again.
+
+95
+00:06:16,260 --> 00:06:19,530
+Now I get one club's king of hearts two of hearts, nine of hearts.
+
+96
+00:06:19,530 --> 00:06:20,400
+King of hearts.
+
+97
+00:06:20,610 --> 00:06:27,300
+Okay, so that's working now we need to return an object, and this part is nice and easy.
+
+98
+00:06:27,720 --> 00:06:34,980
+We just return an object, and we're going to set suit to be suit.
+
+99
+00:06:35,750 --> 00:06:38,360
+And we'll set value to be value.
+
+100
+00:06:40,520 --> 00:06:44,210
+Value is the key and the value is this value.
+
+101
+00:06:44,240 --> 00:06:45,680
+Here, it's a confusing sentence.
+
+102
+00:06:46,220 --> 00:06:52,100
+Suit is the key and we're setting it to whatever suit we got randomly selected from the suit's array.
+
+103
+00:06:52,190 --> 00:06:58,010
+Some of you might be aware of a shorter syntax to return an object where the key and the value have
+
+104
+00:06:58,010 --> 00:06:58,840
+the same name.
+
+105
+00:06:58,850 --> 00:07:01,700
+We will cover that later, so we'll just ignore it for now.
+
+106
+00:07:03,040 --> 00:07:04,510
+Okay, so this works.
+
+107
+00:07:04,520 --> 00:07:06,050
+There's nothing wrong with this.
+
+108
+00:07:06,050 --> 00:07:08,240
+But we are repeating some logic.
+
+109
+00:07:08,750 --> 00:07:11,180
+We're picking a random number from this array.
+
+110
+00:07:11,210 --> 00:07:13,340
+We're picking a random number from this array.
+
+111
+00:07:13,850 --> 00:07:20,660
+So I'm going to take another stab at this, but I'm actually going to write a second function.
+
+112
+00:07:20,660 --> 00:07:26,270
+Any time we're repeating functionality or doing something multiple times, it's a good indication that
+
+113
+00:07:26,270 --> 00:07:32,990
+you could make a new function and use that function here so we could make a function called get random
+
+114
+00:07:32,990 --> 00:07:36,590
+element or pick which picks a random element from an array.
+
+115
+00:07:36,590 --> 00:07:43,040
+So we pass in an array and then we get a return value where some random element has been selected.
+
+116
+00:07:43,400 --> 00:07:51,020
+So we could do that, let's call it pick, function, pick, except an array, and it should return
+
+117
+00:07:51,020 --> 00:07:52,910
+a random element from an array.
+
+118
+00:07:53,990 --> 00:07:59,750
+So if it accepts this array we'll give it a parameter of a ah, that's the name we need to pick a random
+
+119
+00:07:59,750 --> 00:08:06,620
+number that is within arrays bounds, which we've already seen how to do any of these here.
+
+120
+00:08:07,310 --> 00:08:09,170
+So let's just copy this.
+
+121
+00:08:09,800 --> 00:08:17,480
+Move it up math, dot floor math at random times and then a ah length, the length of the array.
+
+122
+00:08:17,510 --> 00:08:19,850
+It could be 100 items, it could be 20 items.
+
+123
+00:08:19,850 --> 00:08:21,440
+That's going to be our index.
+
+124
+00:08:21,770 --> 00:08:30,320
+So we'll make this variable called index and then we'll simply return array at that index.
+
+125
+00:08:32,740 --> 00:08:43,330
+So if we try calling, pick on an array of a comma B, we'll get B or A each time randomly.
+
+126
+00:08:43,330 --> 00:08:47,470
+And if we try it on a different array like one, let's not do strings.
+
+127
+00:08:47,470 --> 00:08:49,360
+One, two, three, four, five, six, seven.
+
+128
+00:08:50,270 --> 00:08:51,230
+Pose mirror.
+
+129
+00:08:51,260 --> 00:08:54,320
+We get a random number each time from that array.
+
+130
+00:08:54,710 --> 00:09:01,850
+So we've now made this reusable function called pick and let's use it down here so we no longer have
+
+131
+00:09:01,850 --> 00:09:03,700
+to duplicate all of this code.
+
+132
+00:09:03,710 --> 00:09:06,680
+In fact, we could get rid of pretty much all of this.
+
+133
+00:09:07,070 --> 00:09:08,570
+Let's start with value.
+
+134
+00:09:09,020 --> 00:09:10,400
+We'll get rid of this here.
+
+135
+00:09:10,730 --> 00:09:18,740
+Now, we'll set value to be pick our array called values.
+
+136
+00:09:18,740 --> 00:09:20,300
+So pick one of these
+
+137
+00:09:23,780 --> 00:09:26,960
+no semicolon in there and then we'll do the same thing for suits.
+
+138
+00:09:26,960 --> 00:09:31,390
+We have our suits variable and then we don't need to generate an index.
+
+139
+00:09:31,400 --> 00:09:36,440
+We'll just say suit is equal to pick from suits.
+
+140
+00:09:37,910 --> 00:09:38,610
+Great.
+
+141
+00:09:38,630 --> 00:09:39,810
+Let's test it out.
+
+142
+00:09:39,830 --> 00:09:40,880
+Get card.
+
+143
+00:09:41,870 --> 00:09:42,520
+It's working.
+
+144
+00:09:42,530 --> 00:09:43,370
+Two of diamonds.
+
+145
+00:09:43,370 --> 00:09:44,480
+Six of diamonds.
+
+146
+00:09:44,480 --> 00:09:46,910
+King of clubs, two of diamonds.
+
+147
+00:09:46,910 --> 00:09:48,050
+And on and on and on.
+
+148
+00:09:48,320 --> 00:09:50,630
+We could even refactor this a bit more.
+
+149
+00:09:50,960 --> 00:09:54,290
+We don't really have to make these separate variables if we don't want to.
+
+150
+00:09:54,590 --> 00:10:02,120
+We could just do right in line, pick value and pick suits just like that.
+
+151
+00:10:02,120 --> 00:10:04,310
+And now we can get rid of these two lines as well.
+
+152
+00:10:04,850 --> 00:10:11,630
+We simply have our variable declarations and then we're returning an object where value the key is set
+
+153
+00:10:11,630 --> 00:10:18,300
+to the return result of picking a value from this from our pick function and then suit.
+
+154
+00:10:18,320 --> 00:10:24,080
+The property is set to the same exact thing, but with the suit's array this needs to be suits, plural.
+
+155
+00:10:24,530 --> 00:10:26,160
+We're passing that in to pick.
+
+156
+00:10:26,180 --> 00:10:31,670
+This gives us some random element from suits that return value is then used to set suit.
+
+157
+00:10:32,600 --> 00:10:34,130
+Let's test it out again.
+
+158
+00:10:34,400 --> 00:10:34,910
+Oop.
+
+159
+00:10:34,940 --> 00:10:38,120
+Value is not defined values.
+
+160
+00:10:38,810 --> 00:10:39,800
+Try that again.
+
+161
+00:10:42,040 --> 00:10:45,340
+It needs to match the name of the array and the name of this array.
+
+162
+00:10:45,730 --> 00:10:46,910
+And now it's working.
+
+163
+00:10:46,930 --> 00:10:48,430
+It's relatively short.
+
+164
+00:10:48,460 --> 00:10:54,610
+The longest part is this hideous array that my editor is deciding to put on separate lines.
+
+165
+00:10:54,610 --> 00:10:59,890
+I have a preference that says for a super long array, make sure you spread it out onto different lines.
+
+166
+00:10:59,890 --> 00:11:02,650
+But on such short elements, it's kind of ugly.
+
+167
+00:11:03,100 --> 00:11:04,480
+All right, so I'll stop here.
+
+168
+00:11:04,480 --> 00:11:06,880
+There are many other ways you could have approached this.
+
+169
+00:11:06,880 --> 00:11:12,730
+Instead of turning all the values into an array, we could have put them all in a single string and
+
+170
+00:11:12,730 --> 00:11:16,360
+turn that string into an array using code dynamically.
+
+171
+00:11:16,660 --> 00:11:21,820
+We'll see a similar example, something relatively similar in the next exercise we're about to do.
+
+172
+00:11:21,820 --> 00:11:25,510
+But before I go, I just want to call your attention to this part here.
+
+173
+00:11:25,510 --> 00:11:27,820
+We had some duplicated functionality.
+
+174
+00:11:27,820 --> 00:11:33,550
+We were doing the same thing twice, a different array we were picking from first we were picking from
+
+175
+00:11:33,550 --> 00:11:36,850
+values, then we were picking from suits but the same process.
+
+176
+00:11:36,850 --> 00:11:39,190
+So we moved it into a new function.
+
+177
+00:11:39,580 --> 00:11:43,210
+It doesn't really change anything about how your code behaves.
+
+178
+00:11:43,210 --> 00:11:44,560
+It's the same logic.
+
+179
+00:11:44,560 --> 00:11:46,420
+We've just made it generic.
+
+180
+00:11:46,420 --> 00:11:53,260
+We've generalized it into a function called pick, which allows us to shorten our code and also it becomes
+
+181
+00:11:53,260 --> 00:11:54,670
+more readable when you look at it.
+
+182
+00:11:54,670 --> 00:11:57,910
+It's not just we're actually not shortening things in the long term.
+
+183
+00:11:57,910 --> 00:11:58,960
+We added more lines.
+
+184
+00:11:58,960 --> 00:12:04,390
+I think if you were to count the total lines, but it's much easier to look at and understand what's
+
+185
+00:12:04,390 --> 00:12:05,080
+going on.
+
+186
+00:12:05,080 --> 00:12:11,770
+Pick a value and pick a suit rather than just a bunch of variables and a bunch of messed out randoms.
+
+187
+00:12:11,770 --> 00:12:13,150
+We just have it up top.
+

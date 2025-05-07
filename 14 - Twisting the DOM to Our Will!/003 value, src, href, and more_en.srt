@@ -1,0 +1,596 @@
+1
+00:00:00,150 --> 00:00:04,860
+Next up, we'll talk about a couple of different properties that I'm just grouping together, their
+
+2
+00:00:04,860 --> 00:00:08,950
+properties that we can directly access on individual elements.
+
+3
+00:00:08,970 --> 00:00:11,120
+So let's start with a simple example.
+
+4
+00:00:11,130 --> 00:00:17,100
+When we have a form, if we want to retrieve the text in a form input or the values from a form, we
+
+5
+00:00:17,100 --> 00:00:19,950
+have an attribute on those elements called value.
+
+6
+00:00:20,310 --> 00:00:23,820
+So if I go to my form here, I have a couple of different inputs.
+
+7
+00:00:23,820 --> 00:00:33,360
+I'm also going to add an input with type equal to checkbox and let's do another input with type set
+
+8
+00:00:33,360 --> 00:00:42,060
+to range and we'll give it a min of 100 and a max of 500.
+
+9
+00:00:42,820 --> 00:00:44,890
+So we have a couple of different inputs.
+
+10
+00:00:45,520 --> 00:00:46,480
+We'll save.
+
+11
+00:00:47,220 --> 00:00:50,310
+Now let's select one of them or all of them.
+
+12
+00:00:50,640 --> 00:00:51,560
+Why don't we do all of them?
+
+13
+00:00:51,570 --> 00:00:52,050
+Sure.
+
+14
+00:00:52,320 --> 00:00:59,100
+So we'll do a refresh of the page first and then document query selector all this time.
+
+15
+00:00:59,730 --> 00:01:06,120
+Or we could have done get elements by tag name, but I'm going to do query selector all input and save
+
+16
+00:01:06,120 --> 00:01:08,250
+that to a variable const inputs.
+
+17
+00:01:09,150 --> 00:01:11,520
+And let's take a look at one of these inputs.
+
+18
+00:01:11,520 --> 00:01:16,290
+So I'll just print the whole thing out or return the value and open one up.
+
+19
+00:01:17,010 --> 00:01:24,000
+If we scroll down, there is a property down under V called Value and it's currently empty.
+
+20
+00:01:24,000 --> 00:01:31,170
+But if I fill in a bear name like Taco of the Bear and we do the same thing again, I'll have to rerun
+
+21
+00:01:31,170 --> 00:01:31,470
+this.
+
+22
+00:01:31,470 --> 00:01:33,240
+I'll look at inputs one more time.
+
+23
+00:01:33,300 --> 00:01:36,480
+Or actually, let's just do inputs zero dot value.
+
+24
+00:01:38,090 --> 00:01:40,190
+You'll see it's now Taco.
+
+25
+00:01:40,520 --> 00:01:44,030
+So value is how I can get the value out of this form.
+
+26
+00:01:44,300 --> 00:01:46,160
+Same thing with a password input.
+
+27
+00:01:46,520 --> 00:01:54,160
+If I do inputs of one value, yes, I do have access to that text in the password input.
+
+28
+00:01:54,170 --> 00:01:58,610
+Those dots are not there for real security purposes.
+
+29
+00:01:58,610 --> 00:02:04,010
+They're there to hide the password from other people, but it's not there to hide the password from
+
+30
+00:02:04,010 --> 00:02:04,670
+your code.
+
+31
+00:02:04,670 --> 00:02:08,180
+It needs to be sent to a in a request, usually to a server somewhere.
+
+32
+00:02:08,180 --> 00:02:09,800
+So that value has to remain.
+
+33
+00:02:09,800 --> 00:02:12,410
+So we have input one value.
+
+34
+00:02:12,410 --> 00:02:14,430
+We got the password value out of there.
+
+35
+00:02:14,450 --> 00:02:16,100
+Now what about a checkbox?
+
+36
+00:02:16,100 --> 00:02:22,010
+If I do inputs of two value, we get on and if I check it.
+
+37
+00:02:24,020 --> 00:02:25,040
+It's still on.
+
+38
+00:02:25,280 --> 00:02:26,570
+What's going on here?
+
+39
+00:02:26,600 --> 00:02:28,640
+So let's look at inputs of two.
+
+40
+00:02:31,680 --> 00:02:32,520
+How annoying.
+
+41
+00:02:32,670 --> 00:02:36,820
+If I specifically call one out, it does the HTML representation.
+
+42
+00:02:36,840 --> 00:02:43,680
+If I look at all inputs and I go to the index of two and we scroll down, you'll see we have a different
+
+43
+00:02:43,680 --> 00:02:45,150
+property called Checked.
+
+44
+00:02:45,150 --> 00:02:49,590
+So this is a different property we can use for checkboxes specifically.
+
+45
+00:02:49,830 --> 00:02:51,540
+So we get checked as false.
+
+46
+00:02:51,540 --> 00:02:57,540
+So I'll close that back up and we can do inputs to dot checked.
+
+47
+00:02:57,750 --> 00:03:03,090
+So this video is, like I said, kind of just a group of attributes that we can access.
+
+48
+00:03:03,090 --> 00:03:09,450
+So these are HTML attributes because I can change a value from HTML if I want there to be a value in
+
+49
+00:03:09,450 --> 00:03:14,850
+the form when it loads, I could say value equals what would be a good name for a bear?
+
+50
+00:03:15,420 --> 00:03:17,670
+Taco the bear, griz the bear.
+
+51
+00:03:17,700 --> 00:03:19,710
+How about just Buck Bubba?
+
+52
+00:03:20,760 --> 00:03:23,910
+I'll refresh the page and that value is in there.
+
+53
+00:03:23,910 --> 00:03:34,020
+And if I re select the inputs and I look at inputs of zero, not 90. value, it's set to Bubba and I
+
+54
+00:03:34,020 --> 00:03:41,100
+can change it to and this is a common thing we actually do not usually to change the input to be something
+
+55
+00:03:41,100 --> 00:03:50,040
+else like plus equals Bubba the bear probably wouldn't do something like this with code and change someone's
+
+56
+00:03:50,040 --> 00:03:51,870
+input, although it's possible.
+
+57
+00:03:51,900 --> 00:03:57,390
+Maybe you're doing some sort of fancy input where as a user types you're adding spacing in or you're
+
+58
+00:03:57,390 --> 00:03:58,170
+validating it.
+
+59
+00:03:58,290 --> 00:03:59,040
+I don't know.
+
+60
+00:03:59,220 --> 00:04:05,250
+But usually the way that we change the input value is to reset it to an empty string.
+
+61
+00:04:05,760 --> 00:04:11,760
+So if the user submitted the form and we captured the information with JavaScript by extracting the
+
+62
+00:04:11,760 --> 00:04:16,440
+values and then we do something with it, which we haven't talked about yet, and events and all this
+
+63
+00:04:16,440 --> 00:04:17,279
+stuff to come.
+
+64
+00:04:17,279 --> 00:04:22,200
+Then afterwards we might reset it to an empty string so it goes back to an empty input.
+
+65
+00:04:22,200 --> 00:04:23,940
+Think of a search bar.
+
+66
+00:04:23,940 --> 00:04:29,640
+You go into Reddit or something or I don't know if some website that has a single page search, if you
+
+67
+00:04:29,640 --> 00:04:34,380
+type something in, you hit enter, you see some new stuff load and your search bar usually empties
+
+68
+00:04:34,380 --> 00:04:34,740
+out.
+
+69
+00:04:34,770 --> 00:04:36,570
+Not all searches do that anyway.
+
+70
+00:04:36,570 --> 00:04:41,160
+Sometimes we can reset the input if we want to by setting its value to an empty string.
+
+71
+00:04:41,760 --> 00:04:50,550
+If we go back to this checkbox again, we saw that if we check it and we do inputs of two dot value.
+
+72
+00:04:52,160 --> 00:04:52,970
+It doesn't change.
+
+73
+00:04:52,970 --> 00:04:56,450
+But if we do inputs of two checked, we now get true.
+
+74
+00:04:56,480 --> 00:04:58,610
+If I uncheck it, we get false.
+
+75
+00:04:59,000 --> 00:05:04,940
+So that's how we can use JavaScript to read out the value from text inputs, password inputs, or read
+
+76
+00:05:04,940 --> 00:05:07,580
+out the checked state of a checkbox.
+
+77
+00:05:07,580 --> 00:05:08,840
+What about this slider?
+
+78
+00:05:08,840 --> 00:05:12,080
+This range goes from 100 to 500, I think.
+
+79
+00:05:12,470 --> 00:05:17,540
+And if we do inputs of three value, it's giving us 130.
+
+80
+00:05:17,600 --> 00:05:27,080
+If I go up, it's 437 right now, it's set so that the step of the range is one, I believe the default.
+
+81
+00:05:27,080 --> 00:05:30,440
+But if we give it a step of 50.
+
+82
+00:05:32,530 --> 00:05:38,170
+And refresh, run our code again, just select all the inputs and then we take a look at inputs.
+
+83
+00:05:38,170 --> 00:05:39,370
+Three point value.
+
+84
+00:05:39,550 --> 00:05:43,090
+It's 300 and I'm now stepping by 50 at a time.
+
+85
+00:05:43,810 --> 00:05:45,130
+So we do it one more time.
+
+86
+00:05:45,130 --> 00:05:46,420
+It's now 450.
+
+87
+00:05:47,110 --> 00:05:50,380
+Okay, so that is value and checked.
+
+88
+00:05:50,380 --> 00:05:56,740
+There's one other attribute that we have direct access to on each element, on each input element at
+
+89
+00:05:56,740 --> 00:05:58,930
+least, which is placeholder.
+
+90
+00:05:58,930 --> 00:06:04,450
+I can change placeholder text really not that common, but right now the placeholder of this password
+
+91
+00:06:04,450 --> 00:06:05,980
+input says password.
+
+92
+00:06:06,070 --> 00:06:14,380
+If I select that input which is in my list of inputs from query selector all it has index of nope index
+
+93
+00:06:14,380 --> 00:06:15,010
+of one.
+
+94
+00:06:15,550 --> 00:06:21,700
+If I do placeholder, I can retrieve the current placeholder text or I could change it to something
+
+95
+00:06:21,700 --> 00:06:22,270
+else.
+
+96
+00:06:22,540 --> 00:06:29,350
+Placeholder equals please enter password and there's my placeholder text.
+
+97
+00:06:29,350 --> 00:06:30,430
+It's been updated.
+
+98
+00:06:30,430 --> 00:06:32,710
+All right, so that's how we can work with inputs.
+
+99
+00:06:32,710 --> 00:06:37,720
+We also have a couple of other attributes that we can directly access off of elements.
+
+100
+00:06:37,720 --> 00:06:42,070
+Let's add an anchor tag in somewhere in my HTML.
+
+101
+00:06:42,100 --> 00:06:50,170
+It doesn't really matter where I'll put an anchor tag and give it an h ref of cars.com slash cute and
+
+102
+00:06:50,170 --> 00:06:51,490
+then some text in here.
+
+103
+00:06:51,610 --> 00:06:55,390
+Cats are adorable sometimes.
+
+104
+00:06:55,960 --> 00:06:58,870
+Refresh my page, let's select that anchor tag.
+
+105
+00:06:59,140 --> 00:07:06,610
+So I'll do a query selector of a need to add my document query selector.
+
+106
+00:07:06,610 --> 00:07:13,120
+Save that to a variable, call it a and let's look at a dot h ref.
+
+107
+00:07:13,960 --> 00:07:14,830
+There we go.
+
+108
+00:07:14,860 --> 00:07:15,640
+Notice.
+
+109
+00:07:15,910 --> 00:07:16,930
+Well, this is my fault.
+
+110
+00:07:16,930 --> 00:07:18,670
+I did a relative link.
+
+111
+00:07:18,670 --> 00:07:22,570
+I didn't actually add in w w w dot and a protocol.
+
+112
+00:07:23,020 --> 00:07:27,640
+So we end up with the file protocol because that's where I am viewing this file from.
+
+113
+00:07:27,640 --> 00:07:35,200
+But if instead I add in h to http colon slash slash WW cats dot com slash cute.
+
+114
+00:07:35,320 --> 00:07:36,490
+Run it again.
+
+115
+00:07:37,480 --> 00:07:38,410
+Select it.
+
+116
+00:07:38,740 --> 00:07:39,280
+Here we go.
+
+117
+00:07:39,280 --> 00:07:42,430
+Now it's a link to a website that may or may not exist.
+
+118
+00:07:42,430 --> 00:07:48,970
+I'm probably not going to click it and I can also change the link if I wanted to, to now be a http
+
+119
+00:07:48,970 --> 00:07:52,930
+colon, slash, slash, w-w-what google.com?
+
+120
+00:07:54,840 --> 00:07:58,720
+And if we look at that element, I'll just inspect it.
+
+121
+00:07:58,740 --> 00:07:59,520
+Where are you?
+
+122
+00:07:59,550 --> 00:08:00,800
+All the way down here.
+
+123
+00:08:00,810 --> 00:08:03,510
+We change that h ref and now goes to google.
+
+124
+00:08:03,510 --> 00:08:07,890
+And if I clicked it, it would take me to google.com, assuming I didn't misspell anything.
+
+125
+00:08:07,890 --> 00:08:10,950
+So that's another html attribute we have access to.
+
+126
+00:08:11,520 --> 00:08:16,260
+If you're not familiar with the term attribute, by the way, it's these things here where we have some
+
+127
+00:08:16,260 --> 00:08:18,340
+word equals something in quotes.
+
+128
+00:08:18,360 --> 00:08:20,460
+Usually it follows that pattern.
+
+129
+00:08:20,700 --> 00:08:21,990
+Class is an attribute.
+
+130
+00:08:21,990 --> 00:08:26,610
+ID is an attribute, source is an attribute alt on an image as an attribute.
+
+131
+00:08:26,610 --> 00:08:34,169
+And for some of these attributes, we have this access like directly on the object for value on an input
+
+132
+00:08:34,169 --> 00:08:38,429
+as we saw for h ref and on images we can access the source.
+
+133
+00:08:38,429 --> 00:08:42,330
+So if I wanted to change this image source to something else, let me get a new image.
+
+134
+00:08:42,330 --> 00:08:43,440
+I'll be right back.
+
+135
+00:08:43,470 --> 00:08:49,290
+I have a URL on my clipboard now and if I want to select this image and change it, I can easily change
+
+136
+00:08:49,290 --> 00:08:49,980
+the source.
+
+137
+00:08:49,980 --> 00:08:57,570
+There's a source attribute, so we'll select the image with good old document query selector of image.
+
+138
+00:08:57,570 --> 00:08:59,340
+That's the type of tag we want.
+
+139
+00:08:59,340 --> 00:09:02,400
+There's only one on the page, so we'll get the one and only one.
+
+140
+00:09:02,820 --> 00:09:04,080
+Save it to a variable.
+
+141
+00:09:05,010 --> 00:09:07,560
+And let's take a look at image source.
+
+142
+00:09:07,710 --> 00:09:11,100
+There's the URL that the image is currently displaying.
+
+143
+00:09:11,220 --> 00:09:16,350
+If I update it to this URL I have on my clipboard, there we go.
+
+144
+00:09:16,350 --> 00:09:19,470
+New image of a very cute little cat under a blanket.
+
+145
+00:09:20,100 --> 00:09:21,780
+So that's that's kind of it.
+
+146
+00:09:21,780 --> 00:09:25,680
+We have these different attributes that we can access directly through the DOM.
+
+147
+00:09:26,040 --> 00:09:32,280
+We'll see in the next video that we have some attributes that we can access that way and we have a different
+
+148
+00:09:32,280 --> 00:09:35,760
+mechanism or a different way of changing them and reading them in.
+
+149
+00:09:35,760 --> 00:09:37,020
+So that's coming up next.
+

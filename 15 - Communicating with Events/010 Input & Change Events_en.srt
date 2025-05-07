@@ -1,0 +1,732 @@
+1
+00:00:00,120 --> 00:00:03,100
+Next up, two very similar events that are pretty useful.
+
+2
+00:00:03,120 --> 00:00:08,189
+They're called input and change on input on change are the respective properties.
+
+3
+00:00:08,280 --> 00:00:13,410
+They have to do with inputs like we have here, a text input, a select, a checkbox.
+
+4
+00:00:13,500 --> 00:00:19,440
+And what I want to show you is that we can actually listen to changes across all three of these different
+
+5
+00:00:19,440 --> 00:00:23,790
+types of inputs or different form controls using a single event type.
+
+6
+00:00:23,790 --> 00:00:29,850
+And our goal here is to, let's say, create a data structure that looks like this.
+
+7
+00:00:29,850 --> 00:00:36,630
+It's an object that will automatically stay in sync or we'll stay updated with whatever a user is typing.
+
+8
+00:00:36,630 --> 00:00:43,170
+So instead of waiting for a user to hit submit like we did in the previous video where we grab the data
+
+9
+00:00:43,170 --> 00:00:49,650
+from each input after they submit the form, we could instead just keep in sync and know exactly what
+
+10
+00:00:49,650 --> 00:00:51,180
+is happening in each input.
+
+11
+00:00:51,450 --> 00:00:57,600
+So we would have an object with maybe a key of credit card and it would be equal to whatever is in that
+
+12
+00:00:57,600 --> 00:00:58,230
+input.
+
+13
+00:00:58,500 --> 00:01:07,410
+We could have the checkbox of terms and then that could be set to true and Fiji could be set to carat.
+
+14
+00:01:07,590 --> 00:01:13,530
+And then as soon as one of these changes, if the user checks the checkbox, we want it to go to false
+
+15
+00:01:13,530 --> 00:01:14,340
+immediately.
+
+16
+00:01:14,340 --> 00:01:16,890
+We don't want to wait for a submission event.
+
+17
+00:01:17,100 --> 00:01:20,370
+So to do this we can use the input event.
+
+18
+00:01:20,370 --> 00:01:22,500
+The type of the event is called input.
+
+19
+00:01:23,550 --> 00:01:24,870
+I'll show it to you now.
+
+20
+00:01:24,870 --> 00:01:29,400
+We'll do an event listener input and then we'll do an arrow function.
+
+21
+00:01:29,400 --> 00:01:32,730
+This time let's console that log.
+
+22
+00:01:33,690 --> 00:01:40,410
+E Well, let's start with credit card changed and then we'll print out the event.
+
+23
+00:01:41,730 --> 00:01:48,750
+I'll refresh and you'll see as soon as I change this input here, anything which is basically whenever
+
+24
+00:01:48,750 --> 00:01:52,920
+I type a character in here, we get a new console.log.
+
+25
+00:01:53,370 --> 00:01:55,380
+So the input has changed.
+
+26
+00:01:55,380 --> 00:02:02,190
+We also have input target, which tells me what the input actually is or what what triggered this event,
+
+27
+00:02:02,190 --> 00:02:03,420
+what the object is.
+
+28
+00:02:04,170 --> 00:02:11,430
+And if I wanted to create this data structure, I could have const form data, set it equal to an object
+
+29
+00:02:11,490 --> 00:02:23,730
+and then update form data of let's go with credit card, maybe all lowercase CC equals and then to get
+
+30
+00:02:23,730 --> 00:02:31,740
+the value it's event dot target dot value, which is the target element, the input itself.
+
+31
+00:02:31,860 --> 00:02:33,840
+Scroll down, we'll see the value.
+
+32
+00:02:33,840 --> 00:02:34,740
+Where are you?
+
+33
+00:02:34,740 --> 00:02:36,670
+V Keep going.
+
+34
+00:02:36,670 --> 00:02:40,320
+I got carpal tunnel already from that scrolling.
+
+35
+00:02:40,320 --> 00:02:40,800
+Here we go.
+
+36
+00:02:40,800 --> 00:02:41,760
+That's the value.
+
+37
+00:02:42,420 --> 00:02:46,890
+Or I could have just hardcoded it as credit card input value.
+
+38
+00:02:47,100 --> 00:02:51,930
+But I'm going to go with event target value because you ll see in just a moment that we could actually
+
+39
+00:02:51,930 --> 00:02:54,660
+refactor this into a single callback.
+
+40
+00:02:54,990 --> 00:02:56,550
+So I'll type something in here.
+
+41
+00:02:56,760 --> 00:03:01,260
+Let's look at our form data and it's up to date now.
+
+42
+00:03:01,260 --> 00:03:05,940
+We could do the same thing, duplicate this for the vegie select.
+
+43
+00:03:05,940 --> 00:03:12,870
+So vegie select add event listener for the input event which will trigger whenever we change the value
+
+44
+00:03:12,870 --> 00:03:13,950
+of that select.
+
+45
+00:03:14,340 --> 00:03:21,870
+So instead of credit card changed, we'll say veggie changed and let's add to form data under the key
+
+46
+00:03:21,900 --> 00:03:22,620
+veggie.
+
+47
+00:03:24,780 --> 00:03:28,980
+So I'll change this value and we get our console.log.
+
+48
+00:03:29,580 --> 00:03:36,180
+If I look at my form data object, it has veggie of carrots, but as soon as I type something in here,
+
+49
+00:03:36,180 --> 00:03:37,650
+we look at form data.
+
+50
+00:03:37,830 --> 00:03:43,290
+Now it has the credit card value from that input and it has the selected veggie.
+
+51
+00:03:43,800 --> 00:03:50,790
+So it's staying up to sync, staying up to sync, staying, staying up to date or in sync with what
+
+52
+00:03:50,790 --> 00:03:51,510
+we have.
+
+53
+00:03:51,510 --> 00:03:56,910
+And we can do one more for the checkbox, which is a little bit trickier.
+
+54
+00:03:57,090 --> 00:03:59,160
+Not really, but we can't use the value.
+
+55
+00:03:59,250 --> 00:04:06,210
+We'll use the checked attribute or the checked property terms checkbox that add event, listener input
+
+56
+00:04:07,290 --> 00:04:17,850
+event and we'll do console.log checkbox and then we'll print the event and for form data.
+
+57
+00:04:17,850 --> 00:04:26,880
+If we want to update the form data, let's go with agree to terms maybe and set that equal to event
+
+58
+00:04:27,180 --> 00:04:27,840
+target.
+
+59
+00:04:27,840 --> 00:04:34,260
+We can't do value because it's a checkbox we do checked which we saw very recently.
+
+60
+00:04:34,740 --> 00:04:35,910
+So let's try it.
+
+61
+00:04:36,180 --> 00:04:38,640
+I check it, let's look at form data.
+
+62
+00:04:39,570 --> 00:04:41,220
+Agree to terms is true.
+
+63
+00:04:41,250 --> 00:04:42,420
+I change this.
+
+64
+00:04:42,750 --> 00:04:44,040
+We'll look at form data.
+
+65
+00:04:44,310 --> 00:04:45,510
+Vegie is carrot.
+
+66
+00:04:45,510 --> 00:04:46,800
+I type something in here.
+
+67
+00:04:47,310 --> 00:04:49,110
+We look at form data again.
+
+68
+00:04:51,320 --> 00:04:52,400
+And there we go.
+
+69
+00:04:52,430 --> 00:04:53,800
+It's staying up to date.
+
+70
+00:04:53,810 --> 00:04:58,580
+So now we have this object that is staying in sync with whatever is going on in the form.
+
+71
+00:04:58,580 --> 00:05:01,310
+So we don't have to wait for a user to click submit.
+
+72
+00:05:01,370 --> 00:05:06,610
+We could wait for them to submit to send the data off or to do something with the data.
+
+73
+00:05:06,620 --> 00:05:08,960
+But we have a live representation.
+
+74
+00:05:08,960 --> 00:05:13,040
+Well, it's not live, but a in-sync representation of what's in the form.
+
+75
+00:05:13,280 --> 00:05:15,440
+And this is how we could achieve something like this.
+
+76
+00:05:15,440 --> 00:05:17,120
+Credit card form from code pen.
+
+77
+00:05:17,120 --> 00:05:23,270
+As I type, the numbers are updating up top, although they're also being obfuscated.
+
+78
+00:05:23,270 --> 00:05:24,800
+So they're not fully showing.
+
+79
+00:05:24,800 --> 00:05:30,410
+But whatever I type is being affected and displayed live so it's not waiting for me to submit and I'll
+
+80
+00:05:30,410 --> 00:05:33,380
+add in a cardholder name that's updating up there.
+
+81
+00:05:33,380 --> 00:05:38,870
+I can put in the security code and that's showing on the back.
+
+82
+00:05:38,870 --> 00:05:43,910
+It's a pretty cool form, but what I'm trying to illustrate here is that these events are all being
+
+83
+00:05:43,910 --> 00:05:50,540
+triggered before a user submits the JavaScript, knows what's going on in these inputs as I type, which
+
+84
+00:05:50,540 --> 00:05:51,440
+is what we have here.
+
+85
+00:05:51,440 --> 00:05:56,630
+It's just there's no functionality and nothing pretty to look at, but we're doing the same thing.
+
+86
+00:05:57,230 --> 00:05:59,450
+So I did mention there's a better way of writing this.
+
+87
+00:05:59,450 --> 00:06:02,420
+This is three separate event listeners, which is fine.
+
+88
+00:06:02,420 --> 00:06:04,880
+We need to attach an event listener to each one.
+
+89
+00:06:05,090 --> 00:06:08,590
+What is not great is that we're hard coding these in.
+
+90
+00:06:08,600 --> 00:06:15,500
+It would be nice if we could have one where I could say something like in the event listener in the
+
+91
+00:06:15,500 --> 00:06:21,530
+callback where I could figure out which input we were working with, take that input, get its value,
+
+92
+00:06:21,530 --> 00:06:26,060
+and then just store that in the form data dynamically, which we can do.
+
+93
+00:06:26,120 --> 00:06:28,310
+And here is the simplest way of doing that.
+
+94
+00:06:28,310 --> 00:06:29,180
+Uncomment these out.
+
+95
+00:06:29,180 --> 00:06:30,110
+So we have them.
+
+96
+00:06:30,290 --> 00:06:33,020
+We'll add a name to each input.
+
+97
+00:06:33,020 --> 00:06:36,320
+So the first one will have maybe credit card as a name.
+
+98
+00:06:37,040 --> 00:06:47,840
+The second one will have a name of agree to terms, and the third one will have a name of selected veggie.
+
+99
+00:06:50,240 --> 00:06:53,180
+So we have three names now in our JavaScript.
+
+100
+00:06:53,180 --> 00:07:00,380
+We can loop over all three of these, so I'll make an array with credit card input terms, checkbox
+
+101
+00:07:00,380 --> 00:07:08,840
+and veggie select and I'll loop over that for let input of.
+
+102
+00:07:12,100 --> 00:07:16,990
+And then I'll do an input add event listener for the input event.
+
+103
+00:07:18,130 --> 00:07:25,450
+We have our event here an arrow function and on this event object we have event target, which we've
+
+104
+00:07:25,450 --> 00:07:26,330
+already seen.
+
+105
+00:07:26,350 --> 00:07:28,330
+There's a property called name.
+
+106
+00:07:28,720 --> 00:07:30,820
+So why don't I console.log that?
+
+107
+00:07:33,500 --> 00:07:36,230
+We'll try running it when this changes.
+
+108
+00:07:36,650 --> 00:07:39,830
+Selected veggie was the name here agree to terms.
+
+109
+00:07:39,830 --> 00:07:47,540
+So the name here credit card is the name so we can use that name to add to our form data object.
+
+110
+00:07:47,540 --> 00:07:49,400
+So it would be something like this.
+
+111
+00:07:49,970 --> 00:07:58,370
+Form data of event target name equals event dot target dot value.
+
+112
+00:07:59,750 --> 00:08:05,140
+We're taking whatever that value is and adding it in under the name that is on the input.
+
+113
+00:08:05,150 --> 00:08:09,830
+There's still a minor problem because our checkbox doesn't have the value we want it to have.
+
+114
+00:08:10,280 --> 00:08:15,220
+But if I do asparagus change my credit card number to lol.
+
+115
+00:08:15,230 --> 00:08:18,680
+We'll look at form data over here and look at that.
+
+116
+00:08:18,680 --> 00:08:24,440
+Selected veggie is asparagus credit card is low lol and I didn't have to actually reference any of those
+
+117
+00:08:24,440 --> 00:08:31,250
+manually so I could have ten different inputs and automatically, as long as I give them a name, their
+
+118
+00:08:31,250 --> 00:08:35,150
+input value will be added to my object under their name.
+
+119
+00:08:35,690 --> 00:08:38,870
+Now as far as the checkbox, this one is kind of annoying.
+
+120
+00:08:38,900 --> 00:08:42,260
+Unfortunately, there is no value on a checkbox.
+
+121
+00:08:42,260 --> 00:08:45,650
+It's just set to on whether it's on or off.
+
+122
+00:08:45,650 --> 00:08:51,980
+We still get on, which is pretty obnoxious, but we can write a little bit of an edge case into this
+
+123
+00:08:51,980 --> 00:08:57,410
+function where we can check if the type of the input is a checkbox.
+
+124
+00:08:57,410 --> 00:09:04,130
+So if we console.log ea refresh my page, I'll check this.
+
+125
+00:09:04,130 --> 00:09:08,000
+If we look at event target, scroll way down.
+
+126
+00:09:09,500 --> 00:09:12,410
+Every input here has type of checkbox.
+
+127
+00:09:12,410 --> 00:09:14,620
+Not every input, but every input has a type.
+
+128
+00:09:14,630 --> 00:09:16,400
+In this case, it's a checkbox.
+
+129
+00:09:16,400 --> 00:09:23,600
+Here if I do the text input, which is for credit card and we take a look, where are you, target,
+
+130
+00:09:23,720 --> 00:09:26,000
+scroll down, we can find type.
+
+131
+00:09:27,080 --> 00:09:33,320
+It's set to text so we could write a little bit of a conditional to check what type is equal to.
+
+132
+00:09:33,740 --> 00:09:37,160
+And what I would probably do is de structure target.
+
+133
+00:09:37,280 --> 00:09:39,560
+That's the only thing we care about from the event.
+
+134
+00:09:39,560 --> 00:09:42,590
+So use a parameterized de structuring.
+
+135
+00:09:42,620 --> 00:09:47,690
+I don't even know if that's the right term for that, but the structure in the parameter definition
+
+136
+00:09:47,840 --> 00:09:55,580
+and then I'll structure even more, I'll grab the name, I'll grab the type, the value and the checked
+
+137
+00:09:55,580 --> 00:10:00,350
+property out of target, which is event target.
+
+138
+00:10:01,130 --> 00:10:07,310
+And then I can update this to B form data of name equals event target value.
+
+139
+00:10:07,310 --> 00:10:13,790
+But I want to check first if type is equal to checkbox.
+
+140
+00:10:14,840 --> 00:10:18,740
+If that's the case, then we'll store the value of checked.
+
+141
+00:10:18,740 --> 00:10:20,930
+Otherwise we store value.
+
+142
+00:10:21,980 --> 00:10:27,320
+So this is kind of a maybe hacky one liner, but we're taking the name, whatever the name is, credit
+
+143
+00:10:27,320 --> 00:10:29,930
+card input or credit card I think is what we went with.
+
+144
+00:10:30,860 --> 00:10:35,090
+And then we have a type which should be set to text for that input.
+
+145
+00:10:35,090 --> 00:10:40,010
+We have a value which is whatever is in the input and checked won't exist for that input because it's
+
+146
+00:10:40,010 --> 00:10:41,030
+not a checkbox.
+
+147
+00:10:41,030 --> 00:10:46,580
+So then we're taking form data, we're updating the property credit card, which is the name, and we're
+
+148
+00:10:46,580 --> 00:10:48,470
+checking if type is equal to checkbox.
+
+149
+00:10:48,470 --> 00:10:50,930
+It's not, so we'll use the value.
+
+150
+00:10:50,930 --> 00:10:55,040
+But then if we change the checkbox checked, we'll have a value.
+
+151
+00:10:55,040 --> 00:10:58,040
+True or false and type will be checkbox.
+
+152
+00:10:58,040 --> 00:11:02,450
+So this is true and we'll store the boolean true or false from checked.
+
+153
+00:11:02,690 --> 00:11:05,150
+So let's console that log form data here.
+
+154
+00:11:07,640 --> 00:11:09,830
+Extra se refresh.
+
+155
+00:11:10,690 --> 00:11:11,590
+I'll check it.
+
+156
+00:11:11,860 --> 00:11:13,150
+Agree to terms true.
+
+157
+00:11:13,180 --> 00:11:14,020
+Check again.
+
+158
+00:11:14,020 --> 00:11:14,770
+False.
+
+159
+00:11:15,570 --> 00:11:22,470
+Now we have selected veggie is carrot type something in here it's updating automatically, which is
+
+160
+00:11:22,470 --> 00:11:23,060
+pretty cool.
+
+161
+00:11:23,070 --> 00:11:29,190
+You have one function, one callback that we are using and it's working on three different inputs.
+
+162
+00:11:29,190 --> 00:11:33,060
+And I could have more if I had four or 510 different inputs here.
+
+163
+00:11:33,090 --> 00:11:38,730
+I could use this same code if all I wanted to do was create an object containing the form data.
+
+164
+00:11:39,390 --> 00:11:44,610
+The last thing is that I mentioned we have input and change to different events.
+
+165
+00:11:44,610 --> 00:11:51,870
+If I just switch this over to be a change event, it will still work pretty much the same way we've
+
+166
+00:11:51,870 --> 00:11:53,880
+got selected veggie asparagus.
+
+167
+00:11:54,480 --> 00:12:00,330
+This is updating, but here this won't update until I lose focus.
+
+168
+00:12:00,600 --> 00:12:03,360
+So I just clicked away or if I hit enter.
+
+169
+00:12:03,360 --> 00:12:05,970
+So just typing in the input doesn't trigger that event.
+
+170
+00:12:06,120 --> 00:12:12,990
+But focusing or losing focus, which is called blurring the input or hitting enter, will change it.
+
+171
+00:12:13,740 --> 00:12:15,270
+Otherwise these two are the same.
+
+172
+00:12:15,270 --> 00:12:18,840
+You can't really incrementally change the checkbox or the select.
+
+173
+00:12:18,870 --> 00:12:20,250
+It's just yes or no.
+
+174
+00:12:20,250 --> 00:12:26,400
+But with a text input there is a difference between the change event and the input event that we had
+
+175
+00:12:26,400 --> 00:12:27,030
+earlier.
+
+176
+00:12:27,510 --> 00:12:34,380
+So input will just always update whenever this updates or whenever the input itself has any new characters
+
+177
+00:12:34,380 --> 00:12:36,450
+in there, it triggers the event.
+
+178
+00:12:37,260 --> 00:12:37,950
+All right.
+
+179
+00:12:38,040 --> 00:12:41,400
+So two different events and a new pattern.
+
+180
+00:12:41,400 --> 00:12:46,440
+This is pretty common, especially if you get to something like React and some of these other frameworks
+
+181
+00:12:46,440 --> 00:12:53,310
+out there in other libraries, you'll see code kind of like this where we use the name of an input as
+
+182
+00:12:53,310 --> 00:13:00,150
+a key to store the value from that input under to create a nice object that contains all of our form
+
+183
+00:13:00,150 --> 00:13:01,140
+data at once.
+

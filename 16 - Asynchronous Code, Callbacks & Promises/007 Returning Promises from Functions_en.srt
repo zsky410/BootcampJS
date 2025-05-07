@@ -1,0 +1,464 @@
+1
+00:00:00,240 --> 00:00:03,060
+All right, so our current promise we'll get you a dog.
+
+2
+00:00:03,060 --> 00:00:06,689
+Promise is either resolved or rejected immediately.
+
+3
+00:00:06,689 --> 00:00:09,360
+There's nothing that takes time in this promise.
+
+4
+00:00:09,360 --> 00:00:11,190
+There's no real reason to use a promise.
+
+5
+00:00:11,190 --> 00:00:17,460
+We could just write a simple if else, and just generate a random number on its own and print out code
+
+6
+00:00:17,460 --> 00:00:20,340
+depending on if random is less than five.
+
+7
+00:00:20,370 --> 00:00:22,530
+Do this thing otherwise console.log.
+
+8
+00:00:22,530 --> 00:00:23,280
+No dog.
+
+9
+00:00:23,730 --> 00:00:26,190
+Pretty simple with what we've seen so far.
+
+10
+00:00:26,190 --> 00:00:29,970
+But now let's introduce some some delay so it takes longer.
+
+11
+00:00:30,240 --> 00:00:36,420
+What we'll do is just use a set timeout to simulate the number of years it took my dad to finally reject
+
+12
+00:00:36,420 --> 00:00:38,430
+his promise of getting me a dog.
+
+13
+00:00:38,880 --> 00:00:40,740
+So I will keep this here.
+
+14
+00:00:40,740 --> 00:00:43,530
+So we have a record of it, but I'll duplicate it.
+
+15
+00:00:43,530 --> 00:00:50,460
+And then in here, instead of just immediately resolving or rejecting, let's do a set timeout and our
+
+16
+00:00:50,460 --> 00:00:56,010
+set timeout will have a function and the delay will be 5 seconds.
+
+17
+00:00:57,270 --> 00:01:03,630
+And then in that function, the callback, I'll move my logic to pick a random number and then either
+
+18
+00:01:03,630 --> 00:01:05,129
+resolve or reject.
+
+19
+00:01:05,129 --> 00:01:09,930
+So now this promise takes 5 seconds before it's resolved or rejected.
+
+20
+00:01:09,960 --> 00:01:13,980
+Otherwise, those first 5 seconds it's pending, which we saw earlier.
+
+21
+00:01:14,550 --> 00:01:20,130
+So the then code or the dot catch code, whatever one of these runs, depending on if it was resolved
+
+22
+00:01:20,130 --> 00:01:23,010
+or rejected, it won't run for 5 seconds.
+
+23
+00:01:23,580 --> 00:01:24,780
+So let's try it out.
+
+24
+00:01:25,710 --> 00:01:26,640
+I refresh.
+
+25
+00:01:26,640 --> 00:01:28,290
+It takes 5 seconds.
+
+26
+00:01:28,590 --> 00:01:29,570
+Doo doo doo doo doo.
+
+27
+00:01:29,580 --> 00:01:30,420
+Come on.
+
+28
+00:01:30,600 --> 00:01:31,320
+There we go.
+
+29
+00:01:31,320 --> 00:01:32,250
+No dog.
+
+30
+00:01:32,280 --> 00:01:36,030
+If I refresh and I quickly take a look at we'll get you a dog.
+
+31
+00:01:36,030 --> 00:01:38,700
+It starts as pending for these 5 seconds.
+
+32
+00:01:38,700 --> 00:01:40,050
+It's pending now.
+
+33
+00:01:40,050 --> 00:01:41,370
+It's been rejected.
+
+34
+00:01:41,490 --> 00:01:43,920
+One more time it starts as pending.
+
+35
+00:01:43,920 --> 00:01:46,770
+Hopefully, this time it's resolved.
+
+36
+00:01:46,770 --> 00:01:47,370
+Nope.
+
+37
+00:01:47,400 --> 00:01:48,150
+Okay, one more time.
+
+38
+00:01:48,150 --> 00:01:48,690
+Come on.
+
+39
+00:01:49,140 --> 00:01:50,460
+Come on, resolve it.
+
+40
+00:01:50,460 --> 00:01:51,480
+Get me a dog.
+
+41
+00:01:53,060 --> 00:01:54,020
+Seriously.
+
+42
+00:01:55,490 --> 00:01:56,480
+Three in a row.
+
+43
+00:01:57,500 --> 00:01:58,250
+How about now?
+
+44
+00:01:58,670 --> 00:01:59,630
+It's pending.
+
+45
+00:01:59,990 --> 00:02:01,130
+What the heck?
+
+46
+00:02:01,960 --> 00:02:03,250
+Just resolve.
+
+47
+00:02:04,940 --> 00:02:05,740
+Oh, the joy if you.
+
+48
+00:02:05,750 --> 00:02:06,620
+Oh, my goodness.
+
+49
+00:02:06,620 --> 00:02:08,180
+How many of these are going to be in a row?
+
+50
+00:02:08,810 --> 00:02:10,250
+Just resolve.
+
+51
+00:02:11,230 --> 00:02:12,070
+Please.
+
+52
+00:02:13,020 --> 00:02:13,260
+Okay.
+
+53
+00:02:13,260 --> 00:02:14,670
+This is horrendous luck.
+
+54
+00:02:17,930 --> 00:02:19,430
+Oh, my.
+
+55
+00:02:21,620 --> 00:02:22,460
+Pending.
+
+56
+00:02:23,900 --> 00:02:24,410
+Oh.
+
+57
+00:02:24,440 --> 00:02:29,980
+Finally, I just hit the absolute jackpot of rejected promises.
+
+58
+00:02:29,990 --> 00:02:30,710
+How many was that?
+
+59
+00:02:30,710 --> 00:02:31,280
+Like eight?
+
+60
+00:02:31,280 --> 00:02:32,330
+Nine in a row.
+
+61
+00:02:32,780 --> 00:02:34,880
+Oh, what are the odds when I'm recording?
+
+62
+00:02:34,970 --> 00:02:36,260
+But we finally get it.
+
+63
+00:02:36,260 --> 00:02:39,050
+It starts as pending, and then it's resolved.
+
+64
+00:02:39,080 --> 00:02:43,280
+All right, so this is our first example of a promise that takes some time.
+
+65
+00:02:43,280 --> 00:02:44,500
+It takes 5 seconds.
+
+66
+00:02:44,510 --> 00:02:49,670
+It's kind of simulating, making a request and having to wait for that request to come back.
+
+67
+00:02:49,850 --> 00:02:52,010
+It's eventually resolved or rejected.
+
+68
+00:02:52,010 --> 00:02:55,310
+Yes, we're just hard coding a 5/2 delay for no reason.
+
+69
+00:02:55,310 --> 00:02:58,970
+But imagine that something has to happen over those 5 seconds.
+
+70
+00:02:58,970 --> 00:03:03,350
+Like we're animating something and we want to wait until the animation finishes, which will return
+
+71
+00:03:03,350 --> 00:03:03,560
+to.
+
+72
+00:03:03,590 --> 00:03:06,410
+That was the original impetus for promises.
+
+73
+00:03:06,410 --> 00:03:07,370
+In this section.
+
+74
+00:03:07,370 --> 00:03:12,680
+We were doing a whole bunch of nested callbacks and it was hideous when we were moving that button across
+
+75
+00:03:12,680 --> 00:03:13,400
+the screen.
+
+76
+00:03:13,820 --> 00:03:18,260
+So another thing that we frequently do is return a promise from a function.
+
+77
+00:03:18,440 --> 00:03:24,710
+Instead of just making one promise like we have here, we could instead just get rid of my variable.
+
+78
+00:03:25,310 --> 00:03:33,680
+Define a function we'll call this concept Make dog promise equals some function, and this function
+
+79
+00:03:33,680 --> 00:03:39,950
+will return a promise, this exact promise we already have, so we just right return.
+
+80
+00:03:40,550 --> 00:03:50,870
+So now I can call this function instead of we'll get you a dog I can do make dog promise dot then and
+
+81
+00:03:50,870 --> 00:03:54,380
+I can actually just chain this on like that.
+
+82
+00:03:55,300 --> 00:03:56,230
+I don't have to.
+
+83
+00:03:56,260 --> 00:03:58,480
+Well, if I call, make dog promise again.
+
+84
+00:03:58,690 --> 00:04:02,590
+And did duck catch, that would be two completely separate promises.
+
+85
+00:04:02,590 --> 00:04:04,060
+And they may not resolve.
+
+86
+00:04:04,150 --> 00:04:05,980
+They may not both resolve or both reject.
+
+87
+00:04:05,980 --> 00:04:07,570
+They could have different values.
+
+88
+00:04:07,570 --> 00:04:10,810
+But if we instead chain it like this, we get around that problem.
+
+89
+00:04:11,230 --> 00:04:13,130
+And it's also just shorter and cleaner.
+
+90
+00:04:13,150 --> 00:04:20,709
+You could save the variable or the result to a variable, you know, D equals make dog promise and then
+
+91
+00:04:20,709 --> 00:04:23,980
+do D then and D catch.
+
+92
+00:04:24,730 --> 00:04:26,380
+But this is just better.
+
+93
+00:04:26,560 --> 00:04:27,370
+There we go.
+
+94
+00:04:27,520 --> 00:04:28,910
+So let's test it out.
+
+95
+00:04:28,930 --> 00:04:30,400
+We'll wait 5 seconds.
+
+96
+00:04:31,480 --> 00:04:32,380
+Come on.
+
+97
+00:04:34,270 --> 00:04:35,830
+And there we go.
+
+98
+00:04:35,830 --> 00:04:36,880
+It was resolved.
+
+99
+00:04:36,880 --> 00:04:43,480
+So nothing major that we saw here except for the fact that one we can chain then and catch together
+
+100
+00:04:43,480 --> 00:04:47,410
+without having to create a variable or without having to reference the promise.
+
+101
+00:04:47,410 --> 00:04:53,110
+Again, I can just put a dot catch after it then, and only one or the other will run.
+
+102
+00:04:53,110 --> 00:04:56,530
+In this case, my promise is either resolved or rejected.
+
+103
+00:04:56,530 --> 00:04:58,960
+If it's resolved, this function runs here.
+
+104
+00:04:58,990 --> 00:05:01,450
+If it's rejected, this function runs here.
+
+105
+00:05:01,630 --> 00:05:06,820
+And then the second thing we saw was that we can make a function which returns a promise, which is
+
+106
+00:05:06,820 --> 00:05:12,100
+an extremely common pattern, rather than creating a promise from scratch and saving it to a variable.
+
+107
+00:05:12,220 --> 00:05:14,980
+Often we work with functions where we would call.
+
+108
+00:05:15,010 --> 00:05:22,780
+Once we get to Axios, Axios dot, get some URL, Reddit dot com, that will give us a promise and we
+
+109
+00:05:22,780 --> 00:05:25,690
+put a dot then in a dot catch after that.
+
+110
+00:05:25,750 --> 00:05:28,330
+So this function itself is not a promise.
+
+111
+00:05:28,330 --> 00:05:32,800
+We're executing a function which returns a promise just like we did here.
+
+112
+00:05:33,130 --> 00:05:34,780
+This returns a new promise.
+
+113
+00:05:34,780 --> 00:05:40,000
+It's either resolved or rejected eventually, but in the meantime, it's still an object.
+
+114
+00:05:40,000 --> 00:05:45,640
+It has a status of pending, and when it is either resolved or rejected, one of these will run.
+
+115
+00:05:46,300 --> 00:05:47,470
+So we have a lot more to cover.
+
+116
+00:05:47,470 --> 00:05:48,700
+So onwards we go.
+

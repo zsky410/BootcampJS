@@ -1,0 +1,532 @@
+1
+00:00:01,120 --> 00:00:01,490
+Okay.
+
+2
+00:00:01,540 --> 00:00:03,400
+Our class timers looking pretty good.
+
+3
+00:00:03,430 --> 00:00:06,520
+Believe it or not, our start and pause methods are just about complete.
+
+4
+00:00:06,520 --> 00:00:10,630
+We're not going to really add any additional code to them, so we're not going to start to focus our
+
+5
+00:00:10,630 --> 00:00:12,730
+attention on the tick method right here.
+
+6
+00:00:12,820 --> 00:00:17,740
+Remember, the tick method is going to run once every second because we set up the interval to call
+
+7
+00:00:17,740 --> 00:00:20,380
+it once every 1000 milliseconds.
+
+8
+00:00:21,010 --> 00:00:26,050
+So inside of the tick method, we're going to start to want to figure out what we want to do every second.
+
+9
+00:00:26,350 --> 00:00:29,530
+Well, I think that every second there's probably going be a pretty obvious thing we want to do.
+
+10
+00:00:29,560 --> 00:00:34,630
+We probably are going to want to reach into the DOM, find whatever the current time is right there
+
+11
+00:00:34,630 --> 00:00:36,100
+and subtract one from it.
+
+12
+00:00:36,490 --> 00:00:41,170
+So if we start off with 18 seconds and then the tick method runs, we'll probably want to decrease it
+
+13
+00:00:41,170 --> 00:00:44,980
+down to 17, then 16, 15, 14, 13 and so on.
+
+14
+00:00:45,890 --> 00:00:50,510
+I want to remind you really quickly that this input or see this element right here that's going to display
+
+15
+00:00:50,510 --> 00:00:54,950
+the current time is actually going to be a kind of invisible text input.
+
+16
+00:00:55,490 --> 00:01:00,740
+The reason we're making it a text input is that a user can very easily reach inside there and change
+
+17
+00:01:00,740 --> 00:01:06,800
+the current time or the duration of the timer so they could enter in 300 and then hit play and that
+
+18
+00:01:06,800 --> 00:01:09,470
+would count down our timer from 300 seconds.
+
+19
+00:01:11,380 --> 00:01:15,540
+So now in this video, I want to focus on a really interesting question.
+
+20
+00:01:15,550 --> 00:01:17,290
+Well, at least it's interesting to me.
+
+21
+00:01:17,290 --> 00:01:21,960
+I suppose the question I want to focus on is inside the tick method.
+
+22
+00:01:21,970 --> 00:01:26,380
+We clearly at some point in time are going to have to write some code that looks like this.
+
+23
+00:01:26,380 --> 00:01:27,520
+This is going to be pseudocode.
+
+24
+00:01:27,520 --> 00:01:28,240
+Don't write this.
+
+25
+00:01:28,240 --> 00:01:29,440
+Just a quick example.
+
+26
+00:01:29,800 --> 00:01:35,950
+So we're definitely going to have to write out something like time remaining is time remaining minus
+
+27
+00:01:35,950 --> 00:01:40,840
+one, something like this to count down our timer from whatever the current time is.
+
+28
+00:01:40,840 --> 00:01:45,160
+Subtract 1/2 and then update the variable or the value of time remaining.
+
+29
+00:01:46,090 --> 00:01:48,390
+So we're going to write out a line of code that looks like that.
+
+30
+00:01:48,400 --> 00:01:52,360
+But here's the interesting question, and this is what I want to explore in this video.
+
+31
+00:01:52,540 --> 00:01:56,170
+Where does the variable time remaining live?
+
+32
+00:01:56,470 --> 00:01:59,350
+In other words, where is this data actually being stored?
+
+33
+00:02:00,630 --> 00:02:04,740
+There's two kind of obvious or different ways we can solve that.
+
+34
+00:02:04,770 --> 00:02:09,270
+Let's take a look at a diagram and understand the two different places that we can store the information
+
+35
+00:02:09,270 --> 00:02:11,730
+about how much time is remaining on our timer.
+
+36
+00:02:13,050 --> 00:02:16,470
+So the first way is kind of a slightly more obvious one, I think.
+
+37
+00:02:16,470 --> 00:02:21,510
+And this is where if I like really grilled you and asked you to figure this out, this is probably what
+
+38
+00:02:21,510 --> 00:02:22,680
+you might come up with.
+
+39
+00:02:22,980 --> 00:02:28,770
+So an option number one, in deciding where to store the time left on our timer, we might decide to
+
+40
+00:02:28,770 --> 00:02:33,630
+create an instance variable on our timer instance called something like time left.
+
+41
+00:02:34,110 --> 00:02:39,360
+Then every single time the tick method ran, we could subtract one from that value and then take that
+
+42
+00:02:39,360 --> 00:02:43,710
+value and update our text or our input element with it.
+
+43
+00:02:44,100 --> 00:02:50,880
+So in other words, when we run, tick will count down 29 to 28, then take the value of 28 and throw
+
+44
+00:02:50,880 --> 00:02:52,410
+it into the input element.
+
+45
+00:02:53,830 --> 00:02:56,050
+So some code that looks like that might look like this.
+
+46
+00:02:56,050 --> 00:02:57,130
+I'm going to very quickly write it.
+
+47
+00:02:57,130 --> 00:03:00,370
+I'm going to delete this code very quickly so you don't have to write this as well.
+
+48
+00:03:00,730 --> 00:03:06,040
+So we might write out inside the constructor something like this time left equals 30.
+
+49
+00:03:06,490 --> 00:03:11,440
+So whenever we create a class or an instance of timer, our default value for time left will be 30,
+
+50
+00:03:11,440 --> 00:03:12,970
+representing 30 seconds.
+
+51
+00:03:13,870 --> 00:03:16,330
+That inside of Tik, we could do something like this.
+
+52
+00:03:16,570 --> 00:03:18,490
+Time left is this.
+
+53
+00:03:18,670 --> 00:03:19,960
+Time left minus one.
+
+54
+00:03:20,640 --> 00:03:23,400
+And then we could do something like take our input element.
+
+55
+00:03:23,400 --> 00:03:26,670
+Remember, we've got a reference to it right there, duration input.
+
+56
+00:03:27,030 --> 00:03:29,700
+So we could say this duration input.
+
+57
+00:03:31,040 --> 00:03:33,950
+What value is this time left?
+
+58
+00:03:34,400 --> 00:03:35,960
+So again, take the current time.
+
+59
+00:03:35,960 --> 00:03:37,220
+Subtract one from it.
+
+60
+00:03:37,790 --> 00:03:40,190
+Then take that value and throw it into the duration.
+
+61
+00:03:40,190 --> 00:03:40,910
+Input.
+
+62
+00:03:41,720 --> 00:03:44,000
+And that would update the text on the screen.
+
+63
+00:03:44,420 --> 00:03:47,060
+So this is a definitely way that works.
+
+64
+00:03:47,060 --> 00:03:47,800
+Without a doubt.
+
+65
+00:03:47,810 --> 00:03:49,340
+This is a method that works.
+
+66
+00:03:49,610 --> 00:03:53,630
+I'm going to delete this code really quickly and we're going to take a look at option number two for
+
+67
+00:03:53,630 --> 00:03:54,830
+where we store this data.
+
+68
+00:03:57,130 --> 00:04:03,100
+So in option number two, we're going to kind of invert this control flow rather than having our timer
+
+69
+00:04:03,100 --> 00:04:08,740
+instance have some definition of what the time left is and store it inside the input element or update
+
+70
+00:04:08,740 --> 00:04:09,650
+the input element.
+
+71
+00:04:09,670 --> 00:04:15,100
+We're going to instead have the current time live inside of the input element.
+
+72
+00:04:15,490 --> 00:04:19,930
+So whatever the input elements value is, that is the time remaining.
+
+73
+00:04:20,320 --> 00:04:25,210
+And then at any time that our timer instance needs to know how much time is remaining, it will reach
+
+74
+00:04:25,210 --> 00:04:28,750
+into the input element, figure out what the current value is.
+
+75
+00:04:28,750 --> 00:04:33,130
+So we're going to essentially take the value out of that input element and bring it back over to our
+
+76
+00:04:33,130 --> 00:04:34,210
+timer instance.
+
+77
+00:04:37,480 --> 00:04:40,060
+So why would we ever go with this approach right here?
+
+78
+00:04:40,420 --> 00:04:42,520
+Approach number one seemed like it was kind of obvious.
+
+79
+00:04:42,550 --> 00:04:44,470
+Of course, we've got a timer instance.
+
+80
+00:04:44,470 --> 00:04:45,940
+It's got some time left.
+
+81
+00:04:46,120 --> 00:04:47,470
+It's an instance variable.
+
+82
+00:04:47,470 --> 00:04:50,410
+Really easy to get at that value right away.
+
+83
+00:04:50,410 --> 00:04:52,870
+So why would we ever use this approach right here?
+
+84
+00:04:53,260 --> 00:04:58,210
+Well, the reason that we might use this approach is that it makes some UCS or some actual interactions
+
+85
+00:04:58,210 --> 00:05:01,090
+with the user a little bit easier to handle.
+
+86
+00:05:01,360 --> 00:05:07,540
+Remember, at some point in time, we want the user to be able to type in a new text value inside this
+
+87
+00:05:07,540 --> 00:05:08,290
+input right here.
+
+88
+00:05:08,290 --> 00:05:11,710
+So we want them to be able to click in there and type in like give me a timer.
+
+89
+00:05:11,710 --> 00:05:13,450
+That countdown counts down from ten.
+
+90
+00:05:13,900 --> 00:05:19,000
+If we were storing all of our data inside of our class, we would want to set up an event handler and
+
+91
+00:05:19,000 --> 00:05:20,050
+watch for any time.
+
+92
+00:05:20,050 --> 00:05:21,940
+A user changes that value.
+
+93
+00:05:22,210 --> 00:05:27,820
+So if a user changes that from 300 down to ten, we would have to have an event listener that watches
+
+94
+00:05:27,820 --> 00:05:29,710
+for a change event on that input.
+
+95
+00:05:29,710 --> 00:05:35,500
+When that occurs, we would have to take that change value and go and update our time left.
+
+96
+00:05:37,350 --> 00:05:42,810
+But with this approach, we don't have to worry about any event handlers at all on that input element
+
+97
+00:05:43,200 --> 00:05:47,640
+because any time you want to figure out what the current time remaining is, we can just reach directly
+
+98
+00:05:47,640 --> 00:05:52,740
+in, get that value, pull it back out and make use of it inside of our timer instance.
+
+99
+00:05:53,600 --> 00:05:58,160
+Now that's sounds like a very small and simple thing, but I just want to suggest that's maybe one reason
+
+100
+00:05:58,160 --> 00:06:02,870
+that we would want to just have our timer instance stored the value or the time remaining inside of
+
+101
+00:06:02,870 --> 00:06:04,010
+that input element.
+
+102
+00:06:04,710 --> 00:06:09,330
+There are going to be some other interactions that get a little bit easier as well when we start to
+
+103
+00:06:09,330 --> 00:06:11,430
+take this approach in this approach.
+
+104
+00:06:11,430 --> 00:06:15,690
+But they're not going to be quite as obvious until we get a little bit further along with this application.
+
+105
+00:06:16,880 --> 00:06:18,620
+Now just at a higher level.
+
+106
+00:06:18,620 --> 00:06:23,420
+I want to mention that option number two, we refer to this as storing our data inside of our DOM.
+
+107
+00:06:23,420 --> 00:06:27,620
+So our application has some critical data that is required to make it work correctly.
+
+108
+00:06:27,620 --> 00:06:32,780
+And we are storing that data inside of different DOM elements with option number one.
+
+109
+00:06:32,780 --> 00:06:35,780
+We're storing all of our data inside of our JavaScript code.
+
+110
+00:06:35,780 --> 00:06:37,610
+So we've got a JavaScript class right here.
+
+111
+00:06:37,610 --> 00:06:43,130
+That class or that instance of the class has the data that is critical to making our application work.
+
+112
+00:06:43,930 --> 00:06:48,550
+Now option number one is a little bit more popular these days, right, to be totally honest with you.
+
+113
+00:06:48,580 --> 00:06:51,310
+Option number one is definitely more popular these days.
+
+114
+00:06:51,550 --> 00:06:54,000
+Option number two used to be really popular.
+
+115
+00:06:54,010 --> 00:06:58,540
+So like years ago, this used to be the way that we wrote JavaScript applications, but it's definitely
+
+116
+00:06:58,540 --> 00:07:01,120
+pivoted towards option number one more recently.
+
+117
+00:07:01,570 --> 00:07:05,170
+Having said that, we're going to use option number two inside this application.
+
+118
+00:07:05,170 --> 00:07:09,740
+And the reason for that is I want you to see what this approach looks like.
+
+119
+00:07:09,760 --> 00:07:11,530
+I want you to see some of the downsides.
+
+120
+00:07:11,530 --> 00:07:16,630
+I want you to understand why we used to write code like this as JavaScript engineers years ago and why
+
+121
+00:07:16,630 --> 00:07:22,150
+we now instead use option number one and store data inside of our JavaScript code instead.
+
+122
+00:07:22,900 --> 00:07:28,630
+So I'm sorry to kind of show you not the most modern or like technically correct way to do this stuff
+
+123
+00:07:28,630 --> 00:07:30,190
+or what's really popular right now.
+
+124
+00:07:30,190 --> 00:07:34,630
+But again, it is important for you to understand why we take one approach over the other.
+
+125
+00:07:34,630 --> 00:07:39,490
+And the easiest way to do that is to write out the code in that older approach so you can see some of
+
+126
+00:07:39,490 --> 00:07:41,230
+the problems that start to arise.
+
+127
+00:07:42,700 --> 00:07:42,890
+Okay.
+
+128
+00:07:43,000 --> 00:07:45,420
+So with all this in mind, let's take a quick pause right here.
+
+129
+00:07:45,430 --> 00:07:48,970
+When we come back, the next video, we're going to start to update our class and make sure that it
+
+130
+00:07:48,970 --> 00:07:54,040
+can very easily read some data out of that input element to figure out how many seconds are left on
+
+131
+00:07:54,040 --> 00:08:00,070
+our timer and then make sure that whenever our tick method gets called, we're going to update the value
+
+132
+00:08:00,070 --> 00:08:02,710
+of that input element and subtract one from it.
+
+133
+00:08:02,980 --> 00:08:05,800
+So quick pause right here, and I'll see you in just a minute.
+

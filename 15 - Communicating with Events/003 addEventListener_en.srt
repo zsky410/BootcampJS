@@ -1,0 +1,600 @@
+1
+00:00:00,330 --> 00:00:00,900
+All right.
+
+2
+00:00:00,900 --> 00:00:08,310
+So in the last video, we saw that we could add an event listener by using an on click or on some attribute
+
+3
+00:00:08,310 --> 00:00:14,550
+in line, which I said I'm not a fan of because I don't like writing JavaScript in a string in our HTML.
+
+4
+00:00:14,880 --> 00:00:20,100
+And then we also saw that we could do it in our JavaScript by selecting an element, I'll call it L,
+
+5
+00:00:20,130 --> 00:00:25,440
+I haven't actually selected it, and then setting the on click property or the on mouse over or on double
+
+6
+00:00:25,440 --> 00:00:29,100
+click property, whatever the name of the property is on something.
+
+7
+00:00:29,370 --> 00:00:35,160
+And I also mentioned this is not great in my opinion either, but I didn't go into a ton of detail why
+
+8
+00:00:35,190 --> 00:00:39,840
+I'm going to show you quickly why it's not great and then we'll see the alternative, which is called
+
+9
+00:00:39,840 --> 00:00:40,920
+Add Event Listener.
+
+10
+00:00:40,920 --> 00:00:49,560
+So if we add in something to select a simple button, we'll do a button, click me and then select it
+
+11
+00:00:49,560 --> 00:00:50,070
+over here.
+
+12
+00:00:50,070 --> 00:01:01,500
+So document dot, query selector button, save it to a variable and I set the on click to be some function.
+
+13
+00:01:01,500 --> 00:01:06,870
+Nice and simple will console.log you clicked me All right so this is review.
+
+14
+00:01:07,080 --> 00:01:10,170
+It should work unless I mess up any syntax here.
+
+15
+00:01:10,590 --> 00:01:13,410
+Let's refresh the page and it does work.
+
+16
+00:01:13,650 --> 00:01:20,430
+Now, if I wanted to have a second click listener, I don't have that option with what we've seen with
+
+17
+00:01:20,430 --> 00:01:21,060
+on click.
+
+18
+00:01:21,060 --> 00:01:22,560
+It's a single property.
+
+19
+00:01:22,590 --> 00:01:27,330
+Just like if we have some object contact thing equals this object.
+
+20
+00:01:27,330 --> 00:01:36,420
+If I set thing dot color equal to purple, if I try and change things color instead of equal to some
+
+21
+00:01:36,420 --> 00:01:37,860
+other, it could be a function.
+
+22
+00:01:37,950 --> 00:01:39,120
+It doesn't matter.
+
+23
+00:01:40,260 --> 00:01:42,330
+Only the most recent value is there.
+
+24
+00:01:42,360 --> 00:01:44,070
+I don't have purple anymore.
+
+25
+00:01:44,370 --> 00:01:46,680
+It's a property and we're doing the same thing here.
+
+26
+00:01:46,680 --> 00:01:55,220
+So if I were to add another click listener button on click equals function, this time will console.log
+
+27
+00:01:56,190 --> 00:01:57,810
+second time.
+
+28
+00:01:59,490 --> 00:02:00,450
+Let's try it.
+
+29
+00:02:01,740 --> 00:02:03,390
+All we get is second time.
+
+30
+00:02:03,630 --> 00:02:09,810
+I'm not getting the first event listener or this function is not running because we overrode that property.
+
+31
+00:02:10,289 --> 00:02:16,050
+Now it seems stupid to do two different council dialogues based off of a click, but there are times
+
+32
+00:02:16,050 --> 00:02:20,740
+when you might want different listeners or multiple functions to run on a given event.
+
+33
+00:02:20,760 --> 00:02:25,680
+Sometimes you want them to run dynamically, so you may not have both of these functions running every
+
+34
+00:02:25,680 --> 00:02:30,840
+single time something is clicked, but you could have it turned on and off, if that makes sense.
+
+35
+00:02:30,840 --> 00:02:34,920
+So it's possible you could have more than one handler running for a given event.
+
+36
+00:02:35,310 --> 00:02:40,710
+Now, that doesn't work with the two options we've seen, but we have a third option, which I've been
+
+37
+00:02:40,710 --> 00:02:41,560
+hinting at a lot.
+
+38
+00:02:41,580 --> 00:02:43,400
+It's called Add Event Listener.
+
+39
+00:02:43,410 --> 00:02:50,460
+Now, add event listener is great because for one thing, it's one method and it will attach any type
+
+40
+00:02:50,460 --> 00:02:56,220
+of event listener you want a click, a double click, a, what do you call it, a mouse wheel scroll.
+
+41
+00:02:56,220 --> 00:02:57,570
+That's not the official term.
+
+42
+00:02:57,660 --> 00:02:58,710
+A drag.
+
+43
+00:02:58,920 --> 00:03:01,110
+A mouse over any of them.
+
+44
+00:03:01,110 --> 00:03:02,670
+A print before print.
+
+45
+00:03:02,790 --> 00:03:04,530
+For some reason you needed that event.
+
+46
+00:03:04,530 --> 00:03:08,730
+And also it will attach as many as we want to a given element.
+
+47
+00:03:09,270 --> 00:03:18,330
+So if we want to use it, we select our element and then we call the add event listener method.
+
+48
+00:03:18,480 --> 00:03:21,180
+We have it on all elements that we can select.
+
+49
+00:03:21,180 --> 00:03:28,830
+So I have my button I have selected I call button add event listener and if I hover, oop, but there's
+
+50
+00:03:28,830 --> 00:03:30,570
+over 100 different options here.
+
+51
+00:03:30,570 --> 00:03:31,440
+You can see it.
+
+52
+00:03:31,440 --> 00:03:32,310
+It's been condensed.
+
+53
+00:03:32,310 --> 00:03:35,100
+It says 81 more or 91 more.
+
+54
+00:03:35,190 --> 00:03:38,400
+So what I can do is pass in one of those event names.
+
+55
+00:03:38,490 --> 00:03:47,430
+Now I don't pass in on click, I pass in click and instead of on mouse over, I would pass in mouse
+
+56
+00:03:47,430 --> 00:03:48,870
+over as a string.
+
+57
+00:03:48,870 --> 00:03:51,180
+So let's do click start there.
+
+58
+00:03:51,360 --> 00:03:58,440
+And then I have a second argument which is a function and this function will execute when this event
+
+59
+00:03:58,440 --> 00:03:59,190
+occurs.
+
+60
+00:03:59,400 --> 00:04:04,230
+So I'll do an alert clicked and save.
+
+61
+00:04:05,180 --> 00:04:06,440
+Let's check it out.
+
+62
+00:04:06,830 --> 00:04:09,530
+I click the button and we get our alert.
+
+63
+00:04:11,190 --> 00:04:17,730
+I could add a second event listener if I wanted to to the exact same button, also listening for a click
+
+64
+00:04:17,730 --> 00:04:19,610
+and I'll console.log.
+
+65
+00:04:21,000 --> 00:04:22,200
+Second thing.
+
+66
+00:04:23,740 --> 00:04:24,880
+Let's see what happens.
+
+67
+00:04:25,990 --> 00:04:29,140
+So we get our alert and I get second thing.
+
+68
+00:04:29,140 --> 00:04:29,950
+Print it out.
+
+69
+00:04:30,490 --> 00:04:34,140
+So what we're doing here is not setting the on click property.
+
+70
+00:04:34,150 --> 00:04:38,050
+If we actually look at button over here, button on click.
+
+71
+00:04:39,040 --> 00:04:40,810
+It's not set to anything.
+
+72
+00:04:41,260 --> 00:04:48,330
+We are attaching an event listener which we can have multiple of for a given event on a given element.
+
+73
+00:04:48,340 --> 00:04:50,310
+So I could attach as many as I want.
+
+74
+00:04:50,320 --> 00:04:53,770
+It's probably uncommon to do that, at least to do multiple clicks.
+
+75
+00:04:53,770 --> 00:04:55,760
+So let's try a different type of event.
+
+76
+00:04:55,780 --> 00:04:57,650
+How about a hmm?
+
+77
+00:04:57,670 --> 00:04:58,540
+What should we do?
+
+78
+00:04:58,570 --> 00:04:59,410
+A mouse over.
+
+79
+00:04:59,410 --> 00:05:05,350
+So button add event listener mouse over again.
+
+80
+00:05:05,350 --> 00:05:12,100
+Not on mouse over, which is the name of the property we could set, but mouse over and a function.
+
+81
+00:05:13,090 --> 00:05:14,650
+And you can do an arrow function.
+
+82
+00:05:14,650 --> 00:05:18,700
+Although I'll show you times or a situation where you wouldn't want to use an arrow function.
+
+83
+00:05:18,700 --> 00:05:20,680
+It has to do with the keyword this.
+
+84
+00:05:20,680 --> 00:05:21,760
+But we're not there yet.
+
+85
+00:05:21,760 --> 00:05:25,850
+When this happens, why don't we change the inner text of the button?
+
+86
+00:05:25,870 --> 00:05:35,530
+So button dot inner text equals stop touching me and save.
+
+87
+00:05:37,300 --> 00:05:38,530
+Let me zoom in for you.
+
+88
+00:05:38,860 --> 00:05:39,760
+There we go.
+
+89
+00:05:39,880 --> 00:05:46,390
+Now, as soon as I leave, it still stays because I'm just listening for the mouse over and I'm permanently
+
+90
+00:05:46,390 --> 00:05:47,890
+changing the inner text.
+
+91
+00:05:47,920 --> 00:05:52,660
+Fortunately, we have another event we could attach, which is a mouse out.
+
+92
+00:05:53,680 --> 00:06:00,910
+So mouse out and I'll change the text back to what did we have originally we had click me originally,
+
+93
+00:06:01,120 --> 00:06:06,130
+so I'll do that here, click me and save.
+
+94
+00:06:06,130 --> 00:06:07,360
+Let's see if it works.
+
+95
+00:06:07,900 --> 00:06:14,500
+I hover, stop touching me back to click me Stop touching me back to click me If I click it, we get
+
+96
+00:06:14,500 --> 00:06:18,190
+our first click function running and the second one runs as well.
+
+97
+00:06:18,220 --> 00:06:21,280
+Add event listener is our Swiss Army knife for events.
+
+98
+00:06:21,280 --> 00:06:24,700
+We don't have to set individual properties, we don't do it in line.
+
+99
+00:06:24,700 --> 00:06:30,520
+Instead, we can just use the exact same method, but we pass it in the type of event we want.
+
+100
+00:06:30,520 --> 00:06:37,300
+We can have multiple of the exact same event on one element and then we give a callback function.
+
+101
+00:06:37,300 --> 00:06:41,320
+This function will run when this event occurs on this button.
+
+102
+00:06:41,740 --> 00:06:44,970
+So I've got a mouse over a mouse out, a click, a second click.
+
+103
+00:06:44,980 --> 00:06:48,220
+Why don't we try one more something that is a little different.
+
+104
+00:06:48,250 --> 00:06:52,090
+Not a mouse event, so not a click or a mouse over, mouse out.
+
+105
+00:06:52,090 --> 00:06:53,830
+Let's try a scroll event.
+
+106
+00:06:53,830 --> 00:06:58,900
+When we work with scrolls, we have a couple of options as far as where we attach the event to.
+
+107
+00:06:58,990 --> 00:07:05,170
+We can listen for a scroll on the entire window, so that would be a scroll bar over here.
+
+108
+00:07:05,170 --> 00:07:11,080
+I don't actually have enough content to scroll, so I could quickly rectify that by adding a ton of
+
+109
+00:07:11,080 --> 00:07:11,980
+h ones.
+
+110
+00:07:13,850 --> 00:07:17,390
+And if I now do it, I do have a scrollbar on the right side.
+
+111
+00:07:17,420 --> 00:07:21,080
+We could also listen for scrolls within a single element.
+
+112
+00:07:21,080 --> 00:07:26,630
+So if you had like a text box that was very large or an eye frame or some element that you could scroll
+
+113
+00:07:26,630 --> 00:07:30,200
+inside of, then you could add a scroll event to that.
+
+114
+00:07:30,470 --> 00:07:32,690
+But I'll do it on the entire window.
+
+115
+00:07:32,720 --> 00:07:39,020
+I'll also move my button to the top so that it's easier if you are just coming to this code and trying
+
+116
+00:07:39,020 --> 00:07:40,460
+to figure out what the heck is going on.
+
+117
+00:07:40,880 --> 00:07:45,650
+So to add a scroll event to the window, I have access to the window.
+
+118
+00:07:45,830 --> 00:07:48,650
+If I just open up the DevTools, I can just type window.
+
+119
+00:07:49,010 --> 00:07:55,670
+It's the global scope, the global object in the browser and JavaScript window dot add event listener.
+
+120
+00:07:57,460 --> 00:08:03,370
+And the event is scroll and then I'll add a function.
+
+121
+00:08:04,540 --> 00:08:07,510
+And in here, why don't we just cancel that log?
+
+122
+00:08:08,320 --> 00:08:10,000
+Stop scrolling.
+
+123
+00:08:12,970 --> 00:08:14,740
+Same exact pattern.
+
+124
+00:08:14,800 --> 00:08:17,440
+Select something or in our case, with a window.
+
+125
+00:08:17,440 --> 00:08:18,610
+We don't have to select it.
+
+126
+00:08:18,610 --> 00:08:22,660
+We already have window available and then add event listener.
+
+127
+00:08:22,690 --> 00:08:23,890
+What kind of event?
+
+128
+00:08:23,890 --> 00:08:27,840
+What to do in the event of a scroll on the window.
+
+129
+00:08:27,850 --> 00:08:31,570
+So we will refresh and I'm going to scroll.
+
+130
+00:08:31,900 --> 00:08:32,980
+There we go.
+
+131
+00:08:33,190 --> 00:08:36,299
+So you probably notice how many times this is printing out.
+
+132
+00:08:36,309 --> 00:08:41,770
+One of the most common things to do with scrolls is to do something called throttling.
+
+133
+00:08:42,070 --> 00:08:46,870
+You may not want to run this function every single time the scroll event happens.
+
+134
+00:08:46,870 --> 00:08:51,280
+It will fire if you just change your scroll position by a single pixel.
+
+135
+00:08:51,670 --> 00:08:56,770
+Usually what I've seen at least is there's some position you want to scroll past and that will trigger
+
+136
+00:08:56,770 --> 00:08:58,300
+something, maybe an animation.
+
+137
+00:08:58,300 --> 00:09:01,270
+If you get down to the bottom of the page, something will happen.
+
+138
+00:09:01,510 --> 00:09:06,970
+But you normally don't want something to happen like 100 or 300 times in the course of scrolling from
+
+139
+00:09:06,970 --> 00:09:08,680
+the top to the bottom of the page.
+
+140
+00:09:09,040 --> 00:09:11,260
+But that's beyond what we're talking about here.
+
+141
+00:09:11,410 --> 00:09:16,780
+All we need to know is that we can use an event listener to attach all sorts of different events you
+
+142
+00:09:16,780 --> 00:09:22,270
+pass in the event name and a function to be called, and that function will run when the event occurs
+
+143
+00:09:22,360 --> 00:09:25,760
+on that given element on the window, on a button.
+
+144
+00:09:25,780 --> 00:09:31,120
+And also, remember, not only is this nicer to write, in my opinion, one method, but we can also
+
+145
+00:09:31,120 --> 00:09:38,290
+listen for multiple events of the same type on one element versus with our old fashioned on click,
+
+146
+00:09:38,320 --> 00:09:40,750
+either inline or through JavaScript.
+
+147
+00:09:40,750 --> 00:09:42,610
+We don't have that flexibility.
+
+148
+00:09:42,610 --> 00:09:45,970
+So Add event listener is your go to way of adding events?
+
+149
+00:09:45,970 --> 00:09:46,780
+Definitely.
+
+150
+00:09:46,780 --> 00:09:48,790
+Five out of five stars recommended.
+

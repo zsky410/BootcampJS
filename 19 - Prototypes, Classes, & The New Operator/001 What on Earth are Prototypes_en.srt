@@ -1,0 +1,796 @@
+1
+00:00:00,150 --> 00:00:00,960
+Welcome back.
+
+2
+00:00:00,990 --> 00:00:07,860
+In this section, we're focusing on object oriented programming, or at least JavaScript flavor of object
+
+3
+00:00:07,860 --> 00:00:08,820
+oriented programming.
+
+4
+00:00:08,820 --> 00:00:14,340
+So we'll cover things like constructor functions and classes, super keyword inheritance.
+
+5
+00:00:14,340 --> 00:00:21,360
+But we're going to start with a quick video on a quirky but important aspect of JavaScript object prototypes.
+
+6
+00:00:21,360 --> 00:00:23,670
+So you may have come across this at some point.
+
+7
+00:00:23,670 --> 00:00:26,730
+We've briefly touched on it throughout the course a couple of times.
+
+8
+00:00:26,730 --> 00:00:30,930
+We're now going to take a deeper dive into what the heck a prototype is.
+
+9
+00:00:30,930 --> 00:00:32,280
+What does it mean?
+
+10
+00:00:32,670 --> 00:00:33,840
+What is this thing?
+
+11
+00:00:33,840 --> 00:00:40,530
+When I look at an array, what is this proto underscore underscore proto property?
+
+12
+00:00:40,860 --> 00:00:45,390
+So that's what we're going to talk about first, and then we'll go more into creating constructor functions
+
+13
+00:00:45,390 --> 00:00:47,220
+and classes and all of that stuff.
+
+14
+00:00:47,220 --> 00:00:47,580
+All right.
+
+15
+00:00:47,580 --> 00:00:52,500
+So according to MSDN, prototypes are the mechanism by which JavaScript objects, inherent features
+
+16
+00:00:52,650 --> 00:00:54,570
+inherit features from one another.
+
+17
+00:00:54,570 --> 00:00:59,010
+Objects can have a prototype object which acts as a template object.
+
+18
+00:00:59,010 --> 00:01:03,660
+So what this means is that certain objects will take an array as an example.
+
+19
+00:01:03,870 --> 00:01:06,240
+An array has a whole bunch of different methods.
+
+20
+00:01:06,240 --> 00:01:11,850
+If we look at something like array on N on the left side, we've seen this a couple of times.
+
+21
+00:01:11,850 --> 00:01:18,660
+Methods under methods there are so many methods that start with array, dot, prototype, dot and cat
+
+22
+00:01:18,660 --> 00:01:19,350
+entries.
+
+23
+00:01:19,350 --> 00:01:27,810
+Every FIL Keys push, reduce all these methods that we use all the time like 123. push for.
+
+24
+00:01:29,100 --> 00:01:33,710
+That push method is not defined as a method on this array right here.
+
+25
+00:01:33,720 --> 00:01:40,170
+If I save it to a variable constant are ARG equals 1 to 3.
+
+26
+00:01:40,290 --> 00:01:44,760
+If we look at that array, I don't see any methods right here.
+
+27
+00:01:44,760 --> 00:01:52,860
+I mean I could define my own method array, dot sing equals function and we can cancel that log.
+
+28
+00:01:53,830 --> 00:01:54,550
+Ha.
+
+29
+00:01:54,690 --> 00:01:56,340
+How about la la la?
+
+30
+00:01:56,820 --> 00:01:57,390
+Okay.
+
+31
+00:01:57,750 --> 00:02:04,740
+So there is a function or a method technically that I added to the array itself, the individual array.
+
+32
+00:02:04,890 --> 00:02:07,260
+It has a method called sing.
+
+33
+00:02:07,260 --> 00:02:09,870
+Remember arrays are objects in JavaScript.
+
+34
+00:02:09,870 --> 00:02:12,930
+So when we added that method to array, we see it show up here.
+
+35
+00:02:13,110 --> 00:02:21,030
+But when I call array, push, push five, I don't see that method listed here.
+
+36
+00:02:21,030 --> 00:02:23,060
+I don't see any of the methods we use.
+
+37
+00:02:23,070 --> 00:02:29,010
+They're all instead of this property called underscore, underscore, proto, underscore, underscore
+
+38
+00:02:29,010 --> 00:02:30,060
+a just proto.
+
+39
+00:02:30,090 --> 00:02:33,810
+Some people also call this Dunder, double, underscore dunder.
+
+40
+00:02:33,810 --> 00:02:35,040
+I just say proto.
+
+41
+00:02:35,100 --> 00:02:39,750
+It's a property that references the array prototype.
+
+42
+00:02:39,930 --> 00:02:45,000
+So a prototype is the template object for in this case, arrays.
+
+43
+00:02:45,000 --> 00:02:47,490
+It contains a bunch of methods typically.
+
+44
+00:02:47,640 --> 00:02:51,060
+So all of these methods that every array will have access to.
+
+45
+00:02:51,060 --> 00:02:56,310
+But rather than defining them individually in every single array, a separate copy.
+
+46
+00:02:56,370 --> 00:02:56,730
+Right.
+
+47
+00:02:56,730 --> 00:02:58,470
+I could make another array here.
+
+48
+00:02:58,500 --> 00:02:59,940
+Cost array to.
+
+49
+00:03:00,900 --> 00:03:02,850
+Equals four or five six.
+
+50
+00:03:03,360 --> 00:03:04,590
+We look at a ray two.
+
+51
+00:03:04,620 --> 00:03:11,580
+It doesn't have its own copy of Push and Pop, all that it has just as the original array that we created.
+
+52
+00:03:11,610 --> 00:03:17,810
+They both share a property called Proto, which is a reference to this blueprint object.
+
+53
+00:03:17,820 --> 00:03:18,930
+The prototype.
+
+54
+00:03:19,170 --> 00:03:24,870
+This prototype contains all of the methods, and through the magic of JavaScript, I can simply access
+
+55
+00:03:24,870 --> 00:03:25,950
+a ray dot.
+
+56
+00:03:25,950 --> 00:03:28,650
+And then what's another one we haven't used yet?
+
+57
+00:03:28,770 --> 00:03:30,180
+How about includes?
+
+58
+00:03:30,210 --> 00:03:31,830
+Does that array include two?
+
+59
+00:03:31,860 --> 00:03:32,790
+We get true.
+
+60
+00:03:32,940 --> 00:03:37,230
+This includes method is not defined on every single array that we make.
+
+61
+00:03:37,260 --> 00:03:40,350
+It is defined on this prototype object.
+
+62
+00:03:40,860 --> 00:03:43,920
+Now, the reason I'm bringing this up is that it matters.
+
+63
+00:03:43,920 --> 00:03:49,290
+It's something we will cover and come back to as we talk about defining classes and constructor functions.
+
+64
+00:03:49,620 --> 00:03:56,910
+So rather than having a separate method on every single array called push, there is one prototype and
+
+65
+00:03:56,910 --> 00:04:04,770
+each array has a reference to that prototype with this special property double underscore proto and
+
+66
+00:04:04,770 --> 00:04:08,110
+we actually can see this in other types of objects in JavaScript.
+
+67
+00:04:08,130 --> 00:04:13,800
+What if I take a look at the document body and I save that to a variable const?
+
+68
+00:04:14,520 --> 00:04:15,780
+We'll just call this body.
+
+69
+00:04:17,810 --> 00:04:22,050
+If we look at body, I'm going to have to console that dear body.
+
+70
+00:04:23,250 --> 00:04:24,330
+Well, open it up.
+
+71
+00:04:24,360 --> 00:04:28,230
+It has certain properties that are specific to this body.
+
+72
+00:04:28,560 --> 00:04:32,130
+Things like the base, Yuri, the background.
+
+73
+00:04:32,130 --> 00:04:34,210
+But then it also has a proto.
+
+74
+00:04:34,230 --> 00:04:35,220
+Down at the bottom.
+
+75
+00:04:36,240 --> 00:04:42,390
+Its prototype is an HTML body element and there are different methods and properties that correspond
+
+76
+00:04:42,390 --> 00:04:46,550
+to that prototype template, this HTML body template.
+
+77
+00:04:46,560 --> 00:04:50,280
+So that's the basic idea of a prototype or prototypes.
+
+78
+00:04:50,280 --> 00:04:57,420
+In JavaScript, we have this one object that is the the prototype for other types of objects.
+
+79
+00:04:57,420 --> 00:04:59,400
+So there is an array prototype.
+
+80
+00:04:59,400 --> 00:05:02,850
+If I look at array dot prototype.
+
+81
+00:05:04,100 --> 00:05:05,270
+Capital a array.
+
+82
+00:05:05,270 --> 00:05:09,920
+So not an individual instance of an array, but capital a array.
+
+83
+00:05:10,310 --> 00:05:13,640
+Here is everything on that array prototype.
+
+84
+00:05:14,300 --> 00:05:20,210
+And I could actually define my own type of an object, my own brand new object, and set its prototype
+
+85
+00:05:20,210 --> 00:05:21,380
+to the array prototype.
+
+86
+00:05:21,380 --> 00:05:27,080
+And I would have access to those array methods in my whatever object, my version of the array.
+
+87
+00:05:27,350 --> 00:05:28,610
+But we're not there yet.
+
+88
+00:05:28,790 --> 00:05:33,110
+All we need to know at this point is that prototypes are like a template object.
+
+89
+00:05:33,110 --> 00:05:33,380
+That's.
+
+90
+00:05:33,380 --> 00:05:34,550
+That's actually what they are.
+
+91
+00:05:34,580 --> 00:05:35,750
+They are objects.
+
+92
+00:05:35,900 --> 00:05:38,570
+They contain typically a bunch of methods.
+
+93
+00:05:38,570 --> 00:05:44,090
+And then we can create multiple objects that share the same prototype so that they all have access to
+
+94
+00:05:44,090 --> 00:05:47,150
+the same methods without having to have their own copy.
+
+95
+00:05:47,180 --> 00:05:53,150
+Now, as a fun little demo here, we can actually mess with or add our own properties and methods to
+
+96
+00:05:53,150 --> 00:05:57,730
+the array, prototype or object, prototype or whatever prototypes we want.
+
+97
+00:05:57,740 --> 00:06:00,590
+There is a string prototype as well.
+
+98
+00:06:00,620 --> 00:06:05,690
+Strings are kind of confusing because we've talked about how strings and numbers and booleans are technically
+
+99
+00:06:05,690 --> 00:06:06,750
+primitive types.
+
+100
+00:06:06,770 --> 00:06:12,980
+However, in JavaScript they all get these intermediate object wrappers, and that's where all those
+
+101
+00:06:12,980 --> 00:06:16,070
+string methods come from the string prototype.
+
+102
+00:06:17,570 --> 00:06:23,000
+So I could actually add on something to the string prototype right now if I just take a look, we see
+
+103
+00:06:23,000 --> 00:06:26,750
+a bunch of string methods like can cat and a property like length.
+
+104
+00:06:26,750 --> 00:06:27,500
+What else do we have?
+
+105
+00:06:27,500 --> 00:06:30,890
+Substring starts with search replace.
+
+106
+00:06:31,220 --> 00:06:35,510
+I could add my own method called Grumpy's.
+
+107
+00:06:35,600 --> 00:06:37,250
+Go back to good old Grumpy's.
+
+108
+00:06:37,280 --> 00:06:41,720
+Set it to an arrow function and we'll just cancel that log.
+
+109
+00:06:42,230 --> 00:06:42,300
+Right.
+
+110
+00:06:42,470 --> 00:06:43,550
+How about we alert?
+
+111
+00:06:43,850 --> 00:06:45,170
+Go away.
+
+112
+00:06:46,070 --> 00:06:46,850
+Just like that.
+
+113
+00:06:48,200 --> 00:06:48,790
+OC.
+
+114
+00:06:49,500 --> 00:06:51,130
+So it doesn't seem like much happened.
+
+115
+00:06:51,150 --> 00:06:52,920
+We look at string up prototype.
+
+116
+00:06:52,920 --> 00:06:58,770
+This prototype object, this template for other strings now has a property called Grumpy's.
+
+117
+00:06:58,860 --> 00:07:00,860
+So why don't I make a new string?
+
+118
+00:07:00,870 --> 00:07:05,740
+I'll call this const cat equals blue.
+
+119
+00:07:05,760 --> 00:07:07,560
+I guess one of my cats.
+
+120
+00:07:07,590 --> 00:07:11,480
+Now what if I try and call Cat Dot Grumpy's?
+
+121
+00:07:12,320 --> 00:07:14,900
+Hey, this page says go away.
+
+122
+00:07:15,110 --> 00:07:20,930
+So now every time I make a string, at least until I refresh my page, I now have access to a new string
+
+123
+00:07:20,930 --> 00:07:22,820
+method called Grumpy's.
+
+124
+00:07:23,030 --> 00:07:24,890
+I could also add on a property.
+
+125
+00:07:25,220 --> 00:07:28,730
+I could do string dot, prototype dot.
+
+126
+00:07:28,760 --> 00:07:32,510
+How about we do yell and we'll do something slightly more complicated?
+
+127
+00:07:32,510 --> 00:07:34,550
+I think I'm going to move over to my code here.
+
+128
+00:07:34,580 --> 00:07:40,110
+Let's access string prototype, which remember is the prototype object for every string.
+
+129
+00:07:40,130 --> 00:07:42,800
+It is the place where string methods are stored.
+
+130
+00:07:43,160 --> 00:07:44,680
+I can now add on something.
+
+131
+00:07:44,690 --> 00:07:51,350
+Let's go with yell, which will be a function and let's just console that.
+
+132
+00:07:51,350 --> 00:07:54,230
+Log this instead of here for a moment.
+
+133
+00:07:54,990 --> 00:07:56,130
+So we're getting ahead of ourselves.
+
+134
+00:07:56,130 --> 00:07:58,170
+But I want to just show something kind of fun.
+
+135
+00:07:58,530 --> 00:08:04,230
+If I run my code, I make some string like Hello and I call dot yell.
+
+136
+00:08:05,410 --> 00:08:08,200
+This referred to the string.
+
+137
+00:08:08,200 --> 00:08:08,860
+Hello.
+
+138
+00:08:10,180 --> 00:08:14,740
+So what I could do is console.log this dot to uppercase.
+
+139
+00:08:16,400 --> 00:08:22,040
+So this refers to whatever string we're calling the method on, which is actually something we've seen
+
+140
+00:08:22,040 --> 00:08:27,290
+before, where we had an object and we would refer to this X inside of that object.
+
+141
+00:08:27,620 --> 00:08:33,289
+This will refer to whatever is on the left hand side of that dot, at least in this case.
+
+142
+00:08:34,250 --> 00:08:35,120
+So let's try.
+
+143
+00:08:35,120 --> 00:08:36,470
+Hello again.
+
+144
+00:08:36,590 --> 00:08:37,070
+All right.
+
+145
+00:08:37,070 --> 00:08:41,630
+We've just called an existing method to uppercase, which is already there.
+
+146
+00:08:41,630 --> 00:08:49,760
+So why don't we return a template literal string where we have this two uppercase?
+
+147
+00:08:51,920 --> 00:08:54,770
+Plus a bunch of bunch of exclamation points.
+
+148
+00:08:54,770 --> 00:08:59,990
+And then how about some other stuff like OMG, more exclamation points.
+
+149
+00:09:01,760 --> 00:09:03,620
+That's screaming apparently.
+
+150
+00:09:03,810 --> 00:09:06,190
+OC Refresh my page.
+
+151
+00:09:06,200 --> 00:09:12,050
+I make some string like I love you dot yell.
+
+152
+00:09:13,290 --> 00:09:14,380
+And this is what we get.
+
+153
+00:09:14,400 --> 00:09:18,360
+We've made our own method that we can use on every single string.
+
+154
+00:09:18,600 --> 00:09:21,390
+It's important to realize that this is not really a good idea.
+
+155
+00:09:21,420 --> 00:09:24,840
+This is not a pattern that I would recommend you follow all the time.
+
+156
+00:09:24,870 --> 00:09:31,920
+It's just a demonstration of how prototypes work so we can add something to the array prototype, ray
+
+157
+00:09:31,920 --> 00:09:38,910
+dot prototype, which is a specific object, a template that stores methods and properties for every
+
+158
+00:09:38,910 --> 00:09:39,750
+single array.
+
+159
+00:09:39,750 --> 00:09:43,170
+And we can override something like Dot Pop.
+
+160
+00:09:44,330 --> 00:09:48,170
+And we'll make that a function, but it will just always return.
+
+161
+00:09:48,200 --> 00:09:49,070
+Sorry.
+
+162
+00:09:49,070 --> 00:09:51,140
+I want that element.
+
+163
+00:09:51,620 --> 00:09:55,910
+I will never pop it off.
+
+164
+00:09:58,130 --> 00:10:05,120
+So we are now replacing the existing pop that every array looks up to on its array prototype.
+
+165
+00:10:05,420 --> 00:10:10,400
+So if I make an array like three, four or five and I call pop, huh?
+
+166
+00:10:10,430 --> 00:10:11,380
+It doesn't work.
+
+167
+00:10:11,390 --> 00:10:12,950
+We get our version.
+
+168
+00:10:13,730 --> 00:10:15,130
+So kind of fun stuff.
+
+169
+00:10:15,140 --> 00:10:18,480
+Not highly recommended, but it is going to be informative.
+
+170
+00:10:18,500 --> 00:10:20,790
+It will be helpful to understand prototypes.
+
+171
+00:10:20,810 --> 00:10:23,150
+It's actually a relatively simple idea.
+
+172
+00:10:23,180 --> 00:10:26,360
+It's very intimidating, I think, when you're starting out.
+
+173
+00:10:26,360 --> 00:10:34,160
+But the idea boils down to having a single object that contains common properties and methods that other
+
+174
+00:10:34,160 --> 00:10:41,360
+copies, other objects of arrays or other strings look up to to find their common properties.
+
+175
+00:10:41,360 --> 00:10:42,630
+It's a place to store things.
+
+176
+00:10:42,630 --> 00:10:43,820
+It's a template, a blueprint.
+
+177
+00:10:43,820 --> 00:10:48,170
+There are so many ways of putting it, but the term in JavaScript is prototype.
+
+178
+00:10:48,980 --> 00:10:55,700
+The one confusing thing that I would like to address is if I make an array here const, I don't know,
+
+179
+00:10:55,700 --> 00:10:56,360
+nums again.
+
+180
+00:10:56,360 --> 00:10:57,320
+I know it's so boring.
+
+181
+00:10:57,320 --> 00:10:57,950
+Nums.
+
+182
+00:10:57,950 --> 00:10:59,030
+Seven, eight, nine.
+
+183
+00:11:01,100 --> 00:11:06,890
+If I look at nums, what is this underscore proto versus prototype?
+
+184
+00:11:07,700 --> 00:11:12,410
+So they both are very similar and they both sound like prototype or proto.
+
+185
+00:11:12,680 --> 00:11:20,200
+This here array prototype is the actual object where we add the methods to or the properties.
+
+186
+00:11:20,210 --> 00:11:23,090
+This is the template object, the prototype.
+
+187
+00:11:23,540 --> 00:11:25,850
+This is a reference.
+
+188
+00:11:25,850 --> 00:11:31,610
+So underscore proto is a property name on this array or on this string?
+
+189
+00:11:31,610 --> 00:11:32,240
+I could look.
+
+190
+00:11:32,360 --> 00:11:37,550
+I don't have a string there, but I could make a string const dog equals Timothy.
+
+191
+00:11:37,820 --> 00:11:45,830
+And if I look at dog dot underscore proto, it's a reference to the string prototype to this object.
+
+192
+00:11:46,720 --> 00:11:49,330
+So it's a reference versus this.
+
+193
+00:11:49,330 --> 00:11:56,650
+Here is the actual prototype object that I can add on to, but inside individual strings or arrays or
+
+194
+00:11:56,650 --> 00:12:02,380
+other objects, the property name that is used to reference that actual template, the prototype object
+
+195
+00:12:02,380 --> 00:12:04,450
+is double underscore proto.
+
+196
+00:12:05,020 --> 00:12:09,850
+It's pretty rare that you would ever need to touch this yourself or do anything with underscore proto.
+
+197
+00:12:10,690 --> 00:12:16,420
+If anything, you will be accessing the actual prototype itself and manipulating it.
+
+198
+00:12:16,540 --> 00:12:19,320
+So that is a brief primer on prototypes.
+
+199
+00:12:19,330 --> 00:12:23,530
+Next, we're going to talk about some basics of constructor functions in JavaScript.
+

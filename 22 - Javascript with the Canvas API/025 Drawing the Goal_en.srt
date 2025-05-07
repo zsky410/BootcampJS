@@ -1,0 +1,408 @@
+1
+00:00:00,510 --> 00:00:05,400
+In this video, we're going to focus on showing the goal on the very bottom right corner of our maze.
+
+2
+00:00:05,430 --> 00:00:08,460
+The goal is always going to be exactly right here on the bottom right hand corner.
+
+3
+00:00:08,460 --> 00:00:10,850
+So this calculation is going to be pretty straightforward.
+
+4
+00:00:10,860 --> 00:00:15,990
+We just have to be aware that we probably want to adjust the size of the goal based upon our unit length
+
+5
+00:00:15,990 --> 00:00:18,390
+or essentially the size of each individual cell.
+
+6
+00:00:18,660 --> 00:00:23,250
+So in other words, if we have really large cells, as we do right now, we want to have a really large
+
+7
+00:00:23,250 --> 00:00:25,290
+goal that fills up most of that space.
+
+8
+00:00:25,290 --> 00:00:31,140
+But if we have some very small cells, like back just a second ago when I showed cells of 20 or 30,
+
+9
+00:00:31,350 --> 00:00:35,760
+then in this case, we want the goal down here to be really, really small instead.
+
+10
+00:00:35,880 --> 00:00:40,890
+So essentially we just need the goal rectangle or the rectangle that represents the goal to be just
+
+11
+00:00:40,890 --> 00:00:44,670
+about scaling itself with the size of our different cells.
+
+12
+00:00:45,460 --> 00:00:45,610
+Yes.
+
+13
+00:00:45,640 --> 00:00:46,600
+I'm going to go back over.
+
+14
+00:00:46,990 --> 00:00:48,520
+I'm going to go down to the very bottom.
+
+15
+00:00:50,000 --> 00:00:53,300
+And down here, I'm going to create a new variable called goal.
+
+16
+00:00:53,780 --> 00:00:56,420
+This is going to be a body start rectangle.
+
+17
+00:00:58,060 --> 00:01:00,710
+And then right away, I'm not going to worry about the configuration just yet.
+
+18
+00:01:00,730 --> 00:01:03,100
+Instead, I'll add in the code to add this thing to our world.
+
+19
+00:01:03,100 --> 00:01:07,570
+So we'll say world, add, world and goal.
+
+20
+00:01:08,110 --> 00:01:11,860
+So let's think about how we're going to calculate the arguments for the rectangle.
+
+21
+00:01:12,760 --> 00:01:18,010
+Remember, the first two arguments are going to be the x and y coordinates to the center of the goal.
+
+22
+00:01:18,820 --> 00:01:19,090
+Okay.
+
+23
+00:01:19,090 --> 00:01:20,050
+So quick diagram.
+
+24
+00:01:20,410 --> 00:01:25,960
+So we're essentially saying that we just want to draw a rectangle like right here and we need to find
+
+25
+00:01:25,960 --> 00:01:27,400
+the coordinates to that point.
+
+26
+00:01:27,400 --> 00:01:30,220
+So something like this right here.
+
+27
+00:01:31,230 --> 00:01:33,600
+We can see how that lines up with the center.
+
+28
+00:01:34,830 --> 00:01:37,170
+And about this right here.
+
+29
+00:01:38,030 --> 00:01:41,870
+Again, we can see how that kind of lines up with the center.
+
+30
+00:01:42,350 --> 00:01:44,300
+So in this case, it's really not going to be that hard.
+
+31
+00:01:44,330 --> 00:01:47,180
+We know that the overall width of this thing.
+
+32
+00:01:48,430 --> 00:01:50,170
+Is our canvas width.
+
+33
+00:01:50,680 --> 00:01:52,630
+So that's the like overall width.
+
+34
+00:01:52,930 --> 00:01:57,250
+And we know that the overall height is going to be height.
+
+35
+00:01:58,850 --> 00:02:03,860
+So we want to essentially take the full width and the full height and then subtract the width of half
+
+36
+00:02:03,860 --> 00:02:04,760
+of a cell.
+
+37
+00:02:04,910 --> 00:02:05,300
+Is that right?
+
+38
+00:02:05,300 --> 00:02:11,720
+There is one half of a cell and we are calling the variable that represents the cell dimension.
+
+39
+00:02:11,720 --> 00:02:14,090
+Remember, we are calling that unit.
+
+40
+00:02:14,810 --> 00:02:15,650
+Length.
+
+41
+00:02:16,710 --> 00:02:23,660
+So essentially the center point to that rectangle is going to be our width of the overall canvas minus
+
+42
+00:02:24,150 --> 00:02:26,040
+unit length.
+
+43
+00:02:28,120 --> 00:02:29,080
+Divided by two.
+
+44
+00:02:30,050 --> 00:02:33,140
+And then the Y component will be the overall height.
+
+45
+00:02:34,180 --> 00:02:35,110
+Minus.
+
+46
+00:02:37,460 --> 00:02:40,820
+Unit length divided by two, and that's pretty much it.
+
+47
+00:02:41,520 --> 00:02:44,310
+So let's take that information, go back over and add it in.
+
+48
+00:02:44,670 --> 00:02:49,860
+So the X coordinate is going to be bi width, minus unit length divided by two.
+
+49
+00:02:50,250 --> 00:02:54,960
+And remember this width variable right here is a reference back to the overall width of our canvas.
+
+50
+00:02:57,040 --> 00:03:01,120
+Then my y will be the height minus unit length divided by two.
+
+51
+00:03:01,150 --> 00:03:04,570
+Once again, I made a typo right there on unit length, so I'm going to get that fixed up.
+
+52
+00:03:05,490 --> 00:03:05,820
+All right.
+
+53
+00:03:05,820 --> 00:03:06,780
+And that's pretty much it.
+
+54
+00:03:07,470 --> 00:03:11,400
+So now we need to make sure that the size of this rectangle so its height and width, which are the
+
+55
+00:03:11,400 --> 00:03:14,730
+third and fourth arguments, also scale with the unit length.
+
+56
+00:03:15,060 --> 00:03:20,520
+So you can imagine that if we always had a fixed height and width to the rectangle itself, as soon
+
+57
+00:03:20,520 --> 00:03:25,350
+as we start to scale down the maze as we have right here, well, the rectangle would be way too large
+
+58
+00:03:25,350 --> 00:03:26,190
+inside of here.
+
+59
+00:03:26,550 --> 00:03:32,880
+So to make sure that this thing scales, we can just do a unit length and then multiply that by like
+
+60
+00:03:32,880 --> 00:03:34,320
+0.7 or something.
+
+61
+00:03:34,320 --> 00:03:39,540
+So that means I want the rectangle size to just scale with the size of a cell.
+
+62
+00:03:39,540 --> 00:03:43,230
+So I want the cell to essentially be 70% of the size of a cell.
+
+63
+00:03:43,860 --> 00:03:46,410
+I could do unit length again times 0.7.
+
+64
+00:03:47,640 --> 00:03:51,540
+And finally, I do want this thing to be static because I don't want it to move around.
+
+65
+00:03:52,530 --> 00:03:55,530
+They'll say is static is true.
+
+66
+00:03:58,270 --> 00:03:58,510
+Yes.
+
+67
+00:03:58,510 --> 00:03:59,380
+I'll save this.
+
+68
+00:03:59,950 --> 00:04:04,150
+I'm going to make sure that my cells variable back up at the top is back at three.
+
+69
+00:04:04,150 --> 00:04:06,370
+So we'll do it test with the very simple case to start.
+
+70
+00:04:07,460 --> 00:04:09,920
+I'll go back over refresh and there's our goal.
+
+71
+00:04:10,830 --> 00:04:15,720
+Now having the goal up here as this kind of outline and not that great, it's really not clear to a
+
+72
+00:04:15,720 --> 00:04:17,209
+user what that is all about.
+
+73
+00:04:17,220 --> 00:04:21,480
+We're essentially going to add in a fill to it as opposed to have it in a wireframes mode.
+
+74
+00:04:21,480 --> 00:04:24,170
+Once we add in a fill, we can make the thing green.
+
+75
+00:04:24,210 --> 00:04:28,110
+It will be a lot more obvious to our users that they're trying to like navigate to that thing right
+
+76
+00:04:28,110 --> 00:04:28,530
+there.
+
+77
+00:04:29,290 --> 00:04:30,720
+Now that definitely looks good.
+
+78
+00:04:30,730 --> 00:04:32,470
+But I want to point out a little issue.
+
+79
+00:04:32,830 --> 00:04:37,030
+If we increase our cells right here to say like 15 and save.
+
+80
+00:04:37,900 --> 00:04:43,540
+Then it looks like it's just about impossible to actually get to that goal because our bottom border
+
+81
+00:04:43,540 --> 00:04:48,310
+is overlapping or kind of intersecting that actual goal that we're trying to get at.
+
+82
+00:04:48,850 --> 00:04:53,740
+So I think that at this point, the borders that we have around the outside are way too thick and we
+
+83
+00:04:53,740 --> 00:04:57,730
+need to probably reduce their size so that they're not going to actually interfere with the different
+
+84
+00:04:57,730 --> 00:04:59,200
+elements of the maze itself.
+
+85
+00:05:00,180 --> 00:05:03,600
+So for that, I'm going to go back to the section where we created all of our different walls.
+
+86
+00:05:05,140 --> 00:05:09,250
+Remember we put on that helpful comment just to help ourselves find this thing in the future.
+
+87
+00:05:09,910 --> 00:05:14,320
+And I'm going to change the forties inside of here, which represent the width of that wall.
+
+88
+00:05:14,950 --> 00:05:16,930
+I'm going to change all four of them to.
+
+89
+00:05:16,930 --> 00:05:19,180
+How about just two like so?
+
+90
+00:05:19,890 --> 00:05:22,050
+That's basically really, really thin.
+
+91
+00:05:23,030 --> 00:05:24,710
+And we can just about not see them.
+
+92
+00:05:24,710 --> 00:05:29,390
+But now they're not really actually conflicting with any of the elements inside of our maze anymore.
+
+93
+00:05:29,630 --> 00:05:32,000
+So I think that's definitely a better approach to to take.
+
+94
+00:05:33,540 --> 00:05:33,780
+Okay.
+
+95
+00:05:33,780 --> 00:05:34,680
+So that's our goal.
+
+96
+00:05:34,710 --> 00:05:38,970
+Now we do eventually have to add in some code to detect a collision between the ball that we're going
+
+97
+00:05:38,970 --> 00:05:41,510
+to place and that thing to decide when the user wins.
+
+98
+00:05:41,520 --> 00:05:43,150
+But we'll take care of that in just a little bit.
+
+99
+00:05:43,170 --> 00:05:44,580
+Right now, let's take a pause.
+
+100
+00:05:44,580 --> 00:05:46,260
+We'll come back and we'll start to add in the ball.
+
+101
+00:05:46,260 --> 00:05:48,600
+That's going to start off at the top left corner.
+
+102
+00:05:48,990 --> 00:05:51,270
+So quick pause and I'll see you in just a minute.
+

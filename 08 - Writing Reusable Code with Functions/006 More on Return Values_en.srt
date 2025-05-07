@@ -1,0 +1,596 @@
+1
+00:00:00,120 --> 00:00:06,630
+So we saw that we can use a return statement to export or return a value so that we can capture it later
+
+2
+00:00:06,630 --> 00:00:08,550
+in a variable or do something with it.
+
+3
+00:00:08,550 --> 00:00:12,870
+But there's another thing you should know about return statements, which is that they end function
+
+4
+00:00:12,870 --> 00:00:13,860
+execution.
+
+5
+00:00:13,860 --> 00:00:19,230
+So if you have a return statement in the middle of your function, the code afterwards is not going
+
+6
+00:00:19,230 --> 00:00:20,110
+to execute.
+
+7
+00:00:20,130 --> 00:00:27,450
+For example, if we have our function square, which takes a number and we want it to return x times
+
+8
+00:00:27,450 --> 00:00:32,850
+x if that's the parameter, if I add some code afterwards like console.log.
+
+9
+00:00:32,940 --> 00:00:44,250
+All done and I try calling this function square of four, I get 16, but this console.log never runs.
+
+10
+00:00:44,250 --> 00:00:46,650
+It's after this return statement.
+
+11
+00:00:46,650 --> 00:00:50,070
+Whenever JavaScript encounters a return, it just moves on.
+
+12
+00:00:50,070 --> 00:00:51,930
+It's done with this function entirely.
+
+13
+00:00:51,930 --> 00:00:53,820
+We could have 100 lines after this.
+
+14
+00:00:53,820 --> 00:00:55,080
+They would not run.
+
+15
+00:00:55,620 --> 00:01:01,800
+But of course, if we were using conditionals, if we had an if statement around a return, then it
+
+16
+00:01:01,800 --> 00:01:03,330
+may not run every single time.
+
+17
+00:01:03,330 --> 00:01:09,150
+So it's not a matter of if there is a return statement written anywhere in the function nothing afterwards
+
+18
+00:01:09,150 --> 00:01:09,660
+runs.
+
+19
+00:01:09,660 --> 00:01:16,080
+It's only if the return statement is executed if this code is run, which in our case it always is.
+
+20
+00:01:16,230 --> 00:01:22,800
+But we could write something else like a very stupid function called is purple, is purple, takes a
+
+21
+00:01:22,800 --> 00:01:27,720
+color as a parameter and we'll assume it's a string.
+
+22
+00:01:27,840 --> 00:01:36,450
+And if color is triple equal to the string purple, we will return.
+
+23
+00:01:37,200 --> 00:01:44,970
+True, I name this is purple which is a standard convention is something for a boolean method which
+
+24
+00:01:44,970 --> 00:01:46,590
+returns true or false.
+
+25
+00:01:46,950 --> 00:01:48,480
+So we have true or false.
+
+26
+00:01:48,480 --> 00:01:49,410
+We're returning true.
+
+27
+00:01:49,410 --> 00:01:56,100
+If color is triple equal to purple, if it's not equal to purple, we could return false.
+
+28
+00:01:56,100 --> 00:01:57,750
+So we have to return statements.
+
+29
+00:01:57,750 --> 00:01:59,550
+But only one of them is going to run.
+
+30
+00:02:00,090 --> 00:02:05,970
+If color is purple, this will run and let's actually make it a little more case insensitive.
+
+31
+00:02:05,970 --> 00:02:09,720
+So why don't we two lowercase color.
+
+32
+00:02:09,870 --> 00:02:16,110
+So if someone passes in purple in all caps, will compare it first by lowercase it to all lowercase
+
+33
+00:02:16,110 --> 00:02:17,760
+and then comparing it to purple.
+
+34
+00:02:18,570 --> 00:02:18,990
+All right.
+
+35
+00:02:18,990 --> 00:02:25,710
+So is purple of blue is false is purple of purple.
+
+36
+00:02:25,800 --> 00:02:26,670
+It's true.
+
+37
+00:02:29,020 --> 00:02:29,620
+Whoops.
+
+38
+00:02:30,130 --> 00:02:32,080
+All caps we still get true.
+
+39
+00:02:32,650 --> 00:02:35,650
+So this is not the best way of writing this function.
+
+40
+00:02:35,650 --> 00:02:40,300
+And we'll talk about how we could refactor it in a moment, ignoring the fact that it's not even a useful
+
+41
+00:02:40,300 --> 00:02:42,790
+function at all, not even remotely useful.
+
+42
+00:02:43,150 --> 00:02:44,740
+We do have to return statements.
+
+43
+00:02:44,740 --> 00:02:49,990
+Only one of them is going to run, but as soon as one of them does run, the rest of the code stops.
+
+44
+00:02:50,020 --> 00:02:56,890
+So in this, if if I had a console.log, yay, that's never going to run ever.
+
+45
+00:02:56,890 --> 00:03:03,640
+There's no scenario where this runs because either this is true and we're returning, which stops the
+
+46
+00:03:03,640 --> 00:03:06,520
+execution of the function completely or it's false.
+
+47
+00:03:06,520 --> 00:03:14,470
+And so this entire chunk is skipped and removed right to here, if I try is purple with purple, we
+
+48
+00:03:14,470 --> 00:03:15,160
+don't get it.
+
+49
+00:03:16,340 --> 00:03:16,780
+Okay.
+
+50
+00:03:16,870 --> 00:03:22,960
+So I mentioned there are other ways of writing this for especially for a simple, if else, a simple
+
+51
+00:03:22,960 --> 00:03:23,770
+yes or no.
+
+52
+00:03:23,980 --> 00:03:26,440
+We can rewrite this function a couple of different ways.
+
+53
+00:03:26,440 --> 00:03:27,490
+I'm going to copy this.
+
+54
+00:03:28,570 --> 00:03:35,020
+The first improvement we could make is to remove the else entirely because of the way return statements
+
+55
+00:03:35,020 --> 00:03:35,440
+work.
+
+56
+00:03:35,440 --> 00:03:39,600
+What we just talked about, where they end function execution.
+
+57
+00:03:39,610 --> 00:03:45,970
+The only way to get to this line is if this is false because we're returning true in here.
+
+58
+00:03:46,630 --> 00:03:47,680
+Execution stops.
+
+59
+00:03:47,680 --> 00:03:50,320
+So if color is purple, we're done.
+
+60
+00:03:50,650 --> 00:03:51,730
+Function over.
+
+61
+00:03:51,760 --> 00:03:55,480
+If it's not, this is the only way we would ever return.
+
+62
+00:03:55,480 --> 00:03:56,050
+False.
+
+63
+00:03:56,260 --> 00:03:58,560
+So it's just a shorter way of writing this.
+
+64
+00:03:58,570 --> 00:04:03,130
+You'll see people write functions like this that take advantage of the fact that a return statement
+
+65
+00:04:03,130 --> 00:04:04,570
+stops a function.
+
+66
+00:04:05,830 --> 00:04:07,150
+So this is one way of doing it.
+
+67
+00:04:07,150 --> 00:04:09,580
+We can just run the code again, make sure it still works.
+
+68
+00:04:09,580 --> 00:04:14,830
+Is purple of purple is true, is purple of anything else is false.
+
+69
+00:04:15,190 --> 00:04:16,720
+We don't have an LS now.
+
+70
+00:04:16,720 --> 00:04:20,980
+There's actually an even shorter way of writing this where we could basically do it on one line.
+
+71
+00:04:21,430 --> 00:04:27,070
+If we're just returning a boolean, true or false, we can simply return this right here.
+
+72
+00:04:28,150 --> 00:04:31,840
+Return color to lowercase triple equals purple.
+
+73
+00:04:32,830 --> 00:04:35,260
+This right here is a boolean expression.
+
+74
+00:04:35,560 --> 00:04:38,200
+Triple equals will give us true or false.
+
+75
+00:04:38,500 --> 00:04:44,350
+So if I have, let's say color is pink, I would call pink two lowercase.
+
+76
+00:04:47,080 --> 00:04:48,250
+Triple equals purple.
+
+77
+00:04:48,280 --> 00:04:49,150
+That's false.
+
+78
+00:04:49,150 --> 00:04:56,450
+But if color is purple, even if it's capitalized oddly, it still gives us true.
+
+79
+00:04:56,470 --> 00:05:00,780
+So we're going to return this value and that will be true or false.
+
+80
+00:05:00,790 --> 00:05:03,850
+This evaluates first, then it's returned.
+
+81
+00:05:04,510 --> 00:05:06,160
+So it's just another way of writing it.
+
+82
+00:05:06,160 --> 00:05:07,760
+We only need one return.
+
+83
+00:05:07,780 --> 00:05:12,000
+Now, this only works for a yes or no simple situation like we have here.
+
+84
+00:05:12,010 --> 00:05:14,560
+What if we wanted to check if color is purple?
+
+85
+00:05:14,650 --> 00:05:15,580
+We want to return.
+
+86
+00:05:15,580 --> 00:05:16,090
+True.
+
+87
+00:05:16,090 --> 00:05:19,060
+And if color is lilac, we want to return true.
+
+88
+00:05:19,060 --> 00:05:20,710
+Anything else is false.
+
+89
+00:05:20,860 --> 00:05:22,390
+We would need to rewrite this.
+
+90
+00:05:22,390 --> 00:05:24,460
+It would be harder to do in a single line.
+
+91
+00:05:25,350 --> 00:05:26,910
+And let's do one more example.
+
+92
+00:05:26,910 --> 00:05:32,760
+I want to show how a return will stop a function no matter where it's located in that function.
+
+93
+00:05:32,760 --> 00:05:35,520
+So it could be inside of a loop instead of a conditional.
+
+94
+00:05:35,550 --> 00:05:36,660
+It doesn't matter.
+
+95
+00:05:36,750 --> 00:05:43,260
+So we'll do a slightly more advanced version of is purple let's go with contains purple and this will
+
+96
+00:05:43,260 --> 00:05:46,950
+accept an array and we will loop over the array.
+
+97
+00:05:46,950 --> 00:05:53,310
+And if any element in that array is either purple or magenta, we'll return true.
+
+98
+00:05:53,310 --> 00:05:54,870
+Otherwise we return false.
+
+99
+00:05:54,870 --> 00:05:59,190
+So we'll loop over the array for let's color of array.
+
+100
+00:05:59,220 --> 00:06:12,300
+We'll use a for of if color is triple equal, purple or color is triple equal said magenta.
+
+101
+00:06:12,300 --> 00:06:13,590
+I think this magenta.
+
+102
+00:06:13,590 --> 00:06:14,880
+Purple or is it pink?
+
+103
+00:06:15,630 --> 00:06:18,210
+For our purposes, we're considering it purple.
+
+104
+00:06:18,270 --> 00:06:20,460
+If that's the case, we'll return.
+
+105
+00:06:20,460 --> 00:06:21,150
+True.
+
+106
+00:06:23,730 --> 00:06:24,960
+And then where would we return?
+
+107
+00:06:24,960 --> 00:06:25,620
+False.
+
+108
+00:06:26,070 --> 00:06:27,090
+This one is a bit different.
+
+109
+00:06:27,090 --> 00:06:33,690
+If we put return false here, or else return false, then as soon as we encounter something that's not
+
+110
+00:06:33,690 --> 00:06:39,780
+purple, let's say our array looks like this blue, pink, magenta.
+
+111
+00:06:40,770 --> 00:06:43,500
+The first time through the loop color will be blue.
+
+112
+00:06:43,530 --> 00:06:47,460
+So this is not true and we don't want to return false right away.
+
+113
+00:06:47,460 --> 00:06:49,290
+That stops the function entirely.
+
+114
+00:06:49,290 --> 00:06:51,240
+We're only checking the first element.
+
+115
+00:06:51,240 --> 00:06:57,030
+The only time we know that the entire array does not contain purple is if the loop is finished.
+
+116
+00:06:57,300 --> 00:06:59,490
+So if the loop is done and we haven't returned.
+
+117
+00:06:59,490 --> 00:07:03,450
+True, that means we never found purple or magenta as an element.
+
+118
+00:07:03,450 --> 00:07:05,100
+Then we can return false.
+
+119
+00:07:05,100 --> 00:07:06,870
+So we just move it down there.
+
+120
+00:07:07,650 --> 00:07:09,090
+So let's test it out.
+
+121
+00:07:09,390 --> 00:07:10,830
+Contains purple.
+
+122
+00:07:10,920 --> 00:07:12,270
+I'll paste that array in.
+
+123
+00:07:12,270 --> 00:07:17,700
+I do need to make sure I get rid of the semicolon, add my perin and we get true.
+
+124
+00:07:18,360 --> 00:07:21,690
+If we change this to no longer be magenta, we get false.
+
+125
+00:07:21,690 --> 00:07:23,460
+So this is showing us two things.
+
+126
+00:07:23,460 --> 00:07:28,500
+First of all, when we return, true, it doesn't matter that we're inside of a conditional inside of
+
+127
+00:07:28,500 --> 00:07:34,230
+a loop instead of a function, the function is done at least this single execution of it.
+
+128
+00:07:34,230 --> 00:07:37,560
+When we called it with this array, it's done, it returns true.
+
+129
+00:07:37,680 --> 00:07:42,690
+So it's not like a return is only going to break out of one code block.
+
+130
+00:07:42,780 --> 00:07:48,030
+It has the power to halt the entire function, even though it's in a conditional in a loop.
+
+131
+00:07:48,330 --> 00:07:54,840
+So this loop might run one time if the first element is purple or magenta, or it might run 100 times.
+
+132
+00:07:54,840 --> 00:08:00,540
+If our elements or if our array is 100 items long with no instance of purple or magenta.
+
+133
+00:08:00,540 --> 00:08:07,590
+And the second thing we saw once again is returning false or returning some value as a last ditch as
+
+134
+00:08:07,590 --> 00:08:10,800
+basically the last option, the last line in this function.
+
+135
+00:08:10,800 --> 00:08:15,630
+So if none of this returned true at any point, that means we've gone through the entire loop.
+
+136
+00:08:15,630 --> 00:08:17,100
+Then just return false.
+
+137
+00:08:17,310 --> 00:08:19,080
+We don't have to add additional logic.
+
+138
+00:08:19,080 --> 00:08:20,220
+We don't need an else.
+
+139
+00:08:20,220 --> 00:08:24,330
+We just know if you haven't returned by now, this is what we want to return.
+
+140
+00:08:24,330 --> 00:08:27,330
+So if this is true, the function is done and this never runs.
+
+141
+00:08:27,330 --> 00:08:30,270
+If we never return true, then this runs.
+
+142
+00:08:31,170 --> 00:08:31,350
+Okay.
+
+143
+00:08:31,500 --> 00:08:33,390
+So we've seen the basics of functions.
+
+144
+00:08:33,390 --> 00:08:37,049
+At this point we define a function at least one version.
+
+145
+00:08:37,140 --> 00:08:42,030
+All we've seen is the function syntax, function statement or function declaration.
+
+146
+00:08:42,030 --> 00:08:47,280
+We have function some function name, potentially different parameters.
+
+147
+00:08:47,280 --> 00:08:51,390
+We would add in A and B and then some return value.
+
+148
+00:08:51,390 --> 00:08:56,430
+And you don't have to return a value from every single function, but a lot of the time you want to
+
+149
+00:08:56,700 --> 00:09:01,590
+and we'll see a bunch of examples coming up because it's time to get some practice.
+

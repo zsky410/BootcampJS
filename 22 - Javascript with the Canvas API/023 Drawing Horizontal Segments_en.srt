@@ -1,0 +1,796 @@
+1
+00:00:00,680 --> 00:00:05,000
+In this video, we're going to look at some different diagrams to understand how to calculate the different
+
+2
+00:00:05,000 --> 00:00:07,670
+dimensions that we're going to pass into the rectangle function.
+
+3
+00:00:08,380 --> 00:00:12,700
+So the first thing I want to do is go back up to the top of the file all the way at the top.
+
+4
+00:00:12,700 --> 00:00:16,990
+I just want to remind you very quickly that we've got a couple of different constant variables declared
+
+5
+00:00:16,990 --> 00:00:17,650
+right here.
+
+6
+00:00:18,220 --> 00:00:22,660
+We've got cells, which is the number of cells in either the horizontal or vertical direction.
+
+7
+00:00:22,810 --> 00:00:24,670
+And then we've got a width and height.
+
+8
+00:00:24,670 --> 00:00:29,470
+And very critically right now we are seeing that the height and width are always going to be identical
+
+9
+00:00:29,470 --> 00:00:30,280
+to each other.
+
+10
+00:00:30,400 --> 00:00:34,540
+Eventually, we're going to allow these two values to vary to get a rectangular maze.
+
+11
+00:00:34,540 --> 00:00:38,110
+But for right now, they are always going to be perfectly the same.
+
+12
+00:00:38,710 --> 00:00:44,560
+So if we think about these, the combination of these two dimensions together, we can start to imagine
+
+13
+00:00:44,560 --> 00:00:51,730
+that at the end of the day, every cell is going to be 200 units wide because 600 divided by three is
+
+14
+00:00:51,730 --> 00:00:52,570
+200.
+
+15
+00:00:53,170 --> 00:00:57,550
+So I'm going to define a little variable underneath here called unit length.
+
+16
+00:00:59,070 --> 00:01:04,349
+Unit length is essentially saying that every cell that I create is going to be this many units tall
+
+17
+00:01:04,349 --> 00:01:05,970
+and this many units wide.
+
+18
+00:01:06,420 --> 00:01:12,750
+So to calculate the unit width or something, the unit length, we would do a width divided by cells.
+
+19
+00:01:13,290 --> 00:01:15,630
+And of course, we could do height instead.
+
+20
+00:01:15,660 --> 00:01:19,530
+It really doesn't matter right now because again, height, width are always going to be identical.
+
+21
+00:01:20,490 --> 00:01:25,560
+So again, unit length is going to be the length of one side of one of our cells.
+
+22
+00:01:25,560 --> 00:01:28,050
+So just keep that variable in mind for half a second.
+
+23
+00:01:28,050 --> 00:01:32,430
+We're going to need to use that variable in order to figure out how to draw our individual walls.
+
+24
+00:01:33,510 --> 00:01:37,710
+So I'm going to go over to a quick diagram and let's draw some stuff out here.
+
+25
+00:01:38,490 --> 00:01:41,760
+Right now, we are iterating over our horizontals array.
+
+26
+00:01:42,330 --> 00:01:44,580
+We know that that is going to be a 2D array.
+
+27
+00:01:45,540 --> 00:01:47,640
+It's going to have the two different rows.
+
+28
+00:01:51,120 --> 00:01:57,150
+To represent that row and that row right there, each of those different well segments, I'm going to
+
+29
+00:01:57,150 --> 00:01:58,860
+throw some imaginary values in here.
+
+30
+00:01:58,860 --> 00:02:02,250
+So I'm going to say maybe we've got true, false, true.
+
+31
+00:02:03,090 --> 00:02:03,730
+False.
+
+32
+00:02:03,750 --> 00:02:04,580
+True.
+
+33
+00:02:04,680 --> 00:02:05,520
+False.
+
+34
+00:02:06,280 --> 00:02:11,530
+So now, if I wanted to reflect what actual walls we need to draw, I'm going to erase a couple elements
+
+35
+00:02:11,530 --> 00:02:11,980
+here.
+
+36
+00:02:12,920 --> 00:02:14,990
+So we would have no wall right there.
+
+37
+00:02:15,780 --> 00:02:17,700
+We would have no wall right there.
+
+38
+00:02:19,090 --> 00:02:22,120
+And then we would have no wall right there.
+
+39
+00:02:23,510 --> 00:02:29,240
+Now using that information, we need to somehow figure out how we can draw this rectangle.
+
+40
+00:02:29,240 --> 00:02:31,790
+This rectangle and this rectangle.
+
+41
+00:02:32,640 --> 00:02:36,690
+We're going to first focus on how to draw the one at the top, this one right here.
+
+42
+00:02:37,320 --> 00:02:43,230
+So we need to figure out how to go from our origin point, which, remember, is on the top left corner.
+
+43
+00:02:43,230 --> 00:02:45,150
+That is our zero zero.
+
+44
+00:02:45,930 --> 00:02:52,920
+We need to first figure out how far over we need to go to get the center point of that rectangle.
+
+45
+00:02:53,550 --> 00:02:56,460
+And then we also need to figure out how far down we need to go.
+
+46
+00:02:58,990 --> 00:03:01,960
+To get the center point as well in the vertical direction.
+
+47
+00:03:01,960 --> 00:03:05,680
+So in other words, we need to figure out what that is right there.
+
+48
+00:03:07,450 --> 00:03:07,900
+Okay.
+
+49
+00:03:07,930 --> 00:03:12,550
+So when we think about the Y dimension, so this off here, it's the left hand side.
+
+50
+00:03:12,550 --> 00:03:16,330
+We're essentially saying that we want to go down the height of one cell.
+
+51
+00:03:16,660 --> 00:03:20,890
+So that is why we just created that unit length variable to get the center point right there, we're
+
+52
+00:03:20,890 --> 00:03:23,470
+going to first go down unit.
+
+53
+00:03:24,460 --> 00:03:25,270
+Length.
+
+54
+00:03:26,120 --> 00:03:31,610
+So in our case, that is going to be the whatever it was, was it 200 pixels?
+
+55
+00:03:31,610 --> 00:03:33,620
+So we'd be going down 200 units.
+
+56
+00:03:34,240 --> 00:03:37,490
+That'd be the center point right there on the vertical direction.
+
+57
+00:03:38,610 --> 00:03:41,100
+Then the x direction to that center point.
+
+58
+00:03:41,100 --> 00:03:48,270
+So this horizontal direction would be one and a half cells over.
+
+59
+00:03:48,690 --> 00:03:50,880
+So that would be unit length.
+
+60
+00:03:54,360 --> 00:03:57,480
+Times 1.5.
+
+61
+00:03:58,770 --> 00:04:03,270
+So that's how we're going to figure out how we get to the center point of that segment right there.
+
+62
+00:04:04,130 --> 00:04:08,840
+But just doing like unit length times 1.5 isn't super useful because if we start to think about how
+
+63
+00:04:08,840 --> 00:04:14,210
+to show these other ones like that segment or that segment, well, it's very clear that this is not
+
+64
+00:04:14,210 --> 00:04:19,970
+just a function of the unit length, but it's also a function of what row these center points or these
+
+65
+00:04:19,970 --> 00:04:22,850
+segments are occurring on and what column as well.
+
+66
+00:04:23,360 --> 00:04:27,560
+So in other words, as we start to think about how did the center point of that next one down, it's
+
+67
+00:04:27,560 --> 00:04:28,640
+going to actually be.
+
+68
+00:04:29,760 --> 00:04:31,110
+Unit length.
+
+69
+00:04:32,070 --> 00:04:34,080
+Times two.
+
+70
+00:04:34,230 --> 00:04:40,560
+So how do we kind of calculate that distance right there based on the unit length and what row it is
+
+71
+00:04:40,560 --> 00:04:43,380
+on and what column it is on?
+
+72
+00:04:43,590 --> 00:04:48,090
+Well, let me just show you the math, give you an idea of how this is all going to work out in order
+
+73
+00:04:48,090 --> 00:04:53,910
+to get these center points of all these horizontal segments, we need to get the column.
+
+74
+00:04:55,930 --> 00:04:56,860
+Index.
+
+75
+00:04:57,720 --> 00:04:59,430
+Though we are currently working on.
+
+76
+00:04:59,520 --> 00:05:04,650
+So in this case, for the top one that we were just discussing, let me do some deletion here.
+
+77
+00:05:07,940 --> 00:05:15,800
+So for the top element, this one again are right here we are operating on column index zero one.
+
+78
+00:05:15,800 --> 00:05:20,990
+So one in this case and we are operating on row index zero.
+
+79
+00:05:22,300 --> 00:05:24,160
+So we need to do the column index.
+
+80
+00:05:25,570 --> 00:05:26,440
+Times.
+
+81
+00:05:27,410 --> 00:05:28,880
+Our unit length.
+
+82
+00:05:32,400 --> 00:05:33,060
+Plus.
+
+83
+00:05:34,130 --> 00:05:35,270
+Unit length.
+
+84
+00:05:37,590 --> 00:05:38,580
+Divided by two.
+
+85
+00:05:39,340 --> 00:05:46,690
+So that's what is going to give us the direction or the distance like so we can try to use this equation
+
+86
+00:05:46,690 --> 00:05:50,770
+right here to figure out the X direction for each of these different segments.
+
+87
+00:05:50,770 --> 00:05:54,430
+So for example, if you want to figure out the X direction distance for this one on the bottom left,
+
+88
+00:05:54,430 --> 00:05:59,080
+right here, that would be column index of zero.
+
+89
+00:05:59,530 --> 00:06:04,810
+So we would do zero plus 200 or three times 200.
+
+90
+00:06:07,690 --> 00:06:09,460
+Zero times 200.
+
+91
+00:06:10,490 --> 00:06:11,180
+Plus.
+
+92
+00:06:11,990 --> 00:06:16,160
+200 divided by two, which equals 100.
+
+93
+00:06:16,580 --> 00:06:21,770
+So that means that we would have 100 units over to get to the X direction at Center Point.
+
+94
+00:06:22,490 --> 00:06:26,450
+So if we want to try to apply that formula again for this original one right here.
+
+95
+00:06:27,290 --> 00:06:32,630
+That would be our column index, which in this case is one times 200.
+
+96
+00:06:33,650 --> 00:06:36,170
+Plus 200 divided by two.
+
+97
+00:06:36,650 --> 00:06:39,230
+And that gives us 300, which is definitely correct.
+
+98
+00:06:39,380 --> 00:06:43,970
+And then finally, for the last one down here, that would be a column index of two.
+
+99
+00:06:44,920 --> 00:06:46,240
+Times 200.
+
+100
+00:06:47,390 --> 00:06:49,820
+Plus 200 over two.
+
+101
+00:06:50,510 --> 00:06:52,100
+And that would give us, what, 500?
+
+102
+00:06:53,080 --> 00:06:59,110
+Which is correct as well, because overall we've got 600, so we essentially want to go back 100 units.
+
+103
+00:06:59,140 --> 00:07:00,640
+That would be 500.
+
+104
+00:07:01,750 --> 00:07:03,010
+To that center point right there.
+
+105
+00:07:03,010 --> 00:07:04,690
+Again in the X direction.
+
+106
+00:07:05,140 --> 00:07:09,220
+Now that we've got that first little formula, let's try to write out that code back when we create
+
+107
+00:07:09,220 --> 00:07:12,190
+our rectangle and we'll think about the vertical direction after that.
+
+108
+00:07:12,610 --> 00:07:18,670
+So on body start rectangle, the x coordinate here will be at column index.
+
+109
+00:07:20,970 --> 00:07:22,590
+Times the unit length.
+
+110
+00:07:25,270 --> 00:07:28,540
+Plus the unit length divided by two.
+
+111
+00:07:28,810 --> 00:07:31,600
+Now, we don't have any variables inside of here called column index.
+
+112
+00:07:31,900 --> 00:07:37,060
+So how do we figure out what kind of column we are currently iterating over and what row we are iterating
+
+113
+00:07:37,060 --> 00:07:37,900
+over as well?
+
+114
+00:07:38,020 --> 00:07:41,680
+We'll remember the second argument inside the for each functions.
+
+115
+00:07:41,710 --> 00:07:44,740
+The first argument is the actual value where we are iterating over.
+
+116
+00:07:44,770 --> 00:07:47,830
+The second argument is the index of that element.
+
+117
+00:07:48,070 --> 00:07:52,930
+So for row right here, we would also have a second argument of row index and that tells us what row
+
+118
+00:07:52,960 --> 00:07:54,250
+we are currently operating on.
+
+119
+00:07:54,640 --> 00:07:57,040
+And for the second one, we have the column index.
+
+120
+00:07:57,040 --> 00:07:59,230
+That is what column we are currently iterating on.
+
+121
+00:08:00,690 --> 00:08:03,960
+Now we can repeat the same process for the Y direction as well.
+
+122
+00:08:04,660 --> 00:08:06,310
+So I'm going to do a little bit of erasure.
+
+123
+00:08:09,960 --> 00:08:10,380
+Okay.
+
+124
+00:08:16,090 --> 00:08:17,350
+Well, a little bit more.
+
+125
+00:08:21,510 --> 00:08:24,360
+And I'm going to draw in a couple more segments here by hand.
+
+126
+00:08:24,570 --> 00:08:25,320
+There we go.
+
+127
+00:08:25,890 --> 00:08:27,630
+So now we want to get.
+
+128
+00:08:29,070 --> 00:08:32,760
+That segment, that segment and that segment.
+
+129
+00:08:32,760 --> 00:08:33,870
+And now we're talking about this.
+
+130
+00:08:33,870 --> 00:08:34,679
+Why direction?
+
+131
+00:08:34,679 --> 00:08:37,350
+So how far down do we want to get this thing?
+
+132
+00:08:37,860 --> 00:08:40,440
+Let's first think about this segment right here.
+
+133
+00:08:40,830 --> 00:08:45,600
+So how do we get that segment based upon our row index column index and our unit length?
+
+134
+00:08:45,780 --> 00:08:48,510
+Well, in this case, it is going to be our ROE index.
+
+135
+00:08:48,510 --> 00:08:52,860
+So that is going to be like this direction or this row right here, which is our first row.
+
+136
+00:08:53,070 --> 00:08:56,040
+So it's going to be our row index.
+
+137
+00:08:58,220 --> 00:09:00,350
+Times the unit length.
+
+138
+00:09:02,560 --> 00:09:07,090
+And in this case, it's going to be plus the unit length.
+
+139
+00:09:08,840 --> 00:09:14,450
+So let's try to plug in some numbers to get the Y coordinate or the Y direction to that center point
+
+140
+00:09:14,450 --> 00:09:15,200
+right there.
+
+141
+00:09:16,260 --> 00:09:18,600
+So I would do a row index of one.
+
+142
+00:09:19,320 --> 00:09:24,630
+Times are unit length of 200 plus hour unit length of 200.
+
+143
+00:09:25,200 --> 00:09:26,500
+And that would be 400.
+
+144
+00:09:26,520 --> 00:09:30,960
+So that means to draw out the Y coordinate of this wall right here.
+
+145
+00:09:30,960 --> 00:09:32,640
+It would be 400 units.
+
+146
+00:09:33,780 --> 00:09:35,430
+And if we think about this one right here.
+
+147
+00:09:36,400 --> 00:09:39,730
+That would be a row index in this case of zero.
+
+148
+00:09:40,090 --> 00:09:46,260
+So zero times the unit length of 200 plus 200 gives us 200.
+
+149
+00:09:46,280 --> 00:09:48,850
+Does that means go down 200 units to get that one?
+
+150
+00:09:48,940 --> 00:09:52,850
+And then this one right here is the same math as that one that we did just a moment ago.
+
+151
+00:09:52,870 --> 00:09:56,740
+So that would be on rho index of one times 200.
+
+152
+00:09:57,480 --> 00:10:00,990
+Plus 200 gives us 400 again.
+
+153
+00:10:02,050 --> 00:10:02,320
+All right.
+
+154
+00:10:02,320 --> 00:10:05,830
+So I know that this math is kind of nasty, but this is pretty much what has to be done.
+
+155
+00:10:05,830 --> 00:10:08,290
+So, hey, we got to talk about it one way or another.
+
+156
+00:10:08,560 --> 00:10:13,060
+So now let's write out the equation where the Y coordinate of this rectangle as well.
+
+157
+00:10:13,090 --> 00:10:17,440
+So I'll put a comma in and then we're going to get row index times.
+
+158
+00:10:18,940 --> 00:10:22,540
+The unit length plus the unit length.
+
+159
+00:10:24,520 --> 00:10:24,650
+Okay.
+
+160
+00:10:24,760 --> 00:10:28,180
+Now that the third and fourth arguments, these are going to be way easier.
+
+161
+00:10:28,180 --> 00:10:32,170
+So this is going to be how wide and how tall we want the rectangle to be.
+
+162
+00:10:32,500 --> 00:10:39,130
+So in this case, we know that we want our wall to be like that long, like whatever the width of one
+
+163
+00:10:39,130 --> 00:10:39,670
+cell is.
+
+164
+00:10:39,670 --> 00:10:41,650
+That's how long we want it to be.
+
+165
+00:10:42,840 --> 00:10:44,940
+And that is the direction in the x axis.
+
+166
+00:10:44,940 --> 00:10:47,130
+So that is going to be the third argument right here.
+
+167
+00:10:47,520 --> 00:10:50,250
+We want that to be unit length units long.
+
+168
+00:10:50,250 --> 00:10:54,240
+So essentially the width of one cell and that is what unit length represents.
+
+169
+00:10:55,820 --> 00:10:59,990
+And then the fourth argument is going to be how tall we want the wall to be.
+
+170
+00:10:59,990 --> 00:11:05,090
+So essentially, like, is it going to be really tall like that or is it going to be just very, very
+
+171
+00:11:05,090 --> 00:11:07,100
+thin, like almost appearing to be a line?
+
+172
+00:11:07,760 --> 00:11:09,350
+Well, we can just throw in some test value.
+
+173
+00:11:09,350 --> 00:11:11,390
+I'm going to use like a fixed value of ten here.
+
+174
+00:11:11,390 --> 00:11:14,330
+So I'm going to say that my wall is going to be ten units tall.
+
+175
+00:11:16,400 --> 00:11:16,670
+All right.
+
+176
+00:11:16,670 --> 00:11:21,940
+So finally, a last argument to the rectangle creation.
+
+177
+00:11:21,950 --> 00:11:26,720
+We're going to make sure that we also mark this thing as static so that it doesn't kind of fly all around
+
+178
+00:11:26,720 --> 00:11:28,280
+once we start to draw it on the screen.
+
+179
+00:11:28,280 --> 00:11:29,990
+So let's say is static is true.
+
+180
+00:11:31,440 --> 00:11:35,820
+So now that we've created that wall, we can add it into our world.
+
+181
+00:11:36,180 --> 00:11:39,900
+And to add in that shape, we will call world add.
+
+182
+00:11:40,660 --> 00:11:43,150
+We're going to add to the world object we had created earlier.
+
+183
+00:11:43,780 --> 00:11:45,700
+And I want to add this wall.
+
+184
+00:11:47,400 --> 00:11:47,810
+Okay.
+
+185
+00:11:47,820 --> 00:11:52,020
+I know this has been some nasty math, but like I said, we had to go through it.
+
+186
+00:11:52,140 --> 00:11:54,540
+So now that we've got that done, I'll save the file.
+
+187
+00:11:54,570 --> 00:11:59,250
+I'm going to go back over and do a quick test and I can see one wall up here, right there.
+
+188
+00:11:59,610 --> 00:12:03,120
+Now I can refresh this and every time I'm going to see some walls up here in different locations to
+
+189
+00:12:03,120 --> 00:12:06,180
+represent kind of like the randomness of the maze we are creating.
+
+190
+00:12:07,650 --> 00:12:07,840
+Okay.
+
+191
+00:12:07,900 --> 00:12:11,550
+So that's definitely working correctly, or at least I think it's working correctly.
+
+192
+00:12:11,550 --> 00:12:15,390
+We won't know for sure until we also draw in the vertical segments as well.
+
+193
+00:12:15,900 --> 00:12:17,250
+So I bet you could guess what's next.
+
+194
+00:12:17,250 --> 00:12:18,510
+Let's take a quick pause right here.
+
+195
+00:12:18,510 --> 00:12:19,800
+We're going to come back to the next video.
+
+196
+00:12:19,800 --> 00:12:24,150
+We're going to add in some very similar looking code to handle the creation of all the vertical wall
+
+197
+00:12:24,150 --> 00:12:24,810
+segments.
+
+198
+00:12:24,810 --> 00:12:30,120
+And once we start to add that stuff in, then we will note that our maze for sure is working correctly.
+
+199
+00:12:30,330 --> 00:12:33,000
+So a quick pause and we'll take care of verticals in the next video.
+

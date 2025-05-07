@@ -1,0 +1,220 @@
+1
+00:00:00,300 --> 00:00:04,890
+Before we go any further, I want to stop and talk about where I'll be writing my code, at least for
+
+2
+00:00:04,890 --> 00:00:06,780
+this section in general.
+
+3
+00:00:06,780 --> 00:00:11,400
+Throughout the rest of the course, we write our code in a JavaScript file, a standalone file.
+
+4
+00:00:11,550 --> 00:00:15,000
+It could be 100 lines, it could be ten lines, it could be 10,000 lines.
+
+5
+00:00:15,000 --> 00:00:18,870
+We write the code and we run the code afterwards or separately.
+
+6
+00:00:19,200 --> 00:00:22,410
+For now, we're going to run our code in a more immediate way.
+
+7
+00:00:22,440 --> 00:00:25,740
+We're going to use the JavaScript console in Chrome.
+
+8
+00:00:25,740 --> 00:00:29,040
+So definitely, definitely recommend you install Chrome if you don't have it.
+
+9
+00:00:29,040 --> 00:00:32,610
+Now, other browsers have a console as well and you can use that.
+
+10
+00:00:32,610 --> 00:00:36,090
+But if you want to be on the same page as me, I would use the chrome console.
+
+11
+00:00:36,270 --> 00:00:38,160
+So here I have chrome open.
+
+12
+00:00:38,160 --> 00:00:39,330
+You could be on any web page.
+
+13
+00:00:39,330 --> 00:00:42,090
+It doesn't matter and I'm going to pull up the console.
+
+14
+00:00:42,420 --> 00:00:44,130
+So we have a couple of different options.
+
+15
+00:00:44,130 --> 00:00:51,420
+I like to use a shortcut, but first, if you go to view developer and JavaScript console right there,
+
+16
+00:00:51,450 --> 00:00:52,350
+you can click that.
+
+17
+00:00:52,350 --> 00:00:54,870
+Also take note of that shortcut on a mac.
+
+18
+00:00:54,870 --> 00:00:57,060
+It is command option J.
+
+19
+00:00:57,930 --> 00:00:58,920
+And it takes a moment.
+
+20
+00:00:58,920 --> 00:01:00,120
+Here is my console.
+
+21
+00:01:00,330 --> 00:01:01,710
+Notice there's different tabs.
+
+22
+00:01:01,710 --> 00:01:06,960
+If this is all new to you, we'll be working in the console tab so I can type code right away.
+
+23
+00:01:06,960 --> 00:01:08,400
+This is not valid code.
+
+24
+00:01:08,400 --> 00:01:10,830
+I get an error message but see this flow.
+
+25
+00:01:10,830 --> 00:01:13,470
+I type something, I hit enter and I get a result.
+
+26
+00:01:13,470 --> 00:01:18,120
+This is different than typing our code in a file, saving the file and then running the file.
+
+27
+00:01:18,420 --> 00:01:22,380
+That's the more traditional standard approach and there's a reason for that.
+
+28
+00:01:22,380 --> 00:01:24,960
+This is not a great place to write large applications.
+
+29
+00:01:24,960 --> 00:01:26,970
+Nothing you write is actually saved.
+
+30
+00:01:26,970 --> 00:01:29,430
+But when we're just experimenting, we're just starting out.
+
+31
+00:01:29,430 --> 00:01:31,710
+We want to talk about numbers, for example.
+
+32
+00:01:31,710 --> 00:01:36,960
+It's very easy for us to explore and see how things work without getting caught up in the workflow.
+
+33
+00:01:36,990 --> 00:01:39,600
+So just for this section, we'll be working in the console.
+
+34
+00:01:39,630 --> 00:01:43,920
+Usually the console is used for debugging, for trying things out.
+
+35
+00:01:43,920 --> 00:01:47,670
+Like I said, it's not a good place to actually write applications.
+
+36
+00:01:47,700 --> 00:01:51,630
+The other thing is that my console might look a little bit different than yours.
+
+37
+00:01:51,630 --> 00:01:56,970
+I have changed the colors to make it a little easier to see if you want to learn how to do that.
+
+38
+00:01:56,970 --> 00:02:00,660
+I have a YouTube video on it, but it's really not at all important.
+
+39
+00:02:00,660 --> 00:02:04,770
+It will work exactly the same as yours, even if you have the light theme.
+
+40
+00:02:04,800 --> 00:02:06,660
+A couple of other things I'll point out.
+
+41
+00:02:06,660 --> 00:02:13,410
+You can resize this, you can close it back down by exiting or using the same shortcut you use to open
+
+42
+00:02:13,410 --> 00:02:13,530
+it.
+
+43
+00:02:13,530 --> 00:02:16,680
+So for me it is command option J and now it's gone.
+
+44
+00:02:17,400 --> 00:02:23,760
+Also right here, if you click on this three dot more icon, I don't know what to call it.
+
+45
+00:02:23,760 --> 00:02:29,220
+You can change where the dock appears if you want it on the side, the right, the left, or you can
+
+46
+00:02:29,220 --> 00:02:32,340
+actually pop it out into its own window like this.
+
+47
+00:02:32,340 --> 00:02:39,360
+So now I have two windows, but this console is connected to this window here and that's pretty much
+
+48
+00:02:39,360 --> 00:02:39,840
+it.
+
+49
+00:02:39,840 --> 00:02:43,200
+Again, we're using this for this section to make our life easier.
+
+50
+00:02:43,200 --> 00:02:44,220
+It's too much setup.
+
+51
+00:02:44,220 --> 00:02:49,500
+It bogs us down to create new files and save them and open them up correctly every time we learn something
+
+52
+00:02:49,500 --> 00:02:50,580
+new early on.
+
+53
+00:02:50,580 --> 00:02:52,290
+But again, that's where we're going.
+
+54
+00:02:52,290 --> 00:02:55,110
+So that's the console command option J on a mac.
+
+55
+00:02:55,260 --> 00:02:57,600
+Next up, we'll actually start writing code.
+

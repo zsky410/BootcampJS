@@ -1,0 +1,536 @@
+1
+00:00:00,090 --> 00:00:03,210
+Next up, we have the third context we can use spread.
+
+2
+00:00:03,480 --> 00:00:08,490
+It's down here at the bottom of the paragraph and object expression to be expanded in places where zero
+
+3
+00:00:08,490 --> 00:00:10,780
+or more key value pairs are expected.
+
+4
+00:00:10,800 --> 00:00:12,540
+So here's what it looks like.
+
+5
+00:00:12,570 --> 00:00:17,790
+It's the same dot, dot, dot, but we put it inside of curly braces instead of an object literal,
+
+6
+00:00:17,790 --> 00:00:24,630
+and it will copy over key value pairs properties from other objects into a destination object.
+
+7
+00:00:24,630 --> 00:00:29,940
+So effectively we can make copies of objects or we can create combinations of objects, we can put them
+
+8
+00:00:29,940 --> 00:00:30,680
+together.
+
+9
+00:00:30,690 --> 00:00:32,670
+So that's what we'll see in this video.
+
+10
+00:00:33,210 --> 00:00:37,550
+I have two existing objects, one called feline, one called canine.
+
+11
+00:00:37,560 --> 00:00:44,490
+They just have two stupid properties, their family and the number of legs for cats and furry.
+
+12
+00:00:44,520 --> 00:00:46,560
+Is that too true for canines?
+
+13
+00:00:47,250 --> 00:00:55,580
+If I wanted to make a new object that included these properties, but also more properties like a dog
+
+14
+00:00:56,940 --> 00:01:00,840
+dog object will include everything from canine.
+
+15
+00:01:00,840 --> 00:01:06,540
+And I'll also set is pet to true and adorable.
+
+16
+00:01:06,570 --> 00:01:07,230
+True.
+
+17
+00:01:08,870 --> 00:01:16,190
+If we look at dog, if I run the code over here, we have those two properties from canine, the family
+
+18
+00:01:16,190 --> 00:01:18,140
+and furry set to true.
+
+19
+00:01:18,230 --> 00:01:19,970
+So those were copied over.
+
+20
+00:01:20,300 --> 00:01:23,060
+We could also do the same thing for cat.
+
+21
+00:01:23,330 --> 00:01:24,790
+Concept feline.
+
+22
+00:01:24,800 --> 00:01:26,720
+Let's go with what's it?
+
+23
+00:01:26,870 --> 00:01:27,730
+How about house cat?
+
+24
+00:01:27,740 --> 00:01:28,460
+That's fine.
+
+25
+00:01:29,150 --> 00:01:33,800
+We'll spread feline and then also add in.
+
+26
+00:01:34,220 --> 00:01:41,630
+Is grumpy, true and personality unpredictable.
+
+27
+00:01:41,780 --> 00:01:43,190
+At least my cats are.
+
+28
+00:01:44,390 --> 00:01:46,340
+And if we look at house cat over here.
+
+29
+00:01:48,130 --> 00:01:52,480
+We've got properties coming from feline, plus the properties we set right here.
+
+30
+00:01:53,530 --> 00:02:00,490
+Now, what can happen is sometimes you might have conflicting properties, like if we added legs for.
+
+31
+00:02:01,920 --> 00:02:03,180
+To K9 as well.
+
+32
+00:02:03,180 --> 00:02:04,950
+They both have legs of four.
+
+33
+00:02:05,130 --> 00:02:07,440
+What happens when we merge them together?
+
+34
+00:02:07,620 --> 00:02:14,940
+So let's do Konst cat dog equals and dot dot dot canine.
+
+35
+00:02:15,330 --> 00:02:17,160
+Dot dot dot feline.
+
+36
+00:02:18,500 --> 00:02:19,760
+What do you think happens?
+
+37
+00:02:19,790 --> 00:02:25,010
+Well, in this case, it's pretty simple because we know what happens in an object where we try and
+
+38
+00:02:25,010 --> 00:02:26,980
+have two properties with the same key.
+
+39
+00:02:26,990 --> 00:02:28,790
+They just overwrite each other.
+
+40
+00:02:28,790 --> 00:02:31,400
+So we only have one leg's property.
+
+41
+00:02:31,400 --> 00:02:41,480
+But but what if let's say we have a three legged dog can't tripod equals and I copy in canine and then
+
+42
+00:02:41,480 --> 00:02:43,670
+I set legs to three.
+
+43
+00:02:44,540 --> 00:02:46,280
+What do you think Tripod looks like?
+
+44
+00:02:47,500 --> 00:02:52,720
+Well, it does have legs set to three, even though we had legs four in canine.
+
+45
+00:02:52,750 --> 00:02:55,210
+The reason is that the order matters.
+
+46
+00:02:55,210 --> 00:03:01,600
+So we copy the properties from canine first and then afterwards legs is updated to three.
+
+47
+00:03:01,870 --> 00:03:03,340
+So if I switch them.
+
+48
+00:03:05,270 --> 00:03:09,330
+Here and then dot, dot, K9, try it again.
+
+49
+00:03:09,350 --> 00:03:11,240
+We look at Tripod now.
+
+50
+00:03:11,240 --> 00:03:12,680
+Legs is set to four.
+
+51
+00:03:13,280 --> 00:03:18,620
+Legs was three originally, but then those properties were copied in and that overrode it.
+
+52
+00:03:18,770 --> 00:03:20,030
+So the order does matter.
+
+53
+00:03:20,030 --> 00:03:22,850
+If you have conflicting properties with the same key name.
+
+54
+00:03:22,850 --> 00:03:29,510
+We can also use spread to create a clone of an object so that we don't have the exact same reference.
+
+55
+00:03:29,510 --> 00:03:34,640
+We're creating a copy of the object, but just like with a this is only one level deep.
+
+56
+00:03:34,640 --> 00:03:38,180
+It will not clone nested objects or nested arrays.
+
+57
+00:03:38,540 --> 00:03:42,110
+So if I wanted to copy of one of these existing objects, how about cat?
+
+58
+00:03:42,110 --> 00:03:50,060
+Dog I could do concept cat dog clone equals dot dot dot cat dog.
+
+59
+00:03:50,740 --> 00:03:55,390
+So cat dog itself exists or is created from two other objects.
+
+60
+00:03:55,390 --> 00:03:57,640
+Two objects properties have been copied over.
+
+61
+00:03:57,640 --> 00:04:02,650
+And then I'm copying that cat dog object over into cat dog clone.
+
+62
+00:04:03,310 --> 00:04:04,360
+Refresh my page.
+
+63
+00:04:04,360 --> 00:04:06,250
+We have cat dog clone.
+
+64
+00:04:07,000 --> 00:04:10,630
+And if we triple equals to cat dog, it's false.
+
+65
+00:04:10,630 --> 00:04:13,720
+They are unique references because we made a copy.
+
+66
+00:04:13,750 --> 00:04:15,130
+It's not the same reference.
+
+67
+00:04:15,820 --> 00:04:18,790
+Another very important thing about spread in general.
+
+68
+00:04:18,820 --> 00:04:24,760
+This is the only context where you can spread an object when you're spreading into another object.
+
+69
+00:04:24,880 --> 00:04:28,120
+If you tried to do it inside of an array, we'll do it over here.
+
+70
+00:04:29,170 --> 00:04:29,920
+Let's see.
+
+71
+00:04:29,920 --> 00:04:32,980
+How about canine or dog?
+
+72
+00:04:33,250 --> 00:04:34,570
+This does not work.
+
+73
+00:04:34,570 --> 00:04:35,500
+We get an error.
+
+74
+00:04:35,530 --> 00:04:37,000
+Object is not iterable.
+
+75
+00:04:37,480 --> 00:04:40,840
+So in the context of an array, it doesn't work.
+
+76
+00:04:40,840 --> 00:04:46,930
+In the context of an object though we can spread objects, it does behave differently and the same holds
+
+77
+00:04:46,930 --> 00:04:47,260
+true.
+
+78
+00:04:47,260 --> 00:04:52,930
+If we were trying to pass this in to, I don't know, math max or something, which wouldn't even make
+
+79
+00:04:52,930 --> 00:04:53,380
+sense.
+
+80
+00:04:53,380 --> 00:04:55,630
+But we can't spread the object either.
+
+81
+00:04:55,960 --> 00:04:57,280
+It's not an iterable.
+
+82
+00:04:57,310 --> 00:05:02,440
+It only works if we're passing in an array that we're spreading a string or some other iterable.
+
+83
+00:05:02,440 --> 00:05:04,750
+But an object literal is not one.
+
+84
+00:05:05,080 --> 00:05:07,210
+Now, what do you think happens if I try the opposite?
+
+85
+00:05:07,210 --> 00:05:13,450
+If I have an object literal and I try to spread an array into it, the array of four or five six.
+
+86
+00:05:15,240 --> 00:05:16,290
+What happens here.
+
+87
+00:05:17,120 --> 00:05:18,110
+No error.
+
+88
+00:05:18,260 --> 00:05:22,100
+Instead, we get key value pairs based off of the indices.
+
+89
+00:05:22,100 --> 00:05:24,020
+So zero is the key.
+
+90
+00:05:24,080 --> 00:05:24,950
+Set to four.
+
+91
+00:05:24,950 --> 00:05:26,030
+1 to 5.
+
+92
+00:05:26,030 --> 00:05:27,200
+2 to 6.
+
+93
+00:05:27,500 --> 00:05:29,390
+Probably not that common that you would need to do that.
+
+94
+00:05:29,390 --> 00:05:31,520
+But the same thing holds true with a string.
+
+95
+00:05:32,120 --> 00:05:36,920
+We can spread a string into an object, but just kind of a weird thing to do.
+
+96
+00:05:37,010 --> 00:05:38,360
+Never really seen it done.
+
+97
+00:05:38,360 --> 00:05:44,480
+And the last thing I'll show you here is that we can create array literals that also contain object
+
+98
+00:05:44,480 --> 00:05:47,210
+literals where we use spread in different contexts.
+
+99
+00:05:47,210 --> 00:05:52,490
+So let's say I was making an array and I was spreading in the string.
+
+100
+00:05:52,490 --> 00:05:53,840
+Hello for some reason.
+
+101
+00:05:53,840 --> 00:06:01,520
+And then I also have an object as one of the possible values in the array and and there I spread in
+
+102
+00:06:01,520 --> 00:06:02,480
+cat dog.
+
+103
+00:06:03,020 --> 00:06:05,750
+So I'm combining them inside of an array.
+
+104
+00:06:06,590 --> 00:06:13,310
+Let's create a variable here const random equals get rid of that extra sw.
+
+105
+00:06:14,680 --> 00:06:22,090
+Random is an array with string characters first that we spread, and then an object that contains object
+
+106
+00:06:22,090 --> 00:06:23,410
+properties that we spread.
+
+107
+00:06:23,590 --> 00:06:25,240
+So we can nest them.
+
+108
+00:06:25,390 --> 00:06:29,230
+We can create more data structures or nested structures where we spread.
+
+109
+00:06:29,230 --> 00:06:30,820
+But the context matters.
+
+110
+00:06:30,820 --> 00:06:36,100
+The way that spread works inside of this object is different than the way spread works right here.
+
+111
+00:06:36,100 --> 00:06:37,750
+Because here we're in an array.
+
+112
+00:06:37,780 --> 00:06:39,460
+Here we're in an object.
+
+113
+00:06:39,460 --> 00:06:42,550
+Yes, technically it's nested in the array, but that doesn't matter.
+
+114
+00:06:42,550 --> 00:06:45,520
+It behaves just the same as it did here or here.
+
+115
+00:06:45,760 --> 00:06:47,170
+So that is spread.
+
+116
+00:06:47,170 --> 00:06:49,600
+We saw three different situations where it works.
+
+117
+00:06:49,600 --> 00:06:51,220
+We always use three dots.
+
+118
+00:06:51,220 --> 00:06:53,980
+The first one we saw was passing into a function.
+
+119
+00:06:54,190 --> 00:07:02,650
+Math min was the example I used where you can spread a bunch of values, let's say an array into individual
+
+120
+00:07:02,650 --> 00:07:05,170
+arguments, so they're passed as separate arguments.
+
+121
+00:07:05,170 --> 00:07:10,630
+Then we saw how to use spread in an array literal, super useful, which helps us copy data from one
+
+122
+00:07:10,630 --> 00:07:12,100
+array into a new array.
+
+123
+00:07:12,100 --> 00:07:18,160
+We can combine arrays essentially a nicer way of concatenating, or we can create a clone of an array.
+
+124
+00:07:18,160 --> 00:07:23,860
+And then in this video we saw how we can use Spread in Object Literals to copy properties over from
+
+125
+00:07:23,860 --> 00:07:25,480
+one object to a new object.
+
+126
+00:07:25,480 --> 00:07:27,190
+We can create a clone of an object.
+
+127
+00:07:27,190 --> 00:07:32,200
+We can create a hybrid where we take properties from two objects or three or four and combine them into
+
+128
+00:07:32,200 --> 00:07:32,680
+one.
+
+129
+00:07:32,680 --> 00:07:34,390
+We can add new properties in.
+
+130
+00:07:34,390 --> 00:07:40,270
+Just remember that the order does matter if you have conflicting properties like we did with the legs
+
+131
+00:07:40,270 --> 00:07:41,170
+situation.
+
+132
+00:07:41,170 --> 00:07:45,430
+So legs here, if we want legs to remain three, should come after.
+
+133
+00:07:45,940 --> 00:07:46,330
+All right.
+
+134
+00:07:46,330 --> 00:07:49,390
+That spread a lovely, lovely new feature.
+

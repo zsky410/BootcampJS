@@ -1,0 +1,568 @@
+1
+00:00:00,090 --> 00:00:05,310
+When we first saw conditional statements, we saw that we could test them inside of one another if and
+
+2
+00:00:05,310 --> 00:00:07,200
+then inside that if we could have another.
+
+3
+00:00:07,200 --> 00:00:11,100
+If we can do the same thing with four loops, we can test loops.
+
+4
+00:00:11,100 --> 00:00:14,040
+And I'll show you some situations where this makes sense.
+
+5
+00:00:14,040 --> 00:00:16,620
+But first we're going to try and walk through how it works.
+
+6
+00:00:16,620 --> 00:00:21,300
+Sometimes it can be a little bit confusing or difficult to wrap your head around, so we're going to
+
+7
+00:00:21,300 --> 00:00:23,220
+start with a single loop.
+
+8
+00:00:23,850 --> 00:00:25,560
+Let's just go from 1 to 10.
+
+9
+00:00:25,560 --> 00:00:31,620
+Let I equal one ie less than or equal to ten, and then a plus plus.
+
+10
+00:00:32,250 --> 00:00:40,410
+And I'm going to console.log the string outer loop and then also I and we get outer loop one down to
+
+11
+00:00:40,410 --> 00:00:44,640
+outer loop ten and now I'm going to add in a second inner loop.
+
+12
+00:00:44,640 --> 00:00:49,800
+Now this loop is going to go the other direction from ten down to one.
+
+13
+00:00:50,070 --> 00:00:53,970
+So we'll start with left and then what should we name the variable?
+
+14
+00:00:54,300 --> 00:00:59,460
+This is a really important topic and we'll actually come back to it in the next section in more detail.
+
+15
+00:00:59,460 --> 00:01:05,850
+But for now you should know you can get away with naming your variable again, which seems like it shouldn't
+
+16
+00:01:05,850 --> 00:01:06,390
+work.
+
+17
+00:01:06,900 --> 00:01:13,320
+If we typed in our console that I equal zero and then I tried to make another I with a different value,
+
+18
+00:01:14,160 --> 00:01:21,240
+I get an error says I has already been declared, but in this case these i's this let I and this let
+
+19
+00:01:21,240 --> 00:01:23,280
+I have a different scope.
+
+20
+00:01:23,280 --> 00:01:24,780
+We haven't talked about scope.
+
+21
+00:01:24,780 --> 00:01:26,850
+That's what we'll talk about in the next section.
+
+22
+00:01:26,850 --> 00:01:29,280
+So for now, we're not going to go with AI.
+
+23
+00:01:29,280 --> 00:01:31,230
+And in general, it doesn't make sense.
+
+24
+00:01:31,230 --> 00:01:35,670
+It's a bad idea to use the same name in a nested loop.
+
+25
+00:01:35,700 --> 00:01:42,180
+It's confusing to look at, and if you needed access to both these variables inside this inner loop,
+
+26
+00:01:42,210 --> 00:01:45,240
+you wouldn't have it if you name them the same thing.
+
+27
+00:01:45,270 --> 00:01:48,810
+There's no way to reference both of them, or at least not an easy way.
+
+28
+00:01:48,810 --> 00:01:50,490
+So that's not what we're going to do.
+
+29
+00:01:50,520 --> 00:01:53,340
+We're going to go with J, which is pretty standard.
+
+30
+00:01:53,340 --> 00:01:57,150
+If you use I then move on to J for nested loop.
+
+31
+00:01:57,150 --> 00:02:02,700
+And then if there's a loop inside of J, use K and usually you shouldn't have more or you should try
+
+32
+00:02:02,700 --> 00:02:04,410
+and avoid more nesting.
+
+33
+00:02:04,650 --> 00:02:07,680
+I try and just do two loops whenever possible at most.
+
+34
+00:02:08,710 --> 00:02:08,919
+Okay.
+
+35
+00:02:09,150 --> 00:02:13,920
+So we'll go from ten and we'll keep going.
+
+36
+00:02:13,920 --> 00:02:19,020
+While J is greater than or equal to zero and we'll subtract.
+
+37
+00:02:19,020 --> 00:02:22,470
+How about two each time instead of one?
+
+38
+00:02:22,650 --> 00:02:25,230
+So our outer loop is going to go from 1 to 10.
+
+39
+00:02:25,230 --> 00:02:34,800
+The inner loop will go from 10 to 0 by subtracting twos and in here I'll console.log inner loop and
+
+40
+00:02:34,800 --> 00:02:38,490
+then J Let's see what we get.
+
+41
+00:02:40,890 --> 00:02:46,770
+So let's take a look at how this is working, what I'm going to do to make it easier to see the difference.
+
+42
+00:02:46,770 --> 00:02:48,390
+I'm going to indent this string.
+
+43
+00:02:48,390 --> 00:02:54,030
+I'm just going to add some spaces on the inner loop, and that way we get some differentiation.
+
+44
+00:02:54,720 --> 00:02:58,050
+So if we look at the outer loop only, we're going from 1 to 10.
+
+45
+00:02:58,320 --> 00:03:03,450
+Here is the first time through that outer loop, then the second time, third time all the way down
+
+46
+00:03:03,450 --> 00:03:04,080
+to here.
+
+47
+00:03:04,710 --> 00:03:11,220
+But every single time this outer loop runs just a single iteration, the inner loop completes its full
+
+48
+00:03:11,220 --> 00:03:11,940
+cycle.
+
+49
+00:03:12,570 --> 00:03:19,110
+So that's why we end up with ten, 86420, and then we hit the end of this loop here.
+
+50
+00:03:19,740 --> 00:03:22,650
+So that means we're at the end of this first cycle.
+
+51
+00:03:22,650 --> 00:03:23,790
+Then it starts over.
+
+52
+00:03:23,790 --> 00:03:27,840
+I now goes up to two and we console.log outer loop.
+
+53
+00:03:27,840 --> 00:03:36,090
+Then we hit this loop and it has to finish executing so it does its whole thing ten 86420 and then that's
+
+54
+00:03:36,090 --> 00:03:37,500
+the end of this outer loop.
+
+55
+00:03:37,500 --> 00:03:38,640
+We start over.
+
+56
+00:03:39,330 --> 00:03:41,010
+So it takes a long time.
+
+57
+00:03:41,010 --> 00:03:41,610
+Well, it doesn't.
+
+58
+00:03:41,610 --> 00:03:42,960
+It's not actually a long time.
+
+59
+00:03:42,960 --> 00:03:48,810
+It's extremely, extremely quick, but it takes a long time, relatively, for the outer loop to run
+
+60
+00:03:48,810 --> 00:03:49,380
+again.
+
+61
+00:03:49,380 --> 00:03:53,370
+This inner loop completes its full cycle every single time.
+
+62
+00:03:53,370 --> 00:03:55,170
+The outer loop just iterates.
+
+63
+00:03:55,170 --> 00:04:03,390
+Once you can see overall we have a lot of iterations and the relationship here is if we have X iterations
+
+64
+00:04:03,390 --> 00:04:08,880
+on the outer loop and Y iterations on the inner loop, we will be running x y time.
+
+65
+00:04:08,880 --> 00:04:13,980
+So we'll have basically multiply the number of times this runs by the number of times this runs, and
+
+66
+00:04:13,980 --> 00:04:16,260
+that's how many total iterations you have.
+
+67
+00:04:16,260 --> 00:04:16,769
+All right.
+
+68
+00:04:16,769 --> 00:04:19,079
+So this example is kind of pointless.
+
+69
+00:04:19,079 --> 00:04:24,480
+If we were just trying to generate numbers, however many numbers this is, if we wanted to generate
+
+70
+00:04:24,480 --> 00:04:26,610
+these exact numbers, fine.
+
+71
+00:04:26,610 --> 00:04:28,140
+This is a good way to do it.
+
+72
+00:04:28,140 --> 00:04:33,390
+If for some reason we need one and then ten 86420, that's fine.
+
+73
+00:04:33,390 --> 00:04:39,000
+But this isn't really a great showcase of why you might want nested iteration or nested for loops.
+
+74
+00:04:39,000 --> 00:04:45,300
+So the first example I'll show you involves that Game 2048 from a couple of videos ago.
+
+75
+00:04:45,660 --> 00:04:47,040
+Here is a game board.
+
+76
+00:04:47,490 --> 00:04:53,280
+After I've lost the game, I just randomly pressed Arrow Keys to try and finish it and it is a four
+
+77
+00:04:53,280 --> 00:04:54,210
+by four grid.
+
+78
+00:04:54,210 --> 00:04:59,490
+Each cell has a corresponding value and then we'll calculate a score.
+
+79
+00:04:59,780 --> 00:05:02,300
+By summing all of these cells together.
+
+80
+00:05:02,660 --> 00:05:09,230
+And I structured my own version of this the data, at least in an array I'm calling Gameboard, and
+
+81
+00:05:09,230 --> 00:05:14,810
+it's based exactly off of this score or this board that I created by losing the game.
+
+82
+00:05:14,810 --> 00:05:21,170
+432, eight and four is the first row, 432, eight and four, and there are four rows.
+
+83
+00:05:21,170 --> 00:05:26,830
+So to sum all of the values here, I need to loop twice the first loop.
+
+84
+00:05:26,840 --> 00:05:29,810
+I'm going to move this down so we can group it together.
+
+85
+00:05:29,810 --> 00:05:33,110
+The first loop is just going to iterate over this outer array.
+
+86
+00:05:33,590 --> 00:05:37,040
+So one, two, three, four elements.
+
+87
+00:05:37,250 --> 00:05:46,910
+So for let i equals zero I is less than game board length I plus plus.
+
+88
+00:05:47,600 --> 00:05:52,610
+So this is going to iterate through game board or it's at least going to give me a number that I can
+
+89
+00:05:52,610 --> 00:06:02,810
+use to access game board of I and I could just console.log that, but I'll just be printing out each
+
+90
+00:06:02,810 --> 00:06:05,120
+individual row if I refresh the page.
+
+91
+00:06:05,240 --> 00:06:06,140
+There we go.
+
+92
+00:06:06,290 --> 00:06:07,940
+So I can't just sum this.
+
+93
+00:06:07,940 --> 00:06:12,650
+I can't say a total variable plus equals this entire array.
+
+94
+00:06:12,650 --> 00:06:19,070
+I need to then loop through each one of these sub arrays and for each value add it to some variable.
+
+95
+00:06:19,580 --> 00:06:22,730
+So the question is how do I loop through this array here?
+
+96
+00:06:22,730 --> 00:06:24,950
+What I would probably do is make a new variable.
+
+97
+00:06:24,950 --> 00:06:32,720
+I'll call it row, which will equal game board of I because this outer loop is just giving us an entire
+
+98
+00:06:32,720 --> 00:06:39,830
+row at a time when we access using AI, we get one row and then I'm going to loop over row.
+
+99
+00:06:40,130 --> 00:06:45,080
+So depending on how many items are here, it's always for I'm not going to hard code it because we could
+
+100
+00:06:45,080 --> 00:06:48,170
+have a five by five game board or an eight by eight game board.
+
+101
+00:06:48,170 --> 00:06:50,420
+I'm going to use the length of the row.
+
+102
+00:06:50,570 --> 00:06:57,500
+So to loop over row, all I need to do is for let let's go with j equals zero.
+
+103
+00:06:57,740 --> 00:07:02,210
+J is less than row length j plus plus.
+
+104
+00:07:03,020 --> 00:07:11,390
+And why don't we start by console logging row of I and up here I'll cancel that log the row so you can
+
+105
+00:07:11,390 --> 00:07:12,770
+just see the relationship.
+
+106
+00:07:13,910 --> 00:07:17,870
+Refresh the page and it's hard to see what's going on here.
+
+107
+00:07:17,870 --> 00:07:21,470
+Well, I actually made a mistake here, a pretty common one.
+
+108
+00:07:21,470 --> 00:07:24,650
+I use the variable I inside of this loop.
+
+109
+00:07:24,860 --> 00:07:26,510
+There's nothing wrong with it.
+
+110
+00:07:26,510 --> 00:07:29,060
+In a technical sense, JavaScript doesn't care.
+
+111
+00:07:29,060 --> 00:07:33,920
+But as far as my logic is concerned, the variable I want is j.
+
+112
+00:07:33,950 --> 00:07:37,730
+J is going to be referring to each element in a row.
+
+113
+00:07:37,970 --> 00:07:40,940
+I is referring to the actual row.
+
+114
+00:07:41,420 --> 00:07:50,660
+So in the first iteration I is zero and I'm then using that to access zero item zero, item zero, item
+
+115
+00:07:50,660 --> 00:07:53,120
+zero, which is why I get all of these forwards printed out.
+
+116
+00:07:53,120 --> 00:07:59,960
+So I want to access J because J will be changing each time and here's what we get.
+
+117
+00:08:00,500 --> 00:08:07,760
+So our outer loop starts, we get this row and then we loop over this 430 to 8 and four.
+
+118
+00:08:07,760 --> 00:08:08,810
+That's each value.
+
+119
+00:08:08,840 --> 00:08:11,330
+The inner loop finishes, there's nothing afterwards.
+
+120
+00:08:11,330 --> 00:08:15,830
+So the outer loop is done on that iteration and we start the next cycle.
+
+121
+00:08:15,860 --> 00:08:23,930
+So now I is set to one which gives us this index and we loop over this row, so why don't we sum it
+
+122
+00:08:23,930 --> 00:08:24,410
+all together?
+
+123
+00:08:24,410 --> 00:08:29,960
+Now I'll get rid of these constant logs and to do that I need a total variable.
+
+124
+00:08:29,960 --> 00:08:31,100
+Let total.
+
+125
+00:08:31,160 --> 00:08:32,539
+Let's go with total score.
+
+126
+00:08:33,830 --> 00:08:43,909
+Start it at zero and then in here I'm simply going to total score plus equals and then row of J.
+
+127
+00:08:44,720 --> 00:08:49,520
+Remember row is this entire element each time through.
+
+128
+00:08:49,520 --> 00:08:52,100
+And then J gives me a number like zero.
+
+129
+00:08:52,100 --> 00:08:53,750
+So I'm going to take row of zero.
+
+130
+00:08:53,750 --> 00:08:57,260
+Add that to total score row of one, row of two, row of three.
+
+131
+00:08:57,260 --> 00:08:59,720
+Add those all in and then the loop starts over.
+
+132
+00:08:59,720 --> 00:09:04,670
+And now we're working on this array and then I do row of zero and keep adding them in.
+
+133
+00:09:04,670 --> 00:09:05,510
+Let's see what we get.
+
+134
+00:09:05,510 --> 00:09:11,660
+If I refresh the page, I didn't print out total score, but you can see it over here if I type it 230.
+
+135
+00:09:11,960 --> 00:09:18,230
+So this is still kind of a silly scenario, but this is a very real example of when you would use nested
+
+136
+00:09:18,230 --> 00:09:18,740
+loops.
+
+137
+00:09:18,740 --> 00:09:24,890
+We need to have at least two loops to access each element because we have two arrays that are nested.
+
+138
+00:09:24,890 --> 00:09:28,820
+And if we had further sub arrays, we would need another loop.
+
+139
+00:09:28,820 --> 00:09:30,320
+All right, so that's it for now.
+
+140
+00:09:30,470 --> 00:09:35,510
+Just take away the fact that we can have nested loops each iteration through the outer loop.
+
+141
+00:09:35,510 --> 00:09:40,760
+We have a complete cycle of the inner loop before the outer loop increments or moves on to its next
+
+142
+00:09:40,760 --> 00:09:41,420
+iteration.
+

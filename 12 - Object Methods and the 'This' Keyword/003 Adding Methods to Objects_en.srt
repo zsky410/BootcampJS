@@ -1,0 +1,328 @@
+1
+00:00:00,120 --> 00:00:05,670
+Next up, we have a really important topic in the world of objects, the idea that we can add functions
+
+2
+00:00:05,670 --> 00:00:06,830
+to our objects.
+
+3
+00:00:06,840 --> 00:00:11,460
+So we've seen that we can pass functions around, we can store them in variables, we can store them
+
+4
+00:00:11,460 --> 00:00:15,210
+in arrays, we can pass them as arguments, we can return them from a function.
+
+5
+00:00:15,210 --> 00:00:17,580
+We can also store them in objects.
+
+6
+00:00:17,610 --> 00:00:22,380
+Now, why we would do this is a bigger topic that we will get to in pieces.
+
+7
+00:00:22,470 --> 00:00:28,350
+The first, simplest reason we would do this is just to group functions together, to group functionality
+
+8
+00:00:28,350 --> 00:00:30,620
+into some sort of cohesive unit.
+
+9
+00:00:30,630 --> 00:00:31,740
+So here's an example.
+
+10
+00:00:31,740 --> 00:00:36,930
+We have a math object that contains different functions that have to do with one another.
+
+11
+00:00:36,960 --> 00:00:42,150
+So they're just grouped together and it's just a nice organizational structure.
+
+12
+00:00:43,340 --> 00:00:49,010
+So we call these methods when we add a function into an object, and we've been using the word method
+
+13
+00:00:49,010 --> 00:00:53,360
+quite a bit when we do things like Hello Dot to Uppercase.
+
+14
+00:00:53,660 --> 00:00:59,540
+This is a method and I mentioned this a couple of times earlier, when we define a function on our own
+
+15
+00:00:59,630 --> 00:01:08,630
+and restore it in a variable or just a function declaration const add equals, function x, comma y,
+
+16
+00:01:10,280 --> 00:01:12,080
+return x plus y.
+
+17
+00:01:12,650 --> 00:01:16,070
+This right here is a function right there.
+
+18
+00:01:16,520 --> 00:01:24,050
+But when we add it into an object and it lives on something and we call it with the dot notation, it
+
+19
+00:01:24,050 --> 00:01:25,180
+is now a method.
+
+20
+00:01:25,190 --> 00:01:27,260
+So these are built in methods.
+
+21
+00:01:27,440 --> 00:01:29,870
+But now we'll see how to add our own methods to objects.
+
+22
+00:01:29,870 --> 00:01:30,830
+It's very straightforward.
+
+23
+00:01:30,830 --> 00:01:32,180
+We already saw it on the slides.
+
+24
+00:01:32,180 --> 00:01:36,920
+One question you might have is I thought strings were not objects.
+
+25
+00:01:36,920 --> 00:01:38,330
+I thought they were primitives.
+
+26
+00:01:38,600 --> 00:01:40,310
+Aren't strings just a value?
+
+27
+00:01:40,340 --> 00:01:41,620
+How do they have methods?
+
+28
+00:01:41,630 --> 00:01:43,460
+That is something we'll get to in due time.
+
+29
+00:01:43,460 --> 00:01:45,110
+So we're going to put that aside for now.
+
+30
+00:01:45,440 --> 00:01:47,720
+But let's go ahead and define our object.
+
+31
+00:01:47,720 --> 00:01:53,930
+We'll call it math, and I'll show you a couple of different ways of adding functions in.
+
+32
+00:01:53,930 --> 00:01:56,270
+So right now I have a function called ADD.
+
+33
+00:01:56,300 --> 00:02:00,590
+I've used a function expression, saved it to the variable ADD.
+
+34
+00:02:00,800 --> 00:02:02,270
+I could just do this.
+
+35
+00:02:03,510 --> 00:02:05,750
+We saw this short hand a couple of videos ago.
+
+36
+00:02:05,760 --> 00:02:08,300
+I now have a object called math.
+
+37
+00:02:08,310 --> 00:02:15,330
+If I run my code over here, we look at math, the key is ad and the value is the function stored in
+
+38
+00:02:15,330 --> 00:02:15,810
+ad.
+
+39
+00:02:16,260 --> 00:02:20,220
+So we have ad is the key and then you can see a function right here.
+
+40
+00:02:21,120 --> 00:02:28,410
+If I want to call it, I need to use the dot notation, math, dot add and then pass into numbers.
+
+41
+00:02:28,830 --> 00:02:36,030
+Now, because of the way I wrote this, I also could just call, add and pass in values to five.
+
+42
+00:02:36,420 --> 00:02:43,110
+I'm calling this function from here versus if I do math ad where referencing the same function it's
+
+43
+00:02:43,110 --> 00:02:48,270
+the same variable or the same function in memory, but I'm accessing it in a different way.
+
+44
+00:02:48,630 --> 00:02:53,370
+So it's pretty uncommon to define your function first and then add it into an object.
+
+45
+00:02:53,400 --> 00:03:01,680
+Normally you would do something like this add colon function and then add our arguments and put our
+
+46
+00:03:01,680 --> 00:03:03,300
+function expression right here.
+
+47
+00:03:03,510 --> 00:03:07,350
+So we'll just return X plus Y.
+
+48
+00:03:09,600 --> 00:03:16,950
+And if we want another property, if we want to do multiply, we can add another function at our arguments,
+
+49
+00:03:16,950 --> 00:03:22,710
+X or our parameters X and Y, and then we can return x times Y.
+
+50
+00:03:23,700 --> 00:03:26,720
+So now I have two properties, both of which are functions.
+
+51
+00:03:26,730 --> 00:03:28,980
+I can still add in non functions.
+
+52
+00:03:28,980 --> 00:03:30,810
+I can add whatever I want to the object.
+
+53
+00:03:30,930 --> 00:03:34,320
+I could do numbers and that could be an array.
+
+54
+00:03:34,320 --> 00:03:35,760
+One, two, three, four, five.
+
+55
+00:03:37,180 --> 00:03:44,170
+If I run this code, we look at math, we now have two functions in here add, multiply and numbers
+
+56
+00:03:44,170 --> 00:03:47,380
+which is an array and I use the exact same syntax.
+
+57
+00:03:47,380 --> 00:03:50,110
+Math numbers is how I access that array.
+
+58
+00:03:50,650 --> 00:03:58,840
+Math add is how I access that function, but I'm not executing it until I add the parent five and six.
+
+59
+00:03:58,930 --> 00:04:06,550
+Same thing with multiply multiply with no parent gives me a reference to the function I'm getting the
+
+60
+00:04:06,550 --> 00:04:07,870
+function if that makes sense.
+
+61
+00:04:07,900 --> 00:04:10,500
+I'm asking JavaScript, does this thing exist?
+
+62
+00:04:10,510 --> 00:04:11,530
+Tell me about it.
+
+63
+00:04:11,560 --> 00:04:18,310
+Now I'm saying I know it exists, let's run it and we get 42 when I multiply six and seven.
+
+64
+00:04:18,550 --> 00:04:24,700
+So again, right now this is just a nice way of grouping functions together, putting them in an object
+
+65
+00:04:24,700 --> 00:04:29,890
+so that they're just in some sort of container rather than having a bunch of functions floating around.
+
+66
+00:04:29,890 --> 00:04:36,370
+I now have this math object, which is the same idea as the existing math that we have in JavaScript.
+
+67
+00:04:36,370 --> 00:04:39,250
+We've seen a couple of these methods math random.
+
+68
+00:04:40,390 --> 00:04:41,920
+It's grouped inside of math.
+
+69
+00:04:41,920 --> 00:04:48,610
+Instead of just having a floating random function, we call we have a math object that contains a bunch
+
+70
+00:04:48,610 --> 00:04:51,820
+of different functions or technically methods.
+
+71
+00:04:51,820 --> 00:04:57,430
+So the terminology one more time we have functions which we've seen on our own, but when we add a function
+
+72
+00:04:57,430 --> 00:05:00,820
+as a property in an object, we call it a method.
+
+73
+00:05:01,420 --> 00:05:02,980
+So these are two methods.
+
+74
+00:05:03,550 --> 00:05:08,860
+Well, students see some additional things we can do instead of methods, some new constructs or new
+
+75
+00:05:08,860 --> 00:05:09,640
+features.
+
+76
+00:05:09,880 --> 00:05:10,480
+The keyword.
+
+77
+00:05:10,480 --> 00:05:16,840
+This will come up very soon in this section, which will make these methods more useful or more flexible.
+
+78
+00:05:16,840 --> 00:05:19,060
+Right now, it's just purely a container.
+
+79
+00:05:19,060 --> 00:05:23,860
+This object just stores, functions and groups them together so that we can carry them around just like
+
+80
+00:05:23,860 --> 00:05:25,660
+a purse for all of our belongings.
+
+81
+00:05:25,720 --> 00:05:30,370
+Next, I'm going to show you a new syntax that makes it a little shorter to define methods.
+
+82
+00:05:30,370 --> 00:05:33,520
+And then we'll go on and talk about the keyword this.
+

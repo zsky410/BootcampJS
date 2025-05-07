@@ -1,0 +1,1012 @@
+1
+00:00:00,210 --> 00:00:02,150
+In our final video on Reduce.
+
+2
+00:00:02,160 --> 00:00:04,500
+Yes, we've almost made it to the end here.
+
+3
+00:00:04,590 --> 00:00:10,950
+We're going to see a completely different way of using it where we can tally up results from an array.
+
+4
+00:00:10,950 --> 00:00:15,030
+We can group different values in an array using an object.
+
+5
+00:00:15,030 --> 00:00:16,740
+So here's a simple example.
+
+6
+00:00:16,740 --> 00:00:21,030
+I have an array of votes which I'm storing as Y and N.
+
+7
+00:00:21,060 --> 00:00:22,590
+It could also just be true and false.
+
+8
+00:00:22,590 --> 00:00:23,910
+It could be yay and nay.
+
+9
+00:00:23,910 --> 00:00:25,380
+We could have multiple votes.
+
+10
+00:00:25,380 --> 00:00:28,170
+We could have yes, no and abstain.
+
+11
+00:00:28,440 --> 00:00:29,760
+We could have ratings.
+
+12
+00:00:29,760 --> 00:00:37,290
+But what we're going to do is use reduce to produce an object where we have y and we count the number
+
+13
+00:00:37,290 --> 00:00:41,700
+of y's like 12 and then the number of nodes like eight.
+
+14
+00:00:41,730 --> 00:00:45,960
+Now I don't think that's accurate for this exact array, but this is what we're going for.
+
+15
+00:00:46,440 --> 00:00:48,600
+So what we're going to do is a little different.
+
+16
+00:00:48,600 --> 00:00:56,550
+Our accumulator, the thing that will actually return and add into or update is going to be an object.
+
+17
+00:00:56,820 --> 00:01:03,600
+So we're going to have votes reduce, we'll have some function, I'll just call it func for now and
+
+18
+00:01:03,600 --> 00:01:06,480
+our initial value will be an empty object.
+
+19
+00:01:06,870 --> 00:01:14,190
+So I'll call this concept results maybe equals votes that reduce our function, which we have yet to
+
+20
+00:01:14,190 --> 00:01:14,850
+fill out.
+
+21
+00:01:14,850 --> 00:01:17,280
+And the initial value is an empty object.
+
+22
+00:01:17,280 --> 00:01:21,930
+Remember, we specify an initial value like 100 accumulator.
+
+23
+00:01:21,930 --> 00:01:26,470
+The first parameter to our reduced callback starts at 100.
+
+24
+00:01:26,490 --> 00:01:30,960
+In this case, we're using an object, so a little bit different, but the same idea.
+
+25
+00:01:30,960 --> 00:01:33,270
+The initial value will be this empty object.
+
+26
+00:01:34,290 --> 00:01:35,850
+So I'll draw it out down here.
+
+27
+00:01:36,300 --> 00:01:38,640
+Then we're going to write our callback.
+
+28
+00:01:38,970 --> 00:01:40,230
+I'll use an arrow function.
+
+29
+00:01:40,230 --> 00:01:42,600
+The first piece is the accumulator.
+
+30
+00:01:42,600 --> 00:01:48,390
+This is the, the piece of you can think of it as like a memory from last time, from the last iteration
+
+31
+00:01:48,390 --> 00:01:49,200
+of Reduce.
+
+32
+00:01:49,200 --> 00:01:52,650
+I'm going to call this one tally because that's what it represents.
+
+33
+00:01:52,740 --> 00:01:55,230
+It's not really a sum or a total.
+
+34
+00:01:55,500 --> 00:01:58,680
+Total would be okay, but tally is it makes sense here.
+
+35
+00:01:58,680 --> 00:02:05,580
+And then we'll have current item or current vote or let's just call it Val.
+
+36
+00:02:06,870 --> 00:02:08,130
+All right, then.
+
+37
+00:02:08,130 --> 00:02:09,210
+An arrow function.
+
+38
+00:02:10,500 --> 00:02:17,130
+And what we want to do here is add to this object using whatever key we have.
+
+39
+00:02:17,160 --> 00:02:20,250
+So let's say it's why we want to check.
+
+40
+00:02:20,280 --> 00:02:22,880
+Is there a why in this object?
+
+41
+00:02:22,890 --> 00:02:27,510
+Because the very first time we encounter why, there won't be a key for why it's just empty.
+
+42
+00:02:27,990 --> 00:02:32,490
+So if we encounter y, we'll want to say y is one.
+
+43
+00:02:32,940 --> 00:02:34,620
+Then the next time through.
+
+44
+00:02:35,760 --> 00:02:37,380
+We're not going to set Y to one.
+
+45
+00:02:37,380 --> 00:02:38,220
+We're going to check.
+
+46
+00:02:38,220 --> 00:02:39,660
+Is there a Y already?
+
+47
+00:02:39,660 --> 00:02:42,030
+Yes, that was the first time through.
+
+48
+00:02:42,180 --> 00:02:43,890
+So add one to it.
+
+49
+00:02:44,670 --> 00:02:46,790
+Then we'll get to N and we'll check.
+
+50
+00:02:46,800 --> 00:02:48,930
+Is there an N in this object?
+
+51
+00:02:48,960 --> 00:02:49,950
+No, there's not.
+
+52
+00:02:49,950 --> 00:02:51,360
+So set it equal to one.
+
+53
+00:02:51,360 --> 00:02:54,030
+So we'll have y two and one.
+
+54
+00:02:54,510 --> 00:02:57,300
+And then next time we get to an end, we'll increment it.
+
+55
+00:02:57,300 --> 00:03:00,600
+So our logic will look something like this if.
+
+56
+00:03:01,550 --> 00:03:03,710
+Tally of Val.
+
+57
+00:03:03,740 --> 00:03:09,050
+Meaning if we already have that key in the object, we're going to want to increment it.
+
+58
+00:03:09,050 --> 00:03:11,960
+So tally of val plus.
+
+59
+00:03:11,960 --> 00:03:12,590
+Plus.
+
+60
+00:03:13,710 --> 00:03:15,450
+That means there's already something in there.
+
+61
+00:03:15,450 --> 00:03:17,130
+So not this case.
+
+62
+00:03:17,340 --> 00:03:21,930
+The very first time through this code does not run because there is no value in tally.
+
+63
+00:03:21,930 --> 00:03:22,470
+There is no.
+
+64
+00:03:22,470 --> 00:03:23,310
+Yes, there's no.
+
+65
+00:03:23,310 --> 00:03:23,870
+No.
+
+66
+00:03:24,480 --> 00:03:27,350
+So otherwise that's the if part.
+
+67
+00:03:27,360 --> 00:03:29,850
+I'll do this some more verbose way first.
+
+68
+00:03:30,600 --> 00:03:34,920
+So we'll do tally val plus equals if it's already in there.
+
+69
+00:03:34,920 --> 00:03:42,540
+If it's not in there, we'll write tally of val equals one, we'll set it to one.
+
+70
+00:03:42,540 --> 00:03:45,450
+And then at the end we'll return tally.
+
+71
+00:03:46,530 --> 00:03:47,130
+Okay.
+
+72
+00:03:47,370 --> 00:03:49,710
+So Talley starts the very first time through.
+
+73
+00:03:49,710 --> 00:03:50,820
+It's an empty object.
+
+74
+00:03:51,180 --> 00:03:52,740
+Our vowel is why.
+
+75
+00:03:52,770 --> 00:03:55,840
+The first element is their tally of Val.
+
+76
+00:03:55,860 --> 00:03:56,940
+No, it doesn't exist.
+
+77
+00:03:56,940 --> 00:03:58,380
+This does not run here.
+
+78
+00:03:58,380 --> 00:03:59,520
+But this does.
+
+79
+00:03:59,520 --> 00:04:03,090
+So we set Tally of Val to be one and we return that.
+
+80
+00:04:03,090 --> 00:04:06,630
+So the next time through we have y one.
+
+81
+00:04:08,220 --> 00:04:10,530
+So now Italy is equal to this object.
+
+82
+00:04:10,530 --> 00:04:11,760
+That's what we're returning.
+
+83
+00:04:11,970 --> 00:04:16,920
+Just like we did when we some things together or when we found the max or the min, same pattern.
+
+84
+00:04:16,920 --> 00:04:20,040
+We're just changing tally in a different way.
+
+85
+00:04:20,070 --> 00:04:25,170
+We're not accumulating in the same format, but we are persisting this, we're returning it.
+
+86
+00:04:25,170 --> 00:04:28,710
+And then next time through that return, value is used as tally.
+
+87
+00:04:28,890 --> 00:04:30,540
+So we get to another why?
+
+88
+00:04:30,810 --> 00:04:31,890
+Why one?
+
+89
+00:04:31,890 --> 00:04:33,060
+This is our object.
+
+90
+00:04:33,270 --> 00:04:36,930
+If Tally of L well, there is Y in this object.
+
+91
+00:04:36,930 --> 00:04:41,390
+So that means we're going to increment it to be two y of two.
+
+92
+00:04:41,400 --> 00:04:43,260
+And you can see where I'm going with this.
+
+93
+00:04:43,260 --> 00:04:44,580
+We'll eventually hit RN.
+
+94
+00:04:44,610 --> 00:04:51,180
+There is not an RN in here, so this part here does not run and we instead set tally of RN equal to
+
+95
+00:04:51,180 --> 00:04:53,070
+one and then we keep going.
+
+96
+00:04:53,070 --> 00:04:54,540
+So let's see what we end up with.
+
+97
+00:04:55,350 --> 00:04:56,280
+We'll run this.
+
+98
+00:04:56,400 --> 00:04:58,740
+What do we get when we call results?
+
+99
+00:04:58,980 --> 00:05:01,590
+It looks like seven yeses and six nos.
+
+100
+00:05:02,280 --> 00:05:04,440
+I guess we can count that or count the Ys.
+
+101
+00:05:04,440 --> 00:05:08,760
+One, two, three, four, five, six, seven and the Nos.
+
+102
+00:05:08,760 --> 00:05:11,520
+One, two, three, four, five, six.
+
+103
+00:05:11,700 --> 00:05:12,450
+Great.
+
+104
+00:05:12,660 --> 00:05:20,370
+So if we had instead added some other types of votes in here, like, I don't know, nay or how about
+
+105
+00:05:20,370 --> 00:05:21,120
+absent?
+
+106
+00:05:23,580 --> 00:05:24,990
+Let's just leave it like that.
+
+107
+00:05:25,020 --> 00:05:26,190
+We'll run it again.
+
+108
+00:05:26,430 --> 00:05:27,300
+Results.
+
+109
+00:05:27,660 --> 00:05:31,500
+Now we have yeses seven absent one and Nos.
+
+110
+00:05:31,500 --> 00:05:32,310
+Six.
+
+111
+00:05:33,300 --> 00:05:37,170
+Now, there is a shorter way of writing this, the logic itself that we have here.
+
+112
+00:05:37,500 --> 00:05:39,660
+And I'll show that to you right now.
+
+113
+00:05:39,810 --> 00:05:45,450
+Instead of doing this if and else where we're checking if Tally Oval exists.
+
+114
+00:05:45,600 --> 00:05:47,070
+And if it does, we'll add one.
+
+115
+00:05:47,070 --> 00:05:49,080
+If it doesn't, we'll initialize it to one.
+
+116
+00:05:49,080 --> 00:05:51,840
+We can rewrite this slightly differently.
+
+117
+00:05:51,840 --> 00:05:54,990
+We'll say tally of val equals.
+
+118
+00:05:55,350 --> 00:05:57,300
+And bear with me for a second.
+
+119
+00:05:57,330 --> 00:06:02,340
+Tally of Val or zero plus one.
+
+120
+00:06:03,800 --> 00:06:04,280
+Okay.
+
+121
+00:06:04,280 --> 00:06:05,990
+So how does this one line work?
+
+122
+00:06:06,020 --> 00:06:08,480
+Well, it all hinges upon this right here.
+
+123
+00:06:08,690 --> 00:06:11,300
+Tally of val or zero.
+
+124
+00:06:12,080 --> 00:06:15,710
+So if our object is empty at the beginning, there is no.
+
+125
+00:06:15,710 --> 00:06:16,460
+Why, there's no.
+
+126
+00:06:16,850 --> 00:06:18,170
+We don't have any keys.
+
+127
+00:06:18,290 --> 00:06:25,370
+The very first time we encounter y, for example, we're going to set tally of Y to equal the current
+
+128
+00:06:25,370 --> 00:06:27,530
+tally of y, which doesn't exist.
+
+129
+00:06:27,530 --> 00:06:32,350
+So that gives us undefined or zero which results in zero.
+
+130
+00:06:32,360 --> 00:06:36,380
+So we're doing zero plus one, which is going to set it to one.
+
+131
+00:06:36,500 --> 00:06:42,440
+But the next time through, if we encounter y again, the very next element is Y, we'll set tally of
+
+132
+00:06:42,440 --> 00:06:46,520
+y equal to tally of y, which right now is one.
+
+133
+00:06:46,520 --> 00:06:51,380
+So then this becomes one, one or zero gives us one.
+
+134
+00:06:51,380 --> 00:06:54,980
+So then we end up with one plus one, which is two.
+
+135
+00:06:55,280 --> 00:06:59,320
+So it's kind of a sneaky way of doing what we're doing up here.
+
+136
+00:06:59,330 --> 00:07:01,370
+If something exists, add one to it.
+
+137
+00:07:01,370 --> 00:07:03,530
+If it doesn't exist, set it to one.
+
+138
+00:07:04,490 --> 00:07:08,120
+We're just doing it in one line, taking advantage of this boolean logic.
+
+139
+00:07:08,120 --> 00:07:09,710
+So I need to reset that to tally.
+
+140
+00:07:09,710 --> 00:07:12,020
+Oh Val, run this code again.
+
+141
+00:07:12,410 --> 00:07:13,340
+Results.
+
+142
+00:07:13,370 --> 00:07:14,510
+It still works.
+
+143
+00:07:14,510 --> 00:07:16,640
+So just a shorter way of writing it.
+
+144
+00:07:16,640 --> 00:07:17,010
+Okay.
+
+145
+00:07:17,030 --> 00:07:18,500
+So this is equivalent to this.
+
+146
+00:07:18,500 --> 00:07:19,850
+We get the same result.
+
+147
+00:07:20,000 --> 00:07:22,400
+One more example of using reduce.
+
+148
+00:07:22,550 --> 00:07:24,770
+I have the same books array we've been working with.
+
+149
+00:07:24,770 --> 00:07:27,680
+I added in a new book Where are you?
+
+150
+00:07:27,710 --> 00:07:28,910
+I truly horrible book.
+
+151
+00:07:28,910 --> 00:07:34,490
+I wanted to give one a bad rating, but I didn't want to call out a real book and give it a bad rating.
+
+152
+00:07:34,490 --> 00:07:39,110
+So this is a truly horrible book written by Save Your Time.
+
+153
+00:07:39,320 --> 00:07:40,040
+Save Your Time.
+
+154
+00:07:40,040 --> 00:07:40,200
+Hi.
+
+155
+00:07:40,250 --> 00:07:40,630
+Got it.
+
+156
+00:07:40,730 --> 00:07:41,510
+Save your time.
+
+157
+00:07:41,690 --> 00:07:42,530
+Very funny.
+
+158
+00:07:42,530 --> 00:07:48,860
+So what I want to do is group all of these books in a new object and I want to group them by rating.
+
+159
+00:07:48,860 --> 00:07:53,780
+So all books that have a two star review will go, whoops, it will be an array.
+
+160
+00:07:54,290 --> 00:07:56,720
+Then we'll have all books that have a three star.
+
+161
+00:07:56,720 --> 00:08:02,570
+So three point something, not just exactly three, but 3.6, seven and 3.0.
+
+162
+00:08:02,570 --> 00:08:03,110
+Where are you?
+
+163
+00:08:03,110 --> 00:08:04,130
+3.83.
+
+164
+00:08:04,130 --> 00:08:08,090
+And then all the four star books will go into the key of four.
+
+165
+00:08:08,090 --> 00:08:14,480
+So I'm going to use reduce for this books dot reduce and we're going to add our accumulator function
+
+166
+00:08:14,480 --> 00:08:14,990
+here.
+
+167
+00:08:15,440 --> 00:08:20,630
+Just put gibberish and we'll set the initial value to be an object as well, just like we did up here.
+
+168
+00:08:20,900 --> 00:08:24,680
+We initialize it right there or we give it an initial value.
+
+169
+00:08:25,460 --> 00:08:29,420
+Okay, so our function is going to look like this.
+
+170
+00:08:29,420 --> 00:08:31,970
+We'll have our accumulator parameter first.
+
+171
+00:08:31,970 --> 00:08:39,799
+I'll call this grouped books and then after that we'll have each book.
+
+172
+00:08:41,510 --> 00:08:45,710
+Aero function, then we need to get the rating from the book.
+
+173
+00:08:45,890 --> 00:08:47,810
+So book rating.
+
+174
+00:08:48,710 --> 00:08:50,650
+But I want to eliminate the decimal.
+
+175
+00:08:50,660 --> 00:08:54,200
+I don't want to use this as the key because that's far too unique.
+
+176
+00:08:54,200 --> 00:08:55,730
+I only want three.
+
+177
+00:08:56,240 --> 00:08:59,660
+So I'm going to do a math dot for math floor.
+
+178
+00:08:59,660 --> 00:09:01,850
+We'll just chop the decimal point off.
+
+179
+00:09:02,390 --> 00:09:02,840
+Right?
+
+180
+00:09:02,840 --> 00:09:06,620
+Math floor of 5.4 gives us five.
+
+181
+00:09:06,680 --> 00:09:08,870
+5.9 still gives us five.
+
+182
+00:09:08,870 --> 00:09:12,350
+So it's not rounding, it's just chopping off the decimal.
+
+183
+00:09:12,830 --> 00:09:16,490
+So I'm going to save that to a variable we'll call this key.
+
+184
+00:09:17,000 --> 00:09:18,890
+Key equals that rating.
+
+185
+00:09:19,070 --> 00:09:22,970
+So this will give us two, three or four off the current data set at least.
+
+186
+00:09:22,970 --> 00:09:26,480
+And then we want to check does grouped books.
+
+187
+00:09:28,510 --> 00:09:30,220
+Of key dates that exist.
+
+188
+00:09:31,460 --> 00:09:33,950
+If not, we're going to make it an empty array.
+
+189
+00:09:34,370 --> 00:09:36,530
+So I'd probably just do this if.
+
+190
+00:09:37,610 --> 00:09:41,300
+Not grouped books of that key.
+
+191
+00:09:42,550 --> 00:09:47,890
+Meaning there is currently no book with rating of three or rating of four or whatever rating we're working
+
+192
+00:09:47,890 --> 00:09:48,340
+with.
+
+193
+00:09:48,370 --> 00:09:54,550
+Then I'll set grouped books of that key to be an empty array.
+
+194
+00:09:55,090 --> 00:10:01,030
+Because remember, our goal here is to create an object where we have three, which is an array of books.
+
+195
+00:10:01,030 --> 00:10:05,290
+So each one of these would be a book with a rating of three point something.
+
+196
+00:10:05,410 --> 00:10:11,230
+So if key is four, if there is no grouped books of four, it's empty.
+
+197
+00:10:11,260 --> 00:10:16,600
+Then we're going to say grouped books of four is equal to an empty array.
+
+198
+00:10:17,230 --> 00:10:19,330
+But then we also want to push in.
+
+199
+00:10:19,870 --> 00:10:22,030
+So that will be grouped books.
+
+200
+00:10:23,270 --> 00:10:27,080
+Of key dot push the entire book.
+
+201
+00:10:29,190 --> 00:10:31,140
+So let me make this a bit bigger.
+
+202
+00:10:31,350 --> 00:10:34,740
+And then finally we'll return our grouped books.
+
+203
+00:10:35,930 --> 00:10:36,410
+Okay.
+
+204
+00:10:36,410 --> 00:10:39,320
+So this one's a bit longer, you could definitely shorten it up again.
+
+205
+00:10:39,320 --> 00:10:43,400
+But just to summarize how it works, we have an empty object at the beginning.
+
+206
+00:10:43,400 --> 00:10:47,030
+We encounter our first book, which is all the way up here.
+
+207
+00:10:47,030 --> 00:10:48,860
+It has a rating of 4.25.
+
+208
+00:10:48,860 --> 00:10:51,890
+So we get that rating, we chop the decimal off.
+
+209
+00:10:51,890 --> 00:10:53,240
+Now key is four.
+
+210
+00:10:53,600 --> 00:10:57,620
+We're going to check is there a key of four in grouped books?
+
+211
+00:10:57,620 --> 00:10:58,250
+There's not.
+
+212
+00:10:58,250 --> 00:10:59,450
+It's an empty object.
+
+213
+00:10:59,660 --> 00:11:02,990
+So we're going to set it equal to an empty array.
+
+214
+00:11:03,020 --> 00:11:05,660
+So we end up with four empty array.
+
+215
+00:11:06,170 --> 00:11:10,220
+Then we say grouped books of four dot push the entire book.
+
+216
+00:11:10,220 --> 00:11:13,280
+So that's when we add the whole book into that array.
+
+217
+00:11:13,820 --> 00:11:17,060
+And then the process starts again, this time for three.
+
+218
+00:11:17,420 --> 00:11:21,620
+And let's say we get to another four star book like this one.
+
+219
+00:11:22,640 --> 00:11:29,060
+We're going to get the key which will be for chop the decimal off we have for this part is false because
+
+220
+00:11:29,060 --> 00:11:31,970
+grouped books of that key does exist now.
+
+221
+00:11:32,240 --> 00:11:33,860
+So we only push.
+
+222
+00:11:33,860 --> 00:11:34,970
+We don't do this.
+
+223
+00:11:34,970 --> 00:11:36,160
+We don't set it to an empty array.
+
+224
+00:11:36,170 --> 00:11:38,240
+We only push in a new book.
+
+225
+00:11:38,690 --> 00:11:40,460
+So now we have two books in there.
+
+226
+00:11:41,660 --> 00:11:42,800
+Let's make sure it works.
+
+227
+00:11:42,860 --> 00:11:45,020
+Save it to a variable context.
+
+228
+00:11:45,440 --> 00:11:48,240
+Grouped by ratings.
+
+229
+00:11:48,260 --> 00:11:49,760
+It's kind of a long variable.
+
+230
+00:11:50,210 --> 00:11:50,990
+Let's see.
+
+231
+00:11:51,830 --> 00:11:53,210
+Grouped by ratings.
+
+232
+00:11:54,680 --> 00:11:59,390
+We have our two star book just as one book, a truly horrible book.
+
+233
+00:11:59,480 --> 00:12:01,490
+We have two, three star books.
+
+234
+00:12:01,490 --> 00:12:03,620
+And then we have our four star books.
+
+235
+00:12:04,450 --> 00:12:07,120
+So this was, uh, a little bit more complicated.
+
+236
+00:12:07,120 --> 00:12:08,050
+Definitely.
+
+237
+00:12:08,080 --> 00:12:13,490
+This is why I saved these examples for the very end after we got maybe a little comfortable with reduce.
+
+238
+00:12:13,510 --> 00:12:16,570
+If you're at all struggling with this, I don't blame you.
+
+239
+00:12:16,570 --> 00:12:18,010
+This is a weird one.
+
+240
+00:12:18,010 --> 00:12:18,430
+And why?
+
+241
+00:12:18,430 --> 00:12:23,410
+I kind of said I was scared to teach it and why I always worry a bit about teaching reduce.
+
+242
+00:12:23,410 --> 00:12:26,380
+It's hard to teach because there's so many uses for it.
+
+243
+00:12:26,380 --> 00:12:30,760
+It's not as straightforward as the other built in array callback methods, but don't feel bad.
+
+244
+00:12:30,760 --> 00:12:33,700
+If you are struggling with it, you'll get more practice.
+
+245
+00:12:33,700 --> 00:12:35,530
+It will come more naturally with time.
+
+246
+00:12:35,530 --> 00:12:41,170
+Hopefully it always trips beginners up, so that's reduced lots of different ways of using it.
+
+247
+00:12:41,170 --> 00:12:47,500
+But it boils down to pun intended, this diagram here where we take multiple elements from an array
+
+248
+00:12:47,500 --> 00:12:54,970
+and we turn them into one result somehow, whether it's a sum, a product or a min, a max, or we're
+
+249
+00:12:54,970 --> 00:13:00,790
+tallying them into an object, or we're grouping them by rating or by genre or whatever.
+
+250
+00:13:00,790 --> 00:13:05,770
+We end up with one result at the end, multiple values into one value that's reduced.
+
+251
+00:13:05,770 --> 00:13:07,960
+We made it and we're done with this section.
+
+252
+00:13:07,990 --> 00:13:08,860
+Congratulations.
+
+253
+00:13:08,860 --> 00:13:10,510
+This is a very meaty section.
+

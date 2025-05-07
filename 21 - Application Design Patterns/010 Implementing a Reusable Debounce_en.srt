@@ -1,0 +1,568 @@
+1
+00:00:00,650 --> 00:00:03,380
+In this video, we're going to define our D bounds helper function.
+
+2
+00:00:03,590 --> 00:00:10,220
+So right above the timeout ID, I'm going to make a new function called bounce like we just discussed.
+
+3
+00:00:10,220 --> 00:00:12,980
+This thing is going to take an argument of a function.
+
+4
+00:00:13,280 --> 00:00:17,360
+I'm going to refer to that as an argument called func short for function.
+
+5
+00:00:17,690 --> 00:00:22,790
+You could just as easily call it KB for callback or just callback itself, but I'm going to call it
+
+6
+00:00:22,790 --> 00:00:23,300
+func.
+
+7
+00:00:23,930 --> 00:00:28,040
+So then inside of here, we're going to return a function like so.
+
+8
+00:00:29,260 --> 00:00:31,540
+So this function right here, that is the wrapper.
+
+9
+00:00:31,540 --> 00:00:34,510
+That is the thing that is going to implement a little shield and guard.
+
+10
+00:00:34,510 --> 00:00:37,540
+How often func can actually be invoked.
+
+11
+00:00:39,280 --> 00:00:43,030
+So what you have right here, this is kind of the hardest part to understand.
+
+12
+00:00:43,480 --> 00:00:47,980
+All we have to do now is to finish up the implementation of the bounce is essentially take all the same
+
+13
+00:00:47,980 --> 00:00:51,490
+code that we have down here and stick it into the bounce.
+
+14
+00:00:51,640 --> 00:00:53,410
+So let's go through that step by step.
+
+15
+00:00:54,070 --> 00:00:59,290
+The first thing we're going to do just above the return statement is to fine, let timeout ID.
+
+16
+00:01:00,390 --> 00:01:02,090
+Then inside of our function.
+
+17
+00:01:02,100 --> 00:01:06,030
+So this is the function that we are going to be calling possibly many times in a row.
+
+18
+00:01:06,450 --> 00:01:09,450
+We're going to first check to see if timeout ID is defined.
+
+19
+00:01:09,750 --> 00:01:12,450
+And if it is, we're going to clear that timeout.
+
+20
+00:01:12,810 --> 00:01:15,330
+We're going to say sorry, previous execution.
+
+21
+00:01:15,360 --> 00:01:19,380
+Turns out you're not going to be actually running, so we're going to stop that thing in its tracks.
+
+22
+00:01:19,890 --> 00:01:26,760
+Then immediately after that, we're going to queue up a new execution of our underlying function, which
+
+23
+00:01:26,760 --> 00:01:32,880
+we can do by calling set timeout, passing it the function to run inside there we will call func like
+
+24
+00:01:32,880 --> 00:01:33,360
+so.
+
+25
+00:01:33,780 --> 00:01:37,920
+And then as a second argument to set timeout, we'll put in the delay that we want to have.
+
+26
+00:01:38,430 --> 00:01:42,960
+And then we're going to make sure that when we call set timeout, we take the timer that gets returned
+
+27
+00:01:43,050 --> 00:01:45,150
+and assign it back to timeout ID.
+
+28
+00:01:47,130 --> 00:01:47,790
+Like so.
+
+29
+00:01:48,750 --> 00:01:49,980
+And that's pretty much it.
+
+30
+00:01:50,280 --> 00:01:52,290
+There's just one less thing we have to take care of.
+
+31
+00:01:53,040 --> 00:01:57,510
+This function right here that we pass in might need to receive some kind of arguments.
+
+32
+00:01:57,510 --> 00:02:03,510
+So we essentially need to make sure that if we ever pass any arguments to this green wrapping function
+
+33
+00:02:03,510 --> 00:02:08,340
+that we intend to get over to on input, we essentially have to take the arguments that are being passed
+
+34
+00:02:08,340 --> 00:02:11,880
+to the green function and forward them on to on input.
+
+35
+00:02:12,510 --> 00:02:17,010
+So to do so very simply, like a real straightforward way of doing it, would be to say, okay, I'm
+
+36
+00:02:17,010 --> 00:02:21,330
+going to take in that first argument right there that I'll call simply ARG short for argument.
+
+37
+00:02:21,720 --> 00:02:25,770
+I'm going to take whatever that argument is and I'm going to pass it through to that func when it finally
+
+38
+00:02:25,770 --> 00:02:27,300
+actually gets called like.
+
+39
+00:02:27,300 --> 00:02:30,870
+So that's a very simple and straightforward way of doing that.
+
+40
+00:02:31,380 --> 00:02:36,570
+However, this approach right here will only work if we are passing in one single argument, and that's
+
+41
+00:02:36,570 --> 00:02:38,160
+possibly not always the case.
+
+42
+00:02:38,550 --> 00:02:42,720
+So to make sure that this works in all cases, we're going to use a little bit more fancier code.
+
+43
+00:02:42,720 --> 00:02:46,530
+We're going to say dot, dot, dot args, plural.
+
+44
+00:02:47,010 --> 00:02:50,250
+So this is going to take all the different arguments that are passed to the function.
+
+45
+00:02:51,100 --> 00:02:52,780
+Then down here when we call funk.
+
+46
+00:02:53,550 --> 00:02:58,530
+We're going to do funk apply with NULL and ARGs.
+
+47
+00:02:59,010 --> 00:03:00,900
+Remember what the apply function does?
+
+48
+00:03:01,140 --> 00:03:07,290
+Essentially says call the function as we normally would and take all the arguments or whatever is inside
+
+49
+00:03:07,290 --> 00:03:11,970
+of that array right there and pass them in as separate arguments to the original function.
+
+50
+00:03:12,630 --> 00:03:17,910
+So this right here, like the code that you see right here is 100% equivalent to if we had.
+
+51
+00:03:17,910 --> 00:03:21,180
+Instead, I'm going to make it very quick change here like argh!
+
+52
+00:03:21,180 --> 00:03:23,910
+One, ah, two, argh, three.
+
+53
+00:03:24,300 --> 00:03:30,140
+And then inside of here called func with arg one are two arg three 100% equivalent.
+
+54
+00:03:30,150 --> 00:03:35,610
+The only difference is that the apply way is going to automatically keep track of however many arguments
+
+55
+00:03:35,610 --> 00:03:37,100
+we need to actually pass through.
+
+56
+00:03:37,140 --> 00:03:38,130
+Only difference.
+
+57
+00:03:38,970 --> 00:03:39,210
+Okay.
+
+58
+00:03:39,240 --> 00:03:40,830
+So I'm going to go back to that point right there.
+
+59
+00:03:41,780 --> 00:03:42,030
+Okay.
+
+60
+00:03:42,050 --> 00:03:44,180
+So that is the entire balanced function.
+
+61
+00:03:44,420 --> 00:03:49,430
+So now we can use this anywhere inside of our code, any time that we need to introduce some rate limiting
+
+62
+00:03:49,430 --> 00:03:52,340
+essentially on how often a function can be invoked.
+
+63
+00:03:52,760 --> 00:03:57,890
+So in this case, we want to limit how often on input gets invoked.
+
+64
+00:03:58,250 --> 00:04:02,090
+So let's take out all the time out code that we have inside of here right now, and we're going to instead
+
+65
+00:04:02,090 --> 00:04:03,920
+use our bounce function on it.
+
+66
+00:04:04,880 --> 00:04:07,640
+So I'll first begin by deleting timeout ID.
+
+67
+00:04:09,150 --> 00:04:10,680
+I'm going to delete the if statement.
+
+68
+00:04:11,670 --> 00:04:14,520
+I'm going to delete the timeout ID with set timeout.
+
+69
+00:04:15,250 --> 00:04:16,990
+And the closing brackets on their.
+
+70
+00:04:18,029 --> 00:04:19,880
+Then fix up the indentation a little bit.
+
+71
+00:04:20,180 --> 00:04:24,650
+And now we're back to a very simple, plain and easy to read on input function.
+
+72
+00:04:25,650 --> 00:04:32,580
+So now we can apply the D bounce function right on this thing right here so we can say I want to pass
+
+73
+00:04:32,580 --> 00:04:33,090
+in.
+
+74
+00:04:34,270 --> 00:04:35,530
+That function like so.
+
+75
+00:04:36,340 --> 00:04:42,070
+Now we can imagine that this thing right here is going to be received into bounce as funk and we're
+
+76
+00:04:42,070 --> 00:04:45,790
+going to rate limit it essentially on how often it can be invoked.
+
+77
+00:04:45,790 --> 00:04:50,080
+We're going to wait until some amount of time has passed before we actually invoke it.
+
+78
+00:04:51,350 --> 00:04:55,400
+And then the important thing to keep in mind here is that we are returning a new function so we can
+
+79
+00:04:55,400 --> 00:04:59,780
+take whatever gets returned from de balance and still continue to assign it to on input.
+
+80
+00:04:59,810 --> 00:05:05,300
+Now we just have a version of an input that can only actually be invoked once every second.
+
+81
+00:05:06,250 --> 00:05:11,200
+So we can still continue to pass that directly on through to our event listener like we were doing before.
+
+82
+00:05:12,800 --> 00:05:15,770
+Just you know, there's one other way that we could have applied de bounce.
+
+83
+00:05:15,770 --> 00:05:19,880
+We could have defined on input normally like we did before.
+
+84
+00:05:20,850 --> 00:05:24,660
+And instead applied to bounce when we pass it off to the event listener.
+
+85
+00:05:24,660 --> 00:05:26,310
+So we could have used the bounce.
+
+86
+00:05:28,410 --> 00:05:29,400
+Down here as well.
+
+87
+00:05:29,700 --> 00:05:30,800
+100% equivalent.
+
+88
+00:05:30,810 --> 00:05:34,950
+Same exact thing is just a question of where we are actually applying the de bounce logic.
+
+89
+00:05:35,490 --> 00:05:39,360
+We would want to apply it in this way, like when we actually use the function or pass it off somewhere
+
+90
+00:05:39,360 --> 00:05:39,780
+else.
+
+91
+00:05:39,780 --> 00:05:45,060
+If we expect it to call on input multiple different times from multiple different places and we only
+
+92
+00:05:45,060 --> 00:05:47,490
+want to to d bounce it in some scenarios.
+
+93
+00:05:48,410 --> 00:05:48,620
+Okay.
+
+94
+00:05:48,620 --> 00:05:50,960
+So let's save this and go do a quick test.
+
+95
+00:05:52,240 --> 00:05:53,380
+So I'll flip back over.
+
+96
+00:05:53,590 --> 00:05:55,600
+I'm going to search for Avengers.
+
+97
+00:05:55,900 --> 00:05:58,500
+I'll wait for a second and then I see the response appear.
+
+98
+00:05:58,510 --> 00:06:00,580
+So it looks like it's still working as expected.
+
+99
+00:06:01,420 --> 00:06:01,640
+Okay.
+
+100
+00:06:01,660 --> 00:06:04,420
+So one last little, little improvement we could add inside of here.
+
+101
+00:06:04,420 --> 00:06:07,720
+At present, we've got a hard coded delay of 1/2.
+
+102
+00:06:07,840 --> 00:06:12,670
+And chances are we would want to allow other developers who might be using this function to adjust that
+
+103
+00:06:12,670 --> 00:06:13,510
+more easily.
+
+104
+00:06:13,930 --> 00:06:18,070
+So an easy way to do that would be to say that we're going to take in a second argument to our bounce
+
+105
+00:06:18,070 --> 00:06:18,700
+function.
+
+106
+00:06:19,420 --> 00:06:23,760
+That second argument might be called something like delay, and that will be the number of milliseconds
+
+107
+00:06:23,780 --> 00:06:28,210
+we want to wait so I can use that delay argument in place of 1000.
+
+108
+00:06:29,000 --> 00:06:29,720
+Right there.
+
+109
+00:06:30,290 --> 00:06:33,920
+And now whenever I make use of de balance, I would just have to make sure that I pass in the number
+
+110
+00:06:33,920 --> 00:06:37,940
+of milliseconds to wait, like in this case, maybe just half a second like we had before.
+
+111
+00:06:39,410 --> 00:06:40,430
+So that would definitely work.
+
+112
+00:06:40,430 --> 00:06:43,190
+One last very small optimisation as well.
+
+113
+00:06:43,370 --> 00:06:48,920
+We could say that maybe we just want to have like a default delay amount and to do so we can use a defaulted
+
+114
+00:06:48,920 --> 00:06:50,270
+argument right up here.
+
+115
+00:06:50,270 --> 00:06:53,090
+So we could say something like equals 1000.
+
+116
+00:06:53,540 --> 00:06:57,920
+So now that means that if we ever make use of de balance without passing in that second argument, we're
+
+117
+00:06:57,920 --> 00:07:01,820
+going to get a default delay value of 1000 milliseconds.
+
+118
+00:07:03,410 --> 00:07:08,750
+But I'm going to go with 500 because I felt like that was pretty responsive when we tested it out inside
+
+119
+00:07:08,750 --> 00:07:09,380
+the browser.
+
+120
+00:07:10,570 --> 00:07:12,990
+Let's save that one last quick test here.
+
+121
+00:07:13,000 --> 00:07:16,330
+I'll search for Avengers and looks like we're good to go.
+
+122
+00:07:17,140 --> 00:07:17,650
+So that's it?
+
+123
+00:07:17,650 --> 00:07:19,570
+That is the bounce function from scratch.
+
+124
+00:07:19,570 --> 00:07:24,790
+Now, I want to say really quickly here, if this is really confusing and chances are it is, don't
+
+125
+00:07:24,790 --> 00:07:25,530
+sweat it.
+
+126
+00:07:25,540 --> 00:07:29,530
+Honestly, if you're going through this course right now and you're having a hard time with this function,
+
+127
+00:07:29,530 --> 00:07:32,740
+I honestly really expect you to have a hard time with this.
+
+128
+00:07:32,740 --> 00:07:36,340
+I really, really do expect this to be some challenging stuff.
+
+129
+00:07:36,370 --> 00:07:41,920
+The reason I'm showing it to you is that seeing hard code like this is how you get to be a better engineer.
+
+130
+00:07:42,100 --> 00:07:47,410
+If I just continue to show you a bunch of like Baby Easy code, that's really easy to understand.
+
+131
+00:07:47,410 --> 00:07:49,750
+You're never going to be a better engineer.
+
+132
+00:07:49,750 --> 00:07:51,670
+You have to look at the harder stuff like this.
+
+133
+00:07:51,670 --> 00:07:54,190
+It is what is going to make you into a better engineer.
+
+134
+00:07:54,190 --> 00:07:57,100
+So if it is hard, good, that is a good thing.
+
+135
+00:07:57,100 --> 00:07:59,410
+You want it to be hard if it's easy.
+
+136
+00:07:59,410 --> 00:08:00,850
+Hey, congratulations.
+
+137
+00:08:00,850 --> 00:08:02,290
+You understand what's going on?
+
+138
+00:08:02,290 --> 00:08:04,240
+So either way, don't feel bad.
+
+139
+00:08:04,240 --> 00:08:09,040
+If this is some hard stuff to understand, I really, really do expect it to be challenging.
+
+140
+00:08:10,020 --> 00:08:11,160
+Okay, so this all looks great.
+
+141
+00:08:11,160 --> 00:08:15,270
+We've got a great working D bounce function, so let's take a pause right here and continue working
+
+142
+00:08:15,270 --> 00:08:16,650
+on our app in the next video.
+

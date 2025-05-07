@@ -1,0 +1,268 @@
+1
+00:00:01,330 --> 00:00:01,630
+All right.
+
+2
+00:00:01,630 --> 00:00:04,890
+So in this video, we're going to implement our run comparison function.
+
+3
+00:00:04,900 --> 00:00:08,440
+Now, as I mentioned just a moment ago, implementing this function is going to be just a little bit
+
+4
+00:00:08,440 --> 00:00:12,820
+challenging because the metrics that we're comparing here aren't always just plain numbers.
+
+5
+00:00:12,820 --> 00:00:17,290
+In this case, we've got some strings, so we need to figure out how to compare these different values.
+
+6
+00:00:17,500 --> 00:00:20,890
+But there's actually another reason that this is kind of a challenging little problem.
+
+7
+00:00:20,890 --> 00:00:26,710
+Let me tell you exactly why I want you to think about the exact logic or kind of ordering in which we
+
+8
+00:00:26,710 --> 00:00:28,930
+would run the comparison inside this function.
+
+9
+00:00:29,410 --> 00:00:34,600
+The first statistic that we print out down here is the number of awards or that whole award string and
+
+10
+00:00:34,600 --> 00:00:36,700
+then the box office and then the metascore.
+
+11
+00:00:37,090 --> 00:00:40,090
+So it's clear that we need to somehow reach into the DOM.
+
+12
+00:00:40,090 --> 00:00:45,160
+We need to select this element on both sides of the screen because remember, there's really two of
+
+13
+00:00:45,160 --> 00:00:48,130
+these elements on the screen, one for each movie we search for.
+
+14
+00:00:48,340 --> 00:00:50,800
+So we need to find this first element.
+
+15
+00:00:50,800 --> 00:00:56,500
+Like the first element with the class of notification is primary and a article tag.
+
+16
+00:00:56,740 --> 00:01:02,170
+And we're going to essentially assume that that is of type awards or displaying the award stat.
+
+17
+00:01:02,290 --> 00:01:05,290
+So we might end up running some code inside of here that looks like this.
+
+18
+00:01:05,290 --> 00:01:07,210
+I'm just going to give you a very quick example.
+
+19
+00:01:08,110 --> 00:01:18,670
+Maybe something like find the first article element for each movie, then run a comparison on the number
+
+20
+00:01:18,670 --> 00:01:22,180
+of awards, then apply some.
+
+21
+00:01:23,220 --> 00:01:26,640
+Styling to that article element.
+
+22
+00:01:27,700 --> 00:01:31,600
+The key thing here is that we're just looking for the first article for each movie.
+
+23
+00:01:31,900 --> 00:01:37,630
+Then we're assuming that that first article element represents the number of awards statistic.
+
+24
+00:01:38,360 --> 00:01:42,960
+If we start to write some code like this, we're going to very quickly end up in a bad spot.
+
+25
+00:01:42,980 --> 00:01:44,020
+Let me tell you why.
+
+26
+00:01:44,030 --> 00:01:49,490
+If our code just looks at the first element and assumes it is awards, we could break our application
+
+27
+00:01:49,490 --> 00:01:56,050
+super quickly by going back down to our template and just changing the order of statistics.
+
+28
+00:01:56,060 --> 00:02:02,210
+So in other words, I could take this first statistic block cut it and move it underneath that first
+
+29
+00:02:02,210 --> 00:02:03,350
+one or the second one.
+
+30
+00:02:03,350 --> 00:02:07,010
+So now the award statistic is second in the list.
+
+31
+00:02:07,280 --> 00:02:13,040
+So if I ever wanted to reorder the different statistics that I'm showing here, I would also have to
+
+32
+00:02:13,040 --> 00:02:15,920
+make an update to the run comparison function.
+
+33
+00:02:17,070 --> 00:02:21,900
+Because now the first article in the list represents the box office amount.
+
+34
+00:02:21,900 --> 00:02:27,960
+So we'd have to update this code to run a comparison on the box office value instead.
+
+35
+00:02:28,140 --> 00:02:29,880
+And then it kind of follows that.
+
+36
+00:02:29,880 --> 00:02:36,720
+The second comparison I would have to update from box office to instead take a look at number of awards.
+
+37
+00:02:37,170 --> 00:02:42,750
+So in other words, we don't really want to encode the order of statistics here and try to read it out
+
+38
+00:02:42,750 --> 00:02:47,580
+of our HTML to figure out what order we're going to compare these different statistics in.
+
+39
+00:02:48,030 --> 00:02:51,380
+So that kind of throws that approach out the window.
+
+40
+00:02:51,390 --> 00:02:53,280
+So how are we going to like actually fix this?
+
+41
+00:02:53,280 --> 00:02:54,990
+How are we going to actually approach it?
+
+42
+00:02:55,440 --> 00:02:57,750
+Well, I've got one kind of crazy idea.
+
+43
+00:02:59,150 --> 00:03:02,690
+That's going to kind of solve a lot of the different issues that we're going to run into up front,
+
+44
+00:03:02,690 --> 00:03:06,200
+particularly that other issue around, like comparing strings versus strings.
+
+45
+00:03:06,320 --> 00:03:13,220
+I think that when we run the movie template function, we should add in a data property to each of these
+
+46
+00:03:13,220 --> 00:03:14,300
+different articles.
+
+47
+00:03:15,300 --> 00:03:21,090
+And we should make the data property a number version, like an easily comparable version of each of
+
+48
+00:03:21,090 --> 00:03:23,250
+the different statistics that we want to show.
+
+49
+00:03:23,370 --> 00:03:29,220
+So in other words, I think it would be awesome whenever we run movie template for each of these different
+
+50
+00:03:29,220 --> 00:03:36,330
+articles on the article itself, I want to put in like a data value property and maybe set it to for
+
+51
+00:03:36,330 --> 00:03:40,170
+this first box office value something like 623 million.
+
+52
+00:03:40,590 --> 00:03:44,970
+So I'll say something like data value is 623 million or so.
+
+53
+00:03:45,710 --> 00:03:51,380
+Then later on, when we decide to run our comparison, rather than trying to look at the order of articles
+
+54
+00:03:51,380 --> 00:03:56,420
+and figure out that we first have like box office, then awards, then metascore or whatever, we can
+
+55
+00:03:56,420 --> 00:04:01,960
+just read that data value property and compare it against the data value property for the first article
+
+56
+00:04:01,970 --> 00:04:03,500
+on the other side of the screen.
+
+57
+00:04:04,040 --> 00:04:09,920
+So in other words, we're throwing the idea that this is like the box office statistic out the window
+
+58
+00:04:09,920 --> 00:04:11,660
+inside the run comparison function.
+
+59
+00:04:11,660 --> 00:04:15,500
+The only thing run comparison will care about is that data value property.
+
+60
+00:04:15,800 --> 00:04:20,899
+So we can just take a look at the data value property on each pair of articles and then take a look
+
+61
+00:04:20,899 --> 00:04:26,870
+at which one is greater and apply the appropriate class to each one to color that notification as either
+
+62
+00:04:26,870 --> 00:04:28,400
+green or yellow.
+
+63
+00:04:29,090 --> 00:04:34,160
+Now, this is yet another scenario where I know, as I explain this, it probably sounds crazy and a
+
+64
+00:04:34,160 --> 00:04:35,330
+little bit complicated.
+
+65
+00:04:35,330 --> 00:04:37,880
+So let's once again write some code.
+
+66
+00:04:37,880 --> 00:04:42,560
+As soon as we do, I think you'll get a good idea of why we're doing this so quick pause and we'll start
+
+67
+00:04:42,560 --> 00:04:44,510
+to implement this approach in the next video.
+

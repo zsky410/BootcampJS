@@ -1,0 +1,664 @@
+1
+00:00:00,180 --> 00:00:06,390
+Next up, we'll see how we can create elements from scratch and insert them or add them to the DOM so
+
+2
+00:00:06,390 --> 00:00:09,690
+we could create an image, give it a source and put it on.
+
+3
+00:00:09,690 --> 00:00:12,680
+I don't know the beginning of the page or put it inside of a div.
+
+4
+00:00:12,690 --> 00:00:17,190
+We could create 100 links with different URLs and insert them into the DOM.
+
+5
+00:00:17,520 --> 00:00:18,540
+So here's how we do it.
+
+6
+00:00:18,540 --> 00:00:23,010
+The first step is to make an element, and we have a method called create element.
+
+7
+00:00:23,220 --> 00:00:25,560
+So create element is actually really simple.
+
+8
+00:00:25,590 --> 00:00:29,490
+It's document, create, not attribute create element.
+
+9
+00:00:29,940 --> 00:00:33,510
+And you pass an a string of the type of element you would like.
+
+10
+00:00:33,510 --> 00:00:41,490
+So if we want to make a let's do ah2 element, we pass in H two and that's all we get.
+
+11
+00:00:41,490 --> 00:00:43,560
+It makes an empty element for us.
+
+12
+00:00:43,560 --> 00:00:47,520
+But as we've seen many times so far, this is not what it actually looks like.
+
+13
+00:00:47,520 --> 00:00:50,010
+This is only the HTML representation.
+
+14
+00:00:50,190 --> 00:00:51,510
+Let's save it to a variable.
+
+15
+00:00:51,510 --> 00:00:59,040
+We'll call this new H two and then let's do our console deer of new h two.
+
+16
+00:01:00,720 --> 00:01:01,680
+It's an object.
+
+17
+00:01:01,680 --> 00:01:05,630
+So we're making a new element of type H two.
+
+18
+00:01:05,640 --> 00:01:12,090
+And if we take a look at the element itself, we have let's see, we've got a HTML heading element.
+
+19
+00:01:12,090 --> 00:01:13,980
+That's the type of element it is.
+
+20
+00:01:13,980 --> 00:01:16,320
+And we have tag name set to H two.
+
+21
+00:01:16,320 --> 00:01:18,180
+And there's no text content.
+
+22
+00:01:18,180 --> 00:01:21,720
+There is no inner content or inner HTML, inner text.
+
+23
+00:01:21,720 --> 00:01:23,130
+They're both empty.
+
+24
+00:01:23,460 --> 00:01:27,000
+So if we want to put some content in, that's a separate step.
+
+25
+00:01:27,360 --> 00:01:29,460
+All we've done is make an element.
+
+26
+00:01:29,460 --> 00:01:31,380
+So we made an empty H two.
+
+27
+00:01:31,410 --> 00:01:35,730
+Then if we want to add into it, we could do new H two.
+
+28
+00:01:36,150 --> 00:01:38,280
+So let's just look at new h21 more time.
+
+29
+00:01:38,280 --> 00:01:39,120
+It's empty.
+
+30
+00:01:39,120 --> 00:01:42,420
+New age to enter text equals.
+
+31
+00:01:43,260 --> 00:01:44,340
+What should we put here?
+
+32
+00:01:44,820 --> 00:01:47,220
+I like animals.
+
+33
+00:01:47,520 --> 00:01:48,180
+Sure.
+
+34
+00:01:48,780 --> 00:01:50,460
+Oh, miss.
+
+35
+00:01:50,460 --> 00:01:51,150
+My quote.
+
+36
+00:01:51,180 --> 00:01:56,100
+Okay, so now if we look at New H two, here's the representation of it.
+
+37
+00:01:56,100 --> 00:01:58,170
+I can also continue to manipulate it.
+
+38
+00:01:58,170 --> 00:02:01,020
+I can add a class if I wanted to.
+
+39
+00:02:01,260 --> 00:02:08,789
+I would just do new to new h two dot class list is probably the easiest way to add.
+
+40
+00:02:08,880 --> 00:02:11,670
+And what classes do we even have?
+
+41
+00:02:11,700 --> 00:02:14,340
+Do we have any good ones we have to.
+
+42
+00:02:14,340 --> 00:02:16,440
+Do we have special?
+
+43
+00:02:16,470 --> 00:02:18,810
+Let's use the class of special.
+
+44
+00:02:20,840 --> 00:02:29,330
+Now we look at h two or nu h two, and that's what we got an h two attribute of class set to special
+
+45
+00:02:29,330 --> 00:02:31,670
+and the inner text of I like animals.
+
+46
+00:02:31,790 --> 00:02:33,500
+So how do we get it in the DOM?
+
+47
+00:02:33,500 --> 00:02:34,630
+How do we get it to show up?
+
+48
+00:02:34,640 --> 00:02:41,280
+Right now it's completely severed in its own little universe in the womb of the JavaScript console.
+
+49
+00:02:41,300 --> 00:02:43,760
+How do we get it into the real world, onto the page?
+
+50
+00:02:43,790 --> 00:02:45,950
+How do we deliver this element?
+
+51
+00:02:45,980 --> 00:02:47,730
+Okay, enough of that metaphor here.
+
+52
+00:02:47,750 --> 00:02:51,890
+What we need to do is select an element to append it to.
+
+53
+00:02:52,190 --> 00:02:53,730
+So we have some methods here.
+
+54
+00:02:53,750 --> 00:02:56,600
+The first one we'll see is called Append Child.
+
+55
+00:02:56,600 --> 00:02:57,410
+Where are you?
+
+56
+00:02:57,540 --> 00:02:58,550
+They put that on here.
+
+57
+00:02:58,820 --> 00:02:59,540
+There it is.
+
+58
+00:02:59,570 --> 00:03:00,740
+Append child.
+
+59
+00:03:00,740 --> 00:03:07,160
+So append child is a method that we call on a parent that we want to append an element into.
+
+60
+00:03:07,550 --> 00:03:13,700
+So if I wanted to append this H to into let's go to our HTML.
+
+61
+00:03:14,030 --> 00:03:16,460
+How about we put it in this section here?
+
+62
+00:03:16,550 --> 00:03:23,420
+I will select the section and then call append child on the section and pass in our new H to.
+
+63
+00:03:23,690 --> 00:03:30,050
+So we'll select that section document dot query selector of section.
+
+64
+00:03:30,890 --> 00:03:40,250
+Save that to a variable and then we'll call section append child and we pass it in our new H to.
+
+65
+00:03:40,640 --> 00:03:46,820
+This is the new element we've already made and we're now connecting it into the DOM by saying append
+
+66
+00:03:46,820 --> 00:03:52,570
+a child to the section and a child just means anything inside of this section.
+
+67
+00:03:52,580 --> 00:03:54,620
+We've already seen the children property.
+
+68
+00:03:54,920 --> 00:03:58,790
+When we append, it will go to the end of the children.
+
+69
+00:03:58,790 --> 00:04:00,710
+So it will append down here.
+
+70
+00:04:02,250 --> 00:04:04,980
+We should see it show up after broccoli.
+
+71
+00:04:06,230 --> 00:04:07,240
+And do we?
+
+72
+00:04:07,250 --> 00:04:07,990
+There it is.
+
+73
+00:04:08,000 --> 00:04:09,140
+I like animals.
+
+74
+00:04:09,140 --> 00:04:13,610
+If we look at our HTML in the elements tab, scroll down.
+
+75
+00:04:13,610 --> 00:04:16,700
+We have a section, the UL that was already there.
+
+76
+00:04:16,700 --> 00:04:20,060
+It's now joined by a new sibling this h two.
+
+77
+00:04:20,990 --> 00:04:22,670
+Let's do a couple more examples.
+
+78
+00:04:22,850 --> 00:04:28,510
+We also have the ability to make all sorts of different elements, so why don't we try making an image?
+
+79
+00:04:28,520 --> 00:04:31,940
+So I have an image URL I'll use here from Unsplash.
+
+80
+00:04:31,940 --> 00:04:33,440
+We'll make our new image.
+
+81
+00:04:33,800 --> 00:04:37,250
+So const new image equals document.
+
+82
+00:04:37,670 --> 00:04:40,100
+Dot create element.
+
+83
+00:04:41,810 --> 00:04:43,970
+And we pass in image.
+
+84
+00:04:44,930 --> 00:04:48,170
+And if I just do that and I run my code again.
+
+85
+00:04:48,940 --> 00:04:50,620
+Let's take a look at new image.
+
+86
+00:04:51,370 --> 00:04:52,300
+Same thing.
+
+87
+00:04:52,540 --> 00:04:55,240
+Console deer image.
+
+88
+00:04:55,240 --> 00:04:56,140
+New image.
+
+89
+00:04:57,730 --> 00:04:58,720
+We can see that.
+
+90
+00:04:58,720 --> 00:05:02,860
+It's also an object, of course, for making a new element, but it has a different type.
+
+91
+00:05:02,860 --> 00:05:06,580
+It's an HTML image element, so it behaves differently.
+
+92
+00:05:06,580 --> 00:05:08,080
+We don't have inner text.
+
+93
+00:05:08,080 --> 00:05:13,420
+We don't work with inner HTML because an image does not have an opening and closing tag, but it does
+
+94
+00:05:13,420 --> 00:05:14,110
+have a source.
+
+95
+00:05:14,110 --> 00:05:15,460
+So let's set the source.
+
+96
+00:05:15,940 --> 00:05:19,930
+New image source equals and I'll copy this URL I have.
+
+97
+00:05:19,960 --> 00:05:24,760
+You could put any URL there and now let's append it somewhere.
+
+98
+00:05:25,210 --> 00:05:30,070
+If we call a pen child again on the section, it will go inside of the section.
+
+99
+00:05:30,220 --> 00:05:35,620
+If we don't want to append it to the inside of the section, I just want it to go at the end of my body.
+
+100
+00:05:36,130 --> 00:05:41,650
+I guess it would go after the script, which maybe isn't ideal, but what I could do is use the body
+
+101
+00:05:41,650 --> 00:05:46,570
+and call a pen child on the body, or I could put it inside the form.
+
+102
+00:05:46,570 --> 00:05:53,170
+But let's do document, dot, body, dot, append, child, and then we pass in our image.
+
+103
+00:05:54,940 --> 00:05:57,760
+Documents bodyguard, a child of new image.
+
+104
+00:05:58,120 --> 00:06:00,100
+It's quite a large image.
+
+105
+00:06:00,250 --> 00:06:01,060
+Oh, boy.
+
+106
+00:06:01,390 --> 00:06:02,140
+Very large.
+
+107
+00:06:02,140 --> 00:06:03,160
+But there it is.
+
+108
+00:06:03,520 --> 00:06:05,770
+So we could also give it an inline style.
+
+109
+00:06:05,800 --> 00:06:08,650
+Say new image, dot style.
+
+110
+00:06:09,190 --> 00:06:12,640
+Dot width equals 200 pixels.
+
+111
+00:06:12,640 --> 00:06:13,720
+Refresh again.
+
+112
+00:06:13,870 --> 00:06:14,860
+Much smaller.
+
+113
+00:06:14,860 --> 00:06:15,990
+Much more manageable.
+
+114
+00:06:16,000 --> 00:06:17,150
+Maybe even a bit larger.
+
+115
+00:06:17,170 --> 00:06:18,160
+How about 300?
+
+116
+00:06:18,820 --> 00:06:21,000
+So this process is really common.
+
+117
+00:06:21,010 --> 00:06:23,530
+We make a new empty element of some type.
+
+118
+00:06:23,530 --> 00:06:25,150
+It's always going to start out empty.
+
+119
+00:06:25,150 --> 00:06:27,520
+And then we fill in the blanks when appropriate.
+
+120
+00:06:27,520 --> 00:06:29,500
+We fill in inner text if we need to.
+
+121
+00:06:29,530 --> 00:06:33,910
+We fill in source or ref or classes.
+
+122
+00:06:33,910 --> 00:06:36,160
+We add an attribute so we can do whatever we want.
+
+123
+00:06:36,160 --> 00:06:37,720
+So here's one more example.
+
+124
+00:06:37,720 --> 00:06:40,390
+I have a link for a YouTube video.
+
+125
+00:06:40,510 --> 00:06:42,310
+Let's make a new anchor tag.
+
+126
+00:06:42,370 --> 00:06:47,080
+So I'm going to copy my URL just so I can use it and we'll do content.
+
+127
+00:06:47,140 --> 00:06:55,180
+New link equals document dot create element of an anchor tag.
+
+128
+00:06:55,180 --> 00:06:56,170
+That's the type.
+
+129
+00:06:56,500 --> 00:06:58,780
+And then we'll set the inner text.
+
+130
+00:07:01,240 --> 00:07:03,190
+Not HTML, but inner text.
+
+131
+00:07:03,220 --> 00:07:06,430
+Let's go with Mr. Bubs video.
+
+132
+00:07:06,430 --> 00:07:08,230
+So that's the name of the video.
+
+133
+00:07:09,610 --> 00:07:11,130
+Wrong place for that period.
+
+134
+00:07:11,140 --> 00:07:12,040
+Mr. Period.
+
+135
+00:07:12,040 --> 00:07:17,500
+Bob's video click me and then we want to set the source.
+
+136
+00:07:17,500 --> 00:07:22,420
+Know the age ref sources for an image for a link and anchor tag.
+
+137
+00:07:22,420 --> 00:07:23,500
+We want h ref.
+
+138
+00:07:24,570 --> 00:07:27,060
+And then let's append it to the page somewhere.
+
+139
+00:07:27,570 --> 00:07:35,310
+How about we select the paragraph, maybe the first paragraph, and we'll add it inside the first paragraph.
+
+140
+00:07:35,580 --> 00:07:42,990
+So content first p equals document dot query selector p tag.
+
+141
+00:07:44,350 --> 00:07:49,840
+First P dot append child of new link.
+
+142
+00:07:50,900 --> 00:07:51,980
+Fingers crossed.
+
+143
+00:07:53,250 --> 00:07:53,550
+There.
+
+144
+00:07:53,550 --> 00:07:55,230
+We have a new link right here.
+
+145
+00:07:55,530 --> 00:07:59,220
+It was appended as a child of this existing paragraph.
+
+146
+00:08:00,360 --> 00:08:03,870
+If we click it, by the way, it does open up our YouTube video.
+
+147
+00:08:04,530 --> 00:08:06,950
+So that's the basics of creating elements.
+
+148
+00:08:06,960 --> 00:08:09,150
+You can create them of any different type.
+
+149
+00:08:09,150 --> 00:08:11,670
+You can fill them with content, enter text.
+
+150
+00:08:11,670 --> 00:08:13,980
+You can even use inner HTML if you wanted to.
+
+151
+00:08:14,010 --> 00:08:21,030
+You could even append other elements into each element so we could create an anchor tag and then create
+
+152
+00:08:21,030 --> 00:08:28,170
+a new empty span or a bold tag and append that to the new link and then take that in, append it to
+
+153
+00:08:28,170 --> 00:08:29,250
+first paragraph.
+
+154
+00:08:29,550 --> 00:08:31,290
+So we're not done with creating elements.
+
+155
+00:08:31,290 --> 00:08:32,990
+We'll actually get a little more practice.
+
+156
+00:08:33,000 --> 00:08:36,090
+We're going to build a little example, something slightly more complex.
+
+157
+00:08:36,090 --> 00:08:40,740
+And I'm also going to show you a few more methods where instead of appending at the end of something,
+
+158
+00:08:40,740 --> 00:08:45,480
+what if you want to insert at the beginning the first child of an element instead of the last?
+
+159
+00:08:45,480 --> 00:08:46,920
+So that's coming up next.
+
+160
+00:08:47,220 --> 00:08:52,390
+Oh, and if you've never seen this video, oh, Mr. Bubbs is quite the character here.
+
+161
+00:08:52,500 --> 00:08:54,900
+He's a very special dog.
+
+162
+00:08:55,620 --> 00:09:02,270
+He does not like not like love and attention or he has an odd way of showing it, but this is my favourite.
+
+163
+00:09:02,280 --> 00:09:03,510
+Okay, here we go.
+
+164
+00:09:03,720 --> 00:09:05,130
+Yeah, I got you.
+
+165
+00:09:05,280 --> 00:09:09,830
+I got this on camera anyway.
+
+166
+00:09:09,840 --> 00:09:11,520
+All right, back to Dom stuff.
+

@@ -1,0 +1,536 @@
+1
+00:00:00,790 --> 00:00:01,700
+All right, let's get to it.
+
+2
+00:00:01,720 --> 00:00:03,800
+Let's run our comparison on both sides.
+
+3
+00:00:03,820 --> 00:00:07,750
+The first thing we have to do is select all of these different articles, and we need to make sure that
+
+4
+00:00:07,750 --> 00:00:09,730
+we keep the two different sets separate.
+
+5
+00:00:09,790 --> 00:00:15,040
+As a quick reminder, if we open up our element, Inspector, again, the entire summary on the left
+
+6
+00:00:15,040 --> 00:00:19,830
+hand side is enclosed inside of a div with an ID of left summary.
+
+7
+00:00:20,050 --> 00:00:25,570
+So if I want to get all the articles that have a statistic inside of there I can select.
+
+8
+00:00:25,690 --> 00:00:27,640
+So document query selector.
+
+9
+00:00:28,780 --> 00:00:34,930
+I'd left a summary that's going to give me essentially the entire left side, and then I can find all
+
+10
+00:00:34,930 --> 00:00:38,380
+of the elements inside there with a class of notification.
+
+11
+00:00:38,980 --> 00:00:45,040
+So I'll do inside of that a query selector of dot notification.
+
+12
+00:00:46,740 --> 00:00:47,940
+I don't want to do a query selector.
+
+13
+00:00:47,940 --> 00:00:48,390
+My mistake.
+
+14
+00:00:48,390 --> 00:00:49,760
+I won't do a query selector.
+
+15
+00:00:49,770 --> 00:00:51,300
+All that will give me all of them.
+
+16
+00:00:51,810 --> 00:00:52,470
+So there we go.
+
+17
+00:00:52,470 --> 00:00:53,650
+There's my list of five.
+
+18
+00:00:53,670 --> 00:00:55,740
+I've got all five on the left hand side.
+
+19
+00:00:56,570 --> 00:00:59,480
+Just to be clear, we don't actually have to run the two separate query selectors.
+
+20
+00:00:59,480 --> 00:01:01,370
+We could actually reduce that down to just one.
+
+21
+00:01:01,370 --> 00:01:10,430
+So I could do document query selector all and then say inside of the left summary element, find all
+
+22
+00:01:10,430 --> 00:01:12,320
+the elements with notification.
+
+23
+00:01:14,050 --> 00:01:16,660
+And that will still give me all five on the left hand side.
+
+24
+00:01:17,140 --> 00:01:20,680
+So that's how we're going to make sure that we get all five on the left and all five on the right.
+
+25
+00:01:21,570 --> 00:01:21,670
+Okay.
+
+26
+00:01:21,790 --> 00:01:26,950
+So back over here inside of run comparison, we're going to get all the elements on the left and right.
+
+27
+00:01:26,950 --> 00:01:30,910
+I'll say, how about left side stats?
+
+28
+00:01:31,700 --> 00:01:34,580
+So that's like the statistics being rendered out on the left hand side.
+
+29
+00:01:35,590 --> 00:01:38,110
+Will be document query selector.
+
+30
+00:01:39,290 --> 00:01:39,950
+Paul.
+
+31
+00:01:40,520 --> 00:01:42,950
+And then we want ID.
+
+32
+00:01:43,010 --> 00:01:44,330
+Left side.
+
+33
+00:01:44,330 --> 00:01:44,950
+What would we call it?
+
+34
+00:01:44,960 --> 00:01:45,830
+Left or left?
+
+35
+00:01:45,830 --> 00:01:46,130
+Summary.
+
+36
+00:01:46,160 --> 00:01:46,850
+My mistake.
+
+37
+00:01:48,210 --> 00:01:49,740
+Dot notification.
+
+38
+00:01:51,740 --> 00:01:58,370
+Then we can do the same thing for right side stats and that will be document query selector all.
+
+39
+00:01:59,010 --> 00:01:59,700
+Right.
+
+40
+00:01:59,700 --> 00:02:00,990
+Dash summary.
+
+41
+00:02:02,940 --> 00:02:04,620
+Dot notification.
+
+42
+00:02:09,360 --> 00:02:09,960
+All right.
+
+43
+00:02:11,520 --> 00:02:18,420
+So now we can loop over either one of these and at each step we can take the corresponding element from
+
+44
+00:02:18,420 --> 00:02:21,390
+the other pair or essentially like the right hand side.
+
+45
+00:02:21,390 --> 00:02:25,200
+And we can do our comparison by retrieving the data set values.
+
+46
+00:02:25,770 --> 00:02:30,270
+So I'm going to try to iterate over each element inside of left side stats.
+
+47
+00:02:30,270 --> 00:02:34,110
+So I'm going to do a left side stats for each.
+
+48
+00:02:35,690 --> 00:02:38,600
+So I'm going to get my callback function right here.
+
+49
+00:02:38,900 --> 00:02:41,300
+I'm going to receive each article element.
+
+50
+00:02:41,330 --> 00:02:43,040
+I will call them left stat.
+
+51
+00:02:43,040 --> 00:02:48,110
+So again, that represents an article element that is going to have that data set value that we really
+
+52
+00:02:48,110 --> 00:02:48,890
+care about.
+
+53
+00:02:48,920 --> 00:02:53,300
+And I'm also going to get the index of that element inside of left side stats as well.
+
+54
+00:02:53,330 --> 00:02:58,160
+The reason I'm getting the index right there is that I can retrieve the appropriate corresponding stat
+
+55
+00:02:58,160 --> 00:02:59,780
+from right side stats.
+
+56
+00:03:00,140 --> 00:03:01,670
+So I'll say right.
+
+57
+00:03:02,180 --> 00:03:03,650
+Stat is.
+
+58
+00:03:04,910 --> 00:03:07,910
+Right side stats at index.
+
+59
+00:03:08,600 --> 00:03:11,960
+And then again, just to make sure we're doing everything correctly here, I'll do a console log of
+
+60
+00:03:11,960 --> 00:03:14,720
+left stat and write stat.
+
+61
+00:03:17,060 --> 00:03:18,110
+That's all safe.
+
+62
+00:03:18,620 --> 00:03:19,450
+Go back over.
+
+63
+00:03:19,460 --> 00:03:20,600
+Do the refresh.
+
+64
+00:03:22,540 --> 00:03:24,370
+I'll look for Avengers.
+
+65
+00:03:26,190 --> 00:03:27,180
+Dark Knight.
+
+66
+00:03:28,710 --> 00:03:29,390
+And there we go.
+
+67
+00:03:29,400 --> 00:03:30,750
+We've got our console logs.
+
+68
+00:03:32,000 --> 00:03:36,710
+So we can see that each of these console.log pairs are the two corresponding article elements that go
+
+69
+00:03:36,710 --> 00:03:37,220
+with each other.
+
+70
+00:03:37,220 --> 00:03:38,510
+So like that one and that one.
+
+71
+00:03:38,720 --> 00:03:40,040
+And then the box office.
+
+72
+00:03:40,040 --> 00:03:40,970
+Box office.
+
+73
+00:03:41,150 --> 00:03:41,750
+Metascore.
+
+74
+00:03:41,750 --> 00:03:42,620
+Metascore.
+
+75
+00:03:42,650 --> 00:03:44,510
+IMDB rating and so on.
+
+76
+00:03:45,270 --> 00:03:50,970
+So then inside of here, we're going to do first get the actual value property off of each of these.
+
+77
+00:03:51,330 --> 00:03:55,830
+So I'm going to say left side value is going to be left stat.
+
+78
+00:03:55,830 --> 00:04:01,830
+And to get a data set property, remember we referred to data set and then the name of that data property
+
+79
+00:04:01,830 --> 00:04:02,880
+on that element.
+
+80
+00:04:02,910 --> 00:04:05,910
+So in our case, we call the data properties value.
+
+81
+00:04:06,360 --> 00:04:08,700
+So we would reference that value property.
+
+82
+00:04:10,330 --> 00:04:12,670
+With data set value.
+
+83
+00:04:13,800 --> 00:04:15,090
+And then we can get the right hand side.
+
+84
+00:04:15,090 --> 00:04:23,040
+With the right side, value is the right side or the right statcast data set value as well.
+
+85
+00:04:23,950 --> 00:04:27,040
+So now inside of here, we can do our comparison directly between the two.
+
+86
+00:04:27,070 --> 00:04:32,740
+Again, take note that this comparison process right here, because we assign the stats up front inside
+
+87
+00:04:32,740 --> 00:04:37,150
+of our movie template, we don't care about the order in which these different stats occur.
+
+88
+00:04:37,180 --> 00:04:39,140
+They can occur in any different order.
+
+89
+00:04:39,160 --> 00:04:44,320
+We can have the box office value, then the rating, then the METASCORE or the totally opposite, and
+
+90
+00:04:44,320 --> 00:04:45,330
+it just doesn't matter.
+
+91
+00:04:45,340 --> 00:04:50,800
+All we have to do is make sure that we are iterating through the same properties on both sides at the
+
+92
+00:04:50,800 --> 00:04:51,310
+same time.
+
+93
+00:04:51,310 --> 00:04:57,440
+So in other words, we could not show like first awards over here and then first box office over here.
+
+94
+00:04:57,460 --> 00:04:59,200
+That's the only thing that we could not do.
+
+95
+00:05:00,770 --> 00:05:08,810
+So inside of here, I'll say if right side value is greater than left side value, that means the right
+
+96
+00:05:08,810 --> 00:05:09,590
+side is greater.
+
+97
+00:05:09,590 --> 00:05:15,800
+And that means that we want to add a class to the left hand side that's going to turn it yellow instead
+
+98
+00:05:15,800 --> 00:05:16,970
+of the default green.
+
+99
+00:05:17,360 --> 00:05:22,760
+So to make sure that we turn the left side yellow, we would run left stat which remember is the actual
+
+100
+00:05:22,760 --> 00:05:23,780
+article element.
+
+101
+00:05:24,440 --> 00:05:26,330
+I'm going to look at the class list.
+
+102
+00:05:27,020 --> 00:05:31,600
+I'm going to remove the is primary, which is what makes it green.
+
+103
+00:05:31,610 --> 00:05:34,430
+Again, this is some class names coming from Boma CSS.
+
+104
+00:05:36,860 --> 00:05:42,710
+And then on the left stat class list, I will add in is dash warning.
+
+105
+00:05:43,870 --> 00:05:45,370
+And that's what's going to turn it yellow.
+
+106
+00:05:45,970 --> 00:05:48,850
+So now we can repeat the same process for the opposite case as well.
+
+107
+00:05:48,850 --> 00:05:50,050
+So I'll say else.
+
+108
+00:05:50,590 --> 00:05:51,040
+Right.
+
+109
+00:05:51,040 --> 00:05:54,610
+Stat class list remove is primary.
+
+110
+00:05:55,840 --> 00:06:01,240
+And it writes that class list ad is warning.
+
+111
+00:06:02,830 --> 00:06:04,630
+All right, so that should be it.
+
+112
+00:06:04,930 --> 00:06:05,680
+So here it is.
+
+113
+00:06:05,680 --> 00:06:07,090
+This is our moment of truth.
+
+114
+00:06:07,090 --> 00:06:10,200
+This should be like the entire application all put together.
+
+115
+00:06:10,210 --> 00:06:11,650
+Let's do our final test.
+
+116
+00:06:12,710 --> 00:06:14,930
+So I will do a refresh.
+
+117
+00:06:15,140 --> 00:06:16,880
+I'm going to look for Avengers.
+
+118
+00:06:17,810 --> 00:06:19,110
+We'll look for Dark Knight.
+
+119
+00:06:21,390 --> 00:06:22,200
+There we go.
+
+120
+00:06:22,500 --> 00:06:23,460
+And.
+
+121
+00:06:23,460 --> 00:06:24,420
+All right.
+
+122
+00:06:24,720 --> 00:06:25,590
+That is it.
+
+123
+00:06:25,590 --> 00:06:27,080
+And it's looking pretty good.
+
+124
+00:06:27,090 --> 00:06:28,890
+So we can look through all these different stats.
+
+125
+00:06:28,890 --> 00:06:32,910
+And we should see that the stats that are in green are greater than the ones in yellow.
+
+126
+00:06:33,210 --> 00:06:37,470
+So first off, we've got like 118 wins versus the like 300 and change.
+
+127
+00:06:37,470 --> 00:06:39,540
+So definitely the correct one is green.
+
+128
+00:06:40,260 --> 00:06:44,010
+While The Avengers had a higher box office value, so that definitely won out.
+
+129
+00:06:44,400 --> 00:06:50,340
+However, Dark Knight has a better METASCORE, better IMDB rating and more votes as well, so that's
+
+130
+00:06:50,340 --> 00:06:51,120
+pretty much it.
+
+131
+00:06:51,270 --> 00:06:52,980
+That is the whole application.
+
+132
+00:06:53,610 --> 00:06:55,560
+Well, I hope you enjoyed putting this thing together.
+
+133
+00:06:55,590 --> 00:06:57,460
+Let's take a quick pause right here when we come back.
+
+134
+00:06:57,480 --> 00:07:02,370
+The next video, we're going to do a quick review on some of the important points around this application.
+

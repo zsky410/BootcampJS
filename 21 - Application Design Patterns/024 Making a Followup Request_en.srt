@@ -1,0 +1,340 @@
+1
+00:00:00,900 --> 00:00:05,520
+Like we said at the end of the last video, we now need to take the movie that the user just selected
+
+2
+00:00:05,520 --> 00:00:07,410
+and show some details about it right here.
+
+3
+00:00:07,440 --> 00:00:09,690
+There's just one or two things to be aware of.
+
+4
+00:00:09,720 --> 00:00:15,750
+First off, I want to remind you that the open DB API that we're using has those two different endpoints
+
+5
+00:00:15,750 --> 00:00:16,900
+that we're making use of.
+
+6
+00:00:16,920 --> 00:00:22,200
+Right now, we've got some results coming back from the BI search method right here, and that only
+
+7
+00:00:22,200 --> 00:00:25,470
+gives us some very limited pieces of information about every movie.
+
+8
+00:00:25,560 --> 00:00:31,020
+So when a user selects an actual movie, that means that we need to do a follow up request to the API
+
+9
+00:00:31,020 --> 00:00:34,650
+and we need to then attempt to fetch that movie by ID.
+
+10
+00:00:34,770 --> 00:00:36,480
+Once we do the request by ID.
+
+11
+00:00:36,510 --> 00:00:41,940
+That's going to give us a very much expanded set of information about this particular movie.
+
+12
+00:00:41,940 --> 00:00:47,130
+And it's going to give us stuff like the critic ratings and the box office take and the plot summary
+
+13
+00:00:47,130 --> 00:00:48,000
+and so on.
+
+14
+00:00:48,330 --> 00:00:53,790
+So in other words, once a user clicks on the movie and we detect it right here, we need to make a
+
+15
+00:00:53,790 --> 00:00:59,580
+follow up request, get some more information, and then use that to update some content on the screen.
+
+16
+00:01:00,190 --> 00:01:04,330
+We could definitely add all that code right here inside of our event listener, so we can add in a ton
+
+17
+00:01:04,360 --> 00:01:08,590
+of code and say, okay, do another request.
+
+18
+00:01:09,530 --> 00:01:13,400
+Get data, render data and so on.
+
+19
+00:01:13,400 --> 00:01:17,360
+But I bet you could very quickly imagine that that's going to be a fair bit of code.
+
+20
+00:01:17,630 --> 00:01:22,760
+This file, the indexed JS file that we're working on already has a lot of code inside of it, and it's
+
+21
+00:01:22,760 --> 00:01:25,550
+all kind of a hodgepodge of different stuff right now.
+
+22
+00:01:25,550 --> 00:01:30,500
+And so if we start to add in all this additional code directly into this event, listener well, this
+
+23
+00:01:30,500 --> 00:01:34,100
+file is going to get even more challenging to read and understand.
+
+24
+00:01:34,460 --> 00:01:39,170
+So instead of tucking all that logic in right there, I think that we should make some other helper
+
+25
+00:01:39,170 --> 00:01:44,240
+function inside this file, maybe something called like on Movie Select or something.
+
+26
+00:01:44,420 --> 00:01:49,880
+And inside of that helper function, we can make sure that we attempt to do all that extra logic, do
+
+27
+00:01:49,880 --> 00:01:53,270
+the extra request, render that additional content onto the screen.
+
+28
+00:01:53,840 --> 00:01:59,000
+So I'm going to imagine that we're going to define another helper function inside this file called On
+
+29
+00:01:59,000 --> 00:02:00,530
+Movie Select.
+
+30
+00:02:01,340 --> 00:02:04,490
+And I'm going to call that with the movie that the user just clicked on.
+
+31
+00:02:05,240 --> 00:02:09,919
+So now let's go to fine this helper function and then we can put all that additional logic inside there.
+
+32
+00:02:11,400 --> 00:02:13,230
+So I'm going to go down to the bottom of the file.
+
+33
+00:02:14,200 --> 00:02:17,350
+I'm going to define on movie select.
+
+34
+00:02:18,450 --> 00:02:21,600
+It's going to be called with some movie object.
+
+35
+00:02:21,780 --> 00:02:24,510
+And right now let's just do a console.log.
+
+36
+00:02:24,810 --> 00:02:28,560
+Now, I'm sure I don't need to prove to you that we're going to call this function successfully.
+
+37
+00:02:28,560 --> 00:02:30,150
+Like, Hey, that's definitely going to work.
+
+38
+00:02:30,150 --> 00:02:32,820
+I don't have any reason to suspect it won't work.
+
+39
+00:02:32,850 --> 00:02:36,900
+The reason I just want to do a console.log right here is to just remind you some of the properties that
+
+40
+00:02:36,900 --> 00:02:41,340
+we currently have access to and the properties that we're going to need to make the follow up request
+
+41
+00:02:41,340 --> 00:02:44,190
+to our API and get that additional amount of data.
+
+42
+00:02:44,830 --> 00:02:46,050
+Okay, so let's save this.
+
+43
+00:02:46,200 --> 00:02:47,400
+I'm going to go back over.
+
+44
+00:02:47,940 --> 00:02:49,230
+I will refresh.
+
+45
+00:02:50,260 --> 00:02:55,030
+All once again, do The Avengers, click on it and I see that console.log.
+
+46
+00:02:55,620 --> 00:03:00,270
+So again, I just want to remind you that inside of the current data set that we have right here about
+
+47
+00:03:00,270 --> 00:03:07,830
+this one very particular movie, we've got that property called IMDB ID and notice how ID is capital
+
+48
+00:03:07,830 --> 00:03:08,880
+for both letters.
+
+49
+00:03:09,150 --> 00:03:13,560
+So that is the ID that we're going to use to make our follow up request to the API.
+
+50
+00:03:14,070 --> 00:03:15,840
+We're going to do the follow up request.
+
+51
+00:03:15,840 --> 00:03:19,350
+We're going to pass that ID in as a parameter called I.
+
+52
+00:03:19,350 --> 00:03:23,280
+And that is what is going to give us all that additional data about the movie.
+
+53
+00:03:25,130 --> 00:03:31,640
+So inside of here, I'm going to make this into an async function so that we can then go ahead and use
+
+54
+00:03:31,640 --> 00:03:35,210
+the await syntax and Axios to make our follow up request.
+
+55
+00:03:36,080 --> 00:03:42,800
+So I will write out consent response is await Axios get.
+
+56
+00:03:44,250 --> 00:03:46,140
+I'm going to go back up to the top of the file.
+
+57
+00:03:46,850 --> 00:03:49,760
+And get the URL from the first request we made up here.
+
+58
+00:03:50,810 --> 00:03:54,590
+So I'm going to get that URL right there just to save myself a little bit of typing.
+
+59
+00:03:55,360 --> 00:03:55,900
+And you know what?
+
+60
+00:03:55,900 --> 00:03:59,980
+I'm just going to go ahead and copy the entire Axios get function because we need that params and the
+
+61
+00:03:59,980 --> 00:04:01,180
+API key as well.
+
+62
+00:04:01,480 --> 00:04:03,130
+So I'm just going to copy all that stuff.
+
+63
+00:04:03,490 --> 00:04:07,420
+I'm going to go back down to the bottom and put it in like so.
+
+64
+00:04:09,090 --> 00:04:13,980
+Then inside of here we just need to make sure that we update the params object rather than passing along
+
+65
+00:04:13,980 --> 00:04:16,890
+a pram of TSS, which is what is used for doing a search.
+
+66
+00:04:16,890 --> 00:04:22,380
+We instead want to do an individual lookup so like we just saw, we need to provide a parameter of the
+
+67
+00:04:22,380 --> 00:04:28,170
+letter I and that is going to be the movie IMDB ID, so I'll put an I.
+
+68
+00:04:29,020 --> 00:04:32,560
+And we want that value to come from the movie that we just selected.
+
+69
+00:04:33,130 --> 00:04:34,640
+Dot IMDB.
+
+70
+00:04:34,660 --> 00:04:35,800
+Capital I.
+
+71
+00:04:35,830 --> 00:04:36,880
+Capital D.
+
+72
+00:04:38,710 --> 00:04:41,110
+So then after that, we'll do a quick.
+
+73
+00:04:42,640 --> 00:04:44,080
+Console log of the data.
+
+74
+00:04:44,320 --> 00:04:46,480
+So response data like so.
+
+75
+00:04:47,890 --> 00:04:48,130
+Yes.
+
+76
+00:04:48,130 --> 00:04:49,080
+Let's try this out again.
+
+77
+00:04:49,090 --> 00:04:51,700
+Just make sure we still have the data we expect.
+
+78
+00:04:52,420 --> 00:04:54,020
+So I'll do a search for The Avengers.
+
+79
+00:04:54,040 --> 00:04:55,800
+I'll click on it and there we go.
+
+80
+00:04:55,810 --> 00:04:59,860
+We do the follow up request and get all that additional data about this particular movie.
+
+81
+00:05:01,510 --> 00:05:05,770
+Well, now that we've got all the data, we can now start to think about taking that information and
+
+82
+00:05:05,770 --> 00:05:06,570
+rendering it out.
+
+83
+00:05:06,580 --> 00:05:10,840
+So we're going to essentially just have to write out a lot of HTML to build up this kind of structure
+
+84
+00:05:10,840 --> 00:05:11,500
+right here.
+
+85
+00:05:11,740 --> 00:05:16,210
+So as you probably would guess, a quick pause and we'll start to write that stuff out in the next video.
+

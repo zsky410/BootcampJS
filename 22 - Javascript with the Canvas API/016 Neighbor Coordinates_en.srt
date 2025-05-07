@@ -1,0 +1,456 @@
+1
+00:00:00,640 --> 00:00:04,240
+Now that we have these guiding comments, we can start to put some implementation together.
+
+2
+00:00:04,510 --> 00:00:09,010
+So to get started with the first comment right here, we want to check to see if we have visited the
+
+3
+00:00:09,010 --> 00:00:11,830
+current cell specified at row and column.
+
+4
+00:00:12,190 --> 00:00:16,620
+Remember, our grid array is what is keeping track of the different cells that we have visited.
+
+5
+00:00:16,630 --> 00:00:21,070
+So we essentially want to look in that two dimensional array, look at the appropriate element inside
+
+6
+00:00:21,070 --> 00:00:22,480
+there and see if it is true.
+
+7
+00:00:22,510 --> 00:00:27,100
+If it is true, that means we have already visited the cell at row and column, and so that means that
+
+8
+00:00:27,100 --> 00:00:28,810
+we would want to return right away.
+
+9
+00:00:29,520 --> 00:00:30,720
+So I will say if.
+
+10
+00:00:31,370 --> 00:00:32,820
+Grid at row.
+
+11
+00:00:32,840 --> 00:00:38,150
+So that's going to select our row and column is equal to true then return.
+
+12
+00:00:38,690 --> 00:00:40,250
+Now this is a funny little thing.
+
+13
+00:00:40,250 --> 00:00:46,430
+Here we are storing boolean values inside the grid, so grid at row column is either going to be true
+
+14
+00:00:46,430 --> 00:00:47,090
+or false.
+
+15
+00:00:47,090 --> 00:00:51,140
+So we don't really need the comparison there because if it's true, well, true is true.
+
+16
+00:00:51,140 --> 00:00:54,230
+And so we are going to enter the if statement and return right away.
+
+17
+00:00:55,550 --> 00:01:00,260
+So if we get past that check, then we will go ahead and mark the cell as being visited.
+
+18
+00:01:00,410 --> 00:01:05,840
+So we just need to look at that same element inside of the grid and update its value to be true, to
+
+19
+00:01:05,840 --> 00:01:07,190
+indicate, hey, we've been here.
+
+20
+00:01:07,190 --> 00:01:08,600
+We visited this cell.
+
+21
+00:01:09,260 --> 00:01:14,330
+So I'm going to say grid at row and column is true.
+
+22
+00:01:15,610 --> 00:01:17,520
+That's pretty much it for the first two steps.
+
+23
+00:01:17,530 --> 00:01:19,060
+Let's immediately do some testing.
+
+24
+00:01:19,060 --> 00:01:21,700
+Just we can verify everything is working as expected.
+
+25
+00:01:22,370 --> 00:01:23,720
+So I'm going to go down to the bottom.
+
+26
+00:01:24,850 --> 00:01:29,980
+We're going to call step through cell one time with our random start and column start row and start
+
+27
+00:01:29,980 --> 00:01:30,580
+column.
+
+28
+00:01:30,970 --> 00:01:33,610
+And then after that I will console.log out my grid.
+
+29
+00:01:34,210 --> 00:01:39,250
+So because we are calling step through cell exactly one time right now, I would expect to find one
+
+30
+00:01:39,250 --> 00:01:42,820
+element inside there that has been updated to true and it should be random.
+
+31
+00:01:42,820 --> 00:01:47,170
+So if I refresh the page several times, a different element should be getting set to true.
+
+32
+00:01:48,090 --> 00:01:49,830
+So go back over and refresh.
+
+33
+00:01:49,980 --> 00:01:52,500
+I can expand the console.log and there we go.
+
+34
+00:01:52,740 --> 00:01:56,580
+So one value inside of here has been set to true a refresh again.
+
+35
+00:01:56,580 --> 00:02:00,960
+And I now see a different element and a different element set to true.
+
+36
+00:02:01,500 --> 00:02:05,760
+So these are the starting locations of our iteration to build out the maze.
+
+37
+00:02:07,830 --> 00:02:08,880
+So now that we have.
+
+38
+00:02:08,880 --> 00:02:09,840
+Mark, that is true.
+
+39
+00:02:09,840 --> 00:02:11,280
+That means that we visited this cell.
+
+40
+00:02:11,280 --> 00:02:15,930
+So the next thing we need to do is assemble a randomly ordered list of neighbors.
+
+41
+00:02:16,470 --> 00:02:18,390
+So a quick reminder on what that means.
+
+42
+00:02:18,660 --> 00:02:23,730
+Let's imagine that we randomly select to visit that center cell on this grid.
+
+43
+00:02:25,110 --> 00:02:25,980
+On the first step.
+
+44
+00:02:25,980 --> 00:02:28,200
+So we randomly select that right there.
+
+45
+00:02:28,560 --> 00:02:31,290
+So we need to assemble a list of all the neighbors.
+
+46
+00:02:31,560 --> 00:02:35,400
+So that's going to be above to the right below and to the left.
+
+47
+00:02:35,820 --> 00:02:39,090
+So one, two, three and four.
+
+48
+00:02:40,100 --> 00:02:45,650
+In other words, we need to determine the row in column indices of each of these pairs.
+
+49
+00:02:45,950 --> 00:02:51,380
+So remember, our rows are on the left hand side, so zero one and two.
+
+50
+00:02:52,160 --> 00:02:53,120
+Those are the rows.
+
+51
+00:02:53,330 --> 00:02:56,120
+The columns are up top, so zero one and two.
+
+52
+00:02:56,660 --> 00:03:04,610
+So we need to say if we are at row one, column one, we need to select the cell right above at row
+
+53
+00:03:04,610 --> 00:03:05,810
+zero, column one.
+
+54
+00:03:06,230 --> 00:03:09,380
+We also need to get the cell at one zero.
+
+55
+00:03:10,980 --> 00:03:15,090
+The one at one two and the one at two one.
+
+56
+00:03:15,630 --> 00:03:19,740
+So this might seem like kind of a hard problem to figure out the different indices or these different
+
+57
+00:03:19,740 --> 00:03:20,100
+neighbors.
+
+58
+00:03:20,100 --> 00:03:22,200
+But in reality, it's actually really easy.
+
+59
+00:03:22,500 --> 00:03:23,610
+Let me show you how.
+
+60
+00:03:23,970 --> 00:03:27,000
+Right now, we know that we are at row.
+
+61
+00:03:27,630 --> 00:03:28,410
+One.
+
+62
+00:03:28,470 --> 00:03:29,610
+Column one.
+
+63
+00:03:29,610 --> 00:03:30,870
+That is our starting cell.
+
+64
+00:03:31,630 --> 00:03:36,100
+So we can actually figure out what all the different neighbors are by just doing a little bit of directed
+
+65
+00:03:36,100 --> 00:03:39,280
+manipulation or some arithmetic on these starting values.
+
+66
+00:03:40,070 --> 00:03:41,630
+The cell right above.
+
+67
+00:03:41,650 --> 00:03:48,670
+So I'll say here, the sell above is always going to be at row minus one.
+
+68
+00:03:49,470 --> 00:03:50,790
+And the same column.
+
+69
+00:03:51,270 --> 00:03:53,340
+We can actually check the math on this very quickly.
+
+70
+00:03:53,460 --> 00:03:55,080
+So I met one one to start.
+
+71
+00:03:55,470 --> 00:03:57,930
+If I want to go above to this cell right here.
+
+72
+00:03:58,290 --> 00:04:00,870
+Then I would take row minus one.
+
+73
+00:04:00,870 --> 00:04:02,550
+So one minus one is zero.
+
+74
+00:04:02,820 --> 00:04:05,310
+That puts me on that row right there.
+
+75
+00:04:05,550 --> 00:04:08,750
+And then the same column that I'm at previously are at right now.
+
+76
+00:04:08,760 --> 00:04:10,320
+So my column right now is one.
+
+77
+00:04:11,110 --> 00:04:14,500
+So row minus one and column is going to put me right here.
+
+78
+00:04:15,590 --> 00:04:19,610
+And that's going to work for any value of starting row and column.
+
+79
+00:04:20,740 --> 00:04:25,930
+Then if I want to go to the right and get the cell at the right, that's always going to be the same
+
+80
+00:04:25,930 --> 00:04:28,240
+row as whatever I'm starting at.
+
+81
+00:04:28,920 --> 00:04:31,140
+And call them plus one.
+
+82
+00:04:32,280 --> 00:04:35,580
+So in other words, I'm going to take the same row of one.
+
+83
+00:04:35,700 --> 00:04:38,310
+I'm going to take the column I'm at right now, which is one.
+
+84
+00:04:38,430 --> 00:04:40,440
+Add one to it and I get to.
+
+85
+00:04:41,900 --> 00:04:43,430
+Then to get the cell below.
+
+86
+00:04:46,150 --> 00:04:49,090
+They'll be at row plus one and same column.
+
+87
+00:04:49,540 --> 00:04:52,870
+And I think you can see where this is going to get the sell to the left.
+
+88
+00:04:52,960 --> 00:04:56,980
+It's always going to be the same row and column minus one.
+
+89
+00:04:57,880 --> 00:05:03,010
+So we really just have to add or subtract one to our different row and columns to get all of the neighboring
+
+90
+00:05:03,010 --> 00:05:03,580
+cells.
+
+91
+00:05:03,610 --> 00:05:04,630
+That's all we have to do.
+
+92
+00:05:05,540 --> 00:05:10,190
+So now that we understand this, we can build out a list of all the different neighbors or essentially
+
+93
+00:05:10,190 --> 00:05:16,340
+the coordinates of each of them by applying those rules right here on assemble randomly ordered list
+
+94
+00:05:16,340 --> 00:05:17,150
+of neighbors.
+
+95
+00:05:17,240 --> 00:05:19,610
+I'm going to say neighbors.
+
+96
+00:05:21,380 --> 00:05:22,730
+Is an array.
+
+97
+00:05:23,890 --> 00:05:29,380
+And I'm going to list out in a row column notation the coordinates of the different neighbors around
+
+98
+00:05:29,380 --> 00:05:30,280
+the current cell.
+
+99
+00:05:30,580 --> 00:05:32,440
+So using the list we just went through.
+
+100
+00:05:32,470 --> 00:05:35,330
+I'm going to first start off at the we'll start at the top first.
+
+101
+00:05:35,350 --> 00:05:36,100
+How about that?
+
+102
+00:05:36,190 --> 00:05:38,710
+So I'll do the row.
+
+103
+00:05:39,860 --> 00:05:40,790
+Minus one.
+
+104
+00:05:41,780 --> 00:05:43,520
+And whatever the current column is.
+
+105
+00:05:45,460 --> 00:05:49,900
+Next to the right, we'll do our row and column plus one.
+
+106
+00:05:52,300 --> 00:05:55,540
+Then below is going to be Roe plus one.
+
+107
+00:05:56,110 --> 00:05:57,340
+And the same column.
+
+108
+00:05:58,810 --> 00:06:03,220
+And then finally to the left is going to be the same row, but column minus one.
+
+109
+00:06:03,760 --> 00:06:07,120
+So those are the coordinate pairs of all of my different neighbors.
+
+110
+00:06:07,750 --> 00:06:10,780
+So now the next thing we have to do is randomly sort this list.
+
+111
+00:06:11,050 --> 00:06:15,490
+The randomly sorting part of this list is what's going to actually give us a randomized looking maze,
+
+112
+00:06:16,090 --> 00:06:16,500
+adding it.
+
+113
+00:06:16,510 --> 00:06:20,590
+The random sorting logic or the kind of shuffling logic is a little bit more complicated.
+
+114
+00:06:20,590 --> 00:06:23,590
+So let's take a quick pause and tackle that in the next video.
+

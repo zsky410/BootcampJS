@@ -1,0 +1,440 @@
+1
+00:00:00,960 --> 00:00:04,770
+In the last video, we did a little bit of project setup and now we're ready to start writing some code.
+
+2
+00:00:04,800 --> 00:00:09,330
+Before we write any code whatsoever, however, I want to really quickly discuss how we're going to
+
+3
+00:00:09,330 --> 00:00:11,760
+approach and generally architect this program.
+
+4
+00:00:11,850 --> 00:00:15,720
+So I want to really take a look at this mockup right here and think about some of the different things
+
+5
+00:00:15,720 --> 00:00:17,310
+that our program is supposed to do.
+
+6
+00:00:17,640 --> 00:00:21,900
+So in total, remember, we're going to have the timer and that kind of animated border around it.
+
+7
+00:00:21,930 --> 00:00:25,950
+I would say that our program really does kind of two different things.
+
+8
+00:00:26,870 --> 00:00:30,770
+First off, one of the core responsibilities of our program is to display that timer.
+
+9
+00:00:30,770 --> 00:00:35,840
+So like some element on the screen that displays some number of seconds, the play button underneath
+
+10
+00:00:35,840 --> 00:00:41,030
+it and the pause button, that is all stuff that is 100% related to running a timer.
+
+11
+00:00:42,770 --> 00:00:47,510
+Now separate to that is the idea that we want to show that animated border around the timer.
+
+12
+00:00:47,630 --> 00:00:53,120
+Yes, the border is very tightly coupled with a timer, like we want to update that border animation
+
+13
+00:00:53,120 --> 00:00:55,220
+every time the timer starts to tick down.
+
+14
+00:00:55,220 --> 00:00:58,190
+But nonetheless, these really are two different parts of our program.
+
+15
+00:00:58,190 --> 00:01:03,260
+One is the timer, the other is some result from that timer or some effect that the timer has on our
+
+16
+00:01:03,260 --> 00:01:04,040
+application.
+
+17
+00:01:04,980 --> 00:01:09,840
+So as we start to think about what our program does, I want you to imagine how we might write out some
+
+18
+00:01:09,840 --> 00:01:11,700
+code to implement this thing.
+
+19
+00:01:12,150 --> 00:01:16,590
+I'm going to show you a little bit of pseudocode or kind of like fake code inside of a diagram to help
+
+20
+00:01:16,590 --> 00:01:21,600
+you understand one possible way that we might implement this timer with the border around it.
+
+21
+00:01:22,140 --> 00:01:24,360
+Now, the code that I'm about to show you is not code at all.
+
+22
+00:01:24,360 --> 00:01:25,960
+It is just a series of steps.
+
+23
+00:01:25,980 --> 00:01:28,470
+It is not the actual implementation we're going to put together.
+
+24
+00:01:28,470 --> 00:01:30,720
+It is just for demonstration purposes.
+
+25
+00:01:32,090 --> 00:01:32,330
+Okay.
+
+26
+00:01:32,330 --> 00:01:34,430
+So here's one possible implementation.
+
+27
+00:01:35,140 --> 00:01:39,040
+So we might set up an event listener to watch for a click on that start button.
+
+28
+00:01:39,040 --> 00:01:42,160
+And the start button, of course, is that little play button right there.
+
+29
+00:01:43,980 --> 00:01:47,280
+So we could set up a click event listener and watch for a click on it.
+
+30
+00:01:47,280 --> 00:01:51,210
+And then whenever a click occurs, we'll run this series of steps right here.
+
+31
+00:01:51,840 --> 00:01:57,090
+So maybe right away we can draw a full border around the timer or like clear out the border or do something
+
+32
+00:01:57,090 --> 00:01:57,360
+with it.
+
+33
+00:01:57,360 --> 00:02:00,300
+Some like initialization for that border animation.
+
+34
+00:02:01,140 --> 00:02:03,840
+Then immediately after that we can start counting down on the timer.
+
+35
+00:02:03,840 --> 00:02:09,630
+So like 1/2 we'll run some block of code to update our timer and maybe the border as well.
+
+36
+00:02:09,960 --> 00:02:15,180
+So then each time the timer starts to count down, we can take a look at the border and update the animation
+
+37
+00:02:15,180 --> 00:02:18,600
+to kind of advance it around the outside of the circle.
+
+38
+00:02:20,830 --> 00:02:24,460
+In addition, every time the timer counts down, we might also update the text as well.
+
+39
+00:02:24,460 --> 00:02:28,720
+So this number right here would go from, say, 27 to 26, 25 and so on.
+
+40
+00:02:30,150 --> 00:02:34,860
+Then we'll take a look at the current timer and we'll say that, okay, if we just cut it down and the
+
+41
+00:02:34,860 --> 00:02:38,040
+timer reaches zero, we probably have to do some kind of like cleanup stuff.
+
+42
+00:02:38,040 --> 00:02:43,500
+So maybe we need to reset the border in some style and maybe we need to also reset something around
+
+43
+00:02:43,500 --> 00:02:46,140
+the internal timer to get it ready for another run.
+
+44
+00:02:46,790 --> 00:02:50,660
+So again, this is just one kind of guess of a possible implementation.
+
+45
+00:02:50,900 --> 00:02:54,190
+The reason I'm laying this out here is I want to make a really important point.
+
+46
+00:02:54,200 --> 00:02:58,290
+I want you to take a look at the ordering of lines of code inside this block right here.
+
+47
+00:02:58,310 --> 00:03:04,580
+And I want you to notice that between the two things that our program does, just about every other
+
+48
+00:03:04,580 --> 00:03:08,540
+line of code addresses something very different inside of our application.
+
+49
+00:03:08,960 --> 00:03:13,420
+So in other words, this first line right here is related to the timer itself.
+
+50
+00:03:13,430 --> 00:03:15,920
+It is watching for someone to click on that start button.
+
+51
+00:03:16,520 --> 00:03:20,960
+Then inside of our click event handler, the first thing we do is something about the border.
+
+52
+00:03:22,850 --> 00:03:25,250
+Then the next line of code is something about the timer.
+
+53
+00:03:25,280 --> 00:03:26,820
+Then it's something about the border.
+
+54
+00:03:26,840 --> 00:03:28,000
+Then something about the timer.
+
+55
+00:03:28,010 --> 00:03:28,580
+Timer.
+
+56
+00:03:28,580 --> 00:03:29,600
+Border timer.
+
+57
+00:03:29,960 --> 00:03:34,100
+So as we start to think about the real structure of this block of code right here, we are essentially
+
+58
+00:03:34,100 --> 00:03:38,290
+alternating what every single line of code does inside of this block.
+
+59
+00:03:38,330 --> 00:03:43,400
+And that would mean that over time, this would be some really challenging code to understand, because
+
+60
+00:03:43,400 --> 00:03:48,140
+we're going to essentially change context or change what our brain has to be thinking about as we're
+
+61
+00:03:48,320 --> 00:03:50,630
+reading every line of code in series.
+
+62
+00:03:51,450 --> 00:03:56,730
+So rather than taking this kind of approach right here where we have to be considering timer, border
+
+63
+00:03:56,730 --> 00:04:02,340
+time or border and so on, we should instead try to isolate all the different responsibilities of our
+
+64
+00:04:02,340 --> 00:04:05,520
+application into different and separate blocs.
+
+65
+00:04:05,730 --> 00:04:07,240
+So how could we do that?
+
+66
+00:04:07,260 --> 00:04:11,430
+Because at the end of the day, we still have to say draw the border around the timer and do the update
+
+67
+00:04:11,430 --> 00:04:12,180
+and so on.
+
+68
+00:04:12,750 --> 00:04:18,000
+Well, one possible way to address this would be to use a kind of evented style approach.
+
+69
+00:04:19,630 --> 00:04:23,530
+So this is the same series of actions right here are the same kind of layout.
+
+70
+00:04:23,530 --> 00:04:28,690
+But rather than having right here something that is specifically related to updating the border, maybe
+
+71
+00:04:28,690 --> 00:04:33,550
+instead of saying, Hey, border, go update yourself, maybe our timer could instead emit some kind
+
+72
+00:04:33,550 --> 00:04:39,730
+of event or emit some kind of notification to the rest of our application and say, Hey, if anyone
+
+73
+00:04:39,730 --> 00:04:41,920
+cares at all, the time are just started.
+
+74
+00:04:42,310 --> 00:04:46,330
+And then some other part of our application can watch for that event to occur.
+
+75
+00:04:46,630 --> 00:04:50,380
+Whenever that event occurs, we can run some code to draw the border.
+
+76
+00:04:51,650 --> 00:04:53,510
+We can then start to count down the timer.
+
+77
+00:04:54,780 --> 00:04:59,460
+And then every single time that we tick down the timer or kind of count it down, we could once again
+
+78
+00:04:59,460 --> 00:05:03,540
+emit an event that signals that the timer has ticked in some fashion.
+
+79
+00:05:04,200 --> 00:05:07,660
+So then we can write some code somewhere else inside of our application that watches for that event
+
+80
+00:05:07,660 --> 00:05:08,250
+to occur.
+
+81
+00:05:08,250 --> 00:05:13,290
+And when it does, we can update the border and kind of like advance it or advance that animation around
+
+82
+00:05:13,290 --> 00:05:14,490
+the outside the circle.
+
+83
+00:05:14,940 --> 00:05:16,460
+And then same thing down here as well.
+
+84
+00:05:16,470 --> 00:05:20,850
+Rather than running some code that specifically says, okay, let's take a look at the border and reset
+
+85
+00:05:20,850 --> 00:05:25,500
+it, instead, we might try to write some code that emits an event or something like that to signal
+
+86
+00:05:25,500 --> 00:05:27,150
+that the timer is all done.
+
+87
+00:05:27,600 --> 00:05:31,920
+And so somewhere else inside of our application, we could run some code or watch for that event and
+
+88
+00:05:31,920 --> 00:05:35,190
+whenever it occurs we could reset the border or do whatever else we want.
+
+89
+00:05:35,950 --> 00:05:40,300
+So again, the idea here is that rather than try to write some code where we are alternating, what
+
+90
+00:05:40,300 --> 00:05:45,250
+we are doing step by step and every line of code essentially does something totally different and unrelated
+
+91
+00:05:45,250 --> 00:05:46,660
+to what occurred before it.
+
+92
+00:05:46,750 --> 00:05:53,050
+We can instead say, okay, let's have one block of code right here that is 100% focused on one aspect
+
+93
+00:05:53,050 --> 00:05:54,040
+of our application.
+
+94
+00:05:54,280 --> 00:05:59,230
+And if some other part of our app like, say, the border needs to know about this stuff rather than
+
+95
+00:05:59,230 --> 00:06:04,540
+directly saying, Hey, border, please go up to yourself, we can instead emit an event or something
+
+96
+00:06:04,540 --> 00:06:05,050
+like that.
+
+97
+00:06:05,050 --> 00:06:10,540
+Maybe run a callback function that says, okay, timer started, timer ticked, timer is done.
+
+98
+00:06:10,840 --> 00:06:14,850
+And so this kind of approach right here would allow us to write some much more clear code.
+
+99
+00:06:14,860 --> 00:06:19,960
+We would end up with an implementation of our timer that could possibly use be reused between different
+
+100
+00:06:19,960 --> 00:06:24,160
+projects or for different purposes beyond just updating the border.
+
+101
+00:06:24,430 --> 00:06:29,230
+In addition, we would also have some implementation for updating the border that wouldn't really care
+
+102
+00:06:29,230 --> 00:06:34,270
+about whether we are having it work with a timer or some other kind of thing, like, say, the progress
+
+103
+00:06:34,270 --> 00:06:37,510
+of making a network request or downloading a file or something like that.
+
+104
+00:06:38,680 --> 00:06:38,950
+All right.
+
+105
+00:06:38,950 --> 00:06:42,130
+So if this diagram doesn't make that much sense right now, that's totally fine.
+
+106
+00:06:42,960 --> 00:06:44,540
+We're going to write some code very quickly.
+
+107
+00:06:44,570 --> 00:06:50,010
+We're going to start to explore this idea and see how we can kind of really isolate the different responsibilities
+
+108
+00:06:50,010 --> 00:06:51,300
+inside of our program.
+
+109
+00:06:52,390 --> 00:06:55,240
+So now we've got a better idea of how we're going to kind of approach this.
+
+110
+00:06:55,240 --> 00:06:59,050
+Let's take a pause right here and start working on an implementation in the next video.
+

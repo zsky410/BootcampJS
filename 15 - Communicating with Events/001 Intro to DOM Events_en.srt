@@ -1,0 +1,560 @@
+1
+00:00:00,270 --> 00:00:04,350
+Hey, everyone, we've made it to one of my favorite sections, Dom events.
+
+2
+00:00:04,350 --> 00:00:06,750
+So this is where things start to get real.
+
+3
+00:00:06,750 --> 00:00:12,060
+This is where we can actually make cool applications that do things instead of just running code to,
+
+4
+00:00:12,090 --> 00:00:16,650
+you know, change the color when the page loads or change the color of something when you type it into
+
+5
+00:00:16,650 --> 00:00:17,370
+the console.
+
+6
+00:00:17,400 --> 00:00:21,030
+We need to understand those fundamentals selecting and manipulating.
+
+7
+00:00:21,030 --> 00:00:23,790
+But we have one missing piece, which is events.
+
+8
+00:00:23,820 --> 00:00:29,970
+Events allow us to run that code to create a new element or to remove an element or to change a color.
+
+9
+00:00:29,970 --> 00:00:35,700
+When a specific interaction happens from a user and there are tons and tons of different events out
+
+10
+00:00:35,700 --> 00:00:40,050
+there, this is a small sampling of some of the events that we can work with in our browser.
+
+11
+00:00:40,050 --> 00:00:45,240
+If we take a look at any modern website these days, there are JavaScript events everywhere.
+
+12
+00:00:45,270 --> 00:00:46,200
+Here's an example.
+
+13
+00:00:46,200 --> 00:00:47,940
+I was just using this website.
+
+14
+00:00:47,940 --> 00:00:50,520
+Can I use dotcom a couple of videos ago?
+
+15
+00:00:50,790 --> 00:00:53,310
+And let's see, there's a hover event.
+
+16
+00:00:53,310 --> 00:00:57,660
+When I mouse over something, we get a pop up that's done via JavaScript.
+
+17
+00:00:57,690 --> 00:00:58,860
+We've got click events.
+
+18
+00:00:58,860 --> 00:01:03,810
+When I click, I'm loading new content, or at least showing and hiding different tabs.
+
+19
+00:01:04,110 --> 00:01:08,790
+We've got other events like Let's see if I come up to the top.
+
+20
+00:01:08,790 --> 00:01:11,130
+As I start typing, I'll get new search results.
+
+21
+00:01:11,130 --> 00:01:13,410
+How about color?
+
+22
+00:01:14,560 --> 00:01:15,150
+There we go.
+
+23
+00:01:15,160 --> 00:01:18,970
+A whole bunch of new search results that's all happening through JavaScript.
+
+24
+00:01:18,970 --> 00:01:24,280
+So just on this one page, I have events when I'm typing that causes some code to run.
+
+25
+00:01:24,670 --> 00:01:30,790
+I can type something invalid like that or I can type, transform and get results showing up.
+
+26
+00:01:30,790 --> 00:01:33,130
+I've got hovers, I've got clicks.
+
+27
+00:01:33,280 --> 00:01:35,470
+I'm sure there are others that I'm skipping.
+
+28
+00:01:35,470 --> 00:01:37,360
+And then here's another example.
+
+29
+00:01:37,450 --> 00:01:43,540
+I just signed up for a Trello account in a throwaway email and it does a little tutorial for me.
+
+30
+00:01:43,540 --> 00:01:46,660
+It wants me to make my first board, so I'm going to type a name in here.
+
+31
+00:01:46,660 --> 00:01:53,830
+My first Trello board will be my life goals and notice what's happening as I type.
+
+32
+00:01:53,830 --> 00:01:55,960
+Something is changing over here.
+
+33
+00:01:56,200 --> 00:01:58,240
+That is Dom manipulation.
+
+34
+00:01:58,240 --> 00:02:04,570
+As I hit these keys, every time I type a single character, this element that's over here, whatever
+
+35
+00:02:04,570 --> 00:02:08,020
+it is, a span, a paragraph, an H three, who knows?
+
+36
+00:02:08,199 --> 00:02:09,669
+It's being updated.
+
+37
+00:02:09,699 --> 00:02:11,650
+Maybe it's inner text, it's changing.
+
+38
+00:02:12,630 --> 00:02:13,470
+Oh, click.
+
+39
+00:02:13,770 --> 00:02:15,300
+That click is an event.
+
+40
+00:02:15,300 --> 00:02:17,070
+So is this one to go back?
+
+41
+00:02:17,610 --> 00:02:20,100
+I'll go forward though, and here's more of the same.
+
+42
+00:02:20,100 --> 00:02:24,660
+I can change some titles of these default lists things to do.
+
+43
+00:02:24,660 --> 00:02:27,930
+I add my exclamation points over here and it's updated here.
+
+44
+00:02:27,930 --> 00:02:29,940
+So there's an event as I type.
+
+45
+00:02:30,030 --> 00:02:31,470
+Something is happening over here.
+
+46
+00:02:31,470 --> 00:02:35,550
+My interaction is triggering something and more of the same.
+
+47
+00:02:35,550 --> 00:02:37,560
+I guess I can add some titles here.
+
+48
+00:02:37,590 --> 00:02:40,230
+Things to do in my life.
+
+49
+00:02:40,230 --> 00:02:45,090
+I would like to explore the ocean in Submarine.
+
+50
+00:02:46,740 --> 00:02:48,120
+What else would I like to do?
+
+51
+00:02:48,120 --> 00:02:55,050
+I would also like to release an album I can hit Enter, by the way, which is a different event.
+
+52
+00:02:55,050 --> 00:02:59,610
+I can click to move forward or I can just hit enter and now I moved a step forward.
+
+53
+00:03:00,510 --> 00:03:01,710
+All right, then, over here.
+
+54
+00:03:01,710 --> 00:03:02,040
+Let's see.
+
+55
+00:03:02,040 --> 00:03:03,990
+I've got some other things I can add to my checklist.
+
+56
+00:03:03,990 --> 00:03:07,260
+I'm just going to do some gibberish here, and I'm ready to get started.
+
+57
+00:03:07,380 --> 00:03:12,870
+So those are all quick events and typing events, but now we've got other events I can drag to reorder
+
+58
+00:03:12,870 --> 00:03:13,500
+things.
+
+59
+00:03:13,620 --> 00:03:15,630
+This is an event in JavaScript.
+
+60
+00:03:15,630 --> 00:03:16,950
+It's actually a couple of different things.
+
+61
+00:03:16,950 --> 00:03:21,780
+There's dragging, there's dropping, there's when I mouse over, when I drag over something, notice
+
+62
+00:03:21,780 --> 00:03:27,120
+how I get those like this shadow, I guess a little gray background showing me where I would be dropping
+
+63
+00:03:27,120 --> 00:03:27,660
+this.
+
+64
+00:03:27,660 --> 00:03:30,390
+I've also got drag and drop within, I think.
+
+65
+00:03:30,390 --> 00:03:30,930
+Do I?
+
+66
+00:03:31,910 --> 00:03:34,550
+Oh, I think I just deleted one, so I'll do that.
+
+67
+00:03:35,120 --> 00:03:35,950
+Let's try this again.
+
+68
+00:03:35,960 --> 00:03:36,720
+How do I reorder?
+
+69
+00:03:36,740 --> 00:03:37,360
+There we go.
+
+70
+00:03:37,370 --> 00:03:38,840
+I can move these around.
+
+71
+00:03:38,840 --> 00:03:39,800
+I can click.
+
+72
+00:03:39,800 --> 00:03:40,820
+That's an event.
+
+73
+00:03:41,330 --> 00:03:43,030
+Click again to undo.
+
+74
+00:03:43,040 --> 00:03:48,680
+I'm sure there are other events I'm missing, but already we've seen dragging, dropping, hovering,
+
+75
+00:03:48,680 --> 00:03:50,150
+clicking, typing.
+
+76
+00:03:50,150 --> 00:03:54,680
+All of these are events that we can listen for and there are way more.
+
+77
+00:03:54,710 --> 00:03:57,910
+This is a small sampling of some of the more common ones.
+
+78
+00:03:57,920 --> 00:03:59,330
+I've tried to group them.
+
+79
+00:03:59,360 --> 00:04:02,390
+On the left side, we have things that are definitely more common.
+
+80
+00:04:02,390 --> 00:04:07,940
+On the right side, somewhat common so we can listen for clicks in our JavaScript and run some code.
+
+81
+00:04:07,940 --> 00:04:09,890
+When somebody clicks, we can do something.
+
+82
+00:04:09,890 --> 00:04:14,150
+When someone drags or drops or hovers or scrolls, that's a pretty common one.
+
+83
+00:04:14,150 --> 00:04:18,829
+When you scroll on a web page, sometimes there will be like an animation that triggers when you scroll
+
+84
+00:04:18,829 --> 00:04:19,790
+to a certain position.
+
+85
+00:04:19,790 --> 00:04:25,040
+We have events for forms being submitted, key presses, focus and blur.
+
+86
+00:04:25,040 --> 00:04:32,450
+So focus is when you're in an input like this, it's focused right now, and if I click away, it's
+
+87
+00:04:32,450 --> 00:04:33,020
+blurred.
+
+88
+00:04:33,020 --> 00:04:35,510
+We can run code in those scenarios.
+
+89
+00:04:35,510 --> 00:04:38,900
+And actually right there we're seeing that happen live.
+
+90
+00:04:38,990 --> 00:04:44,720
+If I go to edit it, notice that I get all this stuff over here, I've got this grayed out background
+
+91
+00:04:44,720 --> 00:04:48,560
+and then when the input loses focus, all of that goes away.
+
+92
+00:04:48,590 --> 00:04:54,410
+So there are some code that says when that input loses focus, when the user clicks away, then hide
+
+93
+00:04:54,410 --> 00:04:57,170
+all of that extra stuff or change the colors or whatever happened.
+
+94
+00:04:57,170 --> 00:04:59,210
+We've also got mouse wheel events.
+
+95
+00:04:59,210 --> 00:05:04,820
+I don't think I've ever worked with one of those, but they are available double click, not as common.
+
+96
+00:05:04,820 --> 00:05:06,680
+Then we have copying and pasting.
+
+97
+00:05:06,950 --> 00:05:12,530
+I maybe used them a couple of times, but these allow you to run specific code when a user copy something
+
+98
+00:05:12,530 --> 00:05:14,600
+or paste something into an input.
+
+99
+00:05:14,600 --> 00:05:20,780
+For example, we have events for when audio starts playing or audio stops playing or when audio initially
+
+100
+00:05:20,780 --> 00:05:22,640
+loads when it completes its load.
+
+101
+00:05:22,640 --> 00:05:26,060
+We've got screen resize events, even printing events.
+
+102
+00:05:26,060 --> 00:05:30,830
+I've never used these, but there are two events, one called before print and after print.
+
+103
+00:05:31,040 --> 00:05:32,390
+I think that's what they're called.
+
+104
+00:05:32,390 --> 00:05:38,330
+When a user goes to print a website and open up that print dialog before it opens, there's an event
+
+105
+00:05:38,330 --> 00:05:44,270
+that we can tap into and run code, and after the user clicks the print button, I guess there's another
+
+106
+00:05:44,270 --> 00:05:45,770
+event that we can listen for.
+
+107
+00:05:46,130 --> 00:05:48,500
+I've never used them, but they exist.
+
+108
+00:05:48,500 --> 00:05:54,380
+If you go to MDM, there's a page called Event Reference and this contains all of the different names
+
+109
+00:05:54,380 --> 00:05:58,280
+of the events in JavaScript that we can work with and they're grouped together.
+
+110
+00:05:58,370 --> 00:06:04,160
+So we have mouse events when a user clicks or double clicks when they mouse down, which is when you
+
+111
+00:06:04,160 --> 00:06:11,120
+depress the key or depress the mouse button, but you don't have to release versus a click is a click,
+
+112
+00:06:11,130 --> 00:06:14,840
+a full click down and up we have mouse leave.
+
+113
+00:06:14,840 --> 00:06:19,010
+So that's when a mouse leaves an element that it was hovering over.
+
+114
+00:06:19,640 --> 00:06:21,920
+We've also got things for dragging and dropping.
+
+115
+00:06:21,920 --> 00:06:26,300
+You can see there's quite a few drag, drag and drag enter, drag start.
+
+116
+00:06:26,300 --> 00:06:31,580
+We have things for media not as common, at least in most of the apps that I do.
+
+117
+00:06:32,090 --> 00:06:33,800
+We have audio.
+
+118
+00:06:33,830 --> 00:06:40,280
+What do we have play playback has begun on a piece of media is playing when the playback rate has changed,
+
+119
+00:06:40,280 --> 00:06:44,330
+when a user has seeked forward, when they've skipped forward or backwards.
+
+120
+00:06:44,420 --> 00:06:47,420
+Volume change events time update.
+
+121
+00:06:48,020 --> 00:06:50,120
+Okay, I'm not even sure what that one does.
+
+122
+00:06:50,150 --> 00:06:53,630
+The time indicated by current time attribute has been updated.
+
+123
+00:06:54,020 --> 00:06:54,410
+All right.
+
+124
+00:06:54,410 --> 00:06:56,000
+I'm sure there's a use for that.
+
+125
+00:06:56,570 --> 00:07:03,590
+We have things like progress events, storage events, update events, value change events.
+
+126
+00:07:03,590 --> 00:07:06,260
+And further up we've got view events.
+
+127
+00:07:06,260 --> 00:07:13,040
+When a user goes to full screen mode, scroll events, resizing, printing, which I mentioned, kind
+
+128
+00:07:13,040 --> 00:07:14,240
+of obscure stuff.
+
+129
+00:07:14,720 --> 00:07:16,280
+We've got animation events.
+
+130
+00:07:16,280 --> 00:07:22,580
+When an animation starts focus and blur network events, there's just so many of them and you're never
+
+131
+00:07:22,580 --> 00:07:23,660
+going to use all of them.
+
+132
+00:07:23,660 --> 00:07:28,640
+Well, I'm sure somebody has, but it will be pretty difficult to use all of them.
+
+133
+00:07:28,640 --> 00:07:30,590
+I'm going to focus on the most important ones.
+
+134
+00:07:30,590 --> 00:07:35,480
+But the great news is I'm going to show you the pattern you follow where you can use any of these events
+
+135
+00:07:35,480 --> 00:07:36,920
+with just one method.
+
+136
+00:07:36,920 --> 00:07:38,570
+It's actually pretty straightforward.
+
+137
+00:07:38,660 --> 00:07:42,950
+So we've got a lot to talk about here, but it's honestly just one method that we're going to cover
+
+138
+00:07:42,950 --> 00:07:44,300
+after the very next video.
+
+139
+00:07:44,300 --> 00:07:46,430
+So I'll see you then in like 5 seconds.
+
+140
+00:07:46,430 --> 00:07:48,050
+If it auto plays, I'll see you then.
+

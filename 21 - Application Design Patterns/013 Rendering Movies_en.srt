@@ -1,0 +1,384 @@
+1
+00:00:01,460 --> 00:00:05,450
+Now that we have all of our data inside the on input function, let's make sure that we can iterate
+
+2
+00:00:05,450 --> 00:00:07,130
+over this list of movies right here.
+
+3
+00:00:07,130 --> 00:00:12,290
+And for every movie that we have fetched, we're going to try to create a div element that kind of summarizes
+
+4
+00:00:12,290 --> 00:00:12,970
+the movie.
+
+5
+00:00:13,040 --> 00:00:15,950
+In particular, I want to take every movie that we fetch.
+
+6
+00:00:15,980 --> 00:00:20,840
+I want to get the poster printed out as an image on the screen, and I want to show the title for every
+
+7
+00:00:20,840 --> 00:00:21,830
+movie as well.
+
+8
+00:00:22,310 --> 00:00:23,720
+So let's get to it.
+
+9
+00:00:25,040 --> 00:00:29,690
+I'm going to remove that console.log and I'm going to replace it with a four of loop.
+
+10
+00:00:29,900 --> 00:00:34,040
+So I'll save for let movie of movies like so.
+
+11
+00:00:35,690 --> 00:00:37,730
+Now we can use a four of loop right here.
+
+12
+00:00:37,730 --> 00:00:39,020
+We could use a normal for loop.
+
+13
+00:00:39,020 --> 00:00:41,930
+We could use a while loop a for each map statement.
+
+14
+00:00:41,930 --> 00:00:44,240
+It's really up to you personally.
+
+15
+00:00:44,240 --> 00:00:48,950
+I rather enjoy using four of loops because they're really easy to see and pretty easy to understand
+
+16
+00:00:48,950 --> 00:00:49,580
+as well.
+
+17
+00:00:50,150 --> 00:00:54,890
+So as we start to iterate over this list of movies right here, we're going to get the movie variable
+
+18
+00:00:54,890 --> 00:00:55,790
+inside the loop.
+
+19
+00:00:55,970 --> 00:01:01,250
+So that movie variable is going to be the same objects that we're looking at inside of our console right
+
+20
+00:01:01,250 --> 00:01:01,760
+here.
+
+21
+00:01:02,270 --> 00:01:08,090
+So that right there is going to be the first movie variable and then we're going to go over the second
+
+22
+00:01:08,300 --> 00:01:09,770
+movie and then so on.
+
+23
+00:01:11,200 --> 00:01:12,610
+So now inside of my loop.
+
+24
+00:01:13,570 --> 00:01:14,950
+I'm going to create a div.
+
+25
+00:01:20,440 --> 00:01:22,990
+And then going to set the inner html on this div.
+
+26
+00:01:22,990 --> 00:01:25,450
+So I'll say div inour html.
+
+27
+00:01:26,240 --> 00:01:28,250
+I'm going to use a set of tactics here.
+
+28
+00:01:29,170 --> 00:01:33,910
+Like so because I want to have a multi lined string so I can nicely format my html though.
+
+29
+00:01:33,910 --> 00:01:38,530
+I want to write out make note that you are supposed to use back here.
+
+30
+00:01:38,530 --> 00:01:41,920
+We cannot use single quotes to form a multi-line string in JavaScript.
+
+31
+00:01:41,920 --> 00:01:45,700
+That would be a syntax error, so make sure you have a back tick character instead.
+
+32
+00:01:46,620 --> 00:01:53,160
+Then inside of here, I'm going to display an image that's going to show the poster for my movie.
+
+33
+00:01:54,010 --> 00:01:57,310
+To get the URL for this image or the CRC property.
+
+34
+00:01:57,310 --> 00:02:00,490
+Let's take another quick look at the movie object that we are working with.
+
+35
+00:02:01,110 --> 00:02:04,320
+So again, this is the movie object that we are currently working with right here.
+
+36
+00:02:04,470 --> 00:02:10,380
+Notice that it has a poster property and that is a URL to the poster image for this movie.
+
+37
+00:02:11,810 --> 00:02:16,850
+Also take note that it's poster with a capital P, so we'll need to make sure that we spell the property
+
+38
+00:02:16,850 --> 00:02:19,040
+with capital P inside of our code as well.
+
+39
+00:02:20,850 --> 00:02:21,570
+So back over here.
+
+40
+00:02:21,570 --> 00:02:23,790
+I'm going to set the Z on the image.
+
+41
+00:02:24,760 --> 00:02:29,290
+And remember to inject a JavaScript variable into a string formed with back ticks.
+
+42
+00:02:29,290 --> 00:02:36,670
+We use a dollar sign curly braces like so and we'll say movie dot poster with a capital P.
+
+43
+00:02:37,710 --> 00:02:39,780
+Now, this right here is not quite correct.
+
+44
+00:02:39,780 --> 00:02:41,820
+There's a very small gotcha in there.
+
+45
+00:02:41,970 --> 00:02:47,640
+In order to write out a correct image tag, we're supposed to write Z a set of double quotes and then
+
+46
+00:02:47,640 --> 00:02:49,140
+our link inside of there.
+
+47
+00:02:50,160 --> 00:02:51,360
+To whatever it might be.
+
+48
+00:02:52,070 --> 00:02:57,260
+Right now, if we ran this code right here, it would just take whatever the URL is and stick the URL
+
+49
+00:02:57,260 --> 00:02:59,810
+directly in without any double quotes.
+
+50
+00:03:00,140 --> 00:03:04,850
+So in other words, we would end up with something like that, which is not quite what we want.
+
+51
+00:03:04,880 --> 00:03:06,980
+Again, we want to have some double quotes around it.
+
+52
+00:03:07,310 --> 00:03:11,120
+So to make sure we get double quotes around, well, we have to put them in ourselves.
+
+53
+00:03:11,150 --> 00:03:14,840
+So I'm going to put double quote right there and a double quote on the other side.
+
+54
+00:03:16,360 --> 00:03:18,940
+Next up, I'm going to put an H one right after it.
+
+55
+00:03:20,480 --> 00:03:21,470
+Inside that one.
+
+56
+00:03:21,470 --> 00:03:25,910
+I'm going to try to show the title of the movie so we can get the title of the movie by referencing
+
+57
+00:03:25,910 --> 00:03:27,110
+the title property.
+
+58
+00:03:27,110 --> 00:03:29,420
+And again, notice that it has a capital T.
+
+59
+00:03:30,530 --> 00:03:31,700
+Inside the one.
+
+60
+00:03:32,460 --> 00:03:36,060
+I'll do dollar sign curly braces with movie title.
+
+61
+00:03:39,200 --> 00:03:39,500
+Okay.
+
+62
+00:03:39,530 --> 00:03:40,460
+So it looks pretty good.
+
+63
+00:03:40,850 --> 00:03:45,860
+So now the last thing we need to do is take the div we just created and insert it into our DOM somewhere
+
+64
+00:03:45,860 --> 00:03:47,210
+so that we can actually see it.
+
+65
+00:03:47,750 --> 00:03:52,670
+Let's go back over to our index.html and we're going to make sure that we create some element inside
+
+66
+00:03:52,670 --> 00:03:56,780
+there that's going to list out all these different divs that we are creating.
+
+67
+00:03:57,520 --> 00:03:58,690
+So I'll go back over.
+
+68
+00:03:59,200 --> 00:04:05,530
+I'll find where we have our class container and I'm going to add in a div with an ID of target.
+
+69
+00:04:05,710 --> 00:04:10,960
+This is not a really good practice right here to use an ID of Target because, well, we might end up
+
+70
+00:04:10,960 --> 00:04:15,490
+with many different targets, so to speak, or things that we want to render content to inside of our
+
+71
+00:04:15,490 --> 00:04:16,329
+application.
+
+72
+00:04:16,540 --> 00:04:21,220
+But to be honest, we're going to very quickly replace this div with something else like very, very
+
+73
+00:04:21,220 --> 00:04:21,730
+soon.
+
+74
+00:04:21,730 --> 00:04:24,370
+And that's why I'm just going to use it here very temporarily.
+
+75
+00:04:26,440 --> 00:04:32,890
+So now back after we create our div, we can use a query selector to select that element with ID of
+
+76
+00:04:32,890 --> 00:04:34,120
+target that we just added.
+
+77
+00:04:35,020 --> 00:04:37,150
+They'll do a document query selector.
+
+78
+00:04:37,720 --> 00:04:39,790
+I'll look for pound target.
+
+79
+00:04:40,540 --> 00:04:44,410
+And I'll append child the div we just created.
+
+80
+00:04:46,630 --> 00:04:46,960
+Okay.
+
+81
+00:04:46,990 --> 00:04:47,830
+And that should be it.
+
+82
+00:04:49,110 --> 00:04:50,250
+So I'm going to save this.
+
+83
+00:04:50,550 --> 00:04:51,520
+I'll go back over.
+
+84
+00:04:51,540 --> 00:04:52,800
+I'll refresh the page.
+
+85
+00:04:53,780 --> 00:04:56,000
+Then I'll do a search for Avengers.
+
+86
+00:04:57,030 --> 00:04:58,020
+And there we go.
+
+87
+00:04:58,440 --> 00:05:01,440
+So I can see my first poster right there.
+
+88
+00:05:01,440 --> 00:05:05,100
+I can see a title, the next one, and so on down the list.
+
+89
+00:05:05,670 --> 00:05:07,950
+So we can definitely at least show some content now.
+
+90
+00:05:08,310 --> 00:05:12,870
+However, I want you to notice that while I was typing this out, I also got an error over here, which
+
+91
+00:05:12,870 --> 00:05:14,040
+is kind of unexpected.
+
+92
+00:05:14,160 --> 00:05:15,690
+So let's take a quick pause.
+
+93
+00:05:15,720 --> 00:05:20,550
+It looks like everything worked but didn't quite work out quite as expected because we got an error.
+
+94
+00:05:20,700 --> 00:05:22,170
+So we'll come back in just a moment.
+
+95
+00:05:22,170 --> 00:05:24,450
+We're going to figure out why we're seeing this error message.
+
+96
+00:05:24,480 --> 00:05:25,830
+Then we're going to try to fix it.
+

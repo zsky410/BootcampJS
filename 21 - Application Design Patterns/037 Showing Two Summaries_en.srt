@@ -1,0 +1,292 @@
+1
+00:00:01,080 --> 00:00:01,440
+All right.
+
+2
+00:00:01,440 --> 00:00:05,130
+Last thing we really have to do here is to make sure that when a user selects one of those movies,
+
+3
+00:00:05,130 --> 00:00:07,410
+we show a summary on the appropriate side of the screen.
+
+4
+00:00:07,770 --> 00:00:11,880
+So the first thing we have to do is to make sure that we have some developments to render the summaries
+
+5
+00:00:11,880 --> 00:00:12,540
+into.
+
+6
+00:00:12,570 --> 00:00:17,520
+Remember, at the bottom of the indexed JS file, we still have the movie template function, so we
+
+7
+00:00:17,520 --> 00:00:19,680
+essentially know what content we want to show.
+
+8
+00:00:19,710 --> 00:00:22,500
+We just need to make sure that we have some place to put it.
+
+9
+00:00:23,010 --> 00:00:28,350
+So inside of indexed HTML, I'm going to find where my div of left autocomplete is.
+
+10
+00:00:28,380 --> 00:00:31,110
+And right after it I'm going to add in a div.
+
+11
+00:00:31,870 --> 00:00:35,350
+With an ID of left Daesh summary.
+
+12
+00:00:36,500 --> 00:00:40,970
+And close it off and then I'll do the same thing right after the right autocomplete as well.
+
+13
+00:00:41,000 --> 00:00:44,690
+So it div with an ID of right dash summary.
+
+14
+00:00:46,080 --> 00:00:46,770
+Like so.
+
+15
+00:00:48,290 --> 00:00:54,020
+So now all we need to do is to make sure that whenever on Movie Select gets called, we render the summary
+
+16
+00:00:54,020 --> 00:00:57,740
+into the appropriate element either the left side or the right side.
+
+17
+00:00:58,100 --> 00:01:03,980
+So to make this happen, we're probably going to have to have two versions of either on Movie Select
+
+18
+00:01:03,980 --> 00:01:07,880
+or two versions of on option select up here.
+
+19
+00:01:07,910 --> 00:01:13,280
+Remember, right now we're using the same version of an option select between both the left hand side
+
+20
+00:01:13,280 --> 00:01:15,050
+autocomplete and the right hand side.
+
+21
+00:01:15,590 --> 00:01:20,930
+So I think that we should probably take on options, select and then throw it down into each individual
+
+22
+00:01:20,930 --> 00:01:25,760
+call to create autocomplete, and that will allow us to make a customized version for each one.
+
+23
+00:01:26,630 --> 00:01:29,300
+So to do so, I'm going to go up to my autocomplete config.
+
+24
+00:01:30,190 --> 00:01:31,930
+I'm going to cut on options.
+
+25
+00:01:31,930 --> 00:01:32,830
+Select out.
+
+26
+00:01:35,320 --> 00:01:39,220
+I'll then go down to my calls to create Autocomplete one and two.
+
+27
+00:01:40,090 --> 00:01:45,790
+And I'm going to paste that thing in so paste and paste and I'll make sure that I get a comma on the
+
+28
+00:01:45,790 --> 00:01:46,480
+line right above.
+
+29
+00:01:46,510 --> 00:01:48,220
+Otherwise, I'll see an error very quickly.
+
+30
+00:01:49,970 --> 00:01:54,530
+So now this one right here is for the left hand side, and this one right here is the right hand side.
+
+31
+00:01:54,980 --> 00:02:00,050
+So to make sure that we actually render the summary into the appropriate element, let's make sure that
+
+32
+00:02:00,050 --> 00:02:05,600
+when we call on movie select in both cases as a second element, I'm going to pass in a reference to
+
+33
+00:02:05,600 --> 00:02:07,850
+an element of where to render the summary to.
+
+34
+00:02:08,910 --> 00:02:15,990
+So on the first one, which is responsible for the left hand side, I'll get a document where he selector.
+
+35
+00:02:17,070 --> 00:02:20,070
+Or LB left dash summary.
+
+36
+00:02:20,860 --> 00:02:22,990
+And I'll do the same thing for the second one as well.
+
+37
+00:02:23,590 --> 00:02:24,070
+Document.
+
+38
+00:02:24,340 --> 00:02:25,780
+Query selector.
+
+39
+00:02:26,950 --> 00:02:28,180
+LB right.
+
+40
+00:02:28,180 --> 00:02:29,350
+DASH Summary.
+
+41
+00:02:31,330 --> 00:02:34,780
+So now inside of On Movie Select, we can receive that second argument.
+
+42
+00:02:35,410 --> 00:02:36,850
+So in addition to movie.
+
+43
+00:02:37,790 --> 00:02:41,920
+We received that other argument as like, how about summary target or something like that?
+
+44
+00:02:41,930 --> 00:02:43,190
+How about summary element?
+
+45
+00:02:44,070 --> 00:02:45,060
+I think that makes sense.
+
+46
+00:02:46,610 --> 00:02:50,690
+So then we're going to do that request to get more details about the selected movie.
+
+47
+00:02:52,000 --> 00:02:57,310
+And then instead of throwing the render template inside of some summery element that doesn't exist anymore,
+
+48
+00:02:57,310 --> 00:03:01,180
+instead we're going to throw it into the inner HTML of that summery element.
+
+49
+00:03:01,510 --> 00:03:05,740
+So going to replace that query selector with summary element.
+
+50
+00:03:07,400 --> 00:03:07,730
+Okay.
+
+51
+00:03:07,730 --> 00:03:10,400
+So let's save this and do a quick test.
+
+52
+00:03:10,850 --> 00:03:11,810
+Go back over.
+
+53
+00:03:12,410 --> 00:03:17,120
+I'll look for Avengers once again for the millionth time, click it and there's my summary on the left
+
+54
+00:03:17,120 --> 00:03:23,510
+hand side and I should be able to do Dark Night, look it and see the summary on the right hand side.
+
+55
+00:03:23,720 --> 00:03:28,010
+Now I should be able to go between both these and just make sure that they've got the appropriate values,
+
+56
+00:03:28,010 --> 00:03:32,630
+or I should just say different values to make sure that we're not accidentally leaking data from one
+
+57
+00:03:32,630 --> 00:03:33,500
+side to another.
+
+58
+00:03:33,830 --> 00:03:36,080
+So I'm looking through and yep, it all looks good.
+
+59
+00:03:37,120 --> 00:03:37,420
+Okay.
+
+60
+00:03:37,420 --> 00:03:40,750
+So now the very last thing we have to do here to really complete our application.
+
+61
+00:03:40,750 --> 00:03:46,510
+Remember, the last requirement of our project was to compare both the different stats and we need to
+
+62
+00:03:46,510 --> 00:03:50,260
+make sure that we color the greater stat on each side of the screen.
+
+63
+00:03:50,770 --> 00:03:55,330
+This is going to be a little bit more challenging than it seems because in some cases comparing these
+
+64
+00:03:55,330 --> 00:03:57,040
+things is actually kind of challenging.
+
+65
+00:03:58,050 --> 00:04:02,580
+For example, how do we really compare this string right here with this string?
+
+66
+00:04:03,120 --> 00:04:04,990
+How do we compare this number right here?
+
+67
+00:04:05,010 --> 00:04:07,020
+This is a string when it comes back from the API.
+
+68
+00:04:07,050 --> 00:04:11,130
+We know it's a string because it has the dollar sign and the commas in there.
+
+69
+00:04:11,130 --> 00:04:13,680
+So how do we compare that string versus that string?
+
+70
+00:04:14,040 --> 00:04:18,450
+It's pretty clear, I think, that we're going to have to figure out some ways to really compare these
+
+71
+00:04:18,450 --> 00:04:19,320
+different statistics.
+
+72
+00:04:19,320 --> 00:04:21,899
+And in some cases, it might require some special logic.
+
+73
+00:04:22,230 --> 00:04:25,710
+So one last pause and we're going to figure that stuff out in the next video.
+

@@ -1,0 +1,680 @@
+1
+00:00:00,740 --> 00:00:05,390
+At the end of the last video, we discussed how the phase one of our application is pretty much complete.
+
+2
+00:00:05,420 --> 00:00:06,800
+User can search for something.
+
+3
+00:00:06,830 --> 00:00:08,390
+See some statistics.
+
+4
+00:00:08,600 --> 00:00:13,550
+So normally we would now move on to phase two where we would show a second autocomplete on the right
+
+5
+00:00:13,550 --> 00:00:18,500
+hand side, allow a user to do another search, and then compare some statistics between the two movies.
+
+6
+00:00:18,950 --> 00:00:22,310
+But before we do, we're going to take a look at our current code base.
+
+7
+00:00:22,340 --> 00:00:27,200
+It turns out that the code that we've written so far has some kind of serious issues inside of it.
+
+8
+00:00:27,350 --> 00:00:29,760
+So I want to take a look at the code we've written so far.
+
+9
+00:00:29,780 --> 00:00:34,520
+I want to point out some really big issues with our current implementation, and I want to figure out
+
+10
+00:00:34,520 --> 00:00:39,230
+some ways that we could fix that stuff before we move on to phase two of our app.
+
+11
+00:00:39,440 --> 00:00:44,540
+So in other words, we're going to start to do some really big re factors in the goal of these three
+
+12
+00:00:44,540 --> 00:00:48,620
+factors is to help you get an idea of how to write some more reusable code.
+
+13
+00:00:49,070 --> 00:00:53,480
+Naturally, at the start of this application, I could have just shown you the right way to build this
+
+14
+00:00:53,480 --> 00:00:58,520
+application from start to finish, but I think that you can learn a lot more effectively to see kind
+
+15
+00:00:58,520 --> 00:01:01,790
+of the wrong way, so to speak, to build out an application.
+
+16
+00:01:02,610 --> 00:01:06,690
+Which is kind of what we've done so far and then see a better way to write it.
+
+17
+00:01:07,140 --> 00:01:10,170
+Now, don't think that everything we've written so far is awful.
+
+18
+00:01:10,590 --> 00:01:14,400
+Don't get me wrong, the code we've written so far is 100% A-OK.
+
+19
+00:01:14,430 --> 00:01:20,160
+And if you went to some job or like an interview or your first junior position as a JavaScript engineer,
+
+20
+00:01:20,160 --> 00:01:24,660
+and you wrote code like what we've done so far, this would 100% be A-OK.
+
+21
+00:01:24,690 --> 00:01:28,350
+There's not anything that's like inherently wrong with the code that we have.
+
+22
+00:01:28,620 --> 00:01:33,600
+I just want to show you some quick changes we can make to our code base to make it even better than
+
+23
+00:01:33,600 --> 00:01:34,750
+it currently is.
+
+24
+00:01:34,770 --> 00:01:38,160
+And it's all themed around making our code more reusable.
+
+25
+00:01:38,610 --> 00:01:43,410
+So that in mind, let's take a look at some issues inside of our current code base.
+
+26
+00:01:44,800 --> 00:01:45,340
+Okay.
+
+27
+00:01:45,640 --> 00:01:51,010
+So here's the current overwhelming issue with just about everything inside of our project so far, I
+
+28
+00:01:51,010 --> 00:01:54,490
+would say that just about all of our code touches everything.
+
+29
+00:01:54,790 --> 00:02:00,970
+In other words, just about every function, every block of code, everything kind of reaches around
+
+30
+00:02:00,970 --> 00:02:05,110
+to other variables inside the file and other functions inside the file.
+
+31
+00:02:05,590 --> 00:02:10,360
+Let me give you some practical examples of this, mostly focused around the autocomplete widget, and
+
+32
+00:02:10,360 --> 00:02:14,980
+you're going to get a better sense of right now how our code is just reaching around, referencing a
+
+33
+00:02:14,980 --> 00:02:17,080
+ton of different variables all over the place.
+
+34
+00:02:17,710 --> 00:02:20,920
+So a good example of that is the autocomplete widget.
+
+35
+00:02:20,950 --> 00:02:24,610
+Remember, the autocomplete widget was supposed to be reusable.
+
+36
+00:02:24,760 --> 00:02:30,940
+We spoke a little bit ago about how putting a bunch of HTML inside of our HTML document would lead to
+
+37
+00:02:30,940 --> 00:02:34,630
+making it more challenging to reuse the autocomplete logic over time.
+
+38
+00:02:35,020 --> 00:02:40,330
+Because if we ever wanted to reuse all this autocomplete stuff on another project, we would not only
+
+39
+00:02:40,330 --> 00:02:46,240
+have to copy over a bunch of JavaScript code, but we would also have to copy over some HTML inside
+
+40
+00:02:46,240 --> 00:02:47,650
+of our HTML document.
+
+41
+00:02:48,100 --> 00:02:53,470
+In other words, if we had all the autocomplete HTML inside the HTML document, we had that really strong
+
+42
+00:02:53,470 --> 00:02:55,210
+coupling between those two files.
+
+43
+00:02:55,210 --> 00:02:57,940
+And again, it just made it more challenging to use.
+
+44
+00:02:58,710 --> 00:03:04,440
+So as we start to think about how to make the Autocomplete widget actually reusable, it's going to
+
+45
+00:03:04,440 --> 00:03:09,810
+involve the process of making sure that the code inside there doesn't touch everything.
+
+46
+00:03:10,530 --> 00:03:13,350
+Again, let me give you some practical examples of this.
+
+47
+00:03:14,670 --> 00:03:18,690
+The first way in which our autocomplete knowledge excuse me, the first way in which the autocomplete
+
+48
+00:03:18,690 --> 00:03:24,270
+widget kind of touches everything, is that it has knowledge of exactly what a movie object is.
+
+49
+00:03:24,690 --> 00:03:29,460
+So let's go back over to our code base and let me show you that inside of the on input function right
+
+50
+00:03:29,460 --> 00:03:29,940
+now.
+
+51
+00:03:30,580 --> 00:03:37,660
+We have a for loop right here and inside that for loop, we have a couple of different lines of code
+
+52
+00:03:37,660 --> 00:03:40,420
+that take a look at that movie object right there.
+
+53
+00:03:40,810 --> 00:03:46,780
+And in doing so, specifically on line 43, it is very clear that the current implementation of our
+
+54
+00:03:46,780 --> 00:03:51,790
+autocomplete stuff knows exactly what different properties a movie object has.
+
+55
+00:03:51,910 --> 00:03:58,360
+So on this line of code, it's clear that the autocomplete stuff knows that a movie object has a poster
+
+56
+00:03:58,360 --> 00:03:59,140
+property.
+
+57
+00:04:00,060 --> 00:04:05,700
+The Autocomplete logic is going to behave very differently based on the presence and value of that poster
+
+58
+00:04:05,700 --> 00:04:06,390
+property.
+
+59
+00:04:06,750 --> 00:04:11,910
+So I would say that if we consider all of our autocomplete stuff right now, like everything from Const
+
+60
+00:04:11,910 --> 00:04:18,360
+Root right there all the way down to our add event listener right there for the document, if we look
+
+61
+00:04:18,360 --> 00:04:23,730
+at just this code block, we would say that this autocomplete widget knows exactly about the structure
+
+62
+00:04:23,730 --> 00:04:25,530
+of data that it is working with.
+
+63
+00:04:26,120 --> 00:04:26,250
+Now.
+
+64
+00:04:26,300 --> 00:04:27,620
+Why is that bad?
+
+65
+00:04:27,890 --> 00:04:29,320
+Well, it's very simple.
+
+66
+00:04:29,330 --> 00:04:34,140
+Again, imagine that you wanted to reuse all this code on another project.
+
+67
+00:04:34,160 --> 00:04:40,730
+And let's imagine for just a second that maybe you did not want to try to have to, like, go into all
+
+68
+00:04:40,730 --> 00:04:45,680
+this code right here and change a bunch of different variables or property names in order to get this
+
+69
+00:04:45,680 --> 00:04:47,270
+code to work on another project.
+
+70
+00:04:47,360 --> 00:04:52,220
+So let's imagine that in a perfect world, we could just copy, paste all the stuff, reuse it right
+
+71
+00:04:52,220 --> 00:04:52,730
+away.
+
+72
+00:04:53,520 --> 00:04:58,650
+If that were the case, then, well, having these direct references to properties inside the movie
+
+73
+00:04:58,650 --> 00:05:04,380
+object would not be good at all because maybe our other project doesn't work with movie objects.
+
+74
+00:05:04,380 --> 00:05:07,650
+Maybe instead it works with, say, like recipes.
+
+75
+00:05:08,010 --> 00:05:11,340
+A recipe probably would not have a poster property.
+
+76
+00:05:11,340 --> 00:05:16,680
+Instead, maybe a recipe object like a cooking recipe would have some property called like, I don't
+
+77
+00:05:16,680 --> 00:05:19,500
+know, recipe image or something.
+
+78
+00:05:20,280 --> 00:05:25,530
+So if I wanted to use all this code on that other project, I would have to go through it first and
+
+79
+00:05:25,530 --> 00:05:27,480
+update all these property references.
+
+80
+00:05:27,660 --> 00:05:31,710
+That's sign number one that we don't have reusable code just yet.
+
+81
+00:05:32,690 --> 00:05:38,690
+The next instance of this is that our autocomplete has knowledge of exactly what to show for each option.
+
+82
+00:05:39,260 --> 00:05:44,690
+So again, inside of our for loop right here, we are setting the inner HTML on option.
+
+83
+00:05:45,170 --> 00:05:49,760
+So this right here, this image that we're placing and the title of the movie once again means that
+
+84
+00:05:49,760 --> 00:05:55,610
+our autocomplete code has perfect knowledge and perhaps too much knowledge of what to render or what
+
+85
+00:05:55,610 --> 00:05:57,080
+to display for every option.
+
+86
+00:05:57,500 --> 00:06:02,420
+Maybe once again, if we were searching for recipes on some other project, maybe we don't have any
+
+87
+00:06:02,420 --> 00:06:03,620
+images to show at all.
+
+88
+00:06:03,710 --> 00:06:06,500
+And maybe we would not want to show that image element.
+
+89
+00:06:06,530 --> 00:06:11,570
+Instead, we would want to show something just like recipe, dot name or something.
+
+90
+00:06:12,140 --> 00:06:15,280
+So if that were the case, again, we would have to come into all this code.
+
+91
+00:06:15,290 --> 00:06:19,670
+We would have to find where we set the inner HTML for the option, and we would have to update that
+
+92
+00:06:19,670 --> 00:06:20,630
+stuff right there.
+
+93
+00:06:20,990 --> 00:06:24,140
+So that again, is another sign that our code is not reusable.
+
+94
+00:06:24,140 --> 00:06:29,870
+In order to change the way in which each option looks, we have to modify the source code of our widget.
+
+95
+00:06:30,920 --> 00:06:35,330
+Finally, the autocomplete stuff has knowledge of what to do when a movie is clicked.
+
+96
+00:06:35,900 --> 00:06:41,720
+So again, if we go back over, take a look at the four of Lupe, take a look at the Click Event listener
+
+97
+00:06:41,720 --> 00:06:43,160
+that we set up on each option.
+
+98
+00:06:44,310 --> 00:06:49,080
+You have a direct reference right here to some function called on Movie Select.
+
+99
+00:06:49,290 --> 00:06:53,970
+Again, for the third time, imagine that we took all this code and moved it to a new project.
+
+100
+00:06:54,000 --> 00:06:59,520
+This code would not work correctly if we did not have a function inside of our file called On Movie
+
+101
+00:06:59,520 --> 00:07:00,210
+Select.
+
+102
+00:07:00,450 --> 00:07:04,290
+So again, if we were working with recipes, we would have to go into the source code.
+
+103
+00:07:04,290 --> 00:07:11,070
+We would have to find that function call and change it to on recipe select or something.
+
+104
+00:07:11,810 --> 00:07:15,870
+And then we would have to have some function inside this file called on Recipe Select.
+
+105
+00:07:15,890 --> 00:07:20,750
+If we moved all this code to another new project after that that worked with maybe, I don't know,
+
+106
+00:07:20,750 --> 00:07:24,800
+blog posts, we would have to change this to on blog post select.
+
+107
+00:07:25,550 --> 00:07:30,140
+So again, the overriding point here, the point I'm trying to make is that if we wanted to re-use all
+
+108
+00:07:30,140 --> 00:07:35,600
+this autocomplete stuff on any other project, we would have to copy, paste all the code and then go
+
+109
+00:07:35,600 --> 00:07:40,640
+around to all these different lines and update each one of them to work with this new kind of resource
+
+110
+00:07:40,640 --> 00:07:42,730
+that we wanted to use the autocomplete with.
+
+111
+00:07:43,790 --> 00:07:48,500
+The other big issue with our code right now and specifically around the autocomplete as well, is that
+
+112
+00:07:48,500 --> 00:07:53,330
+we have have many different global variables that are referring to specific elements.
+
+113
+00:07:53,780 --> 00:07:58,100
+Now the reason this is a big problem is that it's going to be really, really hard right now to show
+
+114
+00:07:58,100 --> 00:08:00,350
+a second autocomplete on the screen.
+
+115
+00:08:01,380 --> 00:08:03,270
+So let me show you why that is the case.
+
+116
+00:08:03,690 --> 00:08:06,270
+If we go back up to the top of all of our autocomplete code.
+
+117
+00:08:07,260 --> 00:08:13,800
+So about right here, remember, we have a query selector for some element with a class of autocomplete
+
+118
+00:08:14,130 --> 00:08:19,380
+and then just about everything else inside this file after this is working with this root element.
+
+119
+00:08:19,380 --> 00:08:22,410
+We have many references back to the root variable.
+
+120
+00:08:23,090 --> 00:08:27,530
+So what would we do now if we wanted to show a second autocomplete on the screen?
+
+121
+00:08:27,920 --> 00:08:32,179
+Well, to be honest, we would probably I'm going to zoom out for this just so you can see this little
+
+122
+00:08:32,179 --> 00:08:33,320
+refactor I'm about to do.
+
+123
+00:08:33,350 --> 00:08:34,280
+Don't make any changes.
+
+124
+00:08:34,280 --> 00:08:36,350
+I'm just going to give you a very quick example here.
+
+125
+00:08:36,350 --> 00:08:41,390
+In order to show the second autocomplete, we would have to take all this autocomplete related code.
+
+126
+00:08:42,299 --> 00:08:48,300
+Just about all of it, I think all the way down to like right here or so, we would have to copy all
+
+127
+00:08:48,300 --> 00:08:48,870
+this.
+
+128
+00:08:51,000 --> 00:08:57,930
+But another code section here for like autocomplete number two, do a duplicate all that stuff and then
+
+129
+00:08:57,930 --> 00:09:03,330
+go through here in Autocomplete number two section and update all these references so that the variable
+
+130
+00:09:03,330 --> 00:09:07,100
+names wouldn't conflict with the earlier autocomplete that we defined.
+
+131
+00:09:07,110 --> 00:09:11,430
+So for example, for Autocomplete number two, I would have to do a query selector for a totally different
+
+132
+00:09:11,430 --> 00:09:14,790
+element like Autocomplete Dash two or something.
+
+133
+00:09:15,120 --> 00:09:19,770
+And then because I have all these variables that are inside of the same scope, I would have to change
+
+134
+00:09:19,770 --> 00:09:24,690
+root right here to like root two and root to enter HTML.
+
+135
+00:09:24,870 --> 00:09:28,860
+And then for these variables right here, again, they're defined earlier up inside the file.
+
+136
+00:09:28,860 --> 00:09:35,190
+So we'd have to do input to drop down to results wrapper too and then repeat that entire same process
+
+137
+00:09:35,190 --> 00:09:37,200
+with all the other variables inside of here.
+
+138
+00:09:37,320 --> 00:09:42,210
+And so I bet you can imagine really quickly that this is a really, really bad way to approach this
+
+139
+00:09:42,210 --> 00:09:42,810
+problem.
+
+140
+00:09:42,810 --> 00:09:47,160
+And there's got to be some better way to tackle this than having to duplicate all the code and then
+
+141
+00:09:47,160 --> 00:09:52,320
+just arbitrarily change all the variable names in order to just show a second autocomplete.
+
+142
+00:09:53,270 --> 00:09:53,480
+Okay.
+
+143
+00:09:53,480 --> 00:09:56,420
+I'm going to delete that copy paste I just did very quickly.
+
+144
+00:09:57,410 --> 00:09:58,970
+And go back to what I had before.
+
+145
+00:09:59,840 --> 00:10:00,770
+And there we go.
+
+146
+00:10:01,310 --> 00:10:01,500
+Okay.
+
+147
+00:10:01,520 --> 00:10:05,110
+So again, that is the big issues with our current implementation.
+
+148
+00:10:05,120 --> 00:10:08,370
+It's essentially all revolving around our current autocomplete widget.
+
+149
+00:10:08,390 --> 00:10:13,370
+It is not at all reusable, and the reasons for that is that it knows exactly what properties a movie
+
+150
+00:10:13,370 --> 00:10:16,850
+has, which means we can't reuse this with a different kind of resource.
+
+151
+00:10:17,330 --> 00:10:21,590
+It knows exactly what to show for each option, which means, well, if we ever want to change that
+
+152
+00:10:21,590 --> 00:10:25,580
+representation, we would have to mess around with the internal source code of the Autocomplete.
+
+153
+00:10:26,210 --> 00:10:30,320
+The autocomplete knows exactly what function to call whenever a movie is clicked.
+
+154
+00:10:30,320 --> 00:10:35,150
+And that means, again, that our source code would have to have a function called on movie select or
+
+155
+00:10:35,150 --> 00:10:35,990
+something similar.
+
+156
+00:10:36,530 --> 00:10:41,060
+And then finally, if we ever want to show multiple instances of that autocomplete, well, we would
+
+157
+00:10:41,060 --> 00:10:45,170
+have to duplicate all that code and change a bunch of different variable names.
+
+158
+00:10:45,780 --> 00:10:45,910
+Yeah.
+
+159
+00:10:46,240 --> 00:10:48,850
+So that is the big issues with our project right now.
+
+160
+00:10:48,910 --> 00:10:52,600
+Now, I want to repeat one more time that the code we've written is not the worst in the world.
+
+161
+00:10:52,600 --> 00:10:57,070
+And we did not just waste like an hour of our time putting together the first implementation of this
+
+162
+00:10:57,070 --> 00:10:57,790
+project.
+
+163
+00:10:57,820 --> 00:11:03,340
+I am just suggesting that perhaps there is a better way, even better than what we've written out so
+
+164
+00:11:03,340 --> 00:11:03,910
+far.
+
+165
+00:11:04,420 --> 00:11:09,100
+So with all this in mind, now that we understand what is wrong with our project, we're going to start
+
+166
+00:11:09,100 --> 00:11:12,730
+to refactor all this stuff in some very significant ways.
+
+167
+00:11:12,850 --> 00:11:14,020
+So quick pause right here.
+
+168
+00:11:14,020 --> 00:11:19,150
+We're going to come back the next video and discuss how we can essentially solve all these issues in
+
+169
+00:11:19,150 --> 00:11:21,190
+some really nice fashion.
+
+170
+00:11:21,580 --> 00:11:23,200
+So I'll see you in just a minute.
+

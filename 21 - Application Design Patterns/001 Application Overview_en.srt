@@ -1,0 +1,216 @@
+1
+00:00:00,940 --> 00:00:04,120
+In this video, we're going to discuss the first application we're going to build.
+
+2
+00:00:04,150 --> 00:00:07,820
+The goal of this application is to practice your JavaScript skill set.
+
+3
+00:00:07,840 --> 00:00:10,910
+We're not going to be covering a lot of new features of the language.
+
+4
+00:00:10,930 --> 00:00:15,520
+Instead, we're going to be focusing on a lot of the stuff that we've already learned and really practicing
+
+5
+00:00:15,520 --> 00:00:16,480
+our skill set.
+
+6
+00:00:16,990 --> 00:00:21,760
+Let's take a look at some mock ups to help you get an idea of what we're going to try to build.
+
+7
+00:00:22,210 --> 00:00:25,180
+So we're going to be making an application called Movie Fight.
+
+8
+00:00:25,450 --> 00:00:31,090
+The idea here is that a user is going to search for a movie on the left hand side of the screen and
+
+9
+00:00:31,090 --> 00:00:33,580
+a different one on the right hand side of the screen.
+
+10
+00:00:34,210 --> 00:00:39,970
+So a user is going to type in some movie title and then once they search for it, we're going to fetch
+
+11
+00:00:39,970 --> 00:00:44,950
+some information about that movie and show information about it on the left hand side of the screen.
+
+12
+00:00:45,160 --> 00:00:48,280
+So in this case, a user might have searched for Dark Knight.
+
+13
+00:00:48,280 --> 00:00:52,210
+And so I would pull up some information about the movie The Dark Knight.
+
+14
+00:00:52,970 --> 00:00:58,760
+This little box right here with an X represents the image or the movie poster for The Dark Knight movie.
+
+15
+00:00:58,790 --> 00:01:03,290
+So we're going to show the poster for the movie right there and then some stats about the movie underneath
+
+16
+00:01:03,290 --> 00:01:03,710
+it.
+
+17
+00:01:03,740 --> 00:01:08,630
+So, for example, how much money it made and its critical, critical rating and so on.
+
+18
+00:01:09,320 --> 00:01:13,610
+Once a user searches for a movie on the left hand side, they're then going to repeat that same process
+
+19
+00:01:13,610 --> 00:01:15,110
+on the right hand side.
+
+20
+00:01:15,560 --> 00:01:20,930
+So we can imagine that a user might type in a different movie over here like The Avengers, and we will
+
+21
+00:01:20,930 --> 00:01:25,250
+show some information about The Avengers in a very similar fashion on the right hand side.
+
+22
+00:01:25,850 --> 00:01:30,350
+Now, here's what makes this application an actual like movie fight application.
+
+23
+00:01:30,680 --> 00:01:35,510
+For every different stat that we fetch about every different movie, we're going to compare them between
+
+24
+00:01:35,510 --> 00:01:36,170
+the two.
+
+25
+00:01:37,060 --> 00:01:42,250
+Whichever movie has a higher statistic we're going to highlight in Green, in whichever movie has the
+
+26
+00:01:42,250 --> 00:01:44,350
+lower statistic we're going to show in yellow.
+
+27
+00:01:44,500 --> 00:01:49,780
+So in this case, The Avengers made a lot more money at the box office than The Dark Knight.
+
+28
+00:01:49,780 --> 00:01:55,120
+So we would color that statistic as green and we would color the Dark Knight statistic as yellow.
+
+29
+00:01:55,720 --> 00:02:00,370
+However, the Dark Knight might have a higher critic rating, so we'll show that as Green and The Avengers
+
+30
+00:02:00,370 --> 00:02:02,200
+one will be displayed as yellow instead.
+
+31
+00:02:03,520 --> 00:02:04,910
+So that's the application.
+
+32
+00:02:04,930 --> 00:02:09,190
+There is one last thing I want to mention here, kind of a very specific thing, because we actually
+
+33
+00:02:09,190 --> 00:02:13,900
+are going to be spending a pretty good amount of time on this when a user searches for a movie.
+
+34
+00:02:14,890 --> 00:02:20,140
+Like in these two inputs right here, a user might not know exactly what movie they're looking for.
+
+35
+00:02:20,170 --> 00:02:24,820
+They might have some kind of idea of what the title is, but they might only be able to remember that
+
+36
+00:02:24,820 --> 00:02:28,630
+like has dark in the title if they are trying to find Dark Knight.
+
+37
+00:02:29,050 --> 00:02:33,070
+So these two inputs right here are not going to be normal inputs.
+
+38
+00:02:33,100 --> 00:02:37,030
+Instead, we're going to make them into kind of autocomplete inputs.
+
+39
+00:02:37,510 --> 00:02:42,310
+So whenever a user types in something like Just Dark or even Dark Knight, we're going to have a little
+
+40
+00:02:42,310 --> 00:02:48,100
+pop up listing right here that shows a couple of different movies related to the search term that they
+
+41
+00:02:48,100 --> 00:02:48,910
+just entered.
+
+42
+00:02:49,270 --> 00:02:54,100
+So to actually select a movie and start the comparison, a user would have to click on that entry right
+
+43
+00:02:54,100 --> 00:02:58,840
+there, and that would select The Dark Knight that was made in the year 2008.
+
+44
+00:02:59,660 --> 00:03:01,760
+On the left hand side of each of these movie titles.
+
+45
+00:03:01,760 --> 00:03:05,090
+We're also going to show the poster for the movie as well.
+
+46
+00:03:06,070 --> 00:03:10,780
+This is going to be a separate little autocomplete widget that we put together as a part of this project.
+
+47
+00:03:10,900 --> 00:03:14,860
+We're going to build that autocomplete widget from scratch, and as a matter of fact, everything you
+
+48
+00:03:14,860 --> 00:03:17,760
+see in this application is really going to be from scratch.
+
+49
+00:03:17,770 --> 00:03:23,080
+So we're going to get a really good idea of how to approach this app, how to build it, and eventually
+
+50
+00:03:23,080 --> 00:03:24,280
+we're going to deploy it.
+
+51
+00:03:25,900 --> 00:03:26,170
+Okay.
+
+52
+00:03:26,170 --> 00:03:28,360
+So I hope you're as excited as I am.
+
+53
+00:03:28,360 --> 00:03:30,010
+This is going to be a really fun application.
+
+54
+00:03:30,010 --> 00:03:33,640
+So let's take a quick pause right here and start working in the next video.
+

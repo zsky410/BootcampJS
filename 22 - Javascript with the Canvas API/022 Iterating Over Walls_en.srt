@@ -1,0 +1,208 @@
+1
+00:00:00,680 --> 00:00:05,750
+Now that we have formed up our verticals in horizontals arrays, we need to take those two arrays and
+
+2
+00:00:05,750 --> 00:00:11,510
+use them to figure out where to draw the different walls on our canvas using matter JS.
+
+3
+00:00:11,600 --> 00:00:15,230
+One thing I want to mention right away is that the different walls that we're going to show are going
+
+4
+00:00:15,230 --> 00:00:20,120
+to be drawn using the rectangle shape that we've spoken about several times with Matthew excuse me,
+
+5
+00:00:20,120 --> 00:00:21,300
+with Matt or Jess.
+
+6
+00:00:21,320 --> 00:00:25,850
+So we're going to use a rectangle to represent each individual wall segment.
+
+7
+00:00:26,660 --> 00:00:31,250
+So now we need to essentially just iterate over all of the verticals.
+
+8
+00:00:31,980 --> 00:00:33,480
+And all the horizontals.
+
+9
+00:00:33,990 --> 00:00:39,690
+And for every false value that we find inside those two arrays, we need to draw a rectangle onto our
+
+10
+00:00:39,690 --> 00:00:40,440
+canvas.
+
+11
+00:00:41,010 --> 00:00:44,970
+Let's first start off with horizontals and we're going to figure out how to iterate over that thing
+
+12
+00:00:44,970 --> 00:00:48,060
+and then draw some number of rectangles using the data inside of it.
+
+13
+00:00:48,750 --> 00:00:54,030
+So I'm going to go back down to the bottom of the file and down here I'm going to iterate over horizontals.
+
+14
+00:00:54,760 --> 00:00:56,890
+Using a for each statement.
+
+15
+00:00:58,510 --> 00:01:01,820
+Now I want you to recall that horizontals is a two dimensional array.
+
+16
+00:01:01,840 --> 00:01:07,090
+So when we do a four each on it, we're going to receive one of the inner arrays, and I'm going to
+
+17
+00:01:07,090 --> 00:01:09,100
+refer that to that as a row.
+
+18
+00:01:09,640 --> 00:01:11,980
+And inside of here, I'll do a console log of row.
+
+19
+00:01:13,190 --> 00:01:18,650
+Just to verify that that is going to be a array of Boolean values that represent where I want to draw
+
+20
+00:01:18,650 --> 00:01:19,820
+some wall segments.
+
+21
+00:01:20,330 --> 00:01:21,360
+So I'm going to save this.
+
+22
+00:01:21,380 --> 00:01:23,420
+I'm going to flip back over refresh.
+
+23
+00:01:23,660 --> 00:01:25,580
+And there's the two console logs right there.
+
+24
+00:01:26,030 --> 00:01:28,660
+So now we need to iterate over these two arrays.
+
+25
+00:01:28,670 --> 00:01:34,610
+And whenever wherever we find a false value, that means that we need to draw a wall segment onto our
+
+26
+00:01:34,610 --> 00:01:35,390
+canvas.
+
+27
+00:01:35,420 --> 00:01:37,220
+Remember, false means there is a wall.
+
+28
+00:01:37,220 --> 00:01:39,050
+True means there is no wall.
+
+29
+00:01:40,350 --> 00:01:44,340
+So to iterate through those inner arrays, we'll do a row for each.
+
+30
+00:01:46,190 --> 00:01:50,120
+And I'm going to receive each Boolean value as an argument that I will call open.
+
+31
+00:01:50,510 --> 00:01:54,800
+The idea here behind calling it open is that we're essentially saying whether this is an open segment
+
+32
+00:01:54,800 --> 00:01:56,270
+of wall or not.
+
+33
+00:01:56,360 --> 00:01:58,880
+So if open is true, it means that it is open.
+
+34
+00:01:58,880 --> 00:02:02,300
+It's an open passageway and we do not need to draw a wall segment.
+
+35
+00:02:03,340 --> 00:02:09,310
+Then inside of my for each the inner one, I'll say if open is true.
+
+36
+00:02:10,330 --> 00:02:11,620
+Then just return.
+
+37
+00:02:11,620 --> 00:02:13,870
+So we don't want to draw anything in this case.
+
+38
+00:02:14,410 --> 00:02:18,850
+Now, of course, we don't actually have to do a comparison with true right here because open is a boolean
+
+39
+00:02:18,850 --> 00:02:19,480
+already.
+
+40
+00:02:19,480 --> 00:02:23,440
+So we can just take a look at Open and say, hey, if open is true, then return.
+
+41
+00:02:24,430 --> 00:02:24,760
+So.
+
+42
+00:02:24,760 --> 00:02:29,440
+Otherwise, if open is false, then we do want to draw a wall segment.
+
+43
+00:02:29,980 --> 00:02:36,580
+So I'm going to create a new variable called Wall and we're going to create this out of bodies dot rectangle.
+
+44
+00:02:37,600 --> 00:02:43,540
+So we need to now decide on exactly what arguments we're going to throw inside of there, what arguments
+
+45
+00:02:43,540 --> 00:02:45,940
+we're going to pass to Body Rectangle.
+
+46
+00:02:45,970 --> 00:02:51,160
+Remember, the first two arguments are the X-Y values to the center of this rectangle.
+
+47
+00:02:51,780 --> 00:02:56,760
+And the third and fourth arguments are going to be the length or the kind of width of the rectangle
+
+48
+00:02:56,760 --> 00:02:57,870
+and the height.
+
+49
+00:02:58,610 --> 00:03:02,090
+So calculating those values out is actually going to be just a little bit challenging.
+
+50
+00:03:02,090 --> 00:03:03,410
+So let's take a quick pause right here.
+
+51
+00:03:03,410 --> 00:03:06,860
+When we come back, the next video, I'm going to show you a couple of different diagrams to help you
+
+52
+00:03:06,860 --> 00:03:10,190
+understand how we're going to calculate those different dimensions.
+

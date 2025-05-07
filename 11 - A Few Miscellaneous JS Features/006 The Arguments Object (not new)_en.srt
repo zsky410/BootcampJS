@@ -1,0 +1,444 @@
+1
+00:00:00,060 --> 00:00:04,530
+Next up, we have another new operator or feature in JavaScript called Rest.
+
+2
+00:00:04,560 --> 00:00:09,990
+Now I wrote that it looks like spread, but it's not because we use the exact same three dots in text
+
+3
+00:00:09,990 --> 00:00:13,200
+dot, dot, dot, but rest behaves very differently.
+
+4
+00:00:13,200 --> 00:00:15,510
+It's almost like the opposite of spread.
+
+5
+00:00:15,540 --> 00:00:21,960
+What it does is instead of spreading data out into arguments or into a new object or an array, it actually
+
+6
+00:00:21,960 --> 00:00:24,540
+collects things down into a single array.
+
+7
+00:00:24,840 --> 00:00:31,050
+So it's used when we want to make functions that accept an unlimited number of arguments or a variable
+
+8
+00:00:31,050 --> 00:00:32,049
+number of arguments.
+
+9
+00:00:32,070 --> 00:00:37,740
+For example, we've seen this method a couple of times mathematics, where we can pass in as many arguments
+
+10
+00:00:37,740 --> 00:00:41,570
+as we want and it returns the maximum value.
+
+11
+00:00:41,580 --> 00:00:43,410
+So how would we write this?
+
+12
+00:00:43,410 --> 00:00:46,380
+How would we write code for a function?
+
+13
+00:00:47,190 --> 00:00:50,760
+Let's call it Max or let's do one called some instead.
+
+14
+00:00:50,760 --> 00:00:56,040
+Some will return the sum of any number of numbers.
+
+15
+00:00:56,040 --> 00:00:58,380
+So we could have two numbers passed in.
+
+16
+00:00:58,620 --> 00:01:00,420
+So we could add two parameters.
+
+17
+00:01:00,420 --> 00:01:04,319
+But what if we want to support 100 or 20 or one?
+
+18
+00:01:04,800 --> 00:01:10,950
+We would have to do something like this, maybe a, b, c, d, e, f, g, h, i, j k.
+
+19
+00:01:10,950 --> 00:01:14,700
+And even then we would eventually run out of letters and have to switch it up.
+
+20
+00:01:14,700 --> 00:01:16,410
+And then how would it work?
+
+21
+00:01:16,410 --> 00:01:20,850
+Because sometimes they would be undefined if you only passed in three arguments.
+
+22
+00:01:20,940 --> 00:01:22,940
+So this is not the answer.
+
+23
+00:01:22,950 --> 00:01:25,020
+There is a way of doing this without rest.
+
+24
+00:01:25,590 --> 00:01:27,630
+It's called the arguments object.
+
+25
+00:01:27,630 --> 00:01:31,590
+So in every function we have access to something called arguments.
+
+26
+00:01:31,590 --> 00:01:37,320
+It's a special name arguments and it kind of looks like an array, but it is not an array.
+
+27
+00:01:37,320 --> 00:01:39,030
+It's 100% not an array.
+
+28
+00:01:39,120 --> 00:01:44,880
+We don't have things like push and pop and all the common array methods you might want, but it is a
+
+29
+00:01:44,880 --> 00:01:49,050
+list where we have indices and we can loop over it with a for loop.
+
+30
+00:01:49,290 --> 00:01:51,030
+So this has been around for a long time.
+
+31
+00:01:51,030 --> 00:01:52,110
+This is not new.
+
+32
+00:01:52,410 --> 00:01:55,890
+We're starting with the old way and then we'll see the new way with rest.
+
+33
+00:01:56,040 --> 00:02:01,950
+So using this is as I wrote here, may it's not very it's not great, it's annoying, but I'm going
+
+34
+00:02:01,950 --> 00:02:03,180
+to show it to you quickly.
+
+35
+00:02:03,360 --> 00:02:08,490
+Inside of any function we have arguments, so let's just console.log arguments.
+
+36
+00:02:09,419 --> 00:02:13,110
+Notice that my function does not have any parameters listed.
+
+37
+00:02:13,110 --> 00:02:15,990
+That doesn't matter if I call it right now.
+
+38
+00:02:15,990 --> 00:02:23,580
+Some of one comma two come a three arguments prints out and we can see it has three values in it.
+
+39
+00:02:23,580 --> 00:02:29,250
+One, two and three if I call it with a whole bunch more arguments.
+
+40
+00:02:29,340 --> 00:02:35,700
+Six seven 2345 6666 arguments has eight elements in it.
+
+41
+00:02:35,700 --> 00:02:42,120
+So if I wanted to make some actually work, I wanted some all elements let's use reduce which we saw
+
+42
+00:02:42,120 --> 00:02:42,990
+earlier on.
+
+43
+00:02:42,990 --> 00:02:44,580
+We'll get some practice again with it.
+
+44
+00:02:44,700 --> 00:02:52,860
+We have arguments and what I might want to try is arguments reduce and then remember our syntax.
+
+45
+00:02:52,860 --> 00:02:56,940
+Here we have the total and then each current vowel.
+
+46
+00:02:57,300 --> 00:03:02,870
+Let's go with curve out and we'll return total plus curve.
+
+47
+00:03:02,870 --> 00:03:03,340
+Val.
+
+48
+00:03:05,260 --> 00:03:07,120
+And let's see what we get here.
+
+49
+00:03:07,540 --> 00:03:13,150
+I also will return that this will give us the sum and then we return the sum.
+
+50
+00:03:13,480 --> 00:03:14,950
+If I try it, though.
+
+51
+00:03:15,430 --> 00:03:17,190
+One, two, three, four, five.
+
+52
+00:03:17,830 --> 00:03:18,580
+Oh, no.
+
+53
+00:03:18,610 --> 00:03:20,970
+Arguments that reduce is not a function.
+
+54
+00:03:20,980 --> 00:03:23,710
+Again, arguments is not actually an array.
+
+55
+00:03:23,740 --> 00:03:25,850
+It's an array like object.
+
+56
+00:03:25,870 --> 00:03:31,750
+It looks like an array because we can access arguments of zero or we can loop over it.
+
+57
+00:03:31,750 --> 00:03:34,090
+But it does not have array methods.
+
+58
+00:03:34,240 --> 00:03:39,670
+If I wanted to make this work using the arguments object, what I could do is turn it into an array.
+
+59
+00:03:39,820 --> 00:03:45,700
+And one way of doing that we just saw is spread dot, dot, dot arguments.
+
+60
+00:03:45,820 --> 00:03:53,860
+And then I could call this args array and then iterate over that args array.
+
+61
+00:03:54,910 --> 00:03:57,310
+Now if I try it again, it works.
+
+62
+00:03:57,310 --> 00:03:58,810
+We get 15, right.
+
+63
+00:03:58,810 --> 00:03:59,230
+That's.
+
+64
+00:03:59,230 --> 00:04:00,070
+I think that's correct.
+
+65
+00:04:00,070 --> 00:04:00,730
+Yes.
+
+66
+00:04:00,730 --> 00:04:03,560
+So that's one of the shortcomings of the arguments object.
+
+67
+00:04:03,580 --> 00:04:05,920
+Here's another situation where it's not ideal.
+
+68
+00:04:05,950 --> 00:04:13,630
+If I wanted to define a function called Let's just go with full name, it accepts a first name, a last
+
+69
+00:04:13,630 --> 00:04:17,260
+name, and then a bunch of titles like optional titles.
+
+70
+00:04:17,260 --> 00:04:26,350
+Someone could have like, I don't know, Order of the Making These Up, Order of the Phoenix or Royal
+
+71
+00:04:27,280 --> 00:04:30,920
+Badass or whatever titles there are.
+
+72
+00:04:30,940 --> 00:04:32,170
+I know there's a bunch of them.
+
+73
+00:04:32,170 --> 00:04:33,880
+Oh, Junior, there we go.
+
+74
+00:04:33,940 --> 00:04:35,230
+Or the third.
+
+75
+00:04:35,770 --> 00:04:38,650
+And somebody could have I think you would just do this.
+
+76
+00:04:38,650 --> 00:04:38,910
+Right.
+
+77
+00:04:38,920 --> 00:04:43,630
+So how you do the third, somebody could have multiple titles, but everyone needs to have a first and
+
+78
+00:04:43,630 --> 00:04:44,320
+a last.
+
+79
+00:04:44,320 --> 00:04:47,450
+And then what I'd like to do is just have everything else.
+
+80
+00:04:47,470 --> 00:04:52,900
+Any titles that were passed in collected maybe in the arguments object, but there isn't actually a
+
+81
+00:04:52,900 --> 00:04:53,990
+way of doing that.
+
+82
+00:04:54,010 --> 00:05:02,410
+If I do first and last and here, if I cancel that log arguments, it just contains everything.
+
+83
+00:05:02,410 --> 00:05:14,410
+So if I call full name of Tom Jones and then pass in a couple of other things like Third and Order of
+
+84
+00:05:14,410 --> 00:05:21,520
+the Phoenix, if those are his titles, if we look at arguments, it just contains all four arguments.
+
+85
+00:05:21,520 --> 00:05:23,830
+So we could still implement this function.
+
+86
+00:05:23,830 --> 00:05:28,330
+We would just need to make sure to skip the first two if we're trying to get the titles that were passed
+
+87
+00:05:28,330 --> 00:05:28,750
+in.
+
+88
+00:05:28,960 --> 00:05:33,730
+Tom Jones The Third Order of the Phoenix, we would want these two.
+
+89
+00:05:33,760 --> 00:05:35,380
+We already have first and last.
+
+90
+00:05:35,380 --> 00:05:36,730
+We still have access to those.
+
+91
+00:05:36,750 --> 00:05:37,900
+I can print out first.
+
+92
+00:05:37,900 --> 00:05:39,310
+I still have access to it.
+
+93
+00:05:39,910 --> 00:05:41,230
+You can see Tom.
+
+94
+00:05:41,500 --> 00:05:43,960
+It's just that arguments includes everything.
+
+95
+00:05:44,020 --> 00:05:50,410
+So I just have to be mindful of that and know that the first two in arguments are already first and
+
+96
+00:05:50,410 --> 00:05:53,110
+last with rest, which we're about to see.
+
+97
+00:05:53,110 --> 00:05:54,160
+That's not a problem.
+
+98
+00:05:54,160 --> 00:05:57,280
+And there is one last issue with the arguments object.
+
+99
+00:05:57,430 --> 00:05:59,810
+It does not work in arrow functions.
+
+100
+00:05:59,830 --> 00:06:05,470
+If I define an arrow function which I'll call multiply if I try and console that log arguments.
+
+101
+00:06:07,850 --> 00:06:10,910
+We'll call it multiply pass in some numbers.
+
+102
+00:06:12,440 --> 00:06:13,190
+It does not work.
+
+103
+00:06:13,190 --> 00:06:14,660
+Arguments is not defined.
+
+104
+00:06:14,660 --> 00:06:18,380
+So the arguments object is not a thing in arrow functions.
+
+105
+00:06:18,380 --> 00:06:20,420
+So there's a couple shortcomings to some of this.
+
+106
+00:06:20,420 --> 00:06:26,030
+Up first, it's not a real array, so you have to turn it into an array if you want array method.
+
+107
+00:06:26,060 --> 00:06:32,750
+Next, there is no functionality provided for collecting remaining arguments like we saw here.
+
+108
+00:06:32,780 --> 00:06:38,690
+Arguments contains every argument passed in even if we captured the first two in parameter names.
+
+109
+00:06:38,690 --> 00:06:43,040
+And then lastly, the arguments object does not exist at all in arrow functions.
+
+110
+00:06:43,040 --> 00:06:47,090
+So we've set the stage to see the new fancy syntax using rest.
+
+111
+00:06:47,090 --> 00:06:48,290
+That's coming up next.
+

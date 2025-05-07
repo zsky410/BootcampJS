@@ -1,0 +1,640 @@
+1
+00:00:00,150 --> 00:00:06,060
+The error functions we've seen so far are already pretty compact compared to a regular function expression
+
+2
+00:00:06,060 --> 00:00:08,070
+where we have to write the word function.
+
+3
+00:00:08,070 --> 00:00:12,040
+But there's an even more compact way of writing some arrow functions.
+
+4
+00:00:12,060 --> 00:00:14,310
+This only works in certain scenarios.
+
+5
+00:00:14,370 --> 00:00:16,379
+It's called implicit return.
+
+6
+00:00:16,379 --> 00:00:21,420
+Adding an implicit return to an arrow function means that you don't have to write the return keyword
+
+7
+00:00:21,420 --> 00:00:25,650
+itself, and in some scenarios you can write a one liner arrow function.
+
+8
+00:00:25,950 --> 00:00:28,940
+So let's talk about when you can use this and how it works.
+
+9
+00:00:28,950 --> 00:00:34,130
+If I have a simple arrow function whoops typing in the wrong area called Square.
+
+10
+00:00:34,140 --> 00:00:35,460
+I know it's a boring one.
+
+11
+00:00:36,510 --> 00:00:38,160
+It accepts a single parameter.
+
+12
+00:00:38,160 --> 00:00:41,190
+We'll call it N, we return end times n.
+
+13
+00:00:42,900 --> 00:00:47,310
+This arrow function consists of a single expression that we're returning.
+
+14
+00:00:47,340 --> 00:00:48,780
+We're not doing some other logic.
+
+15
+00:00:48,780 --> 00:00:51,660
+First, we're not making a variable, we're not adding a conditional.
+
+16
+00:00:51,690 --> 00:00:57,150
+We're simply returning an expression in scenarios where you have one expression that you want to be
+
+17
+00:00:57,150 --> 00:00:57,900
+returned.
+
+18
+00:00:57,930 --> 00:01:04,590
+You can rewrite this arrow function using parentheses instead of curly braces, and if you do that,
+
+19
+00:01:04,590 --> 00:01:07,050
+you can leave off the return keyword.
+
+20
+00:01:07,200 --> 00:01:18,780
+So we could rewrite this as const square equals NW and then parentheses end times N and that's it.
+
+21
+00:01:19,200 --> 00:01:21,990
+You'll see if I even try and add return in there.
+
+22
+00:01:22,020 --> 00:01:28,770
+It gets highlighted with the red squiggly of death telling me expression expected, not a return statement.
+
+23
+00:01:28,770 --> 00:01:34,110
+It wants just the expression and this value will be computed and returned.
+
+24
+00:01:34,770 --> 00:01:42,270
+So if I run it, we'll do square of 864, square of two is four.
+
+25
+00:01:42,270 --> 00:01:48,570
+But we can make this even shorter by putting it on a single line, and we can do that in scenarios where
+
+26
+00:01:48,570 --> 00:01:51,210
+it fits and it makes sense to put on a single line.
+
+27
+00:01:51,210 --> 00:01:52,920
+We can leave off the friends.
+
+28
+00:01:52,950 --> 00:01:56,970
+I'll comment that version out and we can just do this right here.
+
+29
+00:01:56,970 --> 00:01:59,460
+So this is equivalent to what we had right here.
+
+30
+00:02:00,060 --> 00:02:02,790
+We're writing an arrow function except a single parameter.
+
+31
+00:02:02,790 --> 00:02:05,070
+N And it returns end times.
+
+32
+00:02:05,070 --> 00:02:07,440
+NW It's an implicit return.
+
+33
+00:02:07,440 --> 00:02:10,590
+We don't need those per ns if we're putting it on one line.
+
+34
+00:02:11,039 --> 00:02:14,610
+But that doesn't mean we should always try and make everything on one line.
+
+35
+00:02:14,610 --> 00:02:19,230
+If it's super long, if it's hard to read, put per ends and just put it on a new line.
+
+36
+00:02:19,230 --> 00:02:26,190
+So if instead of returning end times NW we had some array that we were trying to return based off of.
+
+37
+00:02:26,190 --> 00:02:29,580
+NW Let's just say it was a long array like this.
+
+38
+00:02:29,580 --> 00:02:31,410
+This won't make sense to JavaScript.
+
+39
+00:02:31,410 --> 00:02:35,400
+None of those are valid identifiers or existing identifiers.
+
+40
+00:02:35,400 --> 00:02:39,090
+But if I had this, this is a bit long for a single line.
+
+41
+00:02:39,090 --> 00:02:40,640
+So we add those prints.
+
+42
+00:02:40,650 --> 00:02:46,020
+It's just a way of making it clear that this whole thing is the expression, not just this one line,
+
+43
+00:02:46,020 --> 00:02:48,390
+but let's go back to what we had before and times.
+
+44
+00:02:48,390 --> 00:02:51,240
+NW Make sure it still works.
+
+45
+00:02:51,240 --> 00:02:54,090
+Square of two square of 749.
+
+46
+00:02:54,330 --> 00:02:55,170
+It's working.
+
+47
+00:02:55,440 --> 00:03:00,780
+So this is a really nice feature when you need a simple arrow function, which a lot of the time we
+
+48
+00:03:00,780 --> 00:03:06,600
+do need when we're using all of these callback methods, we've seen four arrays for each or map.
+
+49
+00:03:06,630 --> 00:03:11,940
+A lot of the time we just want a single short expression to be returned so we can use this one line
+
+50
+00:03:11,940 --> 00:03:16,020
+or syntax one less thing before we see some examples using array methods.
+
+51
+00:03:16,020 --> 00:03:17,580
+I'll just show you what happens here.
+
+52
+00:03:17,580 --> 00:03:22,410
+If we had some additional logic, let's say we wanted to check if NW is positive.
+
+53
+00:03:22,410 --> 00:03:28,530
+So if NW is greater than or equal to zero, or let's just say it has to be greater than zero, then
+
+54
+00:03:28,530 --> 00:03:30,270
+we'll return something.
+
+55
+00:03:30,300 --> 00:03:31,260
+Return.
+
+56
+00:03:31,260 --> 00:03:32,370
+Let's do it the other way around.
+
+57
+00:03:32,370 --> 00:03:35,040
+If it's negative, we'll return false.
+
+58
+00:03:35,790 --> 00:03:37,020
+This is a problem.
+
+59
+00:03:37,290 --> 00:03:39,960
+I have multiple expressions, multiple lines.
+
+60
+00:03:39,960 --> 00:03:41,280
+It's not just multiple expressions.
+
+61
+00:03:41,280 --> 00:03:43,860
+I have statements, I've got a conditional.
+
+62
+00:03:43,980 --> 00:03:46,320
+Then I have this expression at the bottom.
+
+63
+00:03:46,350 --> 00:03:49,170
+This function does not know what it's supposed to return.
+
+64
+00:03:49,170 --> 00:03:51,810
+JavaScript does not know what to return.
+
+65
+00:03:51,810 --> 00:03:56,700
+There's multiple things that it could return and this is an invalid arrow function.
+
+66
+00:03:56,700 --> 00:04:00,180
+We can't do this if we're trying to use an implicit return.
+
+67
+00:04:00,180 --> 00:04:04,530
+We only get one thing, one expression to return that way.
+
+68
+00:04:04,530 --> 00:04:10,650
+There's no doubt in JavaScript mind it knows this is the one thing to return implicitly.
+
+69
+00:04:11,440 --> 00:04:13,290
+Okay, so let's see some examples now.
+
+70
+00:04:13,380 --> 00:04:13,920
+All right.
+
+71
+00:04:13,920 --> 00:04:15,930
+So I have a simple array of numbers.
+
+72
+00:04:15,930 --> 00:04:22,860
+If I wanted to double every num and map it into a new array, I would call nums dot map and without
+
+73
+00:04:22,860 --> 00:04:26,610
+an arrow function it would look something like this function for PN.
+
+74
+00:04:26,910 --> 00:04:35,010
+We want to return end times two, and if we save that to a variable, we'll call this nums.
+
+75
+00:04:35,400 --> 00:04:37,740
+How about doubles one?
+
+76
+00:04:38,370 --> 00:04:39,810
+We look at doubles one.
+
+77
+00:04:39,900 --> 00:04:40,920
+There should be review.
+
+78
+00:04:40,920 --> 00:04:42,420
+Oh, I didn't run my code.
+
+79
+00:04:42,450 --> 00:04:43,500
+Try that again.
+
+80
+00:04:43,500 --> 00:04:45,660
+We get to four, six, eight and so on.
+
+81
+00:04:46,380 --> 00:04:52,200
+If I wanted to use an arrow function instead I can do doubles two equals nums dot map.
+
+82
+00:04:52,560 --> 00:04:59,910
+And if we use a non implicit arrow function, a regular arrow function, we would have MN and then return.
+
+83
+00:05:00,040 --> 00:05:05,470
+Urn end times to refresh our code doubles to.
+
+84
+00:05:06,250 --> 00:05:06,850
+The same.
+
+85
+00:05:07,300 --> 00:05:09,940
+But we can make it even shorter with what we just saw.
+
+86
+00:05:09,970 --> 00:05:13,370
+Doubles three equals nums dot map.
+
+87
+00:05:13,390 --> 00:05:17,230
+We'll go with the parameter name of pn pn times two.
+
+88
+00:05:17,440 --> 00:05:18,490
+And that's it.
+
+89
+00:05:19,030 --> 00:05:20,290
+Much, much shorter.
+
+90
+00:05:20,290 --> 00:05:21,970
+We don't have to add curly braces.
+
+91
+00:05:21,970 --> 00:05:23,590
+We don't need to add return.
+
+92
+00:05:23,590 --> 00:05:26,320
+We simply write an arrow function on one line.
+
+93
+00:05:26,320 --> 00:05:29,730
+When we have a single expression, this works great.
+
+94
+00:05:29,740 --> 00:05:31,210
+Let's look at doubles three.
+
+95
+00:05:33,070 --> 00:05:34,330
+It looks identical.
+
+96
+00:05:34,630 --> 00:05:35,710
+So this is really nice.
+
+97
+00:05:35,710 --> 00:05:38,950
+And this is one of the main reasons arrow functions were added in.
+
+98
+00:05:38,950 --> 00:05:44,290
+We use callbacks so frequently that there needed to be a nicer, more compact syntax.
+
+99
+00:05:45,070 --> 00:05:49,990
+Remember, later on there is another distinction between arrow functions and regular functions.
+
+100
+00:05:49,990 --> 00:05:50,890
+We'll talk about that.
+
+101
+00:05:50,890 --> 00:05:53,680
+It has to do with the keyword this, but we're not there yet.
+
+102
+00:05:53,800 --> 00:05:59,800
+Let's do another example where we map these numbers into an array where we have the values even in odd
+
+103
+00:05:59,800 --> 00:06:00,610
+the string.
+
+104
+00:06:00,610 --> 00:06:05,110
+So we would have odd and then even then odd.
+
+105
+00:06:05,200 --> 00:06:10,860
+As you can see here, we would just alternate if I wanted to write that function or that map.
+
+106
+00:06:10,870 --> 00:06:14,410
+How about const parity list?
+
+107
+00:06:15,130 --> 00:06:19,600
+Parity is the term referring to if a number is even or odd.
+
+108
+00:06:19,600 --> 00:06:21,820
+I'm pretty sure that's what it's called anyway.
+
+109
+00:06:21,820 --> 00:06:23,140
+Nums dot map.
+
+110
+00:06:23,410 --> 00:06:33,700
+Let's use a regular function first function for PN if PN is mod two equals zero.
+
+111
+00:06:33,730 --> 00:06:37,510
+If NN mod two is equal to zero, we will return.
+
+112
+00:06:37,870 --> 00:06:42,400
+Even otherwise we return odd.
+
+113
+00:06:43,740 --> 00:06:48,570
+If we look at parity list, we get odd, even odd, even all the way down.
+
+114
+00:06:48,600 --> 00:06:53,470
+Let's rewrite this with an arrow function so it will be similar.
+
+115
+00:06:53,550 --> 00:07:00,700
+We'll have num stop map and then NW with our arrow and we could leave it like this and it still works.
+
+116
+00:07:00,720 --> 00:07:06,570
+We look at parity list, but if I wanted to use an implicit return, no dice, at least not with this
+
+117
+00:07:06,570 --> 00:07:07,350
+version.
+
+118
+00:07:07,350 --> 00:07:09,720
+We could rewrite this to be a one liner.
+
+119
+00:07:09,780 --> 00:07:14,560
+We're really just doing a simple if and in else one condition.
+
+120
+00:07:14,580 --> 00:07:17,820
+If that's not true, do this instead even or odd.
+
+121
+00:07:17,820 --> 00:07:21,360
+And we can use the ternary operator to do this in one line.
+
+122
+00:07:21,390 --> 00:07:23,910
+Remember, we only get one expression here.
+
+123
+00:07:23,910 --> 00:07:24,950
+We have multiple.
+
+124
+00:07:24,960 --> 00:07:28,500
+This will not work if I try and rewrite it using perrins.
+
+125
+00:07:28,920 --> 00:07:30,090
+We're out of luck.
+
+126
+00:07:30,480 --> 00:07:36,030
+If I replace those curly braces with parentheses, JavaScript still does not like it.
+
+127
+00:07:36,060 --> 00:07:41,910
+It tells us expression expected so we can rewrite it like this with the ternary operator.
+
+128
+00:07:42,300 --> 00:07:46,960
+If you remember this syntax dn mod two equals zero.
+
+129
+00:07:46,980 --> 00:07:48,090
+Question mark.
+
+130
+00:07:48,630 --> 00:07:57,270
+So if this thing we want to return this value even colon, that means otherwise we'll return odd.
+
+131
+00:07:58,110 --> 00:07:59,640
+And this is a one liner.
+
+132
+00:07:59,640 --> 00:08:00,630
+This works.
+
+133
+00:08:01,470 --> 00:08:02,130
+Refresh.
+
+134
+00:08:02,130 --> 00:08:03,310
+Look at parity list.
+
+135
+00:08:03,330 --> 00:08:04,440
+We're good to go.
+
+136
+00:08:04,620 --> 00:08:07,740
+And if you wanted to, you could put this actually on one line.
+
+137
+00:08:07,740 --> 00:08:11,910
+Instead of using parentheses, we just bring it up like this.
+
+138
+00:08:12,060 --> 00:08:16,770
+It's a little long, but I also have my font zoomed in a bit.
+
+139
+00:08:16,800 --> 00:08:19,160
+It's up to you if you want to do it on one line.
+
+140
+00:08:19,170 --> 00:08:24,180
+I think sometimes people go overboard trying to fit something onto one line just so they can say they've
+
+141
+00:08:24,180 --> 00:08:24,770
+done it.
+
+142
+00:08:24,780 --> 00:08:29,670
+It's easier to read this, in my opinion, but in a simpler example, like this one here, it makes
+
+143
+00:08:29,670 --> 00:08:31,380
+a lot of sense to put it on one line.
+
+144
+00:08:31,380 --> 00:08:34,250
+There's no reason for the extra lines and extra characters.
+
+145
+00:08:34,260 --> 00:08:37,740
+Okay, so this pretty much concludes our little arrow functions.
+
+146
+00:08:37,740 --> 00:08:41,010
+Interlude arrow functions are really, really useful.
+
+147
+00:08:41,309 --> 00:08:46,050
+They don't do anything that you can't do with a regular function, at least with what we've seen, they're
+
+148
+00:08:46,050 --> 00:08:48,480
+just a replacement that is more compact.
+
+149
+00:08:48,540 --> 00:08:52,980
+So even in their most verbose form, it's still shorter.
+
+150
+00:08:52,980 --> 00:08:58,230
+If you compare this to a regular function expression, we don't have to write function, we just write
+
+151
+00:08:58,230 --> 00:09:01,050
+our parameter optional parentheses around it.
+
+152
+00:09:01,050 --> 00:09:04,290
+Remember that from the last video you can put parentheses there.
+
+153
+00:09:04,290 --> 00:09:05,100
+It's up to you.
+
+154
+00:09:05,520 --> 00:09:08,550
+And then the arrow curly braces return something.
+
+155
+00:09:08,580 --> 00:09:14,610
+Or we can use an implicit return where we don't have to write return, but we can only have a single
+
+156
+00:09:14,610 --> 00:09:16,620
+expression in the body of the function.
+
+157
+00:09:16,710 --> 00:09:23,100
+And if it doesn't fit on one line, like I don't think this one fits very well, you can use print to
+
+158
+00:09:23,100 --> 00:09:26,250
+wrap it, but it still needs to be a single expression.
+
+159
+00:09:27,180 --> 00:09:28,680
+So that's arrow functions.
+
+160
+00:09:28,680 --> 00:09:31,620
+Now we'll pick back up with more of those built in array methods.
+

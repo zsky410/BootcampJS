@@ -1,0 +1,336 @@
+1
+00:00:00,830 --> 00:00:01,130
+All right.
+
+2
+00:00:01,130 --> 00:00:04,880
+In this video, we're going to make sure that we show a really big sign on the very center of the screen
+
+3
+00:00:04,880 --> 00:00:08,210
+that tells the user that they won once they actually will win.
+
+4
+00:00:08,750 --> 00:00:12,140
+So to do so, I'm going to go back over to my index HTML file.
+
+5
+00:00:13,630 --> 00:00:14,320
+Inside of here.
+
+6
+00:00:14,320 --> 00:00:18,460
+We're going to add in a development with an H one inside of it.
+
+7
+00:00:18,910 --> 00:00:23,470
+Now, as a quick reminder, hey, I said a billion times, this course is all about the JavaScript.
+
+8
+00:00:23,470 --> 00:00:25,540
+So this is mostly all about styling.
+
+9
+00:00:25,540 --> 00:00:28,810
+So we're going to kind of speed through a little bit of styling to make sure that this message shows
+
+10
+00:00:28,810 --> 00:00:30,130
+up in the correct location.
+
+11
+00:00:30,730 --> 00:00:37,270
+So right above my script tag, I'll add a div with the class of winner and hidden.
+
+12
+00:00:40,140 --> 00:00:42,330
+And then inside the div I'll place an h one.
+
+13
+00:00:43,700 --> 00:00:45,860
+That says you win.
+
+14
+00:00:47,110 --> 00:00:51,370
+Then inside my style tag right here, I'm going to add in some styling properties to just style that
+
+15
+00:00:51,370 --> 00:00:51,670
+thing.
+
+16
+00:00:51,670 --> 00:00:55,930
+So first selector I'm going to add in is for the hidden class.
+
+17
+00:00:56,170 --> 00:01:00,550
+So I'm going to say that if an element has the hidden class, then I don't want it to be displayed at
+
+18
+00:01:00,550 --> 00:01:00,850
+all.
+
+19
+00:01:00,850 --> 00:01:06,400
+So I'll say display non important to make sure 100% this thing should not show up on the screen.
+
+20
+00:01:07,670 --> 00:01:09,350
+And then go in to select the H one.
+
+21
+00:01:11,210 --> 00:01:13,340
+I'm going to give it a colour of white.
+
+22
+00:01:14,170 --> 00:01:15,700
+And a font size.
+
+23
+00:01:17,210 --> 00:01:20,990
+How about 36 pixels, nice and large.
+
+24
+00:01:23,000 --> 00:01:27,470
+And then finally, to get this thing centered, I'm going to select the winner class.
+
+25
+00:01:28,550 --> 00:01:30,350
+So that's essentially this dive right here.
+
+26
+00:01:31,880 --> 00:01:34,180
+Now I'm going to add on a couple of different rules to it.
+
+27
+00:01:34,180 --> 00:01:36,160
+So I'm going to say display a flex.
+
+28
+00:01:36,950 --> 00:01:45,590
+I'll add on a justify content to justify dash content of center and a line dash items of center.
+
+29
+00:01:45,590 --> 00:01:48,140
+So that's what it's going to get it to be centered on the screen.
+
+30
+00:01:50,000 --> 00:01:52,190
+I'll give it a position of absolute.
+
+31
+00:01:53,470 --> 00:01:57,970
+And a Z index of one to make sure that it shows up on top of our canvas element.
+
+32
+00:01:58,540 --> 00:02:01,420
+And then finally, I'll give it a height of 100.
+
+33
+00:02:02,680 --> 00:02:08,830
+VH and a width of 100 VW, and that's going to make sure that it stretches out the full height and width
+
+34
+00:02:08,830 --> 00:02:09,580
+of the screen.
+
+35
+00:02:12,440 --> 00:02:12,890
+It's enough.
+
+36
+00:02:12,890 --> 00:02:13,730
+We save this.
+
+37
+00:02:13,760 --> 00:02:17,720
+No need to go refresh, because right now, if we refresh, we're not going to see anything because
+
+38
+00:02:17,720 --> 00:02:19,270
+we've got the hidden class on there.
+
+39
+00:02:19,280 --> 00:02:23,180
+And remember, the hidden class hides that div and everything inside of it.
+
+40
+00:02:23,900 --> 00:02:28,190
+So now in order to show this message to our user, once they've hit our win condition, we just have
+
+41
+00:02:28,190 --> 00:02:33,230
+to select this element and remove the hidden class that will get that div and the h one side of it to
+
+42
+00:02:33,230 --> 00:02:34,010
+be displayed.
+
+43
+00:02:34,860 --> 00:02:37,440
+So for that, I'll go back over to my index case file.
+
+44
+00:02:37,890 --> 00:02:41,550
+I'm going to go down to the very bottom where we are handling our win condition right now.
+
+45
+00:02:42,900 --> 00:02:46,920
+And then inside of our if statement I'll add in a selector.
+
+46
+00:02:47,310 --> 00:02:49,410
+So document query selector.
+
+47
+00:02:51,130 --> 00:02:53,950
+I'm going to select the element with a class of winner.
+
+48
+00:02:58,020 --> 00:02:59,610
+I'll get the class list.
+
+49
+00:03:00,970 --> 00:03:04,030
+And I will remove the class of hidden.
+
+50
+00:03:09,130 --> 00:03:10,900
+All right, I'm going to save both these files.
+
+51
+00:03:11,900 --> 00:03:12,950
+I'll go back over.
+
+52
+00:03:13,310 --> 00:03:14,120
+I'll refresh.
+
+53
+00:03:14,120 --> 00:03:16,040
+So I don't see anything on the screen right away.
+
+54
+00:03:16,070 --> 00:03:21,320
+I'm going to change my maze dimensions so you don't have to sit here and watch me solve this maze forever.
+
+55
+00:03:21,320 --> 00:03:26,570
+So really quickly I'm going to change to cells horizontal of, I don't know, six and vertical of four.
+
+56
+00:03:27,390 --> 00:03:27,710
+There we go.
+
+57
+00:03:27,720 --> 00:03:28,980
+Nice and easy to solve.
+
+58
+00:03:29,010 --> 00:03:30,600
+So now I can go on over.
+
+59
+00:03:32,430 --> 00:03:33,150
+Solve it.
+
+60
+00:03:33,150 --> 00:03:34,110
+And there we go.
+
+61
+00:03:34,140 --> 00:03:35,370
+I see you in.
+
+62
+00:03:36,000 --> 00:03:38,430
+I think that text could be a little bit larger.
+
+63
+00:03:38,430 --> 00:03:39,330
+So what the heck?
+
+64
+00:03:39,330 --> 00:03:42,660
+I'm going to dial up that font size inside of our style tag right here.
+
+65
+00:03:42,930 --> 00:03:45,000
+I'll go to just a I don't know.
+
+66
+00:03:45,830 --> 00:03:47,330
+64 arbitrarily.
+
+67
+00:03:48,360 --> 00:03:49,200
+Save that.
+
+68
+00:03:52,140 --> 00:03:53,280
+When again.
+
+69
+00:03:53,730 --> 00:03:55,650
+And that's good enough, I'd say.
+
+70
+00:03:56,260 --> 00:03:57,330
+Okay, so that's pretty much it.
+
+71
+00:03:57,330 --> 00:03:58,680
+That is our maze game.
+
+72
+00:03:58,710 --> 00:04:02,580
+The only downside to this thing is that once a user wins, they essentially can't do it, do anything
+
+73
+00:04:02,580 --> 00:04:04,080
+else until they refresh.
+
+74
+00:04:04,350 --> 00:04:10,080
+So one way you could easily fix that is to just add in a button, maybe to recall or wrap all the code
+
+75
+00:04:10,080 --> 00:04:13,230
+we wrote together and throw that all into a function.
+
+76
+00:04:13,230 --> 00:04:18,269
+And then once the user wins, maybe show a button that a user can click to build out the entire grid
+
+77
+00:04:18,269 --> 00:04:20,420
+and verticals and all that kind of stuff again.
+
+78
+00:04:20,430 --> 00:04:23,010
+But I'm going to leave that up as a exercise to you.
+
+79
+00:04:23,040 --> 00:04:27,030
+Give me something that you can implement on your own if you want to, because we've definitely spent
+
+80
+00:04:27,030 --> 00:04:29,730
+a pretty good amount of time on this application already.
+
+81
+00:04:30,690 --> 00:04:31,970
+So I hope you enjoyed this app.
+
+82
+00:04:31,980 --> 00:04:34,140
+I think that it looks pretty interesting.
+
+83
+00:04:34,140 --> 00:04:36,660
+And hey, who doesn't like a good maze to play around with?
+
+84
+00:04:37,230 --> 00:04:40,470
+So let's take a break here and continue on the next video.
+

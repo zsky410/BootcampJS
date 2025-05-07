@@ -1,0 +1,772 @@
+1
+00:00:00,180 --> 00:00:01,320
+All right, we've made it.
+
+2
+00:00:01,350 --> 00:00:04,770
+We have one last important topic around classes in JavaScript.
+
+3
+00:00:04,800 --> 00:00:08,790
+It is the keyword extend along with a keyword called super.
+
+4
+00:00:08,820 --> 00:00:13,230
+They both have to do with subclasses, essentially inheritance.
+
+5
+00:00:13,260 --> 00:00:16,650
+This is a way of sharing functionality between classes.
+
+6
+00:00:17,070 --> 00:00:22,200
+So typically I would want to show something more realistic kind of what we did here.
+
+7
+00:00:22,210 --> 00:00:26,850
+This is nothing crazy, but I mean, I've used plenty of libraries that are color libraries.
+
+8
+00:00:26,850 --> 00:00:28,770
+They exist just to do this.
+
+9
+00:00:29,070 --> 00:00:30,900
+Some of them are more more fully featured.
+
+10
+00:00:30,900 --> 00:00:33,440
+But this is not totally unrealistic.
+
+11
+00:00:33,450 --> 00:00:40,350
+It's not the typical intro to classes idea of dog and cat or bank account or deck of cards.
+
+12
+00:00:40,590 --> 00:00:41,940
+It's something slightly better.
+
+13
+00:00:41,940 --> 00:00:47,890
+But for this video on inheritance and extends and subclasses and super I'm going to dial it down.
+
+14
+00:00:47,910 --> 00:00:50,540
+We're going to go back to the basics.
+
+15
+00:00:50,550 --> 00:00:52,860
+The most cliche possible classes.
+
+16
+00:00:52,890 --> 00:00:55,530
+Let's define a class called Cat.
+
+17
+00:00:55,950 --> 00:00:56,700
+I know.
+
+18
+00:00:57,420 --> 00:00:59,850
+And we'll pass in a name and an age.
+
+19
+00:00:59,850 --> 00:01:00,600
+How about that?
+
+20
+00:01:01,380 --> 00:01:01,980
+All right.
+
+21
+00:01:01,980 --> 00:01:07,320
+And then we'll set this name to be name and then this dot age.
+
+22
+00:01:07,320 --> 00:01:08,320
+To be age.
+
+23
+00:01:08,340 --> 00:01:13,590
+So the reason I'm going simple is so we can focus on the concepts and not get too bogged down in the
+
+24
+00:01:13,590 --> 00:01:14,890
+actual logic of things.
+
+25
+00:01:14,910 --> 00:01:17,100
+The logic here will be incredibly simple.
+
+26
+00:01:17,310 --> 00:01:20,880
+So a cat class and we'll have a simple method called eat.
+
+27
+00:01:22,080 --> 00:01:24,990
+And then here we will return the string.
+
+28
+00:01:26,040 --> 00:01:26,790
+Let's do this.
+
+29
+00:01:27,000 --> 00:01:30,330
+Name is eating.
+
+30
+00:01:31,150 --> 00:01:31,720
+Okay.
+
+31
+00:01:32,680 --> 00:01:35,260
+So I can make a new class or a new cat.
+
+32
+00:01:35,440 --> 00:01:36,520
+New cat?
+
+33
+00:01:36,520 --> 00:01:38,240
+Save it to a variable cost.
+
+34
+00:01:38,260 --> 00:01:41,020
+Monty equals new cat.
+
+35
+00:01:41,020 --> 00:01:45,180
+Monty, who is technically dead, but I'll say nine.
+
+36
+00:01:45,190 --> 00:01:46,420
+Let's look at Monty.
+
+37
+00:01:46,840 --> 00:01:48,880
+It has name of Monty, age of nine.
+
+38
+00:01:48,880 --> 00:01:49,810
+And I call Monty.
+
+39
+00:01:51,220 --> 00:01:52,300
+Monty is eating.
+
+40
+00:01:52,930 --> 00:01:53,410
+All right.
+
+41
+00:01:53,410 --> 00:01:56,020
+So now let's say I have another class.
+
+42
+00:01:56,020 --> 00:01:58,890
+This class is called dog.
+
+43
+00:02:00,820 --> 00:02:02,950
+Dog is very similar.
+
+44
+00:02:03,130 --> 00:02:04,360
+Surprise, surprise.
+
+45
+00:02:04,360 --> 00:02:06,190
+It's almost like I planned it that way.
+
+46
+00:02:06,760 --> 00:02:07,450
+That was stupid.
+
+47
+00:02:07,450 --> 00:02:08,320
+I don't know why I said that.
+
+48
+00:02:08,320 --> 00:02:09,009
+I'm sorry.
+
+49
+00:02:09,729 --> 00:02:12,190
+So a dog also has a name and an age.
+
+50
+00:02:12,700 --> 00:02:15,670
+We set this name to be name.
+
+51
+00:02:15,760 --> 00:02:17,020
+This dot age.
+
+52
+00:02:17,020 --> 00:02:18,280
+To be age.
+
+53
+00:02:18,310 --> 00:02:19,720
+It also has an eat method.
+
+54
+00:02:19,720 --> 00:02:20,560
+Let's just copy that.
+
+55
+00:02:20,560 --> 00:02:21,100
+Over.
+
+56
+00:02:22,830 --> 00:02:23,350
+Okay.
+
+57
+00:02:24,060 --> 00:02:25,260
+Let's make a dog.
+
+58
+00:02:25,470 --> 00:02:27,420
+So I'll call new dog.
+
+59
+00:02:27,450 --> 00:02:29,370
+I'll pass it in, Wyatt.
+
+60
+00:02:31,190 --> 00:02:31,880
+Cost.
+
+61
+00:02:31,880 --> 00:02:32,330
+Why?
+
+62
+00:02:32,330 --> 00:02:34,460
+It equals new dog in an age.
+
+63
+00:02:35,030 --> 00:02:36,020
+He's also dead.
+
+64
+00:02:36,050 --> 00:02:36,800
+Yikes.
+
+65
+00:02:37,040 --> 00:02:38,180
+We look at Wyatt.
+
+66
+00:02:38,420 --> 00:02:39,440
+It's an object.
+
+67
+00:02:39,470 --> 00:02:43,700
+Has a name and an age, and it has a method.
+
+68
+00:02:44,900 --> 00:02:46,250
+They're basically the same thing.
+
+69
+00:02:46,250 --> 00:02:47,380
+Just different names.
+
+70
+00:02:47,420 --> 00:02:52,910
+But we could go ahead and add some method to cat that doesn't exist on dog like meow.
+
+71
+00:02:54,110 --> 00:02:57,800
+And then it can just return meow.
+
+72
+00:03:00,090 --> 00:03:01,790
+And we could do the same thing for Dog.
+
+73
+00:03:01,800 --> 00:03:06,450
+We could have a method called bark which returns woof.
+
+74
+00:03:08,600 --> 00:03:09,180
+Okay.
+
+75
+00:03:09,500 --> 00:03:13,850
+So now they're slightly different, but there is a lot of duplicated functionality.
+
+76
+00:03:14,180 --> 00:03:21,050
+So one of the options we have in JavaScript is to move this duplicated code from here and from cat and
+
+77
+00:03:21,050 --> 00:03:27,260
+from dog into a separate standalone class that both of these classes could extend.
+
+78
+00:03:28,750 --> 00:03:31,900
+So you can think of it as kind of like a parent child relationship.
+
+79
+00:03:32,110 --> 00:03:36,580
+We could have a parent class, I'd call it probably animal or pet.
+
+80
+00:03:37,510 --> 00:03:39,790
+Let's do pet class pet.
+
+81
+00:03:41,360 --> 00:03:49,220
+And let's just copy this entire thing here like that and remove all of that from cat.
+
+82
+00:03:49,310 --> 00:03:50,780
+All of that from dog.
+
+83
+00:03:52,370 --> 00:03:54,860
+So right now, I'm not going to be able to make a new cat.
+
+84
+00:03:54,860 --> 00:03:56,320
+I won't be able to make a new dog.
+
+85
+00:03:56,330 --> 00:03:57,590
+I can make a new pet.
+
+86
+00:03:58,070 --> 00:04:06,730
+But if I try and rerun this code and make a new dog, let's look at why it is an empty object.
+
+87
+00:04:06,740 --> 00:04:11,260
+There's no constructor, no constructor on dog and no constructor on Cat.
+
+88
+00:04:11,270 --> 00:04:19,170
+So here is how we can tell Cat and Dog to include the functionality of PET to extend PET.
+
+89
+00:04:19,190 --> 00:04:23,660
+It's as simple as saying class cat extends PET.
+
+90
+00:04:23,810 --> 00:04:25,310
+I'll do the same thing for dog.
+
+91
+00:04:25,340 --> 00:04:28,040
+Class Dog extends pet.
+
+92
+00:04:29,150 --> 00:04:30,340
+So now does it work?
+
+93
+00:04:30,350 --> 00:04:33,590
+Well, let's see what happens when I make a new cat or a new dog.
+
+94
+00:04:35,060 --> 00:04:35,450
+All right.
+
+95
+00:04:35,450 --> 00:04:36,770
+I just made a new dog.
+
+96
+00:04:38,950 --> 00:04:43,390
+Look at that age and name, we're already filled out.
+
+97
+00:04:44,250 --> 00:04:46,080
+But I don't have a constructor in Dog.
+
+98
+00:04:47,160 --> 00:04:50,250
+It doesn't matter because I extended from PET.
+
+99
+00:04:50,640 --> 00:04:56,520
+It's going to use that constructor if it doesn't find one on my dog or on this dog class, which it
+
+100
+00:04:56,520 --> 00:04:57,000
+didn't.
+
+101
+00:04:57,000 --> 00:04:59,580
+So it looked to the constructor from Pet.
+
+102
+00:05:00,210 --> 00:05:04,520
+So we end up with age and name and take a look.
+
+103
+00:05:04,530 --> 00:05:08,880
+We also have bark bark, which is defined on dog.
+
+104
+00:05:09,540 --> 00:05:15,480
+And even more exciting, we have access to eat, which is not defined on dog at all.
+
+105
+00:05:15,660 --> 00:05:17,180
+So we don't see it here, right?
+
+106
+00:05:17,190 --> 00:05:18,240
+We don't see it there.
+
+107
+00:05:18,240 --> 00:05:19,530
+I don't see it here.
+
+108
+00:05:19,530 --> 00:05:23,700
+But if I look at this pro here and pro again, there we go.
+
+109
+00:05:23,700 --> 00:05:25,020
+So we have dog.
+
+110
+00:05:25,110 --> 00:05:27,790
+This is a functionality from dog which is just bark.
+
+111
+00:05:27,810 --> 00:05:30,900
+Then we have the functionality from PET, which is eat.
+
+112
+00:05:31,110 --> 00:05:33,570
+So I can call why it eat?
+
+113
+00:05:34,050 --> 00:05:41,400
+Even though I never defined eat on the dog class, we are extending the functionality from PET both
+
+114
+00:05:41,400 --> 00:05:42,990
+on cat and dog.
+
+115
+00:05:43,260 --> 00:05:45,660
+So I could do it again with a cat.
+
+116
+00:05:45,930 --> 00:05:46,650
+Let's just make that.
+
+117
+00:05:46,650 --> 00:05:48,480
+Monty, where are you?
+
+118
+00:05:48,510 --> 00:05:49,290
+Here we go.
+
+119
+00:05:49,650 --> 00:05:51,390
+We have Monty Dot.
+
+120
+00:05:51,750 --> 00:05:52,290
+Eat.
+
+121
+00:05:53,880 --> 00:05:55,320
+Not defined on cat.
+
+122
+00:05:55,620 --> 00:05:59,070
+Monty Meow is defined on Cat.
+
+123
+00:06:00,740 --> 00:06:01,880
+That's the basics.
+
+124
+00:06:02,060 --> 00:06:04,190
+A couple of other things that are important to note.
+
+125
+00:06:04,490 --> 00:06:12,860
+If I had another method on, let's say on dog, also called eat and this one returned, I need to use
+
+126
+00:06:12,860 --> 00:06:14,150
+a string template literal.
+
+127
+00:06:14,780 --> 00:06:20,300
+Something else like this name scarfs his food.
+
+128
+00:06:22,170 --> 00:06:22,860
+Like that.
+
+129
+00:06:24,900 --> 00:06:26,370
+And now I make a dog.
+
+130
+00:06:27,840 --> 00:06:31,620
+If we call Wyatt eat, which version of eat does it call?
+
+131
+00:06:31,650 --> 00:06:33,660
+It calls the dog version.
+
+132
+00:06:33,810 --> 00:06:40,680
+So if it doesn't find eat on dog on the dog prototype, it will look up on the pet prototype where it
+
+133
+00:06:40,680 --> 00:06:41,520
+does find it.
+
+134
+00:06:41,520 --> 00:06:44,250
+And if it didn't find it there, it would look on the object prototype.
+
+135
+00:06:44,250 --> 00:06:48,000
+If it didn't find it there, it's going to be unhappy and it will let you know.
+
+136
+00:06:48,240 --> 00:06:50,580
+So I'll leave that there so you can see how it works.
+
+137
+00:06:51,360 --> 00:06:56,100
+The other important keyword here that we haven't talked about yet is called super.
+
+138
+00:06:56,460 --> 00:07:02,980
+So sometimes you want to rely on the exact same constructor from your super class from PET.
+
+139
+00:07:03,000 --> 00:07:05,160
+In this case, Cat extends Pet.
+
+140
+00:07:05,280 --> 00:07:06,720
+We don't have a constructor.
+
+141
+00:07:07,170 --> 00:07:14,310
+But if I wanted to have some additional information for Cat, like I don't know what else could be passed
+
+142
+00:07:14,310 --> 00:07:14,790
+in.
+
+143
+00:07:14,790 --> 00:07:22,710
+Let's say you pass in a name and age and we want to pass in about lives left which will default to non.
+
+144
+00:07:23,100 --> 00:07:23,700
+Very good.
+
+145
+00:07:23,700 --> 00:07:24,810
+It's a cat nine lives.
+
+146
+00:07:26,490 --> 00:07:30,540
+And here I could manually set this dot name equals name.
+
+147
+00:07:30,630 --> 00:07:32,370
+This dot age equals age.
+
+148
+00:07:32,370 --> 00:07:33,960
+But I'm already doing that here.
+
+149
+00:07:34,290 --> 00:07:40,530
+So really all I want to do is set this dot lives left equals lives left.
+
+150
+00:07:41,580 --> 00:07:45,960
+And if I don't want to duplicate that, I can use the super keyword.
+
+151
+00:07:46,170 --> 00:07:51,300
+Super is going to reference the class that we are extending from.
+
+152
+00:07:51,450 --> 00:08:00,330
+So if I call super inside of here and I pass in name and age, it's going to call this constructor so
+
+153
+00:08:00,330 --> 00:08:01,610
+we can see this in action.
+
+154
+00:08:01,620 --> 00:08:12,870
+Let's cancel that log in Cat constructor and then duplicate this up here in Pet constructor.
+
+155
+00:08:13,950 --> 00:08:15,270
+And let's see what happens.
+
+156
+00:08:15,840 --> 00:08:17,100
+We'll make a new cat.
+
+157
+00:08:17,370 --> 00:08:19,200
+I'll pass in a number of lives.
+
+158
+00:08:19,230 --> 00:08:19,860
+Actually, I won't.
+
+159
+00:08:19,860 --> 00:08:21,210
+It will default to nine.
+
+160
+00:08:22,170 --> 00:08:23,940
+Take a look in Cat constructor.
+
+161
+00:08:23,940 --> 00:08:25,320
+In Pet constructor.
+
+162
+00:08:25,350 --> 00:08:28,260
+If we look at Monty, Monty has a name.
+
+163
+00:08:28,260 --> 00:08:32,250
+Monty, an age nine and lives left, was set to nine.
+
+164
+00:08:32,700 --> 00:08:38,700
+So we re-used the functionality from this constructor, but we added on our own for Cat.
+
+165
+00:08:39,240 --> 00:08:40,620
+So very important.
+
+166
+00:08:40,650 --> 00:08:44,490
+Super is going to be a reference to the superclass.
+
+167
+00:08:44,580 --> 00:08:45,780
+It can be confusing.
+
+168
+00:08:45,810 --> 00:08:51,060
+Definitely trips people up, but it's a reference to what we're extending from which is pet.
+
+169
+00:08:51,450 --> 00:08:52,320
+So we could do it.
+
+170
+00:08:52,320 --> 00:08:53,610
+We could use it instead of dog.
+
+171
+00:08:53,610 --> 00:08:56,740
+But just to save you time and not bore you to death.
+
+172
+00:08:56,760 --> 00:08:58,110
+We'll keep it simple here.
+
+173
+00:08:58,650 --> 00:08:59,910
+So this is a common pattern.
+
+174
+00:08:59,910 --> 00:09:01,650
+You have some basic class.
+
+175
+00:09:01,980 --> 00:09:04,110
+You have other classes that extend from it.
+
+176
+00:09:04,320 --> 00:09:10,800
+And in this case, if dog, we didn't add any new properties in, it's the exact same constructor as
+
+177
+00:09:10,800 --> 00:09:11,190
+Pet.
+
+178
+00:09:11,190 --> 00:09:12,100
+And that's fine.
+
+179
+00:09:12,120 --> 00:09:15,270
+It will call that constructor automatically if we don't define our own.
+
+180
+00:09:15,720 --> 00:09:21,510
+But in the case of Cat, which is common when we're building more realistic things, we have other data,
+
+181
+00:09:21,750 --> 00:09:25,600
+just a simple lives left, which we want to add on to this.
+
+182
+00:09:25,620 --> 00:09:26,970
+So we call super.
+
+183
+00:09:27,000 --> 00:09:31,650
+We can take advantage of this constructor and then add on lives left as well.
+
+184
+00:09:32,010 --> 00:09:33,860
+And that's the basics of inheritance.
+
+185
+00:09:33,870 --> 00:09:36,300
+I mean, you can continue to go multiple levels.
+
+186
+00:09:36,300 --> 00:09:41,430
+We could have pet extend from animal, we could have animal extend from living thing.
+
+187
+00:09:41,850 --> 00:09:43,550
+There's so many different things we could do.
+
+188
+00:09:43,560 --> 00:09:50,160
+And you'll see this with things like HTML element in the DOM that extends from like five or six different
+
+189
+00:09:50,160 --> 00:09:50,910
+classes.
+
+190
+00:09:51,330 --> 00:09:56,580
+But remember, when you extend something and when you define a class, it's all just setting up these
+
+191
+00:09:56,580 --> 00:10:01,170
+constructor functions and calling it with new and adding methods to the prototype.
+
+192
+00:10:01,500 --> 00:10:04,140
+So this is all just nice syntactic sugar.
+
+193
+00:10:04,940 --> 00:10:05,540
+OC.
+

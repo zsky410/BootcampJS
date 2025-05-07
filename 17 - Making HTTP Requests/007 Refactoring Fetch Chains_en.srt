@@ -1,0 +1,840 @@
+1
+00:00:00,240 --> 00:00:02,670
+Next up, let's do some refactoring.
+
+2
+00:00:02,880 --> 00:00:06,210
+So first, I'd like to change what we're actually requesting.
+
+3
+00:00:06,210 --> 00:00:11,040
+Right now, we're getting the first ten planets and then taking the first one of those ten and getting
+
+4
+00:00:11,040 --> 00:00:16,920
+the first film URL and requesting that if we look at the planets response that we get back, I'm the
+
+5
+00:00:16,920 --> 00:00:20,790
+docs, the API documentation for Star Wars API.
+
+6
+00:00:21,690 --> 00:00:24,960
+It gives us a visual little nice representation that's interactive.
+
+7
+00:00:25,320 --> 00:00:30,210
+There is a property, there's a next that we can access.
+
+8
+00:00:30,210 --> 00:00:33,180
+It's another URL to get more planets.
+
+9
+00:00:33,180 --> 00:00:35,010
+So page set to two.
+
+10
+00:00:35,190 --> 00:00:39,840
+So why don't we get the first ten planets and then when that finishes, get the next ten.
+
+11
+00:00:39,840 --> 00:00:44,430
+If there are ten from page two, we won't keep going.
+
+12
+00:00:44,430 --> 00:00:47,820
+I don't know how many pages there are, but we'll just do the first two to start.
+
+13
+00:00:47,820 --> 00:00:51,210
+So we'll keep this first request to get the first ten planets.
+
+14
+00:00:51,450 --> 00:00:55,170
+We'll run this code, but then here we'll do fetched planets.
+
+15
+00:00:55,170 --> 00:00:57,450
+Sure, let's print out each planet again.
+
+16
+00:00:57,450 --> 00:01:08,640
+So for let planet of data dot results, we'll console.log planet name and then instead of a film URL,
+
+17
+00:01:08,880 --> 00:01:14,700
+what we'll do is get the next URL which is just at the top of the JSON.
+
+18
+00:01:14,700 --> 00:01:15,810
+We get back, it's called next.
+
+19
+00:01:15,810 --> 00:01:17,670
+We don't have to look inside of results.
+
+20
+00:01:18,150 --> 00:01:20,790
+It's simply data next.
+
+21
+00:01:21,690 --> 00:01:25,590
+So we'll save that to a variable called next URL.
+
+22
+00:01:27,900 --> 00:01:32,790
+And then request that instead of film you URL next you are.
+
+23
+00:01:34,380 --> 00:01:39,240
+Then we have our same logic to check if the status code was not okay, we'll throw an error.
+
+24
+00:01:39,240 --> 00:01:42,000
+Otherwise we call the JSON method, which takes time.
+
+25
+00:01:42,000 --> 00:01:43,890
+It's asynchronous, it returns a promise.
+
+26
+00:01:43,890 --> 00:01:46,170
+We return that promise then.
+
+27
+00:01:46,170 --> 00:01:48,180
+Then we'll change what we're doing down here.
+
+28
+00:01:49,530 --> 00:01:53,100
+Fetched next ten planets.
+
+29
+00:01:54,210 --> 00:02:02,620
+And then we'll just copy this logic right here to print out the name of each planet.
+
+30
+00:02:02,640 --> 00:02:04,320
+Let's cross our fingers.
+
+31
+00:02:05,280 --> 00:02:06,180
+Hope it works.
+
+32
+00:02:06,510 --> 00:02:07,080
+Cool.
+
+33
+00:02:07,080 --> 00:02:11,400
+So you can see the first ten came back right there and then a split second later.
+
+34
+00:02:11,400 --> 00:02:12,240
+The next ten.
+
+35
+00:02:12,840 --> 00:02:13,530
+So fetched.
+
+36
+00:02:13,530 --> 00:02:14,160
+All ten.
+
+37
+00:02:14,160 --> 00:02:14,910
+There we go.
+
+38
+00:02:14,910 --> 00:02:16,770
+And then fetched next ten.
+
+39
+00:02:16,770 --> 00:02:17,670
+There we go.
+
+40
+00:02:18,000 --> 00:02:22,350
+So, yeah, we don't technically need to have this happen one after another.
+
+41
+00:02:22,800 --> 00:02:29,580
+If we know the pattern for how we fetch the next batch of results, there is a pattern we just pass
+
+42
+00:02:29,580 --> 00:02:34,830
+in this query string page equals to if we changed it to three or four, we get the next page.
+
+43
+00:02:34,830 --> 00:02:36,480
+So they're not really dependent.
+
+44
+00:02:36,480 --> 00:02:42,270
+But let's say that we don't know what this URL is and we want to send the first request and use this
+
+45
+00:02:42,270 --> 00:02:42,900
+URL.
+
+46
+00:02:42,900 --> 00:02:44,580
+So we're doing one after another.
+
+47
+00:02:45,090 --> 00:02:47,340
+Also, it's just good practice with promises.
+
+48
+00:02:47,580 --> 00:02:50,160
+But now what I'd like to show you is how we can clean this up.
+
+49
+00:02:50,400 --> 00:02:52,380
+We have some duplicated logic.
+
+50
+00:02:52,560 --> 00:03:00,270
+First we are doing the same thing twice, checking response that okay, calling JSON, we do it here,
+
+51
+00:03:00,420 --> 00:03:03,270
+loop right here and right here.
+
+52
+00:03:04,020 --> 00:03:06,390
+Then we're also doing this right here.
+
+53
+00:03:06,390 --> 00:03:09,480
+It's pretty much the same where we are fetching planets.
+
+54
+00:03:09,480 --> 00:03:17,070
+So we could just write a separate function, a standalone function called maybe check status and parse.
+
+55
+00:03:17,100 --> 00:03:23,070
+It's a bit long of a name, but that will work and we can move this logic into the function, assuming
+
+56
+00:03:23,070 --> 00:03:26,040
+that we also add response as a parameter.
+
+57
+00:03:26,190 --> 00:03:31,710
+If we don't want to change this, we could go with Rez and update this to be rows and rows and rows.
+
+58
+00:03:32,160 --> 00:03:37,980
+What we'll do is pass this in to our dot, then dot, then check status and pass.
+
+59
+00:03:38,670 --> 00:03:43,890
+So it doesn't matter if we have a named function that we've well, this isn't technically a named function,
+
+60
+00:03:43,890 --> 00:03:46,860
+but it's in a variable slight difference.
+
+61
+00:03:46,860 --> 00:03:50,880
+But it doesn't matter if we pass in a predefined function or an anonymous function.
+
+62
+00:03:51,000 --> 00:03:56,730
+The promise when it's resolved will be resolved with a value this function is called, and that value
+
+63
+00:03:56,730 --> 00:03:57,720
+will be passed in.
+
+64
+00:03:57,720 --> 00:04:04,050
+So why not move it out so we can clean up our code, not have to have these long ends with anonymous
+
+65
+00:04:04,050 --> 00:04:04,740
+functions.
+
+66
+00:04:05,310 --> 00:04:14,640
+We can replace this here as well dot then check status and pass as long as we return a promise which
+
+67
+00:04:14,640 --> 00:04:15,000
+we are.
+
+68
+00:04:15,000 --> 00:04:17,279
+We were already doing that, so I just moved it out.
+
+69
+00:04:17,640 --> 00:04:19,019
+Let's see if it still works.
+
+70
+00:04:19,380 --> 00:04:20,190
+Refresh.
+
+71
+00:04:20,700 --> 00:04:21,870
+We got the first ten.
+
+72
+00:04:21,870 --> 00:04:23,070
+We got the second ten.
+
+73
+00:04:24,210 --> 00:04:24,770
+Cool.
+
+74
+00:04:24,780 --> 00:04:26,700
+So this is a pretty good improvement.
+
+75
+00:04:26,700 --> 00:04:31,200
+But wouldn't it be nice if we could do something like this then?
+
+76
+00:04:31,200 --> 00:04:32,490
+Like if we had this here?
+
+77
+00:04:34,490 --> 00:04:37,490
+Fetch planets, then check status and pass.
+
+78
+00:04:37,820 --> 00:04:45,110
+Then print planets dot, then get ten more planets.
+
+79
+00:04:46,040 --> 00:04:49,610
+And then we can just duplicate this as many times as needed.
+
+80
+00:04:50,480 --> 00:04:54,380
+So what if we had a method or a function to print planets?
+
+81
+00:04:54,380 --> 00:04:55,850
+That's easy enough, right?
+
+82
+00:04:56,150 --> 00:04:58,070
+What about getting ten more planets?
+
+83
+00:04:58,370 --> 00:05:02,540
+Well, it's relatively straightforward, but there is one caveat.
+
+84
+00:05:02,780 --> 00:05:06,530
+In order for those thens to work, they all need to return promises.
+
+85
+00:05:06,800 --> 00:05:11,640
+And something like printing a planet or ten planets probably won't return promises.
+
+86
+00:05:11,660 --> 00:05:13,700
+But let me just show you what we could do.
+
+87
+00:05:14,120 --> 00:05:19,070
+So I'm going to start by defining a function called print planets.
+
+88
+00:05:21,420 --> 00:05:28,110
+And we'll just have it expect some data, the same data that we are expecting here.
+
+89
+00:05:29,620 --> 00:05:31,300
+I'm going to move this logic out.
+
+90
+00:05:31,960 --> 00:05:37,210
+I'll replace the console log with loaded ten more planets or something like that.
+
+91
+00:05:38,410 --> 00:05:43,390
+And then for each planet of data results, we still console.log the planet name.
+
+92
+00:05:43,930 --> 00:05:48,460
+So I should be able to do a dot then print planet.
+
+93
+00:05:49,870 --> 00:05:52,180
+But then we'll run into an issue here.
+
+94
+00:05:52,690 --> 00:05:55,060
+But we should see the first ten planets print out.
+
+95
+00:05:55,090 --> 00:05:56,050
+Let's verify.
+
+96
+00:05:57,600 --> 00:05:58,410
+There we go.
+
+97
+00:05:58,920 --> 00:06:00,150
+Then we get here.
+
+98
+00:06:00,150 --> 00:06:02,950
+Cannot read property next of undefined.
+
+99
+00:06:02,970 --> 00:06:06,060
+That error is coming from this next URL.
+
+100
+00:06:06,090 --> 00:06:09,390
+That's where we're trying to get the next URL equals data.
+
+101
+00:06:09,630 --> 00:06:10,320
+Next.
+
+102
+00:06:10,470 --> 00:06:12,810
+Well, there is no data that was passed in.
+
+103
+00:06:13,500 --> 00:06:15,510
+We never called this our self.
+
+104
+00:06:15,540 --> 00:06:17,030
+Remember how then works?
+
+105
+00:06:17,040 --> 00:06:19,980
+It's run when the callback is run.
+
+106
+00:06:20,190 --> 00:06:23,790
+This callback is run when a promise is resolved.
+
+107
+00:06:24,180 --> 00:06:27,420
+But there's no promise being returned from print planets.
+
+108
+00:06:27,450 --> 00:06:31,800
+The only way we can chain all of these together is if we return a promise.
+
+109
+00:06:31,800 --> 00:06:34,680
+So check status and pass that returns a promise.
+
+110
+00:06:34,680 --> 00:06:35,730
+This is a promise here.
+
+111
+00:06:35,730 --> 00:06:38,400
+Or this method returns a promise itself.
+
+112
+00:06:38,400 --> 00:06:39,690
+We return that promise.
+
+113
+00:06:39,690 --> 00:06:42,330
+Print planet does not return a promise.
+
+114
+00:06:42,810 --> 00:06:44,400
+However, we can fix that.
+
+115
+00:06:44,430 --> 00:06:45,470
+It's nice and easy.
+
+116
+00:06:45,480 --> 00:06:47,160
+We have a couple of ways of doing it.
+
+117
+00:06:47,190 --> 00:06:53,940
+First, the most obnoxious way would be new promise and go through the whole thing we've seen before.
+
+118
+00:06:53,940 --> 00:06:58,410
+So we have resolve and reject and we just want this promise to be resolved.
+
+119
+00:06:58,620 --> 00:06:59,430
+We've printed them.
+
+120
+00:06:59,430 --> 00:07:02,220
+We're not doing any checking of logic or error handling.
+
+121
+00:07:02,220 --> 00:07:04,890
+We just want to automatically resolve so we could do this.
+
+122
+00:07:04,890 --> 00:07:06,480
+Const I don't know.
+
+123
+00:07:06,480 --> 00:07:10,650
+P equals new promise, resolve, comma, reject.
+
+124
+00:07:11,520 --> 00:07:13,980
+And then we can just call resolve.
+
+125
+00:07:15,630 --> 00:07:21,000
+And return P So we have an automatically resolved promise that we're returning.
+
+126
+00:07:21,270 --> 00:07:22,770
+And what does it not like?
+
+127
+00:07:22,800 --> 00:07:25,260
+I'm missing a paren, forgot my arrow.
+
+128
+00:07:25,260 --> 00:07:28,290
+If I'm doing an arrow function now let's see what happens.
+
+129
+00:07:28,290 --> 00:07:29,490
+I'm returning a promise.
+
+130
+00:07:30,550 --> 00:07:31,810
+So we get our first ten.
+
+131
+00:07:31,810 --> 00:07:38,200
+And then the last thing I need to do is make sure I resolve with the data that this then callback is
+
+132
+00:07:38,200 --> 00:07:38,950
+expecting.
+
+133
+00:07:39,160 --> 00:07:39,520
+Right.
+
+134
+00:07:39,520 --> 00:07:41,170
+We need to pass that data along.
+
+135
+00:07:41,560 --> 00:07:43,770
+So I would just do resolve data.
+
+136
+00:07:43,780 --> 00:07:44,970
+That's what we have here.
+
+137
+00:07:44,980 --> 00:07:46,920
+It's being passed in to print planets.
+
+138
+00:07:46,930 --> 00:07:49,290
+We use some of that data, we print it out.
+
+139
+00:07:49,300 --> 00:07:51,130
+Now I'm creating a new promise.
+
+140
+00:07:51,130 --> 00:07:54,280
+I'm resolving it with that same data and I'm returning that promise.
+
+141
+00:07:54,370 --> 00:07:57,160
+This is kind of clunky, but it does work.
+
+142
+00:07:58,030 --> 00:07:59,290
+But there's an easier way.
+
+143
+00:08:00,740 --> 00:08:06,790
+There's a method called promise, dot resolve, and this will create a brand new promise for you that
+
+144
+00:08:06,790 --> 00:08:07,900
+is resolved.
+
+145
+00:08:07,960 --> 00:08:09,820
+So we don't have to go through any of that stuff.
+
+146
+00:08:09,820 --> 00:08:13,360
+We can just return, promise, resolve with data.
+
+147
+00:08:13,900 --> 00:08:18,340
+So then this returns a promise, which means I can chain on a dot, then afterwards.
+
+148
+00:08:19,360 --> 00:08:23,650
+And I'm resolving it with some data, the same data we had passed in.
+
+149
+00:08:23,650 --> 00:08:25,690
+So I'm just passing it through again.
+
+150
+00:08:26,020 --> 00:08:27,400
+I'm not changing data.
+
+151
+00:08:27,430 --> 00:08:34,240
+It's being passed from check status and parse to this, then callback, and then we're using it, passing
+
+152
+00:08:34,240 --> 00:08:40,330
+it along as we resolve this promise, which only exists to keep the chain of events moving.
+
+153
+00:08:41,110 --> 00:08:45,160
+Then we have this dot then, which we could turn into its own function as well.
+
+154
+00:08:45,580 --> 00:08:48,530
+So why don't we refactor this?
+
+155
+00:08:48,550 --> 00:08:49,920
+We're doing the same thing.
+
+156
+00:08:49,930 --> 00:08:52,810
+We'll just do Dot, then print planet.
+
+157
+00:08:54,610 --> 00:08:55,450
+Does it work still?
+
+158
+00:08:55,480 --> 00:08:57,250
+Do we get both sets printed out?
+
+159
+00:08:57,280 --> 00:08:58,000
+Yep.
+
+160
+00:08:58,030 --> 00:08:58,840
+Looks good.
+
+161
+00:08:59,560 --> 00:09:05,560
+So now what we could do is make another function called fetch more planets.
+
+162
+00:09:07,240 --> 00:09:09,400
+Or how about fetch next planets?
+
+163
+00:09:12,450 --> 00:09:14,760
+And they will expect a URL to be passed in.
+
+164
+00:09:15,580 --> 00:09:21,100
+And if we're expecting a URL rather than the entire data, we could just do this data next.
+
+165
+00:09:21,580 --> 00:09:24,840
+And data next is the URL that we want.
+
+166
+00:09:24,850 --> 00:09:27,370
+If we go back, that's the URL.
+
+167
+00:09:27,580 --> 00:09:29,670
+So I'll just resolve with that value.
+
+168
+00:09:29,680 --> 00:09:34,810
+If all we want is that next URL instead of the next then callback.
+
+169
+00:09:35,350 --> 00:09:36,360
+That's what I'll do.
+
+170
+00:09:36,370 --> 00:09:40,810
+And this will simply return fetch of your URL.
+
+171
+00:09:41,440 --> 00:09:42,750
+So kind of simple.
+
+172
+00:09:42,760 --> 00:09:44,050
+I'm not doing anything crazy.
+
+173
+00:09:44,230 --> 00:09:48,250
+I'm just putting a name on this function instead of using an anonymous function here.
+
+174
+00:09:49,270 --> 00:09:53,440
+So I should be able to just change this to fetch next planet.
+
+175
+00:09:53,530 --> 00:09:55,720
+And let's see if it works.
+
+176
+00:09:56,940 --> 00:09:58,410
+We're returning a promise.
+
+177
+00:10:00,490 --> 00:10:01,420
+We get our first ten.
+
+178
+00:10:01,450 --> 00:10:05,170
+Hey, and our second ten looks good already.
+
+179
+00:10:05,170 --> 00:10:07,630
+Very short and neat and easy to read.
+
+180
+00:10:07,660 --> 00:10:08,890
+Adorable code.
+
+181
+00:10:09,190 --> 00:10:12,650
+And we could duplicate this as many times as we wanted.
+
+182
+00:10:12,710 --> 00:10:19,840
+All right, if I want to get three pages, I would print the planets and then fetch more planets, check
+
+183
+00:10:19,840 --> 00:10:22,000
+their status and print those.
+
+184
+00:10:23,020 --> 00:10:24,940
+So now I should get 30 results.
+
+185
+00:10:26,530 --> 00:10:27,250
+Awesome.
+
+186
+00:10:27,430 --> 00:10:30,370
+First ten, next ten, final ten.
+
+187
+00:10:30,370 --> 00:10:36,040
+And we could even use fetch next planets here instead of calling fetch if we wanted to.
+
+188
+00:10:36,070 --> 00:10:42,610
+It's not really going to make a difference for us, but we could start, we could do this, have URL,
+
+189
+00:10:43,660 --> 00:10:45,490
+default to this URL.
+
+190
+00:10:47,290 --> 00:10:51,550
+That should be the very first place you look for planets if you don't pass anything in.
+
+191
+00:10:51,550 --> 00:10:57,820
+And now I can just call fetch next planets with no argument.
+
+192
+00:10:58,120 --> 00:11:00,010
+This returns a promise.
+
+193
+00:11:00,190 --> 00:11:04,000
+It's returning fetch of this URL if I don't pass an argument in.
+
+194
+00:11:04,000 --> 00:11:07,060
+But then all of these other ones right here.
+
+195
+00:11:07,060 --> 00:11:08,110
+Fetch next planets.
+
+196
+00:11:08,110 --> 00:11:09,700
+Fetch, fetch, next planets.
+
+197
+00:11:09,700 --> 00:11:14,080
+They will be passed the specific URL for page two or three or four.
+
+198
+00:11:14,350 --> 00:11:15,880
+And we should be good to go.
+
+199
+00:11:15,910 --> 00:11:16,780
+Let's make sure.
+
+200
+00:11:18,070 --> 00:11:19,870
+Ten, 20, 30.
+
+201
+00:11:20,140 --> 00:11:22,450
+Okay, so nice little refactor.
+
+202
+00:11:22,480 --> 00:11:23,950
+Look at how adorable this is.
+
+203
+00:11:24,220 --> 00:11:25,420
+Super clean and easy.
+
+204
+00:11:25,420 --> 00:11:30,550
+And if I wanted to fetch 100 pages of planets, I don't think there are that many and the API would
+
+205
+00:11:30,550 --> 00:11:36,400
+probably get -- at me, but if I wanted to, my code would not be any harder to understand.
+
+206
+00:11:36,400 --> 00:11:42,560
+It would be longer, but it would still remain completely flat compared to doing it like this.
+
+207
+00:11:42,580 --> 00:11:45,190
+It would be a nightmare to try and keep track of.
+
+208
+00:11:45,760 --> 00:11:51,580
+So that is why fetch is so much better than xlsx xml http request.
+
+209
+00:11:51,610 --> 00:11:54,670
+Also, this is just a mouthful to repeat fetch.
+
+210
+00:11:54,670 --> 00:11:55,930
+Much easier to say out loud.
+

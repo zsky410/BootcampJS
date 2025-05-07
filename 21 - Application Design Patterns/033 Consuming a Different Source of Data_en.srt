@@ -1,0 +1,288 @@
+1
+00:00:00,790 --> 00:00:04,150
+Just to make sure it's really clear why this refactor was so significant.
+
+2
+00:00:04,150 --> 00:00:08,140
+I want to show you how quickly we could change some of the code inside these different options that
+
+3
+00:00:08,140 --> 00:00:12,520
+we're passing in and get an autocomplete that works with a very different source of data.
+
+4
+00:00:12,910 --> 00:00:17,020
+So just as a quick example, you don't have to change your code here because I'm going to change my
+
+5
+00:00:17,020 --> 00:00:17,650
+code right back.
+
+6
+00:00:17,650 --> 00:00:19,450
+Again, this is a very quick example.
+
+7
+00:00:19,480 --> 00:00:23,380
+I'm going to go to JSON placeholder type ICLOUD.COM.
+
+8
+00:00:23,680 --> 00:00:28,960
+This is a fake API that can be used for testing purposes and just generally kind of messing around.
+
+9
+00:00:29,410 --> 00:00:33,220
+If I scroll down a little bit, I can find a section called Resources.
+
+10
+00:00:34,420 --> 00:00:39,130
+And inside there is an endpoint that will serve me up a photo's collection.
+
+11
+00:00:39,130 --> 00:00:44,260
+Inside there is 5000 different photos, so I encourage you not to click that link because it's going
+
+12
+00:00:44,260 --> 00:00:47,140
+to load up a ton of data and might make your browser hang.
+
+13
+00:00:47,170 --> 00:00:51,190
+Nonetheless, I'm going to go ahead and do it myself, so if I click on it after a second or so, I
+
+14
+00:00:51,190 --> 00:00:57,010
+will see that if I make a request to this endpoint, I'll get back an array of objects where each object
+
+15
+00:00:57,010 --> 00:00:58,750
+represents one photo.
+
+16
+00:00:59,080 --> 00:01:02,620
+Each photo has a title and a thumbnail URL.
+
+17
+00:01:02,950 --> 00:01:08,080
+I'm going to try to make a request and get just 50 of these photos inside of my code, and I'm going
+
+18
+00:01:08,080 --> 00:01:12,640
+to try to render each of them into that autocomplete that we just put together.
+
+19
+00:01:13,300 --> 00:01:19,150
+If I want to only get 50 photos instead of the 5000 that it just fetched, I could add on to the URL
+
+20
+00:01:19,330 --> 00:01:25,390
+question mark album ID equals one and that will give me only the first 50 photos inside of here.
+
+21
+00:01:25,390 --> 00:01:28,510
+So if I scroll down, I'll see that I only get 50 photos total.
+
+22
+00:01:29,830 --> 00:01:30,100
+Okay.
+
+23
+00:01:30,100 --> 00:01:35,590
+So to change my autocomplete to work with this source of data, instead I would take this URL and again,
+
+24
+00:01:35,590 --> 00:01:36,850
+you don't have to make these changes.
+
+25
+00:01:36,850 --> 00:01:38,920
+I'm going to change my code back very quickly.
+
+26
+00:01:38,920 --> 00:01:40,780
+This is just a fast demonstration.
+
+27
+00:01:40,930 --> 00:01:47,110
+I would then go and update my fetch data function, so instead of making a request to the IMDB API,
+
+28
+00:01:47,110 --> 00:01:49,960
+I'm going to instead just paste that URL in directly.
+
+29
+00:01:50,500 --> 00:01:53,470
+So slash photos album id equals one.
+
+30
+00:01:54,100 --> 00:01:58,450
+These params are technically not going to be used, but I can still just leave them in here.
+
+31
+00:01:58,480 --> 00:01:59,980
+The request is still going to work.
+
+32
+00:01:59,980 --> 00:02:00,730
+Actually, I'll take them out.
+
+33
+00:02:00,730 --> 00:02:01,660
+Just be sure.
+
+34
+00:02:01,690 --> 00:02:02,980
+Just to make sure it's really clear.
+
+35
+00:02:03,750 --> 00:02:04,920
+So I'll take those out.
+
+36
+00:02:05,310 --> 00:02:09,690
+I'll then make sure that when I get the response there is no longer a search property.
+
+37
+00:02:09,690 --> 00:02:12,000
+So I'll take out the dot search.
+
+38
+00:02:12,910 --> 00:02:15,460
+So this should work correctly to fetch the data.
+
+39
+00:02:15,490 --> 00:02:20,890
+Now, all we would have to do is make sure that we update how each of these gets rendered that is controlled
+
+40
+00:02:20,890 --> 00:02:22,690
+inside of render option right here.
+
+41
+00:02:23,200 --> 00:02:25,330
+So instead of the current code I have.
+
+42
+00:02:26,220 --> 00:02:29,130
+I would instead say, maybe just return.
+
+43
+00:02:32,190 --> 00:02:35,070
+An image element with the source of.
+
+44
+00:02:37,020 --> 00:02:42,510
+Movie Dot and let me double check the name of the actual image thumbnail URL.
+
+45
+00:02:45,310 --> 00:02:47,980
+And then I'll do the title, which is title.
+
+46
+00:02:48,980 --> 00:02:50,990
+So movie title.
+
+47
+00:02:54,540 --> 00:02:56,760
+Notice I'm still calling this argument movie.
+
+48
+00:02:56,760 --> 00:03:01,710
+It now technically is like an image object, but it's just not a good use of time to change the variable
+
+49
+00:03:01,710 --> 00:03:02,190
+name.
+
+50
+00:03:02,910 --> 00:03:03,160
+Okay.
+
+51
+00:03:03,180 --> 00:03:04,410
+So now I can save this.
+
+52
+00:03:04,680 --> 00:03:06,780
+Flip back over, refresh.
+
+53
+00:03:06,810 --> 00:03:08,930
+And now I should be able to just type anything inside of here.
+
+54
+00:03:08,940 --> 00:03:13,260
+Technically, there's no longer any searching operation going on, and I'll see this very different
+
+55
+00:03:13,260 --> 00:03:14,700
+source of data being used.
+
+56
+00:03:15,030 --> 00:03:19,890
+So now I've got each thumbnail, which is the colored squares you see along with the title of each image
+
+57
+00:03:19,890 --> 00:03:21,000
+showing up next to it.
+
+58
+00:03:21,000 --> 00:03:24,600
+And I've got all 50 being rendered out right now, so that's pretty much it.
+
+59
+00:03:24,600 --> 00:03:28,410
+That's all we would have to do to make a significant change to the autocomplete.
+
+60
+00:03:28,410 --> 00:03:32,880
+We just go back to these functions that we understand exactly what they do perfectly.
+
+61
+00:03:32,880 --> 00:03:37,080
+You know, this one fetches data, this one controls how each option gets rendered, make those various
+
+62
+00:03:37,080 --> 00:03:38,400
+few changes, and that's it.
+
+63
+00:03:38,400 --> 00:03:41,850
+We now have a widget that works in a totally different context.
+
+64
+00:03:42,620 --> 00:03:42,860
+Okay.
+
+65
+00:03:42,860 --> 00:03:44,710
+So that's just all I want to show you.
+
+66
+00:03:44,720 --> 00:03:50,690
+I'm going to very quickly undo the changes I just made and go back to working with movies and there
+
+67
+00:03:50,690 --> 00:03:51,250
+we go.
+
+68
+00:03:51,260 --> 00:03:55,430
+So now I'll do a quick test just to make sure I'm back and still works with movies.
+
+69
+00:03:56,300 --> 00:03:56,540
+Cool.
+
+70
+00:03:56,570 --> 00:03:59,990
+So again, just a quick examination of how you would change things out.
+
+71
+00:03:59,990 --> 00:04:01,250
+So let's take another pause here.
+
+72
+00:04:01,250 --> 00:04:02,930
+Continue the app in the next video.
+

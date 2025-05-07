@@ -1,0 +1,352 @@
+1
+00:00:00,090 --> 00:00:03,600
+Next up, let's talk about our third primitive type string.
+
+2
+00:00:03,780 --> 00:00:05,760
+Strings come up all the time.
+
+3
+00:00:06,000 --> 00:00:09,960
+Early on, I talked about this form and how we might represent the data in JavaScript.
+
+4
+00:00:09,990 --> 00:00:13,620
+All of this text information, the review, the name, the email.
+
+5
+00:00:13,650 --> 00:00:16,530
+We would store that or model that using strings.
+
+6
+00:00:16,530 --> 00:00:22,200
+Strings are just textual values, pieces of text or strings of characters.
+
+7
+00:00:22,590 --> 00:00:28,110
+And the most important thing to remember is that we wrap them in quotes, single or double quotes.
+
+8
+00:00:28,140 --> 00:00:29,730
+So you can see some examples here.
+
+9
+00:00:29,820 --> 00:00:33,070
+This is a string, Ziggy using double quotes.
+
+10
+00:00:33,090 --> 00:00:34,440
+Here's another one.
+
+11
+00:00:34,470 --> 00:00:35,760
+A longer string.
+
+12
+00:00:35,910 --> 00:00:37,920
+Here's one with single quotes.
+
+13
+00:00:38,130 --> 00:00:41,550
+This is problematic where we're mixing a double and a single.
+
+14
+00:00:41,580 --> 00:00:43,440
+We're never closing the string.
+
+15
+00:00:43,680 --> 00:00:44,980
+You can use either.
+
+16
+00:00:45,000 --> 00:00:51,180
+What's really important is just to be consistent within a single application or a single file.
+
+17
+00:00:51,180 --> 00:00:55,530
+You don't want to have some strings that are using single quotes and others that are using double.
+
+18
+00:00:55,560 --> 00:00:57,390
+It's not a problem for your code.
+
+19
+00:00:57,420 --> 00:00:58,590
+It won't cause any errors.
+
+20
+00:00:58,590 --> 00:01:01,380
+It's just confusing for other developers.
+
+21
+00:01:01,650 --> 00:01:05,190
+So as I said, we can type strings instead of quotes.
+
+22
+00:01:05,190 --> 00:01:06,270
+That's a string.
+
+23
+00:01:06,510 --> 00:01:08,750
+We can do it with single quotes.
+
+24
+00:01:08,760 --> 00:01:10,620
+We could even put numbers in there.
+
+25
+00:01:10,680 --> 00:01:12,960
+This is a string, not a number.
+
+26
+00:01:13,200 --> 00:01:17,910
+I haven't shown you this yet, but there is a special operator in JavaScript called type of.
+
+27
+00:01:18,240 --> 00:01:20,790
+I have no idea why it is not capitalized.
+
+28
+00:01:20,790 --> 00:01:23,700
+The oh, I'm sure there's a good reason for it, hopefully.
+
+29
+00:01:23,820 --> 00:01:32,550
+But type of is an operator where we pass in a value like 87 and it tells us that's a string versus if
+
+30
+00:01:32,550 --> 00:01:35,160
+I got rid of the quotes that's a number.
+
+31
+00:01:35,820 --> 00:01:37,580
+So strings are text.
+
+32
+00:01:37,590 --> 00:01:44,190
+They can contain all sorts of characters, not just letters and numbers, but also special characters
+
+33
+00:01:44,280 --> 00:01:46,860
+as long as we remember to close the string.
+
+34
+00:01:47,550 --> 00:01:53,850
+So if you do something like this and we don't close it, we get an error invalid or unexpected token.
+
+35
+00:01:53,880 --> 00:01:57,210
+That means that JavaScript encountered this opening quote.
+
+36
+00:01:57,210 --> 00:01:58,380
+And thanks.
+
+37
+00:01:58,380 --> 00:02:01,140
+All right, we're in a string, string, lend, string and string lend.
+
+38
+00:02:01,140 --> 00:02:02,430
+And then it just ends.
+
+39
+00:02:02,430 --> 00:02:07,440
+And it was expecting a quote at the end to let it know the string is done.
+
+40
+00:02:07,740 --> 00:02:11,540
+We can also use quotes inside of other quotes.
+
+41
+00:02:11,550 --> 00:02:12,720
+So let me show you what I mean.
+
+42
+00:02:12,720 --> 00:02:20,040
+Let's say we had an example of he said, and then I wanted to use quotes inside of this because somebody
+
+43
+00:02:20,040 --> 00:02:24,300
+is talking, ha ha ha, this is totally valid.
+
+44
+00:02:24,330 --> 00:02:30,420
+I have single quotes on the outside and then double quotes on the inside that works and I could do it
+
+45
+00:02:30,420 --> 00:02:33,990
+the other way around as well, he said.
+
+46
+00:02:33,990 --> 00:02:36,900
+LOL valid as well.
+
+47
+00:02:36,960 --> 00:02:41,880
+What does not work is if you tried to use double quotes, she said.
+
+48
+00:02:41,880 --> 00:02:44,520
+And then double quotes again like that.
+
+49
+00:02:45,090 --> 00:02:50,880
+What's happening here is that we start a string off and then we close it prematurely and then we have
+
+50
+00:02:50,880 --> 00:02:54,660
+this just OMG hanging around, which doesn't mean anything in JavaScript.
+
+51
+00:02:54,660 --> 00:03:00,030
+It will give us an error and then a quote which opens a string and a quote that closes a string and
+
+52
+00:03:00,030 --> 00:03:01,350
+it just contains a space.
+
+53
+00:03:02,130 --> 00:03:06,120
+So unexpected identifier it doesn't know what OMG is supposed to be.
+
+54
+00:03:06,660 --> 00:03:12,270
+So those quotes have to be there, but you can mix them up if you do need to have quotes inside of a
+
+55
+00:03:12,270 --> 00:03:12,810
+string.
+
+56
+00:03:13,500 --> 00:03:15,800
+Of course we can make variables with strings.
+
+57
+00:03:15,810 --> 00:03:19,260
+Let's go with let first name equals.
+
+58
+00:03:19,260 --> 00:03:22,110
+We'll just use Ziggy as we've already seen in the notes.
+
+59
+00:03:22,500 --> 00:03:26,490
+So we have first name and then let's also do last name.
+
+60
+00:03:26,490 --> 00:03:34,500
+So let last name, let's do Ziggy Canary Face.
+
+61
+00:03:34,950 --> 00:03:37,350
+That's a very unique last name.
+
+62
+00:03:37,830 --> 00:03:43,050
+And what I want to show you here is that we have some operations that we can do with strings.
+
+63
+00:03:43,500 --> 00:03:47,250
+We can do something like first name plus last name.
+
+64
+00:03:47,700 --> 00:03:50,610
+Now, this is very different, obviously, than mathematically adding them.
+
+65
+00:03:50,610 --> 00:03:55,950
+Even though it's the same operator or the same symbol, it has a very different meaning in this context.
+
+66
+00:03:55,950 --> 00:04:01,260
+When we're working with strings, we are going to concatenate the strings together, which means shove
+
+67
+00:04:01,260 --> 00:04:04,230
+them together into one string Ziggy Canary face.
+
+68
+00:04:04,830 --> 00:04:09,720
+And if we wanted to, we could go further and add in a space between the two like this.
+
+69
+00:04:10,290 --> 00:04:13,800
+So first name plus a space plus last name.
+
+70
+00:04:13,980 --> 00:04:19,950
+Now we have Ziggy Canary face and we could save that to a variable like let full name equals first name
+
+71
+00:04:19,950 --> 00:04:21,600
+plus space plus last name.
+
+72
+00:04:21,660 --> 00:04:24,330
+And we have full name as Ziggy Canary face.
+
+73
+00:04:24,630 --> 00:04:25,980
+There are some quirky things.
+
+74
+00:04:25,980 --> 00:04:34,500
+If you start mixing types like high plus one, one is going to be turned into a string and we end up
+
+75
+00:04:34,500 --> 00:04:35,430
+with high one.
+
+76
+00:04:35,430 --> 00:04:36,720
+We're concatenating them.
+
+77
+00:04:36,720 --> 00:04:40,410
+We don't have similar operators for minus.
+
+78
+00:04:40,410 --> 00:04:45,450
+So if we try to do high minus H, it doesn't work.
+
+79
+00:04:45,450 --> 00:04:48,990
+Thinks that we're working in mathematical realms so we get not a number.
+
+80
+00:04:49,020 --> 00:04:50,460
+Same thing with division.
+
+81
+00:04:50,610 --> 00:04:54,270
+If we try and do high divided by H, not a number.
+
+82
+00:04:54,300 --> 00:04:57,990
+There's quite a bit more to talk about with strings, which we're about to do.
+
+83
+00:04:57,990 --> 00:04:59,550
+But I'm going to leave off here for the.
+
+84
+00:04:59,610 --> 00:05:05,400
+This video, we've seen that strings are textual value, strings of characters and they need to be contained
+
+85
+00:05:05,400 --> 00:05:07,260
+within quotes, double or single.
+
+86
+00:05:07,260 --> 00:05:11,430
+It doesn't matter as long as you are consistent and you close them correctly.
+
+87
+00:05:11,430 --> 00:05:14,400
+So you have an opening single, you need to have a closing single.
+
+88
+00:05:14,400 --> 00:05:16,020
+And the same goes for double quotes.
+

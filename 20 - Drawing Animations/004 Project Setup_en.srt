@@ -1,0 +1,116 @@
+1
+00:00:01,010 --> 00:00:01,370
+All right.
+
+2
+00:00:01,370 --> 00:00:04,010
+Now that we know what we are building, let's flip over to our terminal.
+
+3
+00:00:04,010 --> 00:00:07,700
+We're going to create a new project directory and start doing a little bit of setup.
+
+4
+00:00:08,119 --> 00:00:09,590
+So I'm going to go over to my terminal.
+
+5
+00:00:09,590 --> 00:00:12,860
+I'm inside of a workspace directory of sorts inside of here.
+
+6
+00:00:12,860 --> 00:00:16,670
+I'm going to make a new project folder that I will call simply timer.
+
+7
+00:00:17,270 --> 00:00:21,140
+I'll then change into that directory and start up my code editor inside there.
+
+8
+00:00:23,470 --> 00:00:30,550
+Once my editor is open, I'm going to create an indexed HTML file and in indexed JS file as well.
+
+9
+00:00:31,180 --> 00:00:35,680
+We're going to put together a little bit of boilerplate inside this HTML document, so let's get to
+
+10
+00:00:35,680 --> 00:00:36,400
+it right away.
+
+11
+00:00:36,670 --> 00:00:40,120
+At the very top, I'll put in my dock type of HTML.
+
+12
+00:00:42,010 --> 00:00:44,230
+I'll put in my HTML element.
+
+13
+00:00:44,740 --> 00:00:46,030
+I'll put in ahead.
+
+14
+00:00:47,370 --> 00:00:48,150
+A body.
+
+15
+00:00:50,190 --> 00:00:53,970
+And finally, a script tag with the source of index dogs.
+
+16
+00:00:56,760 --> 00:00:57,020
+Okay.
+
+17
+00:00:57,060 --> 00:00:57,900
+Simple enough.
+
+18
+00:00:59,560 --> 00:01:05,050
+Then inside of indexes, I'll do a quick console log that says Hi there, just so we can make sure that
+
+19
+00:01:05,050 --> 00:01:08,860
+we correctly hooked up our indexes file to the HTML file.
+
+20
+00:01:09,070 --> 00:01:12,670
+Once I've got all this stuff put together, I'm going to make sure that I save both files.
+
+21
+00:01:12,700 --> 00:01:18,490
+I'll then go back over to my terminal and open up that indexed HTML file.
+
+22
+00:01:19,190 --> 00:01:23,870
+Once it is open I should see a console log inside of my developer console of simply.
+
+23
+00:01:23,870 --> 00:01:24,650
+Hi there.
+
+24
+00:01:25,890 --> 00:01:28,290
+So as long as we see that, that means we are good to go.
+
+25
+00:01:28,920 --> 00:01:29,220
+All right.
+
+26
+00:01:29,220 --> 00:01:30,570
+Some pretty straightforward set up.
+
+27
+00:01:30,570 --> 00:01:32,000
+So now we've got this all put together.
+
+28
+00:01:32,010 --> 00:01:35,640
+Let's continue in the next video and we're going to start to discuss how we're going to approach this
+
+29
+00:01:35,640 --> 00:01:38,070
+project and generally architect it out.
+

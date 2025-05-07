@@ -1,0 +1,248 @@
+1
+00:00:00,180 --> 00:00:01,410
+Welcome back, everyone.
+
+2
+00:00:01,440 --> 00:00:05,420
+The next big topic in JavaScript that will tackle is logic.
+
+3
+00:00:05,430 --> 00:00:07,050
+How do we implement decisions?
+
+4
+00:00:07,050 --> 00:00:10,530
+How do we make choices in our code so that we have different outcomes?
+
+5
+00:00:10,710 --> 00:00:15,410
+This is obviously a very, very important part of writing applications, writing games.
+
+6
+00:00:15,420 --> 00:00:21,180
+Pretty much anything remotely interesting that you would build with JavaScript needs to have some decision
+
+7
+00:00:21,180 --> 00:00:22,230
+making going on.
+
+8
+00:00:22,440 --> 00:00:25,530
+It shouldn't just be the exact same thing every single time.
+
+9
+00:00:25,680 --> 00:00:30,720
+I'm sure someone could prove me wrong on that, but most applications that you interact with that I
+
+10
+00:00:30,720 --> 00:00:37,230
+use day to day, they all have some form of decision making going on, often hundreds of decisions.
+
+11
+00:00:37,410 --> 00:00:43,080
+So just to give you an example of kind of what I'm talking about here is an interactive chess game built
+
+12
+00:00:43,080 --> 00:00:44,160
+with JavaScript.
+
+13
+00:00:44,370 --> 00:00:46,500
+There are tons and tons of decisions.
+
+14
+00:00:46,500 --> 00:00:48,740
+Here's a really simple one, some simple logic.
+
+15
+00:00:48,750 --> 00:00:54,900
+When I click on a piece, I'm white down here, I can move it, assuming that I'm trying to move to
+
+16
+00:00:54,900 --> 00:00:56,100
+a valid space.
+
+17
+00:00:56,100 --> 00:00:57,230
+So that works.
+
+18
+00:00:57,240 --> 00:01:05,580
+But if I try and move to an invalid space, there is some logic that checks am I hovering or am I dropping
+
+19
+00:01:05,580 --> 00:01:08,130
+this piece over a place where it can move?
+
+20
+00:01:08,130 --> 00:01:09,140
+Yes or no?
+
+21
+00:01:09,150 --> 00:01:10,440
+There's a different outcome.
+
+22
+00:01:10,440 --> 00:01:13,950
+Same thing with clicking on one of my opponent's pieces.
+
+23
+00:01:14,220 --> 00:01:20,000
+I can pick it up, but if I try and drop it anywhere, it doesn't matter if it's valid or invalid.
+
+24
+00:01:20,010 --> 00:01:23,700
+As far as the piece is concerned and how it moves, it's not my piece.
+
+25
+00:01:23,700 --> 00:01:29,880
+So there's logic that says if that's not if it's not movable, if it's not your piece, you can't move
+
+26
+00:01:29,880 --> 00:01:30,210
+it.
+
+27
+00:01:30,210 --> 00:01:31,050
+Don't do anything.
+
+28
+00:01:31,050 --> 00:01:32,580
+Just return it to where it was.
+
+29
+00:01:33,330 --> 00:01:35,610
+Then we've got things like Netflix.
+
+30
+00:01:35,610 --> 00:01:39,840
+When I go to Netflix, if I'm not signed in, then I see a different page.
+
+31
+00:01:39,840 --> 00:01:42,480
+There's some logic, there's a decision that's made.
+
+32
+00:01:42,480 --> 00:01:44,010
+Is the user signed in?
+
+33
+00:01:44,010 --> 00:01:47,130
+If they are, show them their main Netflix home page.
+
+34
+00:01:47,130 --> 00:01:51,960
+If they're not, show them the whatever this is advertising promo landing page.
+
+35
+00:01:52,320 --> 00:01:57,570
+If I do try and sign up, I'll click submit without specifying an email or password.
+
+36
+00:01:57,570 --> 00:01:59,160
+There's logic that checks.
+
+37
+00:01:59,160 --> 00:02:00,060
+Is there an email?
+
+38
+00:02:00,060 --> 00:02:01,230
+Is there a password?
+
+39
+00:02:01,290 --> 00:02:03,360
+If not, don't submit the form.
+
+40
+00:02:03,360 --> 00:02:04,800
+So that was a choice.
+
+41
+00:02:05,220 --> 00:02:06,240
+The form was not submitted.
+
+42
+00:02:06,240 --> 00:02:11,520
+There is a branching path and we get to read boxes with different error messages.
+
+43
+00:02:11,520 --> 00:02:18,810
+Now as I fill out an email like Kat had gmail.com, notice that as soon as this becomes a valid email
+
+44
+00:02:18,810 --> 00:02:22,260
+pattern so dot com it turns green.
+
+45
+00:02:22,260 --> 00:02:24,480
+There's more logic there, it's checking.
+
+46
+00:02:24,480 --> 00:02:28,490
+Is that valid as far as the actual pattern or shape of my text?
+
+47
+00:02:28,500 --> 00:02:30,180
+Kat at gmail.com.
+
+48
+00:02:30,420 --> 00:02:32,340
+Anyway, you can see where I'm going with this.
+
+49
+00:02:32,340 --> 00:02:37,950
+There are decisions, there are branching outcomes and paths in any application out there, whether
+
+50
+00:02:37,950 --> 00:02:41,520
+it has to do with being logged in a game and different logic.
+
+51
+00:02:41,550 --> 00:02:47,070
+There's just so many different things you can do, but they all hinge on the same basic logic building
+
+52
+00:02:47,070 --> 00:02:47,610
+blocks.
+
+53
+00:02:47,610 --> 00:02:49,800
+So that's all we're going to talk about in this section.
+
+54
+00:02:49,800 --> 00:02:51,660
+There's a good amount to cover.
+
+55
+00:02:51,810 --> 00:02:53,280
+Here are some of the goals.
+
+56
+00:02:53,280 --> 00:02:56,160
+We're going to start by talking about comparison operators.
+
+57
+00:02:56,160 --> 00:03:00,390
+Later, we'll talk about a second set of operators called Boolean operators.
+
+58
+00:03:00,390 --> 00:03:05,580
+So our good friend, the true or false primitive value, the boolean is coming back.
+
+59
+00:03:05,760 --> 00:03:09,720
+We'll spend a lot of time getting to know it and then we'll write conditional statements.
+
+60
+00:03:09,720 --> 00:03:14,010
+So those are the actual decisions we make, the branches we can add to our code.
+
+61
+00:03:14,010 --> 00:03:15,240
+So that's where we're going.
+
+62
+00:03:15,240 --> 00:03:19,350
+I will shut up and see you in the next video when we actually start with comparisons.
+

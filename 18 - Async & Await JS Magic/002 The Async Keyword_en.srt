@@ -1,0 +1,484 @@
+1
+00:00:00,150 --> 00:00:00,600
+All right.
+
+2
+00:00:00,600 --> 00:00:04,370
+So there are two pieces async and await two separate keywords.
+
+3
+00:00:04,380 --> 00:00:05,970
+We're going to start with async.
+
+4
+00:00:06,570 --> 00:00:11,460
+So we use async in front of a function declaration or function expression.
+
+5
+00:00:11,460 --> 00:00:15,900
+We use it to designate a certain function as an async function.
+
+6
+00:00:16,379 --> 00:00:20,700
+And the key thing to understand about this keyword is when you put it in front of a function like I
+
+7
+00:00:20,700 --> 00:00:24,120
+have here, this function behaves differently.
+
+8
+00:00:24,240 --> 00:00:26,760
+It's now going to return a promise.
+
+9
+00:00:27,000 --> 00:00:31,950
+So even though I never write new promise, I don't explicitly say, Hey, return a promise.
+
+10
+00:00:31,950 --> 00:00:35,700
+I'm simply saying return a string because I put async there.
+
+11
+00:00:35,730 --> 00:00:39,360
+The function now returns a promise and I can show this to you.
+
+12
+00:00:39,420 --> 00:00:41,400
+Let's make a simple function.
+
+13
+00:00:41,400 --> 00:00:45,450
+We'll just call it greet, function, greet, console.log.
+
+14
+00:00:45,450 --> 00:00:46,800
+Actually, that's not console.log.
+
+15
+00:00:46,800 --> 00:00:47,820
+Let's return.
+
+16
+00:00:47,940 --> 00:00:48,810
+Hello.
+
+17
+00:00:49,860 --> 00:00:50,310
+Okay.
+
+18
+00:00:50,340 --> 00:00:52,200
+No surprise if I call greet.
+
+19
+00:00:52,200 --> 00:00:54,540
+Right now it's not an async function.
+
+20
+00:00:54,540 --> 00:00:55,980
+We get a string back.
+
+21
+00:00:56,010 --> 00:00:58,380
+JavaScript 101 return a string.
+
+22
+00:00:58,380 --> 00:00:59,310
+We get a string.
+
+23
+00:00:59,640 --> 00:01:08,460
+Now, if I duplicate this and put the async keyword in front of my function declaration, now when I
+
+24
+00:01:08,460 --> 00:01:12,870
+call greet, what I get is a promise.
+
+25
+00:01:13,020 --> 00:01:17,850
+Promise that was returned and resolved with the value of hello.
+
+26
+00:01:18,120 --> 00:01:24,870
+So whatever the value that I'm returning is, the promise that will be returned from greet will be resolved
+
+27
+00:01:24,870 --> 00:01:25,920
+with that value.
+
+28
+00:01:26,550 --> 00:01:35,100
+So I could do something like greet dot then and we'll just call this value and then we can cancel that
+
+29
+00:01:35,100 --> 00:01:40,470
+log promise resolved with and then we can add in value.
+
+30
+00:01:41,980 --> 00:01:46,870
+So I can chain on a dot then because greet is now going to return a promise.
+
+31
+00:01:47,470 --> 00:01:48,270
+Test it out.
+
+32
+00:01:48,280 --> 00:01:48,780
+There we go.
+
+33
+00:01:48,790 --> 00:01:50,710
+Promise resolved with hello.
+
+34
+00:01:51,280 --> 00:01:53,200
+Let's say we have another function.
+
+35
+00:01:53,200 --> 00:01:55,360
+This one will be trivial as well.
+
+36
+00:01:55,360 --> 00:01:58,960
+Let's go with ADD and it takes in x and y.
+
+37
+00:01:58,990 --> 00:02:01,960
+It returns the sum of x plus y.
+
+38
+00:02:03,310 --> 00:02:08,259
+Right now, if we don't make it async, it just returns a number, assuming we pass in two numbers.
+
+39
+00:02:08,259 --> 00:02:15,610
+If we make it async by putting the async keyword first, if I call ADD, we get a resolved promise with
+
+40
+00:02:15,610 --> 00:02:18,490
+the value that it's resolved with set to nine.
+
+41
+00:02:18,940 --> 00:02:20,040
+So I could use a dot.
+
+42
+00:02:20,050 --> 00:02:27,550
+Then these two simple functions make kind of no sense at all to use promises with or to make async because
+
+43
+00:02:27,550 --> 00:02:29,260
+they're not doing anything asynchronous.
+
+44
+00:02:29,260 --> 00:02:30,400
+Why use a promise?
+
+45
+00:02:30,400 --> 00:02:35,410
+But the next thing I want to mention is how do we return a promise that is not resolved?
+
+46
+00:02:35,620 --> 00:02:38,280
+So if things go well, we return a value.
+
+47
+00:02:38,320 --> 00:02:39,130
+Return the string.
+
+48
+00:02:39,130 --> 00:02:39,760
+Hello.
+
+49
+00:02:39,790 --> 00:02:46,990
+That promise returned from greet is going to be resolved with hello or with a number nine in this case
+
+50
+00:02:46,990 --> 00:02:48,310
+if we add four and five.
+
+51
+00:02:48,310 --> 00:02:53,920
+But sometimes we want to make promises where they might be rejected, they might be resolved.
+
+52
+00:02:53,920 --> 00:03:01,390
+And instead of an async function, if we want to return a rejected promise, all that we do is raise
+
+53
+00:03:01,390 --> 00:03:02,320
+an exception.
+
+54
+00:03:02,950 --> 00:03:05,830
+So if we throw an exception, we throw an error.
+
+55
+00:03:06,130 --> 00:03:08,020
+That promise will be rejected.
+
+56
+00:03:08,140 --> 00:03:14,440
+So if we use this add example, let's check if X and Y are actually numbers.
+
+57
+00:03:14,440 --> 00:03:17,080
+If they're not, we'll throw some sort of exception.
+
+58
+00:03:17,230 --> 00:03:26,950
+So we could just check if x let's do type of x equals number or if it's not equal to number, let's
+
+59
+00:03:26,950 --> 00:03:27,640
+do that.
+
+60
+00:03:27,640 --> 00:03:32,080
+Or type of y is not equal to number.
+
+61
+00:03:32,890 --> 00:03:37,990
+Then we can throw x and y must be numbers.
+
+62
+00:03:39,460 --> 00:03:40,060
+Okay.
+
+63
+00:03:40,060 --> 00:03:42,820
+So let's not make this an async function for a moment.
+
+64
+00:03:42,820 --> 00:03:44,560
+Just a regular old function.
+
+65
+00:03:44,830 --> 00:03:51,310
+If we run it and I call add with E and I don't know five.
+
+66
+00:03:52,360 --> 00:03:52,870
+There we go.
+
+67
+00:03:52,870 --> 00:03:55,540
+Uncalled exception x and y must be numbers.
+
+68
+00:03:55,540 --> 00:03:56,920
+So the logic works.
+
+69
+00:03:56,950 --> 00:03:58,960
+No promises involved whatsoever.
+
+70
+00:03:58,960 --> 00:04:00,190
+We call it with numbers.
+
+71
+00:04:00,190 --> 00:04:01,960
+Instead, everything is good.
+
+72
+00:04:02,920 --> 00:04:07,120
+Now if I make it async, try it again.
+
+73
+00:04:09,040 --> 00:04:10,390
+Add four and five.
+
+74
+00:04:10,510 --> 00:04:11,980
+We have a return value.
+
+75
+00:04:12,370 --> 00:04:16,610
+This code was running and so the promise is resolved with that return value.
+
+76
+00:04:16,630 --> 00:04:22,450
+If I call it with a string, something that's not a number, we still get a promise back, but it's
+
+77
+00:04:22,450 --> 00:04:23,510
+been rejected.
+
+78
+00:04:23,530 --> 00:04:31,480
+X and y must be numbers so I could call add on E and R.
+
+79
+00:04:31,930 --> 00:04:34,450
+Sure I can put on my dot.
+
+80
+00:04:34,480 --> 00:04:39,370
+Then let's go with val console.log.
+
+81
+00:04:39,520 --> 00:04:41,020
+Why don't I just copy this here.
+
+82
+00:04:41,890 --> 00:04:49,060
+Promise resolves with val and I could put a catch as well and promise rejected with.
+
+83
+00:04:50,970 --> 00:04:52,470
+And then we'll print the error.
+
+84
+00:04:53,720 --> 00:04:55,220
+So I'm just calling ADD.
+
+85
+00:04:55,220 --> 00:04:58,490
+But ADD is an async function, which means it returns a promise.
+
+86
+00:04:58,490 --> 00:05:00,890
+It may be rejected, it may be resolved.
+
+87
+00:05:00,890 --> 00:05:02,540
+I can handle it either way.
+
+88
+00:05:02,930 --> 00:05:08,480
+And if we take a look, I run my code, we get promise rejected with X and Y must be numbers.
+
+89
+00:05:09,140 --> 00:05:13,030
+So at this point, async functions are with what we've seen.
+
+90
+00:05:13,040 --> 00:05:15,630
+They're a nice way of returning a promise.
+
+91
+00:05:15,650 --> 00:05:18,490
+Take a moment and think of how you would write this yourself.
+
+92
+00:05:18,500 --> 00:05:24,860
+So without using an async function, but by manually creating the promise and resolving slash rejecting
+
+93
+00:05:24,860 --> 00:05:26,990
+it, here's what I would do.
+
+94
+00:05:27,350 --> 00:05:30,830
+It would look something like this function add x, comma y.
+
+95
+00:05:31,160 --> 00:05:34,280
+Then we would return a new promise.
+
+96
+00:05:34,910 --> 00:05:38,990
+We have our resolve, function, parameter and reject.
+
+97
+00:05:39,810 --> 00:05:44,420
+And if none of this looks familiar to you, make sure you check out the promises section.
+
+98
+00:05:44,430 --> 00:05:45,750
+I can't say that enough.
+
+99
+00:05:45,780 --> 00:05:46,920
+It really helps.
+
+100
+00:05:46,950 --> 00:05:48,330
+So we have our new promise.
+
+101
+00:05:48,330 --> 00:05:51,210
+And then in here we can move this logic.
+
+102
+00:05:51,210 --> 00:05:52,740
+But we're going to change it a bit.
+
+103
+00:05:52,980 --> 00:05:56,560
+If type of X is not a number or type of y is not a number.
+
+104
+00:05:56,580 --> 00:06:00,570
+Instead of throwing, we're going to reject the promise.
+
+105
+00:06:01,990 --> 00:06:02,830
+Like that.
+
+106
+00:06:03,610 --> 00:06:08,020
+And then here we would resolve with X plus Y.
+
+107
+00:06:09,440 --> 00:06:16,640
+So if I comment out my async version and we take a look at our manual promise creation, it's called
+
+108
+00:06:16,640 --> 00:06:17,150
+ADD.
+
+109
+00:06:17,180 --> 00:06:19,010
+This code should still work fine.
+
+110
+00:06:19,310 --> 00:06:24,710
+So I should be catching this error, the rejected promise and we get the same output.
+
+111
+00:06:24,890 --> 00:06:28,310
+If I instead do two numbers like I don't know why keep doing four and five.
+
+112
+00:06:28,310 --> 00:06:29,540
+How about six and seven?
+
+113
+00:06:30,780 --> 00:06:33,720
+Refresh promise resolved with 13.
+
+114
+00:06:34,410 --> 00:06:35,130
+All right.
+
+115
+00:06:35,130 --> 00:06:41,490
+So an async function on one level is just a shortcut syntax to make a function that returns a promise.
+
+116
+00:06:41,670 --> 00:06:47,630
+If you return a value like we do here, that value will be the value the promise is resolved with.
+
+117
+00:06:47,640 --> 00:06:52,700
+If you throw an exception instead, that promise will be rejected with this value.
+
+118
+00:06:52,710 --> 00:06:56,460
+So our then callback or catch callbacks still work.
+
+119
+00:06:56,580 --> 00:06:59,430
+But this is not all there is to async functions.
+
+120
+00:06:59,430 --> 00:07:01,230
+That is the async keyword.
+
+121
+00:07:01,230 --> 00:07:05,730
+And shortly we'll see the await keyword, which makes things even more magical.
+

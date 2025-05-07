@@ -1,0 +1,196 @@
+1
+00:00:00,880 --> 00:00:04,059
+There's really just one last thing we have to do to implement our timer.
+
+2
+00:00:04,059 --> 00:00:06,380
+So back inside of our browser.
+
+3
+00:00:06,400 --> 00:00:10,210
+I'm going to change the timer down to just 3 seconds and then start it up.
+
+4
+00:00:10,210 --> 00:00:14,050
+So I'll see that it's going to count down to zero, but then continue into the negatives.
+
+5
+00:00:14,050 --> 00:00:19,030
+So to finish up the timer aspect of this application, all we have to do is add in a check to stop the
+
+6
+00:00:19,030 --> 00:00:21,220
+timer automatically whenever it hits zero.
+
+7
+00:00:21,700 --> 00:00:24,190
+So I'm going to implement that inside my tick method.
+
+8
+00:00:24,550 --> 00:00:25,630
+So inside of here.
+
+9
+00:00:26,530 --> 00:00:32,439
+I'm going to say if this time remaining is less than or equal to zero.
+
+10
+00:00:33,170 --> 00:00:35,750
+Then let's call this dot pause.
+
+11
+00:00:37,180 --> 00:00:38,170
+To stop.
+
+12
+00:00:39,400 --> 00:00:42,370
+Our tick method from continuing to be invoked once every second.
+
+13
+00:00:43,220 --> 00:00:44,570
+Then inside the case.
+
+14
+00:00:44,570 --> 00:00:47,330
+So if this time remaining is greater than zero.
+
+15
+00:00:48,220 --> 00:00:49,630
+Then we're going to run the original.
+
+16
+00:00:49,630 --> 00:00:50,970
+Let's subtract 1/2.
+
+17
+00:00:50,980 --> 00:00:53,950
+So I'm going to cut that and put it into the case like so.
+
+18
+00:00:55,020 --> 00:00:55,400
+Yeah, it's.
+
+19
+00:00:55,410 --> 00:00:56,430
+I'm going to save this.
+
+20
+00:00:56,760 --> 00:00:57,620
+I'm going to go back over.
+
+21
+00:00:57,630 --> 00:00:58,680
+We'll do a quick test.
+
+22
+00:00:58,680 --> 00:01:01,350
+So I'm going to just change this to down to 3 seconds.
+
+23
+00:01:01,350 --> 00:01:01,800
+So go.
+
+24
+00:01:01,800 --> 00:01:05,220
+Three, two, one, zero, stop.
+
+25
+00:01:06,350 --> 00:01:06,560
+Okay.
+
+26
+00:01:06,560 --> 00:01:07,760
+So that definitely looks pretty good.
+
+27
+00:01:08,450 --> 00:01:08,750
+All right.
+
+28
+00:01:08,750 --> 00:01:11,540
+Well, that's pretty much it for the timer aspect of this thing.
+
+29
+00:01:11,570 --> 00:01:15,530
+So now you need to start to pivot our focus a little bit and figure out how we're going to get that
+
+30
+00:01:15,530 --> 00:01:17,780
+animated border to display around this.
+
+31
+00:01:17,810 --> 00:01:22,790
+So, remember, we want to have some kind of like border that's going to either fill up over time or
+
+32
+00:01:22,790 --> 00:01:24,040
+count down over time.
+
+33
+00:01:24,050 --> 00:01:27,320
+We want that thing to update with every tick of a second.
+
+34
+00:01:28,680 --> 00:01:32,190
+The other thing I want you to remember is that we still have to do a little bit of work on our timer
+
+35
+00:01:32,190 --> 00:01:37,830
+class because we want to make sure that during these very critical stages, like whenever we are starting
+
+36
+00:01:37,830 --> 00:01:43,050
+up the timer, whenever a second counts down or whenever the timer ends, we're going to make sure that
+
+37
+00:01:43,050 --> 00:01:47,570
+we watch or emit an event or call a callback or something like that.
+
+38
+00:01:47,580 --> 00:01:53,040
+So stuff outside of our timer class can kind of hook into or watch for that to occur and then update
+
+39
+00:01:53,040 --> 00:01:54,660
+the actual border animation.
+
+40
+00:01:55,680 --> 00:01:59,850
+Now, one thing I want to focus on right now or just mention really quickly is that our current implementation
+
+41
+00:01:59,850 --> 00:02:04,370
+of the timer class is like really simple and pretty darn straightforward.
+
+42
+00:02:04,380 --> 00:02:08,520
+So you can take a look at this thing and really very quickly understand what is going on.
+
+43
+00:02:09,280 --> 00:02:14,650
+If we started to add in all that border updating code into this class right now, well, our time or
+
+44
+00:02:14,650 --> 00:02:19,360
+class would start to get really confusing really quickly, much harder to understand than it currently
+
+45
+00:02:19,360 --> 00:02:19,900
+is.
+
+46
+00:02:20,950 --> 00:02:21,220
+Okay.
+
+47
+00:02:21,220 --> 00:02:21,880
+So quick pause.
+
+48
+00:02:21,880 --> 00:02:25,540
+We're going to come back the next video and start to implement the ability to watch for these different
+
+49
+00:02:25,540 --> 00:02:26,560
+things occurring.
+

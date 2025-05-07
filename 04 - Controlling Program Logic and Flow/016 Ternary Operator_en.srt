@@ -1,0 +1,272 @@
+1
+00:00:00,150 --> 00:00:06,000
+Next up, there is a shortcut syntax that you can use in JavaScript for certain conditionals.
+
+2
+00:00:06,030 --> 00:00:07,890
+It's called the ternary operator.
+
+3
+00:00:07,920 --> 00:00:13,830
+It's a way of basically taking an IFF and an else and turning them into a single line of code.
+
+4
+00:00:14,130 --> 00:00:19,410
+It's called the ternary operator because there are three pieces instead of binary.
+
+5
+00:00:19,440 --> 00:00:21,240
+Ternary is the term for three.
+
+6
+00:00:21,660 --> 00:00:23,910
+As you can see, there are three pieces here.
+
+7
+00:00:24,120 --> 00:00:27,000
+This is kind of the template for how you would read it.
+
+8
+00:00:27,030 --> 00:00:29,790
+There's a condition and a question mark.
+
+9
+00:00:29,910 --> 00:00:34,020
+So if this condition is true, this code runs.
+
+10
+00:00:34,380 --> 00:00:37,620
+Otherwise, if it was false, this code runs.
+
+11
+00:00:38,010 --> 00:00:39,810
+So let's take a simple example.
+
+12
+00:00:39,840 --> 00:00:44,730
+Remember, this only works if you're doing a simple yes or no and if and an else.
+
+13
+00:00:44,730 --> 00:00:46,560
+So no else ifs involved.
+
+14
+00:00:46,740 --> 00:00:55,450
+Let's say we have a number let num equal seven and if num is equal to seven, we'll console.log.
+
+15
+00:00:55,470 --> 00:00:56,220
+Lucky.
+
+16
+00:00:58,550 --> 00:01:04,489
+And then else we can control that log bad.
+
+17
+00:01:05,850 --> 00:01:12,560
+Okay, so here we have a simple if and an else we could rewrite this entire thing on one line if you
+
+18
+00:01:12,560 --> 00:01:13,190
+wanted to.
+
+19
+00:01:13,220 --> 00:01:16,730
+Using this syntax, we have condition question mark.
+
+20
+00:01:16,730 --> 00:01:20,660
+So the condition is num equals seven question mark.
+
+21
+00:01:20,690 --> 00:01:22,420
+Then the code we want to run.
+
+22
+00:01:22,430 --> 00:01:25,460
+If true, that will go there.
+
+23
+00:01:27,310 --> 00:01:31,930
+And then the code we want to run, if false, is separated by a colon.
+
+24
+00:01:32,200 --> 00:01:34,060
+So a question mark and then a colon.
+
+25
+00:01:35,060 --> 00:01:39,380
+Colon contact log bat just like that.
+
+26
+00:01:39,410 --> 00:01:43,500
+I'll comment out the original code, refresh the page and it still works.
+
+27
+00:01:43,550 --> 00:01:44,510
+We get lucky.
+
+28
+00:01:44,540 --> 00:01:46,040
+Let's change it to two.
+
+29
+00:01:47,870 --> 00:01:48,980
+We don't get lucky.
+
+30
+00:01:49,400 --> 00:01:50,010
+Okay.
+
+31
+00:01:50,360 --> 00:01:51,290
+Back to seven.
+
+32
+00:01:52,830 --> 00:01:56,680
+So we've taken this logic and just written written it as a single line.
+
+33
+00:01:56,700 --> 00:01:58,950
+That doesn't mean that you should always do this.
+
+34
+00:01:59,220 --> 00:02:03,710
+Even this is getting pretty long for a ternary, mainly because of these consort logs.
+
+35
+00:02:03,720 --> 00:02:09,539
+But I'll show you another example, slightly different, where we could actually use the ternary operator
+
+36
+00:02:09,539 --> 00:02:11,850
+to assign a value to a variable.
+
+37
+00:02:11,910 --> 00:02:17,670
+Let's say we're making a chat app where you can set yourself, you can set a status to be online or
+
+38
+00:02:17,670 --> 00:02:18,360
+offline.
+
+39
+00:02:18,360 --> 00:02:21,330
+So we'll have a status variable and set it.
+
+40
+00:02:21,690 --> 00:02:23,370
+Let's go with offline to start.
+
+41
+00:02:23,760 --> 00:02:29,160
+And then we want to have a color that we use to show like a little bubble next to your name.
+
+42
+00:02:29,160 --> 00:02:33,180
+If this is a chat app, a bubble that is either red or green.
+
+43
+00:02:33,180 --> 00:02:39,420
+So it's red if you're offline and green if you're online, we would have a variable like color.
+
+44
+00:02:39,780 --> 00:02:42,600
+And if we did it without a ternary operator, we would do.
+
+45
+00:02:42,600 --> 00:02:55,710
+If status equals offline, then we would make color equal to red and then less color is equal to green.
+
+46
+00:02:56,400 --> 00:03:00,750
+So we could write it this way or we could do it all in one line.
+
+47
+00:03:00,810 --> 00:03:04,260
+So I'll keep that there, but I'm going to comment it out.
+
+48
+00:03:05,190 --> 00:03:10,080
+We could rewrite it as let color equals and then our ternary operator.
+
+49
+00:03:10,080 --> 00:03:16,620
+So the piece of logic is status equals offline question mark.
+
+50
+00:03:16,950 --> 00:03:19,350
+Then one value would be red.
+
+51
+00:03:19,350 --> 00:03:20,850
+That's the true part.
+
+52
+00:03:20,970 --> 00:03:25,110
+Remember condition expression if true expression if false.
+
+53
+00:03:25,110 --> 00:03:29,070
+So if true we want red, otherwise we want green.
+
+54
+00:03:30,090 --> 00:03:33,360
+And now we've rewritten this entire thing in one line.
+
+55
+00:03:33,570 --> 00:03:35,730
+So this is a pretty common use case.
+
+56
+00:03:35,760 --> 00:03:38,550
+If I run it, we get red for color.
+
+57
+00:03:38,700 --> 00:03:44,700
+If I change this to be online or really anything else we're only checking for offline at this point.
+
+58
+00:03:45,150 --> 00:03:50,430
+We'll see that color is now green, so it's a nice shortcut.
+
+59
+00:03:50,430 --> 00:03:54,540
+It can be kind of odd if you're not familiar with it, which is why I wanted to show it to you.
+
+60
+00:03:54,540 --> 00:03:58,590
+Now, while we're talking about conditionals, it doesn't do anything new.
+
+61
+00:03:58,590 --> 00:04:00,690
+It just can shorten your code up.
+
+62
+00:04:00,690 --> 00:04:02,220
+So here is the original.
+
+63
+00:04:02,250 --> 00:04:04,320
+Here is the second version with ternary.
+
+64
+00:04:04,320 --> 00:04:10,290
+Operator We have a condition question mark something that happens if the condition is true and something
+
+65
+00:04:10,290 --> 00:04:12,150
+that happens if the condition is false.
+
+66
+00:04:12,150 --> 00:04:15,090
+So the if and the else, that's it.
+
+67
+00:04:15,090 --> 00:04:16,140
+There's no room for else.
+
+68
+00:04:16,140 --> 00:04:19,200
+If it's just a yes or no, do this or do this.
+

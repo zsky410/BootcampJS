@@ -1,0 +1,240 @@
+1
+00:00:00,120 --> 00:00:03,900
+In the last video we saw that we could have a variable like score.
+
+2
+00:00:03,930 --> 00:00:05,370
+Let's say it starts at zero.
+
+3
+00:00:05,400 --> 00:00:09,390
+We're making some sort of board game or a Tetris or something in the browser.
+
+4
+00:00:09,660 --> 00:00:15,270
+We have a score variable to keep track of the user score and we could update it by doing this score
+
+5
+00:00:15,270 --> 00:00:19,960
+equals score plus let's say ten if the user scores ten points.
+
+6
+00:00:19,980 --> 00:00:21,420
+Now score is ten.
+
+7
+00:00:21,450 --> 00:00:27,000
+There's also a shorthand for changing the value of a variable without having to reference the name again.
+
+8
+00:00:27,090 --> 00:00:32,250
+So instead of score equals score plus ten, we can do score plus equals.
+
+9
+00:00:32,280 --> 00:00:33,360
+Let's go with one.
+
+10
+00:00:34,500 --> 00:00:39,520
+This is the same as saying score equals score plus one plus equals.
+
+11
+00:00:39,540 --> 00:00:43,010
+Is just going to update score by one in this case.
+
+12
+00:00:43,020 --> 00:00:44,790
+So score is 11.
+
+13
+00:00:45,300 --> 00:00:48,050
+Now we could also do it by something other than one.
+
+14
+00:00:48,060 --> 00:00:51,240
+We could add ten again, score plus equals ten.
+
+15
+00:00:51,270 --> 00:00:52,770
+Score is now 21.
+
+16
+00:00:53,340 --> 00:00:59,670
+Now we can also do the same thing with subtraction and other operators like score minus equals.
+
+17
+00:00:59,700 --> 00:01:02,520
+Say that the user did something bad in the game.
+
+18
+00:01:02,520 --> 00:01:05,850
+They lose points, minus equals 100.
+
+19
+00:01:06,240 --> 00:01:08,560
+Now score is -79.
+
+20
+00:01:08,580 --> 00:01:12,240
+Let's reset it to let's go with 150.
+
+21
+00:01:12,660 --> 00:01:17,860
+And then let's say we had another variable like bonus, which we call multiplier.
+
+22
+00:01:17,880 --> 00:01:18,930
+That's kind of long.
+
+23
+00:01:18,930 --> 00:01:21,690
+How about bonus mult instead of multiplier?
+
+24
+00:01:21,690 --> 00:01:23,490
+And this will be three.
+
+25
+00:01:24,390 --> 00:01:31,110
+So if we wanted to multiply the score by three or by whatever this multiplier is, you get a star in
+
+26
+00:01:31,110 --> 00:01:33,090
+the game or something that multiplies your score.
+
+27
+00:01:33,450 --> 00:01:35,490
+We could do score times equals.
+
+28
+00:01:35,490 --> 00:01:40,800
+And then I just wanted to show you can use other variable names to do this score times equals bonus
+
+29
+00:01:40,800 --> 00:01:41,370
+moult.
+
+30
+00:01:41,490 --> 00:01:47,100
+We now are just saying take score and multiply it by whatever this variable is, which is three and
+
+31
+00:01:47,100 --> 00:01:49,230
+then save that new value to score.
+
+32
+00:01:49,260 --> 00:01:52,990
+We also have divide equals or slash equals.
+
+33
+00:01:53,010 --> 00:01:58,320
+Most of the time you'll see plus and minus, and a lot of the time you just want to increment by one
+
+34
+00:01:58,320 --> 00:01:59,550
+or decrement by one.
+
+35
+00:01:59,550 --> 00:02:04,590
+And there's another shortcut and even shorter way of doing that because it's done so commonly.
+
+36
+00:02:04,680 --> 00:02:07,620
+Often we're doing things where we have a variable, a number.
+
+37
+00:02:07,650 --> 00:02:12,450
+You need to add one to it, and then later add one more and one more like a counter, for example,
+
+38
+00:02:12,450 --> 00:02:17,400
+to keep track of certain things, how many times they happen or how many times you want something to
+
+39
+00:02:17,400 --> 00:02:18,120
+occur.
+
+40
+00:02:18,420 --> 00:02:20,460
+And let's do an example of that.
+
+41
+00:02:20,460 --> 00:02:23,580
+Let counter equal zero.
+
+42
+00:02:23,790 --> 00:02:29,790
+If I wanted to add one to it instead of plus equals one, there's something called a urinary operator.
+
+43
+00:02:29,820 --> 00:02:33,840
+Urinary operators are operators where there's only one side.
+
+44
+00:02:34,170 --> 00:02:39,030
+This right here has two sides counter plus three right, the left and the right.
+
+45
+00:02:39,360 --> 00:02:41,070
+This has one side.
+
+46
+00:02:41,070 --> 00:02:43,410
+And this is just going to add one plus.
+
+47
+00:02:43,410 --> 00:02:45,420
+Plus, we'll add one to counter.
+
+48
+00:02:45,450 --> 00:02:50,070
+So now counter is one and we can do the same thing.
+
+49
+00:02:50,100 --> 00:02:53,010
+Let's do it one more time or three more times.
+
+50
+00:02:53,010 --> 00:02:53,460
+Who knows?
+
+51
+00:02:53,460 --> 00:02:59,430
+So we have counter set to four, if I can spell it, and we can now do the same, but decrements it
+
+52
+00:02:59,430 --> 00:03:02,760
+counter minus minus will subtract one.
+
+53
+00:03:02,760 --> 00:03:04,500
+So counter right now is four.
+
+54
+00:03:04,500 --> 00:03:08,040
+If I do counter minus minus, we end up with three.
+
+55
+00:03:09,030 --> 00:03:09,540
+Cool.
+
+56
+00:03:09,540 --> 00:03:11,070
+So I just wanted to show you those.
+
+57
+00:03:11,070 --> 00:03:12,300
+You'll see them all the time.
+
+58
+00:03:12,300 --> 00:03:14,700
+Plus equals minus equals star equals.
+
+59
+00:03:14,700 --> 00:03:16,680
+But then also the urinary operators.
+
+60
+00:03:16,680 --> 00:03:18,600
+Plus plus and minus minus.
+

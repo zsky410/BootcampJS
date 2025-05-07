@@ -1,0 +1,284 @@
+1
+00:00:00,060 --> 00:00:06,090
+Next up, we'll see that we can use D structuring to unpack values from an object into standalone variables,
+
+2
+00:00:06,090 --> 00:00:07,750
+just like we could for an array.
+
+3
+00:00:07,770 --> 00:00:13,380
+But the main difference is that in an array we would unpack based off of position the index.
+
+4
+00:00:13,380 --> 00:00:18,620
+So the first variable would be the first element, second would be the second, and so on.
+
+5
+00:00:18,630 --> 00:00:23,640
+In an object we make the variables based off of the name of the property.
+
+6
+00:00:23,820 --> 00:00:25,440
+So here's an example.
+
+7
+00:00:25,440 --> 00:00:27,470
+I have an object called Runner.
+
+8
+00:00:27,850 --> 00:00:30,210
+I'm still going with the marathon theme we've got.
+
+9
+00:00:30,210 --> 00:00:35,430
+First is Elliot, last name is Kipchoge, country is Kenya and title.
+
+10
+00:00:35,430 --> 00:00:36,780
+This is pretty crazy.
+
+11
+00:00:36,780 --> 00:00:40,380
+I was checking out his Wikipedia page and he had this after his name.
+
+12
+00:00:40,380 --> 00:00:43,140
+Elder of the Order of the Golden Heart of Kenya.
+
+13
+00:00:43,410 --> 00:00:45,210
+That's a pretty awesome title.
+
+14
+00:00:45,390 --> 00:00:47,520
+Elder of the Order of the Golden Heart of Kenya.
+
+15
+00:00:47,850 --> 00:00:49,770
+It's a little long, but pretty cool.
+
+16
+00:00:49,950 --> 00:00:57,510
+If I wanted to create variables for, let's say, first and last, all I need to do is follow the same
+
+17
+00:00:57,510 --> 00:01:03,240
+pattern where instead of an array bracket, I use object curly braces and I'll set it equal to runner.
+
+18
+00:01:03,330 --> 00:01:06,330
+And then I single out the properties that I want.
+
+19
+00:01:06,360 --> 00:01:08,130
+The order doesn't matter at all.
+
+20
+00:01:08,160 --> 00:01:09,870
+It's just the name that matters.
+
+21
+00:01:10,050 --> 00:01:11,790
+First and last.
+
+22
+00:01:11,790 --> 00:01:18,570
+Let's run the code and we'll see that first is set to Elliot and last is set to Kipchoge.
+
+23
+00:01:18,960 --> 00:01:25,980
+So if it finds this property based off of that name, it will take the value and store it in a variable
+
+24
+00:01:25,980 --> 00:01:27,120
+with the same name.
+
+25
+00:01:27,300 --> 00:01:31,230
+So first and last we're both found and runner is unchanged.
+
+26
+00:01:31,440 --> 00:01:33,000
+It's still the same object.
+
+27
+00:01:33,540 --> 00:01:38,190
+We could also try something like How about time?
+
+28
+00:01:38,340 --> 00:01:40,260
+Which is not in this object?
+
+29
+00:01:40,260 --> 00:01:42,000
+What do you think time will be set to?
+
+30
+00:01:43,410 --> 00:01:44,220
+Undefined.
+
+31
+00:01:44,250 --> 00:01:45,360
+So no error.
+
+32
+00:01:45,360 --> 00:01:47,430
+We just made a new variable called time.
+
+33
+00:01:47,430 --> 00:01:48,900
+It still made the variable.
+
+34
+00:01:48,930 --> 00:01:50,460
+It's just set to undefined.
+
+35
+00:01:50,460 --> 00:01:51,960
+With what we've seen so far.
+
+36
+00:01:51,990 --> 00:01:58,650
+The variable names must be existing key names in the object, but we can give them new names if we wanted
+
+37
+00:01:58,650 --> 00:01:59,130
+to.
+
+38
+00:01:59,700 --> 00:02:01,170
+I'll do something similar.
+
+39
+00:02:01,170 --> 00:02:08,910
+Let's try const and let's grab the country, but instead save it to a variable called nation.
+
+40
+00:02:09,720 --> 00:02:15,840
+To do that, it looks like this country colon nation equals runner.
+
+41
+00:02:16,260 --> 00:02:21,840
+So this will make a variable called nation based off of the value found in country.
+
+42
+00:02:22,970 --> 00:02:29,720
+If we take a look at nation now, if I run my code over here, it's set to Kenya so I could try one
+
+43
+00:02:29,720 --> 00:02:30,350
+more.
+
+44
+00:02:30,380 --> 00:02:33,160
+Let's also do title.
+
+45
+00:02:33,170 --> 00:02:36,320
+What would be another name we might want to use instead of title?
+
+46
+00:02:36,560 --> 00:02:41,660
+I think this is also called an honorific, so we'll go with that title.
+
+47
+00:02:42,080 --> 00:02:45,320
+But we want to make a variable named called honorific.
+
+48
+00:02:46,720 --> 00:02:47,320
+Okay.
+
+49
+00:02:47,320 --> 00:02:54,010
+So fine title in this object if you do find it and then make a variable with that value called honorific,
+
+50
+00:02:54,220 --> 00:02:55,180
+let's run it.
+
+51
+00:02:55,270 --> 00:02:57,640
+We've got honorific over here.
+
+52
+00:02:57,640 --> 00:02:58,660
+Yep we do.
+
+53
+00:02:58,900 --> 00:03:00,790
+So title is not a variable.
+
+54
+00:03:00,820 --> 00:03:02,440
+Neither is country.
+
+55
+00:03:02,650 --> 00:03:08,740
+We just use those keys to access data from runner in a super nice short syntax.
+
+56
+00:03:09,250 --> 00:03:15,010
+The one other thing that I'll show you here with objects at least is that we can use the rest operator
+
+57
+00:03:15,010 --> 00:03:16,810
+just like we did with arrays.
+
+58
+00:03:16,810 --> 00:03:23,290
+I could single out country or first or last and then collect everything else in a new variable.
+
+59
+00:03:23,500 --> 00:03:30,220
+So I'll just do const first, last, and then dot, dot, dot others again.
+
+60
+00:03:32,000 --> 00:03:36,020
+Or just other equals runner.
+
+61
+00:03:36,980 --> 00:03:38,150
+I'll save.
+
+62
+00:03:38,510 --> 00:03:39,650
+Refresh the page.
+
+63
+00:03:39,650 --> 00:03:40,940
+So we still have first.
+
+64
+00:03:40,940 --> 00:03:46,640
+We have last, but now I have a variable called other which contains the other two properties we didn't
+
+65
+00:03:46,640 --> 00:03:47,240
+claim.
+
+66
+00:03:47,240 --> 00:03:53,450
+We didn't unpack them into their own variable, so we put them in the other variable thanks to rest.
+
+67
+00:03:53,450 --> 00:03:57,200
+If I left the dot dot dot off, it's a totally different meaning.
+
+68
+00:03:57,200 --> 00:04:04,250
+It's trying to find a value or a key rather in runner called other, but that doesn't exist.
+
+69
+00:04:05,300 --> 00:04:05,630
+All right.
+
+70
+00:04:05,630 --> 00:04:11,270
+So that's the basics of object structuring, similar to arrays, similar concept.
+
+71
+00:04:11,270 --> 00:04:16,760
+But rather than using position, we're using the property name to de structure to unpack.
+

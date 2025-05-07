@@ -1,0 +1,328 @@
+1
+00:00:00,150 --> 00:00:00,480
+Okay.
+
+2
+00:00:00,480 --> 00:00:02,200
+So we talked about the call stack.
+
+3
+00:00:02,220 --> 00:00:03,930
+Put that aside for just a moment.
+
+4
+00:00:03,960 --> 00:00:09,250
+Next, we need to address a fundamental characteristic of JavaScript as a language.
+
+5
+00:00:09,270 --> 00:00:11,890
+JavaScript is a single threaded language.
+
+6
+00:00:11,910 --> 00:00:13,980
+If you don't know what that means, don't worry.
+
+7
+00:00:14,010 --> 00:00:19,380
+All that it really means is that at any given point in our script, whatever script is being executed,
+
+8
+00:00:19,680 --> 00:00:22,350
+JavaScript is running one thing at a time.
+
+9
+00:00:22,350 --> 00:00:24,180
+It's it's not multitasking.
+
+10
+00:00:24,180 --> 00:00:25,290
+It does one thing.
+
+11
+00:00:25,650 --> 00:00:27,300
+There's a really good blog post.
+
+12
+00:00:27,300 --> 00:00:33,720
+I think it's on the Google, one of the official Google developer blogs talking about asynchronous JavaScript
+
+13
+00:00:33,720 --> 00:00:35,640
+that humans are multithreaded.
+
+14
+00:00:35,640 --> 00:00:40,320
+You know, if you can fold the laundry while watching TV or talking to your friend or whatever it is,
+
+15
+00:00:40,320 --> 00:00:45,900
+but humans are single threaded in one very specific case, according to this blog post, which is When
+
+16
+00:00:45,900 --> 00:00:48,960
+we sneeze, no one can do anything else except sneeze.
+
+17
+00:00:49,380 --> 00:00:52,060
+So when you're sneezing, that's the one thing you're focused on.
+
+18
+00:00:52,080 --> 00:00:58,590
+So back to JavaScript at any given point, one thing is being run at a time and this has a whole bunch
+
+19
+00:00:58,590 --> 00:00:59,550
+of implications.
+
+20
+00:00:59,550 --> 00:01:01,290
+But let me just demonstrate it first.
+
+21
+00:01:01,290 --> 00:01:05,129
+If we do something extremely simple, we console that log.
+
+22
+00:01:05,489 --> 00:01:09,210
+I happened first and then a different contact log.
+
+23
+00:01:09,210 --> 00:01:11,250
+I happen seconds.
+
+24
+00:01:12,490 --> 00:01:14,290
+And if we alert in the middle.
+
+25
+00:01:14,320 --> 00:01:15,180
+Alert.
+
+26
+00:01:15,190 --> 00:01:15,970
+Hi there.
+
+27
+00:01:16,540 --> 00:01:17,850
+And I run this code.
+
+28
+00:01:17,860 --> 00:01:20,880
+What will we see in our console when I refresh the page?
+
+29
+00:01:20,890 --> 00:01:22,480
+Well, let's refresh it.
+
+30
+00:01:23,290 --> 00:01:23,830
+There we go.
+
+31
+00:01:23,830 --> 00:01:24,780
+I get the alert.
+
+32
+00:01:24,790 --> 00:01:26,290
+We open up the console.
+
+33
+00:01:27,010 --> 00:01:27,970
+I won't even let me open it.
+
+34
+00:01:27,970 --> 00:01:28,180
+Well.
+
+35
+00:01:28,500 --> 00:01:30,280
+Well, let's try it one more time.
+
+36
+00:01:30,400 --> 00:01:31,450
+I'm going to refresh.
+
+37
+00:01:31,690 --> 00:01:32,350
+We get.
+
+38
+00:01:32,350 --> 00:01:34,090
+I happen first and then.
+
+39
+00:01:34,090 --> 00:01:34,840
+Hi there.
+
+40
+00:01:34,870 --> 00:01:36,260
+And it just stops.
+
+41
+00:01:36,280 --> 00:01:41,860
+This alert is blocking everything else from going on until the user finishes it or completes it, at
+
+42
+00:01:41,860 --> 00:01:44,260
+which point JavaScript moves on to the next line.
+
+43
+00:01:44,980 --> 00:01:50,580
+So that's as simple example, but here you can tell JavaScript is doing one thing when it's alerting,
+
+44
+00:01:50,590 --> 00:01:53,020
+it's not continuing to console.log.
+
+45
+00:01:53,020 --> 00:01:57,520
+Or if we had math after this or a different function call, it's not going to move on.
+
+46
+00:01:57,850 --> 00:02:03,910
+And that seems like it could be a severe limitation if we do things that take time, if we do things
+
+47
+00:02:03,910 --> 00:02:09,780
+that aren't immediate, we don't want to just have a user sit there waiting and have no other code running.
+
+48
+00:02:09,789 --> 00:02:15,130
+But as you've probably seen already, we have a way around this and we'll get to that in just a moment.
+
+49
+00:02:15,340 --> 00:02:19,780
+But here's a simple example of something that we do via JavaScript all the time.
+
+50
+00:02:19,780 --> 00:02:22,270
+We send a request from the browser.
+
+51
+00:02:22,270 --> 00:02:28,480
+We write some JavaScript code asking for, let's say, data from a movie API that takes time.
+
+52
+00:02:28,480 --> 00:02:30,490
+It goes sends a request to a server.
+
+53
+00:02:30,490 --> 00:02:33,040
+That server may or may not be online.
+
+54
+00:02:33,040 --> 00:02:35,590
+We may have a valid endpoint, we may not.
+
+55
+00:02:35,590 --> 00:02:38,530
+But even if everything goes great, it still takes time.
+
+56
+00:02:38,530 --> 00:02:41,500
+The server will respond to your request.
+
+57
+00:02:41,530 --> 00:02:47,680
+If we're looking for movies that match the query bat bat, it will search through its database, find
+
+58
+00:02:47,680 --> 00:02:50,680
+the relevant information, and then send a response back.
+
+59
+00:02:50,890 --> 00:02:54,910
+Bates Motel and Batman in this case again, this takes time.
+
+60
+00:02:55,120 --> 00:02:56,860
+It can be very slow.
+
+61
+00:02:56,950 --> 00:02:58,810
+So what happens to our application?
+
+62
+00:02:58,810 --> 00:03:01,420
+Does it just stop and nothing else happens?
+
+63
+00:03:01,630 --> 00:03:07,630
+Like what we had over here, where this alert potentially takes a long time for a user to finish, a
+
+64
+00:03:07,630 --> 00:03:09,040
+user may not notice it.
+
+65
+00:03:09,610 --> 00:03:13,300
+I mean, even if it's just a split second, your code is just doing nothing right now.
+
+66
+00:03:13,390 --> 00:03:19,000
+Is this what happens when we make a request, when we are fetching data from an API, when we're trying
+
+67
+00:03:19,000 --> 00:03:25,180
+to save data to an API, any time we do some sort of single page app functionality which usually involves
+
+68
+00:03:25,180 --> 00:03:31,150
+communicating with an API, communicating with a database or a server that takes time.
+
+69
+00:03:31,150 --> 00:03:34,000
+Is our app just going to sit there doing nothing?
+
+70
+00:03:34,000 --> 00:03:36,940
+And as a user, just going to sit there waiting for something to happen?
+
+71
+00:03:36,970 --> 00:03:38,740
+The answer is no.
+
+72
+00:03:39,250 --> 00:03:41,370
+How does that work and why not?
+
+73
+00:03:41,380 --> 00:03:43,450
+That's what we're going to answer in the next video.
+
+74
+00:03:43,750 --> 00:03:48,610
+JavaScript has a couple of tricks up its sleeve, or rather the browser has some tricks up its sleeve
+
+75
+00:03:48,640 --> 00:03:51,970
+to get around this single threaded ness of JavaScript.
+
+76
+00:03:51,970 --> 00:03:57,970
+So to summarize what we saw here in JavaScript at any given point, JavaScript itself is running at
+
+77
+00:03:57,970 --> 00:03:59,440
+most one line of code.
+
+78
+00:03:59,560 --> 00:04:02,890
+So it's not multitasking, it's not doing three things at once.
+
+79
+00:04:02,890 --> 00:04:05,260
+It's doing one thing at a time or nothing.
+
+80
+00:04:05,260 --> 00:04:06,730
+If it's not doing anything.
+
+81
+00:04:06,730 --> 00:04:11,920
+It's very important to understand that so that you can better understand the workaround we have, which
+
+82
+00:04:11,920 --> 00:04:13,840
+we're talking about right after this.
+

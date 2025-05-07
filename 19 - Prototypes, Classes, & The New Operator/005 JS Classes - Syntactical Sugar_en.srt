@@ -1,0 +1,1004 @@
+1
+00:00:00,270 --> 00:00:00,780
+All right.
+
+2
+00:00:00,780 --> 00:00:08,039
+So next up, we're going to see an even better way of replicating the exact same functionality, creating
+
+3
+00:00:08,039 --> 00:00:10,050
+a template for a color.
+
+4
+00:00:10,050 --> 00:00:16,650
+In our case, where we have different properties like our G and B that are numbers in this case, and
+
+5
+00:00:16,650 --> 00:00:20,280
+then we also add methods that are on the color prototype.
+
+6
+00:00:20,430 --> 00:00:25,200
+So there is only one copy of them across all instances of that color.
+
+7
+00:00:25,830 --> 00:00:29,580
+And this better option is the new class syntax.
+
+8
+00:00:29,880 --> 00:00:34,290
+So it is just syntactic sugar for exactly what we've been doing.
+
+9
+00:00:34,560 --> 00:00:40,590
+Syntactic sugar, remember, is just like a cleaner, cuter way of writing something that behind the
+
+10
+00:00:40,590 --> 00:00:44,100
+scenes is going to turn into what we already have here.
+
+11
+00:00:44,100 --> 00:00:47,490
+So you still have to understand prototypes and the keyword this.
+
+12
+00:00:47,490 --> 00:00:51,210
+But I'm going to show you how we could rewrite this as a single class.
+
+13
+00:00:51,210 --> 00:00:57,480
+And the main benefit, in my opinion, is that we don't have to add methods to the prototype manually
+
+14
+00:00:57,480 --> 00:00:58,500
+like we have here.
+
+15
+00:00:58,500 --> 00:01:04,110
+We don't have to break up the constructor function and then separately add methods.
+
+16
+00:01:04,110 --> 00:01:10,050
+I hate doing that because you end up with this nice little compact function that explains the properties
+
+17
+00:01:10,050 --> 00:01:14,370
+of your object and then you realize, Oh, wait, no, there's all these other properties.
+
+18
+00:01:14,370 --> 00:01:18,780
+They're on the prototype, so they're defined separately and individually like this.
+
+19
+00:01:18,870 --> 00:01:20,490
+It just is kind of clunky.
+
+20
+00:01:20,520 --> 00:01:26,280
+So let's see the alternative comment this out and you'll have to hang in there with a bit of this syntax
+
+21
+00:01:26,280 --> 00:01:27,000
+up front.
+
+22
+00:01:27,000 --> 00:01:32,580
+So we have a keyword called class and then I can give my class a name.
+
+23
+00:01:32,580 --> 00:01:38,850
+And typically we use an uppercase letter to indicate that it is a class or a constructor function.
+
+24
+00:01:38,850 --> 00:01:45,970
+It is a pattern for some sort of object, just like we have XML http request where the x is uppercase
+
+25
+00:01:46,050 --> 00:01:52,650
+normally in JavaScript for a function name, you know, document query selector, we don't capitalize
+
+26
+00:01:52,650 --> 00:01:57,300
+the Q, but we do when we are creating classes or constructor functions.
+
+27
+00:01:57,840 --> 00:02:00,720
+So this gives us a class next.
+
+28
+00:02:00,990 --> 00:02:03,750
+Probably the most confusing part for beginners.
+
+29
+00:02:03,990 --> 00:02:06,600
+We always add in a constructor.
+
+30
+00:02:06,960 --> 00:02:14,070
+Now a constructor is a function that will execute immediately whenever a new color is created.
+
+31
+00:02:14,760 --> 00:02:17,670
+So it's kind of like this constructor function here.
+
+32
+00:02:18,090 --> 00:02:20,790
+So we would add in three arguments.
+
+33
+00:02:21,420 --> 00:02:30,690
+And if I called this, we'll console.log our G and B and maybe also console.log inside constructor like
+
+34
+00:02:30,690 --> 00:02:31,170
+that.
+
+35
+00:02:32,250 --> 00:02:36,720
+If I create a new color, we have to use the same syntax we've already seen.
+
+36
+00:02:36,720 --> 00:02:37,890
+New color.
+
+37
+00:02:38,160 --> 00:02:41,850
+Save it to a variable const what should we call it?
+
+38
+00:02:41,970 --> 00:02:44,970
+C one very boring pass in some numbers.
+
+39
+00:02:44,970 --> 00:02:47,240
+Two, five, five, six, seven, eight, nine.
+
+40
+00:02:48,060 --> 00:02:52,080
+And if I tried running this in my browser refresh.
+
+41
+00:02:53,960 --> 00:03:01,130
+You can see my inside constructor console.log ran immediately and I have RG and B print it out.
+
+42
+00:03:01,340 --> 00:03:03,270
+So those arguments are passed through.
+
+43
+00:03:03,290 --> 00:03:08,910
+So I never said run the constructor, I never called constructor or anything like that.
+
+44
+00:03:08,930 --> 00:03:12,450
+It automatically runs as long as it's name constructor.
+
+45
+00:03:12,470 --> 00:03:13,760
+So that is a must have.
+
+46
+00:03:13,760 --> 00:03:16,900
+Whenever you define a class, you have to have the class keyword.
+
+47
+00:03:16,910 --> 00:03:19,700
+You need to have the constructor which will run immediately.
+
+48
+00:03:19,700 --> 00:03:27,020
+Whenever we instantiate a new instance of color or whatever the class is, XML, HTTP request or the
+
+49
+00:03:27,020 --> 00:03:30,800
+dog class or the alert class or button class.
+
+50
+00:03:30,950 --> 00:03:32,550
+You have to call it with new.
+
+51
+00:03:32,570 --> 00:03:35,240
+And you need to have a constructor there.
+
+52
+00:03:35,480 --> 00:03:44,160
+So usually in the constructor, we're going to access this this dot a or this R equals R, this dot
+
+53
+00:03:44,210 --> 00:03:48,380
+B equals B and this dot g equals G.
+
+54
+00:03:48,950 --> 00:03:54,920
+So these are going to be added as properties on this color object that we get returned.
+
+55
+00:03:55,550 --> 00:03:58,880
+Just like we had this here and our constructor function.
+
+56
+00:03:58,880 --> 00:04:00,080
+Same idea.
+
+57
+00:04:00,320 --> 00:04:04,100
+This will automatically refer to a new object.
+
+58
+00:04:04,280 --> 00:04:07,640
+So when we call new color, it still follows those same steps.
+
+59
+00:04:07,640 --> 00:04:13,340
+Even though it's in a class, it's going to make a new empty object and it sets the value of this to
+
+60
+00:04:13,340 --> 00:04:14,300
+that object.
+
+61
+00:04:14,300 --> 00:04:21,740
+So this dot R will be whatever is passed in as ah, this dot B will be whatever is passed into B and
+
+62
+00:04:22,070 --> 00:04:22,660
+G.
+
+63
+00:04:22,700 --> 00:04:28,730
+The order doesn't matter, but it's driving me crazy to have B before g, so I would probably change
+
+64
+00:04:28,730 --> 00:04:30,860
+that up, but it won't change anything.
+
+65
+00:04:31,430 --> 00:04:33,500
+Let's also add in a name for the color.
+
+66
+00:04:34,220 --> 00:04:41,120
+We can do that last maybe this name equals and then this could be a name to describe the color.
+
+67
+00:04:41,630 --> 00:04:44,690
+So this name equals whatever name was passed in.
+
+68
+00:04:45,080 --> 00:04:46,250
+And you can change these.
+
+69
+00:04:46,260 --> 00:04:47,600
+They don't have to match.
+
+70
+00:04:47,600 --> 00:04:47,960
+Right?
+
+71
+00:04:47,960 --> 00:04:52,610
+We could have name and name it as color name instead.
+
+72
+00:04:52,970 --> 00:04:59,180
+But this is the property we are adding to the object and typically we use the exact same name.
+
+73
+00:04:59,520 --> 00:05:00,860
+It's very common to see that.
+
+74
+00:05:02,030 --> 00:05:05,780
+So as far as a name for this color, what even is this color?
+
+75
+00:05:05,780 --> 00:05:08,270
+Let's just take a look using VTS code here.
+
+76
+00:05:08,270 --> 00:05:10,280
+Let's just put RWB in front of that.
+
+77
+00:05:10,310 --> 00:05:10,630
+Okay.
+
+78
+00:05:10,670 --> 00:05:11,900
+It's a reddish color.
+
+79
+00:05:11,930 --> 00:05:16,580
+We'll call that tomato, so we'll pass that in tomato as a string.
+
+80
+00:05:18,640 --> 00:05:19,420
+Like that.
+
+81
+00:05:19,450 --> 00:05:20,000
+Okay.
+
+82
+00:05:20,440 --> 00:05:21,700
+So let's look at this.
+
+83
+00:05:21,730 --> 00:05:22,730
+See one?
+
+84
+00:05:22,750 --> 00:05:25,060
+When I run the code, see one?
+
+85
+00:05:26,100 --> 00:05:27,210
+It's an object.
+
+86
+00:05:27,450 --> 00:05:31,230
+It has a, B, a G and name and an R.
+
+87
+00:05:31,620 --> 00:05:34,140
+They were all set in this constructor.
+
+88
+00:05:34,500 --> 00:05:38,940
+So I never made an empty object myself, just like I never did it here.
+
+89
+00:05:39,270 --> 00:05:41,100
+The new keyword takes care of that.
+
+90
+00:05:41,730 --> 00:05:47,100
+All I did was say on this new object that will be created for me, even though I am not ever seeing
+
+91
+00:05:47,100 --> 00:05:50,940
+it and it magically is stored in the value of this.
+
+92
+00:05:51,300 --> 00:05:54,420
+Add an AR property, set it to this argument or this parameter.
+
+93
+00:05:54,420 --> 00:05:56,460
+Are same for GB and name.
+
+94
+00:05:57,090 --> 00:06:01,680
+All right, now let's look at the proto for this color.
+
+95
+00:06:01,710 --> 00:06:05,190
+This object, you can see the constructor is set to color.
+
+96
+00:06:05,940 --> 00:06:06,630
+All right.
+
+97
+00:06:07,020 --> 00:06:08,610
+So we didn't do that either.
+
+98
+00:06:08,610 --> 00:06:11,730
+But by using new, it all takes care of it.
+
+99
+00:06:11,940 --> 00:06:13,300
+Now, what about methods?
+
+100
+00:06:13,320 --> 00:06:15,670
+This is the real advantage, in my opinion.
+
+101
+00:06:15,690 --> 00:06:21,390
+We don't have to do color, prototype, whatever like we did up here.
+
+102
+00:06:21,420 --> 00:06:23,010
+We could do something trivial.
+
+103
+00:06:23,010 --> 00:06:25,200
+Like, how about greets?
+
+104
+00:06:25,470 --> 00:06:27,360
+I don't know why a color would have greets.
+
+105
+00:06:27,630 --> 00:06:33,030
+The easiest way to do this is with this adorable syntax that we can use instead of classes.
+
+106
+00:06:33,030 --> 00:06:35,450
+We can actually use this instead of objects in general.
+
+107
+00:06:35,460 --> 00:06:37,290
+We talked about it in our objects.
+
+108
+00:06:37,620 --> 00:06:39,710
+What we call it Secret Life of Object Section.
+
+109
+00:06:39,720 --> 00:06:42,240
+It's a new shorthand syntax for defining a method.
+
+110
+00:06:42,920 --> 00:06:44,620
+And here I can just return.
+
+111
+00:06:44,630 --> 00:06:47,480
+Hello from a color.
+
+112
+00:06:48,380 --> 00:06:51,470
+And actually, why don't we include the color name from.
+
+113
+00:06:52,130 --> 00:06:53,390
+I'll need to make this a template.
+
+114
+00:06:53,390 --> 00:06:59,810
+Literal back ticks this dot name, and then we'll add an exclamation point at the end.
+
+115
+00:07:00,680 --> 00:07:06,530
+So this is now a method on every color, but not on the instances.
+
+116
+00:07:06,530 --> 00:07:07,820
+This is a nice part.
+
+117
+00:07:07,850 --> 00:07:10,500
+It's just like we had done this here.
+
+118
+00:07:10,580 --> 00:07:16,220
+Color dot prototype dot greet equals some function.
+
+119
+00:07:16,400 --> 00:07:17,840
+But we don't have to type prototype.
+
+120
+00:07:17,840 --> 00:07:18,890
+We don't have to type color.
+
+121
+00:07:18,890 --> 00:07:25,040
+We just put it inside this class so we can group everything together, which makes things much easier.
+
+122
+00:07:25,610 --> 00:07:26,510
+So let's try it.
+
+123
+00:07:26,510 --> 00:07:27,880
+We have this color one.
+
+124
+00:07:27,890 --> 00:07:29,030
+Let's open it up.
+
+125
+00:07:29,540 --> 00:07:31,490
+It does not have greet showing here.
+
+126
+00:07:31,490 --> 00:07:33,140
+Instead, greet is on the prototype.
+
+127
+00:07:33,140 --> 00:07:35,000
+There's only one copy of greet.
+
+128
+00:07:35,810 --> 00:07:37,640
+See one dot greet.
+
+129
+00:07:37,670 --> 00:07:38,780
+Let's execute it.
+
+130
+00:07:39,050 --> 00:07:40,460
+Hello from tomato.
+
+131
+00:07:40,850 --> 00:07:42,100
+Let's make a different color.
+
+132
+00:07:42,590 --> 00:07:44,030
+New color.
+
+133
+00:07:44,510 --> 00:07:47,600
+Let's do two, five, five, two, five, five, two, five, five.
+
+134
+00:07:47,600 --> 00:07:49,520
+And I think that's white.
+
+135
+00:07:49,820 --> 00:07:52,690
+Save that to a variable cost white.
+
+136
+00:07:52,700 --> 00:07:53,270
+Sure.
+
+137
+00:07:53,900 --> 00:07:56,870
+And call white dot greet.
+
+138
+00:07:58,230 --> 00:07:59,430
+Hello from White.
+
+139
+00:07:59,460 --> 00:08:05,430
+All right, so let's actually add in some methods that we would want, like an RGB method.
+
+140
+00:08:05,940 --> 00:08:08,250
+We can copy the logic from what we did earlier.
+
+141
+00:08:08,520 --> 00:08:11,130
+We'll just return this string.
+
+142
+00:08:11,430 --> 00:08:18,120
+But we need to make sure we get our G and B and we have access to those just like we did here by using
+
+143
+00:08:18,120 --> 00:08:19,270
+the keyword this.
+
+144
+00:08:19,290 --> 00:08:20,430
+So this.
+
+145
+00:08:20,430 --> 00:08:26,730
+Any time we're inside of a class, this refers to the instance of the class, the individual color object.
+
+146
+00:08:26,730 --> 00:08:32,549
+So not the prototype or anything, not the function, not the window, unless you're not using the new
+
+147
+00:08:32,549 --> 00:08:33,539
+keyword that is.
+
+148
+00:08:33,549 --> 00:08:37,890
+But if you use a new keyword, this will refer to the individual object.
+
+149
+00:08:37,890 --> 00:08:44,039
+And then whenever we have an object, a color like white, great white is a color object.
+
+150
+00:08:44,039 --> 00:08:48,040
+When we greet the keyword, this was used instead of greet.
+
+151
+00:08:48,060 --> 00:08:48,720
+I got rid of it.
+
+152
+00:08:48,720 --> 00:08:50,160
+But we had this name.
+
+153
+00:08:50,370 --> 00:08:53,580
+This referred to the individual object, the instance.
+
+154
+00:08:53,880 --> 00:08:55,020
+So we can do structure.
+
+155
+00:08:55,230 --> 00:08:56,040
+We could do this.
+
+156
+00:08:56,250 --> 00:09:03,360
+Ah, this G, this dot B or just D structure r, g and B from this.
+
+157
+00:09:04,790 --> 00:09:07,610
+Now, if I call it we have C one.
+
+158
+00:09:08,340 --> 00:09:12,600
+C one rugby gives me this nice rugby string.
+
+159
+00:09:13,680 --> 00:09:16,380
+Take a look when you get that reddish tomatoey color.
+
+160
+00:09:16,560 --> 00:09:18,140
+Let's add another method in.
+
+161
+00:09:18,150 --> 00:09:19,920
+Let's go with this hex method.
+
+162
+00:09:19,920 --> 00:09:24,240
+So I'm just going to copy the logic and add hex.
+
+163
+00:09:25,550 --> 00:09:30,920
+And that relies on our G and B, which we already have on the object.
+
+164
+00:09:30,920 --> 00:09:32,690
+So I'm going to do structure again.
+
+165
+00:09:34,160 --> 00:09:35,420
+Let's try that one out.
+
+166
+00:09:35,660 --> 00:09:37,340
+See one dot x.
+
+167
+00:09:38,440 --> 00:09:41,110
+And did we have another color white?
+
+168
+00:09:41,140 --> 00:09:43,600
+I think I define that and refresh the page.
+
+169
+00:09:43,600 --> 00:09:46,240
+So let's define another color over here.
+
+170
+00:09:46,480 --> 00:09:53,200
+Let's call this one red and then another one which will be white and just have two, five, five, two,
+
+171
+00:09:53,200 --> 00:09:54,580
+five, five, two, five, five.
+
+172
+00:09:55,270 --> 00:09:58,090
+Now I need to save that to a different variable white.
+
+173
+00:09:59,280 --> 00:09:59,850
+Okay.
+
+174
+00:10:00,990 --> 00:10:06,360
+So if we check here white dot X, we get Fefe.
+
+175
+00:10:06,360 --> 00:10:07,200
+That's accurate.
+
+176
+00:10:07,200 --> 00:10:08,850
+I do know that one hex color.
+
+177
+00:10:08,850 --> 00:10:15,510
+And then if we do red dot hex, we get a different outcome and if we compare them red hex, not execute
+
+178
+00:10:15,510 --> 00:10:19,440
+them, but compare the references triple equals white dot hex.
+
+179
+00:10:20,040 --> 00:10:23,640
+They are the same function because they're on the prototype.
+
+180
+00:10:23,820 --> 00:10:26,250
+They are not in the individual instance.
+
+181
+00:10:26,250 --> 00:10:27,300
+They are over here.
+
+182
+00:10:28,230 --> 00:10:30,660
+And let's add in our GBA as well.
+
+183
+00:10:31,200 --> 00:10:38,100
+Let's see, this was our GBA, we'll copy this logic, but I think I'm going to refactor this.
+
+184
+00:10:38,700 --> 00:10:43,200
+If we look at our GBA, it accepts a parameter called Alpha.
+
+185
+00:10:43,200 --> 00:10:45,900
+We set it to be 1.0 as a default value.
+
+186
+00:10:46,020 --> 00:10:49,590
+It returns something very similar to our GB.
+
+187
+00:10:49,890 --> 00:10:53,310
+This right here is the same thing.
+
+188
+00:10:53,310 --> 00:11:01,680
+We just have a added after the fact in our GBA and we have our GBA at the start and GB at the start
+
+189
+00:11:01,680 --> 00:11:02,580
+of our GB.
+
+190
+00:11:02,970 --> 00:11:10,590
+So we could make a separate function, maybe call it inner GB like that.
+
+191
+00:11:12,390 --> 00:11:14,100
+And all that I'll do there.
+
+192
+00:11:14,130 --> 00:11:18,480
+Nice and easy is return this part of the string.
+
+193
+00:11:18,480 --> 00:11:20,070
+So I'm just going to copy the whole thing over.
+
+194
+00:11:20,070 --> 00:11:21,660
+You'll see what I'm going for.
+
+195
+00:11:22,770 --> 00:11:24,660
+I'm just going to return this string.
+
+196
+00:11:24,660 --> 00:11:27,720
+No parens, just a comma separated list.
+
+197
+00:11:27,720 --> 00:11:31,860
+So it would look like two, five, five, comma, two, five, five, comma, two, five, five.
+
+198
+00:11:32,160 --> 00:11:39,930
+So if I called this from within another method, I could easily do our GBE and put perrins around that.
+
+199
+00:11:40,170 --> 00:11:45,240
+Or I could add in another number and do our GBA around that.
+
+200
+00:11:45,450 --> 00:11:48,120
+So I just made a method that is going to help me out.
+
+201
+00:11:48,120 --> 00:11:53,430
+It's called Inter GB and now we get the opportunity to talk about how we would call one of these methods
+
+202
+00:11:53,430 --> 00:11:57,990
+from within another instance method, another method on this class.
+
+203
+00:11:58,710 --> 00:12:06,750
+To do that we just reference this same thing so we could call this dot inter our GB.
+
+204
+00:12:09,200 --> 00:12:16,850
+That should give us a string that will go on the inside of our GB right here and I need to escape that
+
+205
+00:12:16,850 --> 00:12:19,610
+with my dollar sign curly braces.
+
+206
+00:12:20,030 --> 00:12:22,580
+Let's make sure that works for our GB.
+
+207
+00:12:22,880 --> 00:12:25,850
+Refresh the page white dot GB.
+
+208
+00:12:26,840 --> 00:12:27,770
+That looks good.
+
+209
+00:12:28,460 --> 00:12:30,610
+We can verify if we paste that down here.
+
+210
+00:12:30,620 --> 00:12:33,560
+It is white, at least according to VTS code.
+
+211
+00:12:33,740 --> 00:12:37,070
+Now we can rewrite our GBA to do the same thing.
+
+212
+00:12:37,730 --> 00:12:43,400
+So I can get rid of that and replace it with this dot.
+
+213
+00:12:43,400 --> 00:12:47,090
+Enter our GB and execute it.
+
+214
+00:12:47,090 --> 00:12:55,250
+It is a function and then we add our GB a open per n and then closing print at the end as well as comma
+
+215
+00:12:55,280 --> 00:12:56,630
+the alpha value.
+
+216
+00:12:57,350 --> 00:13:01,340
+So very similar because we're using the same function on the inside.
+
+217
+00:13:01,340 --> 00:13:07,190
+It just gives us a good opportunity to call a function from within or a method to be more accurate from
+
+218
+00:13:07,190 --> 00:13:09,050
+within another method on the class.
+
+219
+00:13:10,190 --> 00:13:13,010
+So does white GBA work?
+
+220
+00:13:13,010 --> 00:13:14,480
+And it's going to be quite boring.
+
+221
+00:13:14,960 --> 00:13:18,380
+Not as exciting as let's do red GBA.
+
+222
+00:13:19,220 --> 00:13:20,060
+There we go.
+
+223
+00:13:20,150 --> 00:13:24,680
+And if we try 0.4, we get a more transparent color.
+
+224
+00:13:25,130 --> 00:13:26,570
+We could do the same thing.
+
+225
+00:13:26,570 --> 00:13:35,480
+Document dot body dot style dot background color equals red dot gba.
+
+226
+00:13:35,510 --> 00:13:38,570
+This is the full strength of that red color.
+
+227
+00:13:38,570 --> 00:13:40,190
+And this is half strength.
+
+228
+00:13:40,760 --> 00:13:42,560
+This is a 10th of the strength.
+
+229
+00:13:43,360 --> 00:13:43,930
+Cool.
+
+230
+00:13:44,140 --> 00:13:48,790
+So we've added a couple of methods and we've covered most of the basics of classes so far.
+
+231
+00:13:49,210 --> 00:13:53,760
+You define a class with the class keyword, you usually capitalize that name.
+
+232
+00:13:53,790 --> 00:13:56,200
+You should always capitalize it, although you don't have to.
+
+233
+00:13:56,230 --> 00:13:57,010
+You should.
+
+234
+00:13:57,220 --> 00:14:01,630
+And then inside of those curly braces, the first thing we need to add is a constructor.
+
+235
+00:14:01,660 --> 00:14:07,960
+This function will run automatically whenever you instantiate a new instance of the class, so we don't
+
+236
+00:14:07,960 --> 00:14:14,080
+call it manually inside of that constructor and instead of the entire class, if we're in a method like
+
+237
+00:14:14,080 --> 00:14:20,230
+I have here constructor or down here, the keyword, this will refer to the individual object.
+
+238
+00:14:20,500 --> 00:14:23,230
+So this are this dot g, this dot be.
+
+239
+00:14:23,230 --> 00:14:28,270
+I'm assigning properties to each color, not to the prototype, but to the color.
+
+240
+00:14:28,940 --> 00:14:33,050
+Then these methods I've added, they are added to the prototype automatically.
+
+241
+00:14:33,200 --> 00:14:35,720
+So I don't have to do any of this color dot prototype.
+
+242
+00:14:35,900 --> 00:14:36,860
+Blah blah blah.
+
+243
+00:14:36,890 --> 00:14:39,810
+I can keep everything together inside this class.
+
+244
+00:14:39,830 --> 00:14:42,430
+I don't have to have the separate constructor function.
+
+245
+00:14:42,440 --> 00:14:44,240
+Then later add my methods.
+
+246
+00:14:44,450 --> 00:14:47,870
+I can put it all in one happy family and define my class.
+
+247
+00:14:47,870 --> 00:14:50,330
+Define my pattern for every color.
+
+248
+00:14:50,360 --> 00:14:53,000
+Every color has an R, G and B and a name.
+
+249
+00:14:53,000 --> 00:14:57,290
+And every color has these four methods, but they're located on the prototype.
+
+250
+00:14:57,320 --> 00:15:00,800
+They look up to that one prototype template object.
+
+251
+00:15:01,580 --> 00:15:04,610
+So we're going to continue to add on to our class in the next video.
+

@@ -1,0 +1,460 @@
+1
+00:00:00,120 --> 00:00:04,080
+Next up, we have three more operators that are extremely useful.
+
+2
+00:00:04,110 --> 00:00:05,610
+You'll see them all the time.
+
+3
+00:00:05,610 --> 00:00:09,930
+They're called logical operators and they're a bit different than what we've seen so far.
+
+4
+00:00:09,960 --> 00:00:13,310
+They kind of modify other Boolean expressions.
+
+5
+00:00:13,320 --> 00:00:17,850
+So we've been writing conditionals that have a single expression inside of them.
+
+6
+00:00:17,850 --> 00:00:21,780
+Like if X is less than ten, that's it.
+
+7
+00:00:21,780 --> 00:00:27,480
+Or if password length is greater than or equal to six.
+
+8
+00:00:28,050 --> 00:00:29,880
+And we can get by doing that.
+
+9
+00:00:29,880 --> 00:00:35,580
+But sometimes we want to write more complex expressions instead of these prints, and that's where these
+
+10
+00:00:35,580 --> 00:00:37,170
+three operators come in.
+
+11
+00:00:37,320 --> 00:00:40,470
+They might look a little funky if you're new to programming entirely.
+
+12
+00:00:40,620 --> 00:00:45,000
+The three operators are called and or and not.
+
+13
+00:00:45,090 --> 00:00:52,080
+And the first one we'll take a look at is called and and is created or written using two ampersand in
+
+14
+00:00:52,080 --> 00:00:52,590
+a row.
+
+15
+00:00:52,620 --> 00:00:54,480
+One ampersand is not going to cut it.
+
+16
+00:00:54,480 --> 00:00:55,560
+We need two of them.
+
+17
+00:00:56,010 --> 00:01:01,800
+And what it does is it takes two separate Boolean expressions, a left side and a right side.
+
+18
+00:01:02,100 --> 00:01:06,540
+They both evaluate to either true or false and the entire thing.
+
+19
+00:01:06,540 --> 00:01:11,880
+This entire line will only be true if both sides came out to be true.
+
+20
+00:01:12,420 --> 00:01:13,800
+So there's a left and a right.
+
+21
+00:01:13,800 --> 00:01:20,040
+And when you use and the whole expression is true only if both sides are true.
+
+22
+00:01:20,040 --> 00:01:22,920
+If one of them is false, the entire thing is false.
+
+23
+00:01:23,160 --> 00:01:24,990
+So here's a simple example.
+
+24
+00:01:25,140 --> 00:01:26,370
+These are hardcoded.
+
+25
+00:01:26,370 --> 00:01:27,690
+We know what the answers are.
+
+26
+00:01:27,720 --> 00:01:29,610
+Is one less than or equal to four?
+
+27
+00:01:29,670 --> 00:01:31,080
+Yes, that's true.
+
+28
+00:01:31,080 --> 00:01:35,670
+So we have true and and then is a equal to a that's true.
+
+29
+00:01:35,670 --> 00:01:39,060
+So we have true and true and that gives us true.
+
+30
+00:01:39,300 --> 00:01:46,680
+So in my console, if I tried something like something really simple, true and true gives me true,
+
+31
+00:01:47,340 --> 00:01:52,890
+true and false gives me false because one side is false.
+
+32
+00:01:52,890 --> 00:01:54,870
+It doesn't matter if it's a left or the right.
+
+33
+00:01:55,080 --> 00:01:58,590
+If either is false, the whole thing is considered false.
+
+34
+00:01:58,590 --> 00:02:04,170
+So false and false is going to be false, just like false and true.
+
+35
+00:02:04,170 --> 00:02:05,520
+It's also false.
+
+36
+00:02:05,880 --> 00:02:10,050
+So this is kind of useless other than just teaching how it works.
+
+37
+00:02:10,050 --> 00:02:16,680
+Usually we have expressions like, well, this is still very silly, but is one less than or equal to
+
+38
+00:02:16,710 --> 00:02:20,670
+two and five equals five?
+
+39
+00:02:20,850 --> 00:02:23,040
+Well, this part is true.
+
+40
+00:02:23,190 --> 00:02:24,360
+This part is true.
+
+41
+00:02:24,360 --> 00:02:25,470
+The whole thing is true.
+
+42
+00:02:26,310 --> 00:02:33,390
+So that's the basics of and in a vacuum, without a conditional without realistic conditions, you have
+
+43
+00:02:33,390 --> 00:02:34,110
+two sides.
+
+44
+00:02:34,110 --> 00:02:36,870
+Both sides have to be true for the whole thing to be true.
+
+45
+00:02:37,170 --> 00:02:43,680
+So something like this is false because ABC's length is three but one plus one is not equal to four.
+
+46
+00:02:43,980 --> 00:02:45,270
+One plus one is two.
+
+47
+00:02:45,540 --> 00:02:46,620
+That is not four.
+
+48
+00:02:46,620 --> 00:02:48,060
+So the whole thing is false.
+
+49
+00:02:48,510 --> 00:02:52,560
+So here is a better example of when you would use something like this.
+
+50
+00:02:52,800 --> 00:02:57,570
+Back when we were writing our first password checking example, a couple of sections or a couple of
+
+51
+00:02:57,570 --> 00:03:00,360
+videos ago we had this right here.
+
+52
+00:03:00,990 --> 00:03:04,500
+We were checking if password length is greater than or equal to six.
+
+53
+00:03:05,040 --> 00:03:10,230
+And if it was, we were checking if it contained a space or if it did not contain a space.
+
+54
+00:03:10,230 --> 00:03:15,600
+So in order to get a valid password, we had two things that needed to happen.
+
+55
+00:03:15,900 --> 00:03:20,070
+It had to be six characters or more and it could not include a space.
+
+56
+00:03:20,370 --> 00:03:27,780
+So we can achieve that logic by nesting two ifs, or we can combine them into one statement like I have
+
+57
+00:03:27,780 --> 00:03:28,440
+right here.
+
+58
+00:03:29,110 --> 00:03:30,550
+This is only true.
+
+59
+00:03:30,550 --> 00:03:37,900
+This entire line right here is only true if password length is greater than or equal to six and password
+
+60
+00:03:38,050 --> 00:03:41,110
+index of space is equal to negative one.
+
+61
+00:03:42,070 --> 00:03:43,420
+So we could try that out.
+
+62
+00:03:43,420 --> 00:03:44,650
+We'll do something similar.
+
+63
+00:03:44,650 --> 00:03:46,120
+We might tweak it just a bit.
+
+64
+00:03:46,120 --> 00:03:47,590
+So we'll have password.
+
+65
+00:03:47,590 --> 00:03:49,930
+We'll set it equal to chicken gal.
+
+66
+00:03:51,650 --> 00:03:53,090
+And then we'll write our conditional.
+
+67
+00:03:53,090 --> 00:04:03,620
+So if password length is greater than or equal to, let's go with eight this time and password dot index
+
+68
+00:04:03,620 --> 00:04:04,400
+of.
+
+69
+00:04:07,000 --> 00:04:08,230
+I'll zoom out a bit.
+
+70
+00:04:08,950 --> 00:04:09,340
+Password.
+
+71
+00:04:09,490 --> 00:04:16,579
+Index of space is equal to negative one, which means it does not exist in that password string.
+
+72
+00:04:16,600 --> 00:04:19,930
+Then we'll console.log a valid password.
+
+73
+00:04:20,800 --> 00:04:22,720
+Otherwise we'll console that log.
+
+74
+00:04:23,260 --> 00:04:24,730
+Invalid password.
+
+75
+00:04:27,240 --> 00:04:27,780
+Cool.
+
+76
+00:04:28,500 --> 00:04:33,280
+So we now have two pieces of logic combined into one statement.
+
+77
+00:04:33,300 --> 00:04:36,930
+This entire thing has to be true in order to get a valid password.
+
+78
+00:04:37,050 --> 00:04:41,640
+And I think our example we have does give us a valid password.
+
+79
+00:04:41,640 --> 00:04:47,940
+If we added a space in, now we get invalid because this portion is false.
+
+80
+00:04:48,300 --> 00:04:54,810
+So if all we need is a simple yes, it's valid or no, it's invalid, then this works great.
+
+81
+00:04:55,140 --> 00:05:00,780
+But if we compare that to what we had earlier, we actually had specific feedback that said password
+
+82
+00:05:00,780 --> 00:05:04,320
+cannot include spaces versus password is too short.
+
+83
+00:05:04,320 --> 00:05:09,300
+Right now we just have yes or no, valid or invalid, and that's shorter.
+
+84
+00:05:09,300 --> 00:05:10,440
+It's easier to look at.
+
+85
+00:05:10,440 --> 00:05:15,960
+But if you need specific a specific breakdown, you need to differentiate between each piece.
+
+86
+00:05:15,960 --> 00:05:17,610
+Then you probably want to nest.
+
+87
+00:05:17,610 --> 00:05:23,160
+You don't want to have a boolean and but if you just need two things to be true, or you can even do
+
+88
+00:05:23,160 --> 00:05:27,120
+more than two, you can combine multiple ends together and chain them.
+
+89
+00:05:27,120 --> 00:05:29,040
+It just gets quite long for single line.
+
+90
+00:05:29,040 --> 00:05:31,650
+Anyway, let's take a look at one more example.
+
+91
+00:05:31,920 --> 00:05:37,500
+Another common use case for end is to check if a number is within a specified range.
+
+92
+00:05:37,500 --> 00:05:43,050
+So let's say we're asking a user to guess or to pick a number from 1 to 10, and we want to make sure
+
+93
+00:05:43,050 --> 00:05:44,880
+it's between one and ten.
+
+94
+00:05:45,180 --> 00:05:54,360
+So we'll define let num let's set it to three to start and we'll check if NUM is greater than or equal
+
+95
+00:05:54,360 --> 00:05:56,520
+to one, not 11.
+
+96
+00:05:56,670 --> 00:06:03,240
+That's one part, but that's not it because we could have 99 that's greater than or equal to one.
+
+97
+00:06:03,240 --> 00:06:09,930
+So we also add in our end NUM is less than or equal to ten.
+
+98
+00:06:10,320 --> 00:06:18,360
+We could also rewrite this as less than 11, although that would allow somebody to have 10.3.
+
+99
+00:06:18,360 --> 00:06:22,560
+So we can assume that it's going to be a whole number.
+
+100
+00:06:22,560 --> 00:06:24,840
+So I'm going to go back to less than or equal to ten.
+
+101
+00:06:24,840 --> 00:06:31,500
+So this is now saying if a number is greater than or equal to one and less than or equal to ten, essentially
+
+102
+00:06:31,500 --> 00:06:35,100
+if it's between one and ten, then that's a valid guess.
+
+103
+00:06:35,460 --> 00:06:39,480
+Console.log number is between one and ten.
+
+104
+00:06:39,480 --> 00:06:40,380
+So here we go.
+
+105
+00:06:40,380 --> 00:06:43,320
+I've just flushed it out with our else and a console.log.
+
+106
+00:06:43,470 --> 00:06:48,930
+If we test it out, I'll comment out the original code and refresh we get.
+
+107
+00:06:48,930 --> 00:06:50,490
+Number is between one and ten.
+
+108
+00:06:50,490 --> 00:06:53,700
+If we change it to 30, it doesn't work.
+
+109
+00:06:53,730 --> 00:06:58,170
+If we change it to one, does it work?
+
+110
+00:06:58,290 --> 00:06:58,770
+Yes.
+
+111
+00:06:58,770 --> 00:07:00,660
+Number is between one and ten and so on.
+
+112
+00:07:01,080 --> 00:07:05,250
+So that's another situation where you can use and it comes up all the time.
+
+113
+00:07:05,280 --> 00:07:09,390
+Often you have multiple conditions you need to check for in order to run code.
+
+114
+00:07:09,390 --> 00:07:15,480
+You can nest things, but sometimes it makes sense to put them together using boolean and or logical
+
+115
+00:07:15,480 --> 00:07:16,020
+and.
+

@@ -1,0 +1,444 @@
+1
+00:00:00,150 --> 00:00:03,300
+The next new feature we'll take a look at is called Spread.
+
+2
+00:00:03,300 --> 00:00:07,560
+And the first thing you should know about spread is that like every other feature we're seeing in this
+
+3
+00:00:07,560 --> 00:00:10,740
+section, it's not supported in Internet Explorer.
+
+4
+00:00:10,770 --> 00:00:12,990
+However, that shouldn't stop you from using it.
+
+5
+00:00:12,990 --> 00:00:20,190
+So spread is extremely useful, but it's also not that easy to explain because it does many things depending
+
+6
+00:00:20,190 --> 00:00:21,170
+on the context.
+
+7
+00:00:21,180 --> 00:00:23,570
+This is the official definition from MSDN.
+
+8
+00:00:23,580 --> 00:00:26,310
+I guess it's not official, but this is the mean definition.
+
+9
+00:00:26,310 --> 00:00:31,740
+Spread syntax allows an iterable such as an array to be expanded in places where zero or more arguments
+
+10
+00:00:31,740 --> 00:00:37,140
+for function calls or elements for array literals are expected, or an object expression to be expanded
+
+11
+00:00:37,140 --> 00:00:40,740
+in places where zero or more key value pairs for object literals are expected.
+
+12
+00:00:40,770 --> 00:00:41,550
+You got it.
+
+13
+00:00:41,940 --> 00:00:42,420
+Okay.
+
+14
+00:00:42,450 --> 00:00:43,890
+So I think that's good enough, right?
+
+15
+00:00:43,890 --> 00:00:45,210
+You understand at this point?
+
+16
+00:00:45,210 --> 00:00:46,020
+Yeah, I know.
+
+17
+00:00:46,020 --> 00:00:46,980
+Very funny, Colt.
+
+18
+00:00:47,160 --> 00:00:48,510
+There's a lot to spread.
+
+19
+00:00:48,510 --> 00:00:52,050
+The key word that I bolded here is expanded.
+
+20
+00:00:52,050 --> 00:00:58,260
+So in all scenarios, there's really three use cases spread in a function call, spread in array literals
+
+21
+00:00:58,260 --> 00:01:00,210
+and spread in object literals.
+
+22
+00:01:00,210 --> 00:01:06,810
+It all has to do with expanding some iterable into some other place, some destination.
+
+23
+00:01:07,050 --> 00:01:11,820
+So the word spread is a nice choice, I think, because that's kind of what we're doing.
+
+24
+00:01:11,820 --> 00:01:13,860
+We're spreading, we're expanding something.
+
+25
+00:01:13,860 --> 00:01:19,440
+What I'm going to do is break it up into three videos, one for each of the use cases, and the first
+
+26
+00:01:19,440 --> 00:01:22,530
+one we'll see is spread in a function call.
+
+27
+00:01:22,800 --> 00:01:29,340
+So spread syntactically is always three dots here when we're using it in a function call here in an
+
+28
+00:01:29,340 --> 00:01:35,160
+array, literal three dots here in an object, three dots, always three dots, but they mean something
+
+29
+00:01:35,160 --> 00:01:38,340
+different or they they behave differently depending on where you use it.
+
+30
+00:01:38,340 --> 00:01:43,950
+At the end of the day, it all has to do with expanding and iterable, meaning an array, a string.
+
+31
+00:01:43,950 --> 00:01:48,270
+There are many other intervals, but those are the two main ones we've worked with, expanding them
+
+32
+00:01:48,270 --> 00:01:50,010
+into some other destination.
+
+33
+00:01:50,010 --> 00:01:56,280
+And when we use it in a function call inside the parentheses, it will take that iterable and break
+
+34
+00:01:56,280 --> 00:02:00,990
+it up into individual arguments rather than passing in a single argument.
+
+35
+00:02:01,560 --> 00:02:07,950
+So the example I used with Matt was Max, which accepts multiple arguments.
+
+36
+00:02:11,340 --> 00:02:13,320
+Here's a bunch of arguments I just passed in.
+
+37
+00:02:14,610 --> 00:02:15,900
+And it returns the max.
+
+38
+00:02:15,900 --> 00:02:19,200
+So in this case, the maximum argument was 99.
+
+39
+00:02:19,350 --> 00:02:24,530
+There's also math min, which does the same thing except the other way around.
+
+40
+00:02:24,540 --> 00:02:27,240
+It tells me the smallest argument was three.
+
+41
+00:02:27,540 --> 00:02:31,490
+But this only works if you pass them in as separate arguments.
+
+42
+00:02:31,500 --> 00:02:35,190
+If we have a list of numbers or an array of numbers.
+
+43
+00:02:35,670 --> 00:02:37,010
+It will not work.
+
+44
+00:02:37,020 --> 00:02:38,880
+It treats it as one argument.
+
+45
+00:02:38,880 --> 00:02:44,820
+And if I do math max of numbers, I get not a number.
+
+46
+00:02:45,210 --> 00:02:47,520
+It expects each argument to be a number.
+
+47
+00:02:47,550 --> 00:02:49,920
+This argument that we passed in is not a number.
+
+48
+00:02:49,920 --> 00:02:54,060
+It's a list of numbers, but itself is not a number, so it does not work.
+
+49
+00:02:54,630 --> 00:02:57,000
+Instead, we can use spread.
+
+50
+00:02:57,000 --> 00:03:00,670
+So spread allows us to break this up into five separate arguments.
+
+51
+00:03:00,690 --> 00:03:07,100
+It's the equivalent of passing in 45, comma 33, basically stripping away the array brackets.
+
+52
+00:03:07,110 --> 00:03:08,730
+So this is what it looks like.
+
+53
+00:03:09,480 --> 00:03:11,220
+Dot, dot, dot, nums.
+
+54
+00:03:11,610 --> 00:03:16,970
+Just like that, we are spreading this iterable into individual arguments.
+
+55
+00:03:16,980 --> 00:03:26,430
+So again, it's just like doing this 45, 23, 34, seven and five and we get 45.
+
+56
+00:03:27,240 --> 00:03:32,220
+So to show you the other side of it, if you wanted to write a function, let's call ours.
+
+57
+00:03:32,250 --> 00:03:33,930
+Give me four.
+
+58
+00:03:34,470 --> 00:03:38,490
+And this is going to be a useless function, but it wants four arguments.
+
+59
+00:03:38,490 --> 00:03:43,600
+So A, B, C and D and then we'll just console.log each one of them.
+
+60
+00:03:43,620 --> 00:03:50,970
+I'll do it like this a comma a and then duplicate this a couple of times and then update this to b b
+
+61
+00:03:50,970 --> 00:03:53,490
+and then do the same thing for C and D.
+
+62
+00:03:54,120 --> 00:03:54,570
+All right.
+
+63
+00:03:54,570 --> 00:03:57,360
+So it's going to print out the arguments that we get.
+
+64
+00:03:57,390 --> 00:03:58,260
+Give me four.
+
+65
+00:03:58,290 --> 00:04:01,320
+I'll pass in four numbers four, five, six and seven.
+
+66
+00:04:02,280 --> 00:04:05,910
+And we see A is four, B is five, C is six and D is seven.
+
+67
+00:04:06,210 --> 00:04:12,000
+If I had an array of numbers or an array of anything, let's go with cost colors.
+
+68
+00:04:12,660 --> 00:04:18,630
+We'll have red, orange, yellow and green.
+
+69
+00:04:20,779 --> 00:04:24,800
+If I call, give me four and I pass in colors.
+
+70
+00:04:24,800 --> 00:04:26,770
+We're only passing in one argument.
+
+71
+00:04:26,780 --> 00:04:29,960
+So you see what we get a is set to this whole array.
+
+72
+00:04:29,990 --> 00:04:30,920
+B is undefined.
+
+73
+00:04:30,950 --> 00:04:33,200
+C and D are also undefined.
+
+74
+00:04:33,410 --> 00:04:41,690
+But if I instead use spread 1 to 3 dots, we're now spreading that entire array into separate arguments.
+
+75
+00:04:41,690 --> 00:04:46,100
+So now those array braces are essentially gone from the function call.
+
+76
+00:04:46,100 --> 00:04:48,110
+We don't change the array in any way.
+
+77
+00:04:48,140 --> 00:04:54,980
+Colors is exactly the same as it always was, but when we pass those values in, they now are for arguments.
+
+78
+00:04:54,980 --> 00:04:58,610
+So A is red, B is orange, C is yellow and D is green.
+
+79
+00:04:58,910 --> 00:05:02,600
+And if we had more arguments right now, our function doesn't handle them.
+
+80
+00:05:02,600 --> 00:05:03,680
+It only wants four.
+
+81
+00:05:03,680 --> 00:05:08,930
+But if we had colors that had ten things in there, each one would be passed as an argument.
+
+82
+00:05:08,930 --> 00:05:11,120
+We just wouldn't be using it in the function.
+
+83
+00:05:11,270 --> 00:05:16,610
+But shortly in this section we'll see how to write a function that accepts any number of arguments.
+
+84
+00:05:16,610 --> 00:05:20,300
+Right now we're having to hard code how many we want this is for.
+
+85
+00:05:20,300 --> 00:05:24,230
+If I want five arguments then I need to add in another parameter.
+
+86
+00:05:24,470 --> 00:05:31,010
+But we'll see how we can add in RN number and collect all arguments in a single array or a single structure.
+
+87
+00:05:31,010 --> 00:05:32,270
+That's coming up soon.
+
+88
+00:05:32,270 --> 00:05:37,940
+The other thing about spread is that it's not only applicable to arrays, so we could also do something
+
+89
+00:05:37,940 --> 00:05:38,720
+like this.
+
+90
+00:05:38,900 --> 00:05:40,310
+Let me make some space here.
+
+91
+00:05:40,400 --> 00:05:46,100
+If I have a string const, we'll just call it str equals.
+
+92
+00:05:46,100 --> 00:05:48,620
+How about goat like that?
+
+93
+00:05:49,460 --> 00:05:53,030
+If I spread a string, a string is actually an iterable.
+
+94
+00:05:53,210 --> 00:05:54,560
+What do you expect to happen here?
+
+95
+00:05:54,560 --> 00:05:59,240
+If I call, give me 4... str.
+
+96
+00:06:00,230 --> 00:06:03,590
+It passes each character as its own argument.
+
+97
+00:06:03,680 --> 00:06:06,710
+It iterates over this and it's iterable.
+
+98
+00:06:06,710 --> 00:06:07,700
+We've done it before.
+
+99
+00:06:07,700 --> 00:06:13,730
+You iterate one character at a time and you end up with one character g being the first argument, then
+
+100
+00:06:13,730 --> 00:06:15,500
+the second and the third, then the fourth.
+
+101
+00:06:15,500 --> 00:06:17,510
+You can think of it as just like this.
+
+102
+00:06:17,870 --> 00:06:23,660
+Each value or each character is passed at its own argument and we would get the same result if we did
+
+103
+00:06:23,660 --> 00:06:24,170
+it this way.
+
+104
+00:06:24,170 --> 00:06:25,250
+Give me four.
+
+105
+00:06:26,600 --> 00:06:31,010
+But the main difference is that this sucks to type and this is hardcoded.
+
+106
+00:06:31,010 --> 00:06:35,300
+If we use spread, this could be 20 characters, it could be two characters.
+
+107
+00:06:35,300 --> 00:06:40,010
+It's not that common that you spread strings, at least in my experience, compared to arrays.
+
+108
+00:06:40,010 --> 00:06:46,340
+But whatever you're spreading when you spread it into a function call that iterable is iterated over.
+
+109
+00:06:46,400 --> 00:06:49,940
+Each element is passed as a standalone separate argument.
+
+110
+00:06:49,940 --> 00:06:51,980
+So that's the first use case for spread.
+
+111
+00:06:51,980 --> 00:06:53,210
+We have two more to go.
+

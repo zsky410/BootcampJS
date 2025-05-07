@@ -1,0 +1,220 @@
+1
+00:00:00,180 --> 00:00:06,540
+Next up, we'll see two methods not properties, but methods called get attribute and set attribute.
+
+2
+00:00:06,540 --> 00:00:09,170
+And these methods do exactly what they sound like.
+
+3
+00:00:09,180 --> 00:00:13,620
+They allow us to access or change the value of attributes on elements.
+
+4
+00:00:13,620 --> 00:00:18,000
+So we've seen a couple shorthand or shortcut ways to access attributes.
+
+5
+00:00:18,000 --> 00:00:25,230
+Some special cases like value or placeholder or source or ref that are commonly used have their own
+
+6
+00:00:25,230 --> 00:00:28,320
+shortcut property, but there are other attributes that don't.
+
+7
+00:00:28,320 --> 00:00:34,920
+So we have these methods get attribute and set attribute, for example, on this range input right here,
+
+8
+00:00:35,460 --> 00:00:39,900
+if I select it const, I'll select using a query selector.
+
+9
+00:00:39,900 --> 00:00:45,750
+So I'll do const range equals, document dot, query selector.
+
+10
+00:00:46,680 --> 00:00:54,930
+And I don't want to just do input, I'm going to do input and then attribute type equals after use the
+
+11
+00:00:54,930 --> 00:00:58,950
+right quotes in here type equals range and I'll expand it a bit.
+
+12
+00:00:59,810 --> 00:01:05,480
+So give me the first input where it has the type attribute set to range and we have that range.
+
+13
+00:01:05,480 --> 00:01:08,210
+And if we look at it, where are you?
+
+14
+00:01:08,210 --> 00:01:08,930
+Right here.
+
+15
+00:01:08,930 --> 00:01:10,610
+We have a bunch of attributes.
+
+16
+00:01:10,610 --> 00:01:14,630
+We have the type attribute, we have men, we have Macs, we have step.
+
+17
+00:01:14,930 --> 00:01:22,400
+So if I want to know what the max value is for this range, I could do range dot and then the get attribute
+
+18
+00:01:22,400 --> 00:01:28,340
+method which takes the name of an attribute as a string and I'll type max and I get 500.
+
+19
+00:01:28,730 --> 00:01:31,100
+If I do min, I get 100.
+
+20
+00:01:31,280 --> 00:01:34,700
+I could also view the type attribute and get range.
+
+21
+00:01:35,000 --> 00:01:36,380
+So that's get attribute.
+
+22
+00:01:36,440 --> 00:01:37,100
+It's simple.
+
+23
+00:01:37,100 --> 00:01:41,780
+You pass it in the attribute you're looking for on the element that you're calling it on and it gives
+
+24
+00:01:41,780 --> 00:01:44,150
+you the value, assuming it has that attribute.
+
+25
+00:01:44,150 --> 00:01:48,950
+If I try and find an attribute that's not in there like lol, it just gives me null.
+
+26
+00:01:49,490 --> 00:01:51,590
+Now we can also use set attribute.
+
+27
+00:01:51,590 --> 00:01:55,340
+So range set attribute takes two arguments.
+
+28
+00:01:55,340 --> 00:02:00,620
+The thing we're trying to set, so I'll do min and then the value I want to give it.
+
+29
+00:02:00,650 --> 00:02:04,130
+Let's say the men is -500.
+
+30
+00:02:04,980 --> 00:02:05,580
+Okay.
+
+31
+00:02:06,780 --> 00:02:13,560
+Now, if we look in our HTML or in the Elements tab and we inspect that input, we should see that now
+
+32
+00:02:13,590 --> 00:02:15,210
+min is -500.
+
+33
+00:02:15,540 --> 00:02:21,420
+And if we play around with the range, let's go all the way down here and take a look at range value,
+
+34
+00:02:21,420 --> 00:02:22,530
+which we just saw.
+
+35
+00:02:23,430 --> 00:02:25,950
+It's now -350.
+
+36
+00:02:26,040 --> 00:02:28,950
+So we are successfully setting that attribute.
+
+37
+00:02:28,980 --> 00:02:31,260
+It's one that we don't really have a shortcut for.
+
+38
+00:02:31,290 --> 00:02:32,880
+We have a shortcut for value.
+
+39
+00:02:32,910 --> 00:02:36,810
+We had one for source on an image and a ref on an anchor tag.
+
+40
+00:02:36,810 --> 00:02:42,150
+But there are plenty of attributes you may need to change where you need to use set attribute.
+
+41
+00:02:42,450 --> 00:02:43,830
+So that's a couple of examples.
+
+42
+00:02:43,830 --> 00:02:46,600
+We also could change the entire type of the input.
+
+43
+00:02:46,620 --> 00:02:54,790
+I could do range, dot, set attribute and then do type, and then we could turn it into a radio button.
+
+44
+00:02:54,810 --> 00:02:55,380
+Sure.
+
+45
+00:02:55,410 --> 00:02:56,670
+Type equals radio.
+
+46
+00:02:57,180 --> 00:02:59,280
+And now we have a radio button there.
+
+47
+00:03:00,030 --> 00:03:02,490
+So we completely change the type of the input.
+
+48
+00:03:02,490 --> 00:03:06,480
+The variable is still called range, but it's no longer an actual range input.
+
+49
+00:03:06,960 --> 00:03:09,450
+So that's get attribute and set attribute.
+
+50
+00:03:09,480 --> 00:03:12,390
+There are plenty of other attributes we could use with this.
+
+51
+00:03:12,840 --> 00:03:15,430
+Most of the common ones have those short hands that we saw.
+
+52
+00:03:15,450 --> 00:03:19,770
+But if there's ever something you need to change, I mean, technically you could use set attribute
+
+53
+00:03:19,770 --> 00:03:20,820
+to change an ID.
+
+54
+00:03:20,850 --> 00:03:25,740
+So if there's ever an attribute that you need to update or that you need to access, these are your
+
+55
+00:03:25,740 --> 00:03:29,940
+go to methods get and set attribute relatively straightforward.
+

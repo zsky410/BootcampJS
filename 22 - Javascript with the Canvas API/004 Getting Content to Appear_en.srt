@@ -1,0 +1,380 @@
+1
+00:00:00,900 --> 00:00:04,500
+Now that we have a better idea of some of these different pieces of terminology, let's start to write
+
+2
+00:00:04,500 --> 00:00:09,690
+some code rather than directly focusing on creating a maze like this right here, which will end up
+
+3
+00:00:09,690 --> 00:00:10,970
+being rather complicated.
+
+4
+00:00:10,980 --> 00:00:16,309
+We're going to instead do a little demo first just to kind of get a handle on exactly what matter JHS
+
+5
+00:00:16,320 --> 00:00:16,900
+is.
+
+6
+00:00:16,950 --> 00:00:22,020
+So we are going to implement this demo that you see right here where we essentially have a bunch of
+
+7
+00:00:22,020 --> 00:00:27,750
+shapes all in a pile, and we can drag one around and move them all when they all get kind of collisions
+
+8
+00:00:27,750 --> 00:00:28,770
+between each of them.
+
+9
+00:00:29,010 --> 00:00:33,780
+So first we'll build this, then rebuild over to the maze type implementation.
+
+10
+00:00:34,170 --> 00:00:35,370
+So let's get to it.
+
+11
+00:00:35,400 --> 00:00:40,710
+I'm going to first go back over to my code editor and inside my index file are going to first get started
+
+12
+00:00:40,710 --> 00:00:46,350
+by requiring in or getting access to a couple of different objects out of the matter library.
+
+13
+00:00:46,740 --> 00:00:48,120
+So I'm going to say const.
+
+14
+00:00:48,210 --> 00:00:56,940
+I'm then going to do some DE structuring and I'm going to get access to engine render, runner, world
+
+15
+00:00:57,060 --> 00:00:58,560
+and bodies.
+
+16
+00:00:58,830 --> 00:01:02,130
+And that's all going to come from matter like so.
+
+17
+00:01:03,040 --> 00:01:09,190
+So when we included the matter script tag back inside of indexed HTML that added in a new global variable
+
+18
+00:01:09,190 --> 00:01:11,410
+of matter and that is essentially the matter.
+
+19
+00:01:11,410 --> 00:01:12,430
+JS Library.
+
+20
+00:01:12,430 --> 00:01:17,890
+So everything we're going to work with is contained inside that object in order to create an engine,
+
+21
+00:01:17,890 --> 00:01:21,700
+render, blah, blah, all this stuff, we're going to pull out some of these different objects and
+
+22
+00:01:21,700 --> 00:01:23,470
+then work with them inside this file.
+
+23
+00:01:24,160 --> 00:01:27,850
+Now you'll notice that a lot of these terms right here are the same ones that we just discussed in the
+
+24
+00:01:27,850 --> 00:01:28,690
+last video.
+
+25
+00:01:29,170 --> 00:01:34,750
+So we were going to use the engine to essentially transition from a current state of our entire world
+
+26
+00:01:34,750 --> 00:01:37,450
+or all the shapes we have into some new state.
+
+27
+00:01:38,080 --> 00:01:41,440
+The render is going to be used to draw this stuff onto the screen.
+
+28
+00:01:41,710 --> 00:01:45,580
+The runner is going to coordinate updates between the engine and the world.
+
+29
+00:01:45,610 --> 00:01:51,610
+And then I had said on that diagram, Body Bodies is kind of a reference to the entire collection of
+
+30
+00:01:51,610 --> 00:01:55,000
+all the different shapes we can create, essentially the same thing we saw on the diagram.
+
+31
+00:01:55,000 --> 00:02:01,210
+So a bodies object represents our ability to create circles, rectangles, squares and so on.
+
+32
+00:02:02,660 --> 00:02:05,270
+Then instead of here, we're going to write out some boilerplate code.
+
+33
+00:02:05,300 --> 00:02:10,430
+Now, once again, it's not strictly necessary for you to 100% understand all the lines we're about
+
+34
+00:02:10,430 --> 00:02:11,090
+to write.
+
+35
+00:02:11,120 --> 00:02:15,970
+I just want you to have some terminology so you understand some of the boilerplate.
+
+36
+00:02:15,980 --> 00:02:20,390
+But at the end of the day, a lot of the stuff just just gets duplicated between all the different matter
+
+37
+00:02:20,390 --> 00:02:21,800
+apps you might end up creating.
+
+38
+00:02:22,600 --> 00:02:28,300
+The first thing we're going to do is create a new engine by saying engine create.
+
+39
+00:02:29,800 --> 00:02:34,270
+We're then going to get access to a world that got created along with that engine.
+
+40
+00:02:34,360 --> 00:02:38,440
+So let's say cost world is coming from engine.
+
+41
+00:02:38,440 --> 00:02:42,490
+So technically when we create an engine, we get a world object along with it.
+
+42
+00:02:42,490 --> 00:02:46,480
+And again, a world is kind of like a snapshot of all the different shapes that we have.
+
+43
+00:02:47,650 --> 00:02:50,260
+After that, we'll then create our render object.
+
+44
+00:02:50,260 --> 00:02:53,680
+So this is what is going to actually show some content on the screen.
+
+45
+00:02:54,220 --> 00:03:01,720
+Let's say const render is render create and we're going to pass it in options object.
+
+46
+00:03:02,230 --> 00:03:07,060
+Inside of here, we're going to tell the render where we want to show our representation of everything
+
+47
+00:03:07,060 --> 00:03:09,040
+inside of our HTML document.
+
+48
+00:03:09,280 --> 00:03:12,670
+So I'm going to say element is document dot body.
+
+49
+00:03:13,300 --> 00:03:18,400
+So in other words, go and render the representation of the world inside of documents body.
+
+50
+00:03:18,880 --> 00:03:20,920
+And this is a additive process.
+
+51
+00:03:20,920 --> 00:03:25,310
+In other words, it's not going to destroy all the content that we already have inside of our body element.
+
+52
+00:03:25,330 --> 00:03:29,140
+It's going to instead add in a new additional element to the body element.
+
+53
+00:03:30,860 --> 00:03:33,770
+After that, we're going to specify what engine to use.
+
+54
+00:03:35,430 --> 00:03:38,850
+And they'll pass in also an options object.
+
+55
+00:03:39,600 --> 00:03:40,830
+Inside the options object.
+
+56
+00:03:40,830 --> 00:03:46,320
+I'm going to specify the height and width of our canvas element that's going to be used to display all
+
+57
+00:03:46,320 --> 00:03:47,250
+this content.
+
+58
+00:03:47,250 --> 00:03:49,500
+So I'm going to put in a width of 800.
+
+59
+00:03:50,570 --> 00:03:52,430
+And a height of 600.
+
+60
+00:03:52,820 --> 00:03:54,410
+So these are pixel values right here.
+
+61
+00:03:54,410 --> 00:03:58,760
+So we're saying give me something that is 800 units wide and 600 elements tall.
+
+62
+00:04:00,220 --> 00:04:05,470
+Then after that, we're going to tell our render element or our render object to start working and start
+
+63
+00:04:05,470 --> 00:04:08,710
+to draw all the updates of our world onto the screen.
+
+64
+00:04:09,280 --> 00:04:11,050
+So I'll say render run.
+
+65
+00:04:11,850 --> 00:04:13,680
+Now I'll pass in lowercase render.
+
+66
+00:04:13,680 --> 00:04:16,140
+So that's the actual render object that we just created.
+
+67
+00:04:17,440 --> 00:04:19,570
+And then I'll call runner run.
+
+68
+00:04:20,500 --> 00:04:23,650
+With runners create and engine.
+
+69
+00:04:23,650 --> 00:04:30,190
+So again, the runner right here is what coordinates all these changes from state to state B of our
+
+70
+00:04:30,190 --> 00:04:30,760
+engine.
+
+71
+00:04:31,770 --> 00:04:36,150
+So it's just that we should be able to save this and then go back over and see something appear on the
+
+72
+00:04:36,150 --> 00:04:36,750
+screen.
+
+73
+00:04:37,330 --> 00:04:38,610
+It's going to go back over to my browser.
+
+74
+00:04:38,610 --> 00:04:42,180
+I'll refresh and I see a big black box appear.
+
+75
+00:04:42,450 --> 00:04:46,110
+So this is where we're going to eventually see all of our shapes up here over time.
+
+76
+00:04:46,770 --> 00:04:52,560
+So now we can start to think about how we just add a very simple and plain shape to add a simple shape
+
+77
+00:04:52,560 --> 00:04:54,510
+to our world.
+
+78
+00:04:56,010 --> 00:04:57,510
+Down here, I'm going to say.
+
+79
+00:04:57,810 --> 00:04:59,130
+Collins shape.
+
+80
+00:04:59,830 --> 00:05:02,860
+Is Bodies, dot rectangle.
+
+81
+00:05:03,400 --> 00:05:06,100
+And I'm going to pass in a couple of dimensions for this thing.
+
+82
+00:05:06,100 --> 00:05:09,250
+We'll talk about exactly what these dimensions represent in just a moment.
+
+83
+00:05:09,820 --> 00:05:16,720
+I'm going to put in here 200, 250, 50, and then an options object.
+
+84
+00:05:16,720 --> 00:05:21,910
+And inside that options object, I'll say is static is true like so.
+
+85
+00:05:23,220 --> 00:05:29,580
+Then after that, I'll call WorldCom and I'll pass in the world that we got just a little bit ago when
+
+86
+00:05:29,580 --> 00:05:31,320
+we created our engine right there.
+
+87
+00:05:32,270 --> 00:05:35,630
+And then as a second argument, I'll pass in the shape that I just created.
+
+88
+00:05:36,760 --> 00:05:37,390
+Like so.
+
+89
+00:05:38,670 --> 00:05:38,950
+Okay.
+
+90
+00:05:38,970 --> 00:05:40,920
+So we'll talk about what that code is doing in just a moment.
+
+91
+00:05:40,920 --> 00:05:42,390
+But first, let's save this.
+
+92
+00:05:42,420 --> 00:05:47,610
+Go back over and we can see a shape up here inside of our element.
+
+93
+00:05:48,120 --> 00:05:50,760
+So that's the basics of getting something to show up on the screen.
+
+94
+00:05:50,760 --> 00:05:55,050
+But obviously, we just wrote out a lot of code that's possibly really mysterious.
+
+95
+00:05:55,050 --> 00:05:58,440
+So let's talk about what's going on here after a very quick break.
+

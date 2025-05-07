@@ -1,0 +1,288 @@
+1
+00:00:00,180 --> 00:00:00,540
+Hey.
+
+2
+00:00:00,540 --> 00:00:01,440
+Welcome, everyone.
+
+3
+00:00:01,440 --> 00:00:05,070
+In this section, we're revisiting our good friend, the object.
+
+4
+00:00:05,070 --> 00:00:09,420
+So there's a lot more to talk about with objects than what we've seen so far.
+
+5
+00:00:09,570 --> 00:00:15,450
+Object Literals are useful to store key value pairs like we've been using them to store arrays or numbers
+
+6
+00:00:15,450 --> 00:00:17,670
+or strings or even other objects.
+
+7
+00:00:17,670 --> 00:00:20,010
+But there's much more to talk about with objects.
+
+8
+00:00:20,040 --> 00:00:25,860
+Objects are very central to JavaScript, not only in the code we write, but also to the way JavaScript
+
+9
+00:00:25,860 --> 00:00:27,690
+actually works behind the scenes.
+
+10
+00:00:27,690 --> 00:00:32,460
+So this section I'm calling the Secret Life of Objects, it's not really a secret in any way.
+
+11
+00:00:33,120 --> 00:00:35,640
+It's very well known stuff about objects.
+
+12
+00:00:35,640 --> 00:00:37,230
+So we have a couple of goals here.
+
+13
+00:00:37,230 --> 00:00:40,290
+We're going to cover a pretty diverse group of topics.
+
+14
+00:00:40,290 --> 00:00:43,230
+They are all united by the thread of objects.
+
+15
+00:00:43,230 --> 00:00:45,300
+They all have to do with objects in some way.
+
+16
+00:00:45,330 --> 00:00:51,330
+We'll start by talking about new syntax enhancements, nice little shorthand or shortcuts for common
+
+17
+00:00:51,330 --> 00:00:52,740
+things we do with objects.
+
+18
+00:00:53,100 --> 00:00:54,150
+So we'll start there.
+
+19
+00:00:54,150 --> 00:00:55,650
+Then we'll talk about methods.
+
+20
+00:00:55,650 --> 00:00:59,550
+How do we add methods to objects or how do we create methods?
+
+21
+00:00:59,550 --> 00:01:01,530
+We'll talk about prototypes.
+
+22
+00:01:01,530 --> 00:01:04,290
+And this last point here is an important one.
+
+23
+00:01:04,290 --> 00:01:05,700
+We'll talk about the keyword.
+
+24
+00:01:05,700 --> 00:01:11,310
+This the bane of many JavaScript learners existence, something that will spend a lot of time on in
+
+25
+00:01:11,310 --> 00:01:12,450
+the rest of the course.
+
+26
+00:01:12,480 --> 00:01:16,680
+We're not going to cover everything you need to know about it right now, but we'll get our first taste
+
+27
+00:01:16,680 --> 00:01:18,600
+of this and see how it works.
+
+28
+00:01:18,990 --> 00:01:23,790
+But we're going to start with a nice new syntax enhancement called Shorthand Properties.
+
+29
+00:01:23,790 --> 00:01:28,080
+Shorthand properties are a new addition to JavaScript with IS 2015.
+
+30
+00:01:28,320 --> 00:01:32,790
+They are not supported in Internet Explorer, but that shouldn't stop you from using them.
+
+31
+00:01:33,030 --> 00:01:39,180
+It's a nice, easy way to create an object literal when you have variables and you want to create a
+
+32
+00:01:39,180 --> 00:01:45,630
+property where the key name is the name of your variable and the value is the value in the variable.
+
+33
+00:01:45,630 --> 00:01:51,270
+So here I have a function called get stats which is passed in an array.
+
+34
+00:01:51,390 --> 00:01:53,160
+I need to just update this.
+
+35
+00:01:53,340 --> 00:01:55,500
+I just move this into a new function.
+
+36
+00:01:55,500 --> 00:01:56,970
+Okay, there we go.
+
+37
+00:01:56,970 --> 00:02:03,240
+So it passes in, we pass in an array and we calculate the max of the array, the min, the sum of every
+
+38
+00:02:03,240 --> 00:02:04,680
+element and the average.
+
+39
+00:02:04,680 --> 00:02:11,220
+So when I call it here, I'm passing in the reviews array representing Yelp reviews or something similar.
+
+40
+00:02:11,490 --> 00:02:15,870
+What I want it to do is return an object that contains all of these stats.
+
+41
+00:02:15,870 --> 00:02:20,640
+So something like this return max is set to Max.
+
+42
+00:02:21,420 --> 00:02:24,180
+The men property is set to the value of men.
+
+43
+00:02:24,570 --> 00:02:26,490
+Some is set to some.
+
+44
+00:02:26,970 --> 00:02:29,670
+And average is set to average.
+
+45
+00:02:30,420 --> 00:02:31,320
+So this works.
+
+46
+00:02:31,320 --> 00:02:37,230
+And this is how we had to do it until is 2015 with the shorthand syntax came along.
+
+47
+00:02:37,440 --> 00:02:44,110
+So if I run this right now and I take a look at stats, we do get an object back and it's what you expect.
+
+48
+00:02:44,130 --> 00:02:45,210
+We have the keys.
+
+49
+00:02:45,210 --> 00:02:50,560
+Some men, max an average and their values are set to the corresponding values from the variables.
+
+50
+00:02:50,580 --> 00:02:57,570
+But with this shorthand syntax, what we can do is write it like this return.
+
+51
+00:02:57,660 --> 00:03:02,580
+And then we simply write max, min, sum and average.
+
+52
+00:03:03,600 --> 00:03:09,060
+And this will create a key with the name of max, the value with the value of Max.
+
+53
+00:03:09,060 --> 00:03:14,910
+So we're taking variables that we have and using them to both set the key name and the corresponding
+
+54
+00:03:14,910 --> 00:03:15,430
+value.
+
+55
+00:03:15,450 --> 00:03:21,960
+If I refresh my page over here and I look at stats, we have the same exact output or the same return
+
+56
+00:03:21,960 --> 00:03:22,560
+value.
+
+57
+00:03:22,650 --> 00:03:24,000
+It's just shorter.
+
+58
+00:03:24,000 --> 00:03:28,440
+We don't have to duplicate the key and the value it's done for us automatically.
+
+59
+00:03:28,440 --> 00:03:30,750
+So that's pretty much it for the shorthand syntax.
+
+60
+00:03:30,750 --> 00:03:36,300
+Here's an example from early on in the course when we covered functions, one of the exercises was to
+
+61
+00:03:36,300 --> 00:03:39,990
+build a get card function which returns an object.
+
+62
+00:03:40,110 --> 00:03:43,980
+I'll just call it over here containing a suit and a value.
+
+63
+00:03:43,980 --> 00:03:50,130
+This would be representing a single playing card, and the way that I wrote it was I have a pick function
+
+64
+00:03:50,160 --> 00:03:56,760
+that picks a random element from an array, and then I have my cards, the values and then the suits.
+
+65
+00:03:56,760 --> 00:04:02,220
+And I'm picking a value, saving it to a variable called value, picking a suit, saving it to a variable
+
+66
+00:04:02,220 --> 00:04:07,620
+called suit, and then returning an object where we have value set to value suit set to suit.
+
+67
+00:04:07,620 --> 00:04:11,850
+So we could just improve this very quickly by just doing this instead.
+
+68
+00:04:11,970 --> 00:04:16,589
+And if I save and run it one more time, it still works.
+
+69
+00:04:16,860 --> 00:04:17,459
+All right.
+
+70
+00:04:17,459 --> 00:04:19,079
+So a nice shortcut syntax.
+
+71
+00:04:19,079 --> 00:04:23,640
+Just remember, it doesn't work in Internet Explorer like almost everything else.
+
+72
+00:04:23,640 --> 00:04:24,990
+It's nice to use in JavaScript.
+

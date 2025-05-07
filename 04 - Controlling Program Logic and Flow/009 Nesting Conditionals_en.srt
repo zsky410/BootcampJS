@@ -1,0 +1,248 @@
+1
+00:00:00,180 --> 00:00:05,640
+The next thing to know about conditionals is that we can nest them inside of one another so we can have
+
+2
+00:00:05,640 --> 00:00:11,460
+multiple layers deep of conditionals where we're checking for a certain condition to be true and we
+
+3
+00:00:11,460 --> 00:00:16,260
+can nest them as much as we want, whether it's if and elses, we can throw an else ifs.
+
+4
+00:00:16,260 --> 00:00:18,960
+We just nest them inside the curly braces.
+
+5
+00:00:19,800 --> 00:00:21,120
+So let's try an example.
+
+6
+00:00:21,120 --> 00:00:24,750
+We'll go with this example I've been using in the slides of a password.
+
+7
+00:00:25,290 --> 00:00:29,070
+So let's say a user type, some password and we don't know what it is.
+
+8
+00:00:29,400 --> 00:00:30,900
+So that's going to be invalid.
+
+9
+00:00:30,900 --> 00:00:32,759
+I'm just going to make it undefined for now.
+
+10
+00:00:33,390 --> 00:00:34,770
+Let's say we don't know what it is.
+
+11
+00:00:34,770 --> 00:00:41,370
+We want to make sure the password is long enough so we would check if password length is let's say it's
+
+12
+00:00:41,370 --> 00:00:45,780
+greater than or equal to maybe six eight.
+
+13
+00:00:46,590 --> 00:00:47,700
+Not super strong.
+
+14
+00:00:47,700 --> 00:00:53,760
+It should be longer, but just to make our lives easier if it is greater than or equal to six, we'll
+
+15
+00:00:53,760 --> 00:00:54,660
+check something.
+
+16
+00:00:54,660 --> 00:00:57,600
+If it's not, we'll console that log.
+
+17
+00:00:58,170 --> 00:00:59,790
+Password must be longer.
+
+18
+00:01:02,370 --> 00:01:03,060
+Great.
+
+19
+00:01:04,349 --> 00:01:07,420
+But if it is greater than or equal to six, we're not done.
+
+20
+00:01:07,440 --> 00:01:12,660
+We also want to make sure there's no spaces in a password so we could check if password.
+
+21
+00:01:12,810 --> 00:01:17,340
+And the easiest way to check if there's a space anywhere in there, at least with what we know right
+
+22
+00:01:17,340 --> 00:01:21,480
+now, would be to do an index of the space character.
+
+23
+00:01:21,480 --> 00:01:22,670
+So that's not an empty string.
+
+24
+00:01:22,680 --> 00:01:23,640
+There's a space.
+
+25
+00:01:23,760 --> 00:01:30,180
+And remember, if it is found in the string password, we'll get an index like two or seven or 20 or
+
+26
+00:01:30,180 --> 00:01:30,740
+zero.
+
+27
+00:01:30,750 --> 00:01:33,780
+If it's not found, we'll get negative one.
+
+28
+00:01:34,050 --> 00:01:37,710
+So if we find negative one, that means there is a space.
+
+29
+00:01:37,950 --> 00:01:44,820
+So if password index of space is equal to negative one, that means there is no space.
+
+30
+00:01:44,820 --> 00:01:46,740
+We can then cancel that log.
+
+31
+00:01:47,160 --> 00:01:48,510
+Valid password.
+
+32
+00:01:51,000 --> 00:01:54,570
+And then otherwise we can cancel that log.
+
+33
+00:01:55,590 --> 00:02:01,590
+Password is long enough but cannot contain spaces.
+
+34
+00:02:02,130 --> 00:02:03,490
+So let's test it out.
+
+35
+00:02:03,510 --> 00:02:05,140
+Right now password is undefined.
+
+36
+00:02:05,160 --> 00:02:06,450
+Let's give it a value.
+
+37
+00:02:06,600 --> 00:02:09,960
+Password will be a hello kitty.
+
+38
+00:02:09,960 --> 00:02:11,580
+So that is long enough.
+
+39
+00:02:11,580 --> 00:02:17,190
+But if I refresh we see password is long enough but cannot contain spaces and there is at least one
+
+40
+00:02:17,190 --> 00:02:18,240
+space in there.
+
+41
+00:02:18,570 --> 00:02:22,560
+If I get rid of that refresh valid password.
+
+42
+00:02:22,560 --> 00:02:26,670
+Now, if I get rid of some of these characters, it's too short.
+
+43
+00:02:26,670 --> 00:02:28,560
+We get password must be longer.
+
+44
+00:02:28,710 --> 00:02:34,050
+So the main takeaway from this video should be that we can nest conditionals inside of other conditionals
+
+45
+00:02:34,050 --> 00:02:37,290
+we could add in another else if somewhere.
+
+46
+00:02:37,770 --> 00:02:42,340
+Although I don't really think I can't think of a good scenario, at least now with a password or an
+
+47
+00:02:42,360 --> 00:02:43,680
+else, if would make sense.
+
+48
+00:02:43,680 --> 00:02:48,090
+But we could continue to nest instead of else, instead of if.
+
+49
+00:02:48,090 --> 00:02:52,020
+But there is a point where it becomes a little bit difficult to read.
+
+50
+00:02:52,020 --> 00:02:57,360
+If your code is super nested and there are different solutions or strategies you can take to alleviate
+
+51
+00:02:57,360 --> 00:03:02,370
+that, we're about to start learning one of them at least where something like this could actually be
+
+52
+00:03:02,370 --> 00:03:08,790
+written as a single condition, because in order for a password to be valid, we need the length to
+
+53
+00:03:08,790 --> 00:03:12,060
+be greater than six and we want there to be no spaces.
+
+54
+00:03:12,300 --> 00:03:13,530
+That means it's valid.
+
+55
+00:03:13,530 --> 00:03:18,000
+What if we could just write a single conditional that said, if it's long enough and there aren't spaces,
+
+56
+00:03:18,000 --> 00:03:18,840
+it's valid.
+
+57
+00:03:18,840 --> 00:03:20,550
+That's what we'll see how to do next.
+
+58
+00:03:20,550 --> 00:03:22,140
+There's nothing wrong with nesting.
+
+59
+00:03:22,140 --> 00:03:27,570
+Sometimes you cannot get around it, but you just don't want to have like five levels of nested conditionals,
+
+60
+00:03:27,570 --> 00:03:30,150
+especially if they all have, if and else's.
+
+61
+00:03:30,150 --> 00:03:32,610
+It just can be a bit of a headache to understand.
+
+62
+00:03:32,610 --> 00:03:33,630
+So that's nesting.
+

@@ -1,0 +1,368 @@
+1
+00:00:00,090 --> 00:00:00,900
+Fruit Loops are great.
+
+2
+00:00:00,900 --> 00:00:01,859
+We use them a ton.
+
+3
+00:00:01,890 --> 00:00:06,960
+I'll show you a few more situations where we use them with strings, where we use them with arrays.
+
+4
+00:00:06,960 --> 00:00:09,930
+But first I want to talk about something that's not so great.
+
+5
+00:00:09,930 --> 00:00:14,160
+And this is true of many types of loops across all languages.
+
+6
+00:00:14,340 --> 00:00:19,290
+You can write infinite loops and an infinite loop is something you absolutely want to avoid.
+
+7
+00:00:19,350 --> 00:00:20,810
+Do not run this code.
+
+8
+00:00:20,820 --> 00:00:22,170
+It's not going to break your computer.
+
+9
+00:00:22,170 --> 00:00:29,550
+It's not going to set it on fire or crash anything but your window that you run it in on your browser
+
+10
+00:00:29,550 --> 00:00:34,050
+is going to be very unhappy and I might show you what happens.
+
+11
+00:00:34,140 --> 00:00:39,540
+I definitely have written many infinite loops accidentally and I'll talk about how that happens.
+
+12
+00:00:39,540 --> 00:00:45,480
+But the idea behind the infinite loop is that you write a loop where the ending condition is never met.
+
+13
+00:00:45,480 --> 00:00:50,000
+So the second part of your for loop in this case would always be true.
+
+14
+00:00:50,010 --> 00:00:51,390
+So here's an example.
+
+15
+00:00:51,390 --> 00:00:53,890
+I'm saying start at 20.
+
+16
+00:00:53,910 --> 00:00:56,700
+Add one to each time and run this loop.
+
+17
+00:00:56,700 --> 00:01:02,580
+While IE is greater than or equal to zero, it's always going to be greater than or equal to zero because
+
+18
+00:01:02,580 --> 00:01:05,069
+I'm always adding to I and it starts at 20.
+
+19
+00:01:05,190 --> 00:01:12,870
+So it will run on and on and on and on and on until either JavaScript freaks out or the browser freaks
+
+20
+00:01:12,870 --> 00:01:13,380
+out.
+
+21
+00:01:14,040 --> 00:01:15,030
+You'll see what happens.
+
+22
+00:01:15,030 --> 00:01:16,110
+I guess I'll show it to you.
+
+23
+00:01:16,140 --> 00:01:17,610
+I've committed to it at this point.
+
+24
+00:01:18,180 --> 00:01:23,370
+So you want to be careful about this when you're writing a for loop and especially when you write while
+
+25
+00:01:23,370 --> 00:01:24,900
+loops, which we'll cover next.
+
+26
+00:01:25,170 --> 00:01:28,320
+So let's try and create one an infinite loop.
+
+27
+00:01:28,530 --> 00:01:36,270
+Let's count, let's create an AI that starts at one and I'm going to add two to each time.
+
+28
+00:01:36,720 --> 00:01:42,270
+So maybe I'm trying to count two, four, six, eight and so on up until I hit 20.
+
+29
+00:01:42,570 --> 00:01:49,890
+So my condition, a poorly written condition would be run this when AI is not equal to 20.
+
+30
+00:01:50,730 --> 00:01:52,110
+But there's a problem here.
+
+31
+00:01:52,470 --> 00:01:56,070
+I'm starting at one, I'm adding two to it each time.
+
+32
+00:01:56,310 --> 00:02:01,440
+So we'll get three and then we'll get well, we'll get one, then three, then five, then seven.
+
+33
+00:02:01,440 --> 00:02:03,330
+We'll never have 20.
+
+34
+00:02:03,330 --> 00:02:06,000
+So it's always going to be not equal to 20.
+
+35
+00:02:06,000 --> 00:02:07,290
+We'll never hit 20.
+
+36
+00:02:07,680 --> 00:02:11,700
+We're counting on odd numbers because we start at one, so we blow right past it.
+
+37
+00:02:12,570 --> 00:02:14,490
+Oh, gosh, here we go.
+
+38
+00:02:14,490 --> 00:02:15,480
+I'm going to run it.
+
+39
+00:02:16,680 --> 00:02:17,430
+I'm being dramatic.
+
+40
+00:02:17,430 --> 00:02:18,420
+It's not that bad.
+
+41
+00:02:20,570 --> 00:02:21,840
+You can see what's happening here.
+
+42
+00:02:21,860 --> 00:02:24,440
+We've already hit 2903.
+
+43
+00:02:24,560 --> 00:02:26,990
+And did my browser stop?
+
+44
+00:02:26,990 --> 00:02:27,200
+Yeah.
+
+45
+00:02:27,200 --> 00:02:28,610
+Och, now it's lagging.
+
+46
+00:02:28,610 --> 00:02:34,400
+I can't scroll, I can't click, it's getting all jittery, it's just going to keep going.
+
+47
+00:02:34,400 --> 00:02:38,270
+And then eventually Chrome is going to ask me if I want to kill the process.
+
+48
+00:02:38,270 --> 00:02:39,710
+You might have seen that before.
+
+49
+00:02:39,740 --> 00:02:45,350
+If you're trying to open something intensive in the browser or page is being weird, a little window
+
+50
+00:02:45,350 --> 00:02:48,320
+pops up and says, Do you want to kill or wait on this web page?
+
+51
+00:02:48,740 --> 00:02:53,300
+I'll click kill when that eventually pops up and I'll be back in a bit.
+
+52
+00:02:53,660 --> 00:02:54,180
+Okay.
+
+53
+00:02:54,230 --> 00:02:55,880
+So eventually I killed it.
+
+54
+00:02:56,210 --> 00:02:58,160
+My computer is now very angry.
+
+55
+00:02:58,160 --> 00:03:01,250
+You can hear the fans going most likely through the microphone.
+
+56
+00:03:01,370 --> 00:03:06,470
+It got very warm because it's trying to do all these computations and there's no end in sight.
+
+57
+00:03:06,470 --> 00:03:08,630
+It just keeps going and going and going and going.
+
+58
+00:03:08,630 --> 00:03:10,670
+And that's not good behavior.
+
+59
+00:03:10,670 --> 00:03:13,130
+So infinite loops or something we want to avoid.
+
+60
+00:03:13,130 --> 00:03:17,750
+So in general, when you're doing a for loop, there's a couple of things to look out for before you
+
+61
+00:03:17,750 --> 00:03:18,650
+ever run the code.
+
+62
+00:03:18,650 --> 00:03:22,820
+The first is just pay attention and make sure you're going in the right direction.
+
+63
+00:03:22,820 --> 00:03:29,810
+This is a simple one, but if you're trying to count backwards from 200 or from 100, let I equals 100
+
+64
+00:03:30,560 --> 00:03:32,660
+and we'll decrement by one.
+
+65
+00:03:32,960 --> 00:03:36,470
+We want this code to run when AI is greater than or equal to zero.
+
+66
+00:03:36,950 --> 00:03:39,770
+But often, at least sometimes I do this.
+
+67
+00:03:39,770 --> 00:03:44,120
+I'm so used to doing I less than or equal to something that that's what I'll go with.
+
+68
+00:03:44,120 --> 00:03:45,830
+And that causes an infinite loop.
+
+69
+00:03:45,950 --> 00:03:50,180
+I usually catch myself, but it's just something to pay attention to make sure that if you're going
+
+70
+00:03:50,180 --> 00:03:54,740
+backwards or you're going forwards, whichever direction you're going, that your condition here is
+
+71
+00:03:54,740 --> 00:03:55,610
+appropriate.
+
+72
+00:03:55,610 --> 00:04:02,450
+And the other piece of advice that I have is that I would pretty much never use equality or non equality
+
+73
+00:04:02,450 --> 00:04:03,410
+in a for loop.
+
+74
+00:04:03,770 --> 00:04:08,750
+If you're working with numbers, it's much better to do greater than or less than because then we would
+
+75
+00:04:08,750 --> 00:04:15,350
+avoid a situation like this if I did want to count from three to 5 to 7 and I wanted to stop as soon
+
+76
+00:04:15,350 --> 00:04:21,350
+as we get past 20, it would just be better if I said, well, I is less than or equal to 20, because
+
+77
+00:04:21,350 --> 00:04:23,270
+even if we don't hit 20, exactly.
+
+78
+00:04:23,270 --> 00:04:28,610
+If we're starting at one, we add two, we'll end up with 19 and then we get to 21.
+
+79
+00:04:28,610 --> 00:04:33,530
+We skipped over 20, but the loop will still stop because this won't be true anymore.
+
+80
+00:04:34,010 --> 00:04:35,210
+So just two things.
+
+81
+00:04:35,210 --> 00:04:37,010
+Make sure you're going in the right direction.
+
+82
+00:04:37,250 --> 00:04:43,010
+Your logic makes sense here and generally try to avoid equality and non equality there.
+
+83
+00:04:43,190 --> 00:04:47,780
+I prefer to use greater than less than when I can, so I'm going to add a note here.
+
+84
+00:04:47,780 --> 00:04:49,070
+Don't run this.
+
+85
+00:04:50,810 --> 00:04:52,400
+This will cause an infinite loop.
+
+86
+00:04:53,510 --> 00:04:54,740
+I'll get rid of that one.
+
+87
+00:04:54,950 --> 00:04:59,660
+You probably will encounter an infinite loop or two, but at this point, hopefully you'll be able to
+
+88
+00:04:59,660 --> 00:05:01,190
+identify what's going on.
+
+89
+00:05:01,220 --> 00:05:05,480
+It will be very clear when your browser just starts freaking out at you and getting hot and jittery
+
+90
+00:05:05,480 --> 00:05:08,120
+and laggy, it happens.
+
+91
+00:05:08,120 --> 00:05:12,530
+It's nothing to be ashamed of, but it's definitely something you want to be on the lookout for and
+
+92
+00:05:12,530 --> 00:05:13,940
+try and prevent if you can.
+

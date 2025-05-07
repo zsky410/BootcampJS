@@ -1,0 +1,840 @@
+1
+00:00:00,120 --> 00:00:00,480
+All right.
+
+2
+00:00:00,480 --> 00:00:05,160
+So the last really critical part of promises is understanding, promise, chaining.
+
+3
+00:00:05,610 --> 00:00:10,620
+So I've updated the fake request function to now have a much more robust set of pages.
+
+4
+00:00:10,620 --> 00:00:14,040
+It's still pretty minimal, but we have a couple of different endpoints.
+
+5
+00:00:14,040 --> 00:00:19,260
+We can make a fake request to slash users, which would give us something like this where we have an
+
+6
+00:00:19,260 --> 00:00:25,740
+ID for each user and I could use that ID to make a second request to get more information about a user.
+
+7
+00:00:25,740 --> 00:00:32,640
+And this is actually a really common pattern where a website or some API is set up with some endpoint
+
+8
+00:00:32,640 --> 00:00:38,700
+that gives you a little bit of information about every user or every, I don't know, dog in the the
+
+9
+00:00:38,700 --> 00:00:42,720
+dog shelter or every post on a on the Reddit home page.
+
+10
+00:00:42,720 --> 00:00:48,570
+Then it gives you an idea that you can use to make a second follow up request using information from
+
+11
+00:00:48,570 --> 00:00:52,560
+the first so that you can get more detailed information like I have here.
+
+12
+00:00:52,560 --> 00:00:58,110
+So if we wanted to mock that, we would make a request to slash users, a fake request and get this
+
+13
+00:00:58,110 --> 00:00:59,130
+information back.
+
+14
+00:00:59,130 --> 00:01:04,650
+Then we could take this ID ID of one and make a request to slash users slash one.
+
+15
+00:01:04,769 --> 00:01:11,370
+But we want to do that after this one finishes, after we know for sure what that ID is, just like
+
+16
+00:01:11,370 --> 00:01:12,420
+we would in the real world.
+
+17
+00:01:12,420 --> 00:01:18,240
+So if you pretend for a moment that this is real, it's not just a fake object of pages where we're
+
+18
+00:01:18,240 --> 00:01:19,050
+just hard coding.
+
+19
+00:01:19,050 --> 00:01:21,540
+The data in those IDs could change.
+
+20
+00:01:21,540 --> 00:01:27,270
+There could be users that are deleted, so we would ask for all users and then make a request to user
+
+21
+00:01:27,270 --> 00:01:30,030
+slash one with what we know right now.
+
+22
+00:01:30,150 --> 00:01:31,200
+Here's how we would do it.
+
+23
+00:01:31,230 --> 00:01:33,780
+Fake request and then the URL.
+
+24
+00:01:33,780 --> 00:01:35,910
+Let's start with slash users.
+
+25
+00:01:36,860 --> 00:01:37,220
+Dot.
+
+26
+00:01:37,220 --> 00:01:40,850
+Then we have our callback, which gives us a response.
+
+27
+00:01:42,950 --> 00:01:46,610
+And then what we would do is take a look at response data.
+
+28
+00:01:46,880 --> 00:01:49,070
+That is the name that we use, right?
+
+29
+00:01:49,520 --> 00:01:57,260
+If we come down here, data and we want the ID right here, this ID of the first user.
+
+30
+00:01:57,260 --> 00:02:03,440
+So the array is what we get back that contains two items if we just console.log resource data.
+
+31
+00:02:05,180 --> 00:02:08,539
+Let's just pretend that we are on a journey with a real API.
+
+32
+00:02:08,570 --> 00:02:11,150
+Here's what we get back in array.
+
+33
+00:02:11,150 --> 00:02:15,590
+So if we want to take the first user, that would be console.log.
+
+34
+00:02:15,990 --> 00:02:16,940
+Data zero.
+
+35
+00:02:16,970 --> 00:02:20,540
+If we want that ID, we could save that to a variable.
+
+36
+00:02:20,540 --> 00:02:24,140
+Let's just make sure we're printing it out correctly after 1/2.
+
+37
+00:02:25,130 --> 00:02:27,640
+So let's save this to a variable.
+
+38
+00:02:27,650 --> 00:02:29,870
+We'll call it const ID.
+
+39
+00:02:30,680 --> 00:02:34,820
+So we have the piece of information we need to make our second request.
+
+40
+00:02:35,640 --> 00:02:38,580
+With what we've seen so far is it's going to Oh, I'm not printing anything.
+
+41
+00:02:38,580 --> 00:02:39,560
+Well, I'm an idiot.
+
+42
+00:02:39,570 --> 00:02:40,650
+Nothing will show up.
+
+43
+00:02:41,070 --> 00:02:45,600
+But with what we've seen so far, we would have to just make another call to fake request.
+
+44
+00:02:45,600 --> 00:02:46,320
+We have to do that.
+
+45
+00:02:46,320 --> 00:02:48,060
+Either way, we can't get around that.
+
+46
+00:02:48,180 --> 00:02:53,760
+But we would nest it in here because we need this to happen after this one finishes.
+
+47
+00:02:53,940 --> 00:02:59,520
+So logically it would go in the then if we put it down here, it's not going to happen afterwards.
+
+48
+00:02:59,520 --> 00:03:06,720
+We depend on this ID which we only have access to in this callback, the then callback, where the response
+
+49
+00:03:06,720 --> 00:03:07,740
+is passed through.
+
+50
+00:03:07,890 --> 00:03:14,220
+So I have to do it in here with what we've seen, I would call fake request again and we'll use a template
+
+51
+00:03:14,220 --> 00:03:19,050
+literal to do slash users slash and then dollar sign curly braces.
+
+52
+00:03:19,050 --> 00:03:28,470
+My ID I got from the previous request and I could do a second dot then same exact thing rez and then
+
+53
+00:03:28,470 --> 00:03:30,390
+we can console.log the response.
+
+54
+00:03:30,750 --> 00:03:32,010
+Let's see what we get.
+
+55
+00:03:32,880 --> 00:03:33,990
+So we should get a first.
+
+56
+00:03:34,020 --> 00:03:39,210
+Oh, actually we're not printing the very first time so we only see the second response that we get
+
+57
+00:03:39,210 --> 00:03:39,510
+back.
+
+58
+00:03:39,510 --> 00:03:44,670
+And it has more information about the user with ID of one and status of 200.
+
+59
+00:03:44,670 --> 00:03:50,490
+This all looks good if I wanted to make another request with that, if we look at the data we got back,
+
+60
+00:03:50,490 --> 00:03:58,200
+we have this top post ID so I now can send a request to another URL I've set up in my pages.
+
+61
+00:03:58,200 --> 00:04:07,500
+Object called slash, posts slash and then this id so I could then make another request, fake request
+
+62
+00:04:07,950 --> 00:04:10,500
+and it's dot data.
+
+63
+00:04:10,680 --> 00:04:11,460
+Dot.
+
+64
+00:04:11,460 --> 00:04:13,950
+What was it, top post ID Yes.
+
+65
+00:04:15,590 --> 00:04:21,649
+So this is a third request that is dependent upon the second request, which itself is dependent upon
+
+66
+00:04:21,649 --> 00:04:22,130
+the data.
+
+67
+00:04:22,130 --> 00:04:27,770
+We got back from the very first request, we got all users that gave us an ID we could use.
+
+68
+00:04:27,770 --> 00:04:30,530
+We use that to make a request using that ID.
+
+69
+00:04:30,560 --> 00:04:36,950
+Now we get this top post ID which we can use to make another request to post some ID.
+
+70
+00:04:37,130 --> 00:04:40,400
+So we'll do slash post.
+
+71
+00:04:41,420 --> 00:04:44,900
+Slash and we'll save this to a variable cost ID again.
+
+72
+00:04:44,900 --> 00:04:54,140
+Or how about post ID and then interpolate that with dollar sign curly braces post id one more dot,
+
+73
+00:04:54,140 --> 00:04:57,830
+then we'll get our response hopefully.
+
+74
+00:04:57,950 --> 00:05:00,950
+And then we'll do our console.log response.
+
+75
+00:05:03,880 --> 00:05:04,600
+Okay.
+
+76
+00:05:05,620 --> 00:05:06,460
+We'll try it.
+
+77
+00:05:08,550 --> 00:05:09,540
+Come on.
+
+78
+00:05:09,630 --> 00:05:10,370
+All right.
+
+79
+00:05:10,380 --> 00:05:11,520
+What do we get back?
+
+80
+00:05:11,670 --> 00:05:13,930
+Yes, we're getting our post information.
+
+81
+00:05:13,950 --> 00:05:17,680
+Ladies and gentlemen, may I introduce you to my pet pig Hamlet?
+
+82
+00:05:17,700 --> 00:05:22,110
+So this was some hypothetical post on our website by this user.
+
+83
+00:05:22,470 --> 00:05:24,150
+So what we have here doesn't.
+
+84
+00:05:24,180 --> 00:05:29,670
+Honestly, it doesn't look much better than what we saw in the whole callback hell section of this section
+
+85
+00:05:29,670 --> 00:05:31,740
+where we talked about nesting a whole bunch of things.
+
+86
+00:05:31,770 --> 00:05:33,720
+Also, we don't have catches right now.
+
+87
+00:05:34,020 --> 00:05:36,960
+So if I want to do that, it gets even messier.
+
+88
+00:05:37,470 --> 00:05:48,450
+If I want to catch, I would do catch pass in my callback and we'll just call this error and then console.log.
+
+89
+00:05:49,260 --> 00:05:50,190
+Oh, no.
+
+90
+00:05:50,850 --> 00:05:53,220
+And then we'll also just print the error.
+
+91
+00:05:54,120 --> 00:05:56,580
+So right now, we don't have a way of causing an error.
+
+92
+00:05:56,580 --> 00:06:03,060
+But if I mess up this request and I use a wrong or an invalid URL like that, it should catch it.
+
+93
+00:06:03,870 --> 00:06:06,200
+And it does we get Oh, no, here's our error.
+
+94
+00:06:06,210 --> 00:06:09,450
+It's a status code 400 or 404 in an object.
+
+95
+00:06:09,450 --> 00:06:15,420
+But if this one is valid and I instead mess this request up, this is a URL that doesn't exist in our
+
+96
+00:06:15,420 --> 00:06:16,170
+pages.
+
+97
+00:06:16,620 --> 00:06:17,820
+Let's see what happens.
+
+98
+00:06:20,840 --> 00:06:21,870
+It didn't work.
+
+99
+00:06:21,890 --> 00:06:26,450
+I mean, the promise was rejected, but we didn't catch it like we have here.
+
+100
+00:06:26,840 --> 00:06:29,930
+So this catch is only working for this fake request.
+
+101
+00:06:29,930 --> 00:06:33,350
+So I would need another catch for this then.
+
+102
+00:06:33,350 --> 00:06:37,400
+So we have a much, much nicer way of rewriting all of this.
+
+103
+00:06:37,640 --> 00:06:42,680
+What we're doing here is essentially the same thing we saw with callbacks where we just nest them and
+
+104
+00:06:42,680 --> 00:06:43,790
+nest them and nest them.
+
+105
+00:06:43,820 --> 00:06:47,000
+This fake request is dependent on the data from this one.
+
+106
+00:06:47,030 --> 00:06:50,510
+This third one is dependent on the second one, so it makes sense to nest them.
+
+107
+00:06:50,510 --> 00:06:52,970
+But we have a whole different way of structuring them.
+
+108
+00:06:53,240 --> 00:06:58,040
+What we can do instead, I'll just type this sort of in a shorthand up here.
+
+109
+00:06:58,280 --> 00:07:04,960
+If we do a dot then and in the callback, if the dot, then we return a promise we can call dot.
+
+110
+00:07:04,970 --> 00:07:08,270
+Then immediately after on the same level, I don't have to nest.
+
+111
+00:07:08,270 --> 00:07:15,920
+I can chain it and I can continue to chain as long as each callback for then returns a promise.
+
+112
+00:07:15,920 --> 00:07:19,620
+I won't nest my dot then so I won't have to do any nesting.
+
+113
+00:07:19,640 --> 00:07:21,590
+Instead I return a promise.
+
+114
+00:07:21,590 --> 00:07:23,180
+This dot then runs.
+
+115
+00:07:23,180 --> 00:07:24,980
+First it returns a promise.
+
+116
+00:07:24,980 --> 00:07:31,080
+This then will run if the second promise, the returned promise was resolved and so on.
+
+117
+00:07:31,100 --> 00:07:32,580
+So let me show you what that would look like.
+
+118
+00:07:32,600 --> 00:07:36,170
+We have our fake request then, and then we have this whole callback here.
+
+119
+00:07:36,170 --> 00:07:39,500
+We get the ID, then we have our second fake request here.
+
+120
+00:07:39,800 --> 00:07:44,450
+What I'm going to do is remove all of this right here.
+
+121
+00:07:46,400 --> 00:07:52,340
+And return this function call this returns a promise just like this did our function.
+
+122
+00:07:52,370 --> 00:07:54,590
+The first line says return new promise.
+
+123
+00:07:54,860 --> 00:07:56,450
+So this returns a promise.
+
+124
+00:07:56,450 --> 00:08:01,850
+We're putting the then on that promise, then inside this dot, then we return another promise.
+
+125
+00:08:02,180 --> 00:08:06,500
+And what I can do is put my next, then on the same level.
+
+126
+00:08:07,250 --> 00:08:15,290
+So here I am doing another dot, then getting the post ID from the response I can return this fake request
+
+127
+00:08:15,290 --> 00:08:16,760
+which returns a promise.
+
+128
+00:08:17,660 --> 00:08:18,560
+And I can move my.
+
+129
+00:08:18,770 --> 00:08:20,390
+Then outside.
+
+130
+00:08:21,670 --> 00:08:26,440
+So if you look at my code now, I should have saved the original where we were nesting things.
+
+131
+00:08:26,440 --> 00:08:28,930
+It was then and then inside that.
+
+132
+00:08:29,140 --> 00:08:34,840
+Then we essentially had another dot then and then another dot then and we didn't even bother with catches.
+
+133
+00:08:35,289 --> 00:08:37,000
+That was still a lot of nesting.
+
+134
+00:08:37,330 --> 00:08:42,100
+Now what we're seeing, if you take my word that this does work, is that we can write things in a much
+
+135
+00:08:42,100 --> 00:08:43,270
+more linear way.
+
+136
+00:08:43,780 --> 00:08:47,970
+So do this, then do this, then do this.
+
+137
+00:08:47,980 --> 00:08:55,060
+So this will only run if the first promise was resolved, meaning this ran, then that promise that
+
+138
+00:08:55,060 --> 00:08:55,750
+was returned.
+
+139
+00:08:55,750 --> 00:09:02,050
+The second promise was resolved meaning that this code runs in the dot, then callback, and this promise
+
+140
+00:09:02,050 --> 00:09:05,470
+is resolved which would trigger this callback.
+
+141
+00:09:05,950 --> 00:09:12,520
+So if any of those screw up at any point and this is a real magical part, we only need one catch.
+
+142
+00:09:12,820 --> 00:09:17,380
+So this sketch will run if any of these promises are rejected.
+
+143
+00:09:17,380 --> 00:09:18,550
+We have this promise.
+
+144
+00:09:18,550 --> 00:09:19,720
+We have this promise.
+
+145
+00:09:19,720 --> 00:09:20,890
+We have this promise.
+
+146
+00:09:20,890 --> 00:09:22,570
+We only need one catch.
+
+147
+00:09:22,570 --> 00:09:23,800
+It's like a catch all.
+
+148
+00:09:23,950 --> 00:09:25,450
+It's really, really nice.
+
+149
+00:09:25,450 --> 00:09:28,210
+So right now we do have an error here.
+
+150
+00:09:28,540 --> 00:09:29,260
+It won't work.
+
+151
+00:09:29,260 --> 00:09:34,360
+So let's just start with it actually working so users then users slash the ID, then post slash the
+
+152
+00:09:34,360 --> 00:09:35,200
+post ID.
+
+153
+00:09:35,380 --> 00:09:36,610
+Let's see what happens.
+
+154
+00:09:36,610 --> 00:09:39,970
+I'm going to console.log the data we get back each time.
+
+155
+00:09:39,970 --> 00:09:46,540
+So console.log says I'll do that here and you'll see them happening one after another, even though
+
+156
+00:09:46,540 --> 00:09:47,590
+they're not nested.
+
+157
+00:09:49,470 --> 00:09:50,640
+I'm doing it twice here.
+
+158
+00:09:50,670 --> 00:09:51,240
+Okay.
+
+159
+00:09:51,270 --> 00:09:52,230
+Moment of truth.
+
+160
+00:09:52,680 --> 00:09:55,860
+We get our first one, second, one, third one.
+
+161
+00:09:56,430 --> 00:09:57,520
+It's pretty cool, right?
+
+162
+00:09:57,540 --> 00:09:58,920
+We don't have to nest.
+
+163
+00:09:59,130 --> 00:10:04,290
+These take time, but we don't have to use a bunch of callbacks and continue to nest and get crazy with
+
+164
+00:10:04,290 --> 00:10:06,480
+that multi-level craziness.
+
+165
+00:10:06,480 --> 00:10:07,560
+Multi level craziness.
+
+166
+00:10:07,560 --> 00:10:07,950
+Yeah.
+
+167
+00:10:08,400 --> 00:10:13,830
+All we have to do is make sure we return a promise inside of this callback and then we can just add
+
+168
+00:10:13,830 --> 00:10:14,280
+another dot.
+
+169
+00:10:14,280 --> 00:10:16,910
+Then we could have as many levels as we want.
+
+170
+00:10:16,920 --> 00:10:19,920
+Remember, like I already said, this is only going to run this.
+
+171
+00:10:20,070 --> 00:10:26,250
+Then if this promise was resolved and this one is dependent on this promise being resolved, this one
+
+172
+00:10:26,250 --> 00:10:27,780
+is dependent on this one.
+
+173
+00:10:27,780 --> 00:10:33,030
+So it doesn't look like we have this crazy multi level dependency thing going on.
+
+174
+00:10:33,030 --> 00:10:34,710
+But that's the magic of promises.
+
+175
+00:10:34,710 --> 00:10:37,470
+We can rewrite our code in a much easier to read manner.
+
+176
+00:10:37,470 --> 00:10:37,950
+Right?
+
+177
+00:10:37,980 --> 00:10:40,800
+Do this, then do this, then do this, then do this.
+
+178
+00:10:40,800 --> 00:10:44,610
+If at any point something went wrong, do this.
+
+179
+00:10:44,610 --> 00:10:46,200
+So why don't we have something go wrong?
+
+180
+00:10:46,200 --> 00:10:49,320
+At the beginning, we'll use a URL that doesn't exist.
+
+181
+00:10:51,250 --> 00:10:51,970
+Oh, no.
+
+182
+00:10:52,390 --> 00:10:55,240
+So the catch ran that callback.
+
+183
+00:10:55,270 --> 00:10:57,430
+Now, let's have something go wrong here.
+
+184
+00:10:57,460 --> 00:11:00,230
+So we have our first promise that should be resolved.
+
+185
+00:11:00,250 --> 00:11:01,090
+There we go.
+
+186
+00:11:01,240 --> 00:11:02,250
+Then we get.
+
+187
+00:11:02,260 --> 00:11:02,950
+Oh, no.
+
+188
+00:11:03,220 --> 00:11:05,430
+And this code never ran right?
+
+189
+00:11:05,440 --> 00:11:07,690
+When we had an error with the very first one.
+
+190
+00:11:08,320 --> 00:11:10,270
+None of the other then ran.
+
+191
+00:11:10,870 --> 00:11:13,060
+It went straight to catch and it was done.
+
+192
+00:11:13,660 --> 00:11:19,210
+But now, if I have an error in this third request, we get the first two resolved.
+
+193
+00:11:19,210 --> 00:11:20,890
+Resolved, rejected.
+
+194
+00:11:21,310 --> 00:11:22,150
+Catch runs.
+
+195
+00:11:23,350 --> 00:11:27,820
+So hopefully you can see already, even though we're doing very fake stuff, it's a mocked request,
+
+196
+00:11:27,820 --> 00:11:29,920
+it's hardcoded, it's stupid.
+
+197
+00:11:30,370 --> 00:11:32,920
+I won't say stupid, it's useless in the real world.
+
+198
+00:11:32,950 --> 00:11:35,710
+It's useful in an educational context.
+
+199
+00:11:35,800 --> 00:11:41,590
+Even though all of that is true, it's still a good illustration of the benefits of using promises.
+
+200
+00:11:41,590 --> 00:11:46,480
+We can have multiple asynchronous actions that we want to happen one after another.
+
+201
+00:11:46,480 --> 00:11:48,910
+So not simultaneously, but one after another.
+
+202
+00:11:48,910 --> 00:11:51,820
+We change then as long as we return a promise.
+
+203
+00:11:51,820 --> 00:11:55,900
+Each time everything works and we only need one catch.
+
+204
+00:11:56,170 --> 00:12:02,440
+So what we're going to do next is revisit the early example that I use to illustrate callback hell,
+
+205
+00:12:02,440 --> 00:12:04,600
+where we were moving a button across the screen.
+
+206
+00:12:04,600 --> 00:12:10,540
+We'll rewrite it with promises, something slightly more useful instead of just an arbitrary fake request.
+
+207
+00:12:10,540 --> 00:12:12,130
+You'll see how much time.
+
+208
+00:12:12,130 --> 00:12:15,970
+Well, you'll see how much code it saves us and how many headaches it prevents.
+
+209
+00:12:15,970 --> 00:12:17,140
+It's so much easier to read.
+
+210
+00:12:17,140 --> 00:12:18,130
+So that's next.
+

@@ -1,0 +1,268 @@
+1
+00:00:00,120 --> 00:00:04,770
+We'll take a quick break from learning new properties and methods just to talk about how we can use
+
+2
+00:00:04,770 --> 00:00:06,960
+what we've already learned on multiple elements.
+
+3
+00:00:06,960 --> 00:00:09,960
+Everything we've been doing so far is one thing at a time.
+
+4
+00:00:09,960 --> 00:00:16,740
+We've been changing the inner HTML or the value of one input or one diff or whatever it is at a time.
+
+5
+00:00:16,890 --> 00:00:22,140
+But often we want to effect changes in multiple elements and we know how to select multiple elements.
+
+6
+00:00:22,140 --> 00:00:28,140
+We use query selector all, get elements by class name, get elements by tag name that gives us an array
+
+7
+00:00:28,140 --> 00:00:29,220
+like object.
+
+8
+00:00:29,220 --> 00:00:34,500
+So all we need to do is iterate over that object and then call whatever method or change whatever property
+
+9
+00:00:34,500 --> 00:00:35,040
+we want.
+
+10
+00:00:35,040 --> 00:00:40,170
+So why don't we start by changing the inner text of all allies on the page?
+
+11
+00:00:40,290 --> 00:00:45,990
+So we need to select all the allies, and I'm going to do this in a separate file because it takes a
+
+12
+00:00:45,990 --> 00:00:46,920
+couple of lines.
+
+13
+00:00:46,920 --> 00:00:53,940
+So I have a script as I've included it at the bottom of my HTML file and I'm going to select all the
+
+14
+00:00:53,940 --> 00:00:54,340
+lists.
+
+15
+00:00:54,340 --> 00:00:58,500
+So I need my document query selector all I want.
+
+16
+00:00:58,530 --> 00:01:03,360
+Liz So I'll pass in the string ally and then I'll save that to a variable.
+
+17
+00:01:03,360 --> 00:01:08,220
+But to go with const all Liz all these.
+
+18
+00:01:08,220 --> 00:01:11,730
+Okay, now we want to iterate over all else.
+
+19
+00:01:11,760 --> 00:01:21,600
+So for we could do a regular for loop for let i equals zero I less than all allies length I plus plus
+
+20
+00:01:21,870 --> 00:01:25,560
+and then we can access all allies of zero.
+
+21
+00:01:26,580 --> 00:01:32,580
+And we could start by just constantly logging all our lies of zero dot let's do in our text.
+
+22
+00:01:34,680 --> 00:01:34,980
+Okay.
+
+23
+00:01:35,160 --> 00:01:36,720
+Let's see what we get when I run this.
+
+24
+00:01:36,720 --> 00:01:38,280
+So I'll refresh the page.
+
+25
+00:01:39,000 --> 00:01:39,450
+Hmm.
+
+26
+00:01:40,050 --> 00:01:41,550
+No idea why I did zero.
+
+27
+00:01:41,580 --> 00:01:43,770
+It's supposed to be all allies of I.
+
+28
+00:01:44,190 --> 00:01:48,870
+Whatever that loop iteration is, we'll access that one and get the inner text.
+
+29
+00:01:48,870 --> 00:01:50,280
+And if we run it, there we go.
+
+30
+00:01:50,280 --> 00:01:50,760
+First thing.
+
+31
+00:01:50,760 --> 00:01:51,240
+Second thing.
+
+32
+00:01:51,240 --> 00:01:51,700
+Third thing.
+
+33
+00:01:51,720 --> 00:01:53,160
+Carrots, peas, broccoli.
+
+34
+00:01:53,280 --> 00:01:56,970
+So if I want to change them all, I can just set their inner text.
+
+35
+00:01:57,840 --> 00:02:03,870
+All allies of I dot inner text equals.
+
+36
+00:02:03,870 --> 00:02:06,360
+And then this is the hardest part always.
+
+37
+00:02:06,360 --> 00:02:09,690
+How about we are the champions?
+
+38
+00:02:09,690 --> 00:02:12,810
+I don't know why, but we'll just do it.
+
+39
+00:02:13,620 --> 00:02:13,940
+Okay.
+
+40
+00:02:14,700 --> 00:02:16,530
+What happens when I refresh the page?
+
+41
+00:02:16,530 --> 00:02:19,260
+Every single line now has been updated.
+
+42
+00:02:20,130 --> 00:02:22,020
+So this is the common pattern.
+
+43
+00:02:22,020 --> 00:02:27,750
+We select a group of things and we iterate over that array like object using a for loop.
+
+44
+00:02:27,750 --> 00:02:34,440
+Or we could easily do a for of loop, which I prefer for let ally of all allies.
+
+45
+00:02:36,690 --> 00:02:37,550
+We will.
+
+46
+00:02:37,560 --> 00:02:38,160
+What should we do?
+
+47
+00:02:38,190 --> 00:02:49,100
+How about ally dot in our HTML this time and let's pass in a string and we'll say we are.
+
+48
+00:02:49,110 --> 00:02:53,310
+And then a bold tag, the champions.
+
+49
+00:02:55,790 --> 00:03:00,470
+So now we're setting in HTML, which means that this will be treated as HTML.
+
+50
+00:03:00,470 --> 00:03:03,890
+It will be parsed and turned into an actual bold element on the page.
+
+51
+00:03:04,220 --> 00:03:05,330
+Let's see if it works.
+
+52
+00:03:06,490 --> 00:03:07,160
+There we go.
+
+53
+00:03:07,180 --> 00:03:10,750
+We are the champions on every single ally.
+
+54
+00:03:10,780 --> 00:03:13,090
+So we're overwriting the changes we did here.
+
+55
+00:03:13,090 --> 00:03:14,530
+But this also worked.
+
+56
+00:03:14,650 --> 00:03:16,720
+It's just annoying to have to deal with AI.
+
+57
+00:03:16,840 --> 00:03:21,340
+So why not use a four of loop so we can do things like this?
+
+58
+00:03:21,760 --> 00:03:27,040
+Obviously we can change styles once we see how to change styles, which we will see very shortly.
+
+59
+00:03:27,040 --> 00:03:31,720
+We can access attributes, we can set attributes, we could do all sorts of things, but the pattern
+
+60
+00:03:31,720 --> 00:03:32,590
+is the same.
+
+61
+00:03:32,620 --> 00:03:39,310
+You select and then loop and then do something versus what we've seen so far where we select one thing
+
+62
+00:03:39,310 --> 00:03:42,020
+and manipulate it directly without having to loop.
+
+63
+00:03:42,040 --> 00:03:44,050
+If you have multiple, you have to loop.
+
+64
+00:03:44,050 --> 00:03:47,150
+There's no easy shortcut to just impact all of them at once.
+
+65
+00:03:47,170 --> 00:03:47,590
+All right.
+
+66
+00:03:47,590 --> 00:03:49,140
+So that's it for this video.
+
+67
+00:03:49,150 --> 00:03:51,910
+Next, we'll move on to some other properties and methods.
+

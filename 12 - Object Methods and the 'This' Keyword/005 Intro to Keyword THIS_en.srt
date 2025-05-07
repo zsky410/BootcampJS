@@ -1,0 +1,416 @@
+1
+00:00:00,150 --> 00:00:04,240
+Next up, we'll see one of the keys to writing useful methods in our objects.
+
+2
+00:00:04,260 --> 00:00:05,520
+It's called the keyword.
+
+3
+00:00:05,520 --> 00:00:06,890
+This now the keyword.
+
+4
+00:00:06,900 --> 00:00:08,910
+This is also pretty useful.
+
+5
+00:00:08,910 --> 00:00:09,700
+It comes up a lot.
+
+6
+00:00:09,720 --> 00:00:14,730
+Once we get to Dom manipulation, which is right around the corner, when we do things like add events,
+
+7
+00:00:14,730 --> 00:00:20,190
+click events and keyboard events will sometimes reference the keyword this and you probably come across
+
+8
+00:00:20,190 --> 00:00:22,380
+it if you've ever attempted to learn JavaScript.
+
+9
+00:00:22,380 --> 00:00:25,890
+It's a concept that How should I put this?
+
+10
+00:00:25,890 --> 00:00:30,270
+It can be a major point of confusion and misery and hardship in general, suffering in the life of a
+
+11
+00:00:30,270 --> 00:00:31,710
+new JavaScript developer.
+
+12
+00:00:31,740 --> 00:00:34,620
+At least that's the perception a lot of people have.
+
+13
+00:00:34,620 --> 00:00:37,800
+There are courage posters like this one.
+
+14
+00:00:37,800 --> 00:00:42,030
+One of the most courageous decisions he'll ever make is to try and learn the JavaScript keyword this.
+
+15
+00:00:42,030 --> 00:00:44,850
+Well, actually, I just made this slide myself.
+
+16
+00:00:45,240 --> 00:00:51,180
+But the point is, a lot of people have this perception of this being this terrifying, confusing thing
+
+17
+00:00:51,180 --> 00:00:53,670
+when in reality it's not that bad.
+
+18
+00:00:53,850 --> 00:01:00,270
+What is tricky about the keyword this is that the value of it is sometimes it seems unpredictable.
+
+19
+00:01:00,510 --> 00:01:04,470
+It seems like you expect it to do one thing and it behaves a different way.
+
+20
+00:01:04,470 --> 00:01:08,940
+But there's a set of concrete rules that dictate what the value of this is.
+
+21
+00:01:08,940 --> 00:01:11,880
+At this point, we haven't even talked about what this is.
+
+22
+00:01:11,880 --> 00:01:13,110
+What's the point?
+
+23
+00:01:13,260 --> 00:01:14,880
+So this is a keyword.
+
+24
+00:01:15,030 --> 00:01:19,470
+Think of it as a reference to the current execution scope.
+
+25
+00:01:20,160 --> 00:01:22,680
+It is going to give you an object back.
+
+26
+00:01:22,710 --> 00:01:28,740
+So depending on the scope and depending on the rules of how this works, which is the confusing part,
+
+27
+00:01:28,740 --> 00:01:30,570
+that object changes.
+
+28
+00:01:30,570 --> 00:01:34,740
+It could be a reference to the global scope, which is what we're going to see right now.
+
+29
+00:01:34,920 --> 00:01:46,560
+If we type a function, let's call it, say hi console.log, something in here high and then let's also
+
+30
+00:01:46,560 --> 00:01:48,690
+console.log the value of this.
+
+31
+00:01:48,690 --> 00:01:51,420
+Remember, we'll get an object here when we console.log it.
+
+32
+00:01:51,420 --> 00:01:56,700
+This is an object and it refers to the current execution scope.
+
+33
+00:01:56,970 --> 00:02:05,220
+So if I run my code here, I call, say hi, we get high and then we see an object called the window.
+
+34
+00:02:05,670 --> 00:02:07,140
+So what is the window?
+
+35
+00:02:07,170 --> 00:02:10,080
+The window is the global scope in the browser.
+
+36
+00:02:10,259 --> 00:02:16,200
+We've been working with it stealthily or it's been stealthily looming over us this whole time.
+
+37
+00:02:16,350 --> 00:02:23,370
+When we define a function like say hi, it looks like it's floating on its own in the middle of nowhere.
+
+38
+00:02:23,370 --> 00:02:24,870
+We didn't put it in an object.
+
+39
+00:02:24,870 --> 00:02:27,060
+It's not a method like we called earlier.
+
+40
+00:02:27,060 --> 00:02:30,840
+We had math had that was a method or lowercase math.
+
+41
+00:02:30,840 --> 00:02:32,940
+In our case, say hi.
+
+42
+00:02:32,940 --> 00:02:35,610
+Looks like it's just floating in the middle of nowhere.
+
+43
+00:02:35,820 --> 00:02:42,060
+But if we look at this window object scroll all the way down here to the se okay.
+
+44
+00:02:42,090 --> 00:02:43,650
+Lots and lots of methods.
+
+45
+00:02:43,650 --> 00:02:45,510
+Take a look that say hi.
+
+46
+00:02:46,110 --> 00:02:50,130
+So when we define say hi like this, it is added as a property.
+
+47
+00:02:50,130 --> 00:02:52,830
+It is a method on the window object.
+
+48
+00:02:52,830 --> 00:02:55,590
+The window is the global scope of our browser.
+
+49
+00:02:55,590 --> 00:03:00,030
+If I type window at any point in my console, we'll get the same thing.
+
+50
+00:03:00,360 --> 00:03:07,680
+So this inside of a function, just a regular function normally refers to the window, at least in the
+
+51
+00:03:07,680 --> 00:03:08,100
+browser.
+
+52
+00:03:08,100 --> 00:03:10,080
+In Node it refers to something else.
+
+53
+00:03:10,080 --> 00:03:11,970
+But there is a global object.
+
+54
+00:03:11,970 --> 00:03:15,030
+It's not called the window, but there's a global object in Node.
+
+55
+00:03:15,510 --> 00:03:17,700
+But remember that this can change.
+
+56
+00:03:17,700 --> 00:03:21,060
+It's a bit of a shape shifter, so it does depend on how it is called.
+
+57
+00:03:21,060 --> 00:03:26,880
+So I don't want you to leave thinking that any time you write this in a function it refers to the window.
+
+58
+00:03:26,940 --> 00:03:31,200
+But in this function, the way that we executed it, it does refer to the window.
+
+59
+00:03:31,710 --> 00:03:36,690
+And just to talk more about the window for a moment here, the window contains all sorts of different
+
+60
+00:03:36,690 --> 00:03:37,230
+properties.
+
+61
+00:03:37,230 --> 00:03:42,450
+We've been using different methods, things like alert, if we call alert.
+
+62
+00:03:43,850 --> 00:03:45,580
+We get our alert in the browser.
+
+63
+00:03:45,590 --> 00:03:50,690
+It's a built in function and we call it like this, but it's a property on the window.
+
+64
+00:03:50,690 --> 00:03:54,830
+So I could also call it like this window alert something.
+
+65
+00:03:55,770 --> 00:03:57,720
+And I still get the same result.
+
+66
+00:03:58,780 --> 00:04:00,790
+Another very important thing about the window.
+
+67
+00:04:01,090 --> 00:04:07,240
+When we declare a variable with var, I'll go with var color equals teal.
+
+68
+00:04:08,540 --> 00:04:12,440
+That color or that variable color is added to the window.
+
+69
+00:04:12,800 --> 00:04:18,110
+If I look at window again and I find color on here, there you go.
+
+70
+00:04:18,350 --> 00:04:20,269
+It's added to the global scope.
+
+71
+00:04:20,269 --> 00:04:21,640
+It's added to the window.
+
+72
+00:04:21,649 --> 00:04:23,420
+So another way of referencing it.
+
+73
+00:04:23,420 --> 00:04:25,970
+Oh, my gosh, I regret this decision to scroll here.
+
+74
+00:04:26,300 --> 00:04:32,210
+Another way of referencing it is window color, but that does not apply for LUT in concert.
+
+75
+00:04:32,240 --> 00:04:33,110
+We'll just do one.
+
+76
+00:04:33,110 --> 00:04:37,970
+Let's use lut let num equals 400.
+
+77
+00:04:38,420 --> 00:04:42,350
+If I try and access window num, it's not there.
+
+78
+00:04:42,830 --> 00:04:45,860
+So let in const are not added to the global scope.
+
+79
+00:04:45,860 --> 00:04:49,700
+They're not added to the window object in the browser while var is.
+
+80
+00:04:50,240 --> 00:04:52,340
+So none of that really matters at this point.
+
+81
+00:04:52,340 --> 00:04:54,460
+We're still just talking about functions.
+
+82
+00:04:54,470 --> 00:04:57,920
+The value of this inside of a regular old function.
+
+83
+00:04:57,920 --> 00:05:02,060
+You haven't put on an object, just a function we've defined like this one.
+
+84
+00:05:02,060 --> 00:05:11,210
+It could also be a function expression const how about greet equals function?
+
+85
+00:05:12,050 --> 00:05:14,540
+And then f we don't need any arguments.
+
+86
+00:05:14,540 --> 00:05:16,280
+We'll just console.log this.
+
+87
+00:05:17,630 --> 00:05:18,860
+So we're not even greeting.
+
+88
+00:05:18,860 --> 00:05:21,200
+It's a lie, but we'll just console.log this.
+
+89
+00:05:21,560 --> 00:05:23,870
+If I clear my console over here.
+
+90
+00:05:25,740 --> 00:05:28,530
+Refresh the page I call greet.
+
+91
+00:05:29,340 --> 00:05:31,320
+This is still the window.
+
+92
+00:05:31,890 --> 00:05:36,510
+So in a function, this is going to refer to the window, except when it doesn't.
+
+93
+00:05:36,510 --> 00:05:37,880
+And that's coming up next.
+
+94
+00:05:37,890 --> 00:05:43,740
+So just remember that this is a reference to an object and that object represents the current execution
+
+95
+00:05:43,740 --> 00:05:44,400
+scope.
+
+96
+00:05:44,400 --> 00:05:46,980
+So this seems like it might not be that useful here.
+
+97
+00:05:46,980 --> 00:05:52,800
+And yeah, it probably isn't that useful to reference the window because we could also just explicitly
+
+98
+00:05:52,800 --> 00:05:57,060
+write window if we wanted to print the window or do something with it.
+
+99
+00:05:57,060 --> 00:06:02,460
+But what we'll see in the next video is where this is extremely useful when we're working with methods
+
+100
+00:06:02,460 --> 00:06:03,450
+in an object.
+
+101
+00:06:03,450 --> 00:06:08,730
+So if you're confused, if you're feeling like you need that courage from this slide right here, if
+
+102
+00:06:08,730 --> 00:06:12,660
+you're feeling like this skull down here, you need a bit more courage.
+
+103
+00:06:12,660 --> 00:06:13,590
+Just hang in there.
+
+104
+00:06:13,590 --> 00:06:16,320
+It will start to make sense as we see the other pieces.
+

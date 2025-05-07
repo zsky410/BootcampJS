@@ -1,0 +1,284 @@
+1
+00:00:00,860 --> 00:00:05,330
+Now that we are forming up the verticals and horizontals are raised correctly and we know we are because
+
+2
+00:00:05,330 --> 00:00:10,430
+we've done a pretty good amount of testing, we can now move on to the next neighboring cell and essentially
+
+3
+00:00:10,430 --> 00:00:16,250
+reverse through all of our different cells, calling step through cell each individual time.
+
+4
+00:00:16,340 --> 00:00:18,950
+Remember the entire idea here of how we form the maze?
+
+5
+00:00:18,950 --> 00:00:25,010
+We start off at some individual location, we then move on over here and then we repeat the same process
+
+6
+00:00:25,010 --> 00:00:29,450
+for this cell going to all of its neighboring cells as well that we have not yet visited.
+
+7
+00:00:29,660 --> 00:00:34,670
+So it is this recursion that's going to make sure that we walk through all the different cells of our
+
+8
+00:00:35,060 --> 00:00:36,350
+little maze.
+
+9
+00:00:37,950 --> 00:00:38,360
+Okay.
+
+10
+00:00:38,370 --> 00:00:42,870
+So to do the iteration or the recursion, we'll go back down to the if statements we were just working
+
+11
+00:00:42,870 --> 00:00:43,190
+on.
+
+12
+00:00:43,200 --> 00:00:48,090
+Here they are right here and right after the if statement still inside the for loop, I'm going to call
+
+13
+00:00:48,090 --> 00:00:50,010
+step through cell.
+
+14
+00:00:50,790 --> 00:00:54,630
+With next row and next column like so.
+
+15
+00:00:55,690 --> 00:00:57,180
+So now let's save this.
+
+16
+00:00:57,190 --> 00:00:58,890
+We're going to go back over to the browser.
+
+17
+00:00:58,900 --> 00:01:04,450
+I'm going to refresh and then I'll print out verticals and horizontals.
+
+18
+00:01:05,110 --> 00:01:09,970
+And now in both these arrays, we should see some number of values of both false and true.
+
+19
+00:01:10,570 --> 00:01:14,560
+I'm going to take these false and true values, and I'm going to go over to our little diagram right
+
+20
+00:01:14,560 --> 00:01:19,240
+here, and I'm going to manually erase some of the walls and see if it forms an actual maze like the
+
+21
+00:01:19,240 --> 00:01:20,530
+one that we're trying to generate.
+
+22
+00:01:21,630 --> 00:01:21,870
+Okay.
+
+23
+00:01:21,870 --> 00:01:24,030
+So we have verticals of.
+
+24
+00:01:24,720 --> 00:01:26,520
+I'm just going to write this down really quickly.
+
+25
+00:01:26,940 --> 00:01:29,940
+True, false, false, true.
+
+26
+00:01:30,330 --> 00:01:32,740
+And then horizontals of false.
+
+27
+00:01:32,760 --> 00:01:33,240
+True.
+
+28
+00:01:33,240 --> 00:01:34,080
+True.
+
+29
+00:01:34,560 --> 00:01:35,250
+True.
+
+30
+00:01:35,250 --> 00:01:35,820
+False.
+
+31
+00:01:35,820 --> 00:01:36,450
+True.
+
+32
+00:01:37,800 --> 00:01:41,490
+So these are our verticals and these are our horizontals.
+
+33
+00:01:42,030 --> 00:01:48,240
+So again, this kind of value right here corresponds to that one right there.
+
+34
+00:01:48,420 --> 00:01:54,090
+And for example, that true down there corresponds to that wall right there.
+
+35
+00:01:54,540 --> 00:01:57,780
+So I'm going to go through any race, all the true walls.
+
+36
+00:01:59,010 --> 00:02:02,760
+Because remember, true means that there is no wall available or no wall present.
+
+37
+00:02:03,390 --> 00:02:05,660
+So first we'll take our verticals.
+
+38
+00:02:05,670 --> 00:02:09,539
+So I'm going to delete that one and that one.
+
+39
+00:02:10,850 --> 00:02:12,380
+And that one.
+
+40
+00:02:13,470 --> 00:02:15,030
+And that one.
+
+41
+00:02:16,600 --> 00:02:21,010
+So now the only verticals remaining are that and that.
+
+42
+00:02:22,420 --> 00:02:25,030
+So I can repeat the same process for horizontals as well.
+
+43
+00:02:25,480 --> 00:02:27,580
+So I've got on horizontals.
+
+44
+00:02:27,580 --> 00:02:28,420
+False.
+
+45
+00:02:28,960 --> 00:02:29,500
+True.
+
+46
+00:02:29,500 --> 00:02:30,520
+So that's open.
+
+47
+00:02:32,190 --> 00:02:32,880
+True.
+
+48
+00:02:33,000 --> 00:02:33,930
+That is open.
+
+49
+00:02:35,690 --> 00:02:36,500
+True.
+
+50
+00:02:37,470 --> 00:02:38,760
+And true.
+
+51
+00:02:39,650 --> 00:02:43,490
+And if we look at this pretty closely, we can see, yeah, without a doubt.
+
+52
+00:02:43,490 --> 00:02:45,140
+We've got an actual maze here.
+
+53
+00:02:45,590 --> 00:02:46,760
+So that's pretty much it.
+
+54
+00:02:46,760 --> 00:02:52,190
+It looks like we have successfully formed up the vertical and horizontal arrays and we can now generate
+
+55
+00:02:52,190 --> 00:02:53,000
+a maize.
+
+56
+00:02:53,180 --> 00:02:57,290
+Remember, one of the properties of our maize is that every single cell can be visited.
+
+57
+00:02:57,290 --> 00:03:01,700
+Essentially, there are no portions of the maize that are completely blocked off or inaccessible.
+
+58
+00:03:01,820 --> 00:03:06,290
+And this is what is going to allow us to make sure that we can always have a starting position for the
+
+59
+00:03:06,290 --> 00:03:12,560
+ball, that we're going to eventually show up there on the top left and the completion on the very bottom
+
+60
+00:03:12,560 --> 00:03:13,730
+right, like so.
+
+61
+00:03:14,720 --> 00:03:15,050
+All right.
+
+62
+00:03:15,050 --> 00:03:20,330
+So now that we are forming up the verticals and horizontals, we can start to take all this data and
+
+63
+00:03:20,330 --> 00:03:21,880
+render it out onto our matter.
+
+64
+00:03:21,910 --> 00:03:22,970
+JS Canvas.
+
+65
+00:03:23,420 --> 00:03:25,280
+So let's take one last quick pause right here.
+
+66
+00:03:25,280 --> 00:03:28,430
+We'll come back to the next video and we're going to start to take our.
+
+67
+00:03:30,170 --> 00:03:30,830
+Grid.
+
+68
+00:03:31,620 --> 00:03:33,510
+Verticals in horizontals.
+
+69
+00:03:33,510 --> 00:03:36,990
+We're going to iterate through all this stuff and we're going to figure out where we want to draw some
+
+70
+00:03:36,990 --> 00:03:38,220
+walls using matter.
+
+71
+00:03:38,220 --> 00:03:41,130
+JS So quick pause and I'll see you in just a minute.
+

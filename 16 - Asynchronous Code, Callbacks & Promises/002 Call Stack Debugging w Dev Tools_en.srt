@@ -1,0 +1,808 @@
+1
+00:00:00,150 --> 00:00:00,570
+Okay.
+
+2
+00:00:00,570 --> 00:00:02,790
+So that was a brief intro to the call Steck.
+
+3
+00:00:02,820 --> 00:00:08,039
+Now I'd like to show you in the Chrome DevTools, you can actually take a look at the representation
+
+4
+00:00:08,039 --> 00:00:11,610
+of the call stack and step through it one call at a time.
+
+5
+00:00:12,060 --> 00:00:13,130
+So let's do it.
+
+6
+00:00:13,140 --> 00:00:19,100
+I have some simple code here, a function called make rant that I'm calling twice.
+
+7
+00:00:19,110 --> 00:00:25,290
+I'm passing in a string the rant text and then a place to append a new H one.
+
+8
+00:00:25,650 --> 00:00:28,380
+What it does is it makes a new empty h one.
+
+9
+00:00:28,380 --> 00:00:33,600
+Then it sets the inner text to the result of a function called get rant text.
+
+10
+00:00:33,630 --> 00:00:37,140
+Get rant text is going to call two different functions.
+
+11
+00:00:37,140 --> 00:00:42,150
+The first one is scream, which uppercase is it and add some exclamation points.
+
+12
+00:00:42,150 --> 00:00:44,550
+Then another function I call repeat.
+
+13
+00:00:44,580 --> 00:00:49,470
+Yes, there is a built in string repeat these days, but for this example I'm not using it.
+
+14
+00:00:49,480 --> 00:00:55,020
+I wanted a couple other functions on the stack, so then it calls repeat, which takes that scream,
+
+15
+00:00:55,020 --> 00:00:57,990
+the uppercase version of whatever we pass in.
+
+16
+00:00:58,080 --> 00:01:00,930
+So let's say we started with Go Away.
+
+17
+00:01:01,200 --> 00:01:02,970
+That's our phrase we pass in.
+
+18
+00:01:02,970 --> 00:01:08,580
+It's going to call scream, which will give us go away with three exclamation points.
+
+19
+00:01:08,580 --> 00:01:14,820
+And then if I call repeat, which I am here, get rant text repeats it eight times we end up with a
+
+20
+00:01:14,820 --> 00:01:16,530
+string that looks like this.
+
+21
+00:01:16,560 --> 00:01:17,090
+Whoops.
+
+22
+00:01:18,360 --> 00:01:19,200
+Eight of those.
+
+23
+00:01:19,500 --> 00:01:23,910
+Then we take that and create ah1 which we actually already created.
+
+24
+00:01:23,910 --> 00:01:28,590
+We add that as the inner text and append it to whatever element we pass in.
+
+25
+00:01:29,070 --> 00:01:31,050
+So it's just a dumb demo.
+
+26
+00:01:31,320 --> 00:01:34,830
+It's not something you probably would do, but this is what we end up with over here.
+
+27
+00:01:34,950 --> 00:01:36,570
+I have two h ones.
+
+28
+00:01:36,570 --> 00:01:37,720
+I hate mayonnaise.
+
+29
+00:01:37,740 --> 00:01:38,340
+Very true.
+
+30
+00:01:38,340 --> 00:01:39,510
+I hate mayonnaise so much.
+
+31
+00:01:39,510 --> 00:01:40,380
+Oh, my gosh.
+
+32
+00:01:40,380 --> 00:01:40,830
+I just.
+
+33
+00:01:40,830 --> 00:01:45,420
+I feel queasy, even just writing the word, let alone seeing it eight times here.
+
+34
+00:01:45,450 --> 00:01:47,130
+That's coming from Mac rant.
+
+35
+00:01:47,130 --> 00:01:50,550
+I just passed in the string and a place to append the new element.
+
+36
+00:01:50,550 --> 00:01:51,930
+And then here's the second one.
+
+37
+00:01:51,930 --> 00:01:53,940
+If you have to cough, please cover your mouth.
+
+38
+00:01:54,300 --> 00:01:55,830
+It's also being appended here.
+
+39
+00:01:56,220 --> 00:01:58,140
+Let's take a look at just one.
+
+40
+00:01:58,140 --> 00:02:01,890
+So it will make it a little easier when we step through the call stack.
+
+41
+00:02:02,160 --> 00:02:09,660
+So I'm going to open up the Chrome DevTools and go to the Sources tab and in the Sources tab.
+
+42
+00:02:09,660 --> 00:02:11,190
+I'll pretend that was closed.
+
+43
+00:02:11,370 --> 00:02:17,460
+If we open up this navigator on the left side for me, go to our file with the code.
+
+44
+00:02:17,910 --> 00:02:20,310
+So JJ's is the name of my file.
+
+45
+00:02:20,310 --> 00:02:21,810
+Whatever you named yours.
+
+46
+00:02:21,960 --> 00:02:25,740
+What we do is add in a breakpoint on the left.
+
+47
+00:02:25,740 --> 00:02:26,640
+I can actually click.
+
+48
+00:02:26,640 --> 00:02:30,930
+So if I click in here, I can make some changes and play around with them.
+
+49
+00:02:30,930 --> 00:02:38,130
+But if I click on the number to the left of one of those function calls, it will actually insert a
+
+50
+00:02:38,130 --> 00:02:38,610
+breakpoint.
+
+51
+00:02:38,610 --> 00:02:42,450
+It will pause execution of our code when it encounters this.
+
+52
+00:02:42,450 --> 00:02:44,610
+So all of this code will run first.
+
+53
+00:02:45,060 --> 00:02:48,480
+If I were to add in a console.log console.log.
+
+54
+00:02:48,480 --> 00:02:51,810
+Hello and refresh the page.
+
+55
+00:02:52,010 --> 00:02:52,800
+Well, I'm an idiot.
+
+56
+00:02:52,800 --> 00:02:53,760
+It goes away.
+
+57
+00:02:53,790 --> 00:02:54,300
+Of course.
+
+58
+00:02:54,300 --> 00:02:57,360
+I just said that if I do a console.log here.
+
+59
+00:02:57,360 --> 00:03:01,740
+Hello, this will run first before we encounter that breakpoint.
+
+60
+00:03:02,160 --> 00:03:03,690
+If I look at my console, we get.
+
+61
+00:03:03,690 --> 00:03:07,200
+Hello notice though I don't see anything over here.
+
+62
+00:03:07,290 --> 00:03:13,800
+It says, paused in debugger, and I have this little alert over here that says paused on Breakpoint.
+
+63
+00:03:13,890 --> 00:03:16,290
+So because I clicked there, it paused.
+
+64
+00:03:16,770 --> 00:03:20,490
+If I click and refresh, it doesn't pause anymore.
+
+65
+00:03:20,670 --> 00:03:24,630
+But if I click and I refresh the page, there we go.
+
+66
+00:03:25,440 --> 00:03:26,040
+Okay.
+
+67
+00:03:26,220 --> 00:03:28,430
+So let's see what we can do.
+
+68
+00:03:28,440 --> 00:03:32,580
+On the left side, we have a tab or a piece called Call Stack.
+
+69
+00:03:32,700 --> 00:03:36,360
+This is where we'll see a representation of the call stack.
+
+70
+00:03:36,660 --> 00:03:41,640
+And if we just walk through this first on our own, we'll zoom in a bit and can zoom in.
+
+71
+00:03:41,760 --> 00:03:44,130
+Okay, I'll close the sidebar.
+
+72
+00:03:45,000 --> 00:03:50,520
+Make rant is going to be called there's no function calls aside from make rant so far.
+
+73
+00:03:50,520 --> 00:03:52,770
+So make rant will be added to the call stack.
+
+74
+00:03:52,950 --> 00:03:59,730
+Then make rant itself calls document create element is a built in function or a method that won't appear
+
+75
+00:03:59,730 --> 00:04:00,930
+on the call stack really.
+
+76
+00:04:00,930 --> 00:04:04,500
+But our first function we defined is get rant text.
+
+77
+00:04:04,500 --> 00:04:08,760
+So get rant text is over here that calls scream.
+
+78
+00:04:08,970 --> 00:04:11,040
+So scream will run and return something.
+
+79
+00:04:11,040 --> 00:04:13,110
+Then we get to rant and that's returned.
+
+80
+00:04:13,110 --> 00:04:16,800
+We have text, then repeat is called with that value.
+
+81
+00:04:16,800 --> 00:04:18,690
+So repeat is going to run.
+
+82
+00:04:18,959 --> 00:04:20,940
+So let's just play around with it.
+
+83
+00:04:21,180 --> 00:04:23,130
+I'm going to click over here on this.
+
+84
+00:04:23,130 --> 00:04:28,200
+There's also a shortcut, but to make it easier for you to see when I'm actually advancing, I'll just
+
+85
+00:04:28,200 --> 00:04:28,770
+click.
+
+86
+00:04:28,770 --> 00:04:31,350
+So keep your eye here where it says Call Stack.
+
+87
+00:04:32,920 --> 00:04:33,170
+Okay.
+
+88
+00:04:33,310 --> 00:04:35,830
+So make rant was added to the call stack.
+
+89
+00:04:36,040 --> 00:04:37,570
+It's not done executing.
+
+90
+00:04:37,570 --> 00:04:39,870
+Otherwise it would be off and it can't be done.
+
+91
+00:04:39,880 --> 00:04:41,500
+It has to do some other stuff first.
+
+92
+00:04:41,770 --> 00:04:46,390
+So the first thing it did was evaluate this document, create element.
+
+93
+00:04:46,510 --> 00:04:48,410
+Then we get to this line.
+
+94
+00:04:48,430 --> 00:04:50,020
+Get rant text.
+
+95
+00:04:50,020 --> 00:04:51,100
+So you'll see.
+
+96
+00:04:51,130 --> 00:04:53,680
+Get rant text is now added to the call stack.
+
+97
+00:04:54,070 --> 00:05:01,180
+And if I look at any of these at any point, if I click at make click on make rant, you can see it's
+
+98
+00:05:01,180 --> 00:05:07,570
+kind of hard to show here, but this is the information, the values that are in current in the scope
+
+99
+00:05:07,570 --> 00:05:08,500
+of make rant.
+
+100
+00:05:08,500 --> 00:05:10,980
+So phrase is set to I hate mayonnaise.
+
+101
+00:05:10,990 --> 00:05:13,020
+That's the argument we passed in.
+
+102
+00:05:13,030 --> 00:05:19,720
+We also have element which is the body which I passed in down here and now this h one variable is this
+
+103
+00:05:19,720 --> 00:05:24,430
+h one element that we created with document create element.
+
+104
+00:05:24,880 --> 00:05:31,330
+So then instead of get rant text, we have a variable text, but it's not set to anything yet.
+
+105
+00:05:31,570 --> 00:05:33,700
+If I move forward again, we'll see.
+
+106
+00:05:33,700 --> 00:05:36,640
+Scream added to the top of the call stack.
+
+107
+00:05:37,640 --> 00:05:38,480
+There it is.
+
+108
+00:05:38,900 --> 00:05:41,600
+So make rant started, but it's not done.
+
+109
+00:05:41,750 --> 00:05:45,320
+It can't finish until get rant text comes back.
+
+110
+00:05:45,320 --> 00:05:48,350
+That can't finish until scream comes back.
+
+111
+00:05:48,620 --> 00:05:50,150
+We're in scream right now.
+
+112
+00:05:50,510 --> 00:05:55,550
+Scream just not call any other functions aside from returning string to uppercase.
+
+113
+00:05:55,550 --> 00:05:58,780
+So you'll see if I advanced again.
+
+114
+00:05:58,790 --> 00:06:02,360
+Scream is up top advanced and it's gone.
+
+115
+00:06:02,420 --> 00:06:03,980
+Scream has been removed.
+
+116
+00:06:04,010 --> 00:06:08,240
+It finished executing in a return to value which we now have here.
+
+117
+00:06:08,240 --> 00:06:09,560
+Text has value.
+
+118
+00:06:09,560 --> 00:06:14,990
+I hate mayonnaise, all uppercase with three exclamation points that came from Scream.
+
+119
+00:06:15,800 --> 00:06:21,880
+Then next line rant the variable let rant equals repeat of text.
+
+120
+00:06:21,890 --> 00:06:23,660
+This is text that variable.
+
+121
+00:06:23,720 --> 00:06:25,850
+So repeat this eight times.
+
+122
+00:06:25,850 --> 00:06:27,560
+So repeat is going to be added.
+
+123
+00:06:27,560 --> 00:06:28,820
+That's our next function.
+
+124
+00:06:28,970 --> 00:06:30,660
+You'll see it added to the stack.
+
+125
+00:06:30,680 --> 00:06:31,640
+There it is.
+
+126
+00:06:32,060 --> 00:06:33,020
+So get ready.
+
+127
+00:06:33,050 --> 00:06:34,400
+Text is still waiting.
+
+128
+00:06:34,520 --> 00:06:36,920
+Make rant is still waiting on get rant.
+
+129
+00:06:36,920 --> 00:06:38,720
+Text which is waiting on repeat.
+
+130
+00:06:39,050 --> 00:06:41,370
+So repeat is then going to loop.
+
+131
+00:06:41,390 --> 00:06:42,560
+I'll skip through this.
+
+132
+00:06:42,560 --> 00:06:46,360
+So we have results which is completely built at this point.
+
+133
+00:06:46,370 --> 00:06:47,810
+The loop is over.
+
+134
+00:06:47,870 --> 00:06:49,670
+We're now at return result.
+
+135
+00:06:49,670 --> 00:06:51,710
+So result is I hate mayonnaise.
+
+136
+00:06:51,740 --> 00:06:56,720
+Uppercase exclamation points repeated eight times in a single string that is returned.
+
+137
+00:06:57,080 --> 00:06:59,120
+So the contents of the function don't really matter.
+
+138
+00:06:59,120 --> 00:07:03,590
+In these examples, I just want you to pay attention to the call stack itself.
+
+139
+00:07:03,620 --> 00:07:06,080
+Watch when things are added and when they're removed.
+
+140
+00:07:06,080 --> 00:07:07,880
+So return results.
+
+141
+00:07:08,870 --> 00:07:10,640
+Repeat should be removed.
+
+142
+00:07:11,300 --> 00:07:12,890
+And there we go.
+
+143
+00:07:13,310 --> 00:07:14,440
+So now get rant.
+
+144
+00:07:14,450 --> 00:07:17,260
+Text has all those function calls.
+
+145
+00:07:17,270 --> 00:07:18,560
+It has returned values from them.
+
+146
+00:07:18,560 --> 00:07:20,030
+It's done and it's ready.
+
+147
+00:07:20,100 --> 00:07:22,130
+It's not done yet, but it's ready to return.
+
+148
+00:07:22,130 --> 00:07:28,580
+Rant So it waited first to get scream, then scream came back and it waited to get repeat, then repeat,
+
+149
+00:07:28,580 --> 00:07:29,480
+return to value.
+
+150
+00:07:29,480 --> 00:07:31,310
+So now it can return that value.
+
+151
+00:07:31,310 --> 00:07:34,910
+So it's going to return and get rant text will be removed.
+
+152
+00:07:35,420 --> 00:07:36,140
+There it goes.
+
+153
+00:07:36,140 --> 00:07:36,920
+Goodbye.
+
+154
+00:07:37,070 --> 00:07:38,900
+Now we're back in make rant.
+
+155
+00:07:38,930 --> 00:07:42,620
+The original function call that has been waiting patiently this whole time.
+
+156
+00:07:43,760 --> 00:07:46,400
+So you can kind of see where I was going with this.
+
+157
+00:07:46,640 --> 00:07:47,440
+Where are you?
+
+158
+00:07:47,510 --> 00:07:52,610
+This idea here of a finger in a book to keep track of where you are.
+
+159
+00:07:53,240 --> 00:07:55,190
+It's kind of the same idea, maybe.
+
+160
+00:07:55,370 --> 00:07:59,030
+I don't know if that's a good analogy or not, but it's kind of the same idea.
+
+161
+00:07:59,300 --> 00:08:05,270
+This function was originally added to the stack a while ago, but it couldn't finish until a bunch of
+
+162
+00:08:05,270 --> 00:08:06,580
+other function calls ran.
+
+163
+00:08:06,590 --> 00:08:08,210
+And this is a simple example.
+
+164
+00:08:08,240 --> 00:08:13,820
+Often you'll end up with some functions that have a whole bunch of function calls which call other functions.
+
+165
+00:08:13,820 --> 00:08:18,020
+And then recursion is a whole other issue, which we're not going to get into at this point.
+
+166
+00:08:18,020 --> 00:08:20,960
+But just know that this is a simple demo.
+
+167
+00:08:20,990 --> 00:08:25,220
+Most of the time your apps are going to have many more functions on the call stack at any given point,
+
+168
+00:08:25,220 --> 00:08:26,300
+or they could at least.
+
+169
+00:08:26,900 --> 00:08:31,010
+So make rant is now ready to append element that append child.
+
+170
+00:08:31,010 --> 00:08:33,799
+There is no return statement and make rant.
+
+171
+00:08:34,730 --> 00:08:35,809
+So there we go.
+
+172
+00:08:35,809 --> 00:08:36,770
+We get to the last line.
+
+173
+00:08:36,770 --> 00:08:37,970
+It's showing me this here.
+
+174
+00:08:38,059 --> 00:08:44,150
+So make rant will be removed from the call stack and because this element that append child h one ran
+
+175
+00:08:44,150 --> 00:08:47,720
+we now have the text showing up our new element on the screen.
+
+176
+00:08:48,020 --> 00:08:50,630
+So I'll step through it and it's gone.
+
+177
+00:08:51,230 --> 00:08:55,820
+It's completely off the call stack, which means that this function call here is done.
+
+178
+00:08:55,820 --> 00:08:56,390
+It finished.
+
+179
+00:08:56,390 --> 00:08:58,160
+That was the original starting point.
+
+180
+00:08:58,190 --> 00:09:02,480
+Now the interpreter has moved on to this line and there's nothing after it.
+
+181
+00:09:02,510 --> 00:09:03,590
+It's just done.
+
+182
+00:09:04,280 --> 00:09:05,000
+And there we go.
+
+183
+00:09:05,000 --> 00:09:06,110
+We made it through.
+
+184
+00:09:06,650 --> 00:09:10,910
+So that is how you can use the dev tools to step through step by step.
+
+185
+00:09:10,910 --> 00:09:13,910
+Each function call on the call stack and see what's going on.
+
+186
+00:09:13,910 --> 00:09:17,870
+And this can be useful if things are just behaving very oddly.
+
+187
+00:09:17,870 --> 00:09:23,360
+It's also a nice way if you had a breakpoint somewhere for you to just take a look at the values at
+
+188
+00:09:23,360 --> 00:09:26,630
+any given point, play around with the variables in there, see?
+
+189
+00:09:26,780 --> 00:09:29,090
+See what's going on, diagnose your problems.
+
+190
+00:09:29,090 --> 00:09:33,410
+But the main reason I brought it up here was just to make it clear how the call stack works.
+
+191
+00:09:33,410 --> 00:09:38,840
+This idea of the latest function call to be added to the stack, that function call will be the first
+
+192
+00:09:38,840 --> 00:09:44,990
+to be removed and you end up with this pile up of functions that are function calls that maybe are waiting
+
+193
+00:09:44,990 --> 00:09:49,520
+on a bunch of other function calls to finish, which themselves might be waiting in other function calls.
+
+194
+00:09:49,520 --> 00:09:52,430
+And eventually one of them has to finish and return something.
+
+195
+00:09:52,430 --> 00:09:55,430
+So that sort of a reverse cascade can happen.
+
+196
+00:09:55,430 --> 00:10:00,830
+The functions that were waiting will hopefully return, which continues all the way down to our original
+
+197
+00:10:00,830 --> 00:10:02,630
+function call, which was make rant.
+
+198
+00:10:03,140 --> 00:10:04,850
+So why are we talking about this?
+
+199
+00:10:04,850 --> 00:10:06,320
+Why do you need to know about it?
+
+200
+00:10:06,320 --> 00:10:11,480
+Well, it's going to help explain and help you understand how asynchronous code works in JavaScript,
+
+201
+00:10:11,480 --> 00:10:13,670
+which is what we're going to tackle right now.
+
+202
+00:10:13,670 --> 00:10:16,010
+Well, next video right after this.
+

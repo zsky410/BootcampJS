@@ -1,0 +1,384 @@
+1
+00:00:00,150 --> 00:00:05,100
+Before we start writing code and getting our editor all set up, I want to start with a quick discussion
+
+2
+00:00:05,100 --> 00:00:06,390
+around terminology.
+
+3
+00:00:06,810 --> 00:00:11,700
+So if you're brand new to JavaScript, one of the first things that might confuse you along the way
+
+4
+00:00:11,730 --> 00:00:14,680
+are some of the terms I have on the left side of this slide.
+
+5
+00:00:14,700 --> 00:00:21,300
+JavaScript script is 20 1516 1718 is five is six.
+
+6
+00:00:21,330 --> 00:00:22,840
+What do all those mean?
+
+7
+00:00:22,860 --> 00:00:24,570
+Are they all just JavaScript?
+
+8
+00:00:24,600 --> 00:00:25,580
+Let's talk about it.
+
+9
+00:00:25,590 --> 00:00:29,010
+So JavaScript, like most programming languages, continues to grow.
+
+10
+00:00:29,010 --> 00:00:35,550
+New features are added, but the way that that happens is pretty different than most consumer software
+
+11
+00:00:35,550 --> 00:00:37,050
+or operating systems.
+
+12
+00:00:37,230 --> 00:00:43,140
+If you think of something like Windows or iTunes, when there's a new version or new features are added,
+
+13
+00:00:43,140 --> 00:00:44,910
+you go and download that release.
+
+14
+00:00:44,910 --> 00:00:49,560
+Everyone has that release or everyone who downloads it and you get those new features.
+
+15
+00:00:49,740 --> 00:00:52,050
+It's sort of a bundled package thing.
+
+16
+00:00:52,050 --> 00:00:53,820
+You go and download it and you've got it.
+
+17
+00:00:53,850 --> 00:00:55,830
+JavaScript is a little different.
+
+18
+00:00:55,860 --> 00:00:58,590
+There actually isn't a single JavaScript.
+
+19
+00:00:58,590 --> 00:01:05,860
+There isn't a one JavaScript download link that you go to like there might be for Windows or for iTunes.
+
+20
+00:01:05,880 --> 00:01:12,300
+Instead, JavaScript is implemented by all the different browsers out there, and it's up to those browsers
+
+21
+00:01:12,300 --> 00:01:13,890
+to implement new features.
+
+22
+00:01:14,640 --> 00:01:19,890
+So the way that it all works is that there's an organization called Acima.
+
+23
+00:01:20,160 --> 00:01:26,850
+They have sort of a bleak website, and Zima is an international group that is in charge of all sorts
+
+24
+00:01:26,850 --> 00:01:29,550
+of different standards, not just for programming.
+
+25
+00:01:29,550 --> 00:01:36,210
+They come up with standards for things like acoustics and electromagnetic compatibility and electromagnetic
+
+26
+00:01:36,210 --> 00:01:40,920
+fields, information storage, near-field communications.
+
+27
+00:01:40,920 --> 00:01:44,160
+And then there's this one right here script.
+
+28
+00:01:44,730 --> 00:01:49,110
+So a script is a specification for a programming language.
+
+29
+00:01:49,110 --> 00:01:52,380
+You can think of it as almost like a reference.
+
+30
+00:01:52,380 --> 00:01:58,170
+It's a text document that says, here is a specification for a programming language.
+
+31
+00:01:58,170 --> 00:02:01,680
+It should behave this way, it should have this feature.
+
+32
+00:02:01,980 --> 00:02:03,330
+This thing should work.
+
+33
+00:02:03,330 --> 00:02:05,070
+Like this thing, I don't know.
+
+34
+00:02:05,070 --> 00:02:06,330
+That's a horrible explanation.
+
+35
+00:02:06,330 --> 00:02:12,180
+It's essentially a document that describes how a language should work, but it is not itself a language
+
+36
+00:02:12,180 --> 00:02:14,010
+you can go download and use.
+
+37
+00:02:14,010 --> 00:02:17,160
+It's only a description and this is it right here.
+
+38
+00:02:17,160 --> 00:02:19,380
+There's a website you can go to to view it.
+
+39
+00:02:19,410 --> 00:02:25,780
+This is the specification for a language called FEMA script named after the organization schema.
+
+40
+00:02:26,100 --> 00:02:31,020
+And if you just take a look at really any piece of it, you won't see much code at all.
+
+41
+00:02:31,110 --> 00:02:37,650
+It's mainly text explaining how different pieces should work, how things are related, what key words
+
+42
+00:02:37,650 --> 00:02:39,090
+need to exist in the language.
+
+43
+00:02:39,090 --> 00:02:40,680
+So it's a set of rules.
+
+44
+00:02:41,070 --> 00:02:47,610
+Then it's up to the browsers like Safari or Chrome or Internet Explorer to go and follow those rules
+
+45
+00:02:47,610 --> 00:02:49,800
+and implement them as JavaScript.
+
+46
+00:02:49,920 --> 00:02:51,570
+It gets kind of technical here.
+
+47
+00:02:51,690 --> 00:02:55,950
+There's a committee called TK 39 at this organisation.
+
+48
+00:02:55,950 --> 00:03:01,860
+They're the ones who are in charge of evolving and maintaining this massive document that describes
+
+49
+00:03:01,860 --> 00:03:03,780
+how a script should work.
+
+50
+00:03:03,780 --> 00:03:09,390
+And every year different delegates on this committee meet up, they listen to presentations, they debate
+
+51
+00:03:09,420 --> 00:03:13,590
+to figure out which new features should be added to this specification.
+
+52
+00:03:14,040 --> 00:03:20,550
+So when something is added to JavaScript, what really happens is that it is added to this specification
+
+53
+00:03:20,550 --> 00:03:25,650
+as a piece of text, usually a lot of text explaining how the new feature should work.
+
+54
+00:03:25,830 --> 00:03:29,820
+Then what happens is that browsers have to go and implement those changes.
+
+55
+00:03:29,820 --> 00:03:34,290
+Now, as far as the naming here, this can be a little confusing to beginners.
+
+56
+00:03:34,680 --> 00:03:40,950
+The way that updates, quote unquote or new features used to work with a script was not on an annual
+
+57
+00:03:40,950 --> 00:03:41,670
+basis.
+
+58
+00:03:41,850 --> 00:03:47,220
+There were batches of updates or batches of new features that were added to the spec, and they had
+
+59
+00:03:47,220 --> 00:03:48,810
+names like S5.
+
+60
+00:03:48,840 --> 00:03:50,430
+There was actually no S4.
+
+61
+00:03:50,460 --> 00:03:51,390
+It was cancelled.
+
+62
+00:03:51,840 --> 00:03:57,360
+But there were these these groups of new features that were added and it took forever like a bunch of
+
+63
+00:03:57,360 --> 00:04:03,900
+years in between these updates to the spec and after S6 was released, which took about six years,
+
+64
+00:04:04,110 --> 00:04:09,210
+the committee decided to change things up and just annually update the spec.
+
+65
+00:04:09,210 --> 00:04:15,900
+So naming started to go by s for a script and then instead of a version number like four or five or
+
+66
+00:04:15,900 --> 00:04:18,000
+six, it's now a year.
+
+67
+00:04:18,000 --> 00:04:21,450
+So is 2015 is 2016 is 2017.
+
+68
+00:04:21,720 --> 00:04:27,390
+So all of these terms over here on the left are referring to well, except for JavaScript, they're
+
+69
+00:04:27,390 --> 00:04:33,270
+all referring to this specification document is six is the same as E is 2015.
+
+70
+00:04:33,270 --> 00:04:40,050
+And it all boils down to this one document that we saw and text being added in to describe how a feature
+
+71
+00:04:40,050 --> 00:04:40,920
+should work.
+
+72
+00:04:41,490 --> 00:04:46,440
+So what's what's kind of annoying about all of this, to be honest, is that since there's no official
+
+73
+00:04:46,440 --> 00:04:52,920
+download or an easy way just to get JavaScript as a language and update it automatically because it's
+
+74
+00:04:52,920 --> 00:04:58,980
+all implemented by separate browsers, this means that different browsers will support different features
+
+75
+00:04:58,980 --> 00:04:59,970
+at any given point in time.
+
+76
+00:05:00,420 --> 00:05:04,590
+And there are websites that exist specifically to help you understand this.
+
+77
+00:05:05,070 --> 00:05:07,390
+One is called can I use dot com?
+
+78
+00:05:07,410 --> 00:05:12,720
+And if we search for some feature on here, which if you're brand new to JavaScript, it doesn't really
+
+79
+00:05:12,720 --> 00:05:16,590
+matter what I type in here, but I'm going to look for something called arrow functions.
+
+80
+00:05:16,590 --> 00:05:21,810
+And here we have a compatibility chart telling me which browsers support arrow functions.
+
+81
+00:05:21,810 --> 00:05:26,670
+And when they started, if they started Arrow functions are a newer feature in the spec.
+
+82
+00:05:26,670 --> 00:05:29,350
+They're not supported by Internet Explorer at all.
+
+83
+00:05:29,370 --> 00:05:33,240
+They were added to Firefox and Chrome a couple of years ago.
+
+84
+00:05:33,420 --> 00:05:39,660
+So a chart like this helps you understand that not every feature is going to be available in every browser,
+
+85
+00:05:39,720 --> 00:05:43,090
+and that all boils down to the nature of JavaScript.
+
+86
+00:05:43,110 --> 00:05:45,860
+It is not one language necessarily.
+
+87
+00:05:45,870 --> 00:05:49,530
+It's a bunch of implementations of the same specification.
+
+88
+00:05:49,860 --> 00:05:52,110
+Oh, what a way to lead the course off.
+
+89
+00:05:52,110 --> 00:05:56,700
+I know it's it's not the most exciting topic, but I have to get this out of the way because a lot of
+
+90
+00:05:56,700 --> 00:06:01,680
+what we're going to talk about in this course are newer features, things that are exciting and worth
+
+91
+00:06:01,680 --> 00:06:02,370
+knowing about.
+
+92
+00:06:02,370 --> 00:06:07,500
+But I'll say things like this feature, it's not supported in Internet Explorer, and I want you to
+
+93
+00:06:07,500 --> 00:06:08,960
+understand why that is.
+
+94
+00:06:08,970 --> 00:06:12,150
+Why do some browsers have certain features and others don't?
+
+95
+00:06:12,190 --> 00:06:13,500
+Okay, enough of that.
+
+96
+00:06:13,500 --> 00:06:17,790
+Let's get started with setting up our environment and then dive into code.
+

@@ -1,0 +1,380 @@
+1
+00:00:00,150 --> 00:00:04,430
+Next up, let's talk about looping over objects or iterating over objects.
+
+2
+00:00:04,440 --> 00:00:09,810
+We've seen how we can use a for loop with an array or a string, how we can use a for of loop with an
+
+3
+00:00:09,810 --> 00:00:10,940
+array or a string.
+
+4
+00:00:10,950 --> 00:00:14,820
+Those don't really work with objects, at least not easily.
+
+5
+00:00:15,210 --> 00:00:16,740
+Here's a simple object.
+
+6
+00:00:16,980 --> 00:00:22,050
+It contains movies as keys, and then ratings or reviews are the values.
+
+7
+00:00:22,050 --> 00:00:28,320
+And I made some of the keys explicit strings so I could add spaces, kill space bill and remember,
+
+8
+00:00:28,320 --> 00:00:31,830
+everything ends up as a string eventually in that object as a key.
+
+9
+00:00:32,549 --> 00:00:33,840
+So I have my movie reviews.
+
+10
+00:00:33,840 --> 00:00:38,940
+If I wanted to just loop over and print out each value or maybe a rival.
+
+11
+00:00:38,940 --> 00:00:41,490
+Dash 9.5 In Bruges.
+
+12
+00:00:41,490 --> 00:00:42,570
+Dash nine.
+
+13
+00:00:43,080 --> 00:00:44,670
+I couldn't really use a for loop.
+
+14
+00:00:44,910 --> 00:00:46,350
+What what would I generate?
+
+15
+00:00:46,350 --> 00:00:47,280
+What numbers?
+
+16
+00:00:47,280 --> 00:00:49,830
+There are no indices for this object.
+
+17
+00:00:49,830 --> 00:00:53,400
+We can't do movie reviews of one.
+
+18
+00:00:53,940 --> 00:00:54,930
+I mean, we can.
+
+19
+00:00:55,050 --> 00:00:56,250
+There's just nothing there.
+
+20
+00:00:56,430 --> 00:00:58,290
+So a four loop isn't going to work.
+
+21
+00:00:58,290 --> 00:01:09,360
+What about a four of if I did four let X of movie reviews and we'll just console.log x type error movie
+
+22
+00:01:09,360 --> 00:01:10,950
+reviews is not iterable.
+
+23
+00:01:11,040 --> 00:01:16,800
+So remember a four of loop works with any iterable, which includes things like arrays and strings,
+
+24
+00:01:16,800 --> 00:01:18,960
+but an object is not iterable.
+
+25
+00:01:18,960 --> 00:01:20,700
+So what can we do instead?
+
+26
+00:01:20,700 --> 00:01:21,000
+What?
+
+27
+00:01:21,000 --> 00:01:22,350
+We have a couple of options.
+
+28
+00:01:22,350 --> 00:01:28,830
+The first is to use a four of loop and instead of looping over the entire object, which doesn't work,
+
+29
+00:01:28,830 --> 00:01:32,340
+we can loop over just the keys or just the values.
+
+30
+00:01:32,820 --> 00:01:37,380
+And we haven't seen this yet because there's not much use for it aside from looping.
+
+31
+00:01:37,380 --> 00:01:42,510
+But there is a method called object keys and you pass it in an object to it.
+
+32
+00:01:42,510 --> 00:01:44,340
+Whoops, movie reviews.
+
+33
+00:01:45,090 --> 00:01:48,180
+And we get a list of the keys, as you can see here.
+
+34
+00:01:48,180 --> 00:01:50,670
+And we also have object values.
+
+35
+00:01:51,300 --> 00:01:56,910
+Pay attention to the fact that it is capital object, just like we saw with object assign.
+
+36
+00:01:56,910 --> 00:02:03,420
+So it's not movie reviews, dot keys or dot values.
+
+37
+00:02:04,860 --> 00:02:10,139
+So this is something that we can loop over if we want just the values we can loop over that.
+
+38
+00:02:10,139 --> 00:02:12,660
+If we want just the keys, we can loop over that.
+
+39
+00:02:12,660 --> 00:02:17,040
+And if we want both, we can use the keys to access the values.
+
+40
+00:02:17,040 --> 00:02:18,450
+So let's do that first.
+
+41
+00:02:18,630 --> 00:02:22,800
+I'll leave this version and just comment it out and add a note that it does not work.
+
+42
+00:02:22,950 --> 00:02:29,430
+But if we do for let, let's not do x, if we're going to loop over the keys, let's go with movie or
+
+43
+00:02:29,430 --> 00:02:36,870
+maybe just M movie of object keys, movie reviews.
+
+44
+00:02:37,800 --> 00:02:42,120
+And now if we console.log movie refresh the page.
+
+45
+00:02:42,270 --> 00:02:43,830
+We're printing out each key.
+
+46
+00:02:43,830 --> 00:02:49,770
+We took movie reviews, which was not Iterable, but we just grabbed the keys, which is iterable to
+
+47
+00:02:49,770 --> 00:02:51,480
+list so we can iterate over it.
+
+48
+00:02:51,480 --> 00:02:56,520
+And we're just printing out each item, just as if we had an array of these strings.
+
+49
+00:02:56,520 --> 00:03:01,440
+Same sort of idea, except they're coming from an object and that works.
+
+50
+00:03:01,530 --> 00:03:10,860
+But if we want to access the values, we would just add in a line here with movie reviews of movie and
+
+51
+00:03:10,860 --> 00:03:17,010
+we cannot do not remember, this is a variable if we need to access part of an object and the key is
+
+52
+00:03:17,020 --> 00:03:18,960
+variable, we use square brackets.
+
+53
+00:03:19,830 --> 00:03:21,030
+Let's see what we get now.
+
+54
+00:03:21,600 --> 00:03:23,580
+Arrival 9.5 alien nine.
+
+55
+00:03:23,580 --> 00:03:24,630
+Anomaly eight.
+
+56
+00:03:24,660 --> 00:03:26,220
+Great, that works.
+
+57
+00:03:26,220 --> 00:03:28,830
+We can also do the same thing with just the values.
+
+58
+00:03:28,830 --> 00:03:34,050
+But remember, if you have a value for an object, there's not an easy way to get the corresponding
+
+59
+00:03:34,050 --> 00:03:34,650
+key.
+
+60
+00:03:34,650 --> 00:03:36,780
+So a lot of the times you want both.
+
+61
+00:03:36,780 --> 00:03:41,790
+But if we wanted to do something like find the average review score, these are all pretty highly rated.
+
+62
+00:03:41,790 --> 00:03:47,850
+I guess we could instead iterate over the values and add them all together so we have the same sort
+
+63
+00:03:47,850 --> 00:03:54,000
+of method object values pass in movie reviews and let's make this its own variable.
+
+64
+00:03:54,000 --> 00:03:56,940
+We'll call this scores or ratings.
+
+65
+00:03:56,940 --> 00:04:08,940
+I think ratings is better and then we can iterate over that for lit rating, maybe just our of ratings.
+
+66
+00:04:08,940 --> 00:04:12,930
+And remember, ratings is not the object, it is just the values.
+
+67
+00:04:13,800 --> 00:04:19,769
+And if we wanted to sum them all together and then average them, I would make a variable called total
+
+68
+00:04:20,190 --> 00:04:26,490
+equals zero and then add each ah into total total plus equals R.
+
+69
+00:04:26,490 --> 00:04:32,880
+And then at the very end I need to divide by the length of ratings so we'll have rating start length
+
+70
+00:04:33,810 --> 00:04:36,120
+and we can divide total by that.
+
+71
+00:04:36,150 --> 00:04:38,400
+We can either save that to total.
+
+72
+00:04:39,530 --> 00:04:43,280
+So we could do total slash equals which whoops.
+
+73
+00:04:43,280 --> 00:04:44,240
+Wrong direction.
+
+74
+00:04:44,540 --> 00:04:46,320
+I don't like to use this as much.
+
+75
+00:04:46,340 --> 00:04:51,410
+I think it's just very uncommon compared to plus equals and minus equals, at least in my experience
+
+76
+00:04:51,410 --> 00:04:51,760
+it is.
+
+77
+00:04:51,770 --> 00:04:52,690
+But this will work.
+
+78
+00:04:52,700 --> 00:04:57,170
+We're saying total is now equal to total divided by ratings dot length.
+
+79
+00:04:57,170 --> 00:05:00,260
+And we'll cancel that log total.
+
+80
+00:05:00,290 --> 00:05:04,070
+Although I don't like that term total because it's not a total anymore.
+
+81
+00:05:04,070 --> 00:05:05,150
+It's an average.
+
+82
+00:05:05,360 --> 00:05:06,040
+And there we go.
+
+83
+00:05:06,050 --> 00:05:08,450
+The average is 8.6875.
+
+84
+00:05:08,450 --> 00:05:15,890
+So I would probably rewrite this to let average equal total divided by ratings dot length and console.log
+
+85
+00:05:15,890 --> 00:05:16,640
+average.
+
+86
+00:05:17,360 --> 00:05:17,690
+All right.
+
+87
+00:05:17,690 --> 00:05:23,270
+So that's one way we can iterate over an object where we're not actually iterating over the object at
+
+88
+00:05:23,270 --> 00:05:23,840
+once.
+
+89
+00:05:23,840 --> 00:05:29,860
+We're isolating the keys and using four of with the keys or isolating the values.
+
+90
+00:05:29,870 --> 00:05:37,040
+We could also have done a for loop, a regular for loop where we can use an index, but I still prefer
+
+91
+00:05:37,040 --> 00:05:38,300
+using for OV.
+
+92
+00:05:38,810 --> 00:05:44,750
+But the point is there's not an easy way to use a for loop to just automatically without having to call
+
+93
+00:05:44,750 --> 00:05:48,740
+object values or object keys to iterate over an object.
+
+94
+00:05:48,740 --> 00:05:54,380
+But this isn't bad, but in the next video we'll see another type of loop called four in, which does
+
+95
+00:05:54,380 --> 00:05:56,000
+exactly what we're doing here.
+

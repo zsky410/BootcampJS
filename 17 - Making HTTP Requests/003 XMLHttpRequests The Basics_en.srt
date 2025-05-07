@@ -1,0 +1,836 @@
+1
+00:00:00,210 --> 00:00:00,780
+Okay.
+
+2
+00:00:00,780 --> 00:00:05,730
+So now we've talked about Ajax, we've talked about JSON, we've gotten all that stuff out of the way.
+
+3
+00:00:05,730 --> 00:00:12,270
+We can move on to making our first requests using the Ogg method of sending an HTTP request through
+
+4
+00:00:12,270 --> 00:00:13,110
+JavaScript.
+
+5
+00:00:13,110 --> 00:00:16,770
+It's called XML HTTP request.
+
+6
+00:00:16,950 --> 00:00:24,030
+So these are objects in the browser we can create that have different methods and we can use them to
+
+7
+00:00:24,060 --> 00:00:26,940
+fetch data from an API to send data somewhere.
+
+8
+00:00:26,940 --> 00:00:30,990
+Basically they generate an HTTP request and it's confusing.
+
+9
+00:00:30,990 --> 00:00:35,970
+It does say XML in the name that's just a relic from when XML was the standard.
+
+10
+00:00:35,970 --> 00:00:43,350
+We can use XML HTTP request, also known as Zeus to fetch any sort of data from an API.
+
+11
+00:00:43,380 --> 00:00:47,910
+It doesn't have to be just XML, so this is the original way of doing it.
+
+12
+00:00:47,910 --> 00:00:53,100
+It's clunky, it doesn't support promises, so we end up with a lot of callbacks.
+
+13
+00:00:53,100 --> 00:00:59,100
+If we have nested requests, things where we want to make one request, get information back, and then
+
+14
+00:00:59,100 --> 00:01:04,349
+make a second request, which we mimicked back when we talked about promises a couple of videos ago,
+
+15
+00:01:04,349 --> 00:01:10,620
+we made that fake HTTP request function that we used, so we send one request, we have some callbacks.
+
+16
+00:01:10,620 --> 00:01:14,640
+Then within those callbacks we could send another one and we end up nesting things.
+
+17
+00:01:14,640 --> 00:01:16,530
+So no promises are supported.
+
+18
+00:01:16,740 --> 00:01:19,170
+Also, this is always driven me crazy.
+
+19
+00:01:19,170 --> 00:01:21,210
+Why is it capitalized this way?
+
+20
+00:01:21,450 --> 00:01:22,680
+XML is an abbreviation.
+
+21
+00:01:22,680 --> 00:01:23,580
+It's all caps.
+
+22
+00:01:23,580 --> 00:01:28,140
+HTTP is two, but it's not capitalized except for the H.
+
+23
+00:01:28,170 --> 00:01:31,170
+It always trips me up whenever I have to type these myself.
+
+24
+00:01:31,500 --> 00:01:38,010
+And the most important thing that I don't like about XYZ and nobody really likes is the syntax.
+
+25
+00:01:38,010 --> 00:01:39,630
+It's hard to remember.
+
+26
+00:01:39,630 --> 00:01:41,580
+I have to reference it all the time.
+
+27
+00:01:41,580 --> 00:01:46,800
+I guarantee you in the making of this video, the very one I'm recording right now, I'm going to have
+
+28
+00:01:46,800 --> 00:01:50,850
+to pause at some point and reference some other code because I can never remember it.
+
+29
+00:01:50,940 --> 00:01:56,790
+Fortunately, we have an alternative these days, which we'll see very shortly called Fetch, which
+
+30
+00:01:56,820 --> 00:02:00,060
+arose out of the fact that people hate making czars.
+
+31
+00:02:00,060 --> 00:02:01,260
+It's just annoying.
+
+32
+00:02:01,350 --> 00:02:04,710
+But let's see how we do it now that I've made it sound horrendous.
+
+33
+00:02:04,710 --> 00:02:06,600
+Just remember this used to be the only way.
+
+34
+00:02:06,600 --> 00:02:09,509
+So it's not like nobody use this ever.
+
+35
+00:02:09,840 --> 00:02:12,180
+This was the only way of making a request.
+
+36
+00:02:12,300 --> 00:02:14,370
+What we do is we make a new object.
+
+37
+00:02:14,400 --> 00:02:20,190
+That object is created by calling new XML http request with parentheses.
+
+38
+00:02:20,190 --> 00:02:27,240
+Then we provide two callbacks one to run if the request loads, if it's successful, one to run if there's
+
+39
+00:02:27,240 --> 00:02:27,720
+an error.
+
+40
+00:02:27,720 --> 00:02:32,400
+So we have once again, once again that branching path, success and failure.
+
+41
+00:02:32,790 --> 00:02:38,370
+Then what we do is we call the request object, which I called my request open.
+
+42
+00:02:38,760 --> 00:02:44,250
+We tell it what type of request will make a get request and what URL to send the request to.
+
+43
+00:02:45,090 --> 00:02:47,100
+We'll come back to the headers in just a moment.
+
+44
+00:02:47,130 --> 00:02:49,230
+Then we finally send the request.
+
+45
+00:02:49,740 --> 00:02:53,040
+That request is then sent after this line is encountered.
+
+46
+00:02:53,160 --> 00:02:55,800
+If it's successful, there's no problem.
+
+47
+00:02:55,830 --> 00:02:56,940
+This code will run.
+
+48
+00:02:56,940 --> 00:02:58,110
+If it's not successful.
+
+49
+00:02:58,110 --> 00:02:58,950
+If there's an error.
+
+50
+00:02:58,980 --> 00:03:00,180
+This code runs.
+
+51
+00:03:01,230 --> 00:03:03,300
+You can read more about it on MSDN.
+
+52
+00:03:03,330 --> 00:03:08,490
+I really like their documentation on it and what I'll do to help myself out probably more than this
+
+53
+00:03:08,490 --> 00:03:09,300
+actually helps you.
+
+54
+00:03:09,330 --> 00:03:14,400
+I'm going to copy this over into my file where I'll paste it in as a reference.
+
+55
+00:03:15,640 --> 00:03:18,150
+Okay, so let's make a request somewhere.
+
+56
+00:03:18,630 --> 00:03:21,410
+We're going to use this simple Star Wars API to start.
+
+57
+00:03:21,420 --> 00:03:22,160
+It's free.
+
+58
+00:03:22,170 --> 00:03:24,380
+You don't have to sign up for anything or register.
+
+59
+00:03:24,390 --> 00:03:25,650
+There's no authentication.
+
+60
+00:03:26,250 --> 00:03:31,800
+Let's look at what do we get if we go to slash planet?
+
+61
+00:03:32,840 --> 00:03:33,850
+Send a request.
+
+62
+00:03:33,860 --> 00:03:36,380
+This is just a little viewer and it doesn't like that.
+
+63
+00:03:37,220 --> 00:03:38,660
+Is there a list of planets?
+
+64
+00:03:39,620 --> 00:03:41,030
+How do we see all planets?
+
+65
+00:03:41,370 --> 00:03:43,400
+Okay, well, let's go to documentation.
+
+66
+00:03:43,400 --> 00:03:44,510
+What are the endpoints?
+
+67
+00:03:44,900 --> 00:03:47,210
+Yeah, we can just go to slash planets.
+
+68
+00:03:47,540 --> 00:03:48,590
+It should work.
+
+69
+00:03:48,620 --> 00:03:49,430
+Okay, here we go.
+
+70
+00:03:49,430 --> 00:03:57,140
+So we'll try making a request to get all of the planets, which is swap eco slash API slash planets.
+
+71
+00:03:57,140 --> 00:04:01,340
+So I'm going to copy this URL over and we'll try sending a request to it.
+
+72
+00:04:02,120 --> 00:04:05,110
+So the first thing we'll do is make our request object.
+
+73
+00:04:05,120 --> 00:04:12,020
+We'll call this first request equals new XML, http request like that.
+
+74
+00:04:13,100 --> 00:04:16,310
+Then we have a couple of different ways of attaching the callbacks.
+
+75
+00:04:16,310 --> 00:04:22,850
+We can do what I showed in the slides where we use on load and on error or we can use add event listener.
+
+76
+00:04:24,020 --> 00:04:26,480
+So either one works in general.
+
+77
+00:04:26,510 --> 00:04:30,680
+You know, I've already mentioned this when we're working with a DOM and adding click events and other
+
+78
+00:04:30,680 --> 00:04:35,780
+sort of event listeners, I like to use Add event listener, so I guess we'll go with that, even though
+
+79
+00:04:35,780 --> 00:04:37,100
+I didn't put it in the slides.
+
+80
+00:04:37,190 --> 00:04:39,440
+Like I said, I pretty much never use this.
+
+81
+00:04:39,440 --> 00:04:42,180
+So we'll do an event listener for Load.
+
+82
+00:04:42,200 --> 00:04:43,820
+This is the code that will run.
+
+83
+00:04:43,850 --> 00:04:45,260
+Let's just do an arrow function.
+
+84
+00:04:45,650 --> 00:04:48,950
+If things go well, I will just cancel that log.
+
+85
+00:04:49,340 --> 00:04:54,380
+It works, and then we'll duplicate this entire thing here.
+
+86
+00:04:54,860 --> 00:04:57,320
+But listen for the error events.
+
+87
+00:04:57,650 --> 00:05:02,600
+So in the event that it doesn't work, something went wrong will cancel that log error.
+
+88
+00:05:04,520 --> 00:05:05,090
+Okay.
+
+89
+00:05:05,300 --> 00:05:07,760
+So we're just attaching these to event listeners.
+
+90
+00:05:07,760 --> 00:05:08,960
+We haven't even sent the request.
+
+91
+00:05:08,960 --> 00:05:11,060
+We haven't told it what you are able to go to.
+
+92
+00:05:11,090 --> 00:05:12,320
+So that's the next part.
+
+93
+00:05:12,320 --> 00:05:20,000
+First request dot open and you would think open would actually send to the send the request, but it
+
+94
+00:05:20,000 --> 00:05:23,690
+doesn't we have to explicitly send it afterwards.
+
+95
+00:05:23,840 --> 00:05:25,610
+So I'll put my URL in here.
+
+96
+00:05:25,700 --> 00:05:28,340
+This is the URL I want to send a request to.
+
+97
+00:05:28,790 --> 00:05:32,630
+Then we'll call first request dot send.
+
+98
+00:05:33,380 --> 00:05:36,650
+Remember, this takes time, which is why we have to add our callbacks.
+
+99
+00:05:36,650 --> 00:05:42,650
+If I put something afterwards, just like with a set timeout, all the stuff we saw in the last section
+
+100
+00:05:42,650 --> 00:05:44,360
+JavaScript moves on.
+
+101
+00:05:44,690 --> 00:05:47,360
+This request is handled by the browser.
+
+102
+00:05:47,360 --> 00:05:49,910
+One of the web APIs just like set timeout.
+
+103
+00:05:49,910 --> 00:05:52,430
+So JavaScript doesn't just pause like it does.
+
+104
+00:05:52,430 --> 00:05:55,970
+If I put an alert, it pauses and just waits and waits and waits.
+
+105
+00:05:56,210 --> 00:06:00,680
+That doesn't happen here because JavaScript is not sending the actual request, it's done through the
+
+106
+00:06:00,680 --> 00:06:01,340
+browser.
+
+107
+00:06:01,760 --> 00:06:08,720
+So we'll console.log request sent down here and this is what we should see appear first.
+
+108
+00:06:09,050 --> 00:06:11,900
+And then our request hopefully comes back successful.
+
+109
+00:06:11,900 --> 00:06:12,620
+We'll see this.
+
+110
+00:06:12,620 --> 00:06:15,140
+If it does not come back successful, we'll see this.
+
+111
+00:06:15,140 --> 00:06:16,280
+Who knows what will happen.
+
+112
+00:06:16,280 --> 00:06:20,450
+So here's my page where I have it loaded request sent.
+
+113
+00:06:20,450 --> 00:06:21,320
+It worked.
+
+114
+00:06:21,680 --> 00:06:24,080
+I guess we just have to trust that it worked right now.
+
+115
+00:06:24,170 --> 00:06:30,830
+But if we put some URL in here that we know does not exist, well, I hope that doesn't exist.
+
+116
+00:06:31,130 --> 00:06:32,120
+Try it again.
+
+117
+00:06:32,900 --> 00:06:33,710
+There we go.
+
+118
+00:06:33,740 --> 00:06:36,380
+Request was sent and we got an error.
+
+119
+00:06:36,710 --> 00:06:39,500
+So our two branching paths did it load?
+
+120
+00:06:39,500 --> 00:06:41,990
+Was everything okay or did it suck?
+
+121
+00:06:42,020 --> 00:06:42,890
+Did it not work?
+
+122
+00:06:42,890 --> 00:06:46,940
+Was there an error which we just deliberately cause to make sure it worked?
+
+123
+00:06:47,540 --> 00:06:49,130
+So that is the first part.
+
+124
+00:06:49,160 --> 00:06:57,380
+Making a request object in XHR xml http request we make it, then we attach our callbacks then.
+
+125
+00:06:57,380 --> 00:07:02,930
+Well, actually you can attach the callbacks after you open, but before you send, what's most important
+
+126
+00:07:02,930 --> 00:07:05,480
+is that you send after you've configured that object.
+
+127
+00:07:05,690 --> 00:07:08,690
+So the object represents an HTTP request.
+
+128
+00:07:09,020 --> 00:07:10,430
+It's just a JavaScript object.
+
+129
+00:07:10,430 --> 00:07:11,390
+It has different methods.
+
+130
+00:07:11,390 --> 00:07:17,510
+It has properties where assigning a load in an error callback, we tell it what type of request we want
+
+131
+00:07:17,510 --> 00:07:23,000
+to get request telling it where to send the request to telling it to send it.
+
+132
+00:07:23,180 --> 00:07:26,210
+Now what about the data that's coming back from the API?
+
+133
+00:07:26,240 --> 00:07:29,480
+The whole point of this is to send a request and get something back.
+
+134
+00:07:29,480 --> 00:07:31,580
+Right now we're not accessing it.
+
+135
+00:07:31,580 --> 00:07:34,520
+We don't even know if we get the correct information back.
+
+136
+00:07:34,520 --> 00:07:36,410
+We just get a console.log.
+
+137
+00:07:36,440 --> 00:07:42,380
+The way that we access that data is by referencing this DOT response text.
+
+138
+00:07:42,380 --> 00:07:44,210
+Well, what does this refer to?
+
+139
+00:07:44,420 --> 00:07:46,640
+It refers to the request itself.
+
+140
+00:07:46,640 --> 00:07:48,710
+So why don't we just look at that request?
+
+141
+00:07:48,710 --> 00:07:51,530
+I think we called it first request, right?
+
+142
+00:07:51,890 --> 00:07:55,460
+So after this finished, which it already finished, we can see that here.
+
+143
+00:07:55,460 --> 00:08:02,540
+If we look at first request, it contains a response and it contains this response text.
+
+144
+00:08:03,470 --> 00:08:07,670
+If we copy this response text, see if I copied it correctly.
+
+145
+00:08:08,930 --> 00:08:09,620
+Okay.
+
+146
+00:08:10,010 --> 00:08:12,950
+This right here is a whole bunch of JSON.
+
+147
+00:08:13,650 --> 00:08:16,540
+Everything we see is JSON.
+
+148
+00:08:16,560 --> 00:08:23,190
+It's not regular old JavaScript, but it's a string of a bunch of JavaScript looking stuff.
+
+149
+00:08:23,460 --> 00:08:24,990
+You can see it enter the quote.
+
+150
+00:08:25,320 --> 00:08:27,000
+It begins with a double quote.
+
+151
+00:08:27,180 --> 00:08:31,920
+So if I save right now in my auto format or tries to run, it's not going to be happy with me.
+
+152
+00:08:31,950 --> 00:08:34,169
+It's not considered JavaScript.
+
+153
+00:08:34,289 --> 00:08:36,090
+But we have a way of referencing it.
+
+154
+00:08:36,090 --> 00:08:43,620
+So I'll get rid of that massive monstrosity down there and let's try referencing the response text on
+
+155
+00:08:43,620 --> 00:08:44,790
+first request.
+
+156
+00:08:44,910 --> 00:08:48,930
+So in my slides, what I did was this dot response text.
+
+157
+00:08:48,930 --> 00:08:50,700
+But that won't work here.
+
+158
+00:08:51,630 --> 00:08:52,290
+Why not?
+
+159
+00:08:52,800 --> 00:08:54,480
+Any guesses here?
+
+160
+00:08:55,320 --> 00:08:58,350
+It has to do with the fact that I'm using an arrow function.
+
+161
+00:08:58,350 --> 00:09:02,130
+So an arrow function, remember, does not have the same rules of the keyword.
+
+162
+00:09:02,130 --> 00:09:02,760
+This.
+
+163
+00:09:02,790 --> 00:09:06,990
+So this will not refer to first request if I use an arrow function.
+
+164
+00:09:06,990 --> 00:09:08,070
+So I have two options.
+
+165
+00:09:08,070 --> 00:09:12,690
+I can just reference first request dot text or what is it?
+
+166
+00:09:12,690 --> 00:09:13,800
+Response text.
+
+167
+00:09:15,550 --> 00:09:17,320
+We could cancel that log that.
+
+168
+00:09:19,540 --> 00:09:20,830
+Refresh the page.
+
+169
+00:09:21,340 --> 00:09:23,080
+Hey, all of our information.
+
+170
+00:09:24,290 --> 00:09:28,430
+If I instead tried to do this, we will get undefined.
+
+171
+00:09:29,360 --> 00:09:33,660
+There is no response text because this is not set to the first request.
+
+172
+00:09:33,680 --> 00:09:38,060
+If I instead rewrite this as a standard function expression.
+
+173
+00:09:38,630 --> 00:09:40,820
+Now I can use the keyword this.
+
+174
+00:09:41,950 --> 00:09:47,230
+So in this case, it probably makes more sense to use a standard function expression because we want
+
+175
+00:09:47,230 --> 00:09:50,890
+the value of this to refer to the first request object.
+
+176
+00:09:51,160 --> 00:09:53,540
+So this gives me this massive thing of text.
+
+177
+00:09:53,560 --> 00:09:56,200
+It is not JavaScript, it's JSON.
+
+178
+00:09:56,380 --> 00:10:00,280
+So the next step is to turn it into actual JavaScript.
+
+179
+00:10:01,030 --> 00:10:02,040
+So here we go.
+
+180
+00:10:02,050 --> 00:10:05,830
+We have a special method called JSON parse.
+
+181
+00:10:06,800 --> 00:10:11,030
+And we pass into that a string of JSON like that.
+
+182
+00:10:12,070 --> 00:10:19,210
+And we can save that to a variable to call this data and then we can cancel that log data.
+
+183
+00:10:21,190 --> 00:10:22,360
+Let's see what we get now.
+
+184
+00:10:23,780 --> 00:10:24,860
+Hey, check it out.
+
+185
+00:10:24,890 --> 00:10:28,580
+This is now being presented to me as a JavaScript object.
+
+186
+00:10:28,610 --> 00:10:34,460
+It includes things like Count how many results we got back with the next pages.
+
+187
+00:10:34,460 --> 00:10:38,400
+So it looks like it didn't give us all the planets at once because there's a lot of them.
+
+188
+00:10:38,420 --> 00:10:44,450
+Instead, it gave me the first the first ten, and then instead of results, we have all of the different
+
+189
+00:10:44,450 --> 00:10:48,770
+planets that we got back, ten of them, and they contain tons of information.
+
+190
+00:10:50,280 --> 00:10:52,470
+And this is an actual JavaScript object.
+
+191
+00:10:52,470 --> 00:10:58,710
+So I could do something like loop over the results and print out each planet name.
+
+192
+00:10:58,800 --> 00:11:04,140
+So I would need to access data dot results loop over that.
+
+193
+00:11:04,140 --> 00:11:05,250
+So why don't we start there?
+
+194
+00:11:06,870 --> 00:11:07,470
+Data.
+
+195
+00:11:07,470 --> 00:11:13,110
+So let's do for let Planet of Data Results.
+
+196
+00:11:13,470 --> 00:11:16,110
+We now have this awesome JavaScript object.
+
+197
+00:11:16,110 --> 00:11:21,720
+It wasn't JavaScript before we converted it and we want for each one of these to print out the name.
+
+198
+00:11:21,930 --> 00:11:26,370
+So we'll do a console.log planet dot name.
+
+199
+00:11:28,660 --> 00:11:29,410
+Refresh.
+
+200
+00:11:30,640 --> 00:11:31,380
+Awesome.
+
+201
+00:11:31,420 --> 00:11:37,330
+We are now sending a request, getting information back as JSON, converting it to JavaScript, iterating
+
+202
+00:11:37,330 --> 00:11:41,920
+over it or doing something with it, somehow manipulating it and then printing data out.
+
+203
+00:11:42,340 --> 00:11:47,830
+So with what we've seen so far, it wouldn't be a stretch to instead display the information on the
+
+204
+00:11:47,830 --> 00:11:51,230
+page or do something visual for a user.
+
+205
+00:11:51,250 --> 00:11:56,050
+It would be the same sort of stuff we've seen before creating an element, appending an element, selecting
+
+206
+00:11:56,050 --> 00:11:58,990
+elements, styling them with classes, all of that.
+
+207
+00:11:59,020 --> 00:12:01,300
+Hopefully by now we're pretty comfortable with.
+
+208
+00:12:01,300 --> 00:12:06,970
+But this, this is kind of a lot of code and it has some drawbacks other than the clunky syntax which
+
+209
+00:12:06,970 --> 00:12:08,470
+will go into in the next video.
+

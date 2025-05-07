@@ -1,0 +1,168 @@
+1
+00:00:00,090 --> 00:00:00,480
+All right.
+
+2
+00:00:00,480 --> 00:00:03,580
+So next up, let's discuss the tools you need for the course.
+
+3
+00:00:03,600 --> 00:00:08,430
+It's pretty simple, at least for the first part of the course until we get to Node, but we'll cross
+
+4
+00:00:08,430 --> 00:00:09,930
+that bridge when we get there.
+
+5
+00:00:10,110 --> 00:00:14,970
+The two main tools that I highly recommend you install are Chrome as a web browser.
+
+6
+00:00:14,970 --> 00:00:21,150
+You definitely can use any web browser of your choice if you are particularly tied to Firefox, for
+
+7
+00:00:21,150 --> 00:00:21,900
+example.
+
+8
+00:00:21,930 --> 00:00:25,530
+There's nothing wrong with using that, but I'll be using Chrome as well.
+
+9
+00:00:25,530 --> 00:00:30,510
+Steven Which makes it a lot easier for you to follow along, especially as we talk about the specifics
+
+10
+00:00:30,510 --> 00:00:31,980
+of the developer tools.
+
+11
+00:00:32,340 --> 00:00:38,400
+I would say in general, I would not recommend using Internet Explorer Safari.
+
+12
+00:00:39,120 --> 00:00:40,380
+It definitely will work.
+
+13
+00:00:40,380 --> 00:00:44,310
+But if you have Chrome or Firefox, use one of those, preferably Chrome.
+
+14
+00:00:44,730 --> 00:00:49,260
+It's as simple as going to google.com slash chrome and clicking download.
+
+15
+00:00:49,620 --> 00:00:52,620
+It will just make for a better experience if we're on the same page.
+
+16
+00:00:52,620 --> 00:00:59,070
+And as far as the editor that I'm using, I highly recommend VS code, not just because I'm going to
+
+17
+00:00:59,070 --> 00:01:02,460
+be using it in the course and it will be easier for you to follow along.
+
+18
+00:01:02,460 --> 00:01:06,450
+But also it is just my personal editor of Choice these days.
+
+19
+00:01:06,450 --> 00:01:07,290
+It's free.
+
+20
+00:01:07,290 --> 00:01:13,590
+It's a great editor, great community around it, lots of amazing extensions and color themes and lots
+
+21
+00:01:13,590 --> 00:01:14,850
+of fun things you can do.
+
+22
+00:01:14,850 --> 00:01:18,500
+And if you don't have it downloaded already, I would recommend you do that.
+
+23
+00:01:18,510 --> 00:01:23,580
+Now, if you are somebody who already has a different editor that you are super tied to that, you know,
+
+24
+00:01:23,580 --> 00:01:27,180
+like the back of your hand, which that expression never made sense to me.
+
+25
+00:01:27,180 --> 00:01:31,920
+But if you happen to know it like the back of your hand, then use that editor.
+
+26
+00:01:32,550 --> 00:01:38,670
+I'm not going to be doing anything all that specific to vs code, but if you're new and you're looking
+
+27
+00:01:38,670 --> 00:01:41,010
+for an editor, this is the one I would go with.
+
+28
+00:01:41,280 --> 00:01:43,920
+VS Code stands for Visual Studio Code.
+
+29
+00:01:43,920 --> 00:01:46,710
+It's free, it's developed by Microsoft.
+
+30
+00:01:46,950 --> 00:01:48,630
+I can't say enough good things about it.
+
+31
+00:01:49,260 --> 00:01:50,190
+I really can't.
+
+32
+00:01:50,190 --> 00:01:51,540
+So download it.
+
+33
+00:01:51,540 --> 00:01:56,730
+And just to show you what my version looks like, I have changed a couple of settings.
+
+34
+00:01:57,060 --> 00:02:03,300
+I've changed the color theme, I've changed the UI theme and some of the icons you can see over here.
+
+35
+00:02:03,300 --> 00:02:05,340
+But otherwise I haven't done a whole lot.
+
+36
+00:02:05,340 --> 00:02:11,850
+And if you do want to make your editor look exactly like mine, I won't waste time in the course itself.
+
+37
+00:02:11,850 --> 00:02:13,050
+Talking about setup.
+
+38
+00:02:13,050 --> 00:02:18,510
+It's not very JavaScript specific and I'd like to get right to JavaScript, but if you want to learn
+
+39
+00:02:18,510 --> 00:02:24,960
+more, I'll include a link right after this video as a text lecture where you can watch my YouTube video,
+
+40
+00:02:24,960 --> 00:02:28,440
+where I talk about setting up my editor and all the extensions I use.
+
+41
+00:02:28,440 --> 00:02:34,470
+So vs Code and Chrome, the two tools I really recommend you install for the first part of this course.
+
+42
+00:02:34,470 --> 00:02:38,910
+And then later on we'll talk about node and installation for some of the other tools.
+

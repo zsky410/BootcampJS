@@ -1,0 +1,364 @@
+1
+00:00:00,750 --> 00:00:04,680
+Well, we've got our animation working, but there are two big issues with it right now.
+
+2
+00:00:04,680 --> 00:00:09,940
+Whenever we run the animation, it's occurring in this real kind of like block segment second by second.
+
+3
+00:00:09,960 --> 00:00:12,720
+So it'd be really nice to have a much smoother animation.
+
+4
+00:00:13,080 --> 00:00:18,930
+The other big issue is that because we are always subtracting by 50 units for our offset value, we're
+
+5
+00:00:18,930 --> 00:00:24,120
+always going to end up either overshooting or undershooting, having the animation finished at the very
+
+6
+00:00:24,120 --> 00:00:25,230
+top point right there.
+
+7
+00:00:25,710 --> 00:00:26,520
+Let's take a look at this.
+
+8
+00:00:26,520 --> 00:00:28,420
+I'm going down to nine, eight, seven.
+
+9
+00:00:28,440 --> 00:00:33,180
+Ideally, the animation would stop right there and even not even really right there because we still
+
+10
+00:00:33,180 --> 00:00:34,650
+had that little segment visible.
+
+11
+00:00:35,010 --> 00:00:39,540
+For the animation to be really correct, the entire border should disappear right when it hit zero.
+
+12
+00:00:40,020 --> 00:00:44,730
+So again, we need to make sure that we somehow get a better subtraction, subtraction right here than
+
+13
+00:00:44,730 --> 00:00:45,840
+the -50.
+
+14
+00:00:46,560 --> 00:00:48,870
+Let's first focus on the animation, however.
+
+15
+00:00:48,870 --> 00:00:53,490
+So let's make sure that we can show a really smooth animation as opposed to the big blocky thing.
+
+16
+00:00:53,970 --> 00:00:58,950
+To make the animation a lot smoother, we can just choose to run our timer much more frequently.
+
+17
+00:01:00,040 --> 00:01:04,360
+So let's take a look at our timer implementation once again back inside of our timer JS file.
+
+18
+00:01:04,569 --> 00:01:09,430
+If you take a look at start right here, you'll recall that we are running the tick method once every
+
+19
+00:01:09,430 --> 00:01:11,950
+1/2 or 1000 milliseconds.
+
+20
+00:01:12,760 --> 00:01:17,860
+So what we could do to make our animation a lot smoother is run the tick method way more frequently
+
+21
+00:01:17,860 --> 00:01:20,050
+in every single time we run the tick method.
+
+22
+00:01:20,410 --> 00:01:25,870
+Rather than doing the 50 unit update right here, we could do a really small update like one pixel.
+
+23
+00:01:26,200 --> 00:01:30,970
+So if we only do one pixel update at a time, it will make the animation a lot smoother.
+
+24
+00:01:32,240 --> 00:01:35,000
+So to make this happen, let's go back to timer DJs.
+
+25
+00:01:35,030 --> 00:01:39,740
+We're going to find where we set up our interval and rather than running tick every 1/2, we'll instead
+
+26
+00:01:39,740 --> 00:01:42,190
+run it every 50 milliseconds.
+
+27
+00:01:42,200 --> 00:01:44,480
+So that's going to be way more frequent.
+
+28
+00:01:46,450 --> 00:01:47,050
+Let's make sure.
+
+29
+00:01:47,080 --> 00:01:48,940
+Down inside of our tick method as well.
+
+30
+00:01:50,230 --> 00:01:55,690
+Right here where we update the value of time remaining rather than subtracting 1/2 because we're going
+
+31
+00:01:55,690 --> 00:02:02,020
+to run tick so much more frequently, we should instead only subtract .05 now.
+
+32
+00:02:02,020 --> 00:02:04,060
+So that's 50 milliseconds.
+
+33
+00:02:04,060 --> 00:02:07,150
+It matches up perfectly with the interval timer that we have right there.
+
+34
+00:02:10,320 --> 00:02:10,560
+Okay.
+
+35
+00:02:10,560 --> 00:02:11,740
+So let's now save this.
+
+36
+00:02:11,760 --> 00:02:14,310
+I'm going to go back over to my index file.
+
+37
+00:02:14,340 --> 00:02:18,390
+I'm going to find where we've got the 50, and I'm going to change that to one instead.
+
+38
+00:02:18,420 --> 00:02:23,430
+So now every single time we have a tick, I'm going to update the current offset by just one unit or
+
+39
+00:02:23,430 --> 00:02:24,240
+one pixel.
+
+40
+00:02:24,780 --> 00:02:25,560
+So I'm going to save this.
+
+41
+00:02:25,560 --> 00:02:28,640
+I'm going to go back over, refresh and hit, start again.
+
+42
+00:02:28,650 --> 00:02:31,860
+And so now we can very easily see that the animation is a lot smoother.
+
+43
+00:02:32,830 --> 00:02:35,140
+But there's another little issue that's cropped up.
+
+44
+00:02:35,230 --> 00:02:39,280
+Take a look at the text input right here that shows the current value of the timer.
+
+45
+00:02:39,640 --> 00:02:43,510
+It definitely has the like 17 point, whatever it looks like it's counting down.
+
+46
+00:02:43,540 --> 00:02:46,780
+But you'll notice that there are a ton of extra nines inside of here.
+
+47
+00:02:46,990 --> 00:02:47,940
+So how could that be?
+
+48
+00:02:47,950 --> 00:02:50,920
+We are only ever adjusting the timer by.
+
+49
+00:02:51,640 --> 00:02:53,920
+Over here, 0.05 units.
+
+50
+00:02:53,920 --> 00:02:56,980
+But for some reason, we're getting all these extra nines inside there.
+
+51
+00:02:57,400 --> 00:03:02,980
+Well, the reason we're seeing this is because mathematics in JavaScript is a very imprecise science.
+
+52
+00:03:04,060 --> 00:03:09,340
+All this subtraction, addition, multiplication, all the stuff that we do uses a system in JavaScript
+
+53
+00:03:09,340 --> 00:03:14,740
+called floating point operations and math inside of JavaScript sometimes gets subject to these really
+
+54
+00:03:14,740 --> 00:03:16,270
+strange rounding errors.
+
+55
+00:03:16,690 --> 00:03:20,980
+Well, let me show you a really common it very easy to reproduce rounding error inside my council right
+
+56
+00:03:20,980 --> 00:03:21,190
+now.
+
+57
+00:03:21,190 --> 00:03:23,860
+I'll say 1.9 minus one.
+
+58
+00:03:24,600 --> 00:03:25,080
+Yeah.
+
+59
+00:03:25,110 --> 00:03:26,360
+Didn't really see that coming.
+
+60
+00:03:26,370 --> 00:03:29,360
+So of course the result of that should be just 0.9.
+
+61
+00:03:29,370 --> 00:03:33,330
+But because the way JavaScript handles math and actually to be honest, most programming languages handle
+
+62
+00:03:33,330 --> 00:03:35,670
+math, we end up with this really weird result.
+
+63
+00:03:36,150 --> 00:03:39,810
+And so because of this floating point error, that is the same reason that we're seeing something really
+
+64
+00:03:39,810 --> 00:03:42,570
+funky inside of our input right there as well.
+
+65
+00:03:43,300 --> 00:03:44,880
+So we can fix this up pretty easily.
+
+66
+00:03:44,890 --> 00:03:50,200
+We're just going to do a little kind of a rounding operation when we set the value inside that input.
+
+67
+00:03:50,920 --> 00:03:53,890
+I'm going to go back over to my editor, find the timer JS file.
+
+68
+00:03:55,130 --> 00:03:58,490
+And I'll find our setter method for time remaining at the bottom.
+
+69
+00:03:59,500 --> 00:04:00,640
+So here's the setter.
+
+70
+00:04:01,000 --> 00:04:06,880
+So we take the current time that has been passed into time remaining and throw that into the value or
+
+71
+00:04:06,880 --> 00:04:08,590
+the input value property.
+
+72
+00:04:08,800 --> 00:04:13,290
+So it's this time variable right here that has all those extra decimal points inside of it.
+
+73
+00:04:13,300 --> 00:04:15,300
+So it makes everything work out nicely.
+
+74
+00:04:15,310 --> 00:04:21,190
+We can just call two fixed on this that's going to essentially round the decimal on there to just two
+
+75
+00:04:21,190 --> 00:04:22,330
+decimal places.
+
+76
+00:04:22,330 --> 00:04:27,700
+So we're going to drop off all those extra little values that we see inside all the actual decimals.
+
+77
+00:04:28,680 --> 00:04:30,240
+So I'm going to save the update.
+
+78
+00:04:30,270 --> 00:04:31,080
+Go back over.
+
+79
+00:04:31,080 --> 00:04:31,880
+Refresh.
+
+80
+00:04:31,890 --> 00:04:32,950
+Hit start again.
+
+81
+00:04:32,970 --> 00:04:34,270
+That's definitely better.
+
+82
+00:04:34,290 --> 00:04:37,830
+So now we just see the first two numbers and the first two decimals.
+
+83
+00:04:39,920 --> 00:04:40,160
+Okay.
+
+84
+00:04:40,160 --> 00:04:42,340
+So overall, I'd say that this was a good fix.
+
+85
+00:04:42,350 --> 00:04:47,540
+It's not the last big thing we have to do inside of our index dogs file subtracting by one right here.
+
+86
+00:04:47,540 --> 00:04:48,920
+Still not appropriate.
+
+87
+00:04:48,920 --> 00:04:54,440
+We need to make sure that we adjust the current offset by some appropriate value so that no matter what
+
+88
+00:04:54,440 --> 00:05:00,200
+our timer is running for, we will always end the animation at 0 seconds perfectly at the very top of
+
+89
+00:05:00,200 --> 00:05:00,890
+the circle.
+
+90
+00:05:01,400 --> 00:05:03,320
+So we'll have to figure out some way of handling that.
+
+91
+00:05:03,320 --> 00:05:06,830
+Let's take a pause right now and discuss how to do it in the next video.
+

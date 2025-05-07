@@ -1,0 +1,200 @@
+1
+00:00:00,960 --> 00:00:01,320
+All right.
+
+2
+00:00:01,320 --> 00:00:04,980
+The last thing I want to take care of inside of our maze is to just add in a little bit of color and
+
+3
+00:00:04,980 --> 00:00:09,300
+also show a nice message to the user whenever they succeed so that they understand that they really
+
+4
+00:00:09,300 --> 00:00:10,770
+did just win at the game.
+
+5
+00:00:11,340 --> 00:00:14,490
+So we're going to take a look at some of the different shapes that we are creating.
+
+6
+00:00:14,910 --> 00:00:19,590
+We're going to make sure that we add on a fill style to them to just color them in.
+
+7
+00:00:19,920 --> 00:00:24,810
+In addition, I'm going to make sure that when I create my render so here's our options object right
+
+8
+00:00:24,810 --> 00:00:25,200
+here.
+
+9
+00:00:25,200 --> 00:00:27,900
+I'm also going to flip wireframes to false.
+
+10
+00:00:28,020 --> 00:00:31,680
+Remember, that is what's going to make all of our different shapes solid and allow us to apply some
+
+11
+00:00:31,680 --> 00:00:32,520
+colors to them.
+
+12
+00:00:33,210 --> 00:00:37,830
+So I'm going to update wireframes to false and we're going to go down and find where we create all of
+
+13
+00:00:37,830 --> 00:00:38,790
+our different shapes.
+
+14
+00:00:39,270 --> 00:00:43,390
+I'm going to leave the walls as essentially whatever random color we get assigned.
+
+15
+00:00:43,410 --> 00:00:44,630
+I don't really care about those.
+
+16
+00:00:44,640 --> 00:00:48,210
+What I really care about is the different walls, the ball, and the goal.
+
+17
+00:00:49,320 --> 00:00:51,240
+So I'm going to go down to where we create.
+
+18
+00:00:52,130 --> 00:00:53,960
+Our verticals and horizontals.
+
+19
+00:00:55,590 --> 00:00:57,840
+Here's the horizontals for each right here.
+
+20
+00:00:58,800 --> 00:01:00,540
+I'm going to find where I create the wall.
+
+21
+00:01:00,900 --> 00:01:04,739
+I'm going to add in a new property to this options object.
+
+22
+00:01:05,040 --> 00:01:12,750
+And remember, if we want to customize the color, we can add on a render option that they fill style
+
+23
+00:01:12,750 --> 00:01:14,570
+and we'll specify the color that we want.
+
+24
+00:01:14,580 --> 00:01:16,410
+So I'm going to try out a color of red.
+
+25
+00:01:18,720 --> 00:01:20,970
+I'll then go down to where we create our verticals.
+
+26
+00:01:22,150 --> 00:01:23,800
+I'll find the wall that we create in there.
+
+27
+00:01:23,830 --> 00:01:25,330
+I'll find the options object.
+
+28
+00:01:25,840 --> 00:01:27,460
+And I'll also put on a render.
+
+29
+00:01:28,270 --> 00:01:31,090
+But they fill style of red.
+
+30
+00:01:34,290 --> 00:01:36,140
+I'll go down to where we create our goal.
+
+31
+00:01:37,630 --> 00:01:39,550
+I'm going to add on a render.
+
+32
+00:01:40,330 --> 00:01:42,130
+But the fill style of green.
+
+33
+00:01:42,130 --> 00:01:44,500
+So just make it a nice green that the user can understand.
+
+34
+00:01:44,500 --> 00:01:45,850
+Hey, green is good, right?
+
+35
+00:01:46,910 --> 00:01:50,960
+And then finally I'll find where we create the ball and the options object.
+
+36
+00:01:50,990 --> 00:01:54,910
+I'll add on a render and a fill style of blue.
+
+37
+00:01:54,920 --> 00:01:56,120
+So blue for the ball.
+
+38
+00:01:57,320 --> 00:01:57,410
+Okay.
+
+39
+00:01:57,470 --> 00:01:58,490
+So let's save this.
+
+40
+00:01:59,290 --> 00:02:01,240
+I will flip back over refresh.
+
+41
+00:02:01,540 --> 00:02:03,820
+And now we've got some interesting colouring going on.
+
+42
+00:02:04,150 --> 00:02:06,740
+This is definitely a little bit easier to parse visually.
+
+43
+00:02:06,790 --> 00:02:08,320
+A little bit more interesting as well.
+
+44
+00:02:08,740 --> 00:02:12,670
+The only thing I don't quite like about it is that the ball is a very dark blue.
+
+45
+00:02:12,670 --> 00:02:16,510
+So if you wanted to, you could try out some different colours and find one that maybe suits you better.
+
+46
+00:02:17,340 --> 00:02:18,260
+Yes, it looks good.
+
+47
+00:02:18,270 --> 00:02:21,840
+So now the last thing I want to do is to make sure once a user wins, we show a message on the very
+
+48
+00:02:21,840 --> 00:02:24,390
+center of the screen that says very clearly, hey, you won.
+
+49
+00:02:24,480 --> 00:02:25,750
+So another quick pause.
+
+50
+00:02:25,770 --> 00:02:27,570
+Wrap this thing up in just a moment.
+

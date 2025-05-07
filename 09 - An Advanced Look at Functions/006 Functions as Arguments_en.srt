@@ -1,0 +1,464 @@
+1
+00:00:00,120 --> 00:00:04,280
+Next up, we're continuing along with more advanced function concepts.
+
+2
+00:00:04,290 --> 00:00:08,070
+We have this big word or a big phrase, higher order functions.
+
+3
+00:00:08,460 --> 00:00:13,170
+It simply refers to functions that operate on or with other functions.
+
+4
+00:00:13,170 --> 00:00:19,560
+So functions that either accept functions as arguments and use them or do something with them, or on
+
+5
+00:00:19,560 --> 00:00:23,280
+the other side of things, a function that returns another function.
+
+6
+00:00:23,400 --> 00:00:25,020
+So I'm going to show both of them.
+
+7
+00:00:25,020 --> 00:00:30,060
+We're going to start with the first example or the first type, a function that accepts a function as
+
+8
+00:00:30,060 --> 00:00:30,920
+an argument.
+
+9
+00:00:30,930 --> 00:00:35,910
+This is a really common pattern in JavaScript, and we'll see a bunch of examples and a bunch of built
+
+10
+00:00:35,910 --> 00:00:40,830
+in methods where we pass functions in as arguments, but we're going to start by defining our own.
+
+11
+00:00:41,160 --> 00:00:48,090
+So this is a very simple function called call twice and it accepts an argument that I'm calling func.
+
+12
+00:00:48,090 --> 00:00:50,370
+That's just the parameter name I've decided on.
+
+13
+00:00:50,400 --> 00:00:53,670
+It could be anything as long as it's a valid JavaScript identifier.
+
+14
+00:00:53,670 --> 00:00:56,580
+And then I'm executing that argument twice.
+
+15
+00:00:57,400 --> 00:01:04,450
+So if I have a function called laugh and I call twice the function, call twice and I pass in laugh,
+
+16
+00:01:04,450 --> 00:01:06,550
+it will call laugh two times.
+
+17
+00:01:07,600 --> 00:01:09,070
+So let me demonstrate this.
+
+18
+00:01:09,250 --> 00:01:17,320
+I'll define a function called call three times and we'll pass a function to it.
+
+19
+00:01:17,410 --> 00:01:23,260
+We can call it F just to make it different instead of func, and we'll execute F one time.
+
+20
+00:01:23,260 --> 00:01:24,160
+Two times.
+
+21
+00:01:24,160 --> 00:01:25,120
+Three times.
+
+22
+00:01:26,220 --> 00:01:35,490
+And then let's define some other function, whether it's laugh, scream, cry, let's go with cry and
+
+23
+00:01:35,490 --> 00:01:37,020
+it will console.log.
+
+24
+00:01:37,440 --> 00:01:38,550
+Boo hoo!
+
+25
+00:01:39,120 --> 00:01:42,390
+I'm so sad like that.
+
+26
+00:01:43,340 --> 00:01:44,540
+And now I can use it.
+
+27
+00:01:44,540 --> 00:01:46,340
+I can use call three times.
+
+28
+00:01:46,580 --> 00:01:49,850
+I mean, I can call CRI on my own just like this.
+
+29
+00:01:50,810 --> 00:01:52,710
+Of course, that should be review.
+
+30
+00:01:52,730 --> 00:01:55,700
+But I can also run call three times.
+
+31
+00:01:55,730 --> 00:01:58,910
+I'll expand this a bit and pass in cry.
+
+32
+00:01:59,840 --> 00:02:01,450
+Cry is a function.
+
+33
+00:02:01,460 --> 00:02:07,340
+I'm passing it into this function and then this function executes it three times in a row.
+
+34
+00:02:07,910 --> 00:02:08,650
+And there we go.
+
+35
+00:02:08,660 --> 00:02:09,020
+Boo hoo!
+
+36
+00:02:09,020 --> 00:02:09,680
+I'm so sad.
+
+37
+00:02:09,680 --> 00:02:10,910
+One time, two times.
+
+38
+00:02:10,910 --> 00:02:11,780
+Three times.
+
+39
+00:02:12,290 --> 00:02:15,680
+If we instead did it with a different function, how about instead of cry?
+
+40
+00:02:15,680 --> 00:02:19,270
+We do rage and we'll console.log.
+
+41
+00:02:19,280 --> 00:02:20,990
+I hate everything.
+
+42
+00:02:23,870 --> 00:02:27,620
+If we call three times and pass in rage.
+
+43
+00:02:28,100 --> 00:02:29,210
+I hate everything.
+
+44
+00:02:29,210 --> 00:02:30,200
+I hate everything.
+
+45
+00:02:30,200 --> 00:02:31,430
+I hate everything.
+
+46
+00:02:32,360 --> 00:02:33,730
+Let's do another example.
+
+47
+00:02:33,740 --> 00:02:35,630
+This time we'll write a function.
+
+48
+00:02:35,630 --> 00:02:42,290
+Let's call it repeat or repeat end times, and we'll pass in a function and a number.
+
+49
+00:02:42,560 --> 00:02:46,340
+And then it will call that function and number of times.
+
+50
+00:02:47,360 --> 00:02:56,120
+So I'm going to define this function, repeat, end times and we'll pass in a function which I'll call
+
+51
+00:02:56,120 --> 00:02:59,600
+func, or we could call it action just to be different.
+
+52
+00:03:00,020 --> 00:03:02,030
+So you can see it truly does not matter.
+
+53
+00:03:02,030 --> 00:03:04,310
+It's just any parameter name that's valid.
+
+54
+00:03:04,340 --> 00:03:09,470
+It can store a function, it can store a string, it will store whatever we pass in JavaScript doesn't
+
+55
+00:03:09,470 --> 00:03:13,490
+care, and then we'll pass in a number which we'll call NUM.
+
+56
+00:03:14,390 --> 00:03:24,830
+What we're going to do is loop num times and each time through call or let EI is equal to let's go upwards.
+
+57
+00:03:24,830 --> 00:03:30,710
+So zero EI is less than num plus plus it doesn't matter.
+
+58
+00:03:30,710 --> 00:03:37,820
+We're just looping a number of times, num number of times and we'll call action each time in that loop.
+
+59
+00:03:39,570 --> 00:03:43,320
+Then to use this function, I'll reinstate cri and rage.
+
+60
+00:03:44,430 --> 00:03:52,740
+And now I can call something like repeat end times rage and I'll repeat it 13 times.
+
+61
+00:03:53,890 --> 00:03:55,720
+So I'm passing in the function rage.
+
+62
+00:03:55,720 --> 00:04:02,590
+It's called action in this function and we are looping 13 times each time through we're executing whatever
+
+63
+00:04:02,590 --> 00:04:05,260
+action was passed in what happens over here.
+
+64
+00:04:05,560 --> 00:04:07,390
+13 I hate everything.
+
+65
+00:04:07,780 --> 00:04:10,390
+Annoyingly chrome console condenses them.
+
+66
+00:04:10,600 --> 00:04:11,320
+You'll have to trust me.
+
+67
+00:04:11,320 --> 00:04:15,070
+It happened 13 times if we instead I'll come over here.
+
+68
+00:04:15,070 --> 00:04:20,430
+But if we instead change it to 11 times, we get 11 console logs.
+
+69
+00:04:20,440 --> 00:04:26,920
+If instead of rage I'm calling cry, we get 19.
+
+70
+00:04:27,040 --> 00:04:27,700
+Boo hoo.
+
+71
+00:04:27,700 --> 00:04:28,570
+I'm so sad.
+
+72
+00:04:28,570 --> 00:04:35,290
+Print it out in our console and for one more example, let's write a function called randomly pick or
+
+73
+00:04:35,290 --> 00:04:37,900
+randomly call or I don't know, we'll figure out a name.
+
+74
+00:04:37,900 --> 00:04:42,790
+It will accept two functions and it will randomly call one of them, but not both.
+
+75
+00:04:42,790 --> 00:04:44,470
+So I will comment this out.
+
+76
+00:04:44,770 --> 00:04:45,730
+We can leave it.
+
+77
+00:04:46,120 --> 00:04:47,470
+We'll just comment this line out.
+
+78
+00:04:48,310 --> 00:04:51,940
+We'll define our function, which I still haven't come up with a good name.
+
+79
+00:04:52,090 --> 00:04:55,120
+Let's go with pick one or call one.
+
+80
+00:04:55,630 --> 00:05:00,220
+Pick one is fine and we'll pass in function one and function two.
+
+81
+00:05:01,300 --> 00:05:05,560
+And then we need to write logic to randomly pick one of these values.
+
+82
+00:05:05,770 --> 00:05:09,100
+So the most common way of doing this is to pick a random number.
+
+83
+00:05:09,160 --> 00:05:15,550
+And if that number is, let's say the number is between zero and one, if it's less than 0.5, we'll
+
+84
+00:05:15,550 --> 00:05:16,060
+do one thing.
+
+85
+00:05:16,060 --> 00:05:18,130
+If it's greater than 0.5, we'll do another.
+
+86
+00:05:18,250 --> 00:05:19,930
+So let's pick a random number.
+
+87
+00:05:19,930 --> 00:05:28,210
+We'll go with rand equals math at random and we'll keep it as a decimal and then we'll just write some
+
+88
+00:05:28,210 --> 00:05:28,630
+logic.
+
+89
+00:05:28,630 --> 00:05:38,620
+If Rand is less than 0.5, we'll call function one and I'll expand this just to make it clearer.
+
+90
+00:05:39,850 --> 00:05:40,540
+Else.
+
+91
+00:05:41,170 --> 00:05:45,640
+If it's greater than 0.5, we'll call a function to.
+
+92
+00:05:46,800 --> 00:05:47,700
+And that's it.
+
+93
+00:05:48,270 --> 00:05:52,740
+Function one and function two will only call one of them, depending on what Rand is.
+
+94
+00:05:52,770 --> 00:06:00,870
+So if we console.log rand and then we try calling, pick one, which I'll just do it over here.
+
+95
+00:06:01,410 --> 00:06:05,640
+I'll call, pick one and pass in cry and rage.
+
+96
+00:06:08,730 --> 00:06:13,380
+It turns out that our random number was 0.9, 0.9, blah, blah blah.
+
+97
+00:06:13,590 --> 00:06:15,540
+So it ran rage.
+
+98
+00:06:15,690 --> 00:06:16,860
+I hate everything.
+
+99
+00:06:16,890 --> 00:06:18,030
+We'll try it again.
+
+100
+00:06:18,510 --> 00:06:23,190
+This time our random number was 0.38 and it ran cry.
+
+101
+00:06:23,850 --> 00:06:26,040
+So each time it picks one of them.
+
+102
+00:06:26,850 --> 00:06:27,830
+So there you have it.
+
+103
+00:06:27,840 --> 00:06:31,940
+Three examples of calling functions that are passed as arguments.
+
+104
+00:06:31,950 --> 00:06:38,280
+So a function call three times except another function as an argument, and we execute it three times
+
+105
+00:06:38,280 --> 00:06:40,380
+in the body of call three times.
+
+106
+00:06:40,890 --> 00:06:42,840
+Here's another one repeat end times.
+
+107
+00:06:42,840 --> 00:06:44,850
+It accepts an action and a number.
+
+108
+00:06:44,880 --> 00:06:51,090
+It loops number times or num times, let's say nine times, and it calls whatever this function is,
+
+109
+00:06:51,090 --> 00:06:52,380
+that number of times.
+
+110
+00:06:52,830 --> 00:06:58,830
+And then we also have pick one, which accepts two functions and a randomly decides which one to call.
+
+111
+00:06:58,860 --> 00:07:04,680
+None of these may seem that useful, but as you'll see very shortly, JavaScript comes with a ton of
+
+112
+00:07:04,680 --> 00:07:10,610
+built in methods, especially with arrays where we perform a function for every element in an array.
+
+113
+00:07:10,620 --> 00:07:11,970
+So that's coming up shortly.
+
+114
+00:07:11,970 --> 00:07:15,600
+But we still need to talk about the other type of higher order function.
+
+115
+00:07:15,660 --> 00:07:19,080
+We talked about functions that accept functions as arguments.
+
+116
+00:07:19,080 --> 00:07:23,700
+Next, we'll see functions that can return a function as the return value.
+

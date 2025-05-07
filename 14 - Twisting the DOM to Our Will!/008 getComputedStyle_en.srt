@@ -1,0 +1,376 @@
+1
+00:00:00,090 --> 00:00:03,719
+In this video, we'll see a different way of accessing style values.
+
+2
+00:00:03,719 --> 00:00:10,680
+So not to set a value, but to retrieve what the current value is for color or background color or display
+
+3
+00:00:10,680 --> 00:00:11,550
+position.
+
+4
+00:00:11,550 --> 00:00:17,310
+With all these different properties, we might want to access on an element we couldn't really do using
+
+5
+00:00:17,310 --> 00:00:18,180
+these style property.
+
+6
+00:00:18,180 --> 00:00:18,930
+As we saw.
+
+7
+00:00:18,960 --> 00:00:23,190
+For example, we take any of these allies, we select them.
+
+8
+00:00:23,190 --> 00:00:28,950
+I'll just do document query selector ly just to get the first one.
+
+9
+00:00:29,070 --> 00:00:30,810
+It has that class of special.
+
+10
+00:00:31,020 --> 00:00:34,230
+If I do style color, it's empty.
+
+11
+00:00:34,230 --> 00:00:36,930
+And we saw why that happens in the last video.
+
+12
+00:00:36,930 --> 00:00:41,790
+It happens because the style property only contains the inline styles.
+
+13
+00:00:41,940 --> 00:00:47,730
+It does not contain any calculated styles, any styles from a stylesheet, anything from a class, which
+
+14
+00:00:47,730 --> 00:00:48,690
+is what's going on here.
+
+15
+00:00:48,690 --> 00:00:51,900
+We have a class of special that is turning this little.
+
+16
+00:00:52,200 --> 00:01:00,600
+So if I want to get that calculated or computed value, we have a method called get computed style and
+
+17
+00:01:00,600 --> 00:01:02,700
+we pass in an element that we've selected.
+
+18
+00:01:02,700 --> 00:01:09,480
+So I'm going to have to select this fly and save it to a variable or pass this in to get computed style.
+
+19
+00:01:09,750 --> 00:01:18,570
+I'll call this Li and then get computed style of LI and I'll save this to a variable and this will return
+
+20
+00:01:18,570 --> 00:01:23,070
+to me an object called a CSS style declaration.
+
+21
+00:01:23,070 --> 00:01:27,180
+And if I open it up, what you'll see is a ton of stuff.
+
+22
+00:01:27,210 --> 00:01:28,770
+Keep scrolling down here.
+
+23
+00:01:28,770 --> 00:01:31,950
+We have key value pairs for all CSS properties.
+
+24
+00:01:31,980 --> 00:01:34,170
+Notice there are actual values here.
+
+25
+00:01:34,170 --> 00:01:37,380
+Most of them are just the default values in your browser.
+
+26
+00:01:37,380 --> 00:01:42,030
+So the default background color is down here, which is where are you?
+
+27
+00:01:42,030 --> 00:01:48,180
+Background background color are GBA 0000, which is just nothing.
+
+28
+00:01:48,180 --> 00:01:50,460
+The default background image is none.
+
+29
+00:01:50,460 --> 00:01:53,190
+The default background position zero zero.
+
+30
+00:01:53,220 --> 00:01:59,460
+Then here's one that we applied border one pixel solid teal which is coming from the stylesheet.
+
+31
+00:01:59,490 --> 00:02:03,330
+Here's the class special border one pixel solid teal.
+
+32
+00:02:04,080 --> 00:02:09,690
+So you can see that this object that we got from get computed styles, if we scroll all the way back
+
+33
+00:02:09,690 --> 00:02:15,600
+up, is actually going to contain all of the properties in CSS for a given element, all the possible
+
+34
+00:02:15,600 --> 00:02:18,030
+properties and all of their current values.
+
+35
+00:02:18,030 --> 00:02:20,850
+Now when I say current values, they could change.
+
+36
+00:02:20,850 --> 00:02:29,430
+So if we change something the easy way using the style object, which we could do, like style dot color
+
+37
+00:02:29,430 --> 00:02:31,080
+now equals pink.
+
+38
+00:02:32,910 --> 00:02:33,510
+Okay.
+
+39
+00:02:33,540 --> 00:02:36,330
+Now let's look at that style object that we got.
+
+40
+00:02:36,360 --> 00:02:37,710
+I'm going to clear my console.
+
+41
+00:02:37,740 --> 00:02:41,640
+It is not happy with the style object that I had printed out.
+
+42
+00:02:41,820 --> 00:02:46,230
+So we have our styles here that we got from get computed style.
+
+43
+00:02:46,410 --> 00:02:48,660
+If we do styles color.
+
+44
+00:02:50,160 --> 00:02:51,680
+We now have a different color.
+
+45
+00:02:51,690 --> 00:02:54,510
+This is the color I just said pink.
+
+46
+00:02:54,540 --> 00:02:59,910
+If I change the light style color is now equal to red.
+
+47
+00:03:01,020 --> 00:03:02,910
+And we do styles color again.
+
+48
+00:03:02,910 --> 00:03:08,440
+Now we have the RTB for red 255 red, zero green, zero blue.
+
+49
+00:03:08,460 --> 00:03:14,190
+So this object now that we got from get computed styles, I'm calling it Styles, will contain all of
+
+50
+00:03:14,190 --> 00:03:16,230
+the current updated styles.
+
+51
+00:03:16,230 --> 00:03:21,990
+And computed means that sometimes these styles may come from a stylesheet, sometimes they may come
+
+52
+00:03:21,990 --> 00:03:27,060
+from JavaScript, but we can also have things like a hover style on my H one.
+
+53
+00:03:27,060 --> 00:03:34,590
+If I add in a style based off of hover and I give it a color of purple and a font size of 80 pixels
+
+54
+00:03:34,590 --> 00:03:39,450
+instead of 60 pixels, if I refresh my page, I hover, it grows.
+
+55
+00:03:39,960 --> 00:03:41,700
+It's not actually turning purple.
+
+56
+00:03:42,120 --> 00:03:47,400
+Oh, I don't know why it did purple twice, but it doesn't matter because in my index I had a inline
+
+57
+00:03:47,400 --> 00:03:48,570
+style declaration.
+
+58
+00:03:48,570 --> 00:03:52,080
+And that's a perfect example of why inline style declarations suck.
+
+59
+00:03:52,290 --> 00:03:53,820
+They override everything.
+
+60
+00:03:53,820 --> 00:03:56,400
+So you can write a bunch of styles and they won't work.
+
+61
+00:03:56,580 --> 00:03:58,290
+So it should be purple now.
+
+62
+00:03:58,890 --> 00:04:03,810
+And instead of making it purple again when we hover, let's make it orange.
+
+63
+00:04:05,300 --> 00:04:07,170
+All right, so now I hover.
+
+64
+00:04:07,190 --> 00:04:09,020
+It goes orange and it gets bigger.
+
+65
+00:04:09,560 --> 00:04:15,350
+So what I could do to illustrate, get computed styles and the fact that it works on any sort of styles
+
+66
+00:04:15,350 --> 00:04:20,240
+that would be applied, let's figure out the computed color and font size when I hover.
+
+67
+00:04:20,269 --> 00:04:25,640
+Now, this is it's kind of tricky because in order to run that code from my console, I have to be typing
+
+68
+00:04:25,640 --> 00:04:30,260
+over here, although I guess I can move my my cursor over here as I do it.
+
+69
+00:04:30,260 --> 00:04:31,270
+So let's try it.
+
+70
+00:04:31,280 --> 00:04:37,910
+Let's select the H one, const H one equals document, query selector h one and then I'll run get computed
+
+71
+00:04:37,910 --> 00:04:38,770
+styles.
+
+72
+00:04:38,780 --> 00:04:47,960
+Let's make a variable called comp styles equals and then get computed style of that h one that we just
+
+73
+00:04:47,960 --> 00:04:48,680
+selected.
+
+74
+00:04:49,540 --> 00:04:50,140
+Okay.
+
+75
+00:04:50,140 --> 00:04:53,710
+So let's start by looking at camp styles dot color.
+
+76
+00:04:54,400 --> 00:04:56,340
+That's the purple color we have.
+
+77
+00:04:56,350 --> 00:04:59,880
+And if we look at font size, remember we have to use camel case.
+
+78
+00:04:59,890 --> 00:05:01,810
+It is 60 pixels.
+
+79
+00:05:01,810 --> 00:05:07,990
+So already this is much better than using the inline style property because we're able to actually get
+
+80
+00:05:07,990 --> 00:05:13,770
+a value for color and font size versus doing h one style color gives us an empty string.
+
+81
+00:05:13,780 --> 00:05:17,470
+H One style font size also gives us an empty string.
+
+82
+00:05:17,950 --> 00:05:23,980
+So now if I type my line, let's do comp styles dot color, but I'm not going to hit enter.
+
+83
+00:05:23,980 --> 00:05:26,410
+I'm going to hover first and then hit enter.
+
+84
+00:05:26,620 --> 00:05:27,460
+Take a look.
+
+85
+00:05:27,460 --> 00:05:32,770
+I hovered and we got a new computed style value and now it goes back to what it was before.
+
+86
+00:05:32,920 --> 00:05:34,600
+Same thing with font size.
+
+87
+00:05:34,690 --> 00:05:37,300
+It starts at nope, not that version.
+
+88
+00:05:37,420 --> 00:05:43,930
+This one starts at 60 pixels and if I run it again but first hover and hit enter.
+
+89
+00:05:43,960 --> 00:05:47,140
+Now it's 80 pixels, so it's kind of cool.
+
+90
+00:05:47,290 --> 00:05:51,940
+Computed styles is a great way to figure out what's actually going on on your page.
+
+91
+00:05:51,940 --> 00:05:57,850
+You can have a whole bunch of styles being applied to one element, but to know what is actually winning,
+
+92
+00:05:57,850 --> 00:06:02,800
+what is actually showing up in the DOM and taking effect, you can use get computed style.
+
+93
+00:06:03,250 --> 00:06:04,690
+All right, so that's pretty much it.
+
+94
+00:06:04,690 --> 00:06:11,350
+Get computed style returns a massive object containing every property that has been calculated in CSS.
+

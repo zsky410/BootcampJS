@@ -1,0 +1,512 @@
+1
+00:00:00,150 --> 00:00:00,540
+All right.
+
+2
+00:00:00,540 --> 00:00:07,380
+So that was a brief intro to the concept of Ajax, asynchronous JavaScript and XML in this video.
+
+3
+00:00:07,380 --> 00:00:12,510
+The last one, before we actually make requests, we're going to talk about XML and this other thing
+
+4
+00:00:12,510 --> 00:00:15,900
+I mentioned, JSON, JavaScript, object notation.
+
+5
+00:00:16,020 --> 00:00:21,810
+So these are two ways of basically formatting data so that you can send it from a server to another
+
+6
+00:00:21,810 --> 00:00:23,670
+server or a server to a browser.
+
+7
+00:00:23,670 --> 00:00:25,680
+It's a format for information.
+
+8
+00:00:25,680 --> 00:00:27,660
+They both solve essentially the same problem.
+
+9
+00:00:27,660 --> 00:00:30,000
+We have some data that we want to send.
+
+10
+00:00:30,000 --> 00:00:34,050
+We need to figure out a common standard way of sending that information.
+
+11
+00:00:34,410 --> 00:00:42,120
+So if we had some data about a user, for example, where we have name would be something like Todd
+
+12
+00:00:42,120 --> 00:00:45,390
+and then we have email is something else.
+
+13
+00:00:46,230 --> 00:00:51,240
+Todd at Gmail and age could be a number like 89.
+
+14
+00:00:51,750 --> 00:00:55,170
+This is information and I'm already formatting it in some way.
+
+15
+00:00:55,170 --> 00:01:00,000
+This isn't actually JSON, this is an XML, but there's tons of ways we could do this right.
+
+16
+00:01:00,000 --> 00:01:04,050
+We could just use arrows to represent keys and values.
+
+17
+00:01:04,050 --> 00:01:06,360
+We could what else could we do?
+
+18
+00:01:06,360 --> 00:01:12,780
+We could do colons, or we could go with XML, which is one format.
+
+19
+00:01:13,680 --> 00:01:15,060
+I'll show you what it looks like.
+
+20
+00:01:15,060 --> 00:01:17,580
+It stands for Extensible Markup Language.
+
+21
+00:01:17,580 --> 00:01:23,280
+You can think of XML as a very, very broad, almost the parent of HTML.
+
+22
+00:01:23,400 --> 00:01:28,050
+It looks like HTML, except the element names are very different.
+
+23
+00:01:28,050 --> 00:01:29,640
+They're not actual elements.
+
+24
+00:01:29,880 --> 00:01:34,260
+XML is a way of just grouping content and adding meaning to your data.
+
+25
+00:01:34,410 --> 00:01:40,620
+So if we were to represent this as XML, we actually use tags like name.
+
+26
+00:01:41,160 --> 00:01:46,410
+And then inside of that we would put Todd and then we could have another tag for email.
+
+27
+00:01:46,710 --> 00:01:52,260
+And inside of that we put Todd at gmail.com and we could even nest things.
+
+28
+00:01:52,260 --> 00:02:01,590
+So inside of name we could have first and that would be Todd, then we could have second.
+
+29
+00:02:02,070 --> 00:02:08,220
+So it's very similar to HTML in the way that we structure things, the characters we use, but it means
+
+30
+00:02:08,220 --> 00:02:09,810
+something entirely different.
+
+31
+00:02:09,930 --> 00:02:15,270
+XML can represent any sort of information like first name, last name, what am I going with second
+
+32
+00:02:15,270 --> 00:02:19,380
+JS I meant last name, email, whatever.
+
+33
+00:02:20,250 --> 00:02:22,950
+HTML represents the structure of a web page.
+
+34
+00:02:22,950 --> 00:02:27,930
+It uses similar formatting, but otherwise it's it has a totally different purpose.
+
+35
+00:02:27,930 --> 00:02:33,240
+They both are encoding information so that it can be transferred from one machine to another across
+
+36
+00:02:33,240 --> 00:02:37,230
+the internet, little tiny pieces of light or bits turning on and off.
+
+37
+00:02:37,230 --> 00:02:41,250
+But XML is just a broad way of structuring data.
+
+38
+00:02:41,280 --> 00:02:43,560
+So XML used to be a lot more popular.
+
+39
+00:02:43,590 --> 00:02:45,060
+You'll still see it sometimes.
+
+40
+00:02:45,090 --> 00:02:48,060
+It's actually kind of frustrating when you encounter an API.
+
+41
+00:02:48,090 --> 00:02:50,670
+You want to use that response with XML.
+
+42
+00:02:50,970 --> 00:02:53,550
+It's just not very common, at least in my experience.
+
+43
+00:02:53,880 --> 00:03:01,230
+But in JavaScript we have a way of taking data like this and turning it into a JavaScript object.
+
+44
+00:03:01,320 --> 00:03:07,680
+Like if this was a JavaScript object, it would be name which has another object.
+
+45
+00:03:07,680 --> 00:03:14,880
+First Todd would be a string, last would be Smith as a string, and then another property would be
+
+46
+00:03:14,880 --> 00:03:17,640
+email Todd at gmail.com.
+
+47
+00:03:18,270 --> 00:03:26,160
+This would be an actual JavaScript object we could use that we structure based off of this XML and JavaScript
+
+48
+00:03:26,160 --> 00:03:26,940
+has a way of doing that.
+
+49
+00:03:26,940 --> 00:03:32,520
+We can parse text that is XML and turn it into actual JavaScript so we can use it.
+
+50
+00:03:32,730 --> 00:03:36,960
+But there is another format we've already mentioned, which is called JSON.
+
+51
+00:03:36,960 --> 00:03:39,900
+And JSON is extremely common these days.
+
+52
+00:03:40,110 --> 00:03:43,050
+It stands for JavaScript object notation.
+
+53
+00:03:43,050 --> 00:03:47,250
+So it is not JavaScript, it looks like JavaScript.
+
+54
+00:03:47,250 --> 00:03:52,770
+It shares a lot of things in common with JavaScript, but it is not the exact same JavaScript.
+
+55
+00:03:52,770 --> 00:03:55,350
+Object notation is another format for sending data.
+
+56
+00:03:55,350 --> 00:03:59,460
+It's another notation, but there are some key differences.
+
+57
+00:03:59,460 --> 00:04:03,030
+First of all, every key in JSON must be a string.
+
+58
+00:04:03,030 --> 00:04:06,630
+With quotes we use colons instead of an object.
+
+59
+00:04:06,630 --> 00:04:08,610
+We also can use arrays.
+
+60
+00:04:08,910 --> 00:04:15,510
+We can have values like numbers, boolean strings, but we cannot store more complicated things like
+
+61
+00:04:15,510 --> 00:04:17,010
+functions as an example.
+
+62
+00:04:17,010 --> 00:04:20,070
+So the bad news is that it's not actually JavaScript.
+
+63
+00:04:20,070 --> 00:04:23,580
+The good news is that it's very close, which makes it a great fit.
+
+64
+00:04:23,580 --> 00:04:30,270
+If we are using JavaScript because we can translate between JSON and JavaScript very, very easily,
+
+65
+00:04:30,300 --> 00:04:32,730
+it's a single function call instead of JavaScript.
+
+66
+00:04:32,910 --> 00:04:35,760
+So here's one of the APIs we'll play around with later.
+
+67
+00:04:35,970 --> 00:04:42,600
+This API is called Swap or Star Wars API and we can play around with this on their web page.
+
+68
+00:04:42,600 --> 00:04:44,940
+Let's look at starships slash nine.
+
+69
+00:04:45,000 --> 00:04:46,980
+This is just the documentation.
+
+70
+00:04:46,980 --> 00:04:48,960
+It's a little preview of what you get back.
+
+71
+00:04:49,410 --> 00:04:56,220
+And if I actually open up the DevTools and I go to network again, let's go to Planet Slash three.
+
+72
+00:04:56,460 --> 00:04:58,410
+You'll see that a request is sent.
+
+73
+00:04:58,440 --> 00:04:59,670
+Here is our response.
+
+74
+00:05:00,400 --> 00:05:06,700
+If I paste this over here, it looks like a JavaScript object, but it's not actually JavaScript at
+
+75
+00:05:06,700 --> 00:05:07,270
+this point.
+
+76
+00:05:07,270 --> 00:05:10,480
+But remember, it's being sent as part of a response.
+
+77
+00:05:10,480 --> 00:05:12,240
+It's not actually JavaScript.
+
+78
+00:05:12,250 --> 00:05:18,070
+What we would do is then take it once we get it back and translate it into a real JavaScript object,
+
+79
+00:05:18,070 --> 00:05:19,960
+which is really, really easy to do.
+
+80
+00:05:20,470 --> 00:05:27,310
+So this is another format of representing information to take this XML and turn it into JSON.
+
+81
+00:05:27,340 --> 00:05:32,980
+It would look almost identical to what we have here, except we would have quotes around every key.
+
+82
+00:05:34,690 --> 00:05:36,730
+And actually that's pretty much it.
+
+83
+00:05:36,730 --> 00:05:42,100
+If we had more complex data, if we had a function from JavaScript, we're trying to turn into JSON
+
+84
+00:05:42,100 --> 00:05:45,190
+that becomes problematic, but there are ways around it.
+
+85
+00:05:45,700 --> 00:05:50,500
+So to sum all of this up, JSON is a format for sending data.
+
+86
+00:05:50,620 --> 00:05:51,820
+So it is XML.
+
+87
+00:05:52,000 --> 00:05:56,980
+XML used to be very common, hence the term Ajax with an ex.
+
+88
+00:05:57,160 --> 00:06:03,460
+Nowadays most people use JSON and even though it's called JavaScript object notation, it's name that
+
+89
+00:06:03,460 --> 00:06:08,230
+because it's very similar to JavaScript, that doesn't mean you can only use it with JavaScript.
+
+90
+00:06:08,230 --> 00:06:12,820
+So these APIs we see will respond with JSON like the Star Wars API.
+
+91
+00:06:12,820 --> 00:06:18,550
+I just briefly showed you it sends you JSON when you send a request to it, but you can write a Python
+
+92
+00:06:18,550 --> 00:06:24,640
+application that communicates with that API, receives JSON and turns it into valid Python.
+
+93
+00:06:24,640 --> 00:06:28,570
+You could do any you could do a Ruby application and do the same thing.
+
+94
+00:06:28,570 --> 00:06:34,210
+So the name JavaScript object notation means that it is similar to JavaScript, but it's not something
+
+95
+00:06:34,210 --> 00:06:36,160
+you can only use with JavaScript.
+
+96
+00:06:36,190 --> 00:06:39,610
+You can interact with it with any other programming language.
+
+97
+00:06:39,610 --> 00:06:41,020
+You just have to parse it.
+
+98
+00:06:41,020 --> 00:06:43,150
+You have to turn it into valid JavaScript.
+
+99
+00:06:43,270 --> 00:06:45,370
+And there's actually a formatter here.
+
+100
+00:06:45,400 --> 00:06:46,810
+This, there's a bunch of them.
+
+101
+00:06:46,810 --> 00:06:51,460
+Here's what I'm looking at, which will tell you if your code is valid json.
+
+102
+00:06:51,580 --> 00:06:57,490
+So if I try and write some JSON that is not actually valid like person
+
+103
+00:06:59,710 --> 00:07:03,070
+is the string of Thomas.
+
+104
+00:07:03,750 --> 00:07:05,820
+And then let's just start with that.
+
+105
+00:07:05,820 --> 00:07:08,000
+Let's process that invalid.
+
+106
+00:07:08,010 --> 00:07:09,210
+It tells me immediately.
+
+107
+00:07:09,240 --> 00:07:11,610
+Strings should be wrapped in double quotes.
+
+108
+00:07:11,880 --> 00:07:15,060
+Okay, so I use single quotes here that should be double.
+
+109
+00:07:15,180 --> 00:07:18,070
+And this has no quotes which is valid in JavaScript.
+
+110
+00:07:18,090 --> 00:07:19,740
+Not valid in JSON.
+
+111
+00:07:20,250 --> 00:07:24,600
+If I try something like hello or greet.
+
+112
+00:07:26,010 --> 00:07:27,870
+Which should be a function.
+
+113
+00:07:29,310 --> 00:07:30,210
+It doesn't even do anything.
+
+114
+00:07:30,210 --> 00:07:31,250
+It's just a function.
+
+115
+00:07:31,260 --> 00:07:32,220
+JavaScript wise.
+
+116
+00:07:32,220 --> 00:07:38,430
+This is totally fine, but if I process it, it tells me string should be wrapped in double quotes expecting
+
+117
+00:07:38,430 --> 00:07:43,950
+comma, colon or curly brace to close the object, not an opening curly brace.
+
+118
+00:07:43,950 --> 00:07:46,500
+And it encountered an opening curly brace.
+
+119
+00:07:46,500 --> 00:07:51,120
+So it doesn't tell me you can't do functions because this parser doesn't really care.
+
+120
+00:07:51,150 --> 00:07:58,530
+It's telling me you're not following the exact rules of JSON which say after a colon you have to encounter
+
+121
+00:07:58,530 --> 00:08:02,490
+a comma, another colon, or a closing object brace.
+
+122
+00:08:02,520 --> 00:08:05,220
+Like this object brace here, which is closed down there.
+
+123
+00:08:05,550 --> 00:08:08,850
+So all of this is to say, yes, it's similar to JavaScript.
+
+124
+00:08:08,850 --> 00:08:10,350
+It is not JavaScript.
+
+125
+00:08:10,730 --> 00:08:11,310
+Okay.
+
+126
+00:08:11,460 --> 00:08:15,210
+Next, we're going to get practice sending requests a couple of different ways.
+
+127
+00:08:15,210 --> 00:08:20,070
+We'll get JSON back and we will turn it into JavaScript and do something with the information.
+
+128
+00:08:20,070 --> 00:08:21,150
+That's coming up next.
+

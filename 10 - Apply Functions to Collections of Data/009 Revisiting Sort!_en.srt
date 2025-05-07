@@ -1,0 +1,612 @@
+1
+00:00:00,150 --> 00:00:05,820
+Next up, we have another array method we've actually seen before, but when we saw it earlier, it
+
+2
+00:00:05,820 --> 00:00:07,800
+didn't really behave the way we wanted it to.
+
+3
+00:00:07,950 --> 00:00:09,830
+So the method is sort.
+
+4
+00:00:10,260 --> 00:00:16,920
+Here I have an array called prices and it's full of numbers representing prices on a website or who
+
+5
+00:00:16,920 --> 00:00:17,580
+knows what.
+
+6
+00:00:18,180 --> 00:00:24,720
+When we called array sought or prices sought early on, when we talked about array methods back when
+
+7
+00:00:24,720 --> 00:00:30,390
+we were covering index of or reverse those sort of methods, we didn't know about callbacks, we didn't
+
+8
+00:00:30,390 --> 00:00:31,200
+know about functions.
+
+9
+00:00:31,200 --> 00:00:37,440
+Even so, when we call prices that sort the default sort in JavaScript, it's very weird.
+
+10
+00:00:37,440 --> 00:00:43,350
+I have no idea why this decision was made, but the default, as we've already seen, is to convert
+
+11
+00:00:43,350 --> 00:00:46,830
+all of these numbers to strings and sort them as strings.
+
+12
+00:00:46,830 --> 00:00:49,200
+And that leads to some very odd behavior.
+
+13
+00:00:49,650 --> 00:00:53,160
+If I run this code, prices sort just do it over here.
+
+14
+00:00:54,690 --> 00:00:57,660
+You can see it ends up sorting them by the first character.
+
+15
+00:00:57,660 --> 00:01:04,080
+So one before three and it's sorting them based off of strings rather than sorting them by actual value.
+
+16
+00:01:04,080 --> 00:01:07,020
+So we end up with nine at the end of the array.
+
+17
+00:01:07,140 --> 00:01:09,210
+I know that's 99.99.
+
+18
+00:01:09,210 --> 00:01:09,460
+Okay.
+
+19
+00:01:09,570 --> 00:01:19,020
+Well, we end up with 99.99 at the end when we have 3000 and 9500 and 405 or 400.5, those should all
+
+20
+00:01:19,020 --> 00:01:22,530
+be greater, but the sort doesn't really work the way we want it to.
+
+21
+00:01:23,220 --> 00:01:28,050
+So back then I said, once we talk about functions, we'll see how to use sort and how to customize
+
+22
+00:01:28,050 --> 00:01:28,950
+its behavior.
+
+23
+00:01:29,040 --> 00:01:30,300
+This is how we do it.
+
+24
+00:01:30,510 --> 00:01:34,470
+We pass in what they call on the docs a compare function.
+
+25
+00:01:34,500 --> 00:01:37,500
+Now this function has two parameters.
+
+26
+00:01:37,620 --> 00:01:43,830
+You can call them A and B or first and second, and we need to return a value a number from compare
+
+27
+00:01:43,830 --> 00:01:44,340
+func.
+
+28
+00:01:45,000 --> 00:01:53,880
+If that compare func returns a negative number, the function will sort a before B if it returns zero,
+
+29
+00:01:53,910 --> 00:01:59,910
+it does not change the order, and if it returns a number greater than zero, it will sort B before
+
+30
+00:01:59,940 --> 00:02:04,680
+a So this is always kind of confusing to explain when you look at it this way.
+
+31
+00:02:04,680 --> 00:02:07,980
+It may not make a lot of sense, but let me show you how we would use it here.
+
+32
+00:02:07,980 --> 00:02:14,490
+So if we do prices sort and we write our function a compare function, it needs to have two parameters
+
+33
+00:02:14,700 --> 00:02:15,900
+A and B is fine.
+
+34
+00:02:15,900 --> 00:02:19,350
+Then the standard sort would be A minus B.
+
+35
+00:02:21,150 --> 00:02:22,890
+And let me just show you what we get first.
+
+36
+00:02:22,920 --> 00:02:27,030
+I'll save this to a variable cost sort one.
+
+37
+00:02:27,930 --> 00:02:29,430
+Let's look at sort one.
+
+38
+00:02:30,670 --> 00:02:36,500
+We end up with 12 35.9 999 403,000 9500.
+
+39
+00:02:36,520 --> 00:02:40,500
+We are sorting in ascending order from smallest to largest.
+
+40
+00:02:40,510 --> 00:02:45,550
+If we come back to this chart, remember that if the compare function returns a negative number, it
+
+41
+00:02:45,550 --> 00:02:51,640
+sorts A before B, where A is the first element, B is the second, if it's a positive number instead,
+
+42
+00:02:51,640 --> 00:02:53,260
+it sorts B before a.
+
+43
+00:02:53,860 --> 00:02:59,830
+So if we walk through this with a simple example, the first time this callback is executed, we have
+
+44
+00:02:59,830 --> 00:03:02,500
+400.5 and 3000.
+
+45
+00:03:02,860 --> 00:03:09,520
+So if we have A and B, we have I'm just going to do 400.5 and then 3000.
+
+46
+00:03:09,760 --> 00:03:17,950
+And the way our compare function is set up is that it returns A minus B, so 400 -3000 is going to be
+
+47
+00:03:17,950 --> 00:03:19,120
+a negative number.
+
+48
+00:03:19,630 --> 00:03:21,760
+So what does it do with a negative number?
+
+49
+00:03:21,820 --> 00:03:29,350
+It sorts A before B, so that means that it's going to sort 400 before 3000.
+
+50
+00:03:29,650 --> 00:03:34,510
+Then let's say we were comparing 35.9, nine and 12.
+
+51
+00:03:34,930 --> 00:03:41,710
+At that point, a would be 35.99 and then we have 12.4.
+
+52
+00:03:41,710 --> 00:03:48,850
+B, when we subtract A minus B, 35, -12, that gives us a positive number.
+
+53
+00:03:49,030 --> 00:03:57,550
+And when we have a positive number, it sorts B before A so that means 12 would go before 35.
+
+54
+00:03:57,550 --> 00:04:02,290
+And if we had two numbers that were equal, then they would be treated as equal.
+
+55
+00:04:02,320 --> 00:04:03,970
+We wouldn't put one before the other.
+
+56
+00:04:03,970 --> 00:04:07,780
+We'd keep the order unchanged, at least between those two values.
+
+57
+00:04:07,900 --> 00:04:12,580
+So if we wanted to sort the other way, let's call this constant ascending sort.
+
+58
+00:04:13,000 --> 00:04:21,070
+If I wanted to do a descending sort and the idea is here we would do prices dot sort, we have A and
+
+59
+00:04:21,070 --> 00:04:31,270
+B, let's do instead of A and B, this time X and Y, and then we want to return Y minus X.
+
+60
+00:04:31,720 --> 00:04:33,910
+So this is the other way around.
+
+61
+00:04:33,910 --> 00:04:40,600
+And I kind of just made a horrible decision to name it X and Y from a educational point of view, because
+
+62
+00:04:40,600 --> 00:04:42,430
+now you can't compare these as easily.
+
+63
+00:04:42,430 --> 00:04:43,750
+So I'm going to redo that.
+
+64
+00:04:44,860 --> 00:04:53,710
+So A and B, same order here, but now we're returning B minus A, so if A is 1000 and we're comparing
+
+65
+00:04:53,710 --> 00:05:03,520
+it to B, which is 4000, in this case we're doing B minus A, so 4000, -1000 gives us a positive number.
+
+66
+00:05:03,700 --> 00:05:10,660
+And when we get a positive number, sort B before A, so that means moving the larger numbers to the
+
+67
+00:05:10,660 --> 00:05:14,740
+left side of the array, sorting them in descending order.
+
+68
+00:05:15,700 --> 00:05:23,500
+So this one change A minus B versus B minus A or first thing, minus second thing versus second thing.
+
+69
+00:05:23,500 --> 00:05:26,500
+Minus first thing makes a significant difference.
+
+70
+00:05:26,500 --> 00:05:28,510
+So we look at descending sort.
+
+71
+00:05:28,960 --> 00:05:32,560
+It's going from 9500 all the way down to 12.
+
+72
+00:05:32,590 --> 00:05:36,070
+So the greatest number is first, the smallest number is last.
+
+73
+00:05:36,070 --> 00:05:41,590
+There is a problem, though, if we look at ascending sort, it looks like I mean, it is exactly the
+
+74
+00:05:41,590 --> 00:05:44,110
+same thing, but that's deceiving.
+
+75
+00:05:44,110 --> 00:05:49,510
+Remember, that sort is one of the few array methods, at least one of the few callback array methods
+
+76
+00:05:49,510 --> 00:05:51,910
+that actually mutates the original array.
+
+77
+00:05:52,180 --> 00:05:55,210
+So we sorted it one way in place.
+
+78
+00:05:55,210 --> 00:06:00,670
+We're actually updating prices and then we sorted it another way here in place.
+
+79
+00:06:00,670 --> 00:06:02,530
+So we lose this effort.
+
+80
+00:06:02,530 --> 00:06:03,460
+It's gone.
+
+81
+00:06:03,460 --> 00:06:06,010
+We're just making another reference to the same array.
+
+82
+00:06:06,010 --> 00:06:08,980
+So we have three variables pointing to the exact same array.
+
+83
+00:06:08,980 --> 00:06:11,800
+If we look at prices, it's also updated.
+
+84
+00:06:11,800 --> 00:06:13,870
+It's just one array in memory.
+
+85
+00:06:14,200 --> 00:06:20,260
+So if I wanted to just have two clear different results where I was not sorting the same array, I could
+
+86
+00:06:20,260 --> 00:06:26,170
+either declare two variables prices one and then make a duplicate of prices to with the same data.
+
+87
+00:06:26,320 --> 00:06:30,640
+Or I could use a method to copy the data into a new array.
+
+88
+00:06:30,640 --> 00:06:34,060
+So something like slice right here.
+
+89
+00:06:35,480 --> 00:06:43,940
+If I slice first and I don't pass anything in, if I call Price's slice, it makes a copy of that array.
+
+90
+00:06:43,970 --> 00:06:47,210
+We saw this behavior earlier when we first talked about slice.
+
+91
+00:06:47,570 --> 00:06:52,970
+So this is not something you would normally do unless you really did not want to sort in place.
+
+92
+00:06:53,330 --> 00:06:57,430
+It's pretty rare that you're going to sort ascending and descending at once.
+
+93
+00:06:57,440 --> 00:07:02,480
+Maybe you'll allow a user to toggle between them, but then you can just have one array that is going
+
+94
+00:07:02,480 --> 00:07:03,920
+from ascending to descending.
+
+95
+00:07:03,920 --> 00:07:07,820
+But when I'm teaching, I want to show you both so that you can take a look at both of them at the same
+
+96
+00:07:07,820 --> 00:07:08,390
+time.
+
+97
+00:07:09,170 --> 00:07:15,500
+Let's make another variable here called bad sort equals prices dot slice.
+
+98
+00:07:15,800 --> 00:07:17,390
+So I'm just making three copies.
+
+99
+00:07:17,390 --> 00:07:21,470
+Each one of these variables now is not connected to the original prices.
+
+100
+00:07:21,710 --> 00:07:24,710
+They have the same data, but they're not the same reference.
+
+101
+00:07:24,710 --> 00:07:25,950
+And let's see what we get.
+
+102
+00:07:25,970 --> 00:07:27,820
+So we have our bad sort first.
+
+103
+00:07:27,830 --> 00:07:30,260
+This is the one based off of strings.
+
+104
+00:07:30,650 --> 00:07:33,900
+I shouldn't call it bad sort, but it's bad when you're sorting numbers.
+
+105
+00:07:33,920 --> 00:07:39,530
+Then we have our ascending sort, where we go from smallest number to the greatest number that was using
+
+106
+00:07:39,530 --> 00:07:41,840
+A minus B first, minus second.
+
+107
+00:07:41,840 --> 00:07:47,900
+And then we have our descending sort, which goes the other way, B minus A, so it returns a positive
+
+108
+00:07:47,900 --> 00:07:52,160
+number when this version would have returned a negative number and vice versa.
+
+109
+00:07:52,310 --> 00:07:54,320
+So 9500 down to 12.
+
+110
+00:07:54,920 --> 00:07:55,480
+Okay.
+
+111
+00:07:55,760 --> 00:08:01,280
+Now, the last thing I'll show you is how to sort something that is a little more complex rather than
+
+112
+00:08:01,280 --> 00:08:02,740
+a single array of numbers.
+
+113
+00:08:02,750 --> 00:08:04,670
+Let's go back to our books array.
+
+114
+00:08:05,120 --> 00:08:07,340
+I've copied the books array back in.
+
+115
+00:08:07,460 --> 00:08:10,090
+We have nine books that each have a rating.
+
+116
+00:08:10,100 --> 00:08:12,290
+I think that's the logical thing to sort by.
+
+117
+00:08:12,920 --> 00:08:15,920
+So we'll write our sort and we'll do this one in place.
+
+118
+00:08:15,920 --> 00:08:17,300
+Books sort.
+
+119
+00:08:17,600 --> 00:08:21,200
+I mean, it always happens in place, but we won't make a copy of the array.
+
+120
+00:08:21,200 --> 00:08:23,000
+We don't care about the original order.
+
+121
+00:08:23,030 --> 00:08:27,440
+Let's just mutate this array so books sort we pass in our callback.
+
+122
+00:08:27,470 --> 00:08:33,950
+I'll go with A and B again, but this time we can't do something like A minus B because A and B are
+
+123
+00:08:33,950 --> 00:08:35,390
+both objects.
+
+124
+00:08:35,390 --> 00:08:38,330
+They're referring to one element in the array at a time.
+
+125
+00:08:38,480 --> 00:08:40,580
+That's one element, that's another.
+
+126
+00:08:40,580 --> 00:08:45,050
+How can we compare or how can we run one object minus another object?
+
+127
+00:08:45,050 --> 00:08:46,120
+We can't.
+
+128
+00:08:46,130 --> 00:08:50,990
+So what we need to do is compare based off of rating, which is easy enough.
+
+129
+00:08:50,990 --> 00:08:55,640
+It's just a DOT rating, minus B rating.
+
+130
+00:08:56,600 --> 00:08:58,490
+And let's take a look at books now.
+
+131
+00:08:58,790 --> 00:09:04,970
+Before the first one was 4.25 for Good Omens, 3.83 for changing my mind.
+
+132
+00:09:05,480 --> 00:09:14,060
+If we look at books over here, not book O's, but books we end up with First Lord of the Flies 3.67
+
+133
+00:09:14,060 --> 00:09:22,760
+Then We Have Changing My Mind 3.8 American Gods 4.11 All the way down to the way of Kings 4.65 And we
+
+134
+00:09:22,760 --> 00:09:25,820
+could reverse it if we wanted to by going the other direction.
+
+135
+00:09:25,820 --> 00:09:31,430
+If we wanted highest rated first, we would do B rating, minus A rating.
+
+136
+00:09:32,510 --> 00:09:38,720
+Now you can do more complex sorts instead of just comparing based off of one value here we're only sorting
+
+137
+00:09:38,720 --> 00:09:39,890
+based off of rating.
+
+138
+00:09:39,890 --> 00:09:46,340
+You could write a more complex function that sorted based off of rating and also sorted based off of
+
+139
+00:09:46,850 --> 00:09:53,450
+I don't know the genre or if you had different types of ratings like for audiobooks, you have ratings
+
+140
+00:09:53,450 --> 00:09:59,150
+for the book itself and the story and then ratings for the performance quality of the person narrating
+
+141
+00:09:59,150 --> 00:09:59,540
+it.
+
+142
+00:09:59,540 --> 00:10:05,480
+So you have two different ratings and if you want it to sort descending based off of primarily the story,
+
+143
+00:10:05,480 --> 00:10:11,480
+but then secondarily also the performance, you could write a more complex function, but this is good
+
+144
+00:10:11,480 --> 00:10:12,200
+enough for now.
+
+145
+00:10:12,200 --> 00:10:18,050
+Let's look at books now and what do we have up first, let me expand this.
+
+146
+00:10:18,200 --> 00:10:26,300
+We've got Way of Kings 4.65 and that is sort so we saw the very, very basics of sort back when we covered
+
+147
+00:10:26,300 --> 00:10:30,830
+arrays and array methods before we talked about callbacks and it wasn't that useful.
+
+148
+00:10:30,830 --> 00:10:33,710
+I guess if you need to sort strings, it's, it's fine.
+
+149
+00:10:33,710 --> 00:10:39,800
+But if you need to sort numbers, you need to pass a callback in a compare func and it needs to return
+
+150
+00:10:39,800 --> 00:10:40,460
+a number.
+
+151
+00:10:40,460 --> 00:10:42,620
+If it's a negative number, one thing happens.
+
+152
+00:10:42,620 --> 00:10:45,140
+If it's a positive number, something else happens.
+
+153
+00:10:45,350 --> 00:10:46,940
+Okay, so that is sort.
+

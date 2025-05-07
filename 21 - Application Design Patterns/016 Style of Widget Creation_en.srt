@@ -1,0 +1,372 @@
+1
+00:00:00,900 --> 00:00:04,720
+We just added in a bunch of HTML directly to our indexed HTML file.
+
+2
+00:00:04,740 --> 00:00:09,990
+So now in theory, we could go back over to our JavaScript code, try to select these different anchor
+
+3
+00:00:09,990 --> 00:00:15,330
+elements, and then update the content inside them to show the movie poster and the title.
+
+4
+00:00:15,570 --> 00:00:20,700
+In theory, that would work, but before we do that, we kind of have a choice to make here about how
+
+5
+00:00:20,700 --> 00:00:23,160
+we're going to implement this autocomplete widget.
+
+6
+00:00:23,370 --> 00:00:27,000
+Let me show you a diagram to help you understand the decision that we have to make.
+
+7
+00:00:27,960 --> 00:00:28,560
+Okay.
+
+8
+00:00:28,590 --> 00:00:30,360
+So this is option number one right here.
+
+9
+00:00:30,360 --> 00:00:33,930
+And this is kind of what the path is that we're walking down right now.
+
+10
+00:00:34,350 --> 00:00:39,570
+So right now in this kind of option, we would write out all the HTML that is required or at least as
+
+11
+00:00:39,570 --> 00:00:42,420
+much as possible inside of our HTML document.
+
+12
+00:00:42,420 --> 00:00:46,740
+So in other words, we would write out that div with class dropdown, we would write out the input inside
+
+13
+00:00:46,740 --> 00:00:51,840
+there, then the dropdown menu, the content, and then eventually render out all the dropdown items
+
+14
+00:00:51,840 --> 00:00:52,590
+inside there.
+
+15
+00:00:53,190 --> 00:00:57,180
+And then inside of our next JS file, we would write out some code that looks like this.
+
+16
+00:00:57,180 --> 00:01:03,360
+It would try to select probably like that div with class dropdown or some like autocomplete class or
+
+17
+00:01:03,360 --> 00:01:07,620
+something like that, and then set up an event listener on the input inside there.
+
+18
+00:01:08,190 --> 00:01:13,800
+And then whenever a user does a search, we would then take the results, generate all those options
+
+19
+00:01:13,800 --> 00:01:19,320
+and throw all the different results, like all the different anchor tags into that dropdown content
+
+20
+00:01:19,320 --> 00:01:19,950
+div.
+
+21
+00:01:21,400 --> 00:01:24,260
+And this right here might seem like a really obvious way to do it.
+
+22
+00:01:24,280 --> 00:01:24,730
+Right.
+
+23
+00:01:24,730 --> 00:01:26,260
+Like, what other way is there?
+
+24
+00:01:26,470 --> 00:01:29,350
+Well, there actually is another way to approach this problem.
+
+25
+00:01:29,500 --> 00:01:33,940
+One thing I want to highlight about this is that we are making some really big assumptions between the
+
+26
+00:01:33,940 --> 00:01:38,200
+contents of our HTML file and the contents of our JavaScript file.
+
+27
+00:01:38,230 --> 00:01:45,040
+In other words, our JavaScript code is not going to work correctly if our HTML file doesn't have exactly
+
+28
+00:01:45,040 --> 00:01:46,480
+the correct structure.
+
+29
+00:01:46,720 --> 00:01:52,000
+In other words, this code, this entire setup, would not work correctly at all if we did not have
+
+30
+00:01:52,000 --> 00:01:53,110
+that input element.
+
+31
+00:01:53,140 --> 00:01:57,970
+If we accidentally delete it or move that input element, our JavaScript code would probably not work
+
+32
+00:01:57,970 --> 00:01:58,630
+correctly.
+
+33
+00:01:59,600 --> 00:02:03,830
+Likewise, if we did not have the correct spelling on this class right here, have dropdown content,
+
+34
+00:02:03,830 --> 00:02:08,080
+which is where we want to put all of our anchor elements that represent each individual video.
+
+35
+00:02:08,090 --> 00:02:12,800
+If we misspelled that class name or moved it somewhere else inside of our project, that's pretty much
+
+36
+00:02:12,800 --> 00:02:12,900
+it.
+
+37
+00:02:12,920 --> 00:02:16,340
+Our JavaScript code is no longer going to work correctly either.
+
+38
+00:02:17,270 --> 00:02:22,460
+So in other words, we've got a very distinct coupling between our HTML document and our JavaScript
+
+39
+00:02:22,460 --> 00:02:22,950
+file.
+
+40
+00:02:22,970 --> 00:02:29,120
+The two of them work very closely together, and if we change either we might break our entire application.
+
+41
+00:02:30,440 --> 00:02:33,760
+So then means let's take a look at another way of approaching this.
+
+42
+00:02:33,770 --> 00:02:35,330
+This would be option number two.
+
+43
+00:02:36,270 --> 00:02:36,720
+Okay.
+
+44
+00:02:36,720 --> 00:02:43,290
+So an option number two, we are going to have way less HTML inside of our indexed HTML file.
+
+45
+00:02:43,500 --> 00:02:50,190
+So to represent our entire autocomplete widget, maybe we could get away with only creating one single
+
+46
+00:02:50,190 --> 00:02:54,660
+element, a div with a class of autocomplete or something like that.
+
+47
+00:02:55,540 --> 00:03:01,840
+So in this scenario, we would create just the bare root of our widget inside of our HTML document.
+
+48
+00:03:02,260 --> 00:03:07,060
+And then instead of putting all the HTML inside there inside of our HTML document, we would instead
+
+49
+00:03:07,060 --> 00:03:12,520
+rely upon our JavaScript code to go through the process of creating all the HTML that was required for
+
+50
+00:03:12,520 --> 00:03:13,000
+us.
+
+51
+00:03:13,450 --> 00:03:18,670
+So in other words, we would try to maybe select this div right here, and then we would run some code
+
+52
+00:03:18,670 --> 00:03:21,340
+to create an input in there for us.
+
+53
+00:03:22,080 --> 00:03:25,780
+We would then handle the input, like, in other words, deal with change events.
+
+54
+00:03:25,800 --> 00:03:31,680
+We would run our search on the API and then we would add in all the different HTML required to show
+
+55
+00:03:31,680 --> 00:03:32,640
+that dropdown.
+
+56
+00:03:32,880 --> 00:03:37,680
+So add in all the HTML for the dropdown menu, dropdown content and so on.
+
+57
+00:03:38,560 --> 00:03:44,110
+So in this scenario, we're essentially dumping all the responsibility of producing HTML off to the
+
+58
+00:03:44,110 --> 00:03:46,000
+JavaScript side of our application.
+
+59
+00:03:47,150 --> 00:03:51,260
+That might sound like a lot more work on our side, but in reality, it kind of makes life a little
+
+60
+00:03:51,260 --> 00:03:56,600
+bit easier because no longer are we going to have a strong coupling between our index.html file and
+
+61
+00:03:56,600 --> 00:03:57,770
+the JavaScript file.
+
+62
+00:03:57,950 --> 00:04:03,260
+Now all we have to do is make sure that we have got one div inside of here with a class of autocomplete,
+
+63
+00:04:03,260 --> 00:04:08,390
+and then we should be able to just run some code inside of our indexed JS file that will find that div
+
+64
+00:04:08,390 --> 00:04:11,780
+and set up our entire autocomplete widget inside there.
+
+65
+00:04:12,110 --> 00:04:17,240
+So no expectations whatsoever about the HTML that's inside of that div.
+
+66
+00:04:17,890 --> 00:04:22,810
+This right here is a way more flexible approach, because with this approach, you and I can much more
+
+67
+00:04:22,810 --> 00:04:26,920
+easily create reusable widgets that we can re-use between different projects.
+
+68
+00:04:26,950 --> 00:04:30,490
+It also makes it much more easy to share our code with other developers.
+
+69
+00:04:30,940 --> 00:04:35,320
+Imagine sharing both these options with some friend of yours who wants to implement the same kind of
+
+70
+00:04:35,320 --> 00:04:36,490
+autocomplete widget.
+
+71
+00:04:36,850 --> 00:04:41,500
+If you were using option number one up here, you would have to tell your friend, okay, first you're
+
+72
+00:04:41,500 --> 00:04:43,090
+going to go over to your HTML document.
+
+73
+00:04:43,210 --> 00:04:48,490
+You're going to put together this div and it has to have an input, make sure it has input and it has
+
+74
+00:04:48,490 --> 00:04:51,610
+to have these two divs and they have to be nested in this very particular way.
+
+75
+00:04:52,120 --> 00:04:54,990
+Just imagine trying to communicate that to some other engineer.
+
+76
+00:04:55,000 --> 00:04:59,230
+You know, maybe it's as easy as just copy pasting them some snippet of HTML, but at the end of the
+
+77
+00:04:59,230 --> 00:05:02,530
+day, that's definitely a decent amount to communicate over to them.
+
+78
+00:05:03,510 --> 00:05:09,600
+However, if you were using option number two, you could tell your friend, Oh yeah, just create this
+
+79
+00:05:09,600 --> 00:05:14,880
+diff with a class of autocomplete and then run this JavaScript function, run like some function called
+
+80
+00:05:14,880 --> 00:05:17,400
+create autocomplete and boom, that's it.
+
+81
+00:05:17,400 --> 00:05:20,790
+Everything will be set up for that other engineer automatically.
+
+82
+00:05:21,770 --> 00:05:25,430
+So throughout this course, we've largely been using option number one.
+
+83
+00:05:25,760 --> 00:05:29,600
+But as we move forward, we're going to be moving towards option number two.
+
+84
+00:05:29,720 --> 00:05:34,550
+We're going to try to limit the amount of coupling between our HTML document and our JavaScript file.
+
+85
+00:05:34,550 --> 00:05:40,160
+And again, the entire idea here is that it's going to lead to greater use of the different widgets
+
+86
+00:05:40,160 --> 00:05:45,770
+we put together, and it's also going to lead to less coupling between our different files of our project.
+
+87
+00:05:46,510 --> 00:05:46,840
+Okay.
+
+88
+00:05:46,840 --> 00:05:49,840
+So now we understand, like, why we're going to take this kind of approach.
+
+89
+00:05:49,870 --> 00:05:54,130
+Obviously, it's going to require us to add in a pretty good amount of additional JavaScript code,
+
+90
+00:05:54,130 --> 00:05:56,980
+and we're going to have to make a couple of changes to our HTML document.
+
+91
+00:05:56,980 --> 00:06:01,630
+But I just want to kind of set you up and get you to understand why we are about to write all the code
+
+92
+00:06:01,630 --> 00:06:02,680
+that we're going to write.
+
+93
+00:06:02,830 --> 00:06:05,410
+So a quick pause and I'll see you in just a minute.
+

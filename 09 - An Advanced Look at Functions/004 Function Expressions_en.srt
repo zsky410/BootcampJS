@@ -1,0 +1,356 @@
+1
+00:00:00,150 --> 00:00:06,150
+So far we've been defining our functions using what are called function statements where we have function
+
+2
+00:00:06,150 --> 00:00:11,760
+and then some, I don't know, let's go with ADD and then we return something or we do something in
+
+3
+00:00:11,760 --> 00:00:12,090
+here.
+
+4
+00:00:12,090 --> 00:00:15,750
+But the pattern is function and then a name and then curly braces.
+
+5
+00:00:16,170 --> 00:00:20,550
+Now I'm going to show you a completely different syntax, although I say completely different.
+
+6
+00:00:20,550 --> 00:00:23,160
+It looks very similar, but it is different.
+
+7
+00:00:23,160 --> 00:00:25,080
+It's called a function expression.
+
+8
+00:00:25,470 --> 00:00:27,970
+This is another way of defining a function.
+
+9
+00:00:27,990 --> 00:00:33,030
+These functions will work just as well, just the same as the function statements we've been writing.
+
+10
+00:00:33,150 --> 00:00:34,830
+But there's a key difference here.
+
+11
+00:00:35,130 --> 00:00:38,180
+If you look at this function, it's stored in a variable.
+
+12
+00:00:38,190 --> 00:00:40,440
+The function itself does not have a name.
+
+13
+00:00:40,800 --> 00:00:42,870
+It's not function square.
+
+14
+00:00:42,870 --> 00:00:48,960
+Then parens I'm saying function no name and I'm storing it in a variable square.
+
+15
+00:00:49,200 --> 00:00:51,900
+Now how am I able to store a function in a variable?
+
+16
+00:00:52,230 --> 00:00:57,420
+Well, it works because functions are objects and JavaScript functions are objects, which means we
+
+17
+00:00:57,420 --> 00:00:58,850
+can put them in a variable.
+
+18
+00:00:58,860 --> 00:01:00,900
+We can store ten of them in an array.
+
+19
+00:01:00,900 --> 00:01:05,190
+We can even pass them around as arguments, which is something we do all the time.
+
+20
+00:01:05,190 --> 00:01:07,920
+And it's mainly why I'm introducing this to you right now.
+
+21
+00:01:08,310 --> 00:01:10,170
+So I have a variable called Square.
+
+22
+00:01:10,200 --> 00:01:15,480
+It could be holding a number, it could be holding an array, but instead it's holding a function which
+
+23
+00:01:15,480 --> 00:01:16,650
+is just an object.
+
+24
+00:01:17,130 --> 00:01:23,490
+And to call it I reference the name of the variable square and I pass in an argument just like I would
+
+25
+00:01:23,490 --> 00:01:25,290
+for any function named square.
+
+26
+00:01:25,440 --> 00:01:29,400
+The main distinction here is that the function does not actually have a name.
+
+27
+00:01:29,490 --> 00:01:32,910
+It's stored in a variable, but we haven't provided a name.
+
+28
+00:01:33,550 --> 00:01:35,850
+So let's try one of these out on our own.
+
+29
+00:01:35,860 --> 00:01:41,230
+We can write a regular function statement first, so function will just do add.
+
+30
+00:01:41,230 --> 00:01:47,050
+I know it's boring, but x and y to parameters and then we'll return x plus y.
+
+31
+00:01:48,520 --> 00:01:55,390
+Now let's define a function expression that does the same thing so we could write it with no name.
+
+32
+00:01:55,420 --> 00:01:57,430
+I'm not going to store it in a variable first.
+
+33
+00:01:57,430 --> 00:02:04,180
+I'm just going to write function parentheses, x, comma y, return x plus y.
+
+34
+00:02:04,630 --> 00:02:06,550
+Now this on its own is not valid.
+
+35
+00:02:06,580 --> 00:02:09,039
+If I save, we can't call this.
+
+36
+00:02:09,220 --> 00:02:11,650
+We have no way of referring to this function.
+
+37
+00:02:11,650 --> 00:02:12,670
+There's no name.
+
+38
+00:02:12,820 --> 00:02:14,620
+I haven't stored it in a variable.
+
+39
+00:02:14,620 --> 00:02:19,930
+This is called an anonymous function and we do use these a lot, but not just on their own.
+
+40
+00:02:19,930 --> 00:02:24,880
+Floating in the middle of nowhere, we usually pass them into another function, but I'm getting ahead
+
+41
+00:02:24,880 --> 00:02:25,480
+of myself.
+
+42
+00:02:25,480 --> 00:02:27,280
+So let's store this in a variable.
+
+43
+00:02:27,310 --> 00:02:32,800
+I'll call this one sum instead of add so I don't have to adds and I'll save.
+
+44
+00:02:33,190 --> 00:02:38,710
+So to execute add, I just reference add and I'll pass in some numbers like four and five.
+
+45
+00:02:38,710 --> 00:02:41,440
+I get nine to execute some.
+
+46
+00:02:41,440 --> 00:02:47,290
+It's the same thing I just referenced some so some nine and three gives us 12.
+
+47
+00:02:47,350 --> 00:02:53,110
+They work exactly the same way, but we declared them in two different formats, two different syntax.
+
+48
+00:02:53,110 --> 00:02:57,820
+There are some differences between how these behave, which is something we will address in time.
+
+49
+00:02:57,820 --> 00:03:02,470
+We'll talk about something called hoisting, but for now, all you need to know is that this is another
+
+50
+00:03:02,470 --> 00:03:08,140
+syntax to define a function and that functions are objects, which means we can store them in a variable,
+
+51
+00:03:08,140 --> 00:03:10,060
+pass them around, put them in arrays.
+
+52
+00:03:10,060 --> 00:03:12,010
+They're just like any other object.
+
+53
+00:03:12,190 --> 00:03:14,530
+Now, this also means that we can inspect them.
+
+54
+00:03:14,530 --> 00:03:21,310
+If I do a console, dear, which we may not have seen very much of or may not have seen it yet at all.
+
+55
+00:03:21,640 --> 00:03:28,330
+If I do console dear of some it's going to print out the object form, kind of reveals the underlying
+
+56
+00:03:28,360 --> 00:03:32,440
+object and I can see things like the name of the function.
+
+57
+00:03:32,710 --> 00:03:34,540
+Also, we can just tell it's an object.
+
+58
+00:03:34,540 --> 00:03:35,980
+We have key value pairs.
+
+59
+00:03:35,980 --> 00:03:43,090
+If I do the same thing for console dear of ADD, this is kind of like proof that it's an object.
+
+60
+00:03:43,090 --> 00:03:48,340
+I mean, it's not, it's just the chrome console showing us some data, but we can see the underlying
+
+61
+00:03:48,370 --> 00:03:50,170
+key and value properties here.
+
+62
+00:03:51,640 --> 00:03:55,570
+The last thing I'll show you is that you can add in a name for a function.
+
+63
+00:03:55,570 --> 00:03:59,140
+When you're storing it in a variable, it doesn't have to be anonymous.
+
+64
+00:03:59,140 --> 00:04:02,440
+So this function right here, the part I have highlighted, has no name.
+
+65
+00:04:02,440 --> 00:04:06,910
+We're storing it in a variable called sum, but the function itself does not have a name.
+
+66
+00:04:07,060 --> 00:04:08,710
+I can write another function.
+
+67
+00:04:08,710 --> 00:04:15,880
+Let's call this one product meaning multiplication equals function and then I can give it a name.
+
+68
+00:04:15,880 --> 00:04:21,940
+Still multiply x and y, return x times y.
+
+69
+00:04:23,080 --> 00:04:24,580
+So this is valid here.
+
+70
+00:04:24,610 --> 00:04:28,900
+This is still a function expression, but it's a named function expression.
+
+71
+00:04:28,900 --> 00:04:30,310
+This is anonymous.
+
+72
+00:04:30,430 --> 00:04:35,810
+We'll talk later about this name and if it really means anything, if it's useful ever, there's a couple
+
+73
+00:04:35,810 --> 00:04:40,600
+of situations where it might matter, but the point right now is just that we can add a name.
+
+74
+00:04:40,600 --> 00:04:44,050
+And to call this function, I still call product.
+
+75
+00:04:44,050 --> 00:04:46,720
+Product of three and five gives me 15.
+
+76
+00:04:46,720 --> 00:04:50,230
+If I try and call, multiply, my console doesn't know about it.
+
+77
+00:04:50,230 --> 00:04:52,960
+It's not trying to autocomplete three and five.
+
+78
+00:04:54,070 --> 00:04:54,820
+It doesn't work.
+
+79
+00:04:54,820 --> 00:04:57,100
+But don't get too caught up in these details.
+
+80
+00:04:57,130 --> 00:05:03,070
+I just hope that the one takeaway here should be that you can define a function using this format where
+
+81
+00:05:03,070 --> 00:05:07,840
+we write a function expression, we store it in a variable, and we're learning this right now for a
+
+82
+00:05:07,840 --> 00:05:13,060
+reason because we're about to see how we can start passing around functions to other functions, how
+
+83
+00:05:13,060 --> 00:05:14,590
+we can use them as values.
+
+84
+00:05:14,590 --> 00:05:18,820
+There's a lot that we can do because of the fact that functions are objects.
+
+85
+00:05:18,820 --> 00:05:22,780
+We can pass them around, we can store them, and this is just the tip of the iceberg.
+
+86
+00:05:22,780 --> 00:05:26,200
+So a function expression is another way of defining a function.
+
+87
+00:05:26,200 --> 00:05:32,320
+The syntax is almost identical, but we use a variable equals sign function.
+
+88
+00:05:32,320 --> 00:05:37,270
+We can optionally leave off the name, otherwise we still write our parameters, we still use them,
+
+89
+00:05:37,270 --> 00:05:40,210
+we still return something and we still call them the same way.
+

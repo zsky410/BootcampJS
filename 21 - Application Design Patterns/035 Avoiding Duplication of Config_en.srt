@@ -1,0 +1,272 @@
+1
+00:00:01,150 --> 00:00:01,540
+All right.
+
+2
+00:00:01,540 --> 00:00:06,340
+Now that we've got this better HTML structure, we're going to go back over to our indexed JS file and
+
+3
+00:00:06,340 --> 00:00:11,860
+make sure that we show two separate auto completes, one that's going to use left autocomplete as a
+
+4
+00:00:11,860 --> 00:00:15,160
+root, the other is going to use write autocomplete as a root.
+
+5
+00:00:15,520 --> 00:00:21,520
+So back inside of my indexed JS file at the very top we are calling Create Autocomplete and we're passing
+
+6
+00:00:21,520 --> 00:00:26,110
+in a reference to a div with a class of autocomplete which doesn't exist anymore.
+
+7
+00:00:26,410 --> 00:00:30,220
+So I'm going to change that query selector to LB Right.
+
+8
+00:00:30,220 --> 00:00:33,820
+Dash actually, let's do left first left dash autocomplete.
+
+9
+00:00:34,030 --> 00:00:35,290
+I'll go ahead and save this.
+
+10
+00:00:35,800 --> 00:00:41,110
+So now if we flip back over and refresh, we see one autocomplete on the left hand side.
+
+11
+00:00:41,110 --> 00:00:45,970
+So now we need to essentially do the exact same thing to create the autocomplete on the right hand side
+
+12
+00:00:45,970 --> 00:00:46,720
+as well.
+
+13
+00:00:47,290 --> 00:00:51,430
+So you might be thinking that that means that we essentially have to duplicate all of this code right
+
+14
+00:00:51,430 --> 00:00:56,980
+here just to have a second call to create autocomplete with a different route.
+
+15
+00:00:57,280 --> 00:01:00,700
+We don't have to we don't have to duplicate all of this config.
+
+16
+00:01:00,700 --> 00:01:02,260
+So let me show you what we're going to do.
+
+17
+00:01:03,340 --> 00:01:10,060
+At the very top of the file, I'm going to create a new variable called auto complete config.
+
+18
+00:01:11,520 --> 00:01:16,950
+And I'll make it an object and we're going to go into our current autocomplete config.
+
+19
+00:01:16,950 --> 00:01:21,330
+So like this object right here and we're going to take out every option inside of here.
+
+20
+00:01:21,330 --> 00:01:26,580
+So every key value property, every function that is reusable between our two different auto completes,
+
+21
+00:01:26,590 --> 00:01:27,570
+we want to show.
+
+22
+00:01:28,200 --> 00:01:35,340
+Well, if we look through here, every single function inside is reusable except for the root element.
+
+23
+00:01:35,640 --> 00:01:39,330
+Maybe that maybe we'll go down the line and realize that it's not 100% reusable.
+
+24
+00:01:39,330 --> 00:01:44,070
+But for right now, I think that we definitely can reuse just about everything except for that root
+
+25
+00:01:44,070 --> 00:01:44,700
+element.
+
+26
+00:01:45,240 --> 00:01:47,220
+So I'm going to take render option.
+
+27
+00:01:48,470 --> 00:01:50,970
+I'll go down to the bottom of fetch data.
+
+28
+00:01:50,990 --> 00:01:52,430
+I'm going to highlight all that.
+
+29
+00:01:53,360 --> 00:01:54,800
+I'm going to cut all of it.
+
+30
+00:01:55,190 --> 00:01:56,990
+So now the only thing that's left is root.
+
+31
+00:01:57,340 --> 00:02:00,650
+I'm going to paste all of it inside of autocomplete config.
+
+32
+00:02:01,870 --> 00:02:02,530
+Like so.
+
+33
+00:02:05,370 --> 00:02:09,270
+So now inside of the create autocomplete function call right here.
+
+34
+00:02:10,400 --> 00:02:16,160
+We're going to essentially say create a new object, take all of the properties inside of autocomplete
+
+35
+00:02:16,160 --> 00:02:21,620
+config that we defined at the top of the file and then add in this new property of root and then take
+
+36
+00:02:21,620 --> 00:02:24,080
+that whole object and pass it off to create autocomplete.
+
+37
+00:02:24,080 --> 00:02:28,130
+So to do so, we're going to write out inside of here, dot, dot, dot.
+
+38
+00:02:29,380 --> 00:02:32,740
+Auto completes config and then a comma.
+
+39
+00:02:33,370 --> 00:02:38,260
+So the dot, dot, dot right there means make a copy of everything inside that object or essentially
+
+40
+00:02:38,260 --> 00:02:44,560
+take all the different functions inside there and throw them into this object and then add in this root
+
+41
+00:02:44,560 --> 00:02:45,580
+property as well.
+
+42
+00:02:45,580 --> 00:02:46,680
+And that's it.
+
+43
+00:02:46,690 --> 00:02:50,560
+So what we have right here is 100% equivalent to what we had just before.
+
+44
+00:02:50,560 --> 00:02:56,140
+But now, since Autocomplete config is its own separate object, we can repeat this process as many
+
+45
+00:02:56,140 --> 00:03:00,760
+times as we want and create additional auto completes with the same configuration object.
+
+46
+00:03:01,640 --> 00:03:06,530
+So to do so, I'm going to make a copy of create autocomplete config or simply create autocomplete just
+
+47
+00:03:06,530 --> 00:03:07,430
+the function call.
+
+48
+00:03:08,460 --> 00:03:09,300
+Well, paste it.
+
+49
+00:03:09,330 --> 00:03:12,040
+Now all we have to do is update the query selector.
+
+50
+00:03:12,060 --> 00:03:15,150
+So instead of saying left, I'm going to say, Right.
+
+51
+00:03:17,940 --> 00:03:18,810
+And that's pretty much it.
+
+52
+00:03:18,810 --> 00:03:19,950
+So I'm going to save this.
+
+53
+00:03:20,430 --> 00:03:25,170
+I'm going to go back over refresh and now I see the two separate auto completes.
+
+54
+00:03:25,620 --> 00:03:27,090
+I'm going to make sure I don't have any errors.
+
+55
+00:03:27,090 --> 00:03:28,650
+Nope, nothing inside my console.
+
+56
+00:03:29,280 --> 00:03:34,380
+Now, if I do a search for Avengers, it looks like the left hand side is working.
+
+57
+00:03:34,740 --> 00:03:37,470
+And if I do a search for Dark Knight on the right.
+
+58
+00:03:37,470 --> 00:03:39,180
+Yep, that's working as well.
+
+59
+00:03:39,280 --> 00:03:42,150
+I can click that Avengers click that.
+
+60
+00:03:42,150 --> 00:03:42,390
+Yep.
+
+61
+00:03:42,390 --> 00:03:43,080
+Looks good.
+
+62
+00:03:43,500 --> 00:03:48,180
+Now if I click on those, I probably going to see an error down here because we deleted the element
+
+63
+00:03:48,180 --> 00:03:49,830
+that showed the actual summary.
+
+64
+00:03:49,830 --> 00:03:53,070
+You're only call just a second ago when we were updating the HTML file.
+
+65
+00:03:53,070 --> 00:03:57,660
+So I think that the next obvious thing we have to do is make sure that once we search for something,
+
+66
+00:03:57,660 --> 00:04:02,670
+we need to hide this kind of tutorial element right here and show a summary on just the appropriate
+
+67
+00:04:02,670 --> 00:04:03,630
+side of the screen.
+
+68
+00:04:03,810 --> 00:04:05,940
+So let's take care of that process in the next video.
+

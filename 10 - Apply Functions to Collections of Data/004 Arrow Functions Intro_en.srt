@@ -1,0 +1,432 @@
+1
+00:00:00,150 --> 00:00:04,330
+Next up, a quick break from the built in array methods like forage and map.
+
+2
+00:00:04,350 --> 00:00:05,850
+We'll get back to them shortly.
+
+3
+00:00:05,850 --> 00:00:06,660
+But first.
+
+4
+00:00:06,689 --> 00:00:07,800
+Arrow functions.
+
+5
+00:00:07,920 --> 00:00:14,370
+Arrow functions are a new ish syntax in JavaScript, an alternative way of defining a function expression.
+
+6
+00:00:14,730 --> 00:00:17,940
+Notice up here, Internet Explorer is crossed out.
+
+7
+00:00:18,030 --> 00:00:23,310
+Arrow functions are not supported in IEEE, but pretty much everyone uses them these days, and there
+
+8
+00:00:23,310 --> 00:00:26,400
+are many solutions to make sure code will run in all browsers.
+
+9
+00:00:26,400 --> 00:00:31,350
+You can write an arrow function and then if it doesn't work in IEEE, it will be turned into some other
+
+10
+00:00:31,350 --> 00:00:34,530
+code that does work, but that's out of the scope of what we're talking about.
+
+11
+00:00:34,530 --> 00:00:37,620
+Now let's take a look at arrow function syntax.
+
+12
+00:00:37,620 --> 00:00:42,270
+We write function expressions all the time, an anonymous function like this one here we pass it into
+
+13
+00:00:42,270 --> 00:00:44,700
+map or one that we pass into for each.
+
+14
+00:00:44,700 --> 00:00:50,190
+We do this so much in JavaScript that it was decided that there should be a more compact syntax for
+
+15
+00:00:50,190 --> 00:00:52,170
+defining function expressions.
+
+16
+00:00:52,170 --> 00:00:55,050
+So it's another way of defining a function.
+
+17
+00:00:55,050 --> 00:00:57,150
+We don't have to write the function keyword.
+
+18
+00:00:57,150 --> 00:01:04,200
+Instead we write our function like this parentheses and the arrow that's for the name comes from arrow
+
+19
+00:01:04,200 --> 00:01:10,110
+function and then curly braces, although we'll see that sometimes those braces are actually optional.
+
+20
+00:01:10,560 --> 00:01:14,340
+So in this video, we'll just take a look at a couple simple arrow functions.
+
+21
+00:01:14,340 --> 00:01:15,960
+Let's try them out over here.
+
+22
+00:01:16,890 --> 00:01:22,590
+If we wanted to write a function expression without an arrow function, we would do something like const
+
+23
+00:01:22,590 --> 00:01:32,250
+square equals function, which accepts some number and it returns x times x to do the same thing with
+
+24
+00:01:32,250 --> 00:01:33,330
+an arrow function.
+
+25
+00:01:33,750 --> 00:01:35,010
+I'll comment that one out.
+
+26
+00:01:35,040 --> 00:01:43,020
+We would do const square equals parentheses, no function, keyword x or whatever our parameter name
+
+27
+00:01:43,020 --> 00:01:49,110
+is, and then our arrow return x times x.
+
+28
+00:01:49,110 --> 00:01:53,700
+And if I run my code and I call square of four, we do get 16.
+
+29
+00:01:53,700 --> 00:01:56,940
+You can compare the two syntax is here already.
+
+30
+00:01:56,940 --> 00:01:57,960
+This one is shorter.
+
+31
+00:01:57,960 --> 00:02:03,540
+We don't have to write function so much and this makes a big difference when you look at some existing
+
+32
+00:02:03,540 --> 00:02:09,360
+code bases or some libraries where you pass a lot of functions around, you use a lot of callbacks.
+
+33
+00:02:09,419 --> 00:02:15,420
+If you have function all over the place, especially if you have nested callbacks, you see function
+
+34
+00:02:15,420 --> 00:02:15,840
+everywhere.
+
+35
+00:02:15,840 --> 00:02:21,480
+It's like 90% of what your code is versus when we use arrow functions, it's a lot cleaner, slimmer
+
+36
+00:02:21,480 --> 00:02:22,890
+and easier to understand.
+
+37
+00:02:23,130 --> 00:02:28,470
+Now, arrow functions were not introduced exclusively because they are more compact or they're easier
+
+38
+00:02:28,470 --> 00:02:29,220
+on the eye.
+
+39
+00:02:29,310 --> 00:02:34,890
+There is another difference aside from how we write them, there's a difference in how they behave around
+
+40
+00:02:34,890 --> 00:02:36,060
+something called the keyword.
+
+41
+00:02:36,060 --> 00:02:36,570
+This.
+
+42
+00:02:36,570 --> 00:02:39,150
+Now, we haven't talked about this in JavaScript yet.
+
+43
+00:02:39,150 --> 00:02:39,990
+We will.
+
+44
+00:02:39,990 --> 00:02:42,450
+And when we do, we'll address arrow functions.
+
+45
+00:02:42,450 --> 00:02:48,210
+But with what we know right now, arrow functions work exactly the same way as any other function we
+
+46
+00:02:48,210 --> 00:02:48,750
+can write.
+
+47
+00:02:48,750 --> 00:02:50,010
+They're just shorter.
+
+48
+00:02:50,400 --> 00:02:51,810
+So let's try one more.
+
+49
+00:02:51,840 --> 00:02:53,250
+I'll define a function.
+
+50
+00:02:53,340 --> 00:02:55,290
+Let's go with is even.
+
+51
+00:02:57,630 --> 00:03:00,560
+It accepts one parameter, we'll call this num.
+
+52
+00:03:00,570 --> 00:03:09,240
+We write our arrow and then we'll return num mod two equal equal equal zero.
+
+53
+00:03:10,620 --> 00:03:12,270
+Let's call it doesn't like that.
+
+54
+00:03:12,270 --> 00:03:13,560
+I have two squares.
+
+55
+00:03:14,640 --> 00:03:17,790
+Refresh my code is even of four.
+
+56
+00:03:17,820 --> 00:03:18,720
+That's true.
+
+57
+00:03:18,750 --> 00:03:20,880
+Is even a 47 is false.
+
+58
+00:03:21,330 --> 00:03:22,200
+There we go.
+
+59
+00:03:22,200 --> 00:03:25,650
+One more error function with multiple parameters.
+
+60
+00:03:25,680 --> 00:03:26,760
+Let's do.
+
+61
+00:03:26,940 --> 00:03:30,450
+This is so boring but let's do multiply equals.
+
+62
+00:03:30,750 --> 00:03:36,900
+We write our parentheses x and y just like we would with a regular function x, comma y.
+
+63
+00:03:36,900 --> 00:03:43,860
+We just don't write the function keyword and we instead add the arrow and this will return x times y
+
+64
+00:03:44,850 --> 00:03:49,590
+we run multiply of four and seven, we get 28.
+
+65
+00:03:49,620 --> 00:03:55,170
+The next video is going to be all about arrow functions and how we can sometimes make them even slimmer
+
+66
+00:03:55,170 --> 00:03:55,980
+and cleaner.
+
+67
+00:03:55,980 --> 00:03:58,380
+But first, I'm just going to show you two rules.
+
+68
+00:03:58,380 --> 00:04:04,440
+When you write an arrow function, if you only have one parameter, you can actually leave the parentheses
+
+69
+00:04:04,440 --> 00:04:05,100
+off.
+
+70
+00:04:05,870 --> 00:04:08,240
+So I could rewrite any of these.
+
+71
+00:04:08,270 --> 00:04:10,400
+Not this one, but square.
+
+72
+00:04:10,400 --> 00:04:12,560
+And is even like this.
+
+73
+00:04:14,530 --> 00:04:16,360
+Those parentheses are optional.
+
+74
+00:04:16,390 --> 00:04:18,950
+Only when we have one parameter.
+
+75
+00:04:18,970 --> 00:04:21,640
+So if I run my code is even still works.
+
+76
+00:04:21,670 --> 00:04:26,650
+Is even of seven is false is even of eight is true.
+
+77
+00:04:27,340 --> 00:04:30,620
+If we have more than one, we have to have those prints.
+
+78
+00:04:30,640 --> 00:04:32,890
+Otherwise JavaScript gets confused.
+
+79
+00:04:33,250 --> 00:04:35,020
+It doesn't know what I'm trying to do here.
+
+80
+00:04:35,020 --> 00:04:41,410
+And you can see my auto formatter here formatted it oddly and I get an error as soon as I run the code.
+
+81
+00:04:41,410 --> 00:04:42,490
+It doesn't know what's going on.
+
+82
+00:04:42,490 --> 00:04:45,420
+We have to add prints if we have more than one parameter.
+
+83
+00:04:45,430 --> 00:04:50,100
+If we have one parameter, they're optional and it's a matter of personal preference.
+
+84
+00:04:50,110 --> 00:04:51,820
+I like leaving them off.
+
+85
+00:04:51,940 --> 00:04:56,860
+But some style guides, some companies you may work with will expect you to add them in.
+
+86
+00:04:56,860 --> 00:05:04,810
+And then if we define a function with no parameters whatsoever, like const greets which will just console.log.
+
+87
+00:05:05,470 --> 00:05:06,760
+Hello or hi there.
+
+88
+00:05:07,180 --> 00:05:08,200
+What do we do here?
+
+89
+00:05:08,200 --> 00:05:10,240
+We have to have empty prints.
+
+90
+00:05:10,810 --> 00:05:12,400
+We can't just leave it off.
+
+91
+00:05:12,700 --> 00:05:16,030
+We need empty prints and it will console.log.
+
+92
+00:05:16,390 --> 00:05:16,930
+Hi.
+
+93
+00:05:18,130 --> 00:05:19,270
+I'll run my code now.
+
+94
+00:05:19,270 --> 00:05:20,410
+I call greet.
+
+95
+00:05:22,510 --> 00:05:23,560
+And we get high.
+
+96
+00:05:24,130 --> 00:05:30,880
+So to wrap up the basic rules of an arrow function are that one, it behaves just like a function expression
+
+97
+00:05:31,000 --> 00:05:34,480
+where we declare it with a function keyword, but we don't have to do that.
+
+98
+00:05:34,510 --> 00:05:36,380
+This arrow function has no name.
+
+99
+00:05:36,400 --> 00:05:40,750
+We're simply creating an anonymous function expression using an arrow function.
+
+100
+00:05:40,750 --> 00:05:43,180
+So we have the arrow, we have our curly braces.
+
+101
+00:05:43,180 --> 00:05:45,160
+We return just like a regular function.
+
+102
+00:05:45,160 --> 00:05:48,610
+We have our parameters, but we have a couple options.
+
+103
+00:05:48,610 --> 00:05:52,390
+If we have no parameters whatsoever, we have to have empty prints.
+
+104
+00:05:52,390 --> 00:05:55,840
+If we have multiple params, we have to have the prints there.
+
+105
+00:05:56,020 --> 00:06:01,720
+But if we have one parameter and only one, then we can optionally leave them off.
+
+106
+00:06:01,720 --> 00:06:05,710
+So this or what we had before both are valid.
+
+107
+00:06:06,220 --> 00:06:11,680
+Next we'll see some nice optimizations how we can actually write an arrow function without these curly
+
+108
+00:06:11,680 --> 00:06:14,170
+braces and without having to write return.
+

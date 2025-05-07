@@ -1,0 +1,1648 @@
+1
+00:00:00,120 --> 00:00:04,290
+In this video, I won't be covering any new syntax or features that we haven't seen.
+
+2
+00:00:04,320 --> 00:00:10,560
+I just want to give us some practice and a little bit of time to talk about objects, methods, designing
+
+3
+00:00:10,560 --> 00:00:15,900
+our code, why we might want to use objects with methods and comparing that to different approaches
+
+4
+00:00:15,900 --> 00:00:21,150
+that we've already seen so early in the course when we were talking about functions, we had a functions
+
+5
+00:00:21,150 --> 00:00:27,120
+exercise where I asked you to make a function called it was something like Make Deck, and I wanted
+
+6
+00:00:27,120 --> 00:00:33,540
+it to return a deck of cards, which was an array, and each element had a value like value of five
+
+7
+00:00:33,540 --> 00:00:37,500
+and then a suit of hearts or diamonds or something.
+
+8
+00:00:37,500 --> 00:00:38,760
+So five of hearts.
+
+9
+00:00:38,760 --> 00:00:42,930
+But the deck would have 52 of these each different, right?
+
+10
+00:00:42,930 --> 00:00:47,520
+We'd have five of hearts, five of diamonds, five of clubs and spades, and then six and seven and
+
+11
+00:00:47,520 --> 00:00:49,350
+jack all those different cards.
+
+12
+00:00:49,350 --> 00:00:50,850
+So that's the idea.
+
+13
+00:00:50,850 --> 00:00:54,630
+And we can totally use a function to do that just as stand alone function.
+
+14
+00:00:54,780 --> 00:01:00,420
+But what if I wanted to also have different features, different functionality for my deck instead of
+
+15
+00:01:00,420 --> 00:01:02,010
+just making a deck of cards?
+
+16
+00:01:02,010 --> 00:01:05,489
+What if I wanted to be able to draw a single card at a time?
+
+17
+00:01:05,640 --> 00:01:08,010
+Or maybe I want to have a discard pile?
+
+18
+00:01:08,010 --> 00:01:13,950
+Once we draw a card, we could put it in the discard pile so our deck would be shrinking, but then
+
+19
+00:01:13,950 --> 00:01:18,450
+we would have the discard pile that was keeping all of the previously drawn cards.
+
+20
+00:01:18,450 --> 00:01:22,380
+Or I could implement a shuffle so that we could shuffle the deck.
+
+21
+00:01:22,380 --> 00:01:25,720
+Or what if I wanted to refill the deck, start over from scratch.
+
+22
+00:01:25,740 --> 00:01:27,330
+There are so many different things we could do.
+
+23
+00:01:27,330 --> 00:01:34,980
+We could make a draw method that could take an argument like draw five, draw to draw one and to design
+
+24
+00:01:34,980 --> 00:01:36,240
+that to actually implement it.
+
+25
+00:01:36,240 --> 00:01:39,390
+We could start with a pure function approach.
+
+26
+00:01:39,390 --> 00:01:44,070
+So I could have my make deck function, which I need to actually call a function.
+
+27
+00:01:44,520 --> 00:01:50,220
+And then I would loop over these two variables that I've created already to save some time.
+
+28
+00:01:50,220 --> 00:01:57,780
+Here I have suits, which is an array and values which I made a string instead of an array only to save
+
+29
+00:01:57,780 --> 00:02:03,690
+a little bit of time, because typing this as an array is really annoying, having to do one and then
+
+30
+00:02:03,690 --> 00:02:05,490
+two and put quotes around everything.
+
+31
+00:02:05,490 --> 00:02:13,620
+And I did separate them by commas because that allows me if I come over here to do values, split on
+
+32
+00:02:13,620 --> 00:02:14,310
+the comma.
+
+33
+00:02:16,320 --> 00:02:19,020
+And get an array with the actual values.
+
+34
+00:02:19,050 --> 00:02:25,740
+The reason I had to do commas instead of just doing one, two, three, four, five, six, seven,
+
+35
+00:02:25,740 --> 00:02:26,640
+eight, nine.
+
+36
+00:02:27,210 --> 00:02:27,990
+Jack Queen.
+
+37
+00:02:27,990 --> 00:02:31,290
+King, is this little guy right here?
+
+38
+00:02:31,290 --> 00:02:31,950
+Ten.
+
+39
+00:02:32,220 --> 00:02:36,660
+If I were to iterate over this string, I would get each character one at a time.
+
+40
+00:02:36,660 --> 00:02:37,530
+And that works.
+
+41
+00:02:37,740 --> 00:02:42,140
+All of these values are a single character long except for ten.
+
+42
+00:02:42,150 --> 00:02:48,690
+So if I were to split, if I had ten in here, or if I were to iterate over this, it would do one and
+
+43
+00:02:48,690 --> 00:02:49,020
+zero.
+
+44
+00:02:49,020 --> 00:02:50,340
+I wouldn't actually get ten.
+
+45
+00:02:50,640 --> 00:02:52,920
+So that's why I used a string with commas.
+
+46
+00:02:53,160 --> 00:02:56,100
+But I'm going to start by looping over suits.
+
+47
+00:02:56,190 --> 00:03:01,500
+My goal is to return an object that has a suit set to one of these suits and a value set to one of these
+
+48
+00:03:01,500 --> 00:03:03,390
+suits and make them all unique.
+
+49
+00:03:03,390 --> 00:03:06,090
+So we have a combination of every possible.
+
+50
+00:03:06,090 --> 00:03:08,460
+We have an instance of every possible combination.
+
+51
+00:03:08,460 --> 00:03:15,690
+So for let value of and then I'm going to do values split on the comma.
+
+52
+00:03:16,350 --> 00:03:18,000
+So that gives me this array here.
+
+53
+00:03:18,000 --> 00:03:24,600
+So for every item in that array, we'll also loop over suits for suit of suits.
+
+54
+00:03:25,350 --> 00:03:30,210
+And then I'm going to create a deck array up here, const deck.
+
+55
+00:03:30,210 --> 00:03:38,490
+We'll start empty and then in here I will call deck, push and I'll push on a new object where we have
+
+56
+00:03:38,490 --> 00:03:44,760
+value set to value and suit set to suit coming from these loops.
+
+57
+00:03:44,760 --> 00:03:49,470
+But as we just saw very, very recently, we have a shorthand way of doing this.
+
+58
+00:03:49,470 --> 00:03:55,380
+If we want the key name to be value and we have a variable called value, I can just put value and suit.
+
+59
+00:03:55,920 --> 00:03:58,200
+All right, so let's return this deck.
+
+60
+00:03:58,890 --> 00:04:01,530
+Return deck, run my code.
+
+61
+00:04:01,530 --> 00:04:02,580
+Make deck.
+
+62
+00:04:02,790 --> 00:04:03,180
+Oop.
+
+63
+00:04:03,180 --> 00:04:06,750
+Forgot my friends and we're getting 56.
+
+64
+00:04:06,750 --> 00:04:07,950
+What did I mess up here?
+
+65
+00:04:08,460 --> 00:04:09,810
+Well, that was stupid.
+
+66
+00:04:09,810 --> 00:04:11,400
+I put Ace and one.
+
+67
+00:04:11,400 --> 00:04:12,960
+There is no one card.
+
+68
+00:04:13,140 --> 00:04:14,870
+So let's run it one more time.
+
+69
+00:04:14,880 --> 00:04:16,370
+Hopefully you saw that before me.
+
+70
+00:04:16,380 --> 00:04:20,339
+Now we have 52 cards, so we have this function.
+
+71
+00:04:20,339 --> 00:04:22,470
+Still no objects or methods involved.
+
+72
+00:04:22,470 --> 00:04:25,080
+I guess we do have this object that we're creating.
+
+73
+00:04:25,080 --> 00:04:26,130
+But no methods.
+
+74
+00:04:26,130 --> 00:04:27,000
+No this.
+
+75
+00:04:27,030 --> 00:04:28,710
+None of the stuff we've been talking about.
+
+76
+00:04:29,190 --> 00:04:35,820
+If I wanted to create a deck and then be able to draw a single card, I would need to save this deck
+
+77
+00:04:35,820 --> 00:04:36,600
+to a variable.
+
+78
+00:04:36,600 --> 00:04:37,620
+So make a new deck.
+
+79
+00:04:37,620 --> 00:04:38,700
+We'll go with const.
+
+80
+00:04:38,790 --> 00:04:46,530
+My deck equals make deck and then I need to make a new function called draw card.
+
+81
+00:04:48,900 --> 00:04:56,700
+And I would need to pass in the card excuse me, the pass in the deck as an argument and then we draw
+
+82
+00:04:56,730 --> 00:04:58,680
+the card so we could do.
+
+83
+00:04:59,280 --> 00:05:01,170
+Let's pop from the end, I guess.
+
+84
+00:05:01,350 --> 00:05:03,050
+Or we could take it from the beginning.
+
+85
+00:05:03,060 --> 00:05:05,190
+Either one works, but let's just pop one off.
+
+86
+00:05:05,370 --> 00:05:07,410
+So deck, dot, pop.
+
+87
+00:05:08,250 --> 00:05:15,720
+And if we try it over here, make dot pop, remember that pop returns the value and it also changes
+
+88
+00:05:15,720 --> 00:05:19,500
+the original array so I can simply return decked out pop.
+
+89
+00:05:20,990 --> 00:05:21,590
+Okay.
+
+90
+00:05:21,920 --> 00:05:30,980
+So in order to draw a single card, I make the deck, and then I need to call draw card and pass in
+
+91
+00:05:30,980 --> 00:05:34,520
+my deck because we need an argument here.
+
+92
+00:05:35,570 --> 00:05:39,200
+So then I would save that return result to const card.
+
+93
+00:05:39,200 --> 00:05:41,030
+One equals draw card.
+
+94
+00:05:41,030 --> 00:05:41,990
+And if I run it.
+
+95
+00:05:43,270 --> 00:05:45,070
+I take a look at card one?
+
+96
+00:05:45,280 --> 00:05:46,720
+We got the ace of clubs.
+
+97
+00:05:46,720 --> 00:05:49,600
+We haven't shuffled our cards at all, so they're all in order.
+
+98
+00:05:49,600 --> 00:05:52,930
+And then if we look at my deck, it should now be 51 items.
+
+99
+00:05:53,170 --> 00:06:02,170
+So then to draw a card again, I have to do draw card, pass in my deck.
+
+100
+00:06:02,650 --> 00:06:03,840
+And this is not great.
+
+101
+00:06:03,850 --> 00:06:05,620
+I have to keep passing this around.
+
+102
+00:06:05,620 --> 00:06:09,430
+I'm passing my deck into draw card over and over and over.
+
+103
+00:06:09,640 --> 00:06:16,540
+And if I were to have a shuffle function or a refilled deck or draw five, I would need to keep passing
+
+104
+00:06:16,540 --> 00:06:17,410
+my deck.
+
+105
+00:06:17,830 --> 00:06:24,550
+I guess the alternative would be to use global variables and make a variable up top called my deck cost.
+
+106
+00:06:24,550 --> 00:06:31,300
+My deck equals make deck and then inside of all of the functions we write, we could refer to my deck
+
+107
+00:06:31,300 --> 00:06:36,460
+specifically, but that's even worse because then we end up with just one deck.
+
+108
+00:06:36,460 --> 00:06:38,080
+I could do this concept.
+
+109
+00:06:38,080 --> 00:06:40,810
+Main deck equals make deck.
+
+110
+00:06:42,390 --> 00:06:50,190
+And then I would down here rewrite draw card to just return main deck dot pop.
+
+111
+00:06:50,190 --> 00:06:53,430
+But you can imagine that this is severely limited.
+
+112
+00:06:53,430 --> 00:06:56,340
+We can only have one deck, main deck.
+
+113
+00:06:56,340 --> 00:06:59,880
+How would I make deck two or a second deck or a fifth deck?
+
+114
+00:07:00,000 --> 00:07:03,360
+I would have to write a new function that didn't depend on it.
+
+115
+00:07:03,690 --> 00:07:06,480
+I would write a new one where I hardcoded in second deck.
+
+116
+00:07:06,480 --> 00:07:08,040
+So that's not a good approach.
+
+117
+00:07:08,190 --> 00:07:14,130
+So the best option for now is to keep passing them around, pass the deck in so that we can make draw
+
+118
+00:07:14,130 --> 00:07:15,660
+card somewhat modular.
+
+119
+00:07:15,990 --> 00:07:22,950
+Now this is where objects come in because I can use an object to store the deck and on that object I
+
+120
+00:07:22,950 --> 00:07:27,420
+can have a method called draw card and another one called Shuffle.
+
+121
+00:07:27,420 --> 00:07:32,070
+And we have access to the deck because of this, the key word, this.
+
+122
+00:07:32,070 --> 00:07:34,320
+So here is how I would rewrite that.
+
+123
+00:07:34,710 --> 00:07:40,770
+I would do something like concept deck or my deck or whatever equals an object.
+
+124
+00:07:41,310 --> 00:07:47,760
+And then I would have the property instead of calling this deck, let's go with my deck and then make
+
+125
+00:07:47,760 --> 00:07:51,360
+our property deck, which can start as an empty array.
+
+126
+00:07:52,440 --> 00:08:00,210
+Then we'll have a new method that will add in called make deck or refill cards or something.
+
+127
+00:08:00,840 --> 00:08:01,890
+What should we call it?
+
+128
+00:08:01,890 --> 00:08:03,660
+Initialize cards.
+
+129
+00:08:03,660 --> 00:08:04,800
+Initialize deck.
+
+130
+00:08:05,190 --> 00:08:05,880
+Sure.
+
+131
+00:08:07,020 --> 00:08:10,650
+And it is going to update the deck property.
+
+132
+00:08:10,860 --> 00:08:14,550
+So we're grouping the data with functionality.
+
+133
+00:08:15,120 --> 00:08:18,210
+So let's just copy most of this logic over.
+
+134
+00:08:18,870 --> 00:08:20,130
+Just move this over.
+
+135
+00:08:22,280 --> 00:08:24,050
+And it's not going to work right away.
+
+136
+00:08:24,080 --> 00:08:25,850
+We need to change a couple of things.
+
+137
+00:08:26,090 --> 00:08:32,840
+The first thing I might do is move these variables into properties on the object because we might want
+
+138
+00:08:32,840 --> 00:08:34,000
+them in other methods.
+
+139
+00:08:34,010 --> 00:08:37,960
+We don't need to re declare them every time we call initialize deck.
+
+140
+00:08:37,970 --> 00:08:44,960
+So I'm going to just copy this out or cut it out, make a property called suit and then another one
+
+141
+00:08:44,960 --> 00:08:45,980
+called Values.
+
+142
+00:08:47,880 --> 00:08:49,260
+And move that.
+
+143
+00:08:49,350 --> 00:08:53,610
+We'll get rid of that right there and then we can import them.
+
+144
+00:08:53,610 --> 00:08:58,140
+We're not actually importing, but we can use them in here because of this.
+
+145
+00:08:58,140 --> 00:09:01,980
+So this dot suits, this dot values.
+
+146
+00:09:01,980 --> 00:09:05,220
+We could also just use D structuring.
+
+147
+00:09:05,460 --> 00:09:13,980
+So cost suits, comma values equals this and let's also grab deck.
+
+148
+00:09:14,790 --> 00:09:20,730
+So now every time I reference deck, it's actually this deck values is this dot values.
+
+149
+00:09:20,730 --> 00:09:22,470
+I've just d structured them.
+
+150
+00:09:23,550 --> 00:09:24,600
+What do I have going on here?
+
+151
+00:09:24,600 --> 00:09:25,650
+Missing a comma.
+
+152
+00:09:25,680 --> 00:09:26,430
+There we go.
+
+153
+00:09:27,180 --> 00:09:29,070
+Okay, so I have those values now.
+
+154
+00:09:29,100 --> 00:09:31,500
+So for the value of values dot split.
+
+155
+00:09:31,500 --> 00:09:32,100
+That's right.
+
+156
+00:09:32,100 --> 00:09:34,200
+We get an array for each value.
+
+157
+00:09:34,230 --> 00:09:36,420
+We're also going to iterate over all the suits.
+
+158
+00:09:36,420 --> 00:09:37,200
+All four.
+
+159
+00:09:37,200 --> 00:09:44,280
+And now I can leave this as dot push instead of having to do this deck because we structured it up here.
+
+160
+00:09:44,310 --> 00:09:45,180
+Where are you?
+
+161
+00:09:45,210 --> 00:09:46,020
+Right there.
+
+162
+00:09:46,350 --> 00:09:49,620
+And then we can return the deck if we want.
+
+163
+00:09:49,770 --> 00:09:51,510
+But also we don't have to.
+
+164
+00:09:51,540 --> 00:09:54,630
+We're not going to lose that deck versus here.
+
+165
+00:09:54,630 --> 00:09:57,390
+We had to return the deck and save it to a variable.
+
+166
+00:09:57,420 --> 00:10:01,680
+Otherwise we're just making this array and then it disappears when the function is over.
+
+167
+00:10:01,680 --> 00:10:05,670
+But in our object we're actually changing the property of deck.
+
+168
+00:10:05,670 --> 00:10:07,380
+We're adding to this array.
+
+169
+00:10:07,680 --> 00:10:11,220
+So even if I don't return deck, it still should work.
+
+170
+00:10:11,220 --> 00:10:14,160
+Assuming I didn't mess something up when I copied it over.
+
+171
+00:10:14,190 --> 00:10:15,570
+Let's see what happens now.
+
+172
+00:10:15,780 --> 00:10:18,750
+I have this my deck, which is an object.
+
+173
+00:10:18,750 --> 00:10:20,460
+It starts with an empty array.
+
+174
+00:10:20,460 --> 00:10:25,920
+But if I call my deck dot initialized deck, kind of a long name.
+
+175
+00:10:26,870 --> 00:10:28,460
+Let's look at my deck now.
+
+176
+00:10:29,450 --> 00:10:32,090
+Or how about just my deck, dot deck?
+
+177
+00:10:33,180 --> 00:10:40,470
+We have 52 cards, so we successfully implemented this method that is updating the deck property.
+
+178
+00:10:41,180 --> 00:10:45,230
+And now if I wanted to implement a draw method, it's very easy.
+
+179
+00:10:45,410 --> 00:10:48,410
+I'll just add my comment in draw card.
+
+180
+00:10:49,100 --> 00:10:51,650
+And why don't we make this a little bit more exciting?
+
+181
+00:10:51,650 --> 00:10:53,630
+Well, we'll start with draw a single card.
+
+182
+00:10:53,630 --> 00:11:03,470
+So draw card and we'll access this dot deck and then we'll pop one off and we'll return that so that
+
+183
+00:11:03,470 --> 00:11:06,020
+we have access to the card that was just drawn.
+
+184
+00:11:06,020 --> 00:11:09,080
+But now we also are updating this deck.
+
+185
+00:11:10,560 --> 00:11:13,510
+So I don't have to pass anything around if I want to use it.
+
+186
+00:11:13,530 --> 00:11:22,920
+I just do my dec dot and let's initialize the deck and then we'll also do my dec dot and then draw a
+
+187
+00:11:22,920 --> 00:11:23,810
+single card.
+
+188
+00:11:23,820 --> 00:11:26,970
+We can save this to a variable concept card.
+
+189
+00:11:28,520 --> 00:11:34,340
+Oops, I didn't add my friends and I'm going to get an error if I use const again because I already
+
+190
+00:11:34,340 --> 00:11:35,330
+declared card.
+
+191
+00:11:35,720 --> 00:11:37,100
+Oh geez, I'm an idiot.
+
+192
+00:11:37,100 --> 00:11:38,540
+We can't update const.
+
+193
+00:11:38,540 --> 00:11:40,340
+All right, well, let's go with a different name.
+
+194
+00:11:40,340 --> 00:11:45,920
+Const card one equals my dec dot draw card.
+
+195
+00:11:46,430 --> 00:11:50,240
+And we look at card one, we have that card that we drew.
+
+196
+00:11:50,240 --> 00:11:55,040
+And if we look at the deck itself, my deck, dot deck.
+
+197
+00:11:55,040 --> 00:11:55,760
+Where are you?
+
+198
+00:11:56,570 --> 00:12:01,130
+We now have 51 cards, so notice we didn't have to pass an argument around.
+
+199
+00:12:01,130 --> 00:12:06,620
+We didn't have to do what we did here, where every time I want to draw a card I have to pass in the
+
+200
+00:12:06,620 --> 00:12:08,120
+deck we're drawing it from.
+
+201
+00:12:08,990 --> 00:12:15,770
+Instead, we group the method with the values we put the data and the functionality in a single object.
+
+202
+00:12:15,770 --> 00:12:20,960
+So now all we have to do is access this deck and we're updating this one object.
+
+203
+00:12:20,960 --> 00:12:26,150
+This whole thing represents a deck of cards, and we have different things we can do with the data.
+
+204
+00:12:26,150 --> 00:12:28,100
+We can initialize it again.
+
+205
+00:12:28,340 --> 00:12:34,850
+We can draw a card and let's actually add a new method that will draw multiple cards.
+
+206
+00:12:35,030 --> 00:12:42,470
+And before we do that, let's add a discard pile or a drawn card pile where we can keep track of the
+
+207
+00:12:42,470 --> 00:12:44,330
+cards that have already been drawn.
+
+208
+00:12:44,840 --> 00:12:51,260
+So instead of just returning this deck pop, we will pop an element off, we'll pop a card off.
+
+209
+00:12:51,260 --> 00:12:57,950
+But before we return it, we'll also make sure to add it to the drawn cards so drawing cards can start
+
+210
+00:12:57,950 --> 00:12:59,030
+as an empty array.
+
+211
+00:13:00,190 --> 00:13:02,770
+And then here when we draw a new card.
+
+212
+00:13:03,380 --> 00:13:08,950
+We'll do this next pop, but we'll push that on to the drawing cards array.
+
+213
+00:13:08,960 --> 00:13:15,290
+So we could just put this in a variable called card equals this dot dot pop.
+
+214
+00:13:15,290 --> 00:13:24,680
+And then we can do this dot draw on cards, dot push card and then return card.
+
+215
+00:13:26,480 --> 00:13:27,570
+So now if we run it.
+
+216
+00:13:27,590 --> 00:13:28,190
+My deck.
+
+217
+00:13:28,460 --> 00:13:29,120
+Initialized.
+
+218
+00:13:29,120 --> 00:13:29,780
+Deck.
+
+219
+00:13:30,740 --> 00:13:31,460
+My deck.
+
+220
+00:13:31,460 --> 00:13:32,030
+Dot.
+
+221
+00:13:32,030 --> 00:13:33,770
+Draw the first card.
+
+222
+00:13:34,040 --> 00:13:35,150
+We'll draw a couple.
+
+223
+00:13:36,500 --> 00:13:38,210
+Now let's look at my deck.
+
+224
+00:13:39,560 --> 00:13:46,580
+We have drawn cards right here and it has six elements, six cards that we've drawn.
+
+225
+00:13:47,690 --> 00:13:56,180
+And now if I want to make a method to draw multiple cards, we could just make draw cards or draw multiple,
+
+226
+00:13:57,290 --> 00:14:03,230
+which will be a method we'll pass in a number of cards, num cards, make sure to add my comma here
+
+227
+00:14:03,530 --> 00:14:10,250
+and then I would just loop num cards times and take advantage of our draw card method we already have.
+
+228
+00:14:11,030 --> 00:14:20,270
+So let's do a regular for loop for lit i equals zero i less than num cards i plus plus.
+
+229
+00:14:20,840 --> 00:14:25,160
+And then we want to call this draw card, this method here.
+
+230
+00:14:25,160 --> 00:14:30,020
+This draws a single card, it adds it to the drawing cards array and it returns that card.
+
+231
+00:14:30,260 --> 00:14:35,240
+So we'll call that multiple times, but we want to return all of the cards that we're drawing.
+
+232
+00:14:35,240 --> 00:14:41,090
+So if somebody says draw eight cards, draw multiple of eight, we want to have an array.
+
+233
+00:14:41,120 --> 00:14:45,560
+We'll just call this concept cards that we return.
+
+234
+00:14:45,560 --> 00:14:48,410
+So we'll draw the card and push that on to cards.
+
+235
+00:14:48,410 --> 00:14:50,240
+Cards push.
+
+236
+00:14:51,680 --> 00:14:53,330
+The card that we get back from.
+
+237
+00:14:53,330 --> 00:14:59,090
+Draw a single card, draw card, and then at the end, we will return cards.
+
+238
+00:15:00,320 --> 00:15:01,940
+Let's see if that one works.
+
+239
+00:15:03,020 --> 00:15:11,960
+So we have my deck, initialize deck and then my deck dot draw multiple of four.
+
+240
+00:15:13,160 --> 00:15:15,410
+We get back in array with four cards.
+
+241
+00:15:15,800 --> 00:15:17,420
+Let's look at my deck.
+
+242
+00:15:17,750 --> 00:15:20,210
+Does it, in fact, have a smaller deck?
+
+243
+00:15:20,240 --> 00:15:20,790
+Yes, it does.
+
+244
+00:15:20,810 --> 00:15:24,140
+We're down to 48 and drawing cards has four elements.
+
+245
+00:15:24,740 --> 00:15:25,340
+Cool.
+
+246
+00:15:25,460 --> 00:15:27,650
+Next, we'll add a shuffle method.
+
+247
+00:15:27,680 --> 00:15:31,500
+Now I've gone ahead and written a simple shuffle method.
+
+248
+00:15:31,520 --> 00:15:35,660
+Shuffling things is actually not as straightforward as you might think.
+
+249
+00:15:35,690 --> 00:15:37,340
+There's a ton of ways of doing it.
+
+250
+00:15:37,670 --> 00:15:42,770
+And sometimes you run into issues with randomness and random numbers not being as random as they should
+
+251
+00:15:42,770 --> 00:15:43,230
+be.
+
+252
+00:15:43,250 --> 00:15:46,820
+So this is not by any means the best shuffle that there ever is.
+
+253
+00:15:46,820 --> 00:15:49,550
+But I'm going to walk through how it works in like 30 seconds.
+
+254
+00:15:49,580 --> 00:15:52,490
+This is an algorithm called the Fisher Yates Shuffle.
+
+255
+00:15:52,520 --> 00:15:54,860
+It's used to shuffle an array.
+
+256
+00:15:55,040 --> 00:16:01,010
+And I'm going to console.log in this loop the array that we pass in so you can see how it works.
+
+257
+00:16:01,310 --> 00:16:06,950
+I'm going to call shuffle on this array of strings and we can see what happens each step of the way.
+
+258
+00:16:07,190 --> 00:16:09,790
+So we loop over the array backwards.
+
+259
+00:16:09,800 --> 00:16:11,490
+We start at the end of the array.
+
+260
+00:16:11,510 --> 00:16:13,570
+So the original array looks like this.
+
+261
+00:16:13,580 --> 00:16:20,810
+So we're starting with F and then we pick a random index before F, so any of these and we swap the
+
+262
+00:16:20,810 --> 00:16:21,320
+two.
+
+263
+00:16:21,590 --> 00:16:28,100
+So the choice that was made the first time three was B, so we swapped F and B and then the loop moves
+
+264
+00:16:28,100 --> 00:16:33,220
+on to this letter, E or this index, and we swap it with something before it.
+
+265
+00:16:33,230 --> 00:16:38,630
+We pick a random index between zero and whatever this index is and we swap.
+
+266
+00:16:38,630 --> 00:16:41,240
+So we swapped with C that time.
+
+267
+00:16:41,390 --> 00:16:43,280
+So then we move on to this index.
+
+268
+00:16:43,460 --> 00:16:47,480
+And so we're shuffling it from the back, moving towards the front.
+
+269
+00:16:47,540 --> 00:16:51,380
+We swap with some random index before and then we move on.
+
+270
+00:16:51,380 --> 00:16:54,490
+We swap a something before move on and we end up with this.
+
+271
+00:16:54,500 --> 00:16:57,710
+And if I call it again, we'll likely get something different.
+
+272
+00:16:57,740 --> 00:16:58,850
+As you can see there.
+
+273
+00:16:58,970 --> 00:17:04,490
+So not the focus so much of this video, but here is a simple implementation if you want.
+
+274
+00:17:04,700 --> 00:17:07,280
+Definitely look into more complex implementations.
+
+275
+00:17:07,609 --> 00:17:13,609
+It's kind of fun, different ways of shuffling, but I'll just add some quick notes, loop over array
+
+276
+00:17:13,609 --> 00:17:21,500
+backwards and then here, pick random index B for current elements.
+
+277
+00:17:22,369 --> 00:17:24,530
+And then swap.
+
+278
+00:17:25,460 --> 00:17:30,920
+Now, this right here is a nice shorthand way of swapping elements using D structuring.
+
+279
+00:17:32,580 --> 00:17:35,150
+Don't want to get too sidetracked here, but I'll show it to you briefly.
+
+280
+00:17:35,150 --> 00:17:38,090
+If we have this array from earlier, we'll call it letters.
+
+281
+00:17:38,930 --> 00:17:42,770
+If I run this line, let's do letters.
+
+282
+00:17:44,690 --> 00:17:46,430
+Of zero comma.
+
+283
+00:17:47,240 --> 00:17:49,310
+Letters of.
+
+284
+00:17:49,430 --> 00:17:50,730
+How about three?
+
+285
+00:17:50,750 --> 00:17:54,590
+So that should be A and D equals.
+
+286
+00:17:54,590 --> 00:18:02,390
+And then do the inverse letters of three comma letters of zero.
+
+287
+00:18:03,080 --> 00:18:06,170
+What this will do is swap our elements in place.
+
+288
+00:18:06,350 --> 00:18:08,030
+And if we look at letters now.
+
+289
+00:18:09,370 --> 00:18:13,990
+Dhe is now where I used to be and a is now where DH used to be.
+
+290
+00:18:14,020 --> 00:18:19,690
+The shuffle is not really the focus of the video, but in order to make our deck slightly more useful,
+
+291
+00:18:19,690 --> 00:18:20,960
+we should add shuffle.
+
+292
+00:18:20,980 --> 00:18:22,390
+So let's go ahead and do it.
+
+293
+00:18:22,780 --> 00:18:27,070
+We'll add in our method shuffle, which I need to change a couple of different ways.
+
+294
+00:18:27,070 --> 00:18:31,270
+First, I need to make it a valid method on our object.
+
+295
+00:18:31,270 --> 00:18:33,640
+I'm not going to pass in an array.
+
+296
+00:18:33,670 --> 00:18:36,280
+It should just shuffle the deck, right?
+
+297
+00:18:36,310 --> 00:18:39,090
+It shouldn't shuffle an array we pass in.
+
+298
+00:18:39,100 --> 00:18:45,100
+So any time I have that reference to a R, I'm going to replace it with Deck.
+
+299
+00:18:45,100 --> 00:18:48,070
+So I'm going to structure deck this.
+
+300
+00:18:49,880 --> 00:18:55,520
+I don't know why I'm writing this backwards concert deck equals this.
+
+301
+00:18:55,520 --> 00:19:03,620
+So that is structuring the deck out of this and then we're going to replace array that time there there
+
+302
+00:19:03,620 --> 00:19:05,210
+there with deck.
+
+303
+00:19:06,610 --> 00:19:08,230
+So now we have a shuffle method.
+
+304
+00:19:08,290 --> 00:19:11,380
+This deck, we don't have to pass anything in.
+
+305
+00:19:11,410 --> 00:19:12,850
+Let's make sure it works.
+
+306
+00:19:12,880 --> 00:19:15,700
+So my deck, initialize deck.
+
+307
+00:19:16,480 --> 00:19:23,170
+And as we've already seen, the way we built the initialize is that it just puts them all in order.
+
+308
+00:19:23,170 --> 00:19:28,160
+So we have, what is it, two of hearts and then three of hearts and then four of hearts.
+
+309
+00:19:28,180 --> 00:19:29,440
+Or did I do it backwards?
+
+310
+00:19:29,440 --> 00:19:30,370
+I think we have two of hearts.
+
+311
+00:19:30,370 --> 00:19:31,720
+Two of diamonds, two of spades.
+
+312
+00:19:31,720 --> 00:19:32,770
+But let's just look.
+
+313
+00:19:32,770 --> 00:19:33,880
+So we do my deck.
+
+314
+00:19:34,180 --> 00:19:34,900
+Deck.
+
+315
+00:19:36,130 --> 00:19:37,120
+Open this up.
+
+316
+00:19:37,390 --> 00:19:41,230
+And yeah, we have all the twos, all the threes, the fours.
+
+317
+00:19:41,230 --> 00:19:44,290
+So let's shuffle my deck.
+
+318
+00:19:44,350 --> 00:19:45,280
+Dot shuffle.
+
+319
+00:19:45,280 --> 00:19:47,290
+Fingers crossed you didn't mess anything up.
+
+320
+00:19:47,290 --> 00:19:50,560
+Let's look at my deck and.
+
+321
+00:19:51,770 --> 00:19:52,880
+Open up deck.
+
+322
+00:19:52,970 --> 00:19:53,960
+There we go.
+
+323
+00:19:53,990 --> 00:19:55,220
+Totally shuffled.
+
+324
+00:19:55,250 --> 00:19:55,880
+Awesome.
+
+325
+00:19:55,880 --> 00:20:01,550
+So hopefully you can see from this example that putting our code in an object is not something we always
+
+326
+00:20:01,550 --> 00:20:02,110
+need to do.
+
+327
+00:20:02,120 --> 00:20:03,270
+It's not the end all, be all.
+
+328
+00:20:03,290 --> 00:20:08,420
+There's lots of these different patterns out there for organizing your code or for structuring designing
+
+329
+00:20:08,420 --> 00:20:09,290
+your code.
+
+330
+00:20:09,560 --> 00:20:15,200
+This is just one option where we put things in an object, and this is still a very, very simple version.
+
+331
+00:20:15,230 --> 00:20:22,160
+There are other patterns we'll talk about once we get to prototypes, once we talk about creating constructor
+
+332
+00:20:22,160 --> 00:20:26,660
+functions and working with JavaScript classes, which is all coming later on.
+
+333
+00:20:26,780 --> 00:20:28,490
+But this is this is still nice.
+
+334
+00:20:28,700 --> 00:20:30,380
+We don't have to pass anything around.
+
+335
+00:20:30,470 --> 00:20:31,520
+I will quickly.
+
+336
+00:20:31,520 --> 00:20:36,410
+I'll fast forward through this so you don't have to watch, but I will reimplement all of this outside
+
+337
+00:20:36,410 --> 00:20:39,680
+of an object and show you how we would achieve the exact same thing.
+
+338
+00:20:39,680 --> 00:20:43,300
+And we can compare how ugly the code is or isn't.
+
+339
+00:20:43,310 --> 00:20:48,710
+All right, so I took our object from down here that we created my deck and I rewrote it as just standalone
+
+340
+00:20:48,710 --> 00:20:49,340
+functions.
+
+341
+00:20:49,340 --> 00:20:51,240
+So we have our initialized deck.
+
+342
+00:20:51,260 --> 00:20:55,880
+This used to be called make deck, but I renamed it just to match what we have in our object.
+
+343
+00:20:55,880 --> 00:21:00,170
+Initialize deck creates the deck of cards in order.
+
+344
+00:21:00,620 --> 00:21:04,640
+Then I have draw card and we need to pass in the deck.
+
+345
+00:21:04,640 --> 00:21:08,930
+And if we want to keep track of the drawing cards, the cards that have already been drawn from the
+
+346
+00:21:08,930 --> 00:21:12,810
+deck, we need to pass in a second array called drawing cards.
+
+347
+00:21:12,830 --> 00:21:18,380
+If I want to draw multiple, I need to pass in the number of cards to draw the deck to draw from and
+
+348
+00:21:18,380 --> 00:21:23,870
+the array to put the drawing cards in that pile of cards that have already been drawn.
+
+349
+00:21:24,520 --> 00:21:26,620
+First shuffle I need to pass in the deck.
+
+350
+00:21:26,980 --> 00:21:29,940
+So here's what it looks like when I start using it.
+
+351
+00:21:29,950 --> 00:21:35,380
+I'll have things like draw multiple pass in the number of cards to draw the deck.
+
+352
+00:21:35,410 --> 00:21:40,990
+The array that I'm drawing from and the drawn cards array that I've made, an empty array called Drawn
+
+353
+00:21:40,990 --> 00:21:41,590
+Cards.
+
+354
+00:21:41,590 --> 00:21:46,060
+So every time I want to draw a card, I'm going to have to pass in all of these arguments.
+
+355
+00:21:46,060 --> 00:21:51,340
+If I want to get a new hand, let's call it const poker hand equals.
+
+356
+00:21:51,430 --> 00:21:53,370
+I guess most poker hands are five cards.
+
+357
+00:21:53,380 --> 00:21:55,690
+Let's go with blackjack.
+
+358
+00:21:56,650 --> 00:22:01,510
+And I was going to say I was going to write BJ hand, but that might not be.
+
+359
+00:22:02,080 --> 00:22:03,490
+Umm hmm.
+
+360
+00:22:04,000 --> 00:22:09,010
+I guess we'll go with poker hand equals draw multiple.
+
+361
+00:22:10,550 --> 00:22:14,640
+I guess we can draw two for each of these and then our poker hand will draw five.
+
+362
+00:22:14,660 --> 00:22:19,400
+We need to pass in the deck that I made up here and the drawn cards array.
+
+363
+00:22:19,730 --> 00:22:21,590
+So this gets pretty tiresome.
+
+364
+00:22:21,980 --> 00:22:24,770
+Not to mention if I want another deck.
+
+365
+00:22:24,800 --> 00:22:29,480
+It's really annoying because I'm going to have to keep making these variables and I'm going to have
+
+366
+00:22:29,480 --> 00:22:32,900
+to keep track of them and pass in the correct drawing cards.
+
+367
+00:22:32,900 --> 00:22:37,730
+If I have two different decks, I'll have one drawing cards array for one deck and a second one.
+
+368
+00:22:37,730 --> 00:22:43,780
+We haven't seen how we can use our object and use it to make multiple decks from it.
+
+369
+00:22:43,790 --> 00:22:45,680
+So we'll get to that in the next video.
+
+370
+00:22:45,680 --> 00:22:47,440
+But for now, here we go.
+
+371
+00:22:47,450 --> 00:22:48,770
+This is one approach.
+
+372
+00:22:48,770 --> 00:22:54,430
+No objects except for the actual cards themselves, which are an object with a value in a suit.
+
+373
+00:22:54,440 --> 00:22:55,940
+Everything else is functions.
+
+374
+00:22:55,940 --> 00:22:57,220
+We're passing things around.
+
+375
+00:22:57,230 --> 00:23:00,980
+It gets kind of annoying, but let's take a look, make sure it all works.
+
+376
+00:23:01,400 --> 00:23:06,560
+We've got our deck has 43 cards left because we drew nine of them.
+
+377
+00:23:07,460 --> 00:23:10,400
+If we look at hand one, it has two cards.
+
+378
+00:23:11,340 --> 00:23:15,000
+Also the deck should be shuffled because I called it right called shuffle.
+
+379
+00:23:15,510 --> 00:23:22,710
+If we look at poker hand it has five cards and if we look at drawn cards, it should have nine cards.
+
+380
+00:23:22,800 --> 00:23:24,030
+So that's all great.
+
+381
+00:23:24,480 --> 00:23:28,890
+Now down to our object version to do the exact same thing.
+
+382
+00:23:29,610 --> 00:23:30,540
+Let me just see what we did.
+
+383
+00:23:30,540 --> 00:23:32,850
+We drew two, two and then five.
+
+384
+00:23:32,880 --> 00:23:45,900
+To replicate that, we would call my deck, initialize deck, my deck, shuffle, my deck dot, draw
+
+385
+00:23:46,080 --> 00:23:49,050
+multiple and we'll do two.
+
+386
+00:23:49,320 --> 00:23:51,750
+And we can save that to a variable concept.
+
+387
+00:23:51,750 --> 00:24:01,230
+We'll call it H one for a hand, 1h2 to draw two and then h three will draw five and that's it.
+
+388
+00:24:01,230 --> 00:24:05,310
+We don't have to keep passing a bunch of arguments in afterwards like we did here.
+
+389
+00:24:05,340 --> 00:24:10,830
+It's a lot easier because all of the relevant information, all the values are stored together in my
+
+390
+00:24:10,830 --> 00:24:11,340
+deck.
+
+391
+00:24:11,340 --> 00:24:15,780
+I don't have to manage the drawn cards versus the deck array.
+
+392
+00:24:15,810 --> 00:24:17,130
+I have it together.
+
+393
+00:24:17,130 --> 00:24:19,620
+It's all here versus in this example.
+
+394
+00:24:19,620 --> 00:24:23,070
+I have to keep track of drawing cards myself, pass it around.
+
+395
+00:24:23,070 --> 00:24:24,390
+It's just not ideal.
+
+396
+00:24:24,390 --> 00:24:31,500
+So I recognize this has been extremely long and probably not the most enthralling video I've ever made,
+
+397
+00:24:31,500 --> 00:24:37,560
+but it gets at some very important stuff that using objects is a great way of organizing your code of
+
+398
+00:24:37,560 --> 00:24:43,980
+grouping content together, or a better way of saying it is grouping values with functionality, things
+
+399
+00:24:43,980 --> 00:24:49,800
+with actions, and we've grouped them together in a logical way where we can start writing our methods,
+
+400
+00:24:49,800 --> 00:24:56,010
+our functions in a clean syntax, where I don't have to pass a bunch of stuff in, I don't have to save
+
+401
+00:24:56,010 --> 00:25:00,780
+everything to a new variable because everything is done on the object itself.
+
+402
+00:25:00,780 --> 00:25:07,080
+The object stores those values, and then these methods act upon those values, thanks to our good friend.
+
+403
+00:25:07,080 --> 00:25:11,400
+This next up, we'll see how we can create multiple decks.
+
+404
+00:25:11,400 --> 00:25:13,500
+Right now, I'm stuck with one deck.
+
+405
+00:25:14,160 --> 00:25:17,970
+That is probably the big disadvantage to what we saw up here.
+
+406
+00:25:18,240 --> 00:25:21,810
+Here, I could make another deck at any point by just calling initialized deck.
+
+407
+00:25:21,810 --> 00:25:26,430
+I still have to write a bunch of code to get the deck, make a new drawing cards, shuffle the second
+
+408
+00:25:26,430 --> 00:25:27,000
+deck.
+
+409
+00:25:27,000 --> 00:25:29,400
+But I can do it here.
+
+410
+00:25:29,400 --> 00:25:30,540
+We have one object.
+
+411
+00:25:30,540 --> 00:25:32,310
+So how do I make another one of these?
+
+412
+00:25:32,310 --> 00:25:33,630
+That's what we'll see next.
+

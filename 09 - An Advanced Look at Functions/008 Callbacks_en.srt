@@ -1,0 +1,548 @@
+1
+00:00:00,150 --> 00:00:04,800
+Next up, an important piece of terminology that comes up all the time in JavaScript.
+
+2
+00:00:04,830 --> 00:00:09,060
+There's a million blog posts in YouTube videos written about callbacks.
+
+3
+00:00:09,270 --> 00:00:15,980
+Callbacks are simply functions that are passed into other functions to be invoked within the outer function.
+
+4
+00:00:15,990 --> 00:00:17,150
+So we've already done this.
+
+5
+00:00:17,160 --> 00:00:17,780
+We've seen it.
+
+6
+00:00:17,790 --> 00:00:19,800
+We just didn't call it a callback.
+
+7
+00:00:20,220 --> 00:00:25,560
+If we go back to this example, called twice, we wrote a function called twice which accepts a single
+
+8
+00:00:25,560 --> 00:00:28,140
+function and it executes it two times.
+
+9
+00:00:28,260 --> 00:00:33,690
+In this example, the function we pass in laugh is a callback.
+
+10
+00:00:33,810 --> 00:00:37,440
+It is called within this outer function called twice.
+
+11
+00:00:37,440 --> 00:00:43,320
+So any time we pass a function to another function and it's executed in that function, we would call
+
+12
+00:00:43,320 --> 00:00:44,070
+it a callback.
+
+13
+00:00:44,070 --> 00:00:46,860
+And callbacks are extremely, extremely common.
+
+14
+00:00:46,860 --> 00:00:49,890
+In JavaScript we can write code like we did here.
+
+15
+00:00:49,890 --> 00:00:54,690
+We can write our own function that accepts callbacks, but also tons of the built in methods.
+
+16
+00:00:54,690 --> 00:01:00,090
+The really useful ones in JavaScript expect you to pass in a callback if you want to make a request
+
+17
+00:01:00,090 --> 00:01:05,040
+to load data from Facebook's API, that request takes time.
+
+18
+00:01:05,040 --> 00:01:10,380
+We pass in a callback function that will be called when the request is finished, when the data is back.
+
+19
+00:01:10,380 --> 00:01:15,450
+If we want to run code, when a user clicks on a button, on a page, or when they hover over a photo,
+
+20
+00:01:15,480 --> 00:01:21,180
+the code that we write to set that up requires us to pass in a callback function which will be executed
+
+21
+00:01:21,180 --> 00:01:23,930
+when the user hovers or when the user clicks.
+
+22
+00:01:23,940 --> 00:01:26,850
+So in this video, I just want to show you some of that.
+
+23
+00:01:26,850 --> 00:01:29,160
+This is not the one video on callbacks.
+
+24
+00:01:29,160 --> 00:01:31,740
+This is an intro to the general concept.
+
+25
+00:01:31,740 --> 00:01:34,770
+Then in the next couple of sections we'll see tons of them.
+
+26
+00:01:34,770 --> 00:01:39,030
+There are lots of built in array methods and we're going to spend a good amount of time covering them.
+
+27
+00:01:39,030 --> 00:01:42,840
+They all accept callbacks, so it's not some foreign crazy concept.
+
+28
+00:01:42,840 --> 00:01:44,040
+We've already been doing it.
+
+29
+00:01:44,040 --> 00:01:46,320
+We just haven't been using the term callback.
+
+30
+00:01:46,560 --> 00:01:49,230
+This is the callback, the function that we pass in.
+
+31
+00:01:49,680 --> 00:01:54,690
+The one thing that we haven't talked about as much with callbacks or with higher order functions is
+
+32
+00:01:54,690 --> 00:01:57,240
+that often we use anonymous functions.
+
+33
+00:01:57,240 --> 00:02:03,240
+When we call them, we pass in an anonymous function rather than an existing function like laugh.
+
+34
+00:02:03,240 --> 00:02:07,920
+There's nothing wrong with this, but sometimes we just need a one time use function.
+
+35
+00:02:07,920 --> 00:02:12,840
+We don't need it to be a standalone function, in which case we use an anonymous function.
+
+36
+00:02:13,170 --> 00:02:17,340
+I'm saying function a lot starting to sound weird to me, but let me show you an example of something
+
+37
+00:02:17,340 --> 00:02:19,740
+we haven't seen in JavaScript.
+
+38
+00:02:19,740 --> 00:02:24,120
+There is a method called set timeout, set timeout.
+
+39
+00:02:24,150 --> 00:02:27,450
+We'll run a certain block of code or a function of code.
+
+40
+00:02:27,450 --> 00:02:34,440
+After a certain number of milliseconds or seconds, we pass it in a number of milliseconds, like 5000,
+
+41
+00:02:34,440 --> 00:02:36,000
+which is 5 seconds.
+
+42
+00:02:36,090 --> 00:02:43,020
+But the first argument we need to pass it is a function, so a function to run and then how long to
+
+43
+00:02:43,020 --> 00:02:44,580
+wait before it runs?
+
+44
+00:02:44,580 --> 00:02:49,500
+If you look at the documentation on MDM, this first argument is called function.
+
+45
+00:02:49,500 --> 00:02:53,490
+In this case, a function to be executed after the timer expires.
+
+46
+00:02:53,490 --> 00:02:58,740
+That's what we need to pass in like function grumpy is our good old grumpy function.
+
+47
+00:02:58,890 --> 00:03:01,980
+But instead of constant logging, let's do something more obvious.
+
+48
+00:03:01,980 --> 00:03:03,180
+We will alert.
+
+49
+00:03:03,180 --> 00:03:04,740
+If you don't remember alert.
+
+50
+00:03:04,950 --> 00:03:07,560
+Pass in something in here like gibberish.
+
+51
+00:03:09,150 --> 00:03:12,840
+I'll go over to my actual browser window where it is and I get an alert.
+
+52
+00:03:12,840 --> 00:03:17,720
+It pops up one of the most irritating things ever when a website actually uses alerts.
+
+53
+00:03:17,730 --> 00:03:22,830
+I don't recommend you do it, but it's more obvious easier for us to see compared to a console.log.
+
+54
+00:03:22,860 --> 00:03:26,130
+I'll alert something like God, go away.
+
+55
+00:03:27,480 --> 00:03:34,590
+And then if I wanted to call this function after 5000 milliseconds, I could pass it in right here using
+
+56
+00:03:34,590 --> 00:03:36,130
+a name Grumpy's.
+
+57
+00:03:36,270 --> 00:03:37,830
+That's the name of my function.
+
+58
+00:03:38,040 --> 00:03:40,530
+And if I run this code, I'll refresh my page.
+
+59
+00:03:40,530 --> 00:03:45,510
+I have the browser page open after five milliseconds or 5 seconds.
+
+60
+00:03:45,630 --> 00:03:46,350
+Almost there.
+
+61
+00:03:46,380 --> 00:03:47,160
+There we go.
+
+62
+00:03:47,280 --> 00:03:48,200
+It alerts.
+
+63
+00:03:48,210 --> 00:03:51,750
+So what we've seen is that set time out accepts a function.
+
+64
+00:03:51,750 --> 00:03:53,920
+This is not a function we wrote set time out.
+
+65
+00:03:53,940 --> 00:03:55,650
+It comes in the browser for free.
+
+66
+00:03:55,680 --> 00:03:56,660
+It's built in.
+
+67
+00:03:56,670 --> 00:04:01,100
+It expects us to pass in a function and a number of milliseconds.
+
+68
+00:04:01,110 --> 00:04:04,200
+And in our example we wrote a function and passed it in.
+
+69
+00:04:04,650 --> 00:04:08,720
+But we can also do it in line using an anonymous function.
+
+70
+00:04:08,730 --> 00:04:14,640
+So remember, these anonymous functions look like this function and then no name.
+
+71
+00:04:15,090 --> 00:04:16,110
+It's just function.
+
+72
+00:04:16,110 --> 00:04:22,260
+And this is a way of saying after 5000 milliseconds, run this chunk of code, it doesn't have a name.
+
+73
+00:04:22,260 --> 00:04:23,850
+I'm not going to use it anywhere else.
+
+74
+00:04:23,850 --> 00:04:28,680
+If I simply wanted to say alert, welcome.
+
+75
+00:04:29,040 --> 00:04:30,600
+This is a one time thing.
+
+76
+00:04:30,600 --> 00:04:35,070
+I don't need this to be a reusable function that I can call over and over somewhere else.
+
+77
+00:04:35,370 --> 00:04:37,590
+Then I don't have to make it a reusable function.
+
+78
+00:04:37,590 --> 00:04:41,190
+I don't have to make it a named function or save it to a variable.
+
+79
+00:04:41,190 --> 00:04:43,560
+I can just pass in this function expression.
+
+80
+00:04:43,560 --> 00:04:49,230
+And this is a very common pattern set time out, not the set timeout part, but passing in an anonymous
+
+81
+00:04:49,230 --> 00:04:51,510
+function to another function.
+
+82
+00:04:51,660 --> 00:04:53,310
+So we'll see this quite a bit.
+
+83
+00:04:53,580 --> 00:04:58,470
+This function will be called after 5000 seconds, 5000 milliseconds.
+
+84
+00:04:58,680 --> 00:04:59,880
+I should have done 3000.
+
+85
+00:04:59,880 --> 00:05:02,290
+5000 takes a little bit too long.
+
+86
+00:05:02,290 --> 00:05:03,300
+I don't know what to say.
+
+87
+00:05:03,300 --> 00:05:04,410
+Okay, there it is.
+
+88
+00:05:04,410 --> 00:05:06,000
+This page says welcome.
+
+89
+00:05:06,420 --> 00:05:09,720
+So that's one example I'm going to show you another example.
+
+90
+00:05:09,720 --> 00:05:12,060
+This one's a little bit more advanced.
+
+91
+00:05:12,060 --> 00:05:15,960
+It involves some stuff we haven't seen before, but it's also a bit more exciting.
+
+92
+00:05:16,530 --> 00:05:22,200
+We're going to write some code that will run when we click a button on the page.
+
+93
+00:05:22,200 --> 00:05:24,900
+So we need to add a button, first of all.
+
+94
+00:05:24,900 --> 00:05:28,860
+So in our HTML page we'll add a button inside the body.
+
+95
+00:05:29,040 --> 00:05:34,470
+We haven't covered anything around DOM manipulation events, so this is a preview of something we'll
+
+96
+00:05:34,470 --> 00:05:39,810
+spend a lot of time on later on in the course, but I'll add a button here that says, Don't click me.
+
+97
+00:05:42,580 --> 00:05:48,670
+And then something I need to do that's important is move my script, tag down to the end of my body
+
+98
+00:05:49,540 --> 00:05:55,570
+because this script needs to run after all of the content has loaded after the button is on the page.
+
+99
+00:05:55,570 --> 00:06:00,190
+If I left it here, it would run first before the button was on the page.
+
+100
+00:06:00,520 --> 00:06:04,900
+Now, again, the takeaway here is not the actual syntax, it's not the methods.
+
+101
+00:06:04,900 --> 00:06:06,100
+The code I'm going to show you.
+
+102
+00:06:06,100 --> 00:06:08,380
+It's the pattern of passing in a callback.
+
+103
+00:06:08,860 --> 00:06:13,210
+So in order to run code, when this button is clicked, I need to start by selecting it.
+
+104
+00:06:14,200 --> 00:06:17,410
+This is something we will spend time on later on, so don't get hung up on it.
+
+105
+00:06:17,410 --> 00:06:23,800
+But I'll make a variable called BTN and I'm going to select that button document query selector passing
+
+106
+00:06:23,800 --> 00:06:28,630
+a string of button and this will select the button for me that was here.
+
+107
+00:06:28,780 --> 00:06:34,660
+Now the way I run code when we click on that button is by calling a method called add event listener
+
+108
+00:06:34,660 --> 00:06:35,620
+on the button.
+
+109
+00:06:36,250 --> 00:06:38,170
+I'm going to listen for a click.
+
+110
+00:06:38,170 --> 00:06:40,980
+And then this second part is the most important piece.
+
+111
+00:06:40,990 --> 00:06:48,490
+This is a function to run when the button is clicked, so we could define a separate function like Grumpy's,
+
+112
+00:06:48,490 --> 00:06:50,260
+and I could pass that in right here.
+
+113
+00:06:51,430 --> 00:06:56,440
+Then when I click on that button, Grumpy's will be called and we can play around with it.
+
+114
+00:06:56,440 --> 00:06:57,400
+Here's my button.
+
+115
+00:06:58,090 --> 00:07:04,720
+I get an error because I didn't uncomment Grumpy's try that again, refresh the page, I click, I get
+
+116
+00:07:04,720 --> 00:07:07,360
+my alert, and this approach works.
+
+117
+00:07:07,360 --> 00:07:10,750
+If we needed Grumpy's somewhere else, if we wanted to do something with it.
+
+118
+00:07:10,750 --> 00:07:14,320
+But if this is just a one time thing, I'm only using it here.
+
+119
+00:07:14,740 --> 00:07:16,990
+I can add in an anonymous function.
+
+120
+00:07:17,170 --> 00:07:18,790
+This is my callback function.
+
+121
+00:07:18,910 --> 00:07:20,650
+Grumpy's was a callback as well.
+
+122
+00:07:20,650 --> 00:07:22,060
+This is a different callback.
+
+123
+00:07:22,060 --> 00:07:24,790
+This one is anonymous and all alert.
+
+124
+00:07:25,750 --> 00:07:27,700
+Why did you click me?
+
+125
+00:07:30,600 --> 00:07:34,170
+And if we test this out, refresh the page, click.
+
+126
+00:07:34,680 --> 00:07:35,640
+Why did you click me?
+
+127
+00:07:35,670 --> 00:07:40,710
+Don't panic about any of this syntax, query, selector document and event listener.
+
+128
+00:07:40,740 --> 00:07:45,600
+Just worry about this part we're passing in a function just like we did right here.
+
+129
+00:07:45,600 --> 00:07:51,330
+We pass a function into another function, and the typical pattern you'll see a lot is to use an anonymous
+
+130
+00:07:51,330 --> 00:07:54,450
+function rather than declaring it and giving it a name.
+
+131
+00:07:54,450 --> 00:07:58,410
+If you don't need to reuse it, if you don't need to do that, it's a one time thing.
+
+132
+00:07:58,410 --> 00:08:00,870
+Just pass it in as an anonymous function.
+
+133
+00:08:00,870 --> 00:08:06,090
+In fact, this is such a common thing that there is an even shorter way of doing this, a shorter syntax
+
+134
+00:08:06,090 --> 00:08:08,010
+that we'll see in the next section.
+
+135
+00:08:08,010 --> 00:08:14,250
+So this is just an intro to callbacks, the idea of passing a function in to another function, the
+
+136
+00:08:14,250 --> 00:08:18,420
+term that describes this function we pass in is callback.
+
+137
+00:08:19,210 --> 00:08:19,630
+All right.
+

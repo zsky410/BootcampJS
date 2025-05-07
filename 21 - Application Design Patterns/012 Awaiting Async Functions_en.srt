@@ -1,0 +1,280 @@
+1
+00:00:00,920 --> 00:00:03,500
+Let's continue working on our autocomplete inputs.
+
+2
+00:00:03,530 --> 00:00:07,550
+At this point we are calling fetch data inside of the on input function.
+
+3
+00:00:07,880 --> 00:00:11,210
+Let's make sure that we return some useful data from fetch data.
+
+4
+00:00:11,450 --> 00:00:14,900
+Once we get some usable data back, we'll then make sure that we iterate over it.
+
+5
+00:00:14,900 --> 00:00:18,890
+And for every movie we fetch, we'll try to render out some content onto the screen.
+
+6
+00:00:19,040 --> 00:00:24,110
+After that, we'll then start to think about how we can select a video and by actually clicking on it.
+
+7
+00:00:24,560 --> 00:00:27,200
+So to make sure that we actually get some data back from fetch data.
+
+8
+00:00:27,230 --> 00:00:29,630
+Let's take a look at the fetch data implementation.
+
+9
+00:00:29,660 --> 00:00:30,650
+Here it is right here.
+
+10
+00:00:31,100 --> 00:00:35,330
+Right now, at the very end of the function, we're just console logging out our data, which is not
+
+11
+00:00:35,330 --> 00:00:36,170
+very useful.
+
+12
+00:00:36,200 --> 00:00:41,090
+Instead, we should probably return all the data that we have fetched, but more importantly, we need
+
+13
+00:00:41,090 --> 00:00:45,530
+to make sure that we only return the actual real data that we care about.
+
+14
+00:00:45,560 --> 00:00:47,060
+Let me show you what I mean by that.
+
+15
+00:00:47,630 --> 00:00:50,900
+If I go back over to my browser right now and do another search.
+
+16
+00:00:52,040 --> 00:00:56,750
+I'm going to see a council log of all the data that we get back inside of our request.
+
+17
+00:00:57,140 --> 00:00:59,570
+So this is the console data property.
+
+18
+00:01:00,080 --> 00:01:05,060
+It is an object that has a search property inside of it that is an array of objects.
+
+19
+00:01:05,330 --> 00:01:08,570
+So you and I don't really care about the response property.
+
+20
+00:01:08,570 --> 00:01:10,480
+We don't really care about total results.
+
+21
+00:01:10,490 --> 00:01:13,730
+All you and I really care about is the search property.
+
+22
+00:01:14,000 --> 00:01:19,940
+So from fetch data, we should really only be returning the search property and nothing else.
+
+23
+00:01:20,480 --> 00:01:21,950
+So I'm going to go back over.
+
+24
+00:01:22,190 --> 00:01:23,570
+I'm going to find fetch data.
+
+25
+00:01:24,290 --> 00:01:32,270
+I'm going to remove that console log and I will I will replace it with return response data search.
+
+26
+00:01:32,930 --> 00:01:35,240
+Now notice I'm using a capital S right here.
+
+27
+00:01:35,240 --> 00:01:37,100
+That is definitely not standard.
+
+28
+00:01:37,130 --> 00:01:41,870
+Usually in JavaScript we always have every variable preceding with a lowercase letter like.
+
+29
+00:01:41,870 --> 00:01:47,210
+So the only reason I'm using an uppercase s right here is that the response that we actually get back
+
+30
+00:01:47,210 --> 00:01:49,970
+from this API has a capital S in it.
+
+31
+00:01:50,210 --> 00:01:53,960
+And that's actually true with many of the different properties that we're going to see coming back from
+
+32
+00:01:53,960 --> 00:01:54,800
+the API.
+
+33
+00:01:55,250 --> 00:02:01,820
+This is very much non-standard in nature, so it is way more standard on any API to see all these different
+
+34
+00:02:01,820 --> 00:02:04,010
+property names with lowercase letters.
+
+35
+00:02:04,010 --> 00:02:09,139
+So in general you should expect to see lowercase letters at the start of every property name.
+
+36
+00:02:09,139 --> 00:02:13,670
+It just happens that this API author decided to use uppercase instead.
+
+37
+00:02:14,270 --> 00:02:18,710
+So unfortunately we have to follow that same convention at some locations inside of our code.
+
+38
+00:02:20,560 --> 00:02:20,740
+Okay.
+
+39
+00:02:20,800 --> 00:02:26,860
+So now whenever we call fetch data, we're going to get back our array of different movies we fetched.
+
+40
+00:02:27,220 --> 00:02:32,410
+So inside of on input, let's make sure that we take whatever comes out of fetch data and assign it
+
+41
+00:02:32,410 --> 00:02:33,160
+to a variable.
+
+42
+00:02:33,760 --> 00:02:35,650
+So let's say cost movies is.
+
+43
+00:02:36,600 --> 00:02:37,320
+That's data.
+
+44
+00:02:38,430 --> 00:02:41,550
+And then right after that, I'll do another console.log log of movies.
+
+45
+00:02:42,680 --> 00:02:46,000
+If we save this and run it, we're going to very quickly see something unexpected.
+
+46
+00:02:46,010 --> 00:02:48,140
+So, of course, let's do that right away.
+
+47
+00:02:48,650 --> 00:02:49,610
+I'll flip back over.
+
+48
+00:02:49,610 --> 00:02:50,480
+Refresh.
+
+49
+00:02:50,750 --> 00:02:51,920
+I'll run it again.
+
+50
+00:02:52,010 --> 00:02:54,500
+And now I see a console log of a promise.
+
+51
+00:02:54,500 --> 00:02:56,000
+So what's going on here?
+
+52
+00:02:56,000 --> 00:03:00,230
+I'm seeing a promise instead of an array of movies, which is what I kind of expected to see.
+
+53
+00:03:00,890 --> 00:03:03,830
+Well, remember, fetch data is an async function.
+
+54
+00:03:03,830 --> 00:03:05,870
+We marked it with the async keyword.
+
+55
+00:03:05,870 --> 00:03:11,060
+So whenever we call fetch data, it's going to take some amount of time to actually process this request
+
+56
+00:03:11,060 --> 00:03:14,120
+and then eventually return the data that we get back.
+
+57
+00:03:14,600 --> 00:03:19,160
+Right now, when we call fetch data, we are treating it as though it were a synchronous function.
+
+58
+00:03:19,520 --> 00:03:25,520
+So if we want to somehow wait on fetch data to actually get some data and get access to the response,
+
+59
+00:03:25,520 --> 00:03:28,580
+we have to treat it as though it were an async function.
+
+60
+00:03:28,580 --> 00:03:32,120
+So in other words, we need to put the await keyword right in front of it.
+
+61
+00:03:32,570 --> 00:03:37,820
+And now because we are using the await keyword inside the on input function, we have to mark that function
+
+62
+00:03:37,820 --> 00:03:39,770
+as being async as well.
+
+63
+00:03:42,340 --> 00:03:44,590
+So let's save this and try to run it again.
+
+64
+00:03:45,470 --> 00:03:47,510
+Buy Refresh and put in Avengers.
+
+65
+00:03:47,510 --> 00:03:50,600
+Now I can see my list of different movies being printed out.
+
+66
+00:03:50,810 --> 00:03:52,190
+Okay, so that's definitely better.
+
+67
+00:03:52,960 --> 00:03:53,280
+All right.
+
+68
+00:03:53,290 --> 00:03:56,610
+Now that we've got our data inside of on input, let's take another quick pause.
+
+69
+00:03:56,620 --> 00:04:00,550
+When we come back, the next video, we're going to start to iterate over our list of movies and turning
+
+70
+00:04:00,550 --> 00:04:04,480
+each one into a snippet of HTML and then throw it onto our document.
+

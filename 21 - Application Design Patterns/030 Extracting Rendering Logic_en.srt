@@ -1,0 +1,432 @@
+1
+00:00:00,490 --> 00:00:02,080
+Our first test worked out pretty well.
+
+2
+00:00:02,080 --> 00:00:04,330
+So let's continue on with this refactor.
+
+3
+00:00:04,360 --> 00:00:06,540
+I'm inside of my indexed JS file.
+
+4
+00:00:06,550 --> 00:00:10,530
+Inside of here we've got the three create autocomplete function calls in a row.
+
+5
+00:00:10,540 --> 00:00:12,970
+We don't really need three different auto completes.
+
+6
+00:00:12,970 --> 00:00:16,930
+I just did that for testing purposes, so I'm going to delete the two.
+
+7
+00:00:17,710 --> 00:00:18,510
+Right there.
+
+8
+00:00:18,520 --> 00:00:21,550
+And we're going to go back to just one call to create autocomplete.
+
+9
+00:00:22,350 --> 00:00:26,970
+I'm also going to go to my index.html file and remove those two extra divs.
+
+10
+00:00:29,430 --> 00:00:30,000
+All right.
+
+11
+00:00:30,330 --> 00:00:32,369
+So let's continue on with this refactor.
+
+12
+00:00:32,369 --> 00:00:37,950
+I want to continue to add in some additional functions to that config object that we're passing to the
+
+13
+00:00:37,950 --> 00:00:39,600
+create autocomplete function.
+
+14
+00:00:40,050 --> 00:00:45,180
+We're then going to refactor the function to make sure that it uses the functions we had provided instead
+
+15
+00:00:45,180 --> 00:00:49,290
+of locating all that logic directly inside of the create autocomplete function.
+
+16
+00:00:49,860 --> 00:00:53,610
+So I think the next one we should try working on is render option.
+
+17
+00:00:53,610 --> 00:00:58,590
+So this is going to be a function that is going to be called with each different option or each kind
+
+18
+00:00:58,590 --> 00:01:01,380
+of object that we're getting back from that API.
+
+19
+00:01:01,440 --> 00:01:06,780
+We're going to pass it into this function and that function needs to return some kind of string.
+
+20
+00:01:06,780 --> 00:01:10,440
+That's going to be the HTML that shows up inside of the dropdown.
+
+21
+00:01:11,620 --> 00:01:14,830
+So in short, if we go back over to autocomplete JWs.
+
+22
+00:01:15,830 --> 00:01:17,360
+Here is create autocomplete.
+
+23
+00:01:17,360 --> 00:01:24,230
+And if we go down to our four of loop right now, right about here essentially where we're setting the
+
+24
+00:01:24,230 --> 00:01:30,290
+inner HTML of the option, remember we had said that this is assuming 100% that we always want to show
+
+25
+00:01:30,290 --> 00:01:33,170
+in image and then the title right next to it.
+
+26
+00:01:33,170 --> 00:01:36,740
+But we might decide that we want our autocomplete to work in some very different way.
+
+27
+00:01:36,740 --> 00:01:39,350
+Like, for example, maybe we won't have an image at all.
+
+28
+00:01:40,030 --> 00:01:44,920
+So right now this would be really challenging to customize because this is code that is located inside
+
+29
+00:01:44,920 --> 00:01:49,690
+of our autocomplete file, which we want to be as reusable as possible.
+
+30
+00:01:50,170 --> 00:01:56,020
+So instead, I want to extract the logic that decides what this thing looks like to a helper function
+
+31
+00:01:56,020 --> 00:01:57,790
+on that config object.
+
+32
+00:01:58,560 --> 00:02:03,420
+We're going to assume that that helper function is going to be called with each movie object that we
+
+33
+00:02:03,420 --> 00:02:04,530
+are iterating over.
+
+34
+00:02:04,860 --> 00:02:07,770
+Now, I know you see the variable movie inside of here quite a bit still.
+
+35
+00:02:07,770 --> 00:02:12,180
+And like I'm still using the term movie, we are going to eventually refactor the terminology inside
+
+36
+00:02:12,180 --> 00:02:14,070
+of here to not refer to movie anymore.
+
+37
+00:02:14,100 --> 00:02:15,870
+I just want to throw that out there really quickly.
+
+38
+00:02:17,130 --> 00:02:17,480
+Okay.
+
+39
+00:02:17,490 --> 00:02:23,190
+So back inside of our index case file, I'm going to find where we create the autocomplete.
+
+40
+00:02:23,870 --> 00:02:27,200
+I'm going to pass in a second property into this object.
+
+41
+00:02:27,440 --> 00:02:30,050
+I'm going to call it render option.
+
+42
+00:02:31,920 --> 00:02:37,170
+We could make this a function like, so we could also assign it as an arrow function.
+
+43
+00:02:37,170 --> 00:02:38,550
+No difference whatsoever.
+
+44
+00:02:38,550 --> 00:02:40,380
+We can really use either syntax.
+
+45
+00:02:41,260 --> 00:02:47,680
+So passed into this function, I'm going to expect to receive some object like each individual object
+
+46
+00:02:47,680 --> 00:02:53,230
+that represents some possible movie or whatever else, and I'll just refer to it as movie.
+
+47
+00:02:54,170 --> 00:02:57,440
+Then inside we're going to generate some HTML and return it.
+
+48
+00:02:57,440 --> 00:03:00,560
+And this will be the HTML to get shown for each individual option.
+
+49
+00:03:01,290 --> 00:03:04,470
+So we're going to have to extract all the logic we had around that.
+
+50
+00:03:04,470 --> 00:03:09,990
+It's not only the HTML right there, we also have to extract that line where we got the Image CRC as
+
+51
+00:03:09,990 --> 00:03:15,240
+remember in some cases the poster link was an A and we needed to make sure we handled that as well.
+
+52
+00:03:16,070 --> 00:03:18,830
+So I'm going to take the Image Z line right there.
+
+53
+00:03:18,860 --> 00:03:19,910
+I'm going to cut it.
+
+54
+00:03:20,950 --> 00:03:23,770
+I'm going to go paste it back inside of render option.
+
+55
+00:03:25,730 --> 00:03:29,250
+I'll then go and get the inner HTML that we had created right here.
+
+56
+00:03:29,270 --> 00:03:30,230
+I'm going to cut it.
+
+57
+00:03:32,400 --> 00:03:33,900
+Go back over to render option.
+
+58
+00:03:34,200 --> 00:03:36,630
+I'll paste it in here and return it.
+
+59
+00:03:38,330 --> 00:03:43,670
+So now we have extracted all of our rendering logic into this render option function, and it's going
+
+60
+00:03:43,670 --> 00:03:47,990
+to be called many times automatically with each movie that the autocomplete fetches.
+
+61
+00:03:49,410 --> 00:03:54,120
+So now we just need to make sure that the create autocomplete function references this function to figure
+
+62
+00:03:54,120 --> 00:03:56,070
+out what each option should look like.
+
+63
+00:03:56,800 --> 00:03:59,080
+So to do so, we'll go back over to the other file.
+
+64
+00:03:59,930 --> 00:04:01,460
+We're going to go up to the very top.
+
+65
+00:04:03,630 --> 00:04:08,080
+We're going to make sure that we structure off the render option function.
+
+66
+00:04:09,240 --> 00:04:11,910
+Then we'll go back down to that same four of loop.
+
+67
+00:04:14,120 --> 00:04:15,080
+Here it is right here.
+
+68
+00:04:15,810 --> 00:04:18,930
+I'll find where I left the option in or HTML.
+
+69
+00:04:18,930 --> 00:04:25,380
+So to generate the HTML to show for this option, we're going to call render option with the movie that
+
+70
+00:04:25,380 --> 00:04:26,880
+we are currently iterating over.
+
+71
+00:04:27,880 --> 00:04:28,900
+And there we go.
+
+72
+00:04:29,530 --> 00:04:35,170
+So now, once again, we've extracted some custom logic that is only appropriate for this movie related
+
+73
+00:04:35,170 --> 00:04:35,770
+stuff.
+
+74
+00:04:36,040 --> 00:04:39,370
+And if we ever decide that we want the autocomplete to look very different.
+
+75
+00:04:39,370 --> 00:04:44,350
+So if you want to generate some HTML for each individual option, we only have to update the render
+
+76
+00:04:44,350 --> 00:04:47,000
+option function back inside of index js.
+
+77
+00:04:47,680 --> 00:04:51,010
+So I'll now save this and do a quick test.
+
+78
+00:04:52,080 --> 00:04:52,680
+Back over here.
+
+79
+00:04:52,680 --> 00:04:53,610
+I'll refresh.
+
+80
+00:04:54,150 --> 00:04:57,030
+I'll look for Avengers and I still see the same thing.
+
+81
+00:04:57,480 --> 00:05:02,700
+Let's try making a change to the render option function just to see how easy it is now to make a change
+
+82
+00:05:02,700 --> 00:05:04,290
+and get something that looks slightly different.
+
+83
+00:05:04,830 --> 00:05:09,690
+As a quick reminder inside of the data that we get back from our API, it contains the year that the
+
+84
+00:05:09,690 --> 00:05:10,800
+movie was created.
+
+85
+00:05:10,950 --> 00:05:14,790
+So let's try printing out the year that the movie was created next to each option as well.
+
+86
+00:05:15,330 --> 00:05:18,690
+So to do so, I no longer this is the entire key right here.
+
+87
+00:05:18,690 --> 00:05:20,880
+This is the part to like listen to.
+
+88
+00:05:20,910 --> 00:05:26,550
+In other words, I no longer have to go hunting through and searching through all the source code of
+
+89
+00:05:26,550 --> 00:05:31,370
+the create autocomplete function to figure out how to change what each individual item looks like.
+
+90
+00:05:31,380 --> 00:05:37,130
+Instead, I can look at my render option function right here, which is very appropriately named.
+
+91
+00:05:37,140 --> 00:05:41,970
+If I see that name, chances are I would think to myself, Oh, this is where we decide how to change
+
+92
+00:05:41,970 --> 00:05:43,800
+what each individual option looks like.
+
+93
+00:05:44,310 --> 00:05:49,530
+So then inside of here, right after the movie title, I could put down like maybe a set of parentheses
+
+94
+00:05:49,530 --> 00:05:54,750
+and then inside there print out using dollar sign and curly brace movie dot yea.
+
+95
+00:05:56,180 --> 00:05:57,320
+So we can save that.
+
+96
+00:05:57,350 --> 00:05:59,120
+Go back over, refresh.
+
+97
+00:05:59,450 --> 00:06:00,880
+Look for Avengers again.
+
+98
+00:06:00,890 --> 00:06:02,750
+And now I see the year on there.
+
+99
+00:06:03,320 --> 00:06:07,640
+So hopefully this change is a little bit more meaningful when we start talking about all this refactoring
+
+100
+00:06:07,640 --> 00:06:09,890
+and kind of reusable logic stuff.
+
+101
+00:06:10,280 --> 00:06:14,930
+It is the presence of this function right here that will make it really clear to other engineers how
+
+102
+00:06:14,930 --> 00:06:20,540
+to customize and get some version of the autocomplete that works for their particular application.
+
+103
+00:06:20,900 --> 00:06:25,460
+I'm sure you can imagine that if we wanted to make even more changes to how each individual option looks,
+
+104
+00:06:25,460 --> 00:06:28,160
+we would just make some more changes to render option.
+
+105
+00:06:28,160 --> 00:06:29,060
+And that's it.
+
+106
+00:06:30,130 --> 00:06:30,220
+Okay.
+
+107
+00:06:30,280 --> 00:06:34,630
+So hopefully now you're starting to get a little bit more sense of the purpose of this whole refactor.
+
+108
+00:06:34,960 --> 00:06:37,960
+So let's take a quick pause right here and continue in the next video.
+

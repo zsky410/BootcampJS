@@ -1,0 +1,268 @@
+1
+00:00:00,500 --> 00:00:04,370
+Well, now that we've got just about everything working as expected, let's start to think about how
+
+2
+00:00:04,370 --> 00:00:08,330
+we're going to actually scale this entire game to fill up the entire screen.
+
+3
+00:00:08,420 --> 00:00:13,580
+So I want to make sure that no matter what size browser window the user is using, I want this canvas
+
+4
+00:00:13,580 --> 00:00:17,420
+to stretch from the very top left corner all the way down to the very bottom.
+
+5
+00:00:17,420 --> 00:00:18,050
+Right.
+
+6
+00:00:18,620 --> 00:00:23,600
+To do so, we're going to add in one CSS rule and we're going to change a couple of different variables
+
+7
+00:00:23,600 --> 00:00:25,230
+inside of our JavaScript file.
+
+8
+00:00:25,250 --> 00:00:27,710
+It's just about all the logic is going to remain the same.
+
+9
+00:00:27,710 --> 00:00:33,260
+We just have to make sure that at several different locations we respect a measurement in the Y direction
+
+10
+00:00:33,260 --> 00:00:38,960
+and X direction as opposed to what's going on right now, where we just assume we always have an identical
+
+11
+00:00:38,960 --> 00:00:40,820
+width and height no matter what.
+
+12
+00:00:41,870 --> 00:00:42,940
+So first things first.
+
+13
+00:00:42,950 --> 00:00:45,170
+What's with the CSIS rule that I just mentioned?
+
+14
+00:00:45,530 --> 00:00:47,930
+Well, if you open up your element, Inspector.
+
+15
+00:00:49,420 --> 00:00:51,880
+And take a look at the body elements right now.
+
+16
+00:00:52,030 --> 00:00:56,440
+You might notice that the body by default has a margin of eight pixels on it.
+
+17
+00:00:56,980 --> 00:01:02,050
+So that is preventing our canvas right here from getting truly to the top left corner of the browser
+
+18
+00:01:02,050 --> 00:01:02,650
+window.
+
+19
+00:01:03,160 --> 00:01:06,760
+So let's make sure that we can just remove that default margin on the body.
+
+20
+00:01:07,590 --> 00:01:09,450
+To do so i'll go back over to my editor.
+
+21
+00:01:09,870 --> 00:01:12,330
+I'm going to open up the index.html html file.
+
+22
+00:01:12,360 --> 00:01:15,440
+Here it is right here in the head element.
+
+23
+00:01:15,450 --> 00:01:17,220
+I'll add in a style tag.
+
+24
+00:01:19,920 --> 00:01:21,840
+And then inside there, I'll select the body.
+
+25
+00:01:22,630 --> 00:01:24,970
+And set margin to zero.
+
+26
+00:01:26,020 --> 00:01:29,620
+That's going to remove that extra little bit of space around our canvas.
+
+27
+00:01:29,920 --> 00:01:34,600
+By now, refresh, I should see the canvas go truly up to the top left corner.
+
+28
+00:01:35,640 --> 00:01:35,940
+All right.
+
+29
+00:01:35,940 --> 00:01:40,170
+So now how are we going to make sure that this canvas fills up the entire screen so from that corner
+
+30
+00:01:40,170 --> 00:01:40,860
+down to the bottom.
+
+31
+00:01:40,860 --> 00:01:41,370
+Right.
+
+32
+00:01:42,030 --> 00:01:46,760
+Well, if you take a look at your console really quickly, I'm going to type out window right here.
+
+33
+00:01:46,770 --> 00:01:51,120
+Remember, this is our window object, which is available to us by default when we are running JavaScript
+
+34
+00:01:51,120 --> 00:01:52,260
+code inside the browser.
+
+35
+00:01:52,920 --> 00:01:58,170
+One or two properties that this window object has is Windows inner with.
+
+36
+00:01:59,530 --> 00:02:01,600
+And windows that inner height.
+
+37
+00:02:02,320 --> 00:02:07,690
+These two properties are going to give me the entire visible area where the dimensions of it that the
+
+38
+00:02:07,690 --> 00:02:08,979
+user can see right now.
+
+39
+00:02:09,340 --> 00:02:14,140
+So it's going to be from that top left corner, just right underneath the back button, all the way
+
+40
+00:02:14,140 --> 00:02:17,380
+down to the bottom right corner of the viewable area.
+
+41
+00:02:17,410 --> 00:02:20,410
+It does not include any space that is taken up by the console.
+
+42
+00:02:21,010 --> 00:02:25,510
+So for example, if I pull the console out and then try to get the width again.
+
+43
+00:02:26,660 --> 00:02:29,660
+I now get a width that is much greater than what I had just a moment ago.
+
+44
+00:02:30,170 --> 00:02:32,040
+You can also see the inner height and width.
+
+45
+00:02:32,060 --> 00:02:34,710
+If you are using chrome as you drag around the console.
+
+46
+00:02:34,730 --> 00:02:38,060
+Just look at the top left hand corner or see me the top right hand corner right there.
+
+47
+00:02:38,390 --> 00:02:43,370
+So as I pull over the console, I'll see that the visible area gets smaller and smaller.
+
+48
+00:02:44,460 --> 00:02:49,530
+So we're going to use windows inner height and windows inner width to figure out exactly how large we
+
+49
+00:02:49,530 --> 00:02:50,760
+want our canvas to be.
+
+50
+00:02:52,040 --> 00:02:55,580
+So to get started, I'm going to go back over to my index file.
+
+51
+00:02:55,940 --> 00:02:58,790
+I'm going to find where we set up height and width right here.
+
+52
+00:02:59,120 --> 00:03:02,060
+And we will pull those values from the window object.
+
+53
+00:03:02,660 --> 00:03:06,950
+So I'll say windows inner width is going to be width.
+
+54
+00:03:07,990 --> 00:03:11,860
+And windows at inner height is going to be height.
+
+55
+00:03:13,220 --> 00:03:18,620
+Now, if I save this file right now and go back over and refresh, I will still see the maze up here
+
+56
+00:03:18,620 --> 00:03:21,800
+and it's going to take up the full space available to us.
+
+57
+00:03:22,310 --> 00:03:26,780
+If I close my console now and then refresh again, I'll see that it really does take up the entire browser
+
+58
+00:03:26,780 --> 00:03:27,350
+window.
+
+59
+00:03:27,560 --> 00:03:32,600
+However, because of our maze logic, which assumes we always have equal dimensions for the height and
+
+60
+00:03:32,600 --> 00:03:36,260
+the width, well, the entire maze doesn't actually show up correctly.
+
+61
+00:03:36,590 --> 00:03:40,010
+The ball is shown correctly and our square over here is showing correctly.
+
+62
+00:03:40,010 --> 00:03:43,430
+But the actual walls are not really placed in the appropriate locations.
+
+63
+00:03:43,910 --> 00:03:47,210
+So it's clear that we're still going to have to do a little bit more work to figure out how to get this
+
+64
+00:03:47,210 --> 00:03:48,290
+thing to work correctly.
+
+65
+00:03:48,770 --> 00:03:49,790
+So pause right here.
+
+66
+00:03:49,790 --> 00:03:53,990
+We're going to come back the next video and discuss the big refactor that we're going to do to a couple
+
+67
+00:03:53,990 --> 00:03:57,740
+of different variables inside of here to get everything else working the way we expect.
+

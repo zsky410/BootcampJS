@@ -1,0 +1,228 @@
+1
+00:00:00,090 --> 00:00:05,550
+Now that we've seen conditionals, we can talk about this kind of odd topic truthiness and falseness
+
+2
+00:00:05,550 --> 00:00:07,470
+or truth and false values.
+
+3
+00:00:07,650 --> 00:00:14,400
+All that this is is that every value in JavaScript has an inherent truthiness or falseness about it.
+
+4
+00:00:14,520 --> 00:00:18,380
+It doesn't mean it is truth or true or it is false.
+
+5
+00:00:18,390 --> 00:00:22,590
+There's only two values, true and false, that are actually true and false.
+
+6
+00:00:22,620 --> 00:00:27,960
+Those are the booleans, but every value has a truth or falseness to it.
+
+7
+00:00:27,990 --> 00:00:29,220
+Now, let me show you what I mean.
+
+8
+00:00:29,310 --> 00:00:35,040
+If we were to write a conditional like if let's make a variable called mystery.
+
+9
+00:00:35,950 --> 00:00:44,350
+Let's do, let's mystery equals five, and then we'll add a conditional of if mystery, just mystery,
+
+10
+00:00:44,350 --> 00:00:46,210
+not mystery equals anything.
+
+11
+00:00:46,210 --> 00:00:50,630
+Just if mystery will conceal that log truth.
+
+12
+00:00:52,800 --> 00:00:57,270
+And then else we can contact Logue Falsey.
+
+13
+00:01:00,330 --> 00:01:04,349
+I'm not sure if falsity is spelled like that or that it's not really the technical term.
+
+14
+00:01:05,220 --> 00:01:12,300
+But anyway, we are just checking this single condition if mystery, which is right now set to five.
+
+15
+00:01:12,420 --> 00:01:14,900
+If that is true, thi this would print.
+
+16
+00:01:14,910 --> 00:01:17,850
+If it's not true thi meaning it's falsely this would print.
+
+17
+00:01:17,970 --> 00:01:19,110
+Let's see what we get.
+
+18
+00:01:19,560 --> 00:01:20,670
+We get true thi.
+
+19
+00:01:20,820 --> 00:01:23,610
+So the number five is a truth e value.
+
+20
+00:01:23,610 --> 00:01:28,650
+In fact, every number that you could possibly choose except for zero is true.
+
+21
+00:01:29,820 --> 00:01:31,460
+You can see zero is false.
+
+22
+00:01:32,280 --> 00:01:37,860
+The only caveat to that is not a number which we've seen a couple of times that is also falsely.
+
+23
+00:01:37,980 --> 00:01:41,640
+So something like zero divided by zero is going to give us not a number.
+
+24
+00:01:41,730 --> 00:01:44,190
+I'm refreshing and we still see false.
+
+25
+00:01:44,250 --> 00:01:46,960
+Almost every single value in java script is true.
+
+26
+00:01:46,990 --> 00:01:49,590
+Thi except for these right here.
+
+27
+00:01:49,770 --> 00:01:53,730
+So the actual value of false of course is false.
+
+28
+00:01:54,090 --> 00:01:57,540
+Zero, as we just saw, is false empty string.
+
+29
+00:01:57,540 --> 00:01:58,830
+So there's no space in there.
+
+30
+00:01:58,830 --> 00:02:06,930
+It's just an empty string like this that is falsely null, undefined and not a number.
+
+31
+00:02:07,110 --> 00:02:10,490
+Everything else, excluding these, everything else, is truth.
+
+32
+00:02:11,190 --> 00:02:12,330
+Now, why does this matter?
+
+33
+00:02:12,330 --> 00:02:13,670
+Why should you really care?
+
+34
+00:02:13,680 --> 00:02:16,140
+It's not just a little piece of trivia to know.
+
+35
+00:02:16,290 --> 00:02:23,220
+Often you'll see people use this strategy if some variable do something, not mystery, but something
+
+36
+00:02:23,220 --> 00:02:23,850
+like this.
+
+37
+00:02:23,850 --> 00:02:36,570
+If, let's say current user or logged in user then console.log, something like you are logged in else
+
+38
+00:02:38,130 --> 00:02:39,450
+console.log.
+
+39
+00:02:40,800 --> 00:02:42,240
+Please log in.
+
+40
+00:02:42,510 --> 00:02:43,070
+Okay.
+
+41
+00:02:43,260 --> 00:02:45,870
+So something like this is pretty common.
+
+42
+00:02:45,870 --> 00:02:51,720
+Maybe not console logging, but displaying a certain page showing the sign in button versus the sign
+
+43
+00:02:51,720 --> 00:02:52,560
+out button.
+
+44
+00:02:52,800 --> 00:02:55,920
+We're just checking if a variable is toothy.
+
+45
+00:02:56,280 --> 00:03:02,040
+So if we define logged in user and it's set to I don't know.
+
+46
+00:03:02,040 --> 00:03:07,230
+Thomas One, two, three, we're going to see you are logged in.
+
+47
+00:03:07,350 --> 00:03:15,360
+But if it is not set to anything like undefined, please logged in, please log in or if it's set to
+
+48
+00:03:15,360 --> 00:03:17,130
+null, which would be another option.
+
+49
+00:03:17,490 --> 00:03:18,690
+Please log in.
+
+50
+00:03:18,930 --> 00:03:25,950
+Same thing if we had a string for somebody name username we could write if username and if that username
+
+51
+00:03:25,950 --> 00:03:29,340
+is still an empty string, then that code would not run.
+
+52
+00:03:29,340 --> 00:03:32,580
+If it was anything else in that string, it would run.
+
+53
+00:03:32,640 --> 00:03:38,790
+So this is just a small side topic, but you will see this pretty frequently checking for a value.
+
+54
+00:03:38,820 --> 00:03:42,270
+We're not checking to see if it's equal to something in particular.
+
+55
+00:03:42,270 --> 00:03:48,240
+We're seeing if it's true, which usually is a way of checking if something has content, if it exists,
+
+56
+00:03:48,240 --> 00:03:55,350
+if it's not null, undefined, zero, false, empty string or not a number, anything else will pass
+
+57
+00:03:55,350 --> 00:03:56,340
+this condition.
+

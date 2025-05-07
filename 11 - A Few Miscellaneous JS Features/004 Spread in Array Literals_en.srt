@@ -1,0 +1,532 @@
+1
+00:00:00,120 --> 00:00:02,790
+Next up, we'll see the second use case for spread.
+
+2
+00:00:02,820 --> 00:00:08,520
+If we go back to this paragraph of gibberish from Indian spread, syntax allows an iterable such as
+
+3
+00:00:08,520 --> 00:00:14,400
+an array to be expanded in places where zero or more elements for array literals are expected.
+
+4
+00:00:14,580 --> 00:00:17,840
+So we can use those three dots inside of an array literal.
+
+5
+00:00:17,850 --> 00:00:21,780
+We just saw how we can use it in a function call in an array literal.
+
+6
+00:00:21,780 --> 00:00:23,820
+It does something very similar.
+
+7
+00:00:23,820 --> 00:00:27,390
+It takes an iterable and it spreads it out.
+
+8
+00:00:27,540 --> 00:00:34,470
+It takes the individual pieces, and in the case of an array, it copies them over into a new destination
+
+9
+00:00:34,470 --> 00:00:34,890
+array.
+
+10
+00:00:34,890 --> 00:00:39,000
+So we can use it to combine arrays to make a copy of an array.
+
+11
+00:00:39,040 --> 00:00:42,600
+There's a whole bunch of situations where you may end up using spread.
+
+12
+00:00:42,900 --> 00:00:43,890
+So let's check it out.
+
+13
+00:00:43,890 --> 00:00:45,630
+I have a simple example over here.
+
+14
+00:00:46,020 --> 00:00:50,040
+I have some arrays of really cool animals, some of my favorite animals out there.
+
+15
+00:00:50,040 --> 00:00:55,970
+We've got cephalopods which are basically squid, cuttlefish, nautilus.
+
+16
+00:00:56,100 --> 00:00:57,930
+So there's a couple of examples in here.
+
+17
+00:00:57,930 --> 00:01:03,450
+We've got gastro pods, giant African snail variable neon slug, a really cool animal.
+
+18
+00:01:03,450 --> 00:01:10,050
+And Nigeria, which include things like jellyfish and in corals and hydra and a couple of other things.
+
+19
+00:01:10,050 --> 00:01:13,030
+Anyway, we're going to combine them in a few different ways.
+
+20
+00:01:13,050 --> 00:01:14,430
+Also, stick around at the end.
+
+21
+00:01:14,430 --> 00:01:19,140
+If you want to see some photos and videos of these, some of them are pretty cool, but I won't waste
+
+22
+00:01:19,140 --> 00:01:21,090
+your time in the middle of the video with that.
+
+23
+00:01:21,270 --> 00:01:23,190
+So quick biology lesson.
+
+24
+00:01:23,190 --> 00:01:28,620
+Both of these right here, cephalopods and gastro pods, they're both considered mollusks.
+
+25
+00:01:28,620 --> 00:01:35,910
+So if I wanted to make an array with both of them called mollusks or mollusks I think is the correct
+
+26
+00:01:35,910 --> 00:01:45,480
+Latin term I could use spread like this cephalopods, comma, dot, dot, dot gastro pods.
+
+27
+00:01:45,750 --> 00:01:51,090
+And this will make me a new array with both contents of those arrays combined into one.
+
+28
+00:01:51,300 --> 00:01:52,710
+So let's take a look.
+
+29
+00:01:52,890 --> 00:01:54,240
+What do we have over here?
+
+30
+00:01:54,480 --> 00:01:56,730
+Mollusk has six elements.
+
+31
+00:01:56,730 --> 00:02:00,210
+We had three from cephalopods and three from gastro pods.
+
+32
+00:02:00,210 --> 00:02:01,500
+Notice the order.
+
+33
+00:02:01,620 --> 00:02:07,800
+I put cephalopods first, so we get those three elements first and then gastro pods afterwards, and
+
+34
+00:02:07,800 --> 00:02:09,570
+the original arrays are untouched.
+
+35
+00:02:09,780 --> 00:02:16,200
+We're just making a copy or actually a new array with copies of both arrays inside.
+
+36
+00:02:16,410 --> 00:02:22,830
+If I instead did it the other way around and I did three dots with gastro pods first, and then three
+
+37
+00:02:22,830 --> 00:02:26,490
+dots spread with, uh, cephalopods.
+
+38
+00:02:26,670 --> 00:02:28,260
+Cephalopods.
+
+39
+00:02:29,150 --> 00:02:31,340
+You can see the order is different now.
+
+40
+00:02:31,460 --> 00:02:35,210
+So we have the first three from gastro pods, the second three from cephalopods.
+
+41
+00:02:35,240 --> 00:02:36,680
+The order does matter.
+
+42
+00:02:37,490 --> 00:02:42,740
+Also, we could add in other elements if we wanted to that weren't present from these arrays.
+
+43
+00:02:42,980 --> 00:02:45,350
+I could add in up front.
+
+44
+00:02:45,590 --> 00:02:46,640
+What's another mollusk?
+
+45
+00:02:46,640 --> 00:02:47,390
+We could add?
+
+46
+00:02:47,390 --> 00:02:52,220
+If I wanted to add at the beginning the garden slug, it would look like this.
+
+47
+00:02:52,550 --> 00:02:57,530
+I just add it as an element and then comma and then spread comma.
+
+48
+00:02:57,530 --> 00:02:58,490
+Spread more.
+
+49
+00:02:59,300 --> 00:03:00,410
+And there we go.
+
+50
+00:03:00,440 --> 00:03:03,230
+I could also combine more than one array.
+
+51
+00:03:03,290 --> 00:03:05,270
+I could do all three of these arrays.
+
+52
+00:03:05,750 --> 00:03:07,670
+They would be considered invertebrates.
+
+53
+00:03:07,670 --> 00:03:12,470
+So const inverts equals and then dot, dot, dot.
+
+54
+00:03:12,500 --> 00:03:14,090
+Let's do Nigeria first.
+
+55
+00:03:14,090 --> 00:03:16,660
+Dot, dot, dot, gastropub, dot, dot, dot.
+
+56
+00:03:16,700 --> 00:03:17,690
+I need my comma.
+
+57
+00:03:18,320 --> 00:03:19,460
+Dot, dot, dot.
+
+58
+00:03:19,580 --> 00:03:20,720
+Cephalopods.
+
+59
+00:03:21,920 --> 00:03:27,590
+And if I look at inverts, we now have an array of eight elements, all of them combined.
+
+60
+00:03:27,680 --> 00:03:32,420
+Spread is great in situations where you need to combine arrays, but it's not doing something we couldn't
+
+61
+00:03:32,420 --> 00:03:33,330
+do before.
+
+62
+00:03:33,350 --> 00:03:36,110
+We have already seen how to use cat.
+
+63
+00:03:36,620 --> 00:03:39,440
+So for example, cephalopods can cat.
+
+64
+00:03:40,150 --> 00:03:41,320
+Gastro pods.
+
+65
+00:03:42,740 --> 00:03:48,560
+It gives us the same result that we had from this line where we're taking the data from cephalopods
+
+66
+00:03:48,560 --> 00:03:50,510
+and combining it with gastro pods.
+
+67
+00:03:50,510 --> 00:03:53,450
+And if we look at the originals, they're still unchanged.
+
+68
+00:03:53,480 --> 00:03:55,460
+This is just a shorter syntax.
+
+69
+00:03:55,460 --> 00:03:59,210
+It's easier to see and easier to reorder as you like.
+
+70
+00:03:59,480 --> 00:04:02,240
+And we can add an element wherever we want to.
+
+71
+00:04:02,270 --> 00:04:04,460
+We can do multiple arrays combined.
+
+72
+00:04:04,460 --> 00:04:05,600
+There's a lot we can do.
+
+73
+00:04:05,600 --> 00:04:10,790
+And one of the most common use cases for spread is actually just to make a copy of an array.
+
+74
+00:04:11,000 --> 00:04:16,720
+If I just want a second version of Nigeria, actually let's go with cephalopods.
+
+75
+00:04:16,730 --> 00:04:18,170
+Nigeria is annoying to spell.
+
+76
+00:04:18,529 --> 00:04:24,980
+I could do const sjef copy equals array literal brackets.
+
+77
+00:04:24,980 --> 00:04:27,380
+Dot dot dot cephalopods.
+
+78
+00:04:28,930 --> 00:04:37,300
+And if I look at C.F. copy, I now have the same data and they have unique references so they are not
+
+79
+00:04:37,300 --> 00:04:38,920
+triple equals to each other.
+
+80
+00:04:39,520 --> 00:04:43,120
+SCEF copy triple equals cephalopods.
+
+81
+00:04:44,250 --> 00:04:52,980
+Is false versus if I had just made an array like const or I made a variable const copy equals cephalopods.
+
+82
+00:04:55,080 --> 00:05:01,470
+Copy Triple equals cephalopods will be true as we've seen before, because they are referencing the
+
+83
+00:05:01,470 --> 00:05:02,730
+same reference.
+
+84
+00:05:02,730 --> 00:05:04,230
+They're pointing to the same reference.
+
+85
+00:05:04,230 --> 00:05:10,650
+But when we use spread here, it is going to make a clone a new array in memory with a new unique reference.
+
+86
+00:05:10,890 --> 00:05:13,920
+But that does not extend to nested arrays.
+
+87
+00:05:13,920 --> 00:05:17,910
+Or if we had objects inside of the arrays, those won't be cloned.
+
+88
+00:05:17,910 --> 00:05:21,990
+The references will remain the same, so it does not go multiple levels deep.
+
+89
+00:05:22,530 --> 00:05:24,090
+So we can do this with arrays.
+
+90
+00:05:24,090 --> 00:05:28,260
+We can also spread other types of data into an array.
+
+91
+00:05:28,590 --> 00:05:32,190
+There's not many that you would do it with, but one example would be a string.
+
+92
+00:05:32,550 --> 00:05:39,210
+If we wanted to get a string, like let's say we had a BCD EFG, imagine this is the whole alphabet.
+
+93
+00:05:39,210 --> 00:05:46,290
+And I wanted an array where each character was one element I could do split, which we've seen already.
+
+94
+00:05:46,290 --> 00:05:53,280
+And you pass in an empty string saying, Split this string on nothing, split on every character.
+
+95
+00:05:53,400 --> 00:05:56,190
+And it gives us an array just like that.
+
+96
+00:05:56,400 --> 00:06:00,420
+But I can also do this abcd cfg and spread it.
+
+97
+00:06:00,750 --> 00:06:01,740
+One, two, three.
+
+98
+00:06:02,430 --> 00:06:06,150
+And it's the same idea what we had here with an array.
+
+99
+00:06:06,150 --> 00:06:12,720
+When we spread it, we're telling JavaScript to iterate over this iterable and for each item in there
+
+100
+00:06:12,720 --> 00:06:18,690
+add it as an element in the array, which is what we did earlier with a different array rather than
+
+101
+00:06:18,690 --> 00:06:20,640
+a string, but the same process.
+
+102
+00:06:20,640 --> 00:06:22,350
+So we can spread strings.
+
+103
+00:06:22,560 --> 00:06:27,990
+Probably not that common that you would spread a bunch of them into one array, but we could we could
+
+104
+00:06:27,990 --> 00:06:35,310
+do a, b, c, d, e, f, comma, hello.
+
+105
+00:06:35,850 --> 00:06:37,650
+And then spread these guys.
+
+106
+00:06:37,920 --> 00:06:42,240
+And that's what we end up with a B, C, D, E, F and then hello at the end.
+
+107
+00:06:42,330 --> 00:06:48,330
+So that's pretty much it for spreading into an array literal same idea as spreading into a function
+
+108
+00:06:48,330 --> 00:06:48,870
+call.
+
+109
+00:06:49,020 --> 00:06:55,050
+We're taking an iterable and breaking it into pieces and moving them or copying them to a destination.
+
+110
+00:06:55,050 --> 00:07:00,180
+In this case, it's an array that we're creating, and as promised, I'll show you some of those animals
+
+111
+00:07:00,180 --> 00:07:01,230
+if you want to check them out.
+
+112
+00:07:01,230 --> 00:07:04,560
+Some of my favorite guys on earth, guys favorite animals.
+
+113
+00:07:04,560 --> 00:07:06,690
+We've got the Dumbo octopus.
+
+114
+00:07:06,690 --> 00:07:12,030
+Very adorable, tiny octopus, very cute, giant African snail.
+
+115
+00:07:12,210 --> 00:07:14,400
+Horrifyingly huge snails.
+
+116
+00:07:14,400 --> 00:07:16,740
+They're giant as their name tells you.
+
+117
+00:07:16,770 --> 00:07:18,810
+Quite, quite intimidating.
+
+118
+00:07:18,840 --> 00:07:20,670
+I would not want to hold one of those in my hands.
+
+119
+00:07:20,670 --> 00:07:24,870
+Then we've got a really cool animal called a variable neon slug.
+
+120
+00:07:24,900 --> 00:07:30,060
+It's a species of nudibranchs these really cool flatworms that live in the ocean.
+
+121
+00:07:31,020 --> 00:07:34,440
+Lots of them have beautiful, beautiful colors, as you can see here.
+
+122
+00:07:34,440 --> 00:07:41,100
+And then finally, my favorite, the flamboyant cuttlefish, they're are tiny, adorable little creatures
+
+123
+00:07:41,100 --> 00:07:47,640
+with incredible skin and the ability to display these patterns and change their the shape of their body.
+
+124
+00:07:47,640 --> 00:07:48,600
+Very hypnotic.
+
+125
+00:07:48,600 --> 00:07:50,760
+Anyway, so those are some of my favorite animals.
+
+126
+00:07:50,760 --> 00:07:55,200
+Thanks for joining me on Colt's Animal, our back to JavaScript.
+
+127
+00:07:55,200 --> 00:07:56,370
+That's coming up next.
+
+128
+00:07:56,370 --> 00:07:57,300
+More spread.
+
+129
+00:07:57,300 --> 00:07:57,960
+Wait, wait.
+
+130
+00:07:57,960 --> 00:07:59,730
+I forgot to show you the best part.
+
+131
+00:07:59,850 --> 00:08:00,810
+Here we go.
+
+132
+00:08:00,840 --> 00:08:06,570
+The way that they eat this appendage comes out horrifying and then snaps back.
+
+133
+00:08:06,690 --> 00:08:08,220
+Okay, that's it for that.
+

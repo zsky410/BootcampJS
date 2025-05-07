@@ -1,0 +1,204 @@
+1
+00:00:00,120 --> 00:00:03,540
+So that's the basics of adding a method to a object.
+
+2
+00:00:03,570 --> 00:00:05,250
+It's just a key value pair.
+
+3
+00:00:05,280 --> 00:00:06,870
+The function is the value.
+
+4
+00:00:06,930 --> 00:00:08,070
+Now, I didn't show this.
+
+5
+00:00:08,070 --> 00:00:09,920
+You can use an arrow function.
+
+6
+00:00:09,930 --> 00:00:14,970
+It's not that common for reasons you'll see in just a moment once we talk about the keyword this.
+
+7
+00:00:15,330 --> 00:00:20,640
+But in addition, there is a nice new shorthand for adding a method to an object where we don't have
+
+8
+00:00:20,640 --> 00:00:25,290
+to use the key value pair syntax, where we have a key colon and then a function.
+
+9
+00:00:25,290 --> 00:00:27,570
+Instead we can write a function like this.
+
+10
+00:00:27,570 --> 00:00:31,560
+So we give it a name and this name will be used to create the key.
+
+11
+00:00:31,950 --> 00:00:37,920
+We still need our commas to separate the properties, but now we don't have to do the key colon value.
+
+12
+00:00:38,520 --> 00:00:40,500
+So this is a newer syntax.
+
+13
+00:00:40,650 --> 00:00:46,830
+If we want to try it out, we'll make an object here called Auth and we'll have some dummy functions
+
+14
+00:00:46,830 --> 00:00:49,920
+like log in and log in.
+
+15
+00:00:49,920 --> 00:00:54,960
+We'll simply console that log logged you in like that.
+
+16
+00:00:55,350 --> 00:00:55,740
+All right.
+
+17
+00:00:55,740 --> 00:01:01,440
+So nothing very extravagant, but we have a function in here and it's actually a method.
+
+18
+00:01:01,530 --> 00:01:04,170
+If we look at Auth, this is what it turned into.
+
+19
+00:01:04,590 --> 00:01:10,110
+We have log in as the key and then the function that corresponds to it as the value.
+
+20
+00:01:10,380 --> 00:01:12,690
+So it uses this to create the key.
+
+21
+00:01:13,440 --> 00:01:17,340
+And again, we do need commas if we have more than one property in here.
+
+22
+00:01:17,340 --> 00:01:23,220
+So instead of auth if I wanted to add username is Tommy boy Tommy.
+
+23
+00:01:23,220 --> 00:01:27,600
+But sure we need a comma and it still works.
+
+24
+00:01:28,380 --> 00:01:31,590
+We now have two properties to add another method in.
+
+25
+00:01:31,590 --> 00:01:32,430
+Same thing.
+
+26
+00:01:32,430 --> 00:01:37,670
+I need my comma here and then we can go with log out and we'll cancel that log.
+
+27
+00:01:37,680 --> 00:01:38,460
+Goodbye.
+
+28
+00:01:38,820 --> 00:01:41,040
+Now we'll take a look at Auth one more time.
+
+29
+00:01:41,700 --> 00:01:43,680
+And we have three properties.
+
+30
+00:01:43,890 --> 00:01:47,380
+If we leave that comma out, it's not happy with us.
+
+31
+00:01:47,400 --> 00:01:48,780
+It doesn't know what to do.
+
+32
+00:01:49,110 --> 00:01:50,660
+We are in an object.
+
+33
+00:01:50,670 --> 00:01:55,200
+Even if we're using this nice shorthand, we still need to separate all properties by commas.
+
+34
+00:01:55,830 --> 00:01:56,920
+And that's kind of it.
+
+35
+00:01:56,940 --> 00:01:58,220
+It's a nice shorthand.
+
+36
+00:01:58,230 --> 00:02:04,170
+It is new, so it's not something that you may see all the time in older tutorials, but it's here for
+
+37
+00:02:04,170 --> 00:02:04,620
+a reason.
+
+38
+00:02:04,620 --> 00:02:07,810
+We do this so often we add properties to an object.
+
+39
+00:02:07,830 --> 00:02:09,300
+This is just cleaner.
+
+40
+00:02:09,300 --> 00:02:15,420
+We don't have to write this log in key colon and then a function expression.
+
+41
+00:02:15,690 --> 00:02:21,090
+We don't have to clutter our code with the function keyword or if we use an arrow function we still
+
+42
+00:02:21,090 --> 00:02:22,350
+would be cluttering this.
+
+43
+00:02:23,040 --> 00:02:25,140
+Just show you that we can do an arrow function.
+
+44
+00:02:25,200 --> 00:02:30,150
+We still are cluttering our code here with the login key, the colon.
+
+45
+00:02:30,210 --> 00:02:32,160
+Just additional here.
+
+46
+00:02:32,160 --> 00:02:33,420
+It's a lot shorter.
+
+47
+00:02:34,510 --> 00:02:35,080
+Okay.
+
+48
+00:02:35,110 --> 00:02:36,070
+And that's it.
+
+49
+00:02:36,100 --> 00:02:37,630
+Next, we've got a big one.
+
+50
+00:02:37,630 --> 00:02:42,610
+We're going to talk about the keyword, this really fundamental thing in JavaScript that helps us write
+
+51
+00:02:42,610 --> 00:02:45,100
+much more useful methods in our objects.
+

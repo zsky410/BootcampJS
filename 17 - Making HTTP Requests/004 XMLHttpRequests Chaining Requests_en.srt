@@ -1,0 +1,424 @@
+1
+00:00:00,150 --> 00:00:05,250
+All right, so we saw the loveliness of XYZ, XML HTTP requests.
+
+2
+00:00:05,490 --> 00:00:06,840
+It didn't seem that bad.
+
+3
+00:00:06,960 --> 00:00:12,150
+I mean, it's a little extra syntax, but if this was the only way we had to make requests, we can
+
+4
+00:00:12,150 --> 00:00:13,410
+obviously make it work.
+
+5
+00:00:13,530 --> 00:00:19,620
+Where it gets kind of annoying is once we start making these requests that are dependent on one another.
+
+6
+00:00:19,740 --> 00:00:24,570
+So for example, here we're getting all the planets back, or at least the first ten planets.
+
+7
+00:00:24,570 --> 00:00:27,760
+And if we look just on the API, this is a little dashboard.
+
+8
+00:00:27,780 --> 00:00:29,690
+If we look at the data, we get back.
+
+9
+00:00:29,700 --> 00:00:36,510
+It includes residents and films which are actually just references to other API endpoints.
+
+10
+00:00:36,720 --> 00:00:43,530
+So if I wanted to take the first planet and look at the first resident of that planet, I would send
+
+11
+00:00:43,530 --> 00:00:45,660
+another request to this URL.
+
+12
+00:00:46,290 --> 00:00:48,010
+So let's do that through our code.
+
+13
+00:00:48,030 --> 00:00:50,610
+We need to wait for the first request to come back.
+
+14
+00:00:50,700 --> 00:00:52,530
+Then we'll look inside results.
+
+15
+00:00:52,530 --> 00:00:54,660
+We'll get the first results.
+
+16
+00:00:54,660 --> 00:01:00,480
+The first planet looking residents will get the first resident and send a request to that URL.
+
+17
+00:01:01,810 --> 00:01:02,920
+Let's see if it works.
+
+18
+00:01:03,370 --> 00:01:09,730
+So up here, we would have to write our code inside the callback to make a second request.
+
+19
+00:01:10,330 --> 00:01:11,620
+So we're getting our data.
+
+20
+00:01:11,740 --> 00:01:16,380
+Why don't we just start by singling out the URL we want to request?
+
+21
+00:01:16,390 --> 00:01:17,350
+So that's data.
+
+22
+00:01:17,350 --> 00:01:18,660
+Dot what is it?
+
+23
+00:01:18,670 --> 00:01:20,680
+Results dot.
+
+24
+00:01:21,670 --> 00:01:24,280
+We want the first result so of zero.
+
+25
+00:01:24,940 --> 00:01:26,860
+We can start by printing that.
+
+26
+00:01:29,240 --> 00:01:31,910
+Refresh the page on my web page.
+
+27
+00:01:32,960 --> 00:01:34,390
+So that's the first result.
+
+28
+00:01:34,400 --> 00:01:35,780
+Then we want residents.
+
+29
+00:01:35,780 --> 00:01:38,180
+Or we could do films that might be more interesting.
+
+30
+00:01:38,190 --> 00:01:39,140
+Why don't we do films?
+
+31
+00:01:39,140 --> 00:01:39,920
+So we'll do data.
+
+32
+00:01:40,100 --> 00:01:42,350
+Results of zero dot films.
+
+33
+00:01:42,770 --> 00:01:43,940
+That's an array.
+
+34
+00:01:44,060 --> 00:01:49,520
+We want the first URL that we get from that films array, which is right here.
+
+35
+00:01:50,000 --> 00:01:53,550
+Swap eco slash API, slash films, slash six.
+
+36
+00:01:53,570 --> 00:01:58,010
+This is a URL that we can send a request to to get more information.
+
+37
+00:01:58,040 --> 00:02:00,350
+And it looks like what is this film?
+
+38
+00:02:00,350 --> 00:02:02,690
+Slash six is Revenge of the Sith.
+
+39
+00:02:03,650 --> 00:02:06,410
+Honestly, I know almost nothing about Star Wars, sadly.
+
+40
+00:02:06,770 --> 00:02:09,570
+I love sci fi and fantasy, but somehow I've never seen them.
+
+41
+00:02:09,590 --> 00:02:12,440
+So let's now send a request to this URL.
+
+42
+00:02:13,790 --> 00:02:16,250
+So we have the URL, we'll save it to a variable.
+
+43
+00:02:16,250 --> 00:02:28,040
+We'll call this concert film URL, then we have to do all of this again so we make a new object concert
+
+44
+00:02:28,040 --> 00:02:36,200
+film request equals new xml http request not capitalized, even though I always attempt to do it the
+
+45
+00:02:36,200 --> 00:02:36,920
+first time.
+
+46
+00:02:36,920 --> 00:02:41,540
+Then film request dot add event listener on load.
+
+47
+00:02:42,410 --> 00:02:43,940
+Put our callback in here.
+
+48
+00:02:44,480 --> 00:02:46,250
+Let's just cancel that log.
+
+49
+00:02:46,550 --> 00:02:47,100
+Hmm.
+
+50
+00:02:47,270 --> 00:02:51,290
+Let's do this just to start.
+
+51
+00:02:52,580 --> 00:02:56,000
+Then we'll add our other event listener if it fails.
+
+52
+00:02:57,350 --> 00:03:00,770
+So for the error, that's what the ADD event listener for error.
+
+53
+00:03:01,460 --> 00:03:06,320
+At our function in here we do have an event object, by the way, that we can use.
+
+54
+00:03:06,620 --> 00:03:16,370
+Why don't we cancel that log error and then also show the event object, that error event object, and
+
+55
+00:03:16,370 --> 00:03:19,100
+then we need to actually send the request.
+
+56
+00:03:19,100 --> 00:03:21,590
+But first we have to open it like we did down here.
+
+57
+00:03:21,590 --> 00:03:25,100
+So film request, dot open.
+
+58
+00:03:25,100 --> 00:03:33,050
+We want to get request and the URL this time is this URL right here film URL that we extracted from
+
+59
+00:03:33,050 --> 00:03:35,270
+the response of the very first request.
+
+60
+00:03:35,780 --> 00:03:42,290
+So film url then finally film request dot send.
+
+61
+00:03:42,290 --> 00:03:45,980
+So if it works, we should see this printed out first.
+
+62
+00:03:45,980 --> 00:03:48,230
+We'll say first request.
+
+63
+00:03:49,260 --> 00:03:50,040
+Worked.
+
+64
+00:03:50,940 --> 00:03:54,000
+And then let's add a second console.log here.
+
+65
+00:03:55,350 --> 00:03:57,030
+Second request worked.
+
+66
+00:03:59,480 --> 00:04:01,730
+Let's give it a look first.
+
+67
+00:04:01,760 --> 00:04:03,080
+Hey, second one worked.
+
+68
+00:04:03,110 --> 00:04:07,700
+Let's take a look at what we get back instead of response or response text.
+
+69
+00:04:08,030 --> 00:04:09,220
+We've got title.
+
+70
+00:04:09,230 --> 00:04:10,820
+Let's just print the movie title.
+
+71
+00:04:11,630 --> 00:04:13,340
+So we need to parse again.
+
+72
+00:04:13,700 --> 00:04:17,430
+So this references the entire film request object.
+
+73
+00:04:17,450 --> 00:04:23,720
+We want this dot response text, which is exactly what we did in the first request.
+
+74
+00:04:23,870 --> 00:04:29,210
+We want to parse that whole thing, so we use that magic method that comes for free with JavaScript,
+
+75
+00:04:29,210 --> 00:04:32,000
+JSON, parse that turns it into JavaScript.
+
+76
+00:04:32,660 --> 00:04:39,110
+We'll save this in a variable called film data and we can just cancel that log film data now.
+
+77
+00:04:40,530 --> 00:04:41,400
+Try it again.
+
+78
+00:04:42,560 --> 00:04:46,490
+Now we have an actual JavaScript object and it contains information.
+
+79
+00:04:46,490 --> 00:04:52,940
+So we sent one request to get all the planets and we're just arbitrarily selecting the first planet
+
+80
+00:04:52,940 --> 00:04:55,040
+and the first film that it appears in.
+
+81
+00:04:55,040 --> 00:05:01,010
+It also appears, I think this planet, whatever the first planet was, Alderaan or something, I don't
+
+82
+00:05:01,010 --> 00:05:02,000
+know, I might have made that up.
+
+83
+00:05:02,000 --> 00:05:07,250
+Whatever the first planet is, it appears in two films we took the first one and we requested information
+
+84
+00:05:07,250 --> 00:05:13,430
+about that using the URL from that films array from the first result.
+
+85
+00:05:13,430 --> 00:05:17,810
+So we couldn't make the second request until the first one was successfully completed.
+
+86
+00:05:17,810 --> 00:05:19,730
+So we have to nest it inside here.
+
+87
+00:05:19,970 --> 00:05:21,890
+These nasty nested callbacks.
+
+88
+00:05:21,890 --> 00:05:23,420
+This is just not a good look.
+
+89
+00:05:23,420 --> 00:05:25,580
+And it's still only, what, two levels deep?
+
+90
+00:05:25,580 --> 00:05:26,300
+It's not bad.
+
+91
+00:05:26,300 --> 00:05:28,640
+We're not even doing much with our errors at all.
+
+92
+00:05:28,640 --> 00:05:29,780
+We're not handling them.
+
+93
+00:05:29,780 --> 00:05:32,150
+We're not trying to make a subsequent request.
+
+94
+00:05:32,510 --> 00:05:34,820
+Often you will try and make another request.
+
+95
+00:05:34,820 --> 00:05:40,010
+If the first one errors, you might try something different, and then that subsequent request needs
+
+96
+00:05:40,010 --> 00:05:41,510
+to have its own two callbacks.
+
+97
+00:05:41,510 --> 00:05:47,660
+Things get very messy very quickly, which is really the main reason that I don't like to use XYZ,
+
+98
+00:05:47,660 --> 00:05:49,100
+why most people don't like them.
+
+99
+00:05:49,250 --> 00:05:50,750
+It's just difficult.
+
+100
+00:05:50,750 --> 00:05:55,940
+It gets messy and nested, which is why fetch was created, which is what we'll see just after this
+
+101
+00:05:55,940 --> 00:05:56,390
+video.
+
+102
+00:05:56,390 --> 00:06:02,510
+Fetch supports promises which makes it way, way easier to make subsequent requests or to handle failures.
+
+103
+00:06:02,510 --> 00:06:03,830
+We need one catch.
+
+104
+00:06:03,830 --> 00:06:07,790
+So if you didn't watch the promises section, definitely go back and check it out.
+
+105
+00:06:07,790 --> 00:06:12,470
+It will help you really understand what is so amazing about fetch and promises in general.
+
+106
+00:06:12,470 --> 00:06:13,700
+So that's coming up next.
+

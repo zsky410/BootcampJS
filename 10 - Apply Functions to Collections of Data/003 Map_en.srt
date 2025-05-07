@@ -1,0 +1,724 @@
+1
+00:00:00,150 --> 00:00:04,830
+Next up, we have the array method that I probably use the most out of all of them.
+
+2
+00:00:04,830 --> 00:00:06,030
+It's called Map.
+
+3
+00:00:06,240 --> 00:00:10,440
+Map is used to create a new array from an existing array.
+
+4
+00:00:10,680 --> 00:00:15,720
+It could be used to simply duplicate an array, though there are easier ways of doing it, but it can
+
+5
+00:00:15,720 --> 00:00:22,590
+also be used to extract portions of an array or to somehow transform an array into a new array, double
+
+6
+00:00:22,590 --> 00:00:27,930
+every number in this array, or reverse every string in the original, and make a new array with those
+
+7
+00:00:27,930 --> 00:00:30,570
+reverse strings so it accepts a callback.
+
+8
+00:00:30,570 --> 00:00:31,740
+Just like for each.
+
+9
+00:00:31,770 --> 00:00:38,250
+It calls that callback with every element in the array, but it builds a new array with those values.
+
+10
+00:00:38,610 --> 00:00:42,750
+So here's a simple example here I have an array called text.
+
+11
+00:00:42,750 --> 00:00:51,420
+We have rofl lol omg t l for strings lowercase and I'm calling texts dot map.
+
+12
+00:00:51,630 --> 00:00:58,080
+I'm passing a callback function in the parameter name I settled on was PT represents each one of these
+
+13
+00:00:58,080 --> 00:01:03,360
+strings and I'm returning from this function PT to uppercase.
+
+14
+00:01:03,630 --> 00:01:10,440
+And what this whole map does overall is it generates a new array and I'm storing it in a variable called
+
+15
+00:01:10,440 --> 00:01:14,250
+caps, so it does not alter or update texts.
+
+16
+00:01:14,250 --> 00:01:20,490
+Its original values are still unchanged, but I've mapped them over to a new array called Caps, so
+
+17
+00:01:20,490 --> 00:01:22,590
+we'll take a look at a bunch of examples.
+
+18
+00:01:22,830 --> 00:01:25,860
+I have to sample arrays to start nice and simple ones.
+
+19
+00:01:25,860 --> 00:01:27,270
+Let's work with numbers.
+
+20
+00:01:27,270 --> 00:01:30,060
+Let's make a new array called doubles.
+
+21
+00:01:30,060 --> 00:01:36,270
+Doubles will be an array where every value is double this value, the corresponding value in numbers.
+
+22
+00:01:36,510 --> 00:01:41,070
+So we'll call numbers dot map and we'll pass in a function.
+
+23
+00:01:41,280 --> 00:01:47,280
+Usually we use anonymous functions unless you have a pre-defined function that does exactly what you
+
+24
+00:01:47,280 --> 00:01:47,790
+need.
+
+25
+00:01:47,790 --> 00:01:54,330
+Usually these are one time use things and the callback parameter I'll go with is just numb.
+
+26
+00:01:54,330 --> 00:01:55,020
+That makes sense.
+
+27
+00:01:55,020 --> 00:01:56,430
+It represents each number.
+
+28
+00:01:57,390 --> 00:02:00,540
+Now what I need to do from this function is return a value.
+
+29
+00:02:00,540 --> 00:02:03,900
+This is how map knows what values to add to the array.
+
+30
+00:02:03,900 --> 00:02:06,600
+If I don't return anything, it won't work.
+
+31
+00:02:06,810 --> 00:02:09,900
+So let's return num times to.
+
+32
+00:02:11,170 --> 00:02:15,140
+And if I run this right now, we don't get anything or we don't see anything.
+
+33
+00:02:15,160 --> 00:02:20,110
+Numbers is unchanged because MAP does not mutate the original array.
+
+34
+00:02:20,140 --> 00:02:22,170
+It maps the values to a new array.
+
+35
+00:02:22,180 --> 00:02:24,130
+So I need to capture that value.
+
+36
+00:02:24,130 --> 00:02:30,850
+If I run this code in my console, you can see that it returns map itself, returns this new mapped
+
+37
+00:02:30,850 --> 00:02:31,330
+array.
+
+38
+00:02:31,330 --> 00:02:35,020
+So I'll capture that in a variable const doubles.
+
+39
+00:02:36,890 --> 00:02:37,820
+I'll try it again.
+
+40
+00:02:37,910 --> 00:02:40,730
+And now, if I look at doubles, it exists.
+
+41
+00:02:40,730 --> 00:02:43,790
+And it's a double of this original array.
+
+42
+00:02:44,210 --> 00:02:48,410
+So if I don't return something, I just cancel that log.
+
+43
+00:02:48,410 --> 00:02:51,020
+Or I'm simply writing this expression here.
+
+44
+00:02:51,710 --> 00:02:56,570
+If we look at doubles, it's an array full of undefined.
+
+45
+00:02:56,630 --> 00:03:02,000
+Because Mab doesn't care what the return value is, it's going to take whatever is returned from our
+
+46
+00:03:02,000 --> 00:03:07,610
+function and add it into a new array eight times because it ran our function eight times.
+
+47
+00:03:07,610 --> 00:03:11,000
+There's eight elements here and each time nothing was returned.
+
+48
+00:03:11,000 --> 00:03:15,200
+And when a function returns, nothing, the value you get is undefined.
+
+49
+00:03:15,200 --> 00:03:18,030
+So it created an array of eight undefined.
+
+50
+00:03:18,200 --> 00:03:20,420
+So we need to return a value here.
+
+51
+00:03:22,280 --> 00:03:23,000
+There we go.
+
+52
+00:03:23,270 --> 00:03:26,960
+Next, let's do another example with numbers once again.
+
+53
+00:03:26,960 --> 00:03:32,240
+But instead of simply doubling the value, let's decide if the number is even or odd.
+
+54
+00:03:32,240 --> 00:03:37,280
+And we're going to map them into a new array where the array will contain.
+
+55
+00:03:37,280 --> 00:03:45,260
+Let's have it contain an object for each element and we'll have the number set to 20 and then we'll
+
+56
+00:03:45,260 --> 00:03:48,740
+set is even to true or false.
+
+57
+00:03:50,550 --> 00:03:53,730
+And we'll do that for every single element in numbers.
+
+58
+00:03:55,050 --> 00:04:00,240
+So to do that, we need to call numbers map pass in our callback function.
+
+59
+00:04:00,270 --> 00:04:03,330
+I'll go with PN as the parameter of this time instead of NUM.
+
+60
+00:04:03,990 --> 00:04:07,050
+And then we know we want to check if the value is even.
+
+61
+00:04:07,260 --> 00:04:11,880
+And we want to return an object so we can return an object here.
+
+62
+00:04:11,910 --> 00:04:13,320
+We can do it all at once.
+
+63
+00:04:13,320 --> 00:04:19,560
+We don't have to make it in a variable first and then return it and we'll set value to be n.
+
+64
+00:04:21,690 --> 00:04:30,750
+And then we'll set is even to be a boolean true or false based off of PN mod two equals zero.
+
+65
+00:04:31,200 --> 00:04:37,200
+So this if the remainder, once you divide by two is zero, that will return true.
+
+66
+00:04:37,230 --> 00:04:38,660
+If not, it returns false.
+
+67
+00:04:38,670 --> 00:04:42,510
+So we'll end up with the is even property being true or false?
+
+68
+00:04:42,510 --> 00:04:45,330
+And then value is just the number itself.
+
+69
+00:04:45,330 --> 00:04:45,900
+RN.
+
+70
+00:04:46,470 --> 00:04:52,950
+So if we try this and save it to a variable, we'll go with const num detail.
+
+71
+00:04:53,730 --> 00:04:54,330
+I don't know.
+
+72
+00:04:54,330 --> 00:04:55,380
+It's not a great name.
+
+73
+00:04:55,440 --> 00:04:56,670
+Let's look at what we get.
+
+74
+00:04:56,670 --> 00:05:02,580
+Num detail is an array of objects and each object has a value and is.
+
+75
+00:05:02,580 --> 00:05:04,980
+Even so we have value.
+
+76
+00:05:04,980 --> 00:05:09,930
+21 is even false value 22 is even true.
+
+77
+00:05:10,710 --> 00:05:12,120
+So there's one example.
+
+78
+00:05:12,180 --> 00:05:14,610
+Now let's work with the array of strings.
+
+79
+00:05:14,940 --> 00:05:19,320
+I have all of these abbreviations and let's say I wanted to format them different.
+
+80
+00:05:19,320 --> 00:05:27,960
+I want an array where each string is all caps and separated by periods like a.s.a.p should be formatted
+
+81
+00:05:27,960 --> 00:05:29,760
+this way instead of ASAP.
+
+82
+00:05:29,970 --> 00:05:32,700
+So I want to map them into a new array.
+
+83
+00:05:33,240 --> 00:05:34,680
+What I need to do here.
+
+84
+00:05:34,680 --> 00:05:37,410
+Well, what I can do at least is use map.
+
+85
+00:05:37,410 --> 00:05:41,760
+If I didn't want to use map in all of these examples, I could do this manually.
+
+86
+00:05:41,760 --> 00:05:45,300
+I could make a loop for let word.
+
+87
+00:05:45,300 --> 00:05:53,220
+Let's go with numbers just to do this doubles example for the num of numbers I need to make a results
+
+88
+00:05:53,220 --> 00:05:55,200
+array so we'll make our array.
+
+89
+00:05:55,200 --> 00:06:00,900
+We'll call it doubles to const doubles two equals an empty array.
+
+90
+00:06:01,410 --> 00:06:05,820
+And then I need to push into doubles to push.
+
+91
+00:06:06,670 --> 00:06:08,740
+Numb times, too.
+
+92
+00:06:09,850 --> 00:06:11,410
+So I'm doing the same thing.
+
+93
+00:06:11,440 --> 00:06:17,250
+Effectively, there was no function involved, but I'm iterating over numbers for each number.
+
+94
+00:06:17,260 --> 00:06:20,410
+I'm multiplying it by two and pushing it into an array.
+
+95
+00:06:20,680 --> 00:06:27,160
+I'm actually doing the push one at a time versus when we use map, all we do is write a function map
+
+96
+00:06:27,160 --> 00:06:27,430
+calls.
+
+97
+00:06:27,430 --> 00:06:32,320
+That function takes the result and it puts it into a new array for us automatically, and it gives us
+
+98
+00:06:32,320 --> 00:06:32,980
+that array.
+
+99
+00:06:33,130 --> 00:06:35,950
+But if we verify that this works, doubles, too.
+
+100
+00:06:36,100 --> 00:06:36,970
+There we go.
+
+101
+00:06:37,240 --> 00:06:41,230
+But again, this is not calling a function for something simple, like multiplying by two.
+
+102
+00:06:41,260 --> 00:06:46,810
+This is easy, but map is really, really useful, especially when we start to combine it with other
+
+103
+00:06:46,810 --> 00:06:47,930
+methods that we'll see.
+
+104
+00:06:47,950 --> 00:06:53,080
+So I don't want to give you the impression that you should do this, that this is easier because it's
+
+105
+00:06:53,080 --> 00:06:54,010
+usually not.
+
+106
+00:06:54,040 --> 00:06:58,960
+I just wanted to kind of recreate the basics of what it's doing, so it makes that array for us.
+
+107
+00:06:58,960 --> 00:07:03,820
+It starts empty and then it calls this function, it gets a return value, it pushes that into the array
+
+108
+00:07:03,820 --> 00:07:05,740
+and then it does it again for the next element.
+
+109
+00:07:05,980 --> 00:07:07,840
+So back to our words.
+
+110
+00:07:08,500 --> 00:07:10,780
+We're going to call map words, dot map.
+
+111
+00:07:12,160 --> 00:07:14,860
+I'll call this word the parameter here.
+
+112
+00:07:15,430 --> 00:07:22,150
+Now, the logic to get this to be an abbreviation where we have all caps and a period after every letter
+
+113
+00:07:22,210 --> 00:07:24,130
+is a little tricky.
+
+114
+00:07:24,160 --> 00:07:27,310
+It's not hard, but we're going to use a couple of different methods.
+
+115
+00:07:27,310 --> 00:07:29,140
+We're going to capitalize it first.
+
+116
+00:07:29,140 --> 00:07:33,090
+So we're going to call word dot to uppercase.
+
+117
+00:07:33,100 --> 00:07:39,880
+Then the easiest way, in my opinion, to add a period after every character is to split the word into
+
+118
+00:07:39,880 --> 00:07:40,510
+an array.
+
+119
+00:07:41,560 --> 00:07:51,550
+So if we do it over here, if we had a.S.A.P, dot to uppercase, dot split, split wants to know where
+
+120
+00:07:51,550 --> 00:07:52,300
+it should split.
+
+121
+00:07:52,300 --> 00:07:58,840
+And if we give it an empty string, it creates an array with each character from that string.
+
+122
+00:07:58,840 --> 00:08:01,090
+So each element is one character.
+
+123
+00:08:01,210 --> 00:08:02,590
+So now I have an array.
+
+124
+00:08:02,800 --> 00:08:09,600
+Then I can call Dot, join on that array and tell it what to join those characters together with.
+
+125
+00:08:09,610 --> 00:08:15,370
+So take each element in this array that we just created using Split and join it together into one string,
+
+126
+00:08:15,370 --> 00:08:18,130
+separated by a period after each character.
+
+127
+00:08:18,130 --> 00:08:19,150
+And there we go.
+
+128
+00:08:19,480 --> 00:08:21,460
+So we can use that logic right here.
+
+129
+00:08:21,460 --> 00:08:27,940
+Word to uppercase split on the empty string, which means split on every character that gives us an
+
+130
+00:08:27,940 --> 00:08:31,420
+array and we can call join on a period.
+
+131
+00:08:32,140 --> 00:08:33,220
+So this is not going to work.
+
+132
+00:08:33,220 --> 00:08:34,090
+What am I missing?
+
+133
+00:08:35,020 --> 00:08:36,460
+I'm missing return.
+
+134
+00:08:36,789 --> 00:08:41,950
+We have to return this from our function and then let's capture the variable.
+
+135
+00:08:42,070 --> 00:08:45,130
+We'll call this abbreviated abbreviations.
+
+136
+00:08:45,730 --> 00:08:47,890
+If we run it, we look at a believes.
+
+137
+00:08:47,920 --> 00:08:50,230
+We now have this array that we mapped.
+
+138
+00:08:50,230 --> 00:08:53,590
+We took this array of values and we map them into a new array.
+
+139
+00:08:53,620 --> 00:08:57,700
+The originals are unchanged, but we now have a new array.
+
+140
+00:08:58,180 --> 00:09:02,650
+Remember, for each is similar, but we're not building an array with those values.
+
+141
+00:09:02,650 --> 00:09:04,950
+For each is like half of map.
+
+142
+00:09:04,960 --> 00:09:09,070
+It calls a function on every element, but it doesn't store them in an array.
+
+143
+00:09:09,070 --> 00:09:10,660
+It doesn't return a new array.
+
+144
+00:09:10,690 --> 00:09:16,390
+Map does map takes that function, it calls it, and it takes the return value and puts it in a new
+
+145
+00:09:16,390 --> 00:09:18,320
+array, which is how we end up with this.
+
+146
+00:09:18,340 --> 00:09:20,370
+Here's one more common use case for map.
+
+147
+00:09:20,380 --> 00:09:26,590
+If we have a slightly more complex data structure like this books array, we have a bunch of properties,
+
+148
+00:09:26,590 --> 00:09:28,260
+we have title author's rating.
+
+149
+00:09:28,270 --> 00:09:34,330
+If I wanted to create a new array that contained all the book titles in my library, I could use map
+
+150
+00:09:34,600 --> 00:09:37,930
+if I want to just extract or isolate the title.
+
+151
+00:09:37,930 --> 00:09:39,130
+I don't care about authors.
+
+152
+00:09:39,130 --> 00:09:40,270
+I don't care about rating.
+
+153
+00:09:40,270 --> 00:09:42,460
+I can use MAP to do that.
+
+154
+00:09:42,460 --> 00:09:43,750
+I would map over books.
+
+155
+00:09:43,750 --> 00:09:49,480
+So books map I pass in my callback and I'll call the parameter here.
+
+156
+00:09:49,720 --> 00:09:56,230
+Let's go with B for book and all I want to do is return the title.
+
+157
+00:09:56,290 --> 00:10:02,170
+So B title, return B title, and that's it.
+
+158
+00:10:02,530 --> 00:10:07,960
+So I'm saying create a new array based off of this array and the value I'm going to return that you
+
+159
+00:10:07,960 --> 00:10:11,440
+should use to make that new array is only the title.
+
+160
+00:10:11,620 --> 00:10:17,920
+So I'm whittling down this array of objects and turning it into an array of strings, turning it into
+
+161
+00:10:17,920 --> 00:10:18,520
+a strong term.
+
+162
+00:10:18,520 --> 00:10:21,220
+I'm creating a new version based off of it.
+
+163
+00:10:21,220 --> 00:10:23,310
+The original books is unchanged.
+
+164
+00:10:23,320 --> 00:10:24,340
+I'm mapping it.
+
+165
+00:10:24,340 --> 00:10:26,380
+So let's go with titles.
+
+166
+00:10:27,340 --> 00:10:28,600
+Let's look at titles.
+
+167
+00:10:30,330 --> 00:10:31,260
+And there we go.
+
+168
+00:10:31,350 --> 00:10:33,300
+I have whittled down the pieces I need.
+
+169
+00:10:33,300 --> 00:10:34,940
+I've extracted them.
+
+170
+00:10:34,950 --> 00:10:36,480
+I didn't change the original.
+
+171
+00:10:37,500 --> 00:10:39,220
+But this is a really common thing to do.
+
+172
+00:10:39,240 --> 00:10:45,030
+Sometimes you have complex data structures and you want an array of just one piece or just a couple
+
+173
+00:10:45,030 --> 00:10:45,720
+of pieces.
+
+174
+00:10:45,720 --> 00:10:47,280
+You want a simplified form.
+
+175
+00:10:47,280 --> 00:10:50,520
+We can use map to do that without impacting the original.
+
+176
+00:10:50,520 --> 00:10:55,110
+We just return the piece or the pieces that we want to form a new array using.
+
+177
+00:10:55,200 --> 00:10:56,250
+So that's map.
+
+178
+00:10:56,250 --> 00:10:57,990
+Like I said, it's very useful.
+
+179
+00:10:58,020 --> 00:11:00,990
+It helps us take one array and map it into a new array.
+
+180
+00:11:00,990 --> 00:11:07,260
+We provide a callback function and that callback is executed once per element in the original array.
+
+181
+00:11:07,260 --> 00:11:11,430
+And the return value of our callback is what is used to generate the new array.
+

@@ -1,0 +1,612 @@
+1
+00:00:00,120 --> 00:00:04,030
+Next up, we have a third option for making requests via JavaScript.
+
+2
+00:00:04,050 --> 00:00:05,790
+This is not a built in option.
+
+3
+00:00:05,790 --> 00:00:10,000
+It's not native JavaScript like Fetch or XLS.
+
+4
+00:00:10,020 --> 00:00:13,050
+It is a external library called Axios.
+
+5
+00:00:13,260 --> 00:00:18,030
+It's one of many a whole bunch of different HTTP libraries that you could use.
+
+6
+00:00:18,060 --> 00:00:24,750
+Axios is just the most popular and I prefer it over some of the other alternatives, but it is by no
+
+7
+00:00:24,750 --> 00:00:26,640
+means the one and only option.
+
+8
+00:00:26,640 --> 00:00:30,390
+It's just the one that I like, and it's one that you'll be using throughout the rest of the course
+
+9
+00:00:30,390 --> 00:00:33,300
+and a lot of the projects where we need to make requests.
+
+10
+00:00:33,660 --> 00:00:38,080
+So you can find it by going to GitHub slash Axios.
+
+11
+00:00:38,100 --> 00:00:45,900
+If you Google for Axios, there is this news website, Axios, which is actually pretty decent, but
+
+12
+00:00:45,900 --> 00:00:47,190
+that's not what we're looking for.
+
+13
+00:00:47,400 --> 00:00:50,070
+We're looking for the Axios GitHub.
+
+14
+00:00:50,070 --> 00:00:52,320
+So you could just do Axios HTTP.
+
+15
+00:00:53,190 --> 00:00:54,270
+Here we go.
+
+16
+00:00:54,300 --> 00:00:56,760
+This is the official GitHub repository.
+
+17
+00:00:57,150 --> 00:00:59,490
+You can see it has a ton of stars.
+
+18
+00:00:59,490 --> 00:01:01,680
+It's used by almost 2 million people.
+
+19
+00:01:01,710 --> 00:01:03,270
+Very popular library.
+
+20
+00:01:03,450 --> 00:01:07,620
+So all that it does is it simplifies the process of making requests.
+
+21
+00:01:08,070 --> 00:01:12,540
+It uses fetch behind the scenes so it doesn't give us anything we can't already do.
+
+22
+00:01:12,570 --> 00:01:16,870
+It's not somehow magically adding features to the language of JavaScript.
+
+23
+00:01:16,890 --> 00:01:21,780
+It just simplifies things through a bunch of methods and objects that it creates that we can interact
+
+24
+00:01:21,780 --> 00:01:22,290
+with.
+
+25
+00:01:22,320 --> 00:01:24,820
+It is promise based, just like fetch.
+
+26
+00:01:24,840 --> 00:01:27,900
+So that means that we don't have to deal with a bunch of nasty callbacks.
+
+27
+00:01:28,320 --> 00:01:33,630
+You can get a nice overview of the features here, but one of the most important features that people
+
+28
+00:01:33,630 --> 00:01:38,790
+really like is that you can use it both in the client on the browser side of things, which is what
+
+29
+00:01:38,790 --> 00:01:45,090
+we're doing right now, but also on the server side using Node.js, the exact same library, which is
+
+30
+00:01:45,090 --> 00:01:46,440
+not always the case.
+
+31
+00:01:46,440 --> 00:01:50,580
+So we haven't talked about Node, but in some of the projects we will work with Node and you'll see
+
+32
+00:01:50,580 --> 00:01:56,960
+how you can include a tool like Axios on the server side using Node and use the exact same syntax.
+
+33
+00:01:56,970 --> 00:02:00,690
+So one library, one way of fetching data.
+
+34
+00:02:01,080 --> 00:02:06,780
+Let's say Axios dot get is the name of the method that will work in the browser and in Node.js.
+
+35
+00:02:06,780 --> 00:02:09,120
+But that's beyond the scope of where we are right now.
+
+36
+00:02:09,479 --> 00:02:15,570
+So the first thing we need to do if we want to use Axios, is we need to include it in our HTML file
+
+37
+00:02:15,570 --> 00:02:20,540
+as an external script so you can download it and have the files on your machine.
+
+38
+00:02:20,550 --> 00:02:24,300
+But the simplest way is to copy this CDN right here.
+
+39
+00:02:24,510 --> 00:02:30,350
+So a script where the source is set to an external source, it's not one of our files on our machine.
+
+40
+00:02:30,360 --> 00:02:33,270
+This is a URL and if we visit it right now.
+
+41
+00:02:34,960 --> 00:02:36,440
+This is what we would be loading.
+
+42
+00:02:36,460 --> 00:02:38,470
+This is the source of Axios.
+
+43
+00:02:38,500 --> 00:02:43,480
+It's been minified and compressed into this massive chunk of very ugly text.
+
+44
+00:02:43,480 --> 00:02:46,630
+But this gives us everything we need to use Axios.
+
+45
+00:02:47,260 --> 00:02:54,550
+So we'll include that script and we definitely want to make sure we include it before our own files
+
+46
+00:02:54,550 --> 00:02:56,450
+that are trying to use Axios.
+
+47
+00:02:56,470 --> 00:03:02,890
+Otherwise, we'll get an error if we reference Axios in our app JS and we have this line down below.
+
+48
+00:03:02,920 --> 00:03:05,320
+JavaScript won't know about Axios yet.
+
+49
+00:03:07,180 --> 00:03:08,440
+So that's the first bit.
+
+50
+00:03:08,560 --> 00:03:11,170
+Next, how do we actually make a request?
+
+51
+00:03:11,440 --> 00:03:13,540
+There are a couple of different options.
+
+52
+00:03:13,630 --> 00:03:15,280
+There's actually quite a few.
+
+53
+00:03:15,310 --> 00:03:22,210
+We can perform a get request like this Axios dot get and then we pass in a URL.
+
+54
+00:03:22,510 --> 00:03:28,280
+So it's kind of the same thing with fetch where we do fetch google.com or something.
+
+55
+00:03:28,300 --> 00:03:31,270
+Instead we do Axios dot get google.com.
+
+56
+00:03:31,840 --> 00:03:34,760
+Why don't we just make sure the library is showing up?
+
+57
+00:03:34,780 --> 00:03:36,700
+So I'll refresh my page here.
+
+58
+00:03:36,730 --> 00:03:38,050
+Axios intro.
+
+59
+00:03:38,080 --> 00:03:39,430
+We'll look at Axios.
+
+60
+00:03:40,330 --> 00:03:45,250
+It exists if we call Axios get and we pass in some URL.
+
+61
+00:03:45,760 --> 00:03:49,000
+Let's let's use the Star Wars API again.
+
+62
+00:03:49,630 --> 00:03:54,280
+This URL right there, the same one we've been using.
+
+63
+00:03:54,280 --> 00:03:57,040
+Swap eco slash API slash planets.
+
+64
+00:03:57,550 --> 00:03:58,930
+I get a promise back.
+
+65
+00:03:59,020 --> 00:04:00,880
+Why don't I save it to a variable?
+
+66
+00:04:00,970 --> 00:04:06,170
+We'll call this const rez and we look at Rez.
+
+67
+00:04:06,190 --> 00:04:07,750
+It's now been resolved.
+
+68
+00:04:08,590 --> 00:04:13,210
+So just like fetch, we get a promise back when we make a request using Axios.
+
+69
+00:04:13,660 --> 00:04:17,980
+Let's take a look at the value that it's been resolved with.
+
+70
+00:04:18,010 --> 00:04:22,720
+Inside we have a data property and it's already been parsed for us.
+
+71
+00:04:22,750 --> 00:04:24,760
+We don't have to parse it ourselves.
+
+72
+00:04:25,030 --> 00:04:30,940
+That's one of the main advantages of using a tool like Axios is that unlike Fetch, we don't have to
+
+73
+00:04:30,940 --> 00:04:33,310
+do the JSON parsing on our own.
+
+74
+00:04:33,490 --> 00:04:38,830
+If we go back to our fetch example from earlier, I'll just uncomment the whole thing.
+
+75
+00:04:39,070 --> 00:04:43,000
+Every time we make a request using fetch, I've moved these into separate functions.
+
+76
+00:04:43,000 --> 00:04:47,760
+If you didn't watch that video so I've moved fetch next planets into its own function.
+
+77
+00:04:47,770 --> 00:04:50,990
+It returns fetch which is going to return a promise.
+
+78
+00:04:51,010 --> 00:04:53,470
+Then we check the status code and we pass.
+
+79
+00:04:53,950 --> 00:04:59,650
+So we have to check the status code to make sure that the response is okay because fetch will resolve
+
+80
+00:04:59,650 --> 00:05:00,520
+the promise.
+
+81
+00:05:00,610 --> 00:05:02,320
+As long as we get any response.
+
+82
+00:05:02,320 --> 00:05:08,560
+It doesn't matter if it's a 404, an error not found or if it's 200 status code.
+
+83
+00:05:08,950 --> 00:05:13,330
+So if we want to weed out those bad status codes, we have to manually do it.
+
+84
+00:05:13,340 --> 00:05:16,460
+Then we have to parse on our own response JSON.
+
+85
+00:05:16,480 --> 00:05:18,460
+If we instead use Axios.
+
+86
+00:05:18,730 --> 00:05:20,860
+Those are not really a problem anymore.
+
+87
+00:05:21,010 --> 00:05:25,260
+If we do Axios, get this URL, we'll do a dot.
+
+88
+00:05:25,270 --> 00:05:28,210
+Then it does return a promise as we've seen.
+
+89
+00:05:28,300 --> 00:05:29,800
+Let's call this rez.
+
+90
+00:05:30,760 --> 00:05:32,560
+We console.log rez.
+
+91
+00:05:35,450 --> 00:05:36,620
+Refresh our page.
+
+92
+00:05:37,380 --> 00:05:39,080
+OC Resort Data.
+
+93
+00:05:43,540 --> 00:05:45,100
+It's already been parsed as we saw.
+
+94
+00:05:45,100 --> 00:05:48,070
+We don't have to handle an additional promise.
+
+95
+00:05:48,310 --> 00:05:48,650
+Right.
+
+96
+00:05:48,700 --> 00:05:52,600
+Because when we use fetch response, JSON returns a promise.
+
+97
+00:05:52,600 --> 00:05:54,280
+So we have to use a dot then.
+
+98
+00:05:54,280 --> 00:05:58,780
+So we end up with chaining multiple events and it's not that ugly or anything.
+
+99
+00:05:58,780 --> 00:05:59,980
+It's not the end of the world.
+
+100
+00:05:59,980 --> 00:06:01,810
+But we do have to parse on our own.
+
+101
+00:06:02,110 --> 00:06:05,710
+We get a string of JSON that needs to be turned into JavaScript.
+
+102
+00:06:05,740 --> 00:06:10,600
+Axios already takes care of that for us, so it's doing the same thing behind the scenes.
+
+103
+00:06:10,600 --> 00:06:14,350
+It's getting a string of JSON and it's parsing it, but we just don't write it.
+
+104
+00:06:14,350 --> 00:06:16,300
+It does it for us, which is pretty nice.
+
+105
+00:06:16,870 --> 00:06:18,130
+Now let's see what happens.
+
+106
+00:06:18,130 --> 00:06:24,820
+We add on a catch go with error as our parameter and console.log error.
+
+107
+00:06:24,940 --> 00:06:26,530
+I'll do this on multiple lines.
+
+108
+00:06:30,250 --> 00:06:35,920
+So right now, unless somehow my internet went down or the API went down, we still get our dot then
+
+109
+00:06:35,920 --> 00:06:36,460
+callback.
+
+110
+00:06:36,460 --> 00:06:41,450
+But if I try and request a resource that doesn't exist, this should give me a 404 error.
+
+111
+00:06:41,470 --> 00:06:42,760
+Let's see what happens here.
+
+112
+00:06:43,930 --> 00:06:44,680
+Check it out.
+
+113
+00:06:45,160 --> 00:06:48,070
+Request failed with the status code 404 error.
+
+114
+00:06:48,130 --> 00:06:50,090
+My catch is what ran.
+
+115
+00:06:50,110 --> 00:06:51,320
+We could make that clearer.
+
+116
+00:06:51,340 --> 00:06:56,020
+Console.log in catch callback.
+
+117
+00:06:59,250 --> 00:07:01,140
+The promise is being rejected.
+
+118
+00:07:01,140 --> 00:07:05,040
+So this is another key difference between Axios and Fetch.
+
+119
+00:07:05,430 --> 00:07:11,220
+When we did fetch, when we used fetch, we had to manually check the response to the status code because
+
+120
+00:07:11,250 --> 00:07:13,450
+fetch does not reject a promise.
+
+121
+00:07:13,470 --> 00:07:19,950
+If status code is 400 or something else, that is not okay something other than 200, which is what
+
+122
+00:07:19,950 --> 00:07:20,490
+we want.
+
+123
+00:07:20,490 --> 00:07:22,920
+Axios and its developers or developer.
+
+124
+00:07:22,950 --> 00:07:24,180
+Not sure how many there are.
+
+125
+00:07:24,660 --> 00:07:32,040
+Axios knows that typically if there's a 404 or some other status code that is not 200, you're going
+
+126
+00:07:32,040 --> 00:07:35,370
+to want the catch callback to run, which is what we're doing here anyway.
+
+127
+00:07:35,370 --> 00:07:38,730
+I'm throwing an error which then triggers this catch callback.
+
+128
+00:07:38,940 --> 00:07:42,940
+So it just simplifies things in two ways, as we've seen already.
+
+129
+00:07:42,960 --> 00:07:45,090
+One, you don't have to parse JSON.
+
+130
+00:07:45,090 --> 00:07:48,090
+Two, you don't have to weed out the bad status codes.
+
+131
+00:07:48,090 --> 00:07:51,630
+Responses with a non 200 status code will be rejected.
+
+132
+00:07:51,630 --> 00:07:56,590
+Or at least I don't think it's every single non 200 status code, but the bad ones like 404.
+
+133
+00:07:56,610 --> 00:07:58,200
+So that is it for now.
+
+134
+00:07:58,230 --> 00:08:01,440
+I'll show you a few more examples with Axios in the next video.
+
+135
+00:08:01,470 --> 00:08:04,530
+Otherwise it works exactly the same way it returns.
+
+136
+00:08:04,530 --> 00:08:06,120
+Promise we chain with dot.
+
+137
+00:08:06,120 --> 00:08:09,750
+Then if I wanted to make a second request, we'll see that in the next video.
+
+138
+00:08:09,750 --> 00:08:13,680
+We just return another Axios docket just like we did with Fetch.
+
+139
+00:08:13,680 --> 00:08:17,400
+So to summarize this, so far, Axios is an external library.
+
+140
+00:08:17,400 --> 00:08:18,600
+We have to include it.
+
+141
+00:08:18,600 --> 00:08:21,090
+If we don't include it there, we'll run into issues.
+
+142
+00:08:21,090 --> 00:08:23,700
+We'll get an error saying, I don't know what the heck you're talking about.
+
+143
+00:08:24,060 --> 00:08:25,500
+Axios is not defined.
+
+144
+00:08:26,010 --> 00:08:31,670
+Once we include Axios, we can reference Axios dot get, which is the method we've been using.
+
+145
+00:08:31,680 --> 00:08:33,030
+There are other methods.
+
+146
+00:08:33,030 --> 00:08:37,620
+If you want to send a post request, you can do an Axios post if you want to send some other request
+
+147
+00:08:37,620 --> 00:08:38,640
+to put or patch.
+
+148
+00:08:38,669 --> 00:08:40,590
+If you never heard of those, don't worry about it.
+
+149
+00:08:40,590 --> 00:08:43,140
+But you can send those requests using Axios.
+
+150
+00:08:43,140 --> 00:08:44,520
+It's nothing revolutionary.
+
+151
+00:08:44,520 --> 00:08:47,220
+It's nothing that we can't do without Axios.
+
+152
+00:08:47,220 --> 00:08:53,490
+It's just a simple, clean syntax that removes some of the minor pain points of using fetch.
+
+153
+00:08:53,490 --> 00:08:55,110
+All right, so next, we'll get some more practice.
+

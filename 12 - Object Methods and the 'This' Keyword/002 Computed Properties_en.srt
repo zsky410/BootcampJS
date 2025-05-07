@@ -1,0 +1,440 @@
+1
+00:00:00,120 --> 00:00:05,800
+Next up, we have another nice new syntax addition to objects called computed properties.
+
+2
+00:00:05,820 --> 00:00:11,640
+So computed properties are just an improvement for the object literal syntax where we can add a property
+
+3
+00:00:11,640 --> 00:00:13,290
+with a dynamic key.
+
+4
+00:00:13,500 --> 00:00:16,620
+Right now, if we want to make an object with a dynamic key.
+
+5
+00:00:16,650 --> 00:00:23,550
+For example, if I want an object where I have the key set to the value of role, which is host, and
+
+6
+00:00:23,550 --> 00:00:27,750
+then the value for that key would be Jools Holland, the variable person.
+
+7
+00:00:28,110 --> 00:00:34,080
+If I make my object const, let's call this jobs or how about team?
+
+8
+00:00:35,370 --> 00:00:38,190
+If I tried to do a role and set that to person.
+
+9
+00:00:38,830 --> 00:00:39,860
+We've seen this before.
+
+10
+00:00:39,870 --> 00:00:43,140
+Early on, we'll just end up with the key of roll.
+
+11
+00:00:43,170 --> 00:00:44,910
+That's not what we want here.
+
+12
+00:00:44,940 --> 00:00:49,220
+If I look at team, we have roll set to Jools Holland.
+
+13
+00:00:49,230 --> 00:00:51,490
+So person is evaluated.
+
+14
+00:00:51,510 --> 00:00:52,500
+This is computed.
+
+15
+00:00:52,500 --> 00:00:55,530
+We get the variable value and that's stuck in the object.
+
+16
+00:00:55,530 --> 00:00:57,650
+But roll is turned into a string.
+
+17
+00:00:57,660 --> 00:00:58,770
+It's not checked.
+
+18
+00:00:58,770 --> 00:01:01,110
+If it's a variable, it's not computed.
+
+19
+00:01:01,320 --> 00:01:07,290
+So what we've done in the past in order to make this work, if we want a dynamic value for the key,
+
+20
+00:01:07,440 --> 00:01:10,530
+is to go back after we initialize the object.
+
+21
+00:01:10,560 --> 00:01:14,700
+Do square brackets team of roll equals person.
+
+22
+00:01:16,160 --> 00:01:23,690
+And now if we look at team, we have host set to Jools Holland and let's say I had one more concert
+
+23
+00:01:23,690 --> 00:01:26,090
+role two equals.
+
+24
+00:01:26,690 --> 00:01:28,250
+How about director?
+
+25
+00:01:29,420 --> 00:01:36,740
+I don't have the actual any person in mind, but we'll go with person two equals James Cameron.
+
+26
+00:01:38,380 --> 00:01:38,980
+Okay.
+
+27
+00:01:39,250 --> 00:01:43,810
+And if I wanted to add this in as a pair, I would need to then do team of role.
+
+28
+00:01:43,810 --> 00:01:46,450
+Two equals person to.
+
+29
+00:01:48,800 --> 00:01:54,620
+And now we have two properties with dynamic keys and we have to use these square brackets as we have
+
+30
+00:01:54,620 --> 00:01:55,250
+seen.
+
+31
+00:01:55,250 --> 00:01:58,850
+If you tried to use the dot notation, you're just adding the key of roll.
+
+32
+00:01:59,300 --> 00:02:04,490
+But now with this new syntax for computed properties, we can do this all at once.
+
+33
+00:02:04,490 --> 00:02:13,880
+We can define our object and then dynamically add in a key based off of some computed variable and expression.
+
+34
+00:02:14,030 --> 00:02:15,560
+The code will be evaluated.
+
+35
+00:02:15,560 --> 00:02:20,030
+First, we'll retrieve the variable value and use that as a key.
+
+36
+00:02:20,030 --> 00:02:21,470
+And this is what it looks like.
+
+37
+00:02:21,470 --> 00:02:27,380
+We use the same square brackets, but we wrap it around the key in our property definition in the object
+
+38
+00:02:27,380 --> 00:02:27,980
+literal.
+
+39
+00:02:28,340 --> 00:02:30,620
+So here a user will be evaluated.
+
+40
+00:02:30,620 --> 00:02:34,070
+First we get joules and that set to admin.
+
+41
+00:02:34,760 --> 00:02:43,280
+So if we try it over here, we would have role in those brackets set to person and then I could do a
+
+42
+00:02:43,280 --> 00:02:46,310
+second one role to set to.
+
+43
+00:02:46,310 --> 00:02:47,270
+Person to.
+
+44
+00:02:48,760 --> 00:02:49,960
+Let's take a look.
+
+45
+00:02:51,640 --> 00:02:52,310
+There we go.
+
+46
+00:02:52,330 --> 00:02:55,060
+The exact same object that we created up here.
+
+47
+00:02:55,060 --> 00:02:56,780
+But now we're doing it all at once.
+
+48
+00:02:56,800 --> 00:03:00,120
+All of our properties are in the object when we are defining it.
+
+49
+00:03:00,130 --> 00:03:01,970
+We're not having to do it after the fact.
+
+50
+00:03:01,990 --> 00:03:04,510
+We don't make an empty object and then add a property.
+
+51
+00:03:04,510 --> 00:03:07,300
+And the second property we can just do it all at once.
+
+52
+00:03:07,510 --> 00:03:09,910
+And that's kind of it for computed properties.
+
+53
+00:03:09,910 --> 00:03:13,360
+You could also put in more complex expressions in here.
+
+54
+00:03:13,390 --> 00:03:22,150
+For example, I could do one plus six plus nine and set that equal to how about 16?
+
+55
+00:03:24,060 --> 00:03:26,190
+If I evaluate this, take a look.
+
+56
+00:03:26,190 --> 00:03:33,060
+We have 16 set to 16, so this is going to be evaluated and then turned into a string like all the keys
+
+57
+00:03:33,060 --> 00:03:36,180
+we've seen and then used as the key in the object.
+
+58
+00:03:36,180 --> 00:03:37,560
+Here's one more example.
+
+59
+00:03:37,800 --> 00:03:45,120
+Let's make a function that accepts an object and we'll return a copy of that object with a new property
+
+60
+00:03:45,120 --> 00:03:45,840
+added in.
+
+61
+00:03:45,840 --> 00:03:49,800
+So we'll call this function add property or just add prop.
+
+62
+00:03:49,980 --> 00:03:54,210
+It will accept an object and then a key and a value.
+
+63
+00:03:54,210 --> 00:04:01,410
+And we want it to return a new object based off of this OBJ parameter with a key and a value pair added.
+
+64
+00:04:01,410 --> 00:04:05,940
+So without this computed properties new syntax, we would do something like this.
+
+65
+00:04:05,940 --> 00:04:11,220
+Make our copy of the object all use spread object.
+
+66
+00:04:11,250 --> 00:04:12,900
+That's an easy way to make a copy.
+
+67
+00:04:13,140 --> 00:04:20,700
+And then we would set copy of K equals V and then return copy.
+
+68
+00:04:22,079 --> 00:04:25,320
+And if I call this now, I'll use my team variable.
+
+69
+00:04:26,100 --> 00:04:28,260
+We would do add prop.
+
+70
+00:04:30,000 --> 00:04:30,950
+Of team.
+
+71
+00:04:30,960 --> 00:04:32,810
+Let's add in a new property.
+
+72
+00:04:32,820 --> 00:04:37,380
+We'll go with Happy and then the corresponding string will be a happy face.
+
+73
+00:04:38,070 --> 00:04:39,470
+So we have a key and a value.
+
+74
+00:04:39,480 --> 00:04:42,420
+We'll save this to a variable const rez.
+
+75
+00:04:42,630 --> 00:04:44,040
+Let's look at results.
+
+76
+00:04:45,330 --> 00:04:46,710
+Okay, so it works.
+
+77
+00:04:46,710 --> 00:04:50,580
+We ended up adding in happy as a key and a happy face.
+
+78
+00:04:50,580 --> 00:04:52,080
+The string as the value.
+
+79
+00:04:52,350 --> 00:04:55,830
+This is not using computed properties, so we had to make the object.
+
+80
+00:04:55,830 --> 00:05:01,440
+Then we had to go ahead and update adding a new property with the dynamic key and a value.
+
+81
+00:05:01,470 --> 00:05:06,810
+If we instead wanted to rewrite this using computed properties, we could do it on one line.
+
+82
+00:05:06,810 --> 00:05:09,960
+It would be an annoying one line, but we could do it on one line.
+
+83
+00:05:10,500 --> 00:05:12,060
+I'll do an arrow function this time.
+
+84
+00:05:12,060 --> 00:05:24,660
+So const add prop equals object key value and then we'll return a new object that contains everything
+
+85
+00:05:24,660 --> 00:05:25,320
+from OBJ.
+
+86
+00:05:25,350 --> 00:05:29,670
+We're spreading it in or copying it and using square brackets.
+
+87
+00:05:29,670 --> 00:05:33,330
+Compute the key and set it equal to the corresponding value.
+
+88
+00:05:34,140 --> 00:05:35,910
+So this does fit on one line.
+
+89
+00:05:35,910 --> 00:05:40,440
+But when I saved my editor it decides to auto format it to multiple lines.
+
+90
+00:05:40,860 --> 00:05:45,600
+You could also use an implicit return to even shorten it more, but let's just make sure it works.
+
+91
+00:05:46,260 --> 00:05:47,460
+Let's look at rez.
+
+92
+00:05:47,700 --> 00:05:49,170
+We get the same result.
+
+93
+00:05:49,950 --> 00:05:52,380
+So that's one use for a computed property.
+
+94
+00:05:52,380 --> 00:05:58,200
+When you are creating functions that either return objects or add things into objects, it's pretty
+
+95
+00:05:58,200 --> 00:06:00,750
+common that you might want to add a dynamic key in.
+
+96
+00:06:00,870 --> 00:06:07,140
+Now, just as a bonus here, we're done with the computer property stuff, but if we wanted to refactor
+
+97
+00:06:07,140 --> 00:06:13,050
+this to be a one line arrow function or at least an implicit return arrow function, remember that when
+
+98
+00:06:13,050 --> 00:06:18,300
+we return something implicitly, we don't need the return keyword and we don't need the curly braces
+
+99
+00:06:18,720 --> 00:06:25,320
+so we could write it like this and then just move it all into one line, except for the fact that JavaScript
+
+100
+00:06:25,320 --> 00:06:30,210
+will get confused because this looks like it's a function body.
+
+101
+00:06:30,210 --> 00:06:32,640
+It looks like the curly braces are for a function.
+
+102
+00:06:32,670 --> 00:06:36,230
+It doesn't know that we're trying to implicitly return an object.
+
+103
+00:06:36,240 --> 00:06:41,220
+If we had something like five here, this would implicitly return five.
+
+104
+00:06:41,220 --> 00:06:43,410
+But when we have an object, it gets confused.
+
+105
+00:06:43,410 --> 00:06:49,050
+So we do have to put parentheses around it and I'm pretty sure it's going to auto format to multiple
+
+106
+00:06:49,050 --> 00:06:52,080
+lines anyway, but this is valid on one line.
+
+107
+00:06:52,440 --> 00:06:52,920
+Okay.
+
+108
+00:06:52,980 --> 00:06:54,420
+So that's computed properties.
+
+109
+00:06:54,420 --> 00:07:00,540
+We use the exact same square bracket syntax that we've been using so far, but now we can use it directly
+
+110
+00:07:00,540 --> 00:07:02,400
+inside the object definition.
+

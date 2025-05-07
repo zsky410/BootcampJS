@@ -1,0 +1,360 @@
+1
+00:00:00,090 --> 00:00:02,570
+Next up, let's talk about string methods.
+
+2
+00:00:02,580 --> 00:00:05,010
+So we haven't really talked about methods at all.
+
+3
+00:00:05,070 --> 00:00:11,340
+Methods are kind of like built in pieces of functionality, built in actions that can be performed on
+
+4
+00:00:11,340 --> 00:00:15,840
+a certain thing, a particular value, or in our case, on any string.
+
+5
+00:00:16,230 --> 00:00:20,920
+So we can do things like search for a particular string within a string.
+
+6
+00:00:20,940 --> 00:00:23,050
+Does this string contain a dollar sign?
+
+7
+00:00:23,070 --> 00:00:24,630
+We can replace parts of a string.
+
+8
+00:00:24,630 --> 00:00:28,130
+We can change case from lowercase to uppercase to all caps.
+
+9
+00:00:28,140 --> 00:00:32,110
+We can remove additional spacing if we want to get rid of spacing.
+
+10
+00:00:32,130 --> 00:00:37,650
+There's a bunch of these different features that come built in with every single string and they all
+
+11
+00:00:37,650 --> 00:00:38,820
+follow this format.
+
+12
+00:00:39,120 --> 00:00:44,970
+So we have a string dot, some method name with opening and closing parentheses.
+
+13
+00:00:45,120 --> 00:00:48,750
+And to be clear, strings are not the only things that have methods.
+
+14
+00:00:48,750 --> 00:00:50,730
+There are a number methods that are built in.
+
+15
+00:00:50,730 --> 00:00:51,900
+They're just not as useful.
+
+16
+00:00:51,900 --> 00:00:53,610
+So I'm not going to talk about them just yet.
+
+17
+00:00:53,760 --> 00:00:58,260
+String methods, however, are really useful, so I'm going to cover some of the most important ones.
+
+18
+00:00:58,560 --> 00:01:05,010
+If we go to MSDN and we look at String, it's under the JavaScript reference built an object string.
+
+19
+00:01:05,069 --> 00:01:08,970
+On the left hand side you'll see a very long list of methods.
+
+20
+00:01:09,270 --> 00:01:15,420
+Each one of these is an action we can perform on every single string, so we can take a look at one
+
+21
+00:01:15,420 --> 00:01:19,530
+of them, like two uppercase or two lowercase, like this one.
+
+22
+00:01:19,530 --> 00:01:24,510
+Before I do that, I just want to mention these thumbs down mean that you shouldn't really use these
+
+23
+00:01:24,510 --> 00:01:25,140
+anymore.
+
+24
+00:01:25,170 --> 00:01:26,700
+They're deprecated.
+
+25
+00:01:26,700 --> 00:01:30,570
+They still work because JavaScript needs to support older websites.
+
+26
+00:01:30,570 --> 00:01:35,430
+They still need to work in the browser, even though you're not really supposed to use these anymore.
+
+27
+00:01:35,760 --> 00:01:40,680
+But those withstanding, they're still quite a few different methods that we have access to.
+
+28
+00:01:40,830 --> 00:01:48,420
+So here's one to uppercase, and the way that we call it is on a certain string dot to uppercase, open
+
+29
+00:01:48,420 --> 00:01:49,620
+close parentheses.
+
+30
+00:01:49,620 --> 00:01:51,390
+So let's make a variable called message.
+
+31
+00:01:51,390 --> 00:02:02,340
+We'll set it to you are so grounded mister like that and we'll hit enter if we call message dot to uppercase
+
+32
+00:02:02,340 --> 00:02:08,910
+I'm just going to use autocomplete so oh you tab and then parentheses.
+
+33
+00:02:09,539 --> 00:02:10,500
+This is what we get.
+
+34
+00:02:10,500 --> 00:02:13,140
+We get a new version, a new string.
+
+35
+00:02:13,140 --> 00:02:16,020
+So to be clear, the original is unchanged.
+
+36
+00:02:16,050 --> 00:02:18,090
+Remember that the strings are immutable.
+
+37
+00:02:18,090 --> 00:02:20,100
+We can't change the first character.
+
+38
+00:02:20,100 --> 00:02:22,620
+We can't change any character manually.
+
+39
+00:02:22,830 --> 00:02:23,610
+Same thing here.
+
+40
+00:02:23,610 --> 00:02:28,920
+If we uppercase a string, we are creating a new string or we're getting a reference to a new string
+
+41
+00:02:28,920 --> 00:02:31,370
+that is the same content, just uppercase.
+
+42
+00:02:31,650 --> 00:02:38,190
+So if we wanted to save that to the variable, we could do message equals message to uppercase.
+
+43
+00:02:38,640 --> 00:02:43,890
+Or we could just make a new variable called yel or uppercase message or something like that.
+
+44
+00:02:44,490 --> 00:02:47,100
+Now I have message and it's been updated.
+
+45
+00:02:47,100 --> 00:02:49,050
+Let's quickly talk about those perrins.
+
+46
+00:02:49,050 --> 00:02:50,430
+They're really, really important.
+
+47
+00:02:50,430 --> 00:02:53,700
+If you leave them off, it's not going to work.
+
+48
+00:02:53,700 --> 00:02:58,920
+It won't throw an error, it won't break your code, but you're not actually executing that action.
+
+49
+00:02:58,920 --> 00:03:02,880
+You're just sort of asking JavaScript, does that action exist?
+
+50
+00:03:02,880 --> 00:03:10,320
+So we also have a two lowercase and if I call it we get you are so grounded Mr. Lowercase, remember
+
+51
+00:03:10,320 --> 00:03:11,850
+message is now uppercase.
+
+52
+00:03:11,850 --> 00:03:17,190
+But if we do it without the friends just message to lowercase JavaScript just tells me.
+
+53
+00:03:17,190 --> 00:03:18,330
+Yeah, that's the thing.
+
+54
+00:03:18,330 --> 00:03:20,400
+There's some code for two lowercase.
+
+55
+00:03:20,430 --> 00:03:22,500
+It's an action, a function.
+
+56
+00:03:22,530 --> 00:03:23,760
+Do you want me to call it.
+
+57
+00:03:23,760 --> 00:03:27,660
+It's not even asking if we want to call it, but that's kind of how I personify it.
+
+58
+00:03:27,660 --> 00:03:30,270
+And if you do want to call it, you need those prints.
+
+59
+00:03:30,570 --> 00:03:32,970
+So that's two uppercase and two lowercase.
+
+60
+00:03:32,970 --> 00:03:34,350
+I have a slide on that as well.
+
+61
+00:03:34,470 --> 00:03:40,350
+Remember, the original value is unchanged unless you manually set the variable using the return value
+
+62
+00:03:40,350 --> 00:03:42,750
+from to uppercase or to lowercase.
+
+63
+00:03:43,020 --> 00:03:46,290
+And then the second method we'll look at for now is called trim.
+
+64
+00:03:46,290 --> 00:03:47,490
+Trim is very simple.
+
+65
+00:03:47,490 --> 00:03:51,330
+It just removes trailing, leading and trailing whitespace.
+
+66
+00:03:51,330 --> 00:03:54,120
+So spaces at the beginning and end of a string.
+
+67
+00:03:54,120 --> 00:03:58,620
+When you call trim, it returns a string where that space has been removed.
+
+68
+00:03:59,130 --> 00:04:01,410
+So it's not going to remove all spaces.
+
+69
+00:04:01,440 --> 00:04:06,150
+Let's do let color equals purple with some spaces in there.
+
+70
+00:04:06,540 --> 00:04:10,260
+I'll even hit tab a couple of times just like that.
+
+71
+00:04:10,920 --> 00:04:17,279
+Now if I call color trim with prints, it removes those spaces.
+
+72
+00:04:18,880 --> 00:04:21,760
+Color is still unchanged, of course, as we've seen before.
+
+73
+00:04:22,150 --> 00:04:25,360
+And another thing we can do is we can call trim.
+
+74
+00:04:25,630 --> 00:04:30,790
+And then on top of that, we can chain on another method call like to uppercase.
+
+75
+00:04:31,930 --> 00:04:38,040
+So Trim will run first, which takes this string and it returns a version with no spaces on either end.
+
+76
+00:04:38,050 --> 00:04:42,280
+Then we're basically calling purple this dot to uppercase.
+
+77
+00:04:42,280 --> 00:04:46,810
+So this goes first and then two uppercase runs on whatever this returned.
+
+78
+00:04:47,020 --> 00:04:50,860
+So we end up with purple, no space and all caps.
+
+79
+00:04:51,550 --> 00:04:52,830
+A quick note about trim.
+
+80
+00:04:52,840 --> 00:04:59,560
+If you have spaces in the middle of the word like this, it is not going to remove those.
+
+81
+00:04:59,600 --> 00:05:04,390
+It only removes the leading and trailing spaces while keeping all other spaces intact.
+
+82
+00:05:04,540 --> 00:05:07,220
+Those are the first two string methods in the next video.
+
+83
+00:05:07,240 --> 00:05:12,280
+We have a different batch that works slightly differently, but remember all these methods, whether
+
+84
+00:05:12,280 --> 00:05:17,110
+we're working with a string, a number or something else, like when we get to arrays, objects, they
+
+85
+00:05:17,110 --> 00:05:20,200
+all have a set of built in methods, built in actions.
+
+86
+00:05:20,200 --> 00:05:23,200
+We call them by referencing a thing.
+
+87
+00:05:23,230 --> 00:05:23,770
+A string.
+
+88
+00:05:23,770 --> 00:05:25,390
+An array dot.
+
+89
+00:05:25,540 --> 00:05:27,460
+A method name with parentheses.
+
+90
+00:05:27,940 --> 00:05:28,510
+Cool.
+

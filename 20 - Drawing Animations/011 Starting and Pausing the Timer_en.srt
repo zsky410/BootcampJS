@@ -1,0 +1,504 @@
+1
+00:00:00,530 --> 00:00:00,920
+All right.
+
+2
+00:00:00,920 --> 00:00:04,100
+So now that we've got all this this stuff out of the way, let's get back on track.
+
+3
+00:00:04,100 --> 00:00:06,230
+We're going to focus on our start method right here.
+
+4
+00:00:06,290 --> 00:00:09,050
+So the goal of our start method is to start up a timer.
+
+5
+00:00:09,050 --> 00:00:14,660
+We want to make sure that we run some amount of code every some amount of time that's going to be responsible
+
+6
+00:00:14,660 --> 00:00:16,790
+for updating the text inside of our timer.
+
+7
+00:00:16,790 --> 00:00:20,240
+So like count the 19 down to an 18, 17, 16 and so on.
+
+8
+00:00:21,140 --> 00:00:26,210
+So the code that is going to actually update the timer itself and like count that thing down is going
+
+9
+00:00:26,210 --> 00:00:28,280
+to be placed inside of this tick method.
+
+10
+00:00:28,310 --> 00:00:33,590
+The goal, the tick method right here is to update the text inside there and eventually emit a signal
+
+11
+00:00:33,590 --> 00:00:37,040
+to the rest of our application to say, hey, some amount of time just passed.
+
+12
+00:00:38,250 --> 00:00:43,800
+So the goal of START is really just to start up the tick method and call it every so many number of
+
+13
+00:00:43,800 --> 00:00:44,520
+seconds.
+
+14
+00:00:45,120 --> 00:00:47,520
+So let's take a look at what the implementation will look like.
+
+15
+00:00:48,270 --> 00:00:49,470
+Right underneath start.
+
+16
+00:00:49,470 --> 00:00:51,060
+I'm going to also define.
+
+17
+00:00:51,910 --> 00:00:55,240
+Tick and I'm going to use that same kind of arrow syntax like so.
+
+18
+00:00:56,630 --> 00:00:57,350
+Inside of Tick.
+
+19
+00:00:57,350 --> 00:01:01,640
+I'll put a quick console log of tik so we can make sure that we're calling it appropriately.
+
+20
+00:01:01,640 --> 00:01:06,530
+And then instead of start in order to make sure that we call Tik every so many seconds, like every
+
+21
+00:01:06,530 --> 00:01:12,020
+second or so, we can use the set interval function that is built into the JavaScript language.
+
+22
+00:01:12,230 --> 00:01:15,050
+So inside of start we will invoke set interval.
+
+23
+00:01:16,330 --> 00:01:20,650
+We're going to pass in a reference to a function to invoke which will be this tick.
+
+24
+00:01:20,890 --> 00:01:24,700
+And then as the second argument, we'll put in how often we want to run this function.
+
+25
+00:01:25,410 --> 00:01:28,650
+So in this case, I want to run tick every 1/2.
+
+26
+00:01:29,070 --> 00:01:31,610
+The second argument is expressed in milliseconds.
+
+27
+00:01:31,620 --> 00:01:34,320
+There are 1000 milliseconds inside of a second.
+
+28
+00:01:34,680 --> 00:01:38,970
+So this code right here is going to make sure that we run this tick once every second.
+
+29
+00:01:39,760 --> 00:01:44,020
+So the net result should be seeing a console log every second inside of our console.
+
+30
+00:01:44,880 --> 00:01:45,870
+All right, so let's save this.
+
+31
+00:01:45,870 --> 00:01:47,640
+Flip back over and see how we do.
+
+32
+00:01:48,660 --> 00:01:55,320
+So I'm going to refresh, I'll click on start and then I see tick, tick, tick, tick and so on.
+
+33
+00:01:55,640 --> 00:01:59,990
+Okay, well, that definitely looks good, but there is a very subtle little issue here.
+
+34
+00:02:00,000 --> 00:02:05,700
+If we refresh again, I want you to notice that when we click on Start, we have to wait a full second
+
+35
+00:02:05,700 --> 00:02:07,290
+before we see the first tick.
+
+36
+00:02:08,560 --> 00:02:14,530
+So it turns out that when you call set interval, it's going to wait 1/2 or whatever that delay is before
+
+37
+00:02:14,530 --> 00:02:17,950
+calling that function for the first time in our application.
+
+38
+00:02:17,950 --> 00:02:22,600
+This would be kind of bad because whenever a user clicks on that start button, they really expect to
+
+39
+00:02:22,600 --> 00:02:24,340
+see the timer start working right away.
+
+40
+00:02:24,340 --> 00:02:28,300
+We don't want them to be waiting around for a second and then see some kind of update.
+
+41
+00:02:28,300 --> 00:02:31,090
+Instead, we want that update to occur instantly.
+
+42
+00:02:31,540 --> 00:02:36,820
+So in order to make sure that occurs, we're going to simply call this dot tick manually right before.
+
+43
+00:02:38,740 --> 00:02:43,030
+So now this is saying whenever we call start, we're going to immediately run one tick.
+
+44
+00:02:43,390 --> 00:02:48,730
+Then we're going to set up an interval that's going to be executed 1/2 in the future and then 1/2 after
+
+45
+00:02:48,730 --> 00:02:50,770
+that, after that, after that, and so on.
+
+46
+00:02:51,370 --> 00:02:54,880
+So if we save this again, go back over, refresh and click start.
+
+47
+00:02:54,880 --> 00:02:58,750
+We now instantly see tick and then tick, tick, tick and so on.
+
+48
+00:03:00,130 --> 00:03:00,370
+Okay.
+
+49
+00:03:00,400 --> 00:03:01,360
+So it looks pretty good.
+
+50
+00:03:03,240 --> 00:03:05,550
+Now this is pretty easy, so let's just keep going right now.
+
+51
+00:03:05,580 --> 00:03:08,700
+The next method that we need to put together is the pause method.
+
+52
+00:03:08,700 --> 00:03:13,740
+So we need to make sure that when we click on that pause button, we stop the ticking altogether in
+
+53
+00:03:13,740 --> 00:03:17,670
+order to stop our interval, essentially stop this function from being called.
+
+54
+00:03:17,820 --> 00:03:21,930
+Whenever we call set interval, we get back something called a timer.
+
+55
+00:03:22,690 --> 00:03:25,270
+So I'm going to assign it to a variable that I'll call timer.
+
+56
+00:03:27,650 --> 00:03:28,380
+Like so.
+
+57
+00:03:29,130 --> 00:03:33,300
+And for right now, let's just do a console.log of that timer and see what exactly it is.
+
+58
+00:03:35,130 --> 00:03:39,480
+I'll go back over, refresh, click, start again and there's the console log of the timer.
+
+59
+00:03:39,480 --> 00:03:42,330
+So in this case, it is a simple number of one.
+
+60
+00:03:43,170 --> 00:03:44,900
+Let me tell you what's going on behind the scenes.
+
+61
+00:03:44,910 --> 00:03:47,930
+Whenever we call set interval, we get back an integer.
+
+62
+00:03:47,940 --> 00:03:54,390
+The integer is an ID and it's essentially representing the running timer or the running interval that
+
+63
+00:03:54,390 --> 00:03:57,300
+is going to continue executing this function again and again.
+
+64
+00:03:57,540 --> 00:04:03,210
+If we ever need to stop that timer or stop this interval from running, we can call another function
+
+65
+00:04:03,210 --> 00:04:07,320
+that is built into the browser or into JavaScript called Clear Interval.
+
+66
+00:04:08,330 --> 00:04:12,770
+When we call clear interval interval, we're going to pass in the ID of the interval that we want to
+
+67
+00:04:12,770 --> 00:04:13,400
+stop.
+
+68
+00:04:13,430 --> 00:04:16,310
+And so in this case, it would be the timer variable right there.
+
+69
+00:04:17,200 --> 00:04:23,050
+So in this scenario right here, we are essentially setting up an interval and then immediately canceling
+
+70
+00:04:23,050 --> 00:04:23,440
+it.
+
+71
+00:04:23,440 --> 00:04:28,870
+So I would expect to never see the tick function run except for the first time we call it manually right
+
+72
+00:04:28,870 --> 00:04:29,350
+there.
+
+73
+00:04:30,770 --> 00:04:31,880
+So let's save this again.
+
+74
+00:04:32,210 --> 00:04:33,440
+I'm going to flip back over.
+
+75
+00:04:33,440 --> 00:04:34,310
+Refresh.
+
+76
+00:04:34,880 --> 00:04:35,840
+I'll hit start.
+
+77
+00:04:35,840 --> 00:04:38,690
+And so now I see one tick behind the scenes.
+
+78
+00:04:38,690 --> 00:04:42,530
+We set up our interval and then on the next line of code we immediately cancelled it.
+
+79
+00:04:42,530 --> 00:04:44,480
+So I don't see any more ticks up here.
+
+80
+00:04:45,320 --> 00:04:50,090
+So of course, rather than cancelling the timer right away, well, we probably want to cancel it at
+
+81
+00:04:50,090 --> 00:04:55,340
+some point in time in the future, specifically in our case, whenever the user clicks on the pause
+
+82
+00:04:55,340 --> 00:04:58,880
+button, which should run the pause method inside of our class.
+
+83
+00:04:59,750 --> 00:05:01,330
+Let's define a pause method.
+
+84
+00:05:01,340 --> 00:05:05,840
+We're going to make sure that the pause method is going to call a clear interval and pass in the relevant
+
+85
+00:05:05,840 --> 00:05:06,500
+ID.
+
+86
+00:05:08,420 --> 00:05:12,440
+So underneath starts I'm going to define my pause method like so.
+
+87
+00:05:14,280 --> 00:05:16,980
+Inside of here, we will call a clear interval.
+
+88
+00:05:17,130 --> 00:05:18,930
+And now there's just a little issue.
+
+89
+00:05:18,960 --> 00:05:24,060
+We need to somehow get the timer variable that was created over here into this other method.
+
+90
+00:05:24,480 --> 00:05:29,430
+In order to share information between different methods, we assign that information to an instance
+
+91
+00:05:29,430 --> 00:05:30,060
+variable.
+
+92
+00:05:30,420 --> 00:05:36,810
+So instead of a sunny it directly to a variable right here called timer, we're going to say this timer.
+
+93
+00:05:37,640 --> 00:05:43,070
+So by assigning the value to this, that's going to make sure that we can refer to this timer over inside
+
+94
+00:05:43,070 --> 00:05:47,390
+this method and we'll get access to the same information that we just assigned right there.
+
+95
+00:05:47,600 --> 00:05:51,290
+So in other words, we're going to say clear interval with this timer.
+
+96
+00:05:51,860 --> 00:05:56,000
+We can also clean up the clear interval that we left inside of Start because we don't need it inside
+
+97
+00:05:56,000 --> 00:05:56,780
+there anymore.
+
+98
+00:05:58,840 --> 00:06:00,460
+Now, one other quick thing I want to mention.
+
+99
+00:06:00,460 --> 00:06:06,370
+We are currently working on a class called Timer referring to a variable inside of here of like this
+
+100
+00:06:06,550 --> 00:06:11,440
+timer is just a little bit unclear because we now have two words inside of a class that are really,
+
+101
+00:06:11,440 --> 00:06:12,430
+really similar.
+
+102
+00:06:12,760 --> 00:06:17,290
+So in order to avoid any confusion whatsoever, I'm just going to change the name of the variable that
+
+103
+00:06:17,290 --> 00:06:21,130
+we are assigning the ID to to how about interval?
+
+104
+00:06:21,130 --> 00:06:22,660
+Because that's kind of what it represents.
+
+105
+00:06:22,660 --> 00:06:26,440
+You could also do something like interval ID that would also be appropriate as well.
+
+106
+00:06:26,890 --> 00:06:28,170
+But I'm just going to go with interval.
+
+107
+00:06:28,180 --> 00:06:31,420
+That is what I use personally on projects that I work on.
+
+108
+00:06:32,020 --> 00:06:35,590
+I'm going to make sure that I update this timer inside of pause as well.
+
+109
+00:06:35,950 --> 00:06:36,580
+Like so.
+
+110
+00:06:39,360 --> 00:06:41,890
+So now to test this out, last thing we have to do very quickly.
+
+111
+00:06:41,910 --> 00:06:47,430
+We need to make sure that back up inside the constructor, we watch for a click event on the pause button
+
+112
+00:06:47,430 --> 00:06:48,120
+element.
+
+113
+00:06:48,140 --> 00:06:51,390
+Whenever a click event occurs, we need to run that pause method.
+
+114
+00:06:51,960 --> 00:06:57,630
+So right after where we set up our click event handler right there, I'm going to do a this dot pause
+
+115
+00:06:57,630 --> 00:07:00,720
+button add event listener.
+
+116
+00:07:03,100 --> 00:07:05,680
+I'm going to watch for the click event whenever that occurs.
+
+117
+00:07:05,680 --> 00:07:09,010
+I want to run the this pause method like so.
+
+118
+00:07:10,530 --> 00:07:10,800
+Okay.
+
+119
+00:07:10,800 --> 00:07:11,760
+So it looks pretty good.
+
+120
+00:07:12,090 --> 00:07:14,970
+So I'm going to save this and we'll do a quick test.
+
+121
+00:07:15,960 --> 00:07:18,840
+So I'll flip back over refresh I'll hit starts now.
+
+122
+00:07:18,840 --> 00:07:24,060
+We're going to see a tick once every second and then as soon as we hit the pause button, it stops.
+
+123
+00:07:24,480 --> 00:07:26,310
+And so I don't see any more ticks occur.
+
+124
+00:07:27,330 --> 00:07:27,600
+All right.
+
+125
+00:07:27,600 --> 00:07:30,230
+Well, let's say that this is working out pretty darn well so far.
+
+126
+00:07:30,240 --> 00:07:33,330
+So let's take a quick pause right here and continue in just a moment.
+

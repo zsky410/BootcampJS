@@ -1,0 +1,276 @@
+1
+00:00:01,250 --> 00:00:06,050
+All right, let's make sure that when we press on the W, A, C and D keys on our keyboard, we apply
+
+2
+00:00:06,050 --> 00:00:09,200
+some movement or velocity to this ball right here.
+
+3
+00:00:09,770 --> 00:00:13,460
+The first thing we have to do is figure out how we're going to detect whenever a user presses a key
+
+4
+00:00:13,490 --> 00:00:14,390
+on their keyboard.
+
+5
+00:00:14,840 --> 00:00:17,420
+Well, to be honest, there's not really a lot of magic to this.
+
+6
+00:00:17,420 --> 00:00:20,480
+We're going to set up an event listener on our document.
+
+7
+00:00:20,480 --> 00:00:26,180
+And that means whenever a user presses any key on their keyboard anywhere on our application, we'll
+
+8
+00:00:26,180 --> 00:00:28,130
+be able to detect that key press.
+
+9
+00:00:28,460 --> 00:00:35,180
+So underneath my ball, I'm going to add in a document that add event listener and we're going to listen
+
+10
+00:00:35,180 --> 00:00:37,250
+for an event called Key Down.
+
+11
+00:00:38,540 --> 00:00:43,160
+As you can probably guess, the key down event is going to be triggered any time the user presses down
+
+12
+00:00:43,160 --> 00:00:44,300
+on a key on their keyboard.
+
+13
+00:00:45,160 --> 00:00:48,910
+So we'll then receive that event object and I'm going to do a console.log.
+
+14
+00:00:49,640 --> 00:00:53,450
+Of the event because we're going to see something really interesting in there really quickly.
+
+15
+00:00:54,650 --> 00:00:55,710
+So I'm going to save this.
+
+16
+00:00:55,730 --> 00:01:01,280
+Flip back over to refresh and then I'm going to click anywhere on the screen and slide my actual application
+
+17
+00:01:01,280 --> 00:01:02,840
+and then just press a key.
+
+18
+00:01:04,050 --> 00:01:05,450
+I'll first start off by pressing the key.
+
+19
+00:01:05,459 --> 00:01:12,210
+W If I then expand this event object, we're going to see a couple of different interesting properties.
+
+20
+00:01:12,570 --> 00:01:16,410
+So the one that is probably most relevant right there says Key.
+
+21
+00:01:16,620 --> 00:01:19,140
+So that tells us the key that was just pressed by the user.
+
+22
+00:01:19,320 --> 00:01:22,080
+There's also a key code property as well.
+
+23
+00:01:22,410 --> 00:01:28,260
+Traditionally we use the key code property to decide exactly what character the user just typed on as
+
+24
+00:01:28,260 --> 00:01:29,820
+opposed to the key property.
+
+25
+00:01:30,360 --> 00:01:34,680
+Each different key on your keyboard has a different code so we can look up all these different codes
+
+26
+00:01:34,680 --> 00:01:39,810
+to decide exactly what key was just pressed and then impart some appropriate velocity on the ball in
+
+27
+00:01:39,810 --> 00:01:41,010
+the appropriate direction.
+
+28
+00:01:41,910 --> 00:01:44,670
+So I can also do an A oops.
+
+29
+00:01:44,670 --> 00:01:46,620
+I need to select the actual app first.
+
+30
+00:01:46,980 --> 00:01:50,130
+There's my A that gives me a key code of 65.
+
+31
+00:01:51,840 --> 00:02:00,450
+I can do a down or a se in this case that represents the ball going down 83 and then a D is a key code
+
+32
+00:02:00,450 --> 00:02:01,440
+of 68.
+
+33
+00:02:02,100 --> 00:02:06,240
+Now, we don't really have to just click and press these different keys all day and look at the key
+
+34
+00:02:06,240 --> 00:02:08,880
+code to figure out which key triggers, which key code.
+
+35
+00:02:08,910 --> 00:02:10,500
+We can always do a Google search.
+
+36
+00:02:10,500 --> 00:02:12,990
+We can look up JavaScript key code.
+
+37
+00:02:14,740 --> 00:02:17,530
+One of the first results here is key code info.
+
+38
+00:02:17,560 --> 00:02:22,290
+This is a really great little site to figure out exactly what the key codes are for each key press.
+
+39
+00:02:22,300 --> 00:02:30,490
+So if I do a W, it'll tell me, Hey, that's 87 left is 65 down 83 right is 68.
+
+40
+00:02:32,330 --> 00:02:36,500
+So back inside of my editor, I'm going to remove the console log.
+
+41
+00:02:37,590 --> 00:02:40,170
+And I'm going to instead set up a couple of if statements.
+
+42
+00:02:40,170 --> 00:02:45,870
+So I'll say if events key code equals and what's the first one we should do?
+
+43
+00:02:45,870 --> 00:02:47,670
+Let's do up, which is a W.
+
+44
+00:02:47,940 --> 00:02:51,510
+So if a user has a key code of 87, that means they want to go up.
+
+45
+00:02:52,790 --> 00:03:00,290
+So inside of here I'll say console.log, move all up and then I can repeat that same process for the
+
+46
+00:03:00,290 --> 00:03:01,040
+other keys.
+
+47
+00:03:01,040 --> 00:03:02,900
+So I'll duplicate that if statement down.
+
+48
+00:03:04,040 --> 00:03:06,410
+Once, twice, three times.
+
+49
+00:03:07,980 --> 00:03:09,030
+So that's up.
+
+50
+00:03:09,150 --> 00:03:11,220
+I'll make this one a move to the right.
+
+51
+00:03:11,550 --> 00:03:13,760
+Down and left.
+
+52
+00:03:13,770 --> 00:03:16,620
+And we can just update the key codes for those appropriate directions.
+
+53
+00:03:16,800 --> 00:03:20,330
+So to move the ball right, I want to find my D key.
+
+54
+00:03:20,340 --> 00:03:21,450
+So that's 68.
+
+55
+00:03:22,190 --> 00:03:24,590
+So update the 87 right there to 68.
+
+56
+00:03:25,220 --> 00:03:27,080
+Going down would be 83.
+
+57
+00:03:29,410 --> 00:03:31,750
+And going left would be 65.
+
+58
+00:03:34,750 --> 00:03:34,960
+Yes.
+
+59
+00:03:34,960 --> 00:03:35,860
+Let's save this.
+
+60
+00:03:36,370 --> 00:03:37,810
+I'll go back over to my application.
+
+61
+00:03:37,810 --> 00:03:43,780
+I'll refresh and I can once again click inside of my application frame and then I'll go up.
+
+62
+00:03:44,640 --> 00:03:47,700
+Right down and left.
+
+63
+00:03:48,210 --> 00:03:52,560
+And I can definitely see that I'm doing the appropriate console logs for each of those different directions.
+
+64
+00:03:53,400 --> 00:03:54,510
+So this is definitely good.
+
+65
+00:03:54,510 --> 00:03:55,980
+Looks like we have a good start here.
+
+66
+00:03:55,980 --> 00:03:57,270
+So quick pause right here.
+
+67
+00:03:57,270 --> 00:04:01,890
+We'll come back to the next video and we're going to figure out exactly how we can take these directions
+
+68
+00:04:01,890 --> 00:04:05,430
+and actually translate them to adding some movement to our ball right there.
+
+69
+00:04:05,790 --> 00:04:08,100
+So another quick pause and I'll see you in just a minute.
+

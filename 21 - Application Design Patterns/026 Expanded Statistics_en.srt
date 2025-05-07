@@ -1,0 +1,276 @@
+1
+00:00:01,070 --> 00:00:04,880
+All right, let's keep writing out some HTML to show all the stats underneath this movie.
+
+2
+00:00:05,300 --> 00:00:08,720
+So back inside my code editor, I'll find the movie template function.
+
+3
+00:00:09,080 --> 00:00:13,310
+We will go down to the bottom and we're going to add in just a little bit more HTML here.
+
+4
+00:00:13,850 --> 00:00:18,080
+So after the closing article element, I'm going to place another article.
+
+5
+00:00:18,880 --> 00:00:21,730
+I'm going to give it a class of notification.
+
+6
+00:00:22,390 --> 00:00:25,900
+And then a space is dash primary.
+
+7
+00:00:27,460 --> 00:00:28,870
+I then close off the article.
+
+8
+00:00:29,840 --> 00:00:32,330
+And inside of here, I'll do a paragraph tag.
+
+9
+00:00:33,090 --> 00:00:34,440
+But the class of title.
+
+10
+00:00:35,940 --> 00:00:36,750
+Was it off?
+
+11
+00:00:37,140 --> 00:00:41,490
+And inside there, we're going to reference movie detail about awards.
+
+12
+00:00:41,880 --> 00:00:46,390
+So this is going to be a string summary of all of the different awards that this movie has won.
+
+13
+00:00:46,410 --> 00:00:48,990
+We'll see exactly what it looks like in the dorm in just a second.
+
+14
+00:00:49,620 --> 00:00:54,210
+After that, I'm going to put in essentially a label for this statistic, so I'll do another paragraph
+
+15
+00:00:54,210 --> 00:00:56,940
+element with the class of subtitle.
+
+16
+00:00:58,940 --> 00:01:02,870
+And inside of there, I'll say simply awards like so.
+
+17
+00:01:04,290 --> 00:01:04,620
+Okay.
+
+18
+00:01:04,620 --> 00:01:09,660
+So this right here, this article element, we're going to essentially duplicate this down several times.
+
+19
+00:01:09,660 --> 00:01:14,580
+And inside of every duplicated version, we're going to be referencing a different property off of movie
+
+20
+00:01:14,580 --> 00:01:17,820
+detail and B, giving each of them a different label as well.
+
+21
+00:01:18,300 --> 00:01:23,400
+So I'm going to take this article element, I'm going to copy it, and then I'm going to copy it down
+
+22
+00:01:23,400 --> 00:01:24,570
+four times.
+
+23
+00:01:25,050 --> 00:01:27,600
+So here's one to.
+
+24
+00:01:28,420 --> 00:01:29,050
+Three.
+
+25
+00:01:29,670 --> 00:01:34,140
+And for now, we'll go through each of these and update some of the different properties.
+
+26
+00:01:36,290 --> 00:01:38,270
+I'm going to go up, find the first one.
+
+27
+00:01:38,480 --> 00:01:44,480
+I'll go to the second one and I'm going to change the second one from awards right there to box office.
+
+28
+00:01:45,540 --> 00:01:49,440
+I'll change the label right underneath it to box office as well.
+
+29
+00:01:52,420 --> 00:01:53,910
+Next up, we'll go to number three.
+
+30
+00:01:53,920 --> 00:01:57,160
+I'm going to change that one to awards to Metascore.
+
+31
+00:01:58,460 --> 00:02:00,470
+I'll change the label to Metascore.
+
+32
+00:02:00,470 --> 00:02:04,160
+So again, this is like a rating essentially of the movie.
+
+33
+00:02:05,720 --> 00:02:06,350
+The next one.
+
+34
+00:02:06,350 --> 00:02:09,310
+So second to last one IMDB rating.
+
+35
+00:02:09,320 --> 00:02:14,030
+Notice how in this case I has a lowercase as opposed to all the other property names that start with
+
+36
+00:02:14,030 --> 00:02:14,780
+the capital.
+
+37
+00:02:15,650 --> 00:02:18,950
+The label will be IMDB rating.
+
+38
+00:02:18,950 --> 00:02:22,190
+So this is the rating of the movie according to the website IMDB.
+
+39
+00:02:24,150 --> 00:02:28,440
+And then finally on the last one, we'll change it to IMDB votes.
+
+40
+00:02:29,090 --> 00:02:31,520
+And IMDB.
+
+41
+00:02:32,720 --> 00:02:33,470
+Boats.
+
+42
+00:02:33,590 --> 00:02:39,110
+So that's the number of votes that this movie has gotten on IMDB by different users of that platform.
+
+43
+00:02:40,470 --> 00:02:40,600
+Okay.
+
+44
+00:02:40,760 --> 00:02:41,510
+So that's pretty much it.
+
+45
+00:02:41,510 --> 00:02:42,350
+Let's save this.
+
+46
+00:02:42,350 --> 00:02:44,140
+We've got five different properties here.
+
+47
+00:02:44,150 --> 00:02:48,890
+Like I said, a couple added beyond just the two that we had mentioned over here back in our original
+
+48
+00:02:48,890 --> 00:02:49,490
+mockup.
+
+49
+00:02:50,120 --> 00:02:51,200
+So I'll save that file.
+
+50
+00:02:51,230 --> 00:02:52,430
+I will refresh.
+
+51
+00:02:52,970 --> 00:02:54,710
+I'll look for Avengers.
+
+52
+00:02:55,560 --> 00:02:57,690
+Look at and there we go.
+
+53
+00:02:57,730 --> 00:02:59,270
+So now I see The Avengers.
+
+54
+00:02:59,280 --> 00:03:06,240
+I see the awards that this movie has won box office, take the METASCORE, the rating on IMDB, and
+
+55
+00:03:06,240 --> 00:03:09,330
+the number of votes that the movie has gotten on IMDB as well.
+
+56
+00:03:09,930 --> 00:03:10,800
+That's pretty much it.
+
+57
+00:03:10,800 --> 00:03:12,930
+That's like stage one of our application.
+
+58
+00:03:12,930 --> 00:03:15,810
+We now have the ability to search for a movie.
+
+59
+00:03:15,810 --> 00:03:17,940
+We've got some autocomplete functionality in there.
+
+60
+00:03:17,940 --> 00:03:22,320
+Once a user selects a movie, we show a lot of information about it on the screen.
+
+61
+00:03:23,040 --> 00:03:26,110
+So now we essentially just have to do a lot of duplicate work.
+
+62
+00:03:26,130 --> 00:03:31,620
+We essentially need to duplicate everything we just did and show a second auto complete on the right
+
+63
+00:03:31,620 --> 00:03:32,760
+hand side of the screen.
+
+64
+00:03:33,560 --> 00:03:37,820
+And then once we have all the same functionality for that autocomplete, we'll then just need to make
+
+65
+00:03:37,820 --> 00:03:43,190
+sure that when we search for two different movies, we compare all the different statistics and highlight
+
+66
+00:03:43,190 --> 00:03:45,260
+the higher ones in each category.
+
+67
+00:03:47,280 --> 00:03:47,610
+Yes.
+
+68
+00:03:47,610 --> 00:03:49,000
+That's some pretty good progress.
+
+69
+00:03:49,020 --> 00:03:52,710
+Let's take a pause right here and start on this next phase in the next video.
+

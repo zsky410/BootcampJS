@@ -1,0 +1,512 @@
+1
+00:00:00,120 --> 00:00:03,660
+So far, the string methods that we've seen all follow this pattern.
+
+2
+00:00:03,660 --> 00:00:06,300
+We call the method name with empty parentheses.
+
+3
+00:00:06,300 --> 00:00:10,230
+We don't provide any information or values when we execute it.
+
+4
+00:00:10,590 --> 00:00:13,410
+Now we're going to see a different set of string methods.
+
+5
+00:00:13,410 --> 00:00:20,310
+They work in the exact same way, the same syntax, except inside of the parentheses we pass in additional
+
+6
+00:00:20,310 --> 00:00:22,470
+information to modify their behavior.
+
+7
+00:00:22,500 --> 00:00:27,210
+Methods are just actions uppercase this, trim this, lowercase this.
+
+8
+00:00:27,210 --> 00:00:31,110
+But some of them like replace require additional information.
+
+9
+00:00:31,110 --> 00:00:34,290
+What are you replacing and what do you want to replace it with?
+
+10
+00:00:34,320 --> 00:00:38,610
+Or if we are searching for something, we need to specify what we're searching for.
+
+11
+00:00:38,880 --> 00:00:45,750
+So those values that we pass in between the parentheses are called arguments we can pass in one argument,
+
+12
+00:00:45,750 --> 00:00:47,550
+and sometimes we pass in multiple.
+
+13
+00:00:47,550 --> 00:00:50,820
+As in the case of replace, what are you replacing?
+
+14
+00:00:50,820 --> 00:00:52,500
+What do you want to replace it with?
+
+15
+00:00:52,500 --> 00:00:55,290
+So I'm going to show you a couple of examples of these methods.
+
+16
+00:00:55,290 --> 00:00:56,790
+So they work the same way.
+
+17
+00:00:56,910 --> 00:00:58,470
+We just pass an information.
+
+18
+00:00:58,470 --> 00:00:59,520
+Here's the first one.
+
+19
+00:00:59,520 --> 00:01:07,170
+It's called Index of No Index of will tell you where in a string, a given string occurs a substring.
+
+20
+00:01:07,170 --> 00:01:15,660
+So here I have catdog as the variable TV show and if I call it index of cat, it returns zero.
+
+21
+00:01:15,690 --> 00:01:19,230
+Meaning cat comes at the very beginning of the string.
+
+22
+00:01:19,320 --> 00:01:21,690
+It's not just looking for C, it's looking for cat.
+
+23
+00:01:21,690 --> 00:01:26,730
+The entire substring, the entire match cat starts at index zero.
+
+24
+00:01:27,150 --> 00:01:36,270
+Then if we do dog index of dog we get three, which means it starts at zero 1 to 3, index of three
+
+25
+00:01:36,270 --> 00:01:37,760
+or the fourth character.
+
+26
+00:01:37,770 --> 00:01:45,570
+Here's a quick example baseball index of let's look for where ball occurs in the string and it tells
+
+27
+00:01:45,570 --> 00:01:47,520
+us it starts at index four.
+
+28
+00:01:48,150 --> 00:01:52,470
+If I just did B this one is important because there are two B's.
+
+29
+00:01:52,470 --> 00:01:58,470
+It only tells me the first instance of B, the first occurrence which is at index zero.
+
+30
+00:01:58,920 --> 00:02:00,420
+It is case sensitive.
+
+31
+00:02:00,420 --> 00:02:05,610
+So if I instead had baseball with capital B, it ignores that one.
+
+32
+00:02:05,610 --> 00:02:08,580
+That's not a match, but this one is a match at index.
+
+33
+00:02:08,580 --> 00:02:09,419
+For now.
+
+34
+00:02:09,419 --> 00:02:15,870
+If we're looking for something that doesn't exist in the string like baseball index of entertaining,
+
+35
+00:02:17,040 --> 00:02:23,160
+which clearly entertaining does not exist, instead of the world of baseball, we get negative one.
+
+36
+00:02:23,160 --> 00:02:26,940
+So negative one is the representation of not found.
+
+37
+00:02:26,940 --> 00:02:32,790
+Anytime you call it index of with a value that is not found, you'll get negative one and you'll often
+
+38
+00:02:32,790 --> 00:02:34,080
+see people use this.
+
+39
+00:02:34,080 --> 00:02:40,830
+Once we talk about conditional logic, people will write code that checks if index of something equals
+
+40
+00:02:40,830 --> 00:02:41,640
+negative one.
+
+41
+00:02:41,640 --> 00:02:44,310
+That means the thing you're looking for is not there.
+
+42
+00:02:44,580 --> 00:02:48,780
+So that's pretty much it for index of it returns a number always.
+
+43
+00:02:48,990 --> 00:02:53,010
+Sometimes it will be the index of something you're looking for, and if it's not found, you get negative
+
+44
+00:02:53,010 --> 00:02:53,490
+one.
+
+45
+00:02:54,030 --> 00:02:57,150
+The next method we'll take a look at is called slice.
+
+46
+00:02:57,240 --> 00:02:59,460
+Slice does kind of what it sounds like.
+
+47
+00:02:59,460 --> 00:03:05,940
+It takes slices of an existing string and it gives you a piece of it, and it works in a couple of different
+
+48
+00:03:05,940 --> 00:03:06,450
+ways.
+
+49
+00:03:06,720 --> 00:03:10,590
+If we pass in a single number, let's just keep working with baseball.
+
+50
+00:03:11,280 --> 00:03:18,900
+If we pass in a single number to slice like maybe four, it's going to take a slice starting at index
+
+51
+00:03:18,900 --> 00:03:21,060
+four all the way to the end.
+
+52
+00:03:21,270 --> 00:03:23,040
+So in our case, that's ball.
+
+53
+00:03:23,280 --> 00:03:27,240
+But remember, strings are immutable, just like all the methods we've seen so far.
+
+54
+00:03:27,270 --> 00:03:29,700
+This is not altering baseball.
+
+55
+00:03:29,790 --> 00:03:31,650
+It's not changing the value.
+
+56
+00:03:31,650 --> 00:03:40,440
+If we had it in a variable, like if we had let sport equal baseball and then we do sport, slice for
+
+57
+00:03:40,920 --> 00:03:42,360
+sport is unchanged.
+
+58
+00:03:42,360 --> 00:03:47,250
+It's still baseball and we could save this to a separate variable if we wanted it.
+
+59
+00:03:47,820 --> 00:03:51,690
+So that's one use for slice if you pass in a single number.
+
+60
+00:03:52,020 --> 00:03:57,210
+Also, if we tried something like sport slice 40, there is no index 40.
+
+61
+00:03:57,210 --> 00:03:58,830
+We get an empty string.
+
+62
+00:03:59,310 --> 00:04:04,020
+When we use slice, we can also pass in two numbers, two indices.
+
+63
+00:04:04,380 --> 00:04:10,200
+The first one is where we should start the slice and then the second one is where the slice should end.
+
+64
+00:04:10,320 --> 00:04:11,850
+So let's test it out.
+
+65
+00:04:11,850 --> 00:04:21,420
+We'll do this on Super Hero and if we do a dot slice going from index zero and then we go into index
+
+66
+00:04:21,420 --> 00:04:29,970
+five, we'll end up with super notice that it is not inclusive because index five is 012, three, four,
+
+67
+00:04:29,970 --> 00:04:30,660
+five.
+
+68
+00:04:30,660 --> 00:04:32,280
+That would be the H right here.
+
+69
+00:04:32,460 --> 00:04:39,960
+It stops right before that H so it starts at zero and it goes basically to four one less than what we
+
+70
+00:04:39,960 --> 00:04:40,650
+have here.
+
+71
+00:04:40,920 --> 00:04:42,240
+So we end up with super.
+
+72
+00:04:42,270 --> 00:04:48,900
+If I wanted to slice, let's go with he the word I guess it's not a very exciting word but two characters
+
+73
+00:04:48,900 --> 00:04:49,500
+in the middle.
+
+74
+00:04:49,500 --> 00:04:55,530
+We need to go from this index which is zero one, two, three, four, five, and then we want to go
+
+75
+00:04:55,530 --> 00:04:56,850
+and tell seven.
+
+76
+00:04:58,390 --> 00:04:59,350
+And we get here.
+
+77
+00:04:59,710 --> 00:05:08,200
+Let's say I had a bunch of prices that people had written, like 50.60 and I wanted to remove the dollar
+
+78
+00:05:08,200 --> 00:05:09,390
+sign on all of them.
+
+79
+00:05:09,400 --> 00:05:15,100
+What I could do is slice, so just do slice from one to the end.
+
+80
+00:05:15,460 --> 00:05:19,200
+And now I get the number isolated, even though it's a string.
+
+81
+00:05:19,210 --> 00:05:22,360
+I could then turn it into a number, which we haven't seen how to do yet.
+
+82
+00:05:22,540 --> 00:05:24,040
+But this is a common use case.
+
+83
+00:05:24,040 --> 00:05:28,690
+If you have data that follows a pattern and you're trying to isolate a certain portion of it, you use
+
+84
+00:05:28,690 --> 00:05:29,320
+slice.
+
+85
+00:05:29,830 --> 00:05:33,490
+And then we have one more method that accepts arguments that we'll talk about.
+
+86
+00:05:33,490 --> 00:05:38,050
+There are many, many others that come with built in and JavaScript, many string methods, but the
+
+87
+00:05:38,050 --> 00:05:41,890
+last one we'll see is called Replace and it also does what it sounds like.
+
+88
+00:05:41,890 --> 00:05:46,930
+You specify what you want to replace, what string and what you want to replace it with.
+
+89
+00:05:47,110 --> 00:05:57,580
+So if I had the string, baseball is entertaining and I called replace on it, I could replace entertaining
+
+90
+00:05:57,580 --> 00:06:09,810
+if I wanted to with how about OC and now we get baseball is OC if I try it with something like this.
+
+91
+00:06:09,820 --> 00:06:10,960
+Ha ha ha.
+
+92
+00:06:12,540 --> 00:06:16,080
+Dot replace and I want to replace ha with.
+
+93
+00:06:17,070 --> 00:06:17,500
+Hmm.
+
+94
+00:06:17,520 --> 00:06:18,810
+What should we replace it with?
+
+95
+00:06:19,050 --> 00:06:19,470
+How about.
+
+96
+00:06:19,470 --> 00:06:21,090
+Hee hee hee hee!
+
+97
+00:06:22,470 --> 00:06:23,550
+Let's see what happens.
+
+98
+00:06:24,150 --> 00:06:26,340
+It only replaces the first one.
+
+99
+00:06:26,700 --> 00:06:30,300
+So there are ways of replacing all occurrences in a string.
+
+100
+00:06:30,300 --> 00:06:34,230
+But it involves a regular expression, which is something we have not talked about.
+
+101
+00:06:34,230 --> 00:06:35,400
+So we're not going to go into it.
+
+102
+00:06:35,400 --> 00:06:39,420
+But if you want to learn more, go check it out on MD n lookup replace.
+
+103
+00:06:39,810 --> 00:06:41,940
+So it replaces the first occurrence.
+
+104
+00:06:41,940 --> 00:06:46,980
+And of course, if it doesn't find the thing that you're trying to replace, like if I tried to replace
+
+105
+00:06:46,980 --> 00:06:50,130
+ha with Hee, there is no ha.
+
+106
+00:06:50,520 --> 00:06:52,140
+So it's unchanged.
+
+107
+00:06:52,230 --> 00:06:53,370
+It doesn't give us an error.
+
+108
+00:06:53,370 --> 00:06:54,900
+Nothing really happens.
+
+109
+00:06:54,900 --> 00:06:56,550
+It just doesn't replace it.
+
+110
+00:06:57,060 --> 00:06:59,970
+So that's replace you pass it in two values.
+
+111
+00:07:00,180 --> 00:07:05,250
+The thing that all of these methods have in common is that we pass in at least one value.
+
+112
+00:07:05,250 --> 00:07:10,470
+So we had methods where we pass nothing in like trim or to lowercase to uppercase.
+
+113
+00:07:10,470 --> 00:07:16,260
+And we have methods where we pass specific values in index of where we specify what we're looking for.
+
+114
+00:07:16,440 --> 00:07:19,380
+Tell me the index of cats here we have slice.
+
+115
+00:07:19,380 --> 00:07:24,630
+You can pass in one number in order to go from one index to the end of the string.
+
+116
+00:07:24,630 --> 00:07:27,930
+Or you can pass in two numbers to get a specific slice.
+
+117
+00:07:28,020 --> 00:07:31,020
+And we had replaced where you pass in two values.
+
+118
+00:07:31,650 --> 00:07:36,870
+If we go back to the docs here, I'm on MD N right now, I'm on to uppercase for string.
+
+119
+00:07:36,870 --> 00:07:40,560
+But if we go to the left again, we can see all the different methods.
+
+120
+00:07:40,560 --> 00:07:46,860
+If we look at slice, just to give you an idea of how you read these docs, if you look down right here
+
+121
+00:07:46,860 --> 00:07:53,340
+or it says syntax, the syntax is string slice and then we must pass in a begin index.
+
+122
+00:07:53,340 --> 00:07:56,340
+So the starting index and then we have an end index.
+
+123
+00:07:56,340 --> 00:07:58,710
+But notice there's these brackets around it.
+
+124
+00:07:58,710 --> 00:08:01,920
+This is a way of telling you this is optional.
+
+125
+00:08:01,950 --> 00:08:08,760
+Slice works if you only specify begin index as we've seen, if we only pass in five, it works.
+
+126
+00:08:08,760 --> 00:08:11,880
+But if you want you can also pass in an end index.
+
+127
+00:08:11,880 --> 00:08:18,600
+So if you see documentation like this on MD and whenever you see these brackets under the syntax portion
+
+128
+00:08:18,600 --> 00:08:22,500
+of a documentation page, this is telling you it's optional.
+

@@ -1,0 +1,420 @@
+1
+00:00:00,150 --> 00:00:06,900
+So we saw that we can use a form of loop with an object as long as we also use object keys or object
+
+2
+00:00:07,050 --> 00:00:08,760
+values in conjunction with it.
+
+3
+00:00:08,790 --> 00:00:13,700
+There's also another type of loop called a four in loop, which we'll talk about in this video.
+
+4
+00:00:13,710 --> 00:00:17,490
+The very last loop we have to cover if you have not seen Amadeus yet.
+
+5
+00:00:17,730 --> 00:00:19,250
+Oh, fantastic movie.
+
+6
+00:00:19,260 --> 00:00:21,110
+I forgot about how great that movie is.
+
+7
+00:00:21,120 --> 00:00:23,220
+There's a reason it's the only ten on the list.
+
+8
+00:00:23,260 --> 00:00:32,700
+Okay, so four in syntactically is very similar to four of we have four per n's variable in an object
+
+9
+00:00:32,700 --> 00:00:35,490
+instead of of an array or an iterable.
+
+10
+00:00:35,520 --> 00:00:42,630
+The main difference is that a four of will iterate over the actual values in an array or an iterable
+
+11
+00:00:42,630 --> 00:00:43,610
+in a string.
+
+12
+00:00:43,620 --> 00:00:51,000
+Each character in an array, each value a four in will loop over the keys the properties in an object.
+
+13
+00:00:51,000 --> 00:00:54,000
+So here's an example object jeopardy winnings.
+
+14
+00:00:54,000 --> 00:00:56,130
+This represents Ken Jennings.
+
+15
+00:00:56,130 --> 00:01:00,480
+If you are familiar with him, I think he's the all time winningest Jeopardy!
+
+16
+00:01:00,480 --> 00:01:01,290
+Contestant.
+
+17
+00:01:01,740 --> 00:01:05,280
+It's how he made all of his earnings or his money from Jeopardy!
+
+18
+00:01:05,280 --> 00:01:06,600
+It came in different pieces.
+
+19
+00:01:06,750 --> 00:01:09,750
+His long stretch of gameplay was two and one half million.
+
+20
+00:01:09,750 --> 00:01:15,630
+He participated in this IBM Watson challenge, where he played Jeopardy against a supercomputer.
+
+21
+00:01:15,630 --> 00:01:18,990
+He got 300,000, 500,000 for a tournament of champions.
+
+22
+00:01:18,990 --> 00:01:21,180
+It doesn't really matter if you don't watch Jeopardy!
+
+23
+00:01:21,180 --> 00:01:23,040
+Then you must be bored at this point.
+
+24
+00:01:23,040 --> 00:01:24,030
+So we'll move on.
+
+25
+00:01:24,030 --> 00:01:32,220
+So let's try using a four in four and then we make a variable for let and then we could just call it
+
+26
+00:01:32,220 --> 00:01:35,730
+property in jeopardy winnings.
+
+27
+00:01:36,150 --> 00:01:37,290
+We'll console.log.
+
+28
+00:01:37,290 --> 00:01:38,620
+Prop prop.
+
+29
+00:01:38,640 --> 00:01:44,340
+It's not a great name, but sometimes it's tricky to figure out what to name that variable because in
+
+30
+00:01:44,340 --> 00:01:45,780
+this case it's kind of easy.
+
+31
+00:01:45,780 --> 00:01:53,430
+We have very similar data, but if we had a user object where we had username and then we had age,
+
+32
+00:01:53,430 --> 00:01:59,070
+we had email, what would be a good variable name that would make sense to hold any of these property
+
+33
+00:01:59,070 --> 00:01:59,640
+names?
+
+34
+00:01:59,850 --> 00:02:01,980
+Prop is going to be good enough for now.
+
+35
+00:02:02,010 --> 00:02:04,890
+You'll see people do key or K.
+
+36
+00:02:05,190 --> 00:02:06,330
+I'll go with prop.
+
+37
+00:02:06,360 --> 00:02:10,830
+Let's console.log prop and you can see what we get the four keys.
+
+38
+00:02:11,310 --> 00:02:17,160
+So it's very similar to what we did with four of where we had objects keys, but we don't have to do
+
+39
+00:02:17,160 --> 00:02:17,520
+that.
+
+40
+00:02:17,520 --> 00:02:23,280
+This will loop over the keys automatically as long as we have in instead of of I changed that to of
+
+41
+00:02:23,790 --> 00:02:24,690
+we get an error.
+
+42
+00:02:25,170 --> 00:02:33,060
+It's not iterable for of once an iterable for n wants an object and that's what we get.
+
+43
+00:02:33,060 --> 00:02:42,690
+So if I wanted to print out also the value I would do console.log jeopardy winnings of prop with square
+
+44
+00:02:42,690 --> 00:02:43,380
+brackets.
+
+45
+00:02:43,770 --> 00:02:44,850
+And there we go.
+
+46
+00:02:45,420 --> 00:02:51,450
+If I wanted to sum them all together to figure out his total earnings, I'll just duplicate this loop
+
+47
+00:02:52,680 --> 00:02:54,780
+for prop in jeopardy winnings.
+
+48
+00:02:54,780 --> 00:02:57,450
+I'll make a variable to store the total.
+
+49
+00:02:57,480 --> 00:02:59,430
+Let total equals zero.
+
+50
+00:02:59,430 --> 00:03:07,560
+And then each time through I'll just add jeopardy winnings of prop to total jeopardy.
+
+51
+00:03:07,560 --> 00:03:12,780
+Winnings of prop is going to be one of these numbers, so we still loop over the keys.
+
+52
+00:03:12,780 --> 00:03:15,180
+That's the only option we have with a four in.
+
+53
+00:03:15,180 --> 00:03:20,370
+It's going to loop over the properties, the key names, and then we use that to access the value to
+
+54
+00:03:20,370 --> 00:03:21,630
+get that value out.
+
+55
+00:03:21,660 --> 00:03:27,030
+Just like a dictionary, as we saw earlier in the object section, we have a word, we look it up in
+
+56
+00:03:27,030 --> 00:03:29,340
+the dictionary to get the corresponding definition.
+
+57
+00:03:29,340 --> 00:03:33,510
+So if I print out total at the end, let's do a template literal.
+
+58
+00:03:34,200 --> 00:03:46,460
+Ken Jennings total earnings and then dollar sign curly braces total $3.4 million.
+
+59
+00:03:46,620 --> 00:03:47,340
+There we go.
+
+60
+00:03:47,700 --> 00:03:49,200
+So that's four in.
+
+61
+00:03:49,200 --> 00:03:55,590
+One thing that I do want to point out is that technically you can use four in with an array, but there's
+
+62
+00:03:55,590 --> 00:04:01,530
+not really a good reason to know this gets into that murky area we briefly talked about at the end of
+
+63
+00:04:01,530 --> 00:04:08,490
+the object section where arrays are objects, they technically are objects, which means that we can
+
+64
+00:04:08,490 --> 00:04:10,740
+use a four in with an array.
+
+65
+00:04:10,920 --> 00:04:13,650
+So let's do just a simple hardcoded array.
+
+66
+00:04:13,650 --> 00:04:18,779
+Four let k four key in this array.
+
+67
+00:04:18,810 --> 00:04:23,730
+How about 88, 99, 77, 66.
+
+68
+00:04:25,660 --> 00:04:28,960
+What do you think K is going to be when I print it out here?
+
+69
+00:04:29,650 --> 00:04:30,820
+What will we see?
+
+70
+00:04:31,000 --> 00:04:34,480
+So for each property in this array.
+
+71
+00:04:34,540 --> 00:04:35,490
+Console.log.
+
+72
+00:04:35,500 --> 00:04:35,980
+K.
+
+73
+00:04:37,210 --> 00:04:37,630
+Hmm.
+
+74
+00:04:37,810 --> 00:04:38,080
+Zero.
+
+75
+00:04:38,080 --> 00:04:39,070
+One, two, three.
+
+76
+00:04:39,580 --> 00:04:45,910
+No matter what values I had in here, if I have four values, the property names are always zero one,
+
+77
+00:04:45,910 --> 00:04:46,630
+two, three.
+
+78
+00:04:47,200 --> 00:04:49,900
+So we're not looping over the actual elements.
+
+79
+00:04:49,900 --> 00:04:51,550
+The values don't matter.
+
+80
+00:04:51,550 --> 00:04:53,470
+We're looping over the properties.
+
+81
+00:04:53,470 --> 00:04:59,620
+When we have an object Jeopardy winnings and I want to access a piece, I use a key, a property name
+
+82
+00:04:59,620 --> 00:05:01,240
+like regular play.
+
+83
+00:05:02,590 --> 00:05:06,050
+And I get a value out when we have an array.
+
+84
+00:05:06,070 --> 00:05:09,880
+We do the exact same thing, but the key is our numbers.
+
+85
+00:05:10,030 --> 00:05:15,700
+When I look at Jeopardy winnings and I expand it, we have the keys and the values.
+
+86
+00:05:15,700 --> 00:05:19,630
+And if I look at an array and I expand it, we have keys and values.
+
+87
+00:05:19,840 --> 00:05:21,910
+So arrays are just special cases.
+
+88
+00:05:21,910 --> 00:05:28,210
+There's special objects where the keys are an ordered set of indices numbers starting at zero.
+
+89
+00:05:28,480 --> 00:05:29,920
+So that's what we're looping over.
+
+90
+00:05:29,920 --> 00:05:35,200
+We're looping over the keys here, which is not all that useful, especially when we already have a
+
+91
+00:05:35,200 --> 00:05:38,560
+four of loop, which automatically gives us the values.
+
+92
+00:05:39,130 --> 00:05:46,150
+The other thing to know about for RN is that the order is not necessarily set in stone and that's another
+
+93
+00:05:46,150 --> 00:05:52,300
+reason it's not great to use with arrays the way that for in loops can vary from browser to browser.
+
+94
+00:05:52,630 --> 00:05:56,170
+On the MD docs, it says it's an arbitrary order.
+
+95
+00:05:56,200 --> 00:06:01,750
+In my experience, it's pretty stable most of the time in one browser it can change when you go to another
+
+96
+00:06:01,750 --> 00:06:07,480
+browser, but also if you are updating or manipulating properties that can change the order as well.
+
+97
+00:06:07,510 --> 00:06:12,520
+Unlike an array where the order is set in stone, the first item is always index zero.
+
+98
+00:06:12,520 --> 00:06:14,350
+The second item is always index one.
+
+99
+00:06:14,500 --> 00:06:18,010
+So don't use a four in with an array even though you can.
+
+100
+00:06:18,040 --> 00:06:20,200
+It's just kind of an odd thing to do.
+
+101
+00:06:20,200 --> 00:06:22,180
+And that about wraps it up for loops.
+
+102
+00:06:22,180 --> 00:06:23,890
+We've seen a ton of different loops.
+
+103
+00:06:23,890 --> 00:06:26,980
+Well, I guess not that many, but we've seen a ton of examples.
+
+104
+00:06:26,980 --> 00:06:32,290
+We started with four loops, then we talked about while loops and we saw four of remember four of loops
+
+105
+00:06:32,290 --> 00:06:35,200
+are not supported in Internet Explorer at the moment.
+

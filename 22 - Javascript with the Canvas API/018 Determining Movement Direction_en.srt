@@ -1,0 +1,332 @@
+1
+00:00:01,050 --> 00:00:04,480
+The next thing we have to do is make sure that we iterate over each of these neighbor pairs.
+
+2
+00:00:04,500 --> 00:00:09,460
+So I'm going to set up a four of loop to iterate through all these different neighbors.
+
+3
+00:00:09,480 --> 00:00:14,100
+So we'll say four let neighbor of neighbors.
+
+4
+00:00:15,150 --> 00:00:20,850
+I'm going to put the closing curly brace for the for loop right above this very last comment like so.
+
+5
+00:00:22,470 --> 00:00:25,250
+So then inside of here, we're going to do a couple of different checks.
+
+6
+00:00:25,260 --> 00:00:28,370
+We first need to see if that neighbor is out of balance.
+
+7
+00:00:28,380 --> 00:00:34,920
+So remember, if we centered on the element like right here, we have definitely got all four.
+
+8
+00:00:36,160 --> 00:00:38,950
+Sides covered inside of that neighbor's array.
+
+9
+00:00:39,370 --> 00:00:42,910
+So we definitely do not want to go above or to the left at all.
+
+10
+00:00:43,450 --> 00:00:46,960
+So to implement this, we can just add in a little bit, clever logic right here.
+
+11
+00:00:46,960 --> 00:00:50,500
+First, right above, I'm going to get access to the neighbor variable.
+
+12
+00:00:50,500 --> 00:00:53,620
+I'm going to pull a couple of variables out of it using array de structuring.
+
+13
+00:00:53,860 --> 00:00:57,430
+So I'm going to say next row and next column.
+
+14
+00:00:58,470 --> 00:01:00,360
+And that's going to come from the neighbor variable.
+
+15
+00:01:00,390 --> 00:01:05,220
+So next row and next column is essentially the cell that we are thinking about visiting next.
+
+16
+00:01:05,960 --> 00:01:08,480
+So to do this check and see if that neighbor is out of balance.
+
+17
+00:01:09,590 --> 00:01:13,160
+I'll say if next row is less than zero.
+
+18
+00:01:13,940 --> 00:01:14,600
+Or.
+
+19
+00:01:15,240 --> 00:01:19,200
+Next row is greater than or equal to cells.
+
+20
+00:01:19,290 --> 00:01:21,630
+Remember, we define cells at the very top up here.
+
+21
+00:01:21,660 --> 00:01:26,700
+That's going to be the total number of cells in both the horizontal and vertical direction.
+
+22
+00:01:27,910 --> 00:01:29,560
+So a check of.
+
+23
+00:01:30,320 --> 00:01:35,150
+Greater than or equal to cells is going to handle the case in which we are trying to walk off to the
+
+24
+00:01:35,150 --> 00:01:38,210
+far right hand side or the far bottom edge as well.
+
+25
+00:01:39,430 --> 00:01:47,800
+We can also check to see if next column is less than zero or next column is greater than or equal to
+
+26
+00:01:47,800 --> 00:01:49,000
+cells as well.
+
+27
+00:01:51,910 --> 00:01:54,820
+I'm going to zoom out for just a second so you can see that whole line very easily.
+
+28
+00:01:55,890 --> 00:02:00,300
+So if we encounter this situation right here and we do have a neighbor that is out of bounds that we're
+
+29
+00:02:00,300 --> 00:02:04,890
+trying to visit, we still want to iterate through all the remaining neighbors, but we don't want to
+
+30
+00:02:04,890 --> 00:02:09,449
+run any other code for this particular neighbor, period that we are looking at right now.
+
+31
+00:02:09,690 --> 00:02:11,820
+So to do so, we'll use the continue.
+
+32
+00:02:13,330 --> 00:02:13,990
+Keyword.
+
+33
+00:02:14,290 --> 00:02:19,120
+Remember, the continue keyword means don't leave this for loop, just don't do anything else for the
+
+34
+00:02:19,120 --> 00:02:20,620
+current iteration of the current step.
+
+35
+00:02:20,630 --> 00:02:25,540
+So essentially skip over all the rest of the stuff in here and move on to the next neighbor pair.
+
+36
+00:02:27,010 --> 00:02:30,220
+So then after that, this is going to be kind of a more challenging step.
+
+37
+00:02:30,220 --> 00:02:32,540
+We need to check to see or assume that this one is going to be easy.
+
+38
+00:02:32,560 --> 00:02:36,940
+We need to see if we visited this neighbor and if we have, we'll just continue to the next neighbor
+
+39
+00:02:37,660 --> 00:02:43,030
+to recall that inside of our grid array we are storing all those booleans of true or false to record
+
+40
+00:02:43,030 --> 00:02:45,280
+whether or not a certain cell has been visited.
+
+41
+00:02:45,580 --> 00:02:48,400
+So all we have to do here is look at if grid.
+
+42
+00:02:49,280 --> 00:02:50,650
+At next row.
+
+43
+00:02:50,660 --> 00:02:52,970
+Next column is true.
+
+44
+00:02:53,360 --> 00:02:55,010
+Then continue as well.
+
+45
+00:02:57,110 --> 00:03:00,410
+We could technically combine these two if statements together into one.
+
+46
+00:03:00,410 --> 00:03:05,360
+But personally I think that breaking them out separately, just make sure it's really clear about exactly
+
+47
+00:03:05,390 --> 00:03:06,890
+what's going on inside of our code.
+
+48
+00:03:06,890 --> 00:03:11,870
+And anyone else who reads this in the future can look at this comment and just understand exactly what
+
+49
+00:03:11,870 --> 00:03:13,820
+these two if statements are really looking for.
+
+50
+00:03:14,450 --> 00:03:16,760
+Okay, now here's the part that's going to be a little more challenging.
+
+51
+00:03:17,000 --> 00:03:23,390
+So now we need to take a look and decide if we are trying to go up or down, left or right.
+
+52
+00:03:23,690 --> 00:03:28,850
+And depending upon that, we need to update either the verticals array or the horizontals array.
+
+53
+00:03:29,270 --> 00:03:33,440
+So once again, let's imagine that we're at that center cell right here.
+
+54
+00:03:34,400 --> 00:03:40,640
+So if we are going up or down, we are crossing over a horizontal element and that means we need to
+
+55
+00:03:40,640 --> 00:03:42,110
+update the horizontal array.
+
+56
+00:03:42,650 --> 00:03:48,050
+Otherwise, if we are going left or right, we are crossing over a vertical element and that means we
+
+57
+00:03:48,050 --> 00:03:49,880
+need to update the vertical array.
+
+58
+00:03:51,460 --> 00:03:56,080
+Now, unfortunately, with only the information that we have inside of this for loop right now, it's
+
+59
+00:03:56,080 --> 00:04:01,930
+just a little bit challenging to decide if we are going up, down, left or right in order to really
+
+60
+00:04:01,930 --> 00:04:08,920
+decide that we could do some kind of comparison between next row and next column versus the row and
+
+61
+00:04:08,920 --> 00:04:10,840
+column variables that we currently have.
+
+62
+00:04:10,990 --> 00:04:15,610
+So we can essentially subtract each of these from each other and use that to determine which direction
+
+63
+00:04:15,610 --> 00:04:16,480
+we are traveling.
+
+64
+00:04:16,690 --> 00:04:19,390
+But there is a way easier way to do it than that.
+
+65
+00:04:19,870 --> 00:04:22,990
+Remember the array right here of neighbors we put together?
+
+66
+00:04:23,410 --> 00:04:26,650
+We said that row minus one was going to be above.
+
+67
+00:04:27,510 --> 00:04:32,400
+And then the next one is going to be going down and then the next one is going to be going to the right.
+
+68
+00:04:32,730 --> 00:04:34,440
+Or excuse me, did I get that in the wrong order?
+
+69
+00:04:34,440 --> 00:04:34,980
+Sorry.
+
+70
+00:04:34,980 --> 00:04:39,390
+That's going up to the right, down to the left.
+
+71
+00:04:39,870 --> 00:04:43,920
+So in order to make that really clear and communicate that ordering down into our for loop, we can
+
+72
+00:04:43,920 --> 00:04:49,410
+just throw on a third element to these arrays and we can use that third element as kind of a flag to
+
+73
+00:04:49,410 --> 00:04:53,790
+determine what direction we are traveling in down when we get to this statement down here.
+
+74
+00:04:54,610 --> 00:04:59,320
+So as the third element in these arrays, I'm going to say a string right here of this one.
+
+75
+00:04:59,320 --> 00:05:00,520
+We are moving up.
+
+76
+00:05:02,210 --> 00:05:03,170
+Then, right?
+
+77
+00:05:04,190 --> 00:05:06,890
+Then down and then left.
+
+78
+00:05:08,920 --> 00:05:14,160
+So then inside of our structuring statement right there, we're pulling out the next row in next column.
+
+79
+00:05:14,170 --> 00:05:19,810
+We can also get the direction that we are traveling excuse me, direction that we are traveling in.
+
+80
+00:05:20,170 --> 00:05:25,120
+So we can use that variable right there to decide which way we are going and use that to decide if we
+
+81
+00:05:25,120 --> 00:05:28,390
+are going to modify either horizontals or verticals.
+
+82
+00:05:29,400 --> 00:05:32,490
+Now, the rest of the logic we need for this step is just a little bit complicated.
+
+83
+00:05:32,490 --> 00:05:36,510
+So let's take a quick pause right here and discuss exactly what has to be done in the next video.
+

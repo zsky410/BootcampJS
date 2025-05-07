@@ -1,0 +1,364 @@
+1
+00:00:00,360 --> 00:00:01,950
+All right, if you're still with me.
+
+2
+00:00:01,950 --> 00:00:02,460
+Thank you.
+
+3
+00:00:02,490 --> 00:00:03,450
+Congratulations.
+
+4
+00:00:03,450 --> 00:00:04,760
+We've covered a lot of methods.
+
+5
+00:00:04,770 --> 00:00:09,840
+We have two more methods in this video, and that's it for new stuff in this section.
+
+6
+00:00:09,840 --> 00:00:16,079
+We'll then do a quick little project where we get practice creating elements, removing elements, inserting
+
+7
+00:00:16,079 --> 00:00:18,510
+changing classes and styles and all of that stuff.
+
+8
+00:00:18,510 --> 00:00:21,870
+And then we'll move on to a new section on events in the DOM.
+
+9
+00:00:21,870 --> 00:00:26,700
+Now, events are really the main course of Dom stuff of these DOM sections.
+
+10
+00:00:26,730 --> 00:00:32,400
+Events are probably the most exciting, but also the missing piece that we need in order to actually
+
+11
+00:00:32,400 --> 00:00:35,940
+make useful applications and start to interact with our websites.
+
+12
+00:00:36,150 --> 00:00:39,450
+So two more methods and then a project, then events.
+
+13
+00:00:39,450 --> 00:00:43,470
+So the two methods are remove and remove child and they do what they sound like.
+
+14
+00:00:43,470 --> 00:00:46,290
+They remove and remove an element that you pass in.
+
+15
+00:00:46,320 --> 00:00:53,310
+They follow the pattern that we saw with Append Child where this was the the original way of doing it,
+
+16
+00:00:53,310 --> 00:00:58,440
+the older way of appending something as a child and it's supported in all browsers.
+
+17
+00:00:58,440 --> 00:01:02,640
+But there's a newer method append that does not work in Internet Explorer.
+
+18
+00:01:02,640 --> 00:01:06,030
+It's a little friendlier to use and you can pass in multiple elements.
+
+19
+00:01:06,540 --> 00:01:07,950
+Remove is similar.
+
+20
+00:01:07,950 --> 00:01:13,920
+So we have removed child which has been around much longer and then we have remove which does not work
+
+21
+00:01:13,920 --> 00:01:14,730
+in AII.
+
+22
+00:01:15,600 --> 00:01:19,410
+And if you go to the docs for remove child, it's actually mildly confusing.
+
+23
+00:01:19,410 --> 00:01:25,770
+On MDM, you scroll down to look at browser support compatibility unknown for E.
+
+24
+00:01:25,800 --> 00:01:28,500
+So I had a feeling this was a mistake.
+
+25
+00:01:28,950 --> 00:01:31,500
+Something is just wrong with with the data they have.
+
+26
+00:01:31,500 --> 00:01:39,840
+So on another website that I like called Can I use if you look at remove child for I it's been supported
+
+27
+00:01:39,840 --> 00:01:44,040
+in pretty much every version of I that they support on this website.
+
+28
+00:01:44,040 --> 00:01:48,810
+So I have no idea why MDM has a question mark there, but it is supported in IY.
+
+29
+00:01:48,810 --> 00:01:55,530
+So to use remove child we need to find the parent of what we're trying to remove and find the item that
+
+30
+00:01:55,530 --> 00:01:56,580
+we want to remove.
+
+31
+00:01:57,390 --> 00:01:58,980
+So why don't we remove?
+
+32
+00:01:59,610 --> 00:02:02,160
+Hmm, let's remove PS right here.
+
+33
+00:02:02,730 --> 00:02:05,220
+So that element is down at the very bottom.
+
+34
+00:02:05,220 --> 00:02:11,850
+We need to select that element which is in a UL and it has a class of special.
+
+35
+00:02:12,180 --> 00:02:15,690
+So we need to select the UL parent and the ally.
+
+36
+00:02:16,140 --> 00:02:24,660
+Let's get the parent first const UL equals document query selector and we have a couple of Uls on this
+
+37
+00:02:24,660 --> 00:02:25,320
+page.
+
+38
+00:02:25,320 --> 00:02:28,650
+What I'm going to do is select the one inside of a section.
+
+39
+00:02:30,040 --> 00:02:31,720
+Which should give us that one down there.
+
+40
+00:02:31,720 --> 00:02:32,850
+Let's see you.
+
+41
+00:02:34,130 --> 00:02:34,670
+Yep.
+
+42
+00:02:34,670 --> 00:02:36,070
+That one is at the bottom.
+
+43
+00:02:36,080 --> 00:02:39,200
+It's the only one contained inside of a section.
+
+44
+00:02:40,150 --> 00:02:46,150
+Now, if I want to get this one ally that has the class of special, I have a couple of options I could
+
+45
+00:02:46,150 --> 00:02:53,980
+just do document query selector, or I could search within the ul ul query selector for the class of
+
+46
+00:02:53,980 --> 00:02:54,700
+special.
+
+47
+00:02:54,790 --> 00:03:00,970
+And this is easy or easier because there's only one element with the class of special in that UL.
+
+48
+00:03:01,000 --> 00:03:08,020
+But if I instead did document that query selector, we have multiple other special classes or instances
+
+49
+00:03:08,020 --> 00:03:09,670
+of special on the page.
+
+50
+00:03:09,670 --> 00:03:15,790
+So it's, it's more work we would have to then say instead of a section, maybe that could get it.
+
+51
+00:03:15,790 --> 00:03:20,710
+But I like doing this version here where we search within the UL and ignore everything else.
+
+52
+00:03:21,250 --> 00:03:24,520
+All right, so I'm going to save that to a variable cost.
+
+53
+00:03:24,670 --> 00:03:25,720
+Remove me.
+
+54
+00:03:26,050 --> 00:03:26,830
+How about that?
+
+55
+00:03:26,920 --> 00:03:30,280
+Remove me equals UL query selector special.
+
+56
+00:03:30,430 --> 00:03:31,960
+So now we have that element.
+
+57
+00:03:31,960 --> 00:03:41,950
+Remove me and we have the parent ul I can call ul remove child and I want to remove the remove me element.
+
+58
+00:03:42,730 --> 00:03:43,450
+All right.
+
+59
+00:03:43,450 --> 00:03:48,550
+So the pattern is the parent and then remove child and then the child.
+
+60
+00:03:48,550 --> 00:03:51,550
+And this child needs to be a child of the parent.
+
+61
+00:03:51,550 --> 00:03:57,160
+So I couldn't select this ull and say that you'll remove child of this lie.
+
+62
+00:03:57,160 --> 00:03:58,090
+It wouldn't work.
+
+63
+00:03:58,570 --> 00:04:03,720
+Also, when we do remove a child, it does return the removed element so I can save it.
+
+64
+00:04:03,730 --> 00:04:08,020
+I'll just call it const deleted if you wanted to do something with it.
+
+65
+00:04:08,900 --> 00:04:09,670
+It's gone now.
+
+66
+00:04:09,680 --> 00:04:10,730
+Peace is gone.
+
+67
+00:04:10,730 --> 00:04:15,140
+And if we look at deleted, we do have a variable here that is an object.
+
+68
+00:04:15,140 --> 00:04:18,140
+It's the actual element that we were working with that we just removed.
+
+69
+00:04:18,170 --> 00:04:20,600
+It's just printing out as HTML.
+
+70
+00:04:20,630 --> 00:04:25,880
+Thanks to Chrome's lovely dev tools, which actually are lovely, except I hate this one feature.
+
+71
+00:04:25,880 --> 00:04:28,940
+And then we also have the remove method which works differently.
+
+72
+00:04:29,030 --> 00:04:30,900
+It does not need the parent node.
+
+73
+00:04:30,920 --> 00:04:36,850
+All we need to do is select the target, the thing we want to remove and then call remove on that node
+
+74
+00:04:36,860 --> 00:04:39,110
+on the actual item we want to remove.
+
+75
+00:04:39,500 --> 00:04:47,630
+So if I want to remove the H one, for example, I can select it const H one equals document query selector
+
+76
+00:04:49,010 --> 00:04:50,030
+of h one.
+
+77
+00:04:50,060 --> 00:04:53,680
+There's only one on the page and I can call h one dot remove.
+
+78
+00:04:53,690 --> 00:04:54,920
+I don't need the parent.
+
+79
+00:04:55,280 --> 00:05:02,870
+If I was doing this with remove child, I would have to say document up body dot remove child of h one.
+
+80
+00:05:03,530 --> 00:05:06,050
+But with remove it's easier.
+
+81
+00:05:06,050 --> 00:05:07,430
+We don't have to have the parent.
+
+82
+00:05:07,460 --> 00:05:10,480
+It just doesn't work in IY unfortunately.
+
+83
+00:05:10,490 --> 00:05:14,150
+H one remove parentheses and it's gone.
+
+84
+00:05:14,330 --> 00:05:15,110
+That's it.
+
+85
+00:05:15,110 --> 00:05:17,000
+And that's pretty much it for this video.
+
+86
+00:05:17,000 --> 00:05:19,970
+We can remove using the remove method that we just saw.
+
+87
+00:05:20,000 --> 00:05:20,750
+We've got removed.
+
+88
+00:05:20,750 --> 00:05:25,280
+Child You could do this in a loop, of course, if you had a bunch of things you wanted to remove,
+
+89
+00:05:25,760 --> 00:05:26,870
+and that's kind of it.
+
+90
+00:05:26,900 --> 00:05:32,240
+Now we've seen how to create elements, how to append them, pretend them, insert them before things,
+
+91
+00:05:32,240 --> 00:05:34,910
+insert adjacent to things and remove them.
+

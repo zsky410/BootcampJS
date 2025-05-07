@@ -1,0 +1,716 @@
+1
+00:00:00,150 --> 00:00:03,590
+All right, so let's refactor this relatively ugly code.
+
+2
+00:00:03,600 --> 00:00:09,390
+And even if we're not making it easier to look at and understand, let's make it more reusable so I
+
+3
+00:00:09,390 --> 00:00:15,120
+can make two different tables or two different URLs for each team with a different perspective.
+
+4
+00:00:15,330 --> 00:00:18,960
+Or I could make this work with any data.
+
+5
+00:00:18,990 --> 00:00:23,700
+It doesn't have to be hard coded for warriors, and I don't want to have to just duplicate this code
+
+6
+00:00:23,700 --> 00:00:28,380
+to make another table or another UL with a bunch of allies that we're calling a table.
+
+7
+00:00:28,620 --> 00:00:31,560
+So the first thing I would do is just wrap it in a function.
+
+8
+00:00:32,220 --> 00:00:33,570
+Let's define a function.
+
+9
+00:00:33,570 --> 00:00:40,470
+I would probably call it like, hmm, make chart like that and then pass it in the data.
+
+10
+00:00:41,400 --> 00:00:43,440
+So I'm going to define my function.
+
+11
+00:00:43,560 --> 00:00:52,560
+I'll go with const make chart equals a function that accepts game data or games and then that will be
+
+12
+00:00:52,560 --> 00:00:53,730
+an arrow function.
+
+13
+00:00:53,760 --> 00:00:55,500
+It doesn't have to be, but that's fine.
+
+14
+00:00:55,710 --> 00:01:04,140
+And I'll start by just putting all of this code inside the function and the way I'll write my function
+
+15
+00:01:04,140 --> 00:01:10,890
+is I won't have it actually append the chart, it will make the chart, but then I can append it wherever
+
+16
+00:01:10,890 --> 00:01:11,580
+I want.
+
+17
+00:01:11,580 --> 00:01:14,700
+By calling it it will return the UL.
+
+18
+00:01:15,420 --> 00:01:17,490
+Let's get rid of this extra console.log.
+
+19
+00:01:17,490 --> 00:01:25,050
+So we're making this UL parent at the end will return ul parent and that will contain all of the allies,
+
+20
+00:01:25,050 --> 00:01:26,100
+all of the data.
+
+21
+00:01:26,580 --> 00:01:31,080
+And then I can simply append it or pretend at the end.
+
+22
+00:01:31,080 --> 00:01:32,640
+So I'll make my variable.
+
+23
+00:01:32,670 --> 00:01:39,960
+I'll call this chart one equals make chart and then document dot body dot pre penned chart one.
+
+24
+00:01:40,560 --> 00:01:42,750
+So I'm just moving it into a function.
+
+25
+00:01:42,750 --> 00:01:45,240
+Now, I could call this twice if I wanted to.
+
+26
+00:01:45,810 --> 00:01:48,300
+Assuming we don't have any errors, it looks like we do.
+
+27
+00:01:48,330 --> 00:01:49,680
+Data is not defined.
+
+28
+00:01:50,670 --> 00:01:52,800
+I need to pass in the actual name of this.
+
+29
+00:01:52,800 --> 00:01:53,940
+It's not called data.
+
+30
+00:01:54,030 --> 00:01:55,950
+It's called Warriors Games.
+
+31
+00:01:59,950 --> 00:02:03,160
+And then I do need to update my loop here.
+
+32
+00:02:03,160 --> 00:02:10,180
+The parameter is called games, so for game of games I don't want a hard code it to be this particular
+
+33
+00:02:10,180 --> 00:02:11,140
+data structure.
+
+34
+00:02:11,260 --> 00:02:15,640
+We want it to be whatever is passed in and there we go.
+
+35
+00:02:16,060 --> 00:02:18,850
+So now I could just make another table easily.
+
+36
+00:02:18,850 --> 00:02:20,440
+Just duplicate this code.
+
+37
+00:02:21,400 --> 00:02:25,450
+It will be identical, but I now am able to do it twice.
+
+38
+00:02:26,200 --> 00:02:27,010
+There we go.
+
+39
+00:02:27,670 --> 00:02:28,210
+All right.
+
+40
+00:02:28,210 --> 00:02:34,000
+So we've made our function slightly reusable, but now I want to break it up a little bit.
+
+41
+00:02:34,000 --> 00:02:37,480
+This is still kind of it's kind of a lot to do in here.
+
+42
+00:02:37,480 --> 00:02:45,490
+So what I would probably break it into is a function to determine the interior, the inner text, this
+
+43
+00:02:45,490 --> 00:02:46,540
+stuff right here.
+
+44
+00:02:47,480 --> 00:03:00,350
+And I'll call that get get content or get get text, get score line maybe equals function.
+
+45
+00:03:00,620 --> 00:03:02,930
+We'll figure out what it accepts in just a moment.
+
+46
+00:03:03,110 --> 00:03:05,300
+And I want to call it like this.
+
+47
+00:03:05,300 --> 00:03:11,070
+If I have my lie that I'm making right here, I want to call game ly dot.
+
+48
+00:03:11,810 --> 00:03:14,900
+Inner XHTML equals get score line.
+
+49
+00:03:16,790 --> 00:03:19,070
+And then I'll just pass it in the entire game.
+
+50
+00:03:19,070 --> 00:03:24,830
+So I'll move this content that is getting the D structuring home team and away way team variables.
+
+51
+00:03:24,830 --> 00:03:30,200
+This line that is making the team names the away team at home team.
+
+52
+00:03:30,590 --> 00:03:33,980
+I'll get the scoreline, the point stuff.
+
+53
+00:03:34,130 --> 00:03:35,810
+All of this right here.
+
+54
+00:03:36,560 --> 00:03:41,570
+Cut it out and move it over here and we're passing in the entire game.
+
+55
+00:03:41,570 --> 00:03:42,200
+Where are you?
+
+56
+00:03:42,200 --> 00:03:42,950
+Right here.
+
+57
+00:03:43,100 --> 00:03:45,740
+And I'm going to D structure from that.
+
+58
+00:03:46,250 --> 00:03:52,250
+I'll get the home team and the away team, which is what I did right here.
+
+59
+00:03:52,670 --> 00:03:58,760
+But I'll just pass the entire game and D structure it here inside of the parameter definition.
+
+60
+00:04:00,740 --> 00:04:02,870
+We need to make sure we return something.
+
+61
+00:04:02,870 --> 00:04:07,010
+And what I want to return is this line right here.
+
+62
+00:04:08,630 --> 00:04:10,190
+We'll walk through it in a moment.
+
+63
+00:04:12,880 --> 00:04:13,180
+Okay.
+
+64
+00:04:13,180 --> 00:04:15,370
+So we made this function called get score line.
+
+65
+00:04:15,370 --> 00:04:17,050
+We pass in the entire game.
+
+66
+00:04:17,110 --> 00:04:23,170
+It will extract or unpack home team in a way team and then further unpack each team.
+
+67
+00:04:23,170 --> 00:04:25,390
+A team H points eight points.
+
+68
+00:04:25,600 --> 00:04:33,040
+It creates the team names string, it creates the scoreline string and it returns both of them combined
+
+69
+00:04:33,040 --> 00:04:38,350
+into team names, score line into one string and that one string is returned from here.
+
+70
+00:04:38,380 --> 00:04:45,430
+And I'm setting game like inner HTML game lie represents each lie, each one of these.
+
+71
+00:04:45,640 --> 00:04:48,640
+So I just wrote a function to generate this for me.
+
+72
+00:04:50,130 --> 00:04:56,790
+And almost always, whenever we move stuff around and refactor into new functions, I'm sure we'll encounter
+
+73
+00:04:56,790 --> 00:04:57,510
+something.
+
+74
+00:04:57,660 --> 00:04:58,420
+Yep.
+
+75
+00:04:58,440 --> 00:04:59,550
+What is it now?
+
+76
+00:04:59,850 --> 00:05:05,160
+H team is not defined and the line that is causing me trouble right now is right here.
+
+77
+00:05:05,460 --> 00:05:08,970
+Warriors equals team will team is gone.
+
+78
+00:05:08,970 --> 00:05:10,530
+I moved it into this function.
+
+79
+00:05:10,770 --> 00:05:14,750
+So what I would probably do is to start just comment this logic out.
+
+80
+00:05:14,760 --> 00:05:16,950
+Let's make sure our last version worked.
+
+81
+00:05:16,980 --> 00:05:17,540
+Okay.
+
+82
+00:05:17,550 --> 00:05:21,060
+So we are getting the correct text on the inside of each lie.
+
+83
+00:05:21,480 --> 00:05:27,690
+Now I'll probably make a function called get winner or winning team or something like that.
+
+84
+00:05:27,870 --> 00:05:33,060
+The way that I want this to work, I should be able to pass in the team that I'm making the table for.
+
+85
+00:05:33,090 --> 00:05:39,150
+So Golden State, but I should also be able to do it for Houston instead.
+
+86
+00:05:40,410 --> 00:05:46,080
+But I'll start with Golden State, so I will accept a parameter called Target Team.
+
+87
+00:05:47,430 --> 00:05:53,460
+And then I want to check if for each game the winning team was Target team.
+
+88
+00:05:53,670 --> 00:05:55,470
+So if it was Golden State.
+
+89
+00:05:56,040 --> 00:06:02,010
+So this stuff that I have here, I'm probably going to move into a new function and I'll call that function.
+
+90
+00:06:02,100 --> 00:06:03,240
+Let's see, how would I want to call it?
+
+91
+00:06:03,240 --> 00:06:09,900
+Maybe is winner and then I could pass in game and target team.
+
+92
+00:06:12,130 --> 00:06:12,730
+Okay.
+
+93
+00:06:12,970 --> 00:06:14,280
+So that doesn't exist.
+
+94
+00:06:14,290 --> 00:06:15,250
+We'll define it.
+
+95
+00:06:15,760 --> 00:06:22,210
+Concept is winner equals game target team.
+
+96
+00:06:25,130 --> 00:06:31,040
+Aero function or just a regular function, and we'll check in that game.
+
+97
+00:06:31,160 --> 00:06:33,320
+We will do the same thing we have here.
+
+98
+00:06:33,320 --> 00:06:37,760
+So I'll just move this single line for now down here.
+
+99
+00:06:38,180 --> 00:06:44,960
+We'll replace Golden State with Target team and I think I'll structure the same way right here on game.
+
+100
+00:06:44,960 --> 00:06:46,910
+So we get home team and away team.
+
+101
+00:06:46,910 --> 00:06:48,710
+We're unpacking those values.
+
+102
+00:06:49,250 --> 00:06:53,840
+So we're passing one game in and we're passing in the string Golden State, for example.
+
+103
+00:06:53,990 --> 00:07:00,530
+And all I want to do is find where Golden State is, if it's a way or home and check if they are winner
+
+104
+00:07:00,530 --> 00:07:02,030
+if is winner is true.
+
+105
+00:07:03,290 --> 00:07:06,320
+So I have home team away team and target team.
+
+106
+00:07:06,650 --> 00:07:09,980
+I'll just check if home team dot.
+
+107
+00:07:10,730 --> 00:07:12,940
+Team equals Target team.
+
+108
+00:07:12,950 --> 00:07:22,640
+If that's the case, let's make this a variable just called team target and I'm going to return Target.
+
+109
+00:07:22,640 --> 00:07:24,070
+DOT is winner.
+
+110
+00:07:24,080 --> 00:07:29,450
+So this line is just to find the correct team, home team or away team.
+
+111
+00:07:29,450 --> 00:07:35,630
+So I could have done a way team team equals target team and then just set that to a way team.
+
+112
+00:07:35,630 --> 00:07:36,410
+Either way it works.
+
+113
+00:07:36,410 --> 00:07:44,150
+I'm just trying to identify Target which object actually has warriors as the team and then I'll return
+
+114
+00:07:44,150 --> 00:07:46,760
+that object's winner or is winner property.
+
+115
+00:07:46,910 --> 00:07:49,730
+And then here where I called it is winner.
+
+116
+00:07:49,880 --> 00:07:55,610
+I can use that now to decide the class and I could put it right here.
+
+117
+00:07:55,610 --> 00:07:57,200
+Just do it in one line.
+
+118
+00:07:57,590 --> 00:07:59,840
+We'll see how ugly it is or isn't.
+
+119
+00:08:03,420 --> 00:08:07,820
+So we'll call is winner for this one game with the target team.
+
+120
+00:08:07,830 --> 00:08:09,130
+Let's say it's Golden State.
+
+121
+00:08:09,150 --> 00:08:10,890
+If that returns true, we'll add win.
+
+122
+00:08:10,890 --> 00:08:12,810
+If it returns false, we'll add loss.
+
+123
+00:08:13,140 --> 00:08:14,130
+Is it going to work?
+
+124
+00:08:14,310 --> 00:08:15,900
+We probably have some other bug.
+
+125
+00:08:16,240 --> 00:08:17,700
+No, it seems like it worked.
+
+126
+00:08:18,000 --> 00:08:22,920
+So let's try switching it around this time instead of looking for Golden State.
+
+127
+00:08:23,160 --> 00:08:25,200
+Let's look for Houston.
+
+128
+00:08:27,720 --> 00:08:29,040
+Hey, it's working.
+
+129
+00:08:29,190 --> 00:08:30,060
+So we can see.
+
+130
+00:08:30,090 --> 00:08:31,470
+Houston lost the first one.
+
+131
+00:08:31,470 --> 00:08:33,870
+They won the second one and so on.
+
+132
+00:08:34,409 --> 00:08:39,330
+So we've now made this actually reusable and we can have a different target team each time.
+
+133
+00:08:40,500 --> 00:08:42,419
+So that's kind of all I wanted to do here.
+
+134
+00:08:42,419 --> 00:08:44,550
+We've got our function make chart.
+
+135
+00:08:44,580 --> 00:08:46,440
+It has two other functions.
+
+136
+00:08:46,470 --> 00:08:48,300
+Get scoreline is winner.
+
+137
+00:08:48,300 --> 00:08:53,010
+It doesn't have them, but it relies on them and we can call make chart multiple times.
+
+138
+00:08:53,010 --> 00:08:54,780
+It does not append anything itself.
+
+139
+00:08:54,780 --> 00:08:59,010
+It returns the the chart element that we then append on our own.
+
+140
+00:08:59,880 --> 00:09:02,280
+I could probably refactor this here.
+
+141
+00:09:03,210 --> 00:09:08,970
+I'm okay with it, but we could take advantage of is winner and just reuse that function.
+
+142
+00:09:08,970 --> 00:09:13,920
+There are more ways we could refactor this, but it's already been a significant chunk of time here,
+
+143
+00:09:14,100 --> 00:09:15,870
+so we're not going to go too crazy on this.
+
+144
+00:09:15,870 --> 00:09:20,610
+We have lots of projects coming up and you'll talk a lot about refactoring then.
+
+145
+00:09:21,000 --> 00:09:22,890
+So I think this is good enough.
+
+146
+00:09:23,130 --> 00:09:29,160
+The one thing I would do as we're displaying this is maybe add a title or two so we can see what's going
+
+147
+00:09:29,160 --> 00:09:29,730
+on.
+
+148
+00:09:30,630 --> 00:09:33,870
+Maybe in our index I'll just add two sections.
+
+149
+00:09:33,870 --> 00:09:40,740
+So the first one will have an H two that says Warriors or how about Golden State Warriors?
+
+150
+00:09:43,450 --> 00:09:48,280
+And this section will have an ID maybe of GS.
+
+151
+00:09:51,090 --> 00:09:53,640
+And then we'll have a second section with another age.
+
+152
+00:09:53,640 --> 00:10:00,990
+To this one will be Houston Rockets and the ID will be I guess I'll just do Houston Rockets GTS and
+
+153
+00:10:01,920 --> 00:10:07,710
+now I'll append my charts into here and I'll have a heading for them, which will make it a little bit
+
+154
+00:10:07,710 --> 00:10:09,300
+nicer to see what's what.
+
+155
+00:10:09,900 --> 00:10:12,870
+So over here I now can select those two elements.
+
+156
+00:10:12,870 --> 00:10:23,910
+So we'll call this concept Warriors section, maybe GTS section equals document, query selector or
+
+157
+00:10:23,910 --> 00:10:25,980
+document get element by ID.
+
+158
+00:10:26,010 --> 00:10:36,470
+Use the hash sign for GTS to get the ID of GTS and then I'll do Houston section equals document dat
+
+159
+00:10:36,480 --> 00:10:37,170
+query selector.
+
+160
+00:10:37,170 --> 00:10:41,400
+I don't want all I just want query selector of h.r.
+
+161
+00:10:41,400 --> 00:10:44,910
+So I have those two sections now I can make my two charts.
+
+162
+00:10:44,910 --> 00:10:54,570
+So we'll go with Golden State chart and Houston Rocket Chart and I'll change the target team to be Houston.
+
+163
+00:10:56,220 --> 00:11:05,400
+And then instead of document body pre penned, I'll do GTS section dot append child this chart, the
+
+164
+00:11:05,400 --> 00:11:10,920
+GTS chart that we made with the perspective of Golden State Warriors and then we'll do the Houston section
+
+165
+00:11:10,920 --> 00:11:17,520
+dot append child and we'll add in the HR chart and let's see if that works.
+
+166
+00:11:17,520 --> 00:11:22,890
+So we make two charts, one from each perspective, one looking at it from Golden State's point of view,
+
+167
+00:11:22,890 --> 00:11:26,070
+we append that to the Golden State section that I added.
+
+168
+00:11:26,070 --> 00:11:29,010
+Then we do the same thing for the Houston Rockets.
+
+169
+00:11:29,010 --> 00:11:35,040
+That perspective we pass in Houston and we use that and append that chart that we get back to our Houston
+
+170
+00:11:35,040 --> 00:11:35,760
+section.
+
+171
+00:11:36,150 --> 00:11:42,120
+And I added some h twos so that we have some text to look at and we know which chart is which and we're
+
+172
+00:11:42,120 --> 00:11:42,930
+good to go.
+
+173
+00:11:43,200 --> 00:11:44,190
+So that's it.
+
+174
+00:11:44,190 --> 00:11:48,150
+It's a lot of work, but we are dynamically creating these charts here.
+
+175
+00:11:48,330 --> 00:11:50,250
+They're not tables, it's just lies.
+
+176
+00:11:50,250 --> 00:11:52,350
+But we've got a couple of elements we're creating.
+
+177
+00:11:52,350 --> 00:11:55,260
+We've got bold tags, we've got Liz, we're adding classes.
+
+178
+00:11:55,260 --> 00:11:57,060
+We're changing the inner HTML.
+
+179
+00:11:59,860 --> 00:12:02,320
+We're using a ton of the stuff we've seen so far.
+

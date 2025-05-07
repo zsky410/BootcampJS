@@ -1,0 +1,508 @@
+1
+00:00:00,150 --> 00:00:02,140
+Next up, let's talk about variables.
+
+2
+00:00:02,160 --> 00:00:07,560
+So far, we've seen how to write numbers in simple mathematical expressions.
+
+3
+00:00:07,560 --> 00:00:09,480
+But we're not capturing any information.
+
+4
+00:00:09,480 --> 00:00:11,880
+We're not able to recall any values.
+
+5
+00:00:11,880 --> 00:00:16,200
+It's just basically a calculator, a nice JavaScript calculator.
+
+6
+00:00:16,350 --> 00:00:21,870
+But when we add variables in, we now can keep track of values and recall them or update them whenever
+
+7
+00:00:21,870 --> 00:00:22,560
+we want.
+
+8
+00:00:22,560 --> 00:00:28,590
+So variables are like labeled jars, as you can see by this diagram on the right hand side where we
+
+9
+00:00:28,590 --> 00:00:33,570
+have a value and it goes into a sort of a container that has a label on it.
+
+10
+00:00:33,570 --> 00:00:37,860
+So in this case, we're saying age is 72, the number 72.
+
+11
+00:00:37,860 --> 00:00:41,400
+So we can store value, we give it a name so that we can recall it later.
+
+12
+00:00:41,400 --> 00:00:42,180
+We could use it.
+
+13
+00:00:42,180 --> 00:00:46,350
+We can pass it to something, we can change it, can do all sorts of things.
+
+14
+00:00:46,350 --> 00:00:51,030
+So very, very important concept in programming, we make variables all the time.
+
+15
+00:00:51,120 --> 00:00:55,650
+So the basic syntax that we'll see first is using a keyword called LUT.
+
+16
+00:00:55,680 --> 00:01:01,380
+Now there actually are two different ways that we can create variables in JavaScript, at least two
+
+17
+00:01:01,380 --> 00:01:02,910
+that are commonly used today.
+
+18
+00:01:02,910 --> 00:01:06,510
+There's another option which we'll talk about in a separate video coming up.
+
+19
+00:01:06,720 --> 00:01:08,970
+So for now, we're talking about lit and cost.
+
+20
+00:01:08,970 --> 00:01:10,320
+First up, lit.
+
+21
+00:01:10,320 --> 00:01:14,760
+So let is the keyword we start with and then a variable name.
+
+22
+00:01:14,790 --> 00:01:16,590
+Some name is what I'm calling it here.
+
+23
+00:01:16,590 --> 00:01:18,840
+It could equal or it could be anything you want.
+
+24
+00:01:18,870 --> 00:01:20,580
+It could be my variable.
+
+25
+00:01:20,580 --> 00:01:22,710
+It could be stupid variable.
+
+26
+00:01:22,740 --> 00:01:24,750
+It could be chicken eggs.
+
+27
+00:01:24,900 --> 00:01:29,790
+There are a couple of conventions that we'll talk about in a moment and then we have an equal sign and
+
+28
+00:01:29,790 --> 00:01:31,020
+then a value.
+
+29
+00:01:31,380 --> 00:01:36,690
+So to recreate what we have here, we would write Let age equals 70.
+
+30
+00:01:36,690 --> 00:01:41,370
+To let age equals 72.
+
+31
+00:01:42,440 --> 00:01:47,780
+Now we have a value called age, and at any point I can recall it just like that.
+
+32
+00:01:48,320 --> 00:01:51,170
+We usually don't just recall age for no reason.
+
+33
+00:01:51,170 --> 00:01:52,820
+We usually do something with it.
+
+34
+00:01:53,060 --> 00:01:54,350
+Here is a simple example.
+
+35
+00:01:54,350 --> 00:01:59,000
+We have two variables hens, which is four and roosters which is two.
+
+36
+00:01:59,360 --> 00:02:02,450
+We can add them together, hence plus roosters.
+
+37
+00:02:02,630 --> 00:02:09,380
+So not only are we saving a value that we can recall later, we're also giving it a nice name, a way
+
+38
+00:02:09,380 --> 00:02:11,650
+of understanding what it is we can see.
+
+39
+00:02:11,660 --> 00:02:13,640
+Clearly we are adding hens to roosters.
+
+40
+00:02:13,640 --> 00:02:18,440
+We're trying to calculate total number of chickens versus just adding four plus two.
+
+41
+00:02:18,470 --> 00:02:23,390
+It's not as easy to tell what's going on, but the main value here, the main reason for variables is
+
+42
+00:02:23,390 --> 00:02:28,730
+that we are storing information so that we can recall it and use it later so we can recall them.
+
+43
+00:02:28,730 --> 00:02:30,950
+But of course we can also update them.
+
+44
+00:02:31,280 --> 00:02:37,040
+So here I have hens which I'm initializing to four and a raccoon killed one of my hens.
+
+45
+00:02:37,040 --> 00:02:38,150
+Very, very sad.
+
+46
+00:02:38,540 --> 00:02:43,700
+For those of you who don't know, raccoons, while adorable, are quite vicious towards lots of animals,
+
+47
+00:02:43,700 --> 00:02:45,020
+but especially chickens.
+
+48
+00:02:45,050 --> 00:02:50,810
+I could do something like hens minus one, which you might think would change the value of hens, but
+
+49
+00:02:50,810 --> 00:02:52,640
+it's not actually doing that at all.
+
+50
+00:02:52,880 --> 00:02:55,580
+Here I have my age variable, which is 72.
+
+51
+00:02:55,760 --> 00:02:59,300
+If I do age plus one, let's say that this person had a birthday.
+
+52
+00:02:59,330 --> 00:03:01,190
+Their age should now be 73.
+
+53
+00:03:01,220 --> 00:03:03,710
+I'm not actually changing the value.
+
+54
+00:03:03,860 --> 00:03:08,900
+All that I'm doing is saying, Hey, JavaScript, give me that value for age and then add one to it.
+
+55
+00:03:09,140 --> 00:03:16,520
+But I'm not telling it to update age, so the easiest way or the first way to change it is to set hens
+
+56
+00:03:16,520 --> 00:03:22,250
+or age equal to the variable current value, plus or minus or whatever we're trying to do.
+
+57
+00:03:22,280 --> 00:03:25,070
+We change it based off of the current value.
+
+58
+00:03:25,130 --> 00:03:28,310
+So for example, age equals age plus one.
+
+59
+00:03:28,730 --> 00:03:33,170
+Now we have 73 and age, as you can see there, we can do it again.
+
+60
+00:03:33,170 --> 00:03:36,400
+If I recall it with the up arrows, I'm adding one.
+
+61
+00:03:36,410 --> 00:03:38,570
+Let's add a whole decade.
+
+62
+00:03:39,260 --> 00:03:41,630
+Now, if we look at age, it's 84.
+
+63
+00:03:42,290 --> 00:03:44,540
+So that's one way of updating a variable.
+
+64
+00:03:44,720 --> 00:03:46,160
+And we can multiply divide.
+
+65
+00:03:46,160 --> 00:03:47,130
+We could do whatever we want.
+
+66
+00:03:47,150 --> 00:03:48,950
+We could also just completely change it.
+
+67
+00:03:48,950 --> 00:03:52,010
+I could say age is actually now 18.
+
+68
+00:03:52,820 --> 00:03:58,820
+This person was reincarnated as a teenager, actually is 18, considered a teenager, I don't know,
+
+69
+00:03:58,820 --> 00:03:59,380
+adult.
+
+70
+00:03:59,390 --> 00:04:01,620
+Anyway, we've now set it to 18.
+
+71
+00:04:01,640 --> 00:04:04,020
+Now there are a couple of things to know about variables.
+
+72
+00:04:04,040 --> 00:04:08,420
+The first is that you can't technically name your variables anything.
+
+73
+00:04:08,420 --> 00:04:11,150
+For example, you couldn't name a variable.
+
+74
+00:04:11,180 --> 00:04:14,690
+Let, let, let equals ten.
+
+75
+00:04:14,900 --> 00:04:18,529
+JavaScript will get very confused because lit is a reserved word.
+
+76
+00:04:18,529 --> 00:04:21,019
+It's a key word in the language of JavaScript.
+
+77
+00:04:21,019 --> 00:04:27,170
+So it thinks that we're trying to make another variable here and you can see let is disallowed as a
+
+78
+00:04:27,170 --> 00:04:29,210
+lexical bound name.
+
+79
+00:04:29,630 --> 00:04:30,790
+So that doesn't work.
+
+80
+00:04:30,800 --> 00:04:36,200
+There are other things you'll encounter definitely in JavaScript there's something called the document.
+
+81
+00:04:37,310 --> 00:04:39,830
+The document is a special object.
+
+82
+00:04:39,830 --> 00:04:43,280
+We haven't talked about objects, but it's something that exists in your browser.
+
+83
+00:04:43,280 --> 00:04:50,540
+And so if you tried to make a variable called document, let document equals 15 identify or document
+
+84
+00:04:50,540 --> 00:04:52,040
+has already been declared.
+
+85
+00:04:52,370 --> 00:04:56,210
+So there are some things you'll need to look out for, but for the most part you can name your variables,
+
+86
+00:04:56,210 --> 00:04:58,460
+anything that doesn't mean you should.
+
+87
+00:04:58,460 --> 00:05:01,310
+There are some things you should be aware of or that you should keep in mind.
+
+88
+00:05:01,310 --> 00:05:05,800
+First of all, you want to give your variable a name that makes sense, so you don't want to do let
+
+89
+00:05:05,870 --> 00:05:13,430
+x equals 18 when in reality this is a value for age or you wouldn't want to do Z equals five.
+
+90
+00:05:13,430 --> 00:05:18,110
+If this was a five star rating, why not call it rating or score or something like that?
+
+91
+00:05:18,650 --> 00:05:20,720
+So naming is very, very important.
+
+92
+00:05:20,720 --> 00:05:26,120
+And along with that, there is a convention in JavaScript where we name our variables using camel case.
+
+93
+00:05:26,120 --> 00:05:32,780
+Camel case just means that when you have multiple words, multiple pieces in a variable name like NUM
+
+94
+00:05:32,810 --> 00:05:41,540
+of hens, you capitalize the first letter of each new word except for the first one, at least in JavaScript.
+
+95
+00:05:41,840 --> 00:05:44,840
+So this is camel case, except for the first letter.
+
+96
+00:05:44,900 --> 00:05:46,940
+We don't want to have an uppercase first letter.
+
+97
+00:05:46,940 --> 00:05:47,990
+It won't break things.
+
+98
+00:05:47,990 --> 00:05:51,950
+You can do this num of pens equals six.
+
+99
+00:05:52,040 --> 00:05:53,450
+I think I had four earlier.
+
+100
+00:05:53,630 --> 00:05:54,440
+Now we have six.
+
+101
+00:05:54,440 --> 00:05:55,550
+Some of the eggs hatched.
+
+102
+00:05:55,760 --> 00:05:56,780
+This works.
+
+103
+00:05:56,780 --> 00:06:02,420
+But the convention, the pattern that developers follow in JavaScript that companies want you to follow
+
+104
+00:06:02,420 --> 00:06:07,820
+that style guides want you to follow is to lowercase the first letter and then uppercase the first letter
+
+105
+00:06:07,820 --> 00:06:09,650
+of every other word after that.
+
+106
+00:06:09,830 --> 00:06:13,310
+So let average rating equal.
+
+107
+00:06:13,400 --> 00:06:15,980
+Let's go with 9.7.
+
+108
+00:06:17,210 --> 00:06:17,560
+Okay.
+
+109
+00:06:17,600 --> 00:06:19,330
+So that's one thing to keep in mind.
+
+110
+00:06:19,340 --> 00:06:22,100
+You don't want to do average dash rating.
+
+111
+00:06:22,400 --> 00:06:27,380
+We don't want a snake case where you use underscores and you don't want to just let it bleed together
+
+112
+00:06:27,380 --> 00:06:27,970
+like this.
+
+113
+00:06:27,980 --> 00:06:32,960
+If those are actual separate words, it's much easier to read if you have camel casing.
+
+114
+00:06:33,620 --> 00:06:40,100
+Lastly, if you try and re declare a variable that you've already made, like would I just do average
+
+115
+00:06:40,100 --> 00:06:40,650
+rating?
+
+116
+00:06:40,670 --> 00:06:47,240
+If I wanted to make another average rating and I want to set it to zero this time.
+
+117
+00:06:48,360 --> 00:06:54,340
+Nope not going to happen with let JavaScript tells me identifier average rating has already been declared.
+
+118
+00:06:54,360 --> 00:07:00,360
+So if we create a variable with a given name using lut, we cannot then re declare it.
+
+119
+00:07:00,390 --> 00:07:03,900
+We cannot make a new variable with the same name using lit.
+
+120
+00:07:04,200 --> 00:07:08,490
+We can only have one of those in a given scope which we haven't talked about scope.
+
+121
+00:07:08,490 --> 00:07:10,440
+So don't worry about it, we'll return to it.
+
+122
+00:07:10,440 --> 00:07:12,330
+But you can see the problem, right?
+
+123
+00:07:12,330 --> 00:07:13,470
+We already have average rating.
+
+124
+00:07:13,470 --> 00:07:14,820
+We've made space for it in memory.
+
+125
+00:07:14,820 --> 00:07:17,760
+JavaScript is like, okay, there's one thing called average rating.
+
+126
+00:07:17,760 --> 00:07:18,660
+You try and make another.
+
+127
+00:07:18,660 --> 00:07:21,240
+It's not going to be happy with you and you get this error.
+

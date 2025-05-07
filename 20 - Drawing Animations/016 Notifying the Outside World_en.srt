@@ -1,0 +1,424 @@
+1
+00:00:00,880 --> 00:00:02,910
+Our timer class is now mostly complete.
+
+2
+00:00:02,920 --> 00:00:07,480
+The last thing we need to do is make sure that we can somehow emit these events or otherwise tell the
+
+3
+00:00:07,480 --> 00:00:11,260
+outside world that something important just happened inside of our timer class.
+
+4
+00:00:11,740 --> 00:00:18,160
+So we're going to add in the ability to detect whenever the timer starts, whenever we tick down a second
+
+5
+00:00:18,160 --> 00:00:20,440
+and whenever the timer is complete as well.
+
+6
+00:00:20,440 --> 00:00:22,660
+So in other words, our time remaining hits zero.
+
+7
+00:00:23,200 --> 00:00:26,620
+There are many different ways that we can actually implement these things.
+
+8
+00:00:26,620 --> 00:00:28,960
+So we could actually emit an event from our class.
+
+9
+00:00:28,960 --> 00:00:31,310
+But we're going to take a little bit more straightforward approach.
+
+10
+00:00:31,330 --> 00:00:35,470
+We're going to say that every single time that one of these things occurs, we're going to call a callback
+
+11
+00:00:35,470 --> 00:00:38,830
+function that can be provided to our timer class.
+
+12
+00:00:39,010 --> 00:00:41,800
+So that's how we're going to essentially notify the outside world.
+
+13
+00:00:42,310 --> 00:00:44,590
+Let's write out a little bit of test code really quickly.
+
+14
+00:00:44,590 --> 00:00:48,400
+And as soon as we do, I think you're going to get a better sense of what we're going for with this.
+
+15
+00:00:49,330 --> 00:00:50,770
+So back inside, my editor.
+
+16
+00:00:52,040 --> 00:00:55,520
+I'm going to go down to the bottom where we create our instants of the timer class.
+
+17
+00:00:56,250 --> 00:01:01,050
+So right now our timer class takes three arguments duration, input, start button and pause button.
+
+18
+00:01:01,380 --> 00:01:05,010
+We're now going to pass in a fourth argument to this thing as well.
+
+19
+00:01:05,370 --> 00:01:10,080
+The fourth argument is going to be totally optional so we can use our timer with or without the fourth
+
+20
+00:01:10,080 --> 00:01:10,770
+argument.
+
+21
+00:01:11,070 --> 00:01:14,310
+And we're going to need to make sure that we write our code out to accommodate that.
+
+22
+00:01:14,640 --> 00:01:19,380
+And inside this object, we're going to pass in a series of different callbacks that we're going to
+
+23
+00:01:19,380 --> 00:01:23,790
+make sure get invoked at very specific times during our timers life cycle.
+
+24
+00:01:24,420 --> 00:01:27,990
+So the three different callbacks that we're going to pass in and again we're going to make sure that
+
+25
+00:01:27,990 --> 00:01:31,680
+these are all optional, are going to be on start.
+
+26
+00:01:33,230 --> 00:01:34,220
+On tick.
+
+27
+00:01:35,310 --> 00:01:37,110
+And on complete.
+
+28
+00:01:38,620 --> 00:01:43,870
+So if we provide these callback functions, we're going to make sure that our timer calls each of them
+
+29
+00:01:43,870 --> 00:01:45,640
+at some appropriate time.
+
+30
+00:01:46,060 --> 00:01:50,500
+And so this is how we're going to essentially hook up our timer to the outside world and allow us to
+
+31
+00:01:50,500 --> 00:01:56,380
+kind of react to the timer starting to a second ticking down or to our timer completing as well.
+
+32
+00:01:56,770 --> 00:02:01,180
+This right here is what is going to allow us to really kind of segment or isolate the different parts
+
+33
+00:02:01,180 --> 00:02:02,070
+of our code base.
+
+34
+00:02:02,080 --> 00:02:06,790
+So isolate the timer from the logic that actually updates the border animation.
+
+35
+00:02:06,790 --> 00:02:10,720
+And remember, that was the entire idea that we spoke about over here where we had said, Oh yeah,
+
+36
+00:02:10,720 --> 00:02:13,930
+the timer would be really messy if we mixed in all the border stuff.
+
+37
+00:02:14,170 --> 00:02:19,150
+So this is how we're going to emit these little events or essentially signal to the outside world that,
+
+38
+00:02:19,150 --> 00:02:23,440
+Hey, timer just started, timer just tick down and timer is complete.
+
+39
+00:02:23,890 --> 00:02:28,690
+And so eventually in these different callback methods, we'll add in some code to update that border
+
+40
+00:02:28,690 --> 00:02:33,490
+animation, and we could potentially add in some other code inside of each of these to do other stuff
+
+41
+00:02:33,490 --> 00:02:34,110
+as well.
+
+42
+00:02:34,120 --> 00:02:39,190
+Like maybe you play a sound when the timer is all complete or play a ticking sound whenever an tick
+
+43
+00:02:39,190 --> 00:02:40,570
+gets called and so on.
+
+44
+00:02:41,760 --> 00:02:46,490
+So in order to demonstrate how each of these are going to work, let's first just focus on on start.
+
+45
+00:02:46,500 --> 00:02:48,810
+So we're just going to think about on Start right now.
+
+46
+00:02:49,110 --> 00:02:56,010
+So I'm going to say that whenever our timer starts, I want to do a console log of timer started.
+
+47
+00:02:58,310 --> 00:03:02,600
+So we need to make sure that this OnStar callback that we are providing to our timer is going to be
+
+48
+00:03:02,600 --> 00:03:05,150
+invoked the instant that we start up our timer.
+
+49
+00:03:05,890 --> 00:03:09,590
+So in order to do so, we need to first go into our timer implementation.
+
+50
+00:03:09,610 --> 00:03:14,740
+We're going to first update our constructor function and have it receive this object that has all these
+
+51
+00:03:14,740 --> 00:03:16,060
+callbacks inside of it.
+
+52
+00:03:16,090 --> 00:03:17,410
+So let's do that right away.
+
+53
+00:03:18,340 --> 00:03:19,960
+So I'm going to go up to my constructor.
+
+54
+00:03:20,260 --> 00:03:23,620
+So our constructor is now going to receive a fourth argument.
+
+55
+00:03:23,980 --> 00:03:26,440
+So we're going to receive that as callbacks.
+
+56
+00:03:27,630 --> 00:03:32,730
+Now I want to make sure that my timer class is still going to work, even if that object is not provided.
+
+57
+00:03:33,120 --> 00:03:39,000
+So the base implementation of our timer like just to get a basic timer that works, we're going to make
+
+58
+00:03:39,000 --> 00:03:42,630
+sure or require that we get the duration, input, start button and pause button.
+
+59
+00:03:42,720 --> 00:03:47,250
+But we're going to say that you do not have to pass in a set of callbacks at all in order to get the
+
+60
+00:03:47,250 --> 00:03:48,090
+timer to work.
+
+61
+00:03:48,600 --> 00:03:52,150
+Now, for the purposes of this application, there's not a good reason for that.
+
+62
+00:03:52,170 --> 00:03:56,370
+I just want to show you how we would write out this code to say, Oh, yeah, the callbacks are optional.
+
+63
+00:03:57,030 --> 00:04:02,700
+So to make sure that we have some optional fourth argument here, we're going to check and see if callbacks
+
+64
+00:04:02,700 --> 00:04:03,720
+was provided.
+
+65
+00:04:04,280 --> 00:04:07,880
+So if we call our timer with only three arguments now just those three.
+
+66
+00:04:08,090 --> 00:04:10,040
+We would fail this if statement.
+
+67
+00:04:11,210 --> 00:04:13,070
+Because callbacks would be undefined.
+
+68
+00:04:13,400 --> 00:04:18,620
+But if we did pass in an object representing our set of callbacks, then we will enter this if statement.
+
+69
+00:04:18,620 --> 00:04:22,550
+So inside the if statement, we'll put a little bit of code to process the callbacks that were just
+
+70
+00:04:22,550 --> 00:04:23,240
+passed in.
+
+71
+00:04:24,000 --> 00:04:26,670
+So I'm going to say this on start.
+
+72
+00:04:27,890 --> 00:04:30,560
+Is callbacks on start.
+
+73
+00:04:31,340 --> 00:04:35,300
+So we're going to essentially just save a reference to the callback that was passed in.
+
+74
+00:04:36,130 --> 00:04:41,860
+So now any time that we start up our timer, we're going to call this on start function that we just
+
+75
+00:04:41,860 --> 00:04:43,030
+save the reference to.
+
+76
+00:04:44,690 --> 00:04:48,830
+Now we are going to eventually come back to this little statement and handle the other two callbacks
+
+77
+00:04:48,830 --> 00:04:49,160
+as well.
+
+78
+00:04:49,160 --> 00:04:52,040
+But like I said, right now we're just focused on on start.
+
+79
+00:04:53,670 --> 00:04:55,510
+So we've now got a reference to the on start method.
+
+80
+00:04:55,530 --> 00:04:58,860
+Now we need to make sure that we call it at some very specific point in time.
+
+81
+00:04:59,730 --> 00:05:04,290
+So inside of the start function, this is where we should probably call that callback and signal to
+
+82
+00:05:04,290 --> 00:05:05,100
+the outside world.
+
+83
+00:05:05,100 --> 00:05:07,230
+Hey, timer, starting right now.
+
+84
+00:05:07,890 --> 00:05:12,480
+So right before tick, I'm going to first check and see if this dot.
+
+85
+00:05:13,220 --> 00:05:17,150
+On start is defined because remember, it is entirely possible that it won't be defined.
+
+86
+00:05:17,150 --> 00:05:22,880
+If we didn't pass in any callbacks, then we never assigned anything like that, never occurred right
+
+87
+00:05:22,880 --> 00:05:23,360
+there.
+
+88
+00:05:23,360 --> 00:05:27,530
+And so if we tried to just directly call this on start, we would get an error.
+
+89
+00:05:27,560 --> 00:05:30,200
+Saying something like undefined is not a function.
+
+90
+00:05:31,200 --> 00:05:36,200
+So we do have to see and just do a quick check to see if we were given an OnStar callback.
+
+91
+00:05:36,210 --> 00:05:39,990
+If we do have it, then we're going to go ahead and invoke it inside of here.
+
+92
+00:05:40,320 --> 00:05:42,240
+So I'll say this dot on start.
+
+93
+00:05:43,780 --> 00:05:44,050
+Okay.
+
+94
+00:05:44,080 --> 00:05:45,070
+That's pretty much it.
+
+95
+00:05:45,520 --> 00:05:46,570
+So that's just on start.
+
+96
+00:05:46,570 --> 00:05:47,800
+Let's do a save right here.
+
+97
+00:05:47,800 --> 00:05:50,620
+We're going to go back over to our browser and test this out.
+
+98
+00:05:52,730 --> 00:05:55,130
+So I should be able to click on start in the instant.
+
+99
+00:05:55,130 --> 00:05:55,410
+I do.
+
+100
+00:05:55,430 --> 00:05:56,810
+I should see timer started.
+
+101
+00:05:57,790 --> 00:05:58,870
+Well, that's pretty much it.
+
+102
+00:05:58,870 --> 00:06:03,460
+So that's how we're going to communicate to the outside world that something just occurred or something
+
+103
+00:06:03,460 --> 00:06:06,010
+important just occurred inside of our timer.
+
+104
+00:06:06,700 --> 00:06:11,230
+Now that we've got the on start wired up, we'll take a quick pause, come back in just a moment and
+
+105
+00:06:11,230 --> 00:06:13,720
+we will wire up the other two callbacks as well.
+
+106
+00:06:13,720 --> 00:06:15,790
+So on, tick and on, complete.
+

@@ -1,0 +1,288 @@
+1
+00:00:00,680 --> 00:00:04,970
+Our autocomplete has a couple of things fixed up now, so we get to now start to think about adding
+
+2
+00:00:04,970 --> 00:00:06,560
+in some additional features to it.
+
+3
+00:00:06,680 --> 00:00:11,210
+The next thing we need to do is to make sure that once a user searches for something and then clicks
+
+4
+00:00:11,210 --> 00:00:14,630
+on an option right here, we have to somehow handle that click.
+
+5
+00:00:14,930 --> 00:00:18,590
+We spoke about what to do whenever a user clicks on an entry a little bit ago.
+
+6
+00:00:18,590 --> 00:00:22,250
+So remember we had said that we want to update the text inside the input.
+
+7
+00:00:22,250 --> 00:00:27,680
+So we want to update the text from whatever the user had just typed, like Avenger's right here to the
+
+8
+00:00:27,680 --> 00:00:30,330
+exact title of the movie that the user clicked on.
+
+9
+00:00:30,350 --> 00:00:34,940
+So instead of saying Avengers, it should say The Avengers inside of that input.
+
+10
+00:00:35,600 --> 00:00:38,540
+In addition, we need to make sure that we also close the menu.
+
+11
+00:00:39,450 --> 00:00:43,440
+Finally and this isn't really in this diagram right here, but the last thing we need to do as well
+
+12
+00:00:43,440 --> 00:00:48,360
+is to make sure that whatever movie a user clicks on, we need to essentially render it out really large
+
+13
+00:00:48,360 --> 00:00:52,440
+on the left hand side of the screen because that is the end goal of this application.
+
+14
+00:00:52,710 --> 00:00:57,570
+But right now, let's just make sure that whenever we search for something and click on it, we update
+
+15
+00:00:57,570 --> 00:00:59,760
+the text and we close the dropdown.
+
+16
+00:01:00,530 --> 00:01:05,540
+So what we really need to do here is to detect a click on an individual option.
+
+17
+00:01:05,750 --> 00:01:08,870
+To do so, I'm going to once again find my on input function.
+
+18
+00:01:09,050 --> 00:01:14,540
+Inside of there, we've got our four of loop where we create a bunch of different anchor elements.
+
+19
+00:01:15,020 --> 00:01:19,130
+We then add on some classes and set some inner HTML and whatnot.
+
+20
+00:01:19,550 --> 00:01:25,760
+So to detect a click on one of those options, we can add in a click event handler to that option variable.
+
+21
+00:01:25,790 --> 00:01:28,610
+Remember, the option variable is an anchor element.
+
+22
+00:01:29,400 --> 00:01:33,360
+To add in a click event handler right underneath where we set the inner HTML.
+
+23
+00:01:33,390 --> 00:01:41,280
+I'm going to do an option dot add event listener and we're going to watch for a not a click event,
+
+24
+00:01:41,280 --> 00:01:42,300
+but a click event.
+
+25
+00:01:44,810 --> 00:01:48,120
+So then inside of here, we can do the two things we just discussed.
+
+26
+00:01:48,140 --> 00:01:53,180
+We want to update the value of the input, and we also want to make sure that we close the dropdown
+
+27
+00:01:53,180 --> 00:01:53,900
+as well.
+
+28
+00:01:54,510 --> 00:01:57,170
+Let's see, the dropdown is something that we've spoke about several times now.
+
+29
+00:01:57,200 --> 00:01:59,870
+Remember to toggle whether or not the dropdown is open.
+
+30
+00:01:59,870 --> 00:02:01,190
+We add or remove.
+
+31
+00:02:01,190 --> 00:02:07,880
+The class is active to the dropdown element and the dropdown element is that one right there.
+
+32
+00:02:09,229 --> 00:02:10,610
+So let's take care of that first.
+
+33
+00:02:10,820 --> 00:02:12,390
+Inside of my event listener.
+
+34
+00:02:12,410 --> 00:02:16,040
+I'll do a dropdown class list.
+
+35
+00:02:16,370 --> 00:02:17,270
+Remove.
+
+36
+00:02:17,630 --> 00:02:19,550
+Is Daesh active?
+
+37
+00:02:20,640 --> 00:02:22,680
+So let's save that and do a very quick test.
+
+38
+00:02:23,490 --> 00:02:24,510
+I'll refresh.
+
+39
+00:02:25,330 --> 00:02:26,050
+Avengers.
+
+40
+00:02:26,050 --> 00:02:29,970
+So now I'm going to click on The Avengers and the entire dropdown closes.
+
+41
+00:02:29,980 --> 00:02:30,730
+Very good.
+
+42
+00:02:31,030 --> 00:02:34,780
+So now the next thing we need to do is to make sure that we update the text inside of the input.
+
+43
+00:02:35,110 --> 00:02:40,150
+Once again, remember that we've got a reference to that input on the input variable right there.
+
+44
+00:02:41,300 --> 00:02:46,640
+So we can update the value of that text input by going back down to our event listener.
+
+45
+00:02:46,640 --> 00:02:47,900
+And we'll say input.
+
+46
+00:02:48,790 --> 00:02:49,720
+Dot value.
+
+47
+00:02:49,720 --> 00:02:53,020
+That's how we can change the value inside of an existing input.
+
+48
+00:02:53,080 --> 00:02:56,920
+And we're going to update it to the title of the movie that the user just clicked on.
+
+49
+00:02:57,310 --> 00:03:02,530
+We can get the title of the movie that the user just clicked on by using the closure scope of this function
+
+50
+00:03:02,530 --> 00:03:03,040
+right here.
+
+51
+00:03:03,070 --> 00:03:07,390
+Remember, the closure scope is essentially everything outside of that arrow function.
+
+52
+00:03:07,660 --> 00:03:12,250
+So right outside that function, we've still got a reference to the movie variable, and that is the
+
+53
+00:03:12,250 --> 00:03:16,120
+object that has all the information about the movie that the user just clicked on.
+
+54
+00:03:16,300 --> 00:03:19,480
+So we could do movie title.
+
+55
+00:03:19,630 --> 00:03:24,970
+And as I've mentioned many times, remember title with a capital TX because this API property names
+
+56
+00:03:24,970 --> 00:03:26,470
+are just a little bit strange.
+
+57
+00:03:27,650 --> 00:03:32,300
+So we're going to take that title, shove it into input value, and that should update the text on the
+
+58
+00:03:32,300 --> 00:03:33,920
+screen inside the input.
+
+59
+00:03:34,460 --> 00:03:35,810
+So let's do another save here.
+
+60
+00:03:37,080 --> 00:03:40,560
+I'll flip back over, refresh, I'll search for Avengers.
+
+61
+00:03:40,560 --> 00:03:44,850
+And now if I click on any of these right here, I would expect to see the text inside of the input update
+
+62
+00:03:44,850 --> 00:03:45,450
+as well.
+
+63
+00:03:45,810 --> 00:03:46,710
+And there we go.
+
+64
+00:03:46,950 --> 00:03:47,640
+Very good.
+
+65
+00:03:48,680 --> 00:03:49,070
+Okay.
+
+66
+00:03:49,130 --> 00:03:51,720
+So this looks like we've got something pretty good put together now.
+
+67
+00:03:51,740 --> 00:03:54,890
+I would say that our autocomplete element is just about done.
+
+68
+00:03:54,890 --> 00:03:58,850
+So now the last thing we have to do is think about how to take the movie that the user just clicked
+
+69
+00:03:58,850 --> 00:04:04,760
+on and render out some details about it on the screen, just like we said we would do with the original
+
+70
+00:04:04,760 --> 00:04:06,890
+mockups of this application.
+
+71
+00:04:06,890 --> 00:04:11,600
+So like this right here, we want to show the image title, some statistics and so on.
+
+72
+00:04:11,960 --> 00:04:15,110
+So another quick pause and we'll start to address that in the next video.
+

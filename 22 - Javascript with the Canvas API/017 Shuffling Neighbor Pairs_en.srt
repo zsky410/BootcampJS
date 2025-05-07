@@ -1,0 +1,332 @@
+1
+00:00:00,570 --> 00:00:02,880
+We now have our neighboring coordinate pairs right here.
+
+2
+00:00:02,880 --> 00:00:06,240
+So now we need to take that list of coordinate pairs and randomize them.
+
+3
+00:00:06,270 --> 00:00:11,320
+This is going to make sure that there is a strong randomization factor inside of our maze.
+
+4
+00:00:11,340 --> 00:00:16,350
+If we always use this same order to visit our neighbors, then our maze is going to always look the
+
+5
+00:00:16,350 --> 00:00:17,160
+exact same.
+
+6
+00:00:17,160 --> 00:00:20,850
+So this is what is going to generate our randomness inside of our maze.
+
+7
+00:00:21,670 --> 00:00:26,260
+Now, unfortunately, the JavaScript language does not have any functionality built into it to randomize
+
+8
+00:00:26,260 --> 00:00:27,770
+the elements inside of an array.
+
+9
+00:00:27,790 --> 00:00:30,730
+So we're going to have to write out a little function to do that for us.
+
+10
+00:00:31,210 --> 00:00:36,730
+So I'm going to go up to the top of this section where I've got my maize generation comment, and inside
+
+11
+00:00:36,730 --> 00:00:39,820
+of here I'm going to define a new function called shuffle.
+
+12
+00:00:41,340 --> 00:00:46,440
+So this is going to take some array and then randomly reorder all the elements inside of it.
+
+13
+00:00:46,890 --> 00:00:50,220
+We're going to write out the code for this pretty quickly and I'll explain what's going on along the
+
+14
+00:00:50,220 --> 00:00:50,640
+way.
+
+15
+00:00:51,360 --> 00:00:57,030
+So instead of shuffle, I'm going to first get the length of the array and assign it to a variable that
+
+16
+00:00:57,030 --> 00:00:58,050
+I'll call a counter.
+
+17
+00:00:58,970 --> 00:01:04,730
+Well, then set up a while loop that I'm going to run until counter or while counter is greater than
+
+18
+00:01:04,730 --> 00:01:05,239
+zero.
+
+19
+00:01:06,580 --> 00:01:11,170
+Then inside the loop, I'm going to get a random index inside of the array.
+
+20
+00:01:11,590 --> 00:01:14,020
+So I'll say let index or me const index.
+
+21
+00:01:15,350 --> 00:01:17,210
+Is math for.
+
+22
+00:01:17,910 --> 00:01:18,300
+Math.
+
+23
+00:01:18,320 --> 00:01:19,500
+Dutch random.
+
+24
+00:01:20,410 --> 00:01:21,910
+Times counter.
+
+25
+00:01:22,330 --> 00:01:25,030
+That's going to be a random index inside of the array.
+
+26
+00:01:26,610 --> 00:01:30,000
+And then going to decrease my counter variable by one.
+
+27
+00:01:30,000 --> 00:01:31,440
+So count your minus minus.
+
+28
+00:01:32,070 --> 00:01:38,250
+And then finally I'm going to swap the elements that are at the array at element or add index of index
+
+29
+00:01:38,250 --> 00:01:39,990
+and at the index of counter.
+
+30
+00:01:39,990 --> 00:01:44,310
+So this is what is going to be the actual kind of swapping of elements to randomize the order.
+
+31
+00:01:45,010 --> 00:01:51,190
+So I'll say Colin's temp short for temporary is RR at counter.
+
+32
+00:01:52,570 --> 00:02:00,370
+Well then update the value add index of counter to error at index and I'll update the element at index
+
+33
+00:02:00,370 --> 00:02:03,550
+to be whatever was previously at counter.
+
+34
+00:02:04,960 --> 00:02:08,289
+And then finally at the bottom, I will return the array.
+
+35
+00:02:09,720 --> 00:02:15,450
+So again, we're finding some random element inside there and swapping whatever that random index is
+
+36
+00:02:15,450 --> 00:02:21,030
+with whatever is at counter that will ensure that we swap each element at least one time.
+
+37
+00:02:22,910 --> 00:02:23,210
+Okay.
+
+38
+00:02:23,210 --> 00:02:24,530
+So let's go back down.
+
+39
+00:02:25,620 --> 00:02:27,360
+To where we generate all of our neighbors.
+
+40
+00:02:27,370 --> 00:02:30,820
+So right here, I'm going to wrap that function with Shuffle.
+
+41
+00:02:33,100 --> 00:02:35,500
+And then do a console log right after it.
+
+42
+00:02:36,820 --> 00:02:41,080
+Now to really test this out and make sure that we've got some correct values being generated and that
+
+43
+00:02:41,080 --> 00:02:42,640
+they are in some random order.
+
+44
+00:02:42,730 --> 00:02:48,820
+We should probably stick in some starting row in column to our function that we know is going to have
+
+45
+00:02:48,820 --> 00:02:51,670
+some proper input or excuse me, proper output.
+
+46
+00:02:51,910 --> 00:03:02,230
+So we know that if we start at this one one index right here, we should see outputs of 011, zero one,
+
+47
+00:03:02,230 --> 00:03:04,180
+two and two one.
+
+48
+00:03:05,050 --> 00:03:08,830
+So if we stick in one one, those are the outputs we should get, but they should be in some randomised
+
+49
+00:03:08,830 --> 00:03:09,400
+order.
+
+50
+00:03:09,400 --> 00:03:14,140
+That's going to make this a lot easier to test than if we stick in the random start row and start column.
+
+51
+00:03:14,710 --> 00:03:17,620
+So I'm going to update those two values to be one for just right now.
+
+52
+00:03:17,620 --> 00:03:18,190
+I'm going to change it.
+
+53
+00:03:18,190 --> 00:03:19,270
+Back in just a moment.
+
+54
+00:03:19,550 --> 00:03:23,950
+I'm also going to remove the console log of grid just so we can read the console a little bit more easily
+
+55
+00:03:23,950 --> 00:03:26,260
+without seeing a bunch of console logs start to stack up.
+
+56
+00:03:28,030 --> 00:03:29,340
+All right, so I'll save this.
+
+57
+00:03:29,350 --> 00:03:31,180
+I'm going to go back over and refresh.
+
+58
+00:03:31,510 --> 00:03:36,280
+So here are the four coordinate pairs that are around one one, and they should be in some randomized
+
+59
+00:03:36,280 --> 00:03:36,760
+order.
+
+60
+00:03:37,330 --> 00:03:38,020
+So let's see.
+
+61
+00:03:38,020 --> 00:03:39,490
+I've got one zero.
+
+62
+00:03:39,730 --> 00:03:41,650
+Let's check each of these off one by one.
+
+63
+00:03:41,650 --> 00:03:43,870
+I know it'll be a little bit disorienting, but let's go through it.
+
+64
+00:03:43,870 --> 00:03:44,950
+So one zero.
+
+65
+00:03:44,950 --> 00:03:45,850
+That's the first one.
+
+66
+00:03:46,090 --> 00:03:46,960
+We got that.
+
+67
+00:03:47,110 --> 00:03:49,960
+Next is zero one right there.
+
+68
+00:03:51,040 --> 00:03:52,540
+Next is to one.
+
+69
+00:03:53,560 --> 00:03:54,430
+Right there.
+
+70
+00:03:55,250 --> 00:03:58,070
+And then finally, one, two, right there.
+
+71
+00:03:58,070 --> 00:03:59,720
+So we definitely have all four.
+
+72
+00:04:00,260 --> 00:04:01,300
+Well, that's fantastic.
+
+73
+00:04:01,310 --> 00:04:04,460
+And the only other thing we have to do is make sure that they get randomized each time.
+
+74
+00:04:04,790 --> 00:04:06,380
+So I'll do another refresh.
+
+75
+00:04:06,680 --> 00:04:08,840
+So I now see them in a very different order.
+
+76
+00:04:08,840 --> 00:04:12,260
+And another different order and another different order.
+
+77
+00:04:12,770 --> 00:04:15,950
+So let's say that we definitely have this kind of shuffling logic down pat.
+
+78
+00:04:16,880 --> 00:04:18,320
+So this is looking pretty good.
+
+79
+00:04:18,829 --> 00:04:20,510
+I'm going to remove that console log.
+
+80
+00:04:20,899 --> 00:04:22,040
+We'll take a pause right here.
+
+81
+00:04:22,040 --> 00:04:25,790
+And when we come back in the next video, we're going to make sure that we add in some logic to iterate
+
+82
+00:04:25,790 --> 00:04:30,430
+through each of these different neighboring pairs and run some logic on each of them.
+
+83
+00:04:30,440 --> 00:04:32,720
+So quick pause and I'll see you in just a minute.
+

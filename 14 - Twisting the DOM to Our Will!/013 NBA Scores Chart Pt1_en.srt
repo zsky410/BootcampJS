@@ -1,0 +1,1368 @@
+1
+00:00:00,210 --> 00:00:03,780
+All right, so let's try building something with what we've learned so far.
+
+2
+00:00:03,810 --> 00:00:09,420
+We still haven't talked about events and making things interactive, responding to input clicks, drops,
+
+3
+00:00:09,420 --> 00:00:10,790
+drags, all that stuff.
+
+4
+00:00:10,800 --> 00:00:16,320
+But we do have the ability to create elements, to manipulate existing elements, and we're going to
+
+5
+00:00:16,320 --> 00:00:17,250
+take advantage of that.
+
+6
+00:00:17,250 --> 00:00:22,260
+So I've included a starter file if you want to follow along so you can have the initial state.
+
+7
+00:00:22,260 --> 00:00:29,100
+What we're going to build is an NBA score table like what we have here, based off of whatever input
+
+8
+00:00:29,100 --> 00:00:34,320
+data we get, we could imagine it's coming from an API, but I've actually hardcoded some game data
+
+9
+00:00:34,320 --> 00:00:36,240
+where we have different games.
+
+10
+00:00:36,390 --> 00:00:39,690
+It's an array, we have an away team and a home team.
+
+11
+00:00:39,690 --> 00:00:45,930
+Each team has the team name or actually it's the city, not the whole team points and is winner.
+
+12
+00:00:45,990 --> 00:00:53,100
+And what I want to do is create a table like this dynamically, so not hardcoded in our HTML.
+
+13
+00:00:53,100 --> 00:00:56,940
+But imagine we had 100 different games or we had 100 different.
+
+14
+00:00:57,030 --> 00:00:59,670
+There's not 100 teams but a bunch of different teams.
+
+15
+00:00:59,670 --> 00:01:05,040
+We want to iterate over this data and create a table and we don't know how long it will be.
+
+16
+00:01:05,040 --> 00:01:08,820
+We don't know which cells or which which rows will be green versus red.
+
+17
+00:01:08,820 --> 00:01:10,620
+We don't know what the values will be.
+
+18
+00:01:10,710 --> 00:01:15,360
+So we'll create dynamic elements and append them to the page using the DOM.
+
+19
+00:01:15,840 --> 00:01:22,440
+So I live in the Bay Area, we'll be doing Warriors games and I have named this array Warriors games,
+
+20
+00:01:22,440 --> 00:01:27,330
+but this should work with whatever data you pass in and eventually we'll see.
+
+21
+00:01:27,330 --> 00:01:33,510
+We could connect something like this to an API and get data coming from an API somewhere at NBA Stats
+
+22
+00:01:33,510 --> 00:01:37,710
+or a Premier League or Laliga or whatever the sports league is.
+
+23
+00:01:37,710 --> 00:01:43,140
+We can get information and do something with it and make it visual, show something on the DOM.
+
+24
+00:01:43,380 --> 00:01:46,920
+So what we're going to do to start is ignore the table.
+
+25
+00:01:46,950 --> 00:01:49,350
+Tables are really annoying in HTML.
+
+26
+00:01:49,350 --> 00:01:51,330
+They're my least favorite things to create.
+
+27
+00:01:51,330 --> 00:01:57,780
+I mean, if you inspect the markup here, if you haven't made tables before, you can see just how dense
+
+28
+00:01:57,780 --> 00:02:00,180
+the stuff is to make a single table.
+
+29
+00:02:00,180 --> 00:02:09,479
+We've got so many different nested rows and TDs and tears and touches and t bodies and tables and table
+
+30
+00:02:09,479 --> 00:02:10,199
+headers.
+
+31
+00:02:10,199 --> 00:02:15,970
+It's just it's a little overwhelming to have to create all of those elements with JavaScript and append
+
+32
+00:02:15,990 --> 00:02:16,470
+them.
+
+33
+00:02:16,560 --> 00:02:19,470
+I think it would bog down the important stuff here.
+
+34
+00:02:19,470 --> 00:02:22,320
+So we're going to start with just a simple list.
+
+35
+00:02:22,320 --> 00:02:26,790
+Each game will be a list, it will have the score, it will have the home team.
+
+36
+00:02:26,790 --> 00:02:32,970
+So we'll start by making a simple list, something like this, where we'll have let's do it in our HTML
+
+37
+00:02:32,970 --> 00:02:39,840
+file, we'll have a ul in ly for each game and the home team will come second.
+
+38
+00:02:39,840 --> 00:02:48,060
+So the away team, let's say it's a Houston at Golden State, so we want to display it in the order
+
+39
+00:02:48,090 --> 00:02:51,300
+where we have a way team assign home team.
+
+40
+00:02:51,300 --> 00:02:52,830
+So that will be dynamic.
+
+41
+00:02:52,920 --> 00:02:57,870
+We also want to have the score, have the away team score and then the home team.
+
+42
+00:02:57,870 --> 00:03:01,620
+So let's say Houston won this game 100 to 94.
+
+43
+00:03:02,010 --> 00:03:07,500
+I want to bold this element here of the winning score.
+
+44
+00:03:07,530 --> 00:03:09,780
+So 100 beats 94.
+
+45
+00:03:09,780 --> 00:03:13,770
+So dynamically figure out which team won or which number is higher.
+
+46
+00:03:13,800 --> 00:03:15,120
+Give it a bold tag.
+
+47
+00:03:15,120 --> 00:03:18,180
+And if we look at this right now, it's not very impressive.
+
+48
+00:03:18,180 --> 00:03:24,300
+But then we also want to give a green or red color to this element, depending on which perspective
+
+49
+00:03:24,300 --> 00:03:25,410
+we're looking at it from.
+
+50
+00:03:25,410 --> 00:03:30,300
+And like I said, I live in the Bay Area, so we will be looking at this as Warriors fans.
+
+51
+00:03:30,450 --> 00:03:32,760
+So this element would be red.
+
+52
+00:03:32,760 --> 00:03:36,120
+It's a loss for Golden State, just like we have here.
+
+53
+00:03:36,360 --> 00:03:39,480
+So we have green on the games where Golden State won.
+
+54
+00:03:39,480 --> 00:03:45,360
+But if we went to the table, the corresponding table for the Houston Rockets, it's down here.
+
+55
+00:03:45,660 --> 00:03:48,090
+We have red for that very same game.
+
+56
+00:03:48,090 --> 00:03:50,850
+So different perspective, same data.
+
+57
+00:03:51,150 --> 00:03:55,890
+And we'll start with the perspective of Warriors or the Warriors already.
+
+58
+00:03:55,890 --> 00:03:57,480
+So I'm going to delete this.
+
+59
+00:03:57,660 --> 00:04:03,030
+I think I'm going to start by adding in a UL that I can append my data to.
+
+60
+00:04:03,060 --> 00:04:04,890
+We could also do this dynamically.
+
+61
+00:04:04,920 --> 00:04:06,510
+Maybe that's a better way of doing it.
+
+62
+00:04:06,510 --> 00:04:08,310
+Fine, we'll do it from our app.
+
+63
+00:04:08,310 --> 00:04:13,650
+JS We have our starter data, a simple array with a couple of objects.
+
+64
+00:04:13,650 --> 00:04:19,980
+Each object represents a game, a way team and home team, and then each of those team objects has team
+
+65
+00:04:19,980 --> 00:04:21,510
+points and is winner.
+
+66
+00:04:22,079 --> 00:04:24,060
+So why don't we start with something simple?
+
+67
+00:04:24,060 --> 00:04:26,820
+Let's get each team to print out or something like that.
+
+68
+00:04:26,820 --> 00:04:31,770
+As an ally on the page, the first thing I will do is make a new element.
+
+69
+00:04:31,770 --> 00:04:33,600
+So I'll make the container.
+
+70
+00:04:33,630 --> 00:04:40,800
+We can call this or maybe just parent ul parent equals document dot create elements of ul.
+
+71
+00:04:42,160 --> 00:04:45,520
+So that is where we will append a bunch of lies to.
+
+72
+00:04:45,820 --> 00:04:52,900
+And then what we want to do is iterate over all of these games so we can do that using a four of or
+
+73
+00:04:52,900 --> 00:04:54,460
+a four loop or four each.
+
+74
+00:04:54,460 --> 00:05:00,280
+But I'll do four let game of and I called my data warriors games.
+
+75
+00:05:00,280 --> 00:05:04,330
+No Warrior games, what did I call it, Warriors games.
+
+76
+00:05:05,800 --> 00:05:06,490
+All right.
+
+77
+00:05:07,150 --> 00:05:12,490
+So for each game, we want to extract home game or home team and away team.
+
+78
+00:05:12,490 --> 00:05:15,340
+They all have a home team and in a way, team.
+
+79
+00:05:15,340 --> 00:05:25,090
+So let's grab that from the object using our favorite D structuring const home team comma away team
+
+80
+00:05:25,870 --> 00:05:27,490
+equals game.
+
+81
+00:05:27,760 --> 00:05:34,900
+Game is each individual object or each element in the array called Warriors games and we could start
+
+82
+00:05:34,900 --> 00:05:43,570
+simple we'll console.log home team dot let's actually let's do a wait team so a way team dot team which
+
+83
+00:05:43,570 --> 00:05:48,700
+is the name of the team or the city actually or in the case of Golden State, it's not even a city.
+
+84
+00:05:48,700 --> 00:05:56,770
+There is no as far as I know, there's no Golden State City, a team team and then home team, dot team.
+
+85
+00:05:58,600 --> 00:05:59,500
+Let's run it.
+
+86
+00:05:59,500 --> 00:06:01,060
+And in our console.
+
+87
+00:06:01,510 --> 00:06:02,020
+There we go.
+
+88
+00:06:02,080 --> 00:06:07,990
+So we have Golden State at Houston, Golden State at Houston twice, and then Houston at Golden State,
+
+89
+00:06:07,990 --> 00:06:11,610
+Houston at Golden State and then after the first four games.
+
+90
+00:06:11,620 --> 00:06:14,630
+So this is the standard playoffs as far as I know in the NBA.
+
+91
+00:06:14,650 --> 00:06:19,180
+You have two games home or away and then you flip for two games and then you alternate.
+
+92
+00:06:19,870 --> 00:06:21,250
+So that's accurate.
+
+93
+00:06:21,280 --> 00:06:24,370
+We're printing out the correct way team and home team.
+
+94
+00:06:24,910 --> 00:06:27,190
+Now let's start by making an ly.
+
+95
+00:06:27,370 --> 00:06:32,650
+So we want an ly for each game if that's what we're going to do instead of a table, at least to begin
+
+96
+00:06:32,650 --> 00:06:33,100
+with.
+
+97
+00:06:33,250 --> 00:06:41,620
+So we'll make our new ly we'll call this game ly equals document dot create element ly.
+
+98
+00:06:41,650 --> 00:06:44,650
+All right, so we have that done next.
+
+99
+00:06:44,650 --> 00:06:47,830
+Let's go ahead and show some of this information.
+
+100
+00:06:47,860 --> 00:06:51,240
+Let's get the first part of the team names showing up.
+
+101
+00:06:51,250 --> 00:06:56,930
+So I'm going to have Golden State at Houston.
+
+102
+00:06:56,950 --> 00:07:00,520
+If Houston is the home team, Golden State is the away team.
+
+103
+00:07:00,520 --> 00:07:08,080
+So I want to take this format away team at home team and add that as the inner text on my ally.
+
+104
+00:07:08,290 --> 00:07:09,390
+We'll start there.
+
+105
+00:07:09,430 --> 00:07:22,150
+So game ly inner text equals and I'll do a template literal display the away team team and then at sun.
+
+106
+00:07:22,840 --> 00:07:24,620
+And then another dollar sign.
+
+107
+00:07:24,640 --> 00:07:27,700
+Curly braces for home team team.
+
+108
+00:07:28,810 --> 00:07:32,830
+So that should make me the ally and give me some inner text on the ly.
+
+109
+00:07:32,830 --> 00:07:35,950
+But nothing will show up because we're not appending it.
+
+110
+00:07:35,950 --> 00:07:37,410
+And what does it not like?
+
+111
+00:07:37,420 --> 00:07:38,620
+Line 97.
+
+112
+00:07:38,620 --> 00:07:45,880
+Oh, obviously not valid JavaScript there, so we won't see anything we need to append each ly to the
+
+113
+00:07:45,880 --> 00:07:46,510
+UL.
+
+114
+00:07:46,540 --> 00:07:51,730
+We've made our ul will append to that ul and we have a couple of choices we could do.
+
+115
+00:07:51,730 --> 00:07:52,660
+Append child.
+
+116
+00:07:52,660 --> 00:08:00,300
+We could also use the newer append method, but in this loop for each ly game ly I'm going to call ul
+
+117
+00:08:00,310 --> 00:08:00,970
+parent.
+
+118
+00:08:00,970 --> 00:08:03,640
+So this is the empty ul I've created.
+
+119
+00:08:03,880 --> 00:08:11,140
+I'm now appending one ly and then next time through we'll append a second ly and it will have some data
+
+120
+00:08:11,140 --> 00:08:12,820
+about the away team and the home team.
+
+121
+00:08:13,150 --> 00:08:20,140
+So ul parent dot append child I'll do a pen child just in case some of you are using internet explorer.
+
+122
+00:08:20,140 --> 00:08:26,680
+Even though I prefer append and we'll append the game ly now is this enough?
+
+123
+00:08:26,680 --> 00:08:27,820
+Will we see anything?
+
+124
+00:08:27,850 --> 00:08:33,850
+No, we will not, because the UL we created is still not associated with the page at all.
+
+125
+00:08:33,850 --> 00:08:35,200
+It exists in JavaScript.
+
+126
+00:08:35,200 --> 00:08:36,100
+It's an object.
+
+127
+00:08:36,100 --> 00:08:40,390
+It has a bunch of children, but we're never actually appending it to the page.
+
+128
+00:08:40,630 --> 00:08:45,670
+So if I just want it to show up in the body, we could append it to the body.
+
+129
+00:08:45,670 --> 00:08:46,660
+That's fine.
+
+130
+00:08:46,660 --> 00:08:50,410
+Or we could present it to the body to make it a little nicer.
+
+131
+00:08:50,410 --> 00:08:52,150
+I guess that's nothing wrong with that.
+
+132
+00:08:52,150 --> 00:08:57,460
+Put it above our script so I will select the body, which is easy.
+
+133
+00:08:57,460 --> 00:08:58,750
+Document dot body.
+
+134
+00:08:58,750 --> 00:09:05,470
+I don't need to use query selector, although I could query selector of body document body pre append.
+
+135
+00:09:05,500 --> 00:09:11,920
+If you are in e you can just do a pen child but pre pens ul parent.
+
+136
+00:09:13,630 --> 00:09:15,370
+Let's see what we get here.
+
+137
+00:09:16,060 --> 00:09:17,260
+Hey, there we go.
+
+138
+00:09:17,290 --> 00:09:18,700
+Golden State at Houston.
+
+139
+00:09:18,700 --> 00:09:19,930
+Golden State at Houston.
+
+140
+00:09:19,930 --> 00:09:20,930
+Houston at Golden State.
+
+141
+00:09:20,950 --> 00:09:22,000
+Blah, blah, blah, blah, blah.
+
+142
+00:09:22,030 --> 00:09:24,220
+We now have what is this, seven.
+
+143
+00:09:24,220 --> 00:09:29,800
+Yes, seven lies appended to are ul appended to the body and none of that is there.
+
+144
+00:09:29,800 --> 00:09:32,470
+When the page loads, we're constructing it from scratch.
+
+145
+00:09:33,070 --> 00:09:33,460
+All right.
+
+146
+00:09:33,460 --> 00:09:35,740
+So next, let's work on the scores.
+
+147
+00:09:35,950 --> 00:09:41,140
+What we want to do is first we can just display the home team and the away team score.
+
+148
+00:09:41,170 --> 00:09:42,520
+I'll do the same format.
+
+149
+00:09:42,520 --> 00:09:50,250
+So a Wade team dot points, dash home team points, and I'll start by making it its own string.
+
+150
+00:09:50,260 --> 00:10:00,250
+So I'll just call this concept score line equals and we want to do this in a string template literal
+
+151
+00:10:00,250 --> 00:10:01,330
+just to make it easier.
+
+152
+00:10:01,360 --> 00:10:05,470
+We'll do a way team dot and then we have points.
+
+153
+00:10:09,150 --> 00:10:13,920
+And then I'll just do the dash and then home team dot points as well.
+
+154
+00:10:14,760 --> 00:10:15,490
+It's called points.
+
+155
+00:10:15,510 --> 00:10:16,260
+Yes, it is.
+
+156
+00:10:17,370 --> 00:10:17,730
+All right.
+
+157
+00:10:17,730 --> 00:10:23,430
+So we have a string now and we could console.log that string to see the scoreline each time through.
+
+158
+00:10:23,820 --> 00:10:27,150
+It won't be showing up on the actual page, but here we go.
+
+159
+00:10:28,060 --> 00:10:29,320
+That looks accurate.
+
+160
+00:10:29,710 --> 00:10:33,160
+So what we want to do next is get that in the lie as well.
+
+161
+00:10:33,610 --> 00:10:36,880
+And we have a bunch of different options for how we actually approach this.
+
+162
+00:10:37,030 --> 00:10:42,880
+I think what will probably be easiest is if we just make two strings and then set the inner text at
+
+163
+00:10:42,880 --> 00:10:44,770
+once with those two strings.
+
+164
+00:10:44,770 --> 00:10:49,150
+So I'll make a new variable here and I'll call this one const.
+
+165
+00:10:50,170 --> 00:10:52,330
+What do we want to call this team names maybe.
+
+166
+00:10:52,330 --> 00:10:53,710
+And then score line.
+
+167
+00:10:55,030 --> 00:11:01,720
+And then we can set game ly dot inner text or you could do text content equals.
+
+168
+00:11:01,720 --> 00:11:10,300
+And then I'll do another string template literal and add in my team names with a space and then again
+
+169
+00:11:10,300 --> 00:11:11,620
+with the score line.
+
+170
+00:11:12,670 --> 00:11:17,980
+So instead of doing these together in one line, it's kind of ugly to see all of those string template,
+
+171
+00:11:17,980 --> 00:11:20,500
+literal brackets and dollar signs.
+
+172
+00:11:20,500 --> 00:11:24,460
+So I'll break it up into two variables with names and then add those in.
+
+173
+00:11:26,410 --> 00:11:27,400
+Is it going to work?
+
+174
+00:11:27,760 --> 00:11:28,570
+All right.
+
+175
+00:11:28,570 --> 00:11:32,380
+Looks like it's working so we can double check the first game.
+
+176
+00:11:32,380 --> 00:11:35,800
+Golden State had 119, Houston had 106.
+
+177
+00:11:35,800 --> 00:11:43,120
+Let's double check up top 119 for Golden State and Houston 106 Golden State was the away team, Houston
+
+178
+00:11:43,120 --> 00:11:45,760
+was the home team and we were displaying it correctly.
+
+179
+00:11:45,790 --> 00:11:49,630
+Golden State away at Houston at home.
+
+180
+00:11:51,640 --> 00:11:53,860
+Next, we have a couple of choices.
+
+181
+00:11:53,860 --> 00:12:00,730
+Why don't we start by selecting the score that has won the winning score and bolding it?
+
+182
+00:12:01,120 --> 00:12:02,620
+Which do they do that?
+
+183
+00:12:02,680 --> 00:12:03,730
+No, they don't even do it.
+
+184
+00:12:03,730 --> 00:12:04,630
+On Wikipedia.
+
+185
+00:12:04,630 --> 00:12:10,480
+We're adding in functionality, so we'll show the winning score with a bold tag around it.
+
+186
+00:12:10,780 --> 00:12:14,950
+So we're going to have to calculate who won, and that part's pretty easy.
+
+187
+00:12:14,950 --> 00:12:19,390
+We'll just compare the two way team points and home team dot points.
+
+188
+00:12:19,390 --> 00:12:21,970
+Why don't we start by cleaning this up a tad?
+
+189
+00:12:22,180 --> 00:12:28,120
+We'll need access to a way team points in home, teams points for a couple different lines because we
+
+190
+00:12:28,120 --> 00:12:33,970
+need to calculate the winner and then display the points as well and figure out which class to apply.
+
+191
+00:12:34,000 --> 00:12:39,490
+So I'm going to do structure team and points out of each object.
+
+192
+00:12:39,490 --> 00:12:42,340
+So out of away team and out of home team.
+
+193
+00:12:42,730 --> 00:12:51,280
+Now this is kind of annoying because to use the structuring I would do team and points equals home team
+
+194
+00:12:51,370 --> 00:12:52,720
+and that works fine.
+
+195
+00:12:52,720 --> 00:13:00,070
+But now I have the exact same thing for away team and that means I'll have team and points and then
+
+196
+00:13:00,070 --> 00:13:05,770
+I'm creating another variable called team and points so we can use this in text we saw earlier with
+
+197
+00:13:05,770 --> 00:13:11,920
+D structuring if we want to, where we grab a particular value out of an object and we give it a new
+
+198
+00:13:11,920 --> 00:13:12,490
+name.
+
+199
+00:13:12,580 --> 00:13:19,150
+So why don't we call this one home team with an H and H points?
+
+200
+00:13:19,690 --> 00:13:21,490
+So H team and H points.
+
+201
+00:13:21,490 --> 00:13:27,310
+And then away team and away points.
+
+202
+00:13:30,520 --> 00:13:31,130
+Okay.
+
+203
+00:13:32,260 --> 00:13:34,870
+And then we'll use that instead of a way.
+
+204
+00:13:34,870 --> 00:13:43,870
+Team, team, we'll just do a team h team and then a points.
+
+205
+00:13:45,500 --> 00:13:49,280
+And age points and nothing should have changed.
+
+206
+00:13:49,490 --> 00:13:52,370
+If everything went well, we get the exact same output.
+
+207
+00:13:52,370 --> 00:13:58,340
+But now we have these variables I can re-use instead of having to access a way, team, team, a way,
+
+208
+00:13:58,340 --> 00:13:59,900
+team at points over and over.
+
+209
+00:14:00,200 --> 00:14:01,370
+Not a huge change.
+
+210
+00:14:01,370 --> 00:14:06,830
+And also the way my VTS code is formatting this, it makes it look like a lot more work than it actually
+
+211
+00:14:06,830 --> 00:14:07,430
+is.
+
+212
+00:14:08,090 --> 00:14:09,740
+It's only one line really.
+
+213
+00:14:09,830 --> 00:14:13,070
+So we're going to come down here now and compare the two points.
+
+214
+00:14:13,370 --> 00:14:21,800
+So we'll have a waypoint greater than home points, or we could do the other way around.
+
+215
+00:14:21,800 --> 00:14:27,560
+But if a waypoint is greater than home points, then we know that a way team has one, right?
+
+216
+00:14:27,560 --> 00:14:29,330
+So we'll do an if statement here.
+
+217
+00:14:30,710 --> 00:14:37,280
+If that's the case and if a waypoint does beat out home points, then what we want to do is on our score
+
+218
+00:14:37,280 --> 00:14:44,900
+line, we want a bold tag around a points and we can just add that like this, not right here, but
+
+219
+00:14:44,900 --> 00:14:45,560
+we can do it.
+
+220
+00:14:45,560 --> 00:14:47,750
+We can wrap a waypoints in a bold tag.
+
+221
+00:14:48,320 --> 00:14:53,660
+So the simplest way to do this is if a waypoints is greater than home points, we'll take score line
+
+222
+00:14:53,660 --> 00:14:58,640
+and just put it here on the same line, or we can do it on multiple lines.
+
+223
+00:14:58,670 --> 00:14:59,630
+It doesn't matter.
+
+224
+00:15:00,020 --> 00:15:05,060
+And we'll add the bold tag around the first part, the a waypoint right here.
+
+225
+00:15:05,060 --> 00:15:10,850
+So we'll put our bold tag, the closing bold tag, and then we could have an else.
+
+226
+00:15:11,510 --> 00:15:20,060
+We'll do the opposite const score line equals and we'll move the bold tag over here around h points.
+
+227
+00:15:22,100 --> 00:15:23,480
+And that should work.
+
+228
+00:15:23,960 --> 00:15:26,440
+We'll talk about refactoring this in the next video.
+
+229
+00:15:26,450 --> 00:15:31,190
+We'll see that we could move this to a function we don't have to declare can't scoreline.
+
+230
+00:15:31,190 --> 00:15:32,420
+We're not declaring it twice.
+
+231
+00:15:32,420 --> 00:15:36,090
+Only one of these ever runs, but we don't need to do it this way.
+
+232
+00:15:36,110 --> 00:15:37,390
+There are other options.
+
+233
+00:15:37,400 --> 00:15:39,880
+There's one problem with the way I've written this.
+
+234
+00:15:39,890 --> 00:15:42,620
+See if you can figure it out without running it.
+
+235
+00:15:42,620 --> 00:15:46,760
+It doesn't have to do with the actual data or the logic.
+
+236
+00:15:46,760 --> 00:15:48,710
+It has to do with scope.
+
+237
+00:15:48,920 --> 00:15:53,960
+We're using const and remember that constant but are both block scoped.
+
+238
+00:15:53,960 --> 00:15:59,750
+So if I define scoreline in here, it's scoped to this block so I can't use it down here.
+
+239
+00:16:00,200 --> 00:16:07,910
+So to fix that, we can't just say const scoreline like this and not define it and then update it.
+
+240
+00:16:07,910 --> 00:16:13,940
+And the reason for that is made very clear you cannot initialize a concept or you can't declare a concept
+
+241
+00:16:13,940 --> 00:16:16,130
+variable without a value const.
+
+242
+00:16:16,130 --> 00:16:18,590
+Hi, that doesn't work.
+
+243
+00:16:18,590 --> 00:16:20,270
+But with lit I can.
+
+244
+00:16:20,930 --> 00:16:24,920
+So that's what we'll do for now until we write this as a separate function.
+
+245
+00:16:24,920 --> 00:16:27,350
+So we'll say score line just exists.
+
+246
+00:16:27,350 --> 00:16:28,490
+It doesn't have a value.
+
+247
+00:16:28,580 --> 00:16:34,520
+Then if a waypoint is greater than home points, this is what scoreline should be, otherwise it should
+
+248
+00:16:34,520 --> 00:16:36,860
+be this and then we'll append it.
+
+249
+00:16:36,950 --> 00:16:41,780
+And right now we're doing inner text, which is not really going to work the way we want.
+
+250
+00:16:41,780 --> 00:16:45,530
+We end up with the tag just being rendered as text.
+
+251
+00:16:45,530 --> 00:16:47,630
+So we'll do enter html.
+
+252
+00:16:48,740 --> 00:16:49,640
+Try again.
+
+253
+00:16:50,300 --> 00:16:51,020
+Aha.
+
+254
+00:16:51,050 --> 00:16:51,950
+There we go.
+
+255
+00:16:52,370 --> 00:16:55,760
+So let's verify 119 is greater than 106.
+
+256
+00:16:55,760 --> 00:16:56,330
+That's correct.
+
+257
+00:16:56,330 --> 00:16:57,230
+It should be bolded.
+
+258
+00:16:57,230 --> 00:16:59,900
+127 bolded 126 awesome.
+
+259
+00:16:59,900 --> 00:17:00,830
+So that's working.
+
+260
+00:17:00,830 --> 00:17:03,860
+The next step is to add a background color.
+
+261
+00:17:04,099 --> 00:17:11,300
+So from the Warriors perspective, the first game should be green because the Warriors won, the next
+
+262
+00:17:11,300 --> 00:17:17,240
+game should be red because the Warriors lost, Houston won, and we'll do that for each one.
+
+263
+00:17:17,540 --> 00:17:25,040
+So what I'm going to do is create a class and my class I'll have to actually win where I'll set background
+
+264
+00:17:25,040 --> 00:17:28,010
+color to be.
+
+265
+00:17:28,010 --> 00:17:29,660
+We could just start with red.
+
+266
+00:17:29,660 --> 00:17:36,020
+I think I want an GBA color which will be full red, no green, no blue.
+
+267
+00:17:36,020 --> 00:17:40,130
+But I only want maybe like 0.3 on the Alpha Channel.
+
+268
+00:17:40,130 --> 00:17:46,580
+So a transparent red and it looks dark here, but it's because the background of my editor is dark.
+
+269
+00:17:46,730 --> 00:17:50,000
+If we actually saw that color, it's a transparent red.
+
+270
+00:17:50,000 --> 00:17:52,670
+So on a white background it looks sort of pinkish.
+
+271
+00:17:52,820 --> 00:17:57,680
+And then I'll duplicate this and make a loss class.
+
+272
+00:17:57,680 --> 00:17:59,390
+This one will be similar.
+
+273
+00:17:59,570 --> 00:18:01,490
+Oh why am I doing red for win?
+
+274
+00:18:01,490 --> 00:18:02,990
+That should be the other way around.
+
+275
+00:18:02,990 --> 00:18:04,610
+I want zero red.
+
+276
+00:18:04,640 --> 00:18:10,190
+I want 255 green and zero blue and then loss should be red.
+
+277
+00:18:10,970 --> 00:18:12,560
+So I have those two classes now.
+
+278
+00:18:12,560 --> 00:18:17,360
+We just need to decide which one to show which one to apply to the entire lie.
+
+279
+00:18:18,110 --> 00:18:20,690
+Now, to figure out if the Warriors want a game.
+
+280
+00:18:20,690 --> 00:18:25,820
+Because I'm doing this from the Warriors perspective, I want the Green Win class to be applied.
+
+281
+00:18:25,820 --> 00:18:33,050
+If whichever object the Warriors are, whichever one has Golden State rather than the Warriors, Golden
+
+282
+00:18:33,050 --> 00:18:34,160
+State is what we're looking for.
+
+283
+00:18:34,190 --> 00:18:38,060
+We'll check if it's winner is true, then we'll apply this class of win.
+
+284
+00:18:38,060 --> 00:18:39,740
+Otherwise we apply loss.
+
+285
+00:18:39,740 --> 00:18:44,780
+So to figure out which team is Golden State, we can do it in a sort of clunky way.
+
+286
+00:18:44,870 --> 00:18:48,710
+It's not that bad, but we'll check just one of the teams.
+
+287
+00:18:48,710 --> 00:18:49,640
+It doesn't matter.
+
+288
+00:18:49,670 --> 00:18:54,440
+Home team or away team team and check if it's Golden State.
+
+289
+00:18:54,890 --> 00:18:56,600
+So let's try it here.
+
+290
+00:18:56,630 --> 00:19:03,980
+Home team, which we already have that variable team that we extracted or the structured team equals
+
+291
+00:19:03,980 --> 00:19:07,940
+Golden State and I'll do this as a ternary question mark.
+
+292
+00:19:07,940 --> 00:19:13,520
+And if that's the case, then the variable we want, I'll call this warriors.
+
+293
+00:19:15,140 --> 00:19:18,260
+This will be a reference to the Warriors object here.
+
+294
+00:19:19,940 --> 00:19:23,940
+And we'll go with Warriors Equals Team Golden State.
+
+295
+00:19:23,960 --> 00:19:29,600
+If that's the case, then the Warriors object should be the home team object.
+
+296
+00:19:31,020 --> 00:19:32,580
+This entire home team.
+
+297
+00:19:33,790 --> 00:19:36,280
+Otherwise we'll set it to the away team.
+
+298
+00:19:39,070 --> 00:19:46,000
+And if I console that Log Warriors right now, we should get the Warriors information each time through,
+
+299
+00:19:46,000 --> 00:19:47,620
+whether it's away or home.
+
+300
+00:19:47,950 --> 00:19:49,450
+We should still see.
+
+301
+00:19:50,070 --> 00:19:51,180
+Golden State.
+
+302
+00:19:51,300 --> 00:19:52,500
+Golden State.
+
+303
+00:19:53,250 --> 00:19:53,670
+Great.
+
+304
+00:19:53,670 --> 00:19:55,560
+So now we've identified Golden State.
+
+305
+00:19:55,560 --> 00:19:56,850
+We have a reference to it.
+
+306
+00:19:58,570 --> 00:20:01,450
+Then we can simply access is winner.
+
+307
+00:20:02,170 --> 00:20:07,840
+So warriors dot is winner is going to be true or false.
+
+308
+00:20:07,930 --> 00:20:13,000
+Now, if it's true, then we'll apply the class of win.
+
+309
+00:20:14,080 --> 00:20:14,410
+Whoops.
+
+310
+00:20:14,410 --> 00:20:15,630
+That should be a question mark.
+
+311
+00:20:15,640 --> 00:20:18,100
+Otherwise we'll apply the class of loss.
+
+312
+00:20:18,370 --> 00:20:24,400
+And we could save this to a variable by concept, class, name, and then use that class name.
+
+313
+00:20:24,400 --> 00:20:26,400
+Or I could do it in a single line.
+
+314
+00:20:26,410 --> 00:20:29,680
+I want to apply my class to the game Ally.
+
+315
+00:20:29,710 --> 00:20:33,120
+So game like dot class list dot.
+
+316
+00:20:33,220 --> 00:20:37,030
+Add this entire expression, the ternary operator.
+
+317
+00:20:37,570 --> 00:20:42,330
+So we will either add win or loss as a class depending on warriors.
+
+318
+00:20:42,340 --> 00:20:45,970
+DOT is winner and the moment of truth will refresh.
+
+319
+00:20:46,090 --> 00:20:47,410
+Hey, check it out.
+
+320
+00:20:48,270 --> 00:20:48,870
+Okay.
+
+321
+00:20:48,870 --> 00:20:50,340
+So it seems to be working.
+
+322
+00:20:50,370 --> 00:20:56,520
+Golden State at Houston, we have Golden State one, so it's green here, Houston one.
+
+323
+00:20:56,520 --> 00:20:59,430
+So it's red and it's accurate the whole way through.
+
+324
+00:20:59,460 --> 00:21:02,820
+Notice, Golden State has four total wins out of seven.
+
+325
+00:21:02,820 --> 00:21:04,310
+Yes, they moved on.
+
+326
+00:21:04,320 --> 00:21:05,280
+Great job.
+
+327
+00:21:05,490 --> 00:21:09,000
+Okay, so this code we have right now is kind of gross.
+
+328
+00:21:09,000 --> 00:21:11,370
+Honestly, I'm not very happy with it.
+
+329
+00:21:11,880 --> 00:21:15,270
+And that's okay to get something out on the page, get something working.
+
+330
+00:21:15,270 --> 00:21:18,330
+But I definitely want to refactor this for two reasons.
+
+331
+00:21:18,330 --> 00:21:23,820
+One, we should break it up into different functions when applicable to make it just clean and easy
+
+332
+00:21:23,820 --> 00:21:24,690
+to understand.
+
+333
+00:21:24,690 --> 00:21:29,520
+But also, this is all tied specifically to Golden State right now.
+
+334
+00:21:29,580 --> 00:21:35,970
+What if I wanted to make a different table with the same data from the perspective of Houston and I
+
+335
+00:21:35,970 --> 00:21:41,700
+wanted to append it down below, I think it would be best to make our code team agnostic and we could
+
+336
+00:21:41,700 --> 00:21:46,800
+write a function called generate table or generate score chart or whatever.
+
+337
+00:21:46,800 --> 00:21:49,980
+This is where you pass an argument in of the team.
+
+338
+00:21:49,980 --> 00:21:51,270
+We pass Golden State in.
+
+339
+00:21:51,270 --> 00:21:52,050
+We get this.
+
+340
+00:21:52,050 --> 00:21:56,190
+If we pass Houston in, we would get the opposite as far as the colors.
+
+341
+00:21:56,490 --> 00:22:00,000
+So we could try that in the next video, we'll do the refactoring.
+
+342
+00:22:00,000 --> 00:22:01,590
+We'll make it a little bit nicer.
+

@@ -1,0 +1,340 @@
+1
+00:00:00,660 --> 00:00:03,710
+We've now got a starting implementation for class timer put together.
+
+2
+00:00:03,719 --> 00:00:08,430
+Now, unfortunately, in this video and the next one, we're going to have to go into a very quick side
+
+3
+00:00:08,430 --> 00:00:09,030
+topic.
+
+4
+00:00:09,030 --> 00:00:13,140
+This side topic is something that's a little bit painful in JavaScript, but that's why we're going
+
+5
+00:00:13,140 --> 00:00:16,379
+to go over it right now before we get too deep into this application.
+
+6
+00:00:16,770 --> 00:00:22,230
+So the little issue that we're going to discuss is around the value of this inside of a class.
+
+7
+00:00:22,320 --> 00:00:24,810
+This is something that was covered earlier on inside this course.
+
+8
+00:00:24,810 --> 00:00:28,740
+But I'm just going to give you a very quick reminder right here, because it's going to be very relevant
+
+9
+00:00:28,740 --> 00:00:31,020
+for us as we develop our timer class.
+
+10
+00:00:32,290 --> 00:00:35,230
+So I want to first begin with a quick demonstration.
+
+11
+00:00:35,350 --> 00:00:36,910
+I'm going to find my start method.
+
+12
+00:00:36,970 --> 00:00:42,110
+I'm going to remove the console log inside there and I'm going to replace it with console.log.
+
+13
+00:00:42,130 --> 00:00:43,480
+This like so.
+
+14
+00:00:44,490 --> 00:00:49,380
+Now remember, our start method is going to be invoked right now whenever we click on the start button
+
+15
+00:00:49,770 --> 00:00:52,020
+because we wired it up with an event listener.
+
+16
+00:00:52,560 --> 00:00:55,800
+So that is one way in which we can invoke the START method.
+
+17
+00:00:56,310 --> 00:01:01,530
+I'm then going to go down to the bottom of the file right after we create our timer class and I'm going
+
+18
+00:01:01,530 --> 00:01:04,440
+to call timer start directly as well.
+
+19
+00:01:04,680 --> 00:01:08,220
+So there are now two ways in which the start method is going to be invoked.
+
+20
+00:01:08,220 --> 00:01:12,780
+It's going to be called one time automatically when our application first loads up inside the browser,
+
+21
+00:01:13,080 --> 00:01:17,400
+it's going to be called a second time whenever we click on the start button directly.
+
+22
+00:01:18,220 --> 00:01:23,830
+Now I want you to recall that in general, we want the value of this inside of a class to be equal to
+
+23
+00:01:23,830 --> 00:01:29,440
+the instance of the class that we create, because this is how we refer to different instance variables
+
+24
+00:01:29,440 --> 00:01:31,720
+and methods that are defined inside the class.
+
+25
+00:01:33,340 --> 00:01:34,700
+So let's save this really quickly.
+
+26
+00:01:34,720 --> 00:01:36,400
+We're going to go back over to our browser.
+
+27
+00:01:36,670 --> 00:01:40,210
+I'm going to refresh the page and right away I'll see the first console log.
+
+28
+00:01:40,480 --> 00:01:42,610
+So that is from the method called.
+
+29
+00:01:42,620 --> 00:01:44,320
+We added down right here.
+
+30
+00:01:45,040 --> 00:01:50,320
+So when we call timer start the console log of this that we see is the instance of the timer class we
+
+31
+00:01:50,320 --> 00:01:51,040
+created.
+
+32
+00:01:51,280 --> 00:01:53,650
+This is the result that we want in general.
+
+33
+00:01:53,650 --> 00:02:00,430
+We always want a console log of this to result in the instance of the class because this means that
+
+34
+00:02:00,430 --> 00:02:02,390
+we can access the different instance variables.
+
+35
+00:02:02,390 --> 00:02:05,530
+So we defined on the class and the different methods as well.
+
+36
+00:02:05,650 --> 00:02:09,759
+So this right here is a very good result and that is what we always want to see.
+
+37
+00:02:10,479 --> 00:02:16,900
+However, if we try to invoke starts using this other way of invoking it by clicking on the button,
+
+38
+00:02:16,900 --> 00:02:19,240
+we're going to see a very different result.
+
+39
+00:02:20,840 --> 00:02:23,410
+So I'm going to find the start button and click on it.
+
+40
+00:02:23,420 --> 00:02:27,920
+And when I do so, I'll see a console log of the button we just clicked on instead.
+
+41
+00:02:28,220 --> 00:02:33,230
+So that means that the value of this inside of the start function whenever we click on the button is
+
+42
+00:02:33,230 --> 00:02:38,570
+very different than if we just call start directly through the instance of the class that we created.
+
+43
+00:02:39,170 --> 00:02:40,830
+This is a very bad thing.
+
+44
+00:02:40,850 --> 00:02:45,320
+Seeing this console log right here, that is not good at all because it means that whenever a user clicks
+
+45
+00:02:45,320 --> 00:02:49,970
+on that start button, we will not have access to any of the instance variables inside of our class
+
+46
+00:02:49,970 --> 00:02:51,800
+or any of the methods as well.
+
+47
+00:02:52,220 --> 00:02:57,660
+Let me show you a quick demonstration of why this is so important right after the START method.
+
+48
+00:02:57,680 --> 00:02:59,540
+I'm going to define a new method.
+
+49
+00:02:59,540 --> 00:03:00,770
+I'm going to delete this very quickly.
+
+50
+00:03:00,770 --> 00:03:02,390
+This is just a quick demonstration.
+
+51
+00:03:02,630 --> 00:03:07,790
+I'm going to define a new method called important method to call.
+
+52
+00:03:08,240 --> 00:03:13,220
+So we're going to imagine that this is a really important method that we have to call whenever start
+
+53
+00:03:13,220 --> 00:03:14,060
+gets invoked.
+
+54
+00:03:14,870 --> 00:03:18,100
+So then instead of start, I'm going to try to call that method.
+
+55
+00:03:18,110 --> 00:03:21,950
+So I'll do important method to call like so.
+
+56
+00:03:23,210 --> 00:03:28,760
+And then maybe just to make sure that we do successfully call it I'll add in a console log of like important
+
+57
+00:03:28,760 --> 00:03:30,740
+thing was done.
+
+58
+00:03:33,020 --> 00:03:33,410
+Okay.
+
+59
+00:03:33,410 --> 00:03:34,850
+So let's now try to save this.
+
+60
+00:03:34,850 --> 00:03:37,430
+We're going to go back over and refresh the page once again.
+
+61
+00:03:38,800 --> 00:03:40,480
+And I made a typo.
+
+62
+00:03:43,690 --> 00:03:44,130
+There we go.
+
+63
+00:03:44,140 --> 00:03:45,010
+Important method to call.
+
+64
+00:03:45,010 --> 00:03:45,710
+My mistake.
+
+65
+00:03:45,730 --> 00:03:46,510
+I'm going to say that again.
+
+66
+00:03:46,510 --> 00:03:47,230
+Refresh.
+
+67
+00:03:47,260 --> 00:03:48,220
+That's better.
+
+68
+00:03:49,180 --> 00:03:53,590
+So now whenever we call the start method directly through the code that we have right here, we have
+
+69
+00:03:53,590 --> 00:03:57,030
+access to all the other methods we defined inside of our class.
+
+70
+00:03:57,040 --> 00:03:58,570
+Once again, this is good.
+
+71
+00:03:58,570 --> 00:03:59,950
+This is what we want.
+
+72
+00:04:00,370 --> 00:04:04,810
+However, if we try to click on the start button, we will see an error.
+
+73
+00:04:04,810 --> 00:04:09,910
+And that is because when we click on the start button, the value of this inside of START is going to
+
+74
+00:04:09,910 --> 00:04:12,910
+be different than if we just called Start directly.
+
+75
+00:04:13,670 --> 00:04:17,899
+So again, this comes back to the idea of the value of this inside of a class.
+
+76
+00:04:18,200 --> 00:04:23,840
+So in order to fix this up and in order to make sure that we can actually use a button like this right
+
+77
+00:04:23,840 --> 00:04:28,460
+here with an event listener to invoke the different methods inside of our class, we need to make sure
+
+78
+00:04:28,460 --> 00:04:32,720
+that the value of this inside the start method is what we expect it to be.
+
+79
+00:04:34,200 --> 00:04:39,000
+And for it to be what we expect it to be, we need to get a better understanding of the value of this
+
+80
+00:04:39,000 --> 00:04:40,320
+inside of a class.
+
+81
+00:04:40,650 --> 00:04:42,090
+So let's take a quick pause right here.
+
+82
+00:04:42,090 --> 00:04:43,510
+When we come back, the next video.
+
+83
+00:04:43,530 --> 00:04:49,200
+We're going to get a quick review on how we can determine the value of this inside of a class and how
+
+84
+00:04:49,200 --> 00:04:54,300
+we can change the value of this if required, because in this case, it definitely is required.
+
+85
+00:04:54,660 --> 00:04:57,630
+So quick pause right here and we'll continue in just a moment.
+

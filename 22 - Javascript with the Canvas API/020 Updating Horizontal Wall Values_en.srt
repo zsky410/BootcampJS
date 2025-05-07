@@ -1,0 +1,312 @@
+1
+00:00:00,700 --> 00:00:01,030
+All right.
+
+2
+00:00:01,030 --> 00:00:02,730
+We've established how to update verticals.
+
+3
+00:00:02,740 --> 00:00:05,380
+Now it's time to do the same thing for horizontals as well.
+
+4
+00:00:05,890 --> 00:00:08,590
+So we're going to once again imagine that we're sitting right here in the middle.
+
+5
+00:00:09,360 --> 00:00:12,120
+And we're going to go only either up or down.
+
+6
+00:00:12,690 --> 00:00:15,930
+So we want to update either that or that right there.
+
+7
+00:00:16,200 --> 00:00:18,720
+So let's think about the structure of horizontals again.
+
+8
+00:00:21,780 --> 00:00:24,780
+So remember, horizontals has some very different dimensions.
+
+9
+00:00:25,350 --> 00:00:31,050
+It's going to be a 2D array, but it's going to have only two rows inside of it.
+
+10
+00:00:32,140 --> 00:00:40,750
+And three columns because we are representing one, two, three and then row two is one, two, three.
+
+11
+00:00:41,200 --> 00:00:43,090
+So they all start off as false.
+
+12
+00:00:47,900 --> 00:00:51,290
+So just to be really clear, that element right there corresponds with that.
+
+13
+00:00:51,290 --> 00:00:54,650
+Well, that element corresponds with that wall and so on.
+
+14
+00:00:55,460 --> 00:01:00,710
+So now if we think about moving up or down once again, we're going to establish that we've got a starting
+
+15
+00:01:00,710 --> 00:01:04,069
+row of one and a column.
+
+16
+00:01:05,710 --> 00:01:06,460
+Equal to one.
+
+17
+00:01:06,460 --> 00:01:09,310
+And that represents the cell that we are currently in right here.
+
+18
+00:01:09,760 --> 00:01:14,800
+So we need to figure out how we can essentially take these values and depending on the direction, access
+
+19
+00:01:14,800 --> 00:01:18,220
+and update either that element or that element.
+
+20
+00:01:20,360 --> 00:01:23,510
+So once again, we can kind of ignore one of these variables.
+
+21
+00:01:23,510 --> 00:01:24,800
+In this case, it's column.
+
+22
+00:01:24,800 --> 00:01:28,310
+So whenever we move up or down, column is always going to stay the same.
+
+23
+00:01:29,020 --> 00:01:35,860
+So we are going to update the element at column equal to whatever the current column is.
+
+24
+00:01:36,560 --> 00:01:41,330
+However, the row variable is going to change depending upon the direction we are going.
+
+25
+00:01:41,990 --> 00:01:43,880
+So if we are going up.
+
+26
+00:01:44,880 --> 00:01:49,890
+Then Roe needs to be whatever the current ROE is, minus one.
+
+27
+00:01:51,140 --> 00:01:52,940
+To get that one right there.
+
+28
+00:01:53,930 --> 00:01:55,310
+And then if we are going down.
+
+29
+00:01:58,560 --> 00:02:05,550
+And Roe is going to be whatever the current ROE is to get this element right there, that wall, which
+
+30
+00:02:05,550 --> 00:02:06,780
+is that right there.
+
+31
+00:02:07,080 --> 00:02:11,280
+So in that case, it would be ROE, which is, in other words, one in our case.
+
+32
+00:02:13,160 --> 00:02:19,100
+So to get from the central element up, it's going to essentially be either row minus one.
+
+33
+00:02:19,100 --> 00:02:22,370
+And if we're going down, it's going to be whatever the current row is.
+
+34
+00:02:22,370 --> 00:02:24,650
+And then column either way is going to stay the same.
+
+35
+00:02:25,680 --> 00:02:25,950
+Okay.
+
+36
+00:02:25,950 --> 00:02:30,420
+So now we understand that let's go back over and write out these if cases as well as well.
+
+37
+00:02:30,420 --> 00:02:33,900
+So I'll say else if direction is up.
+
+38
+00:02:35,230 --> 00:02:37,690
+And we want to look at horizontals in this case.
+
+39
+00:02:38,230 --> 00:02:42,610
+We want to look at row minus one and the same column.
+
+40
+00:02:43,270 --> 00:02:45,060
+And we want to update that to true.
+
+41
+00:02:46,830 --> 00:02:48,270
+And then else if.
+
+42
+00:02:49,390 --> 00:02:51,730
+Direction is down.
+
+43
+00:02:52,780 --> 00:02:54,280
+And we'll look at horizontals.
+
+44
+00:02:55,310 --> 00:02:59,540
+I'm going to take whatever the current row is and the exact same column.
+
+45
+00:03:00,190 --> 00:03:01,330
+And I'll set it to true.
+
+46
+00:03:02,020 --> 00:03:03,040
+And that's pretty much it.
+
+47
+00:03:05,200 --> 00:03:05,440
+Okay.
+
+48
+00:03:05,440 --> 00:03:09,610
+So just like we did before, we're going to comment out a couple of the possible different directions
+
+49
+00:03:09,610 --> 00:03:13,270
+and just do a quick test and make sure that everything is working correctly.
+
+50
+00:03:13,810 --> 00:03:18,280
+So I'm going to comment outright and we'll first try up right here.
+
+51
+00:03:18,960 --> 00:03:24,090
+So again, if we are going to successfully go up, we want to update that element right there, which
+
+52
+00:03:24,090 --> 00:03:28,590
+will be an index of Row Zero, column one.
+
+53
+00:03:30,940 --> 00:03:31,150
+Yes.
+
+54
+00:03:31,150 --> 00:03:31,840
+I'll save this.
+
+55
+00:03:31,840 --> 00:03:35,920
+I'm going to go back over to the browser, refresh, print out horizontals.
+
+56
+00:03:36,070 --> 00:03:39,730
+Here's my two by three array and yep, I updated the correct value.
+
+57
+00:03:41,030 --> 00:03:43,970
+So now we can test the same exact thing as well going down.
+
+58
+00:03:43,970 --> 00:03:47,120
+So we'll comment out, up and uncomment down.
+
+59
+00:03:48,280 --> 00:03:53,170
+So if we correctly update down, we should be updating that one right there to true.
+
+60
+00:03:55,520 --> 00:03:59,510
+So I'll save refresh do a horizontals again.
+
+61
+00:04:00,700 --> 00:04:02,290
+And right there we've updated to.
+
+62
+00:04:02,290 --> 00:04:02,860
+True.
+
+63
+00:04:02,890 --> 00:04:03,670
+Perfect.
+
+64
+00:04:04,240 --> 00:04:04,540
+Okay.
+
+65
+00:04:04,540 --> 00:04:05,420
+So that's it.
+
+66
+00:04:05,440 --> 00:04:10,180
+I know this is probably been pretty nasty, but that is the hardest part of understanding this maze
+
+67
+00:04:10,180 --> 00:04:15,580
+stuff is just understanding that depending upon the direction we are going, we have to adjust the indices
+
+68
+00:04:15,580 --> 00:04:18,279
+of what we are, of what wall we are trying to update.
+
+69
+00:04:19,450 --> 00:04:19,720
+All right.
+
+70
+00:04:19,720 --> 00:04:23,860
+So last thing I'm going to do here is essentially restore my code to a working state.
+
+71
+00:04:23,860 --> 00:04:26,650
+So I'm going to uncomment all these different directions.
+
+72
+00:04:27,040 --> 00:04:32,260
+I'm going to make sure I get some commas back in there because my code formatter add on automatically
+
+73
+00:04:32,260 --> 00:04:32,950
+removed them.
+
+74
+00:04:33,860 --> 00:04:37,880
+I'll then go back down to my step through cell call right here.
+
+75
+00:04:39,360 --> 00:04:43,350
+And I'll throw in my start row and my start column.
+
+76
+00:04:44,820 --> 00:04:45,090
+Okay.
+
+77
+00:04:45,090 --> 00:04:47,840
+So last thing we have to do is visit that next cell.
+
+78
+00:04:47,850 --> 00:04:49,890
+So we'll take care of that in the next video.
+

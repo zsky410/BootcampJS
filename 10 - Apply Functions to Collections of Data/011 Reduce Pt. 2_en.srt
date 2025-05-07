@@ -1,0 +1,560 @@
+1
+00:00:00,180 --> 00:00:00,630
+All right.
+
+2
+00:00:00,630 --> 00:00:06,090
+So we saw how we can use reduce to sum all elements in an array or multiply them all together.
+
+3
+00:00:06,090 --> 00:00:08,039
+And that's one use for reduce.
+
+4
+00:00:08,039 --> 00:00:10,410
+But there are many other things we can do with it.
+
+5
+00:00:10,410 --> 00:00:13,860
+We don't have to be accumulating a value through math.
+
+6
+00:00:13,860 --> 00:00:16,770
+We don't have to be multiplying or adding or subtracting or dividing.
+
+7
+00:00:16,770 --> 00:00:24,090
+We can also do things like finding the maximum value in an array where the accumulator is really just
+
+8
+00:00:24,090 --> 00:00:25,350
+tracking the max.
+
+9
+00:00:25,350 --> 00:00:29,400
+It's not being added to or multiplied or anything like that.
+
+10
+00:00:29,400 --> 00:00:32,490
+It's simply referring to the current maximum value.
+
+11
+00:00:32,490 --> 00:00:36,360
+And then we potentially update max if we find a larger value.
+
+12
+00:00:36,810 --> 00:00:38,760
+So let me show you a quick example here.
+
+13
+00:00:38,760 --> 00:00:41,610
+We have grades, a list of grades in array.
+
+14
+00:00:42,000 --> 00:00:47,040
+If I want to find the max, what I could do is grades dot reduce.
+
+15
+00:00:47,820 --> 00:00:54,240
+I'll save this to a variable called max grade and we need to pass in our callback, which follows the
+
+16
+00:00:54,240 --> 00:00:59,460
+format of accumulator first and then current Val next.
+
+17
+00:00:59,790 --> 00:01:04,530
+But instead of calling this a cume or accumulator, I'm just going to call it Max.
+
+18
+00:01:05,910 --> 00:01:08,250
+Then I'll add my arrow function syntax.
+
+19
+00:01:08,250 --> 00:01:14,340
+And what we need to do is check if the current value is greater than the current max.
+
+20
+00:01:14,550 --> 00:01:22,560
+So the first time this runs, we'll have Max start at 87, just like when we summed an array together.
+
+21
+00:01:22,560 --> 00:01:29,610
+The first total started as the first element, so Max will be 87 and then current Val we'll go with
+
+22
+00:01:29,610 --> 00:01:37,050
+let's do curve out here cur val we'll start at 64 and then we do a comparison.
+
+23
+00:01:37,080 --> 00:01:40,230
+Is current Val greater than Max?
+
+24
+00:01:41,690 --> 00:01:45,470
+If curve out is greater than Max.
+
+25
+00:01:45,650 --> 00:01:49,160
+If it is, then we will return curve out.
+
+26
+00:01:49,550 --> 00:01:53,200
+And if this is not the case, we'll return Max.
+
+27
+00:01:53,210 --> 00:01:58,040
+So whatever is returned from this function will be used as the next max.
+
+28
+00:01:58,280 --> 00:02:01,210
+So the first time through Max is 87.
+
+29
+00:02:01,220 --> 00:02:03,080
+Current Val is 64.
+
+30
+00:02:03,110 --> 00:02:04,790
+This is not true.
+
+31
+00:02:04,820 --> 00:02:08,050
+Curve L is smaller, so we return max.
+
+32
+00:02:08,060 --> 00:02:14,210
+So if we add our return here, I should comment this whole thing out so we don't get syntax errors.
+
+33
+00:02:14,570 --> 00:02:18,350
+That return is going to be 87 return max.
+
+34
+00:02:19,580 --> 00:02:23,960
+When we return that value Max then uses that previous return.
+
+35
+00:02:23,960 --> 00:02:25,850
+So we returned 87.
+
+36
+00:02:25,850 --> 00:02:32,240
+Max is 87 once again, but next time Cavell moves on to 96.
+
+37
+00:02:32,570 --> 00:02:34,850
+So now Cavell is 96.
+
+38
+00:02:35,030 --> 00:02:36,560
+We do the comparison.
+
+39
+00:02:36,740 --> 00:02:38,750
+Cavell is now greater than Max.
+
+40
+00:02:38,750 --> 00:02:40,670
+96 is greater than 87.
+
+41
+00:02:40,670 --> 00:02:48,560
+So we return Cavell, which is 96, and that return value is then used to set the new Max Max.
+
+42
+00:02:48,620 --> 00:02:51,890
+The third time through is going to be 96.
+
+43
+00:02:52,760 --> 00:02:57,830
+And then we're comparing it to Cavell, which is 92, and I won't waste your time going through this
+
+44
+00:02:57,830 --> 00:03:05,660
+entire thing, but this time through we return 96, we just return max as is, because this is not true.
+
+45
+00:03:06,020 --> 00:03:10,610
+And eventually we go all the way through the array and we find the max.
+
+46
+00:03:10,790 --> 00:03:13,890
+We return that max, which eventually is 99.
+
+47
+00:03:13,910 --> 00:03:15,710
+Then we compare it to 73.
+
+48
+00:03:15,800 --> 00:03:24,560
+We keep returning 99, 99, 99 and then reduce returns that final return value, which is 99.
+
+49
+00:03:24,830 --> 00:03:27,830
+So let's run it and just make sure I'm not crazy.
+
+50
+00:03:28,250 --> 00:03:30,020
+Let's take a look at Max Grade.
+
+51
+00:03:30,050 --> 00:03:31,850
+It is indeed 99.
+
+52
+00:03:32,660 --> 00:03:35,960
+We could also rewrite this in a pretty different way.
+
+53
+00:03:36,860 --> 00:03:39,210
+There's a couple of different approaches using reduce.
+
+54
+00:03:39,230 --> 00:03:46,790
+If I comment this out instead of returning Cavell or returning Max, we can use the built in math.
+
+55
+00:03:47,090 --> 00:03:48,770
+Max So math out.
+
+56
+00:03:48,800 --> 00:03:55,550
+Max You pass in two numbers like three and five and it will tell us the maximum number three and ten
+
+57
+00:03:55,700 --> 00:03:58,670
+is ten, nine and one.
+
+58
+00:03:58,670 --> 00:03:59,690
+We get nine.
+
+59
+00:03:59,690 --> 00:04:05,240
+So we could use that and replace this whole line with return math.
+
+60
+00:04:05,420 --> 00:04:14,090
+Max of the current max and the current vowel that we're looking at if we run it, max grade is still
+
+61
+00:04:14,090 --> 00:04:18,110
+99 and we could also write a min grade.
+
+62
+00:04:19,310 --> 00:04:23,060
+Keep this exactly the same, although I would rename this to be min.
+
+63
+00:04:23,270 --> 00:04:27,940
+This represents the minimum value that we are keeping track of as we go through.
+
+64
+00:04:27,950 --> 00:04:33,080
+As reduced calls are callback over and over and over, it will pass in the current min.
+
+65
+00:04:33,290 --> 00:04:35,900
+So return math dot min.
+
+66
+00:04:37,780 --> 00:04:43,900
+And if you wanted to, you could even use an implicit return, since we have a single expression there.
+
+67
+00:04:45,320 --> 00:04:46,850
+Get rid of the return keyword.
+
+68
+00:04:47,360 --> 00:04:48,650
+Let's look at min grade.
+
+69
+00:04:48,920 --> 00:04:50,360
+Max is not defined.
+
+70
+00:04:50,570 --> 00:04:52,580
+I need to update that to be min as well.
+
+71
+00:04:53,540 --> 00:04:55,800
+So min grade is now 64.
+
+72
+00:04:55,820 --> 00:04:57,320
+Max is 99.
+
+73
+00:04:57,890 --> 00:04:59,360
+So same logic.
+
+74
+00:04:59,360 --> 00:05:00,860
+Just wrote it in a different way.
+
+75
+00:05:00,890 --> 00:05:04,480
+Here we're doing the math ourselves or the comparison.
+
+76
+00:05:04,490 --> 00:05:06,980
+Here we rely on math, Max.
+
+77
+00:05:06,980 --> 00:05:09,670
+But what really matters is the way reduce works.
+
+78
+00:05:09,680 --> 00:05:15,530
+So we're not summing things together or not multiplying them into a accumulator variable.
+
+79
+00:05:15,620 --> 00:05:22,420
+The term accumulator or total kind of makes me think of something that is growing or getting bigger,
+
+80
+00:05:22,430 --> 00:05:23,840
+but that's not what happens here.
+
+81
+00:05:23,870 --> 00:05:29,930
+This parameter, which we're calling Max, is simply pointing to one value and then potentially pointing
+
+82
+00:05:29,930 --> 00:05:31,400
+to a different value instead.
+
+83
+00:05:31,430 --> 00:05:35,600
+As soon as we find a new max, it updates to be that max.
+
+84
+00:05:35,690 --> 00:05:40,160
+So it's not accumulating so much as just keeping track of the max.
+
+85
+00:05:40,280 --> 00:05:46,100
+And before we move on to our third video on Reduce, which I'll show you some even some more interesting
+
+86
+00:05:46,100 --> 00:05:47,810
+or different use cases for Reduce.
+
+87
+00:05:47,810 --> 00:05:48,770
+That's coming up next.
+
+88
+00:05:48,770 --> 00:05:51,970
+But before we do that, there's one extra argument I haven't mentioned.
+
+89
+00:05:51,980 --> 00:05:56,320
+When you use reduce, you can actually pass in an initial starting value.
+
+90
+00:05:56,330 --> 00:06:02,060
+So after your callback, the format would be something reduce.
+
+91
+00:06:02,420 --> 00:06:09,380
+So we'll do array, reduce you pass in your callback and then initial value.
+
+92
+00:06:09,920 --> 00:06:15,710
+Now this callback is usually an inline anonymous function, so it ends up being kind of long.
+
+93
+00:06:15,710 --> 00:06:20,870
+But at the end, after your function, you can add a comma and then an initial value.
+
+94
+00:06:21,350 --> 00:06:27,170
+So if we write a simple reducer function, let's just go back to to adding numbers together.
+
+95
+00:06:27,290 --> 00:06:32,330
+So we'll do how about ten, 20, 30, 40 and 50?
+
+96
+00:06:32,810 --> 00:06:36,760
+Dot reduce add in our arrow function.
+
+97
+00:06:36,770 --> 00:06:42,680
+We'll go with some and then let's go with cur val.
+
+98
+00:06:45,840 --> 00:06:51,320
+Right now if we return some plus curve ball.
+
+99
+00:06:52,760 --> 00:06:55,460
+And let's store this in a variable cost sum.
+
+100
+00:06:56,480 --> 00:06:57,560
+Let's look at some.
+
+101
+00:06:58,100 --> 00:06:59,360
+It's 150.
+
+102
+00:06:59,900 --> 00:07:00,650
+Is that correct?
+
+103
+00:07:00,680 --> 00:07:01,370
+Let's see.
+
+104
+00:07:01,370 --> 00:07:02,180
+I think that makes sense.
+
+105
+00:07:02,180 --> 00:07:02,580
+Right?
+
+106
+00:07:02,600 --> 00:07:03,260
+50.
+
+107
+00:07:03,260 --> 00:07:05,150
+100 and then 40 plus ten.
+
+108
+00:07:05,150 --> 00:07:05,400
+Yeah.
+
+109
+00:07:05,420 --> 00:07:06,110
+150.
+
+110
+00:07:06,110 --> 00:07:11,870
+When we don't specify an initial value, it will just use the first element, which we saw a couple
+
+111
+00:07:11,870 --> 00:07:12,470
+of slides ago.
+
+112
+00:07:12,470 --> 00:07:12,980
+Here.
+
+113
+00:07:13,010 --> 00:07:13,390
+Nope.
+
+114
+00:07:13,400 --> 00:07:14,090
+Here.
+
+115
+00:07:14,090 --> 00:07:16,970
+Where the accumulator starts as three.
+
+116
+00:07:16,970 --> 00:07:20,480
+That's the first element and the current value starts at five.
+
+117
+00:07:20,660 --> 00:07:23,500
+But you can initialize with a custom value.
+
+118
+00:07:23,510 --> 00:07:29,120
+So I can say I want some to start at zero, which is going to give us the exact same result.
+
+119
+00:07:29,540 --> 00:07:33,490
+We start with zero, then we add ten, then 20, then 30, then 40, then 50.
+
+120
+00:07:33,500 --> 00:07:39,460
+That's exactly the same number at the end of the day as starting with ten, 20, 30, 40, 50.
+
+121
+00:07:39,470 --> 00:07:48,920
+But if we instead pass it a number like 1000, here are some will start at 1000, then add ten, then
+
+122
+00:07:48,920 --> 00:07:50,000
+20, then 30.
+
+123
+00:07:50,000 --> 00:07:51,320
+And we end up with.
+
+124
+00:07:52,780 --> 00:07:54,650
+1150.
+
+125
+00:07:55,300 --> 00:08:00,970
+So you probably wouldn't do this right here specifically where you want the sum and you want to start
+
+126
+00:08:00,970 --> 00:08:02,040
+at 1000.
+
+127
+00:08:02,050 --> 00:08:07,540
+But there are other use cases which we'll see in the next video where you can specify an initial value
+
+128
+00:08:07,540 --> 00:08:08,920
+and it won't even be a number.
+
+129
+00:08:08,920 --> 00:08:13,750
+We'll see that we can specify an object if we're trying to accumulate data into an object.
+
+130
+00:08:13,750 --> 00:08:15,760
+And that's what we're going to see next up.
+
+131
+00:08:16,060 --> 00:08:21,790
+So to wrap this up, we saw that you can use reduce not just to multiply or to some things together,
+
+132
+00:08:21,790 --> 00:08:26,560
+but also to keep track of the max or the min or some piece of data.
+
+133
+00:08:26,560 --> 00:08:28,060
+It doesn't have to be max or min.
+
+134
+00:08:28,090 --> 00:08:33,370
+It could be the longest string in an array, the highest rated book, whatever it is.
+
+135
+00:08:33,370 --> 00:08:39,400
+As we iterate over each element in an array, we are keeping track of some piece of data.
+
+136
+00:08:39,400 --> 00:08:45,640
+And then the second thing we saw is that we can pass in an initial value as the second argument to reduce.
+
+137
+00:08:45,640 --> 00:08:49,390
+So this whole thing is the first argument right before that comma.
+
+138
+00:08:49,390 --> 00:08:51,520
+And then the second argument is right there.
+
+139
+00:08:51,520 --> 00:08:52,990
+All right, we're almost done.
+
+140
+00:08:52,990 --> 00:08:55,210
+We've got some other cool use cases coming up next.
+

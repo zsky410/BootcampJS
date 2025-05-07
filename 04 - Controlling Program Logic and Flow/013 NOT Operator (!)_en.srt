@@ -1,0 +1,476 @@
+1
+00:00:00,120 --> 00:00:02,880
+Next up, the third and final logical operator.
+
+2
+00:00:02,880 --> 00:00:05,760
+We'll see for now, the not operator.
+
+3
+00:00:05,910 --> 00:00:14,130
+So unlike or or aunt where we have two characters, ampersand, ampersand or with or we have pipe pipe
+
+4
+00:00:14,130 --> 00:00:19,860
+with not we have a single character, one exclamation point, and it works a little differently.
+
+5
+00:00:19,860 --> 00:00:24,960
+We don't have a left and a right side like we did with or we have one side, we have the other same
+
+6
+00:00:24,960 --> 00:00:26,520
+thing with and not.
+
+7
+00:00:26,520 --> 00:00:33,190
+It's just going to operate on a single expression and it returns true if that expression is false.
+
+8
+00:00:33,210 --> 00:00:37,110
+So we put exclamation point in in front of some expression.
+
+9
+00:00:37,110 --> 00:00:43,650
+If that expression returns false, when you have the not in front of it, the whole thing is now true.
+
+10
+00:00:43,740 --> 00:00:45,120
+It kind of negates it.
+
+11
+00:00:45,600 --> 00:00:51,630
+So here's a couple of very simple examples we've seen NULL, which is a false value.
+
+12
+00:00:51,960 --> 00:00:56,100
+When you put an exclamation point in front of it, we end up with true.
+
+13
+00:00:57,060 --> 00:00:57,660
+Not?
+
+14
+00:00:57,660 --> 00:00:58,290
+No.
+
+15
+00:00:58,800 --> 00:00:59,460
+True.
+
+16
+00:00:59,790 --> 00:01:00,960
+Not zero.
+
+17
+00:01:01,230 --> 00:01:01,950
+True.
+
+18
+00:01:02,100 --> 00:01:03,780
+Not empty string.
+
+19
+00:01:03,810 --> 00:01:04,560
+True.
+
+20
+00:01:04,680 --> 00:01:08,040
+Now, if we try it with a true value, like 45.
+
+21
+00:01:08,920 --> 00:01:12,000
+We get false now because 45 is truth.
+
+22
+00:01:12,430 --> 00:01:15,550
+So then not true is false.
+
+23
+00:01:16,470 --> 00:01:18,270
+Same thing with a string.
+
+24
+00:01:18,270 --> 00:01:19,330
+That is true thi.
+
+25
+00:01:19,380 --> 00:01:20,790
+And you can see where I'm going.
+
+26
+00:01:21,030 --> 00:01:26,220
+We can also use not to negate actual expressions that are not just a single value.
+
+27
+00:01:26,460 --> 00:01:29,440
+So something like zero equals zero is true.
+
+28
+00:01:30,420 --> 00:01:31,380
+It's true.
+
+29
+00:01:31,680 --> 00:01:37,320
+When we put the exclamation point than not in front, we get false or three less than or equal to four.
+
+30
+00:01:37,350 --> 00:01:38,310
+That is true.
+
+31
+00:01:38,340 --> 00:01:41,040
+The exclamation point gives us false.
+
+32
+00:01:41,340 --> 00:01:47,640
+The scenario is where you use this can vary greatly and it's hard to show all that useful of an example.
+
+33
+00:01:47,640 --> 00:01:49,470
+And I'll explain why in just a moment.
+
+34
+00:01:49,620 --> 00:01:56,850
+All of these operators and or not, along with the conditionals themselves, if elseif and else are
+
+35
+00:01:56,850 --> 00:02:03,240
+really flexible and there's often a ton of different ways of achieving the exact same logic or the same
+
+36
+00:02:03,240 --> 00:02:05,340
+outcome, but you can write it differently.
+
+37
+00:02:05,340 --> 00:02:12,600
+You can use nested things as we've seen you could use, and you can combine certain things with not
+
+38
+00:02:12,600 --> 00:02:13,960
+in order to make them work.
+
+39
+00:02:13,980 --> 00:02:16,830
+So let's take a look at an example we saw earlier.
+
+40
+00:02:17,250 --> 00:02:25,110
+We had the logged in user example where we were trying to check if a user was logged in or if this variable
+
+41
+00:02:25,110 --> 00:02:26,040
+had a value.
+
+42
+00:02:26,070 --> 00:02:31,470
+We wanted to do something, but now let's flip it and say that we want to check if there is not a logged
+
+43
+00:02:31,470 --> 00:02:34,260
+in user so that we can boot them off the web page.
+
+44
+00:02:34,260 --> 00:02:35,250
+They're in the wrong spot.
+
+45
+00:02:35,250 --> 00:02:36,300
+They shouldn't be here.
+
+46
+00:02:36,300 --> 00:02:40,980
+So if there isn't a logged in user, do something.
+
+47
+00:02:41,280 --> 00:02:47,760
+How would we do that with what we've seen so far without not we would do if logged in user.
+
+48
+00:02:48,420 --> 00:02:51,930
+And then else is where we would put our code.
+
+49
+00:02:52,020 --> 00:02:57,900
+The code down here would run when there is no logged in user, when it's undefined or null empty string.
+
+50
+00:02:57,900 --> 00:03:04,860
+But if we want to use not if we don't have an otherwise, we just want to check if there's not a user.
+
+51
+00:03:05,640 --> 00:03:08,940
+We could write this if not logged in user.
+
+52
+00:03:09,180 --> 00:03:14,310
+We'll console that log, get out of it and if I run it, we end up with Get out of here.
+
+53
+00:03:14,550 --> 00:03:17,370
+But if I change this to now have a value.
+
+54
+00:03:18,670 --> 00:03:19,900
+We don't get anything.
+
+55
+00:03:20,590 --> 00:03:27,310
+So we could have written this as we saw earlier with the regular if I put some code in here for when
+
+56
+00:03:27,310 --> 00:03:31,390
+the user is logged in and then in the else put this.
+
+57
+00:03:31,390 --> 00:03:37,150
+But if we don't have two situations, we just want to check if there's not a logged in user we could
+
+58
+00:03:37,150 --> 00:03:37,900
+use not.
+
+59
+00:03:37,900 --> 00:03:40,180
+So here's another very simple example.
+
+60
+00:03:40,450 --> 00:03:46,030
+Most of these, as you've already noticed, are quite silly and not they don't seem immediately useful.
+
+61
+00:03:46,030 --> 00:03:51,280
+But these pieces of logic that tools were learning, I promise they'd come into play all the time.
+
+62
+00:03:51,280 --> 00:03:55,930
+When you're creating real applications, we just don't have those tools yet, so we're kind of faking
+
+63
+00:03:55,930 --> 00:04:01,810
+it with logged in user or what we're going to do now, we'll do something like flavor.
+
+64
+00:04:02,110 --> 00:04:04,030
+Flavor will be grape.
+
+65
+00:04:04,030 --> 00:04:11,080
+So we are a online snow cone stand and we mail you snow cones pre-made using dry ice.
+
+66
+00:04:11,860 --> 00:04:13,090
+We only have two flavors.
+
+67
+00:04:13,090 --> 00:04:15,670
+We have grape and we have cherry.
+
+68
+00:04:16,310 --> 00:04:20,810
+So if a user orders something that is not grape and it's not cherry, we need to tell them You can't
+
+69
+00:04:20,810 --> 00:04:21,440
+do that.
+
+70
+00:04:22,130 --> 00:04:24,700
+So we have a couple of different ways of doing this.
+
+71
+00:04:24,710 --> 00:04:29,990
+We could check if flavor is not equal to grape.
+
+72
+00:04:31,200 --> 00:04:35,790
+And flavor is not equal to cherry.
+
+73
+00:04:37,650 --> 00:04:38,760
+We'll count that log.
+
+74
+00:04:38,760 --> 00:04:40,080
+We don't have that flavor.
+
+75
+00:04:40,230 --> 00:04:41,940
+We don't have that flavor.
+
+76
+00:04:42,480 --> 00:04:44,100
+So that's one way of doing it.
+
+77
+00:04:44,700 --> 00:04:49,700
+If I change this to watermelon, for example, refresh the page.
+
+78
+00:04:49,710 --> 00:04:51,060
+We don't have that flavor.
+
+79
+00:04:51,600 --> 00:04:55,560
+But if we wanted to write it another way, which is kind of what I'm getting at here, we have a lot
+
+80
+00:04:55,560 --> 00:04:56,580
+of options.
+
+81
+00:04:56,670 --> 00:04:59,370
+We could also say if flavor.
+
+82
+00:05:01,120 --> 00:05:08,410
+Equals grape or flavor equals cherry.
+
+83
+00:05:10,190 --> 00:05:14,480
+And then negate that entire thing with parents around it.
+
+84
+00:05:15,620 --> 00:05:20,870
+We would read this as if not flavor is grape or flavors cherry.
+
+85
+00:05:21,230 --> 00:05:27,020
+So this logic is basically the same thing we wrote up here, the same exact outcome, or it's true in
+
+86
+00:05:27,020 --> 00:05:29,570
+the same scenarios and false in the same scenarios.
+
+87
+00:05:29,570 --> 00:05:31,250
+But we've written it differently.
+
+88
+00:05:31,820 --> 00:05:34,930
+I definitely prefer well, I think I prefer this one.
+
+89
+00:05:34,940 --> 00:05:38,690
+It's easier, fewer operators, but this is totally valid.
+
+90
+00:05:39,140 --> 00:05:43,370
+And remember, the way it works is that we have or which is in parentheses.
+
+91
+00:05:43,370 --> 00:05:47,240
+So if one of these is true, the entire thing is true.
+
+92
+00:05:47,540 --> 00:05:51,740
+And that would mean flavor is grape or flavor is cherry.
+
+93
+00:05:51,920 --> 00:05:55,190
+So if flavor is grape, this becomes true.
+
+94
+00:05:56,090 --> 00:06:02,060
+This doesn't matter because it's an or so the whole thing becomes true like that.
+
+95
+00:06:02,060 --> 00:06:03,710
+And then we negate that.
+
+96
+00:06:03,710 --> 00:06:05,300
+So the whole thing becomes false.
+
+97
+00:06:05,300 --> 00:06:07,310
+And then this code would not run.
+
+98
+00:06:08,240 --> 00:06:12,230
+But if we had flavor was watermelon, for example.
+
+99
+00:06:13,190 --> 00:06:14,300
+This is false.
+
+100
+00:06:14,300 --> 00:06:15,410
+This is false.
+
+101
+00:06:15,410 --> 00:06:22,040
+So this whole or becomes false and then we negate that false, which gives us true.
+
+102
+00:06:22,310 --> 00:06:23,870
+So let's make sure it works.
+
+103
+00:06:24,920 --> 00:06:26,030
+Comment this one out.
+
+104
+00:06:26,030 --> 00:06:27,140
+We'll console.log.
+
+105
+00:06:27,140 --> 00:06:29,750
+We only have grape and cherry refresh.
+
+106
+00:06:29,750 --> 00:06:32,540
+Right now we're using watermelon, is that right?
+
+107
+00:06:32,660 --> 00:06:34,310
+We only have grape and cherry.
+
+108
+00:06:34,670 --> 00:06:35,900
+I change it to grape.
+
+109
+00:06:36,020 --> 00:06:37,040
+No problem.
+
+110
+00:06:37,490 --> 00:06:39,320
+We don't get that console.log.
+
+111
+00:06:40,070 --> 00:06:41,900
+So it's not the most riveting example.
+
+112
+00:06:41,900 --> 00:06:46,640
+But I wanted to show that we can rewrite things two different ways.
+
+113
+00:06:46,640 --> 00:06:52,430
+I still prefer this one, but not gives us flexibility and sometimes it is actually useful.
+
+114
+00:06:52,430 --> 00:06:54,980
+But I just wanted to show we have flexibility.
+
+115
+00:06:54,980 --> 00:06:57,530
+All of this stuff can be rewritten multiple ways.
+
+116
+00:06:57,530 --> 00:06:59,720
+There's still further ways we could rewrite this.
+
+117
+00:06:59,720 --> 00:07:02,540
+We could nest instead, but I won't get into that for now.
+
+118
+00:07:02,540 --> 00:07:05,840
+So that is not the third logical operator and or.
+
+119
+00:07:05,840 --> 00:07:06,890
+And not.
+

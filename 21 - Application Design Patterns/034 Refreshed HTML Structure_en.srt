@@ -1,0 +1,296 @@
+1
+00:00:00,560 --> 00:00:02,870
+Our Autocomplete widget is working out pretty well.
+
+2
+00:00:02,870 --> 00:00:06,770
+So now the last thing I want to do is to actually go back to the original application that we're working
+
+3
+00:00:06,770 --> 00:00:07,160
+on.
+
+4
+00:00:07,400 --> 00:00:11,750
+We need to make sure that we essentially have two different auto completes being displayed and they
+
+5
+00:00:11,750 --> 00:00:15,170
+need to kind of show up next to each other in like two separate columns.
+
+6
+00:00:15,530 --> 00:00:20,270
+We should also make sure that when the user first loads up the app, we show some kind of tutorial message
+
+7
+00:00:20,270 --> 00:00:22,880
+on the screen as well and tell them exactly what to do.
+
+8
+00:00:23,150 --> 00:00:27,800
+So in this video, we're going to change our HTML structure a little bit to make sure that we get these
+
+9
+00:00:27,800 --> 00:00:30,350
+two different columns and that tutorial message.
+
+10
+00:00:30,500 --> 00:00:33,760
+So we're going to do a lot of typing inside of our indexed HTML file.
+
+11
+00:00:33,770 --> 00:00:35,570
+So I'm going to open that up right away.
+
+12
+00:00:36,230 --> 00:00:40,490
+Once again, a lot of the different classes that we're going to add in here are taken directly from
+
+13
+00:00:40,490 --> 00:00:42,230
+the Boma CSS library.
+
+14
+00:00:42,590 --> 00:00:48,320
+We're not going to focus too much on the class names or the styling because again, class about JavaScript
+
+15
+00:00:48,320 --> 00:00:49,280
+that's we're here for.
+
+16
+00:00:49,740 --> 00:00:50,750
+Okay, so let's get to it.
+
+17
+00:00:51,170 --> 00:00:56,180
+Inside of here, I'm going to first begin by deleting the two elements we have inside of class container.
+
+18
+00:00:56,180 --> 00:00:58,850
+So we're going to essentially just rewrite all the structure we have.
+
+19
+00:01:00,520 --> 00:01:06,010
+Inside of class container and then going to create a class or a div with class of columns.
+
+20
+00:01:07,730 --> 00:01:08,450
+Inside there.
+
+21
+00:01:08,450 --> 00:01:11,690
+I'm going to do a div with the class of column.
+
+22
+00:01:11,810 --> 00:01:13,290
+Notice there's no se on there.
+
+23
+00:01:13,310 --> 00:01:14,630
+The one before had an se.
+
+24
+00:01:14,660 --> 00:01:15,590
+This one doesn't.
+
+25
+00:01:17,560 --> 00:01:18,550
+Inside of this one.
+
+26
+00:01:18,550 --> 00:01:23,620
+I'm going to show a div with an ID of left dash autocomplete.
+
+27
+00:01:23,980 --> 00:01:28,870
+So as you would guess, we're going to eventually use this as the root element for the autocomplete
+
+28
+00:01:28,870 --> 00:01:29,350
+that we're going to show.
+
+29
+00:01:29,350 --> 00:01:30,480
+On the left hand side.
+
+30
+00:01:30,490 --> 00:01:36,580
+I'm using a div here just to 100% identify this thing as a very unique element inside of my application,
+
+31
+00:01:36,580 --> 00:01:39,340
+and I only ever want to have one with that ID.
+
+32
+00:01:41,040 --> 00:01:41,330
+Okay.
+
+33
+00:01:41,460 --> 00:01:44,520
+I'm going to close off the div with class column right there.
+
+34
+00:01:45,150 --> 00:01:48,300
+And then after it, I'm going to put another div with the class.
+
+35
+00:01:49,520 --> 00:01:50,240
+Of column.
+
+36
+00:01:52,830 --> 00:01:58,860
+And inside there I'll do another div with an ID of right dash autocomplete.
+
+37
+00:01:59,970 --> 00:02:01,080
+And I'll close it off.
+
+38
+00:02:02,940 --> 00:02:03,240
+Yes.
+
+39
+00:02:03,240 --> 00:02:04,620
+That's a good place to get started.
+
+40
+00:02:04,800 --> 00:02:10,620
+Now, finally, after the div with class columns, the closing element for that or the closing tag is
+
+41
+00:02:10,740 --> 00:02:11,550
+right there.
+
+42
+00:02:11,940 --> 00:02:14,700
+So it's going to find the closing tag for the class columns.
+
+43
+00:02:14,700 --> 00:02:19,140
+And after it, I'm going to put in some markup to show a tutorial of sorts to the user.
+
+44
+00:02:19,770 --> 00:02:23,490
+So I'm going to do a div with a class couple of class names here.
+
+45
+00:02:23,490 --> 00:02:24,660
+So we're going to have column.
+
+46
+00:02:26,200 --> 00:02:27,790
+Is dash half.
+
+47
+00:02:28,460 --> 00:02:29,660
+Notification.
+
+48
+00:02:30,510 --> 00:02:31,590
+Notification.
+
+49
+00:02:31,590 --> 00:02:36,960
+There we go is dash primary and tutorial.
+
+50
+00:02:38,030 --> 00:02:41,990
+I'll close off that div and we're going to show some message to the user inside of here so they understand
+
+51
+00:02:41,990 --> 00:02:43,310
+how to use our application.
+
+52
+00:02:43,460 --> 00:02:45,920
+So I'll do an H one with the class of title.
+
+53
+00:02:47,380 --> 00:02:52,660
+And I'll say something like Search for a movie on both sides.
+
+54
+00:02:53,380 --> 00:02:57,650
+And then after that I'll do a paragraph element with the class of subtitle.
+
+55
+00:02:59,670 --> 00:03:06,240
+With some texts like we will tell you which is best again, just to help our user understand what's
+
+56
+00:03:06,240 --> 00:03:07,020
+going on here.
+
+57
+00:03:08,000 --> 00:03:08,870
+Now, two things here.
+
+58
+00:03:08,870 --> 00:03:12,020
+Please double check your spelling of the word notification.
+
+59
+00:03:12,020 --> 00:03:13,520
+Very easy to misspell.
+
+60
+00:03:14,030 --> 00:03:18,740
+In addition, overall, just do a double check of all the HTML that we just wrote because very easy
+
+61
+00:03:18,740 --> 00:03:20,610
+to make several typos inside of here.
+
+62
+00:03:20,630 --> 00:03:25,520
+Make sure you've got columns and then column, column and column down there as well.
+
+63
+00:03:26,820 --> 00:03:27,040
+Yes.
+
+64
+00:03:27,060 --> 00:03:28,050
+I'm going to save this.
+
+65
+00:03:28,080 --> 00:03:33,780
+Now, we're not going to see any autocomplete appear right away because we remove the div with the class
+
+66
+00:03:33,780 --> 00:03:34,560
+of autocomplete.
+
+67
+00:03:34,560 --> 00:03:36,700
+So in fact, we're probably going to get a JavaScript error.
+
+68
+00:03:36,720 --> 00:03:40,740
+I just want to do a quick refresh and make sure that we see the tutorial on the screen.
+
+69
+00:03:40,740 --> 00:03:42,270
+That's what I really want to see right now.
+
+70
+00:03:43,020 --> 00:03:44,250
+So I'm going to go back over.
+
+71
+00:03:45,000 --> 00:03:47,920
+Going to refresh and yep, I definitely see that appear.
+
+72
+00:03:48,580 --> 00:03:52,150
+So now we can go back and we can start to wire up the two different autocomplete.
+
+73
+00:03:52,150 --> 00:03:56,460
+So we want to have one that's going to be rendered into right there and the other two right there.
+
+74
+00:03:56,470 --> 00:04:00,370
+So quick pause and we're going to make sure that we render both these auto completes in the next video.
+

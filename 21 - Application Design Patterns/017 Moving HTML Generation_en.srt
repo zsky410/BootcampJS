@@ -1,0 +1,448 @@
+1
+00:00:00,760 --> 00:00:06,070
+We just spoke about the differences of creating a bunch of HTML to support a widget inside of our HTML
+
+2
+00:00:06,070 --> 00:00:08,320
+file versus our JavaScript code.
+
+3
+00:00:08,350 --> 00:00:12,940
+Now, one thing I want to mention here is that this discussion is really about the creation of JavaScript
+
+4
+00:00:12,940 --> 00:00:14,740
+heavy reusable widgets.
+
+5
+00:00:15,040 --> 00:00:19,720
+They're still going to be many times where you're going to want to create some HTML inside of an actual
+
+6
+00:00:19,750 --> 00:00:21,340
+document, and that's totally fine.
+
+7
+00:00:21,760 --> 00:00:26,950
+We're really just thinking about moving HTML generation over to our JavaScript code when we are thinking
+
+8
+00:00:26,950 --> 00:00:33,610
+about widgets that we want to make easily reusable between different projects or even on the same project.
+
+9
+00:00:34,780 --> 00:00:35,950
+For this autocomplete.
+
+10
+00:00:35,950 --> 00:00:39,430
+We know that we need to show two different auto completes on the screen.
+
+11
+00:00:39,430 --> 00:00:44,830
+And so our options are to either write out all that code like one time, all that HTML structure one
+
+12
+00:00:44,830 --> 00:00:50,470
+time inside of our JavaScript file or write it out twice inside the indexed HTML file.
+
+13
+00:00:51,070 --> 00:00:55,840
+So definitely the easier thing to do is create some JavaScript code that can create this widget for
+
+14
+00:00:55,840 --> 00:00:57,790
+us as many times as we want.
+
+15
+00:00:58,060 --> 00:01:02,860
+But there's definitely going to be some other elements that we're going to throw directly into our HTML
+
+16
+00:01:02,860 --> 00:01:03,160
+file.
+
+17
+00:01:03,160 --> 00:01:07,750
+For example, that header element that's already visible right there, that's not something that is
+
+18
+00:01:07,750 --> 00:01:11,320
+quite appropriate to try to display from our JavaScript code.
+
+19
+00:01:11,620 --> 00:01:15,910
+So because that thing is like just there's only one, there's not really any interactivity.
+
+20
+00:01:15,910 --> 00:01:20,590
+I don't expect to use it totally appropriate to create that inside of our HTML file.
+
+21
+00:01:21,940 --> 00:01:22,480
+Okay.
+
+22
+00:01:22,600 --> 00:01:23,730
+So back over.
+
+23
+00:01:23,740 --> 00:01:28,750
+We're going to do a little bit of a refactor and move some of this HTML generation to our JavaScript.
+
+24
+00:01:28,990 --> 00:01:33,070
+So that involves essentially deleting a lot of the HTML that we just wrote out here.
+
+25
+00:01:33,100 --> 00:01:37,840
+I know it's kind of a pain to delete some of the HTML that we just wrote, but I wanted to write this
+
+26
+00:01:37,840 --> 00:01:38,810
+out for two reasons.
+
+27
+00:01:38,830 --> 00:01:42,440
+First off, so you understood the difference between option number one and option number two.
+
+28
+00:01:42,460 --> 00:01:47,740
+And secondly, so that you just understood that if we use this HTML structure right here with these
+
+29
+00:01:47,740 --> 00:01:53,470
+very particular class names, well, my CSS would kick in and style that stuff for us automatically.
+
+30
+00:01:53,470 --> 00:01:55,660
+So I apologize to the delete stuff we just wrote.
+
+31
+00:01:55,660 --> 00:01:57,460
+But again, that's why we did it.
+
+32
+00:01:58,210 --> 00:01:58,380
+Okay.
+
+33
+00:01:58,450 --> 00:02:03,430
+So I'm going to find everything inside of class container and delete it and we're going to replace it
+
+34
+00:02:03,430 --> 00:02:05,590
+with one single element instead.
+
+35
+00:02:06,730 --> 00:02:10,900
+I'm going to do a div with the class of autocomplete like so.
+
+36
+00:02:11,830 --> 00:02:14,320
+So now we can go back over to our JavaScript code.
+
+37
+00:02:14,350 --> 00:02:16,540
+We're going to select that element.
+
+38
+00:02:17,280 --> 00:02:23,490
+So back over right above where we get that input, I'm going to add in some code to select that thing.
+
+39
+00:02:24,180 --> 00:02:28,560
+I'm going to call it root because it kind of represents the root element of our autocomplete widget.
+
+40
+00:02:30,480 --> 00:02:34,260
+So we'll do a query selector with dot auto complete.
+
+41
+00:02:36,100 --> 00:02:43,120
+And then immediately after that, we're going to do a routine or HTML and put in all the HTML that we
+
+42
+00:02:43,120 --> 00:02:45,550
+need to make our autocomplete widget work.
+
+43
+00:02:46,210 --> 00:02:51,040
+So essentially we're talking about adding in all the HTML that we just deleted from the HTML file.
+
+44
+00:02:51,610 --> 00:02:56,270
+So it might seem like we're just kind of shoveling HTML creation from one location to another.
+
+45
+00:02:56,290 --> 00:02:57,340
+That's totally accurate.
+
+46
+00:02:57,340 --> 00:02:58,450
+That is what we're doing.
+
+47
+00:02:58,660 --> 00:03:02,440
+Again, the point is to reduce the coupling between these different files.
+
+48
+00:03:02,530 --> 00:03:04,650
+The HTML still has to be created somewhere.
+
+49
+00:03:04,660 --> 00:03:07,000
+We're just moving it over to the JavaScript side.
+
+50
+00:03:08,510 --> 00:03:08,620
+Okay.
+
+51
+00:03:08,690 --> 00:03:12,980
+So inside of this thing, we're going to add in pretty much the same structure we just had.
+
+52
+00:03:12,980 --> 00:03:17,540
+But I'm going to put in one or two more elements in class names that's just going to kind of represent
+
+53
+00:03:17,540 --> 00:03:20,030
+the final styling of this widget that we're going for.
+
+54
+00:03:20,660 --> 00:03:25,940
+So I'm going to put in a label that has a B element to bold the text in here.
+
+55
+00:03:25,940 --> 00:03:29,570
+And for the text I'll say Search for a movie.
+
+56
+00:03:30,200 --> 00:03:34,160
+I'll then close off the B element and close off the label.
+
+57
+00:03:35,350 --> 00:03:37,020
+After that, I'll put down the input.
+
+58
+00:03:37,030 --> 00:03:38,440
+We still need an input.
+
+59
+00:03:38,770 --> 00:03:41,890
+I'm going to give this one a class of input like so.
+
+60
+00:03:42,630 --> 00:03:45,050
+And then after that, I'm going to start to show that dropdown.
+
+61
+00:03:45,080 --> 00:03:48,270
+Now, previously we wrapped up the input with a dropdown.
+
+62
+00:03:48,290 --> 00:03:51,890
+This time for like no great reason, we're going to do things slightly differently.
+
+63
+00:03:51,890 --> 00:03:54,920
+So I'm going to put the dropdown right after the input element.
+
+64
+00:03:56,160 --> 00:03:59,160
+It's also a div with the class of dropdown.
+
+65
+00:04:00,520 --> 00:04:01,690
+We're going to close that off.
+
+66
+00:04:01,960 --> 00:04:07,870
+Inside there I'll do a div with the class of dropdown menu and close it off.
+
+67
+00:04:08,760 --> 00:04:12,600
+And then finally I did with the class of dropdown content.
+
+68
+00:04:13,140 --> 00:04:17,730
+And this time around I'm also going to put in a class name of results that is just for some additional
+
+69
+00:04:17,730 --> 00:04:20,010
+little styling, just some CSS.
+
+70
+00:04:20,040 --> 00:04:23,610
+No other special reason for that class besides a little bit of styling.
+
+71
+00:04:25,920 --> 00:04:26,070
+Okay.
+
+72
+00:04:26,240 --> 00:04:30,440
+So now we are creating all of our HTML on the JavaScript side and that means we can create as many of
+
+73
+00:04:30,440 --> 00:04:32,810
+these autocomplete widgets as we want eventually.
+
+74
+00:04:33,560 --> 00:04:38,090
+So now we're going to go through this and we're going to select a couple of the different elements inside
+
+75
+00:04:38,090 --> 00:04:39,920
+of here that we know that we're going to need.
+
+76
+00:04:40,160 --> 00:04:42,440
+We already have a selector for that input.
+
+77
+00:04:42,830 --> 00:04:48,110
+We're going to make sure that we also get a selector for that div right there that says dropdown content.
+
+78
+00:04:48,110 --> 00:04:51,590
+Because remember, that's where we're going to eventually show all the different search results that
+
+79
+00:04:51,590 --> 00:04:52,190
+we get.
+
+80
+00:04:52,850 --> 00:04:56,510
+We're also going to get a selector for this div with class of dropdown as well.
+
+81
+00:04:56,900 --> 00:05:02,750
+The reason for that is that we can hide and show the dropdown menu depending upon whether or not this
+
+82
+00:05:02,750 --> 00:05:06,260
+element has a class of is active.
+
+83
+00:05:06,960 --> 00:05:09,100
+This is not some like magic JavaScript thing.
+
+84
+00:05:09,120 --> 00:05:12,750
+This is another little bit of styling from Hbomax.
+
+85
+00:05:12,930 --> 00:05:15,810
+If we actually go back over to the documentation over here.
+
+86
+00:05:16,910 --> 00:05:21,140
+You'll notice that the root element in their example has is active.
+
+87
+00:05:21,410 --> 00:05:26,090
+If that element has the class is active, then the dropdown is going to be displayed.
+
+88
+00:05:26,240 --> 00:05:29,670
+Otherwise, if the class is not there, the dropdown will be hidden.
+
+89
+00:05:29,690 --> 00:05:31,530
+That is normal CSS behavior.
+
+90
+00:05:31,550 --> 00:05:38,990
+They just have a little CSS selector to say either apply a display of block or none to this thing to
+
+91
+00:05:38,990 --> 00:05:39,890
+show and hide it.
+
+92
+00:05:40,370 --> 00:05:44,690
+So we're going to leave off is active because by default we want this thing to be closed.
+
+93
+00:05:44,690 --> 00:05:49,250
+But like I said, we're going to get a selector to that element so we can add that class on eventually
+
+94
+00:05:49,250 --> 00:05:51,200
+and open or close the dropdown.
+
+95
+00:05:52,170 --> 00:05:56,730
+So next to our input element right here, we're going to add in some more selectors to get those two
+
+96
+00:05:56,730 --> 00:05:58,440
+other elements we just discussed.
+
+97
+00:05:58,440 --> 00:06:03,270
+One, to open the thing up and one to eventually render some contents inside there.
+
+98
+00:06:04,920 --> 00:06:10,800
+So I'm going to add in a selector for dropdown and that will be document query selector.
+
+99
+00:06:12,020 --> 00:06:13,220
+That dropdown.
+
+100
+00:06:15,690 --> 00:06:20,040
+And I'll also get a we'll call it How about results rapper.
+
+101
+00:06:21,090 --> 00:06:23,130
+There'll be a document query selector.
+
+102
+00:06:24,240 --> 00:06:25,620
+Or DOT results.
+
+103
+00:06:25,620 --> 00:06:27,900
+And as you would guess, that's that element right there.
+
+104
+00:06:27,900 --> 00:06:32,340
+I'm calling it results wrapper because essentially it's going to wrap all the rendered results that
+
+105
+00:06:32,340 --> 00:06:33,600
+we're trying to show to the user.
+
+106
+00:06:35,100 --> 00:06:35,390
+Okay.
+
+107
+00:06:35,400 --> 00:06:36,330
+So this looks good.
+
+108
+00:06:36,760 --> 00:06:38,070
+This video is going a little bit long.
+
+109
+00:06:38,070 --> 00:06:39,450
+So let's take a quick pause right here.
+
+110
+00:06:39,450 --> 00:06:44,100
+When we come back, the next video, we're going to update some of the code inside of our on input function
+
+111
+00:06:44,100 --> 00:06:49,770
+to make sure that we render some input or excuse me, some output into these particular elements.
+
+112
+00:06:50,220 --> 00:06:52,410
+So quick pause and I'll see you in just a minute.
+

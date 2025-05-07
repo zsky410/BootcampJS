@@ -1,0 +1,1008 @@
+1
+00:00:00,120 --> 00:00:05,700
+Next up, I'd like to talk about an important distinction that has to do with using a weight within
+
+2
+00:00:05,700 --> 00:00:06,900
+an async function.
+
+3
+00:00:07,020 --> 00:00:12,240
+So to illustrate this concept, which I haven't even mentioned yet, I'm going to use Axios again to
+
+4
+00:00:12,240 --> 00:00:14,010
+make some requests asynchronously.
+
+5
+00:00:14,010 --> 00:00:14,790
+It takes time.
+
+6
+00:00:14,790 --> 00:00:16,020
+We'll use an async function.
+
+7
+00:00:16,020 --> 00:00:17,850
+We will await the request.
+
+8
+00:00:17,850 --> 00:00:24,240
+I have async JS, I have Axios included and we're going to work with a different API this time and other
+
+9
+00:00:24,240 --> 00:00:26,320
+free API pokie API.
+
+10
+00:00:26,370 --> 00:00:32,729
+Kiko, if we go to the endpoint API slash V slash pokemon and then we pass in a Pokémon number like
+
+11
+00:00:32,729 --> 00:00:36,090
+one, we get a ton of information about that Pokémon.
+
+12
+00:00:36,690 --> 00:00:39,600
+So let's request a couple of different Pokémon.
+
+13
+00:00:39,600 --> 00:00:41,040
+It's going to copy that URL.
+
+14
+00:00:41,280 --> 00:00:48,870
+We'll do something like Axios, get Pokémon Slash one, and let's make sure that we create an async
+
+15
+00:00:48,870 --> 00:00:49,770
+function to help us.
+
+16
+00:00:49,770 --> 00:00:52,590
+Instead of having to add a dot, then we get a promise back.
+
+17
+00:00:52,590 --> 00:00:57,270
+So we'll make our async function, async function get.
+
+18
+00:00:57,780 --> 00:00:59,280
+How about three Pokémon?
+
+19
+00:01:00,090 --> 00:01:01,470
+So we'll move that in there.
+
+20
+00:01:01,470 --> 00:01:04,769
+We will await save that to a variable.
+
+21
+00:01:04,769 --> 00:01:07,110
+We'll call this pokey.
+
+22
+00:01:08,070 --> 00:01:09,270
+It looks like poke one.
+
+23
+00:01:09,270 --> 00:01:11,670
+So we've got that, we're awaiting it.
+
+24
+00:01:12,030 --> 00:01:18,810
+Now if I just want to verify everything worked, why don't we console that log pokey one data.
+
+25
+00:01:20,540 --> 00:01:21,770
+Go to my page.
+
+26
+00:01:21,770 --> 00:01:22,670
+Refresh.
+
+27
+00:01:24,520 --> 00:01:26,150
+Uh oh.
+
+28
+00:01:26,170 --> 00:01:27,600
+I never calling my function.
+
+29
+00:01:27,610 --> 00:01:28,820
+What a moron.
+
+30
+00:01:28,840 --> 00:01:30,220
+Get three pokemon.
+
+31
+00:01:31,330 --> 00:01:32,080
+Try again.
+
+32
+00:01:32,640 --> 00:01:33,150
+Okay.
+
+33
+00:01:33,160 --> 00:01:36,380
+So now we get a ton of data about that one pokemon.
+
+34
+00:01:36,400 --> 00:01:37,750
+Where is name?
+
+35
+00:01:39,000 --> 00:01:40,170
+Its name, not even included.
+
+36
+00:01:40,380 --> 00:01:40,760
+There we go.
+
+37
+00:01:40,770 --> 00:01:41,490
+Bulbasaur.
+
+38
+00:01:41,700 --> 00:01:42,690
+I should know that.
+
+39
+00:01:42,690 --> 00:01:43,410
+Bulbasaur.
+
+40
+00:01:43,440 --> 00:01:44,280
+Pokémon one.
+
+41
+00:01:44,910 --> 00:01:50,010
+So if I wanted to also request three other pokemon, I could do something like this.
+
+42
+00:01:50,010 --> 00:01:54,300
+Pokémon two equals await get Pokémon two.
+
+43
+00:01:54,330 --> 00:01:56,250
+This could be Pokémon Slash three.
+
+44
+00:01:56,760 --> 00:02:04,050
+Make sure I use the correct name and then we can that log Pokémon one, two and three data.
+
+45
+00:02:04,770 --> 00:02:06,570
+So we're awaiting each one.
+
+46
+00:02:07,020 --> 00:02:08,400
+We're going to make this request.
+
+47
+00:02:08,430 --> 00:02:10,259
+When it's finished, we get something back.
+
+48
+00:02:10,259 --> 00:02:12,420
+If it's resolved, we keep moving on.
+
+49
+00:02:12,600 --> 00:02:14,010
+We're not catching any errors.
+
+50
+00:02:14,010 --> 00:02:17,040
+But I assume these are going to work my internets up.
+
+51
+00:02:17,040 --> 00:02:19,950
+The API is up and there we go.
+
+52
+00:02:19,980 --> 00:02:25,650
+It looks like it's pretty much instantaneous anyway, but it's important to note they are happening
+
+53
+00:02:25,650 --> 00:02:31,140
+in sequence, so this has to finish completely before this.
+
+54
+00:02:31,590 --> 00:02:37,110
+So this runs, we get data back, then this line runs, we get data back, then this line.
+
+55
+00:02:37,110 --> 00:02:38,880
+So they're not going in parallel.
+
+56
+00:02:38,880 --> 00:02:40,800
+They're not being sent off at the same time.
+
+57
+00:02:40,800 --> 00:02:43,710
+Like three passenger carrier pigeons.
+
+58
+00:02:43,740 --> 00:02:44,700
+Carrier pigeons, I think.
+
+59
+00:02:44,700 --> 00:02:50,310
+So what I mean to say three pigeons are Harry Potter owls in the night with their own letters and packages.
+
+60
+00:02:50,310 --> 00:02:52,860
+No, it's one going and returning.
+
+61
+00:02:52,860 --> 00:02:54,570
+Then the second owl leaves and returns.
+
+62
+00:02:54,570 --> 00:02:56,190
+The third owl leaves and returns.
+
+63
+00:02:56,190 --> 00:02:57,660
+They are in sequence.
+
+64
+00:02:57,780 --> 00:03:03,540
+And this isn't a huge deal for something like this, although we don't need them to be in sequence because
+
+65
+00:03:03,540 --> 00:03:05,250
+these don't depend on one another.
+
+66
+00:03:05,250 --> 00:03:09,990
+We're not using information from this first request to make our second request.
+
+67
+00:03:09,990 --> 00:03:17,700
+We could, if I wanted to get some URL from the response, the actual data we get back, I think is
+
+68
+00:03:17,700 --> 00:03:19,020
+there something instead of species?
+
+69
+00:03:19,020 --> 00:03:19,740
+Here we go.
+
+70
+00:03:19,800 --> 00:03:21,330
+Species has its own URL.
+
+71
+00:03:21,360 --> 00:03:29,310
+I could request that we've got forms and then yeah, I guess there's a URL there and then each ability
+
+72
+00:03:29,310 --> 00:03:32,790
+has its own URL to get more information about.
+
+73
+00:03:33,150 --> 00:03:39,000
+So I could send a request to this URL for example, and it would have to be in sequence.
+
+74
+00:03:39,000 --> 00:03:43,410
+We couldn't send them off at the exact same time because we're waiting for the first request to come
+
+75
+00:03:43,410 --> 00:03:45,750
+back before we make the second request.
+
+76
+00:03:45,750 --> 00:03:48,720
+But here they have nothing to do with one another.
+
+77
+00:03:48,720 --> 00:03:50,520
+They are independent endpoints.
+
+78
+00:03:50,520 --> 00:03:54,510
+They're are not related other than the fact that they're with the same API.
+
+79
+00:03:54,660 --> 00:03:56,340
+We're not depending on this one.
+
+80
+00:03:56,340 --> 00:04:02,190
+First, in order to make this one so we can rewrite this to have a request, go in parallel.
+
+81
+00:04:02,550 --> 00:04:04,080
+I'm going to duplicate this.
+
+82
+00:04:04,290 --> 00:04:07,950
+I'll just write sequential requests.
+
+83
+00:04:10,380 --> 00:04:12,690
+And then this one will be parallel.
+
+84
+00:04:12,930 --> 00:04:14,950
+I'm not going to await.
+
+85
+00:04:14,970 --> 00:04:16,709
+I'll get rid of those awaits here.
+
+86
+00:04:16,860 --> 00:04:20,130
+I still need to await at some point, but I'm not awaiting there.
+
+87
+00:04:21,060 --> 00:04:31,380
+Then down here I can await pokey one, await pokey two and await Pokey three.
+
+88
+00:04:33,210 --> 00:04:38,850
+So this may not seem like a big distinction, but it is as far as the way these are actually happening
+
+89
+00:04:38,850 --> 00:04:39,810
+behind the scenes.
+
+90
+00:04:39,840 --> 00:04:41,790
+It's a pretty massive difference.
+
+91
+00:04:41,800 --> 00:04:47,880
+So here we're not we're not using a weight anymore when we actually send off the request like we were
+
+92
+00:04:47,880 --> 00:04:48,360
+here.
+
+93
+00:04:49,230 --> 00:04:51,790
+So this means that we're sending off the request.
+
+94
+00:04:51,810 --> 00:04:52,680
+It returns a promise.
+
+95
+00:04:52,680 --> 00:04:54,750
+So Pokey one will contain a promise.
+
+96
+00:04:54,750 --> 00:04:56,580
+If I were to console.log it here.
+
+97
+00:04:56,610 --> 00:04:57,480
+Console.log.
+
+98
+00:04:57,480 --> 00:04:58,440
+Pokey one.
+
+99
+00:04:59,790 --> 00:05:00,660
+Refresh.
+
+100
+00:05:01,200 --> 00:05:04,620
+We see that we get a promise here and it's pending at this point.
+
+101
+00:05:04,770 --> 00:05:10,140
+All three of them are probably pending, unless it's an incredibly fast request, which is highly unlikely
+
+102
+00:05:10,140 --> 00:05:12,660
+that it's going to beat JavaScript speed.
+
+103
+00:05:13,290 --> 00:05:15,810
+By the time it gets to this line, they probably won't be back.
+
+104
+00:05:15,900 --> 00:05:19,420
+But then we're saying, All right, await the response that comes back.
+
+105
+00:05:19,440 --> 00:05:21,090
+Await the response and wait the response.
+
+106
+00:05:21,210 --> 00:05:25,050
+But the requests are being sent roughly at the same time.
+
+107
+00:05:25,050 --> 00:05:30,150
+I mean, as fast as JavaScript can send them off or the browser can send them off versus here we're
+
+108
+00:05:30,150 --> 00:05:33,400
+fully waiting for this response to come back from the request.
+
+109
+00:05:33,420 --> 00:05:37,290
+We're waiting for the promise to be resolved before we move on.
+
+110
+00:05:37,740 --> 00:05:38,670
+Same thing.
+
+111
+00:05:38,970 --> 00:05:39,890
+Same thing here.
+
+112
+00:05:39,900 --> 00:05:42,930
+So I'm going to illustrate the difference with something that is slower.
+
+113
+00:05:42,930 --> 00:05:48,270
+So you can see it in just a moment, but let's make sure we can actually use the data right now.
+
+114
+00:05:48,270 --> 00:05:49,950
+What I have will not work.
+
+115
+00:05:50,190 --> 00:05:50,580
+I'll wait.
+
+116
+00:05:50,580 --> 00:05:52,880
+Pokey one await Pokey to await pokey three.
+
+117
+00:05:52,890 --> 00:05:55,230
+We are awaiting the promises.
+
+118
+00:05:55,230 --> 00:05:56,910
+We're making sure they're resolved.
+
+119
+00:05:56,910 --> 00:05:59,850
+But Pokey one data does not exist.
+
+120
+00:05:59,880 --> 00:06:04,200
+Pokey one is the promise if I look at what I got printed out.
+
+121
+00:06:04,230 --> 00:06:07,080
+Three Undefined, undefined, undefined, undefined.
+
+122
+00:06:07,710 --> 00:06:08,460
+Up here.
+
+123
+00:06:08,820 --> 00:06:12,480
+Pokey one, pokey two and pokey three are not the promises.
+
+124
+00:06:12,960 --> 00:06:14,370
+This is a promise.
+
+125
+00:06:14,370 --> 00:06:21,000
+But when you put a wait there, it waits for a resolved value and stores that resolved value in the
+
+126
+00:06:21,000 --> 00:06:21,690
+variable.
+
+127
+00:06:21,870 --> 00:06:24,210
+So pokey one is an actual response.
+
+128
+00:06:24,210 --> 00:06:26,650
+It's the value we get back here.
+
+129
+00:06:26,670 --> 00:06:28,440
+Pokey one is a promise.
+
+130
+00:06:29,200 --> 00:06:33,420
+So poky one should be resolved by the end, but it doesn't actually have.
+
+131
+00:06:33,430 --> 00:06:35,350
+It's not a variable storing the value.
+
+132
+00:06:35,590 --> 00:06:36,820
+So we could do this.
+
+133
+00:06:36,820 --> 00:06:38,470
+Maybe promise one.
+
+134
+00:06:38,620 --> 00:06:39,940
+Just give them a different name.
+
+135
+00:06:39,970 --> 00:06:42,490
+Prom to prom three.
+
+136
+00:06:43,330 --> 00:06:49,090
+And then we can await prom one, two and three and save those two variables.
+
+137
+00:06:49,270 --> 00:06:51,110
+So we would do something like this.
+
+138
+00:06:51,130 --> 00:06:53,990
+Const pokey one.
+
+139
+00:06:54,010 --> 00:06:56,410
+I need to change those numbers to.
+
+140
+00:06:56,440 --> 00:06:58,960
+And three equals a weight.
+
+141
+00:06:58,960 --> 00:06:59,920
+That promise.
+
+142
+00:06:59,950 --> 00:07:00,550
+A weight.
+
+143
+00:07:00,550 --> 00:07:01,330
+This promise.
+
+144
+00:07:01,330 --> 00:07:01,900
+A weight.
+
+145
+00:07:01,900 --> 00:07:02,770
+That promise.
+
+146
+00:07:02,770 --> 00:07:05,490
+So the three requests are sent off independently.
+
+147
+00:07:05,500 --> 00:07:06,850
+They're not in a sequence.
+
+148
+00:07:06,850 --> 00:07:09,700
+They're not depending on one finishing before the next sense.
+
+149
+00:07:09,730 --> 00:07:11,740
+They go off on their own into the night.
+
+150
+00:07:11,740 --> 00:07:12,490
+They come back.
+
+151
+00:07:12,490 --> 00:07:15,130
+We are awaiting for a resolved value.
+
+152
+00:07:15,130 --> 00:07:18,430
+That resolve value will then be stored in pokey one, two and three.
+
+153
+00:07:19,910 --> 00:07:20,870
+Fingers crossed.
+
+154
+00:07:21,960 --> 00:07:22,320
+Hmm.
+
+155
+00:07:22,620 --> 00:07:24,770
+Cannot access pokey one before initialization.
+
+156
+00:07:24,780 --> 00:07:26,840
+Oh yes, we changed the name.
+
+157
+00:07:26,850 --> 00:07:31,080
+If we look at prom one, it's a pending promise.
+
+158
+00:07:31,440 --> 00:07:37,110
+Then down here, if I were to look at prom one again for some reason console.log.
+
+159
+00:07:37,110 --> 00:07:37,950
+Prom one.
+
+160
+00:07:39,870 --> 00:07:40,710
+It was pending.
+
+161
+00:07:40,710 --> 00:07:41,790
+Now it's resolved.
+
+162
+00:07:41,790 --> 00:07:44,910
+The value it was resolved with is this object.
+
+163
+00:07:45,600 --> 00:07:50,010
+This object here that is stored inside of Pokey One now.
+
+164
+00:07:50,940 --> 00:07:52,950
+So the promise was not resolved.
+
+165
+00:07:52,950 --> 00:07:53,820
+It was pending.
+
+166
+00:07:53,820 --> 00:07:55,860
+Now it's resolved because we awaited it.
+
+167
+00:07:56,340 --> 00:07:59,400
+Then we have access to all three of those pieces of data.
+
+168
+00:07:59,400 --> 00:08:00,960
+We can do something with them.
+
+169
+00:08:01,050 --> 00:08:05,030
+So these were sent in parallel, which is a big distinction.
+
+170
+00:08:05,040 --> 00:08:10,280
+If you do not care, that one request must be finished before the next is done.
+
+171
+00:08:10,290 --> 00:08:12,590
+But in a case like this, it doesn't matter.
+
+172
+00:08:12,600 --> 00:08:14,340
+It's better to do them in parallel.
+
+173
+00:08:14,460 --> 00:08:19,890
+So now let me illustrate the difference for you, and I'm also going to show you another way to clean
+
+174
+00:08:19,890 --> 00:08:22,320
+this up so we don't have to have all these variable names.
+
+175
+00:08:22,710 --> 00:08:28,950
+But first, I'll show you a much easier to see visualization of the difference between a waiting in
+
+176
+00:08:28,950 --> 00:08:31,200
+sequence versus awaiting in parallel.
+
+177
+00:08:31,530 --> 00:08:36,419
+These responses or the requests are coming back so lightning quick that it's actually almost impossible
+
+178
+00:08:36,419 --> 00:08:41,610
+to see with your own eye that they are slower if we do them in sequence versus parallel.
+
+179
+00:08:41,640 --> 00:08:42,960
+It just happens in a split second.
+
+180
+00:08:42,960 --> 00:08:45,690
+They all show up at once, so I'm going to do something slower.
+
+181
+00:08:45,930 --> 00:08:52,410
+Let's make a function called change body color, which will accept a color and a delay.
+
+182
+00:08:52,440 --> 00:08:58,320
+It will return a promise, and after this delay, it will change the body color.
+
+183
+00:08:58,560 --> 00:09:04,020
+So our promise is going to have our resolve, reject parameters, standard stuff.
+
+184
+00:09:04,170 --> 00:09:10,380
+Then we'll have a set time out where we have a function to run after a delay.
+
+185
+00:09:10,620 --> 00:09:12,390
+So that delay will be passed in.
+
+186
+00:09:12,750 --> 00:09:17,820
+So I would call this like change body color to teal after 1/2.
+
+187
+00:09:18,060 --> 00:09:19,680
+So that will be 1/2 there.
+
+188
+00:09:19,680 --> 00:09:29,070
+Set time out after that 1/2 is up, we will set documents, dot body style, dot background color to
+
+189
+00:09:29,070 --> 00:09:32,970
+equal color and then I'll resolve the promise.
+
+190
+00:09:32,970 --> 00:09:34,890
+I won't worry about rejecting it.
+
+191
+00:09:35,310 --> 00:09:41,580
+I guess we could reject if someone passes in a non color or an ugly color, but we won't bother.
+
+192
+00:09:41,730 --> 00:09:46,440
+It's not really the point of this demo, so let's make sure it works after 1/2.
+
+193
+00:09:46,440 --> 00:09:48,300
+Hopefully the body changes to teal.
+
+194
+00:09:48,900 --> 00:09:49,650
+There we go.
+
+195
+00:09:49,860 --> 00:09:55,650
+Okay, so now let's make an async function and we'll call this one light show.
+
+196
+00:09:57,360 --> 00:10:03,090
+And all we're going to do is called change body color and await that.
+
+197
+00:10:03,420 --> 00:10:05,010
+Then we'll do it again.
+
+198
+00:10:05,250 --> 00:10:11,430
+Change body color to pink after 1000 milliseconds.
+
+199
+00:10:12,160 --> 00:10:15,280
+We'll call Late Show and see what happens.
+
+200
+00:10:15,370 --> 00:10:21,940
+So async await await this promise when it's resolved, then move on to this line.
+
+201
+00:10:23,440 --> 00:10:26,410
+So we go to Teil after a second and then pink.
+
+202
+00:10:27,670 --> 00:10:29,810
+So I'll add a couple more colors here.
+
+203
+00:10:29,830 --> 00:10:30,580
+Let's see.
+
+204
+00:10:30,610 --> 00:10:31,060
+Teal.
+
+205
+00:10:31,060 --> 00:10:31,810
+Pink.
+
+206
+00:10:31,930 --> 00:10:32,770
+How about.
+
+207
+00:10:33,550 --> 00:10:36,100
+Indigo and violet.
+
+208
+00:10:38,230 --> 00:10:40,960
+So right now these are happening in sequence.
+
+209
+00:10:40,960 --> 00:10:45,640
+The first thing finishes, then the second, then the third, then the fourth, which is probably what
+
+210
+00:10:45,640 --> 00:10:46,470
+we would want.
+
+211
+00:10:46,480 --> 00:10:52,930
+But if these were requests taking 1/2 and they are not related, we may not want that, which is what
+
+212
+00:10:52,930 --> 00:10:53,860
+we saw up here.
+
+213
+00:10:54,040 --> 00:10:57,010
+So now let's see how this would work in parallel.
+
+214
+00:10:57,340 --> 00:11:00,910
+I'll comment out this version in parallel.
+
+215
+00:11:01,150 --> 00:11:03,520
+I would save each of these to a variable.
+
+216
+00:11:03,520 --> 00:11:08,290
+So I'm just going to select all of those and save it to a variable.
+
+217
+00:11:08,320 --> 00:11:09,590
+Or I could put them in an array.
+
+218
+00:11:09,610 --> 00:11:12,370
+I'll show you something called Promise at all in the next video.
+
+219
+00:11:12,910 --> 00:11:15,860
+I'll just go with P one, two and three.
+
+220
+00:11:15,880 --> 00:11:23,920
+I don't know the shortcut to do those numbers easily, so I have to manually type them and then we'll
+
+221
+00:11:23,920 --> 00:11:31,150
+do a wait p one, wait p two, await p three and p is just standing for promise.
+
+222
+00:11:31,150 --> 00:11:33,580
+So awaits p four.
+
+223
+00:11:34,660 --> 00:11:35,230
+What do you think?
+
+224
+00:11:35,230 --> 00:11:35,860
+We'll see.
+
+225
+00:11:36,550 --> 00:11:40,480
+So all four of these functions are going to run roughly at the same time.
+
+226
+00:11:40,480 --> 00:11:42,930
+This one will run first, then this one, then this one.
+
+227
+00:11:42,940 --> 00:11:48,490
+They all take a second and they change the background color and they resolve that promise that is returned.
+
+228
+00:11:48,910 --> 00:11:54,460
+So we await them down here rather than waiting for the full second to be up to, then run to the next
+
+229
+00:11:54,460 --> 00:11:54,940
+one.
+
+230
+00:11:55,060 --> 00:11:57,780
+These will happen pretty much at the same time.
+
+231
+00:11:57,790 --> 00:11:59,260
+So this is what we see.
+
+232
+00:12:00,370 --> 00:12:04,180
+1/2 straight to what was the last color, Violet?
+
+233
+00:12:04,510 --> 00:12:07,420
+We don't see those pauses along the way.
+
+234
+00:12:07,570 --> 00:12:12,660
+So this took only 1/2, maybe a little tiny, tiny bit more than 1/2.
+
+235
+00:12:12,670 --> 00:12:16,710
+This took four plus seconds, very different.
+
+236
+00:12:16,720 --> 00:12:19,680
+And here we get a different light show effect.
+
+237
+00:12:19,690 --> 00:12:24,500
+This is probably more desirable if either of them is at all desirable.
+
+238
+00:12:24,520 --> 00:12:26,080
+This is more interesting.
+
+239
+00:12:26,080 --> 00:12:31,270
+But with requests, if you don't need them to happen in sequence, do it in parallel.
+
+240
+00:12:31,840 --> 00:12:37,060
+It makes way more sense to just have them go at the same time and await all of them at the end.
+
+241
+00:12:37,570 --> 00:12:41,530
+Speaking of which, I'll show you an even simpler way of doing that in the next end.
+
+242
+00:12:41,530 --> 00:12:43,960
+Final video in the section coming up after this.
+
+243
+00:12:44,140 --> 00:12:45,910
+I think this is a good place to stop.
+
+244
+00:12:46,060 --> 00:12:51,430
+So we saw how we can make requests in sequence, which is useful when you need one thing to come back
+
+245
+00:12:51,430 --> 00:12:54,270
+before the next, especially if they are dependent.
+
+246
+00:12:54,280 --> 00:12:59,570
+You're trying to use some data from the first request to then send off your second, which I wasn't.
+
+247
+00:12:59,590 --> 00:13:05,500
+So then I showed you doing it in parallel where you don't await them at the same time that you are actually
+
+248
+00:13:05,500 --> 00:13:08,570
+creating the promise and sending that request off.
+
+249
+00:13:08,590 --> 00:13:10,320
+Instead, you send the request off.
+
+250
+00:13:10,330 --> 00:13:11,830
+You await them afterwards.
+
+251
+00:13:12,220 --> 00:13:17,620
+And then we saw an illustration of visually the difference using this light show function.
+
+252
+00:13:18,550 --> 00:13:22,600
+So next I'm going to show you one last tweak and we'll be done with async functions.
+

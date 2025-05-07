@@ -1,0 +1,436 @@
+1
+00:00:00,150 --> 00:00:08,460
+The next logical operator we have is or so or uses the pipe character which is located above the return
+
+2
+00:00:08,460 --> 00:00:10,600
+key, at least on every keyboard I've used.
+
+3
+00:00:10,620 --> 00:00:14,670
+You hold shift and for me it's on the backslash character.
+
+4
+00:00:15,000 --> 00:00:15,810
+So shift.
+
+5
+00:00:15,810 --> 00:00:18,960
+And then backslash gives you those pipes.
+
+6
+00:00:20,010 --> 00:00:21,090
+So those are not ones.
+
+7
+00:00:21,090 --> 00:00:21,980
+They're not L's.
+
+8
+00:00:21,990 --> 00:00:23,400
+They're not slashes.
+
+9
+00:00:23,490 --> 00:00:24,690
+They are pipes.
+
+10
+00:00:24,870 --> 00:00:32,400
+So you need two of them in a row and or is similar to and in that it takes two sides left and right,
+
+11
+00:00:32,400 --> 00:00:33,900
+but it works differently.
+
+12
+00:00:33,900 --> 00:00:37,680
+If either side is true, the entire thing is considered true.
+
+13
+00:00:38,520 --> 00:00:45,900
+So if we have true or false, only one of them needs to be true for the whole thing to be true.
+
+14
+00:00:46,410 --> 00:00:48,900
+So if both of them are true, that's fine.
+
+15
+00:00:49,170 --> 00:00:51,690
+It's not saying only one can be true.
+
+16
+00:00:51,720 --> 00:00:54,340
+It just needs one at a minimum to be true.
+
+17
+00:00:54,360 --> 00:00:55,450
+The left or the right.
+
+18
+00:00:55,470 --> 00:00:59,310
+And if that happens to be both of them, if it's one of them, it doesn't matter.
+
+19
+00:00:59,700 --> 00:01:05,670
+But in the event that neither side is true, so we have false or false, the entire thing is considered
+
+20
+00:01:05,670 --> 00:01:06,270
+false.
+
+21
+00:01:06,450 --> 00:01:09,210
+So again, this is not how you would usually use it.
+
+22
+00:01:09,720 --> 00:01:10,890
+Neither is this.
+
+23
+00:01:10,890 --> 00:01:12,640
+But this is slightly more complicated.
+
+24
+00:01:12,660 --> 00:01:14,610
+We're evaluating two expressions.
+
+25
+00:01:14,610 --> 00:01:17,590
+So is one equal or one not equal to one?
+
+26
+00:01:17,610 --> 00:01:20,130
+That would be false because one is equal to one.
+
+27
+00:01:20,220 --> 00:01:21,610
+So we have false.
+
+28
+00:01:21,630 --> 00:01:23,400
+Or ten equals ten.
+
+29
+00:01:23,400 --> 00:01:24,020
+That's true.
+
+30
+00:01:24,030 --> 00:01:26,820
+False or true is true.
+
+31
+00:01:27,720 --> 00:01:29,730
+Zero or undefined.
+
+32
+00:01:29,850 --> 00:01:34,410
+Now remember we talked about truthiness and false penis zero is considered false.
+
+33
+00:01:34,440 --> 00:01:35,880
+Undefined is false.
+
+34
+00:01:35,910 --> 00:01:38,370
+So we end up with false or false.
+
+35
+00:01:38,400 --> 00:01:39,660
+Neither side is true.
+
+36
+00:01:39,660 --> 00:01:42,510
+So the whole thing is false because logical.
+
+37
+00:01:42,510 --> 00:01:44,850
+Or then we have the one in the middle.
+
+38
+00:01:44,970 --> 00:01:46,740
+Ten divided by two equals five.
+
+39
+00:01:46,740 --> 00:01:50,640
+That is true or null which is false.
+
+40
+00:01:50,670 --> 00:01:54,120
+So true or false that evaluates to true.
+
+41
+00:01:54,540 --> 00:01:57,500
+So let's see an example where you would use this in practice.
+
+42
+00:01:57,510 --> 00:02:04,200
+Let's say we were, I don't know, running a community theater program and we're at the box office and
+
+43
+00:02:04,200 --> 00:02:07,830
+we're charging tickets for people who are adults, not children.
+
+44
+00:02:07,830 --> 00:02:10,830
+And we're defining children as people under the age of six.
+
+45
+00:02:10,830 --> 00:02:13,410
+And senior citizens also get in for free.
+
+46
+00:02:13,470 --> 00:02:20,320
+So if you are one of those categories, either under six years old or over 65, you get it for free.
+
+47
+00:02:20,340 --> 00:02:21,440
+Otherwise you don't.
+
+48
+00:02:21,450 --> 00:02:27,750
+You have to pay $10 we could use or so we would write something like this.
+
+49
+00:02:27,750 --> 00:02:29,040
+Let me close this down a bit.
+
+50
+00:02:29,550 --> 00:02:31,800
+Let age equals.
+
+51
+00:02:31,800 --> 00:02:33,570
+Let's go with 78.
+
+52
+00:02:34,140 --> 00:02:38,520
+If age is greater than let's go with the less than 1/1.
+
+53
+00:02:38,520 --> 00:02:48,270
+If age is less than six or age is greater than or equal to 65, at least in the US, I think 65 year
+
+54
+00:02:48,270 --> 00:02:49,860
+olds are considered seniors.
+
+55
+00:02:50,190 --> 00:02:52,560
+It depends on the place we'll console.log.
+
+56
+00:02:52,560 --> 00:02:55,980
+You get in for free and then we'll have our else.
+
+57
+00:02:55,980 --> 00:02:57,810
+You must pay.
+
+58
+00:02:59,280 --> 00:03:01,080
+So we have two things.
+
+59
+00:03:01,080 --> 00:03:03,450
+And if either one is true, you get in for free.
+
+60
+00:03:03,450 --> 00:03:05,760
+If age is under six, you're free.
+
+61
+00:03:05,760 --> 00:03:10,200
+If age is under 65 or greater than or equal to 65, you also get in for free.
+
+62
+00:03:10,710 --> 00:03:12,000
+Let's see what we get.
+
+63
+00:03:12,210 --> 00:03:13,480
+You get in for free.
+
+64
+00:03:13,500 --> 00:03:15,540
+If we change it to three years old.
+
+65
+00:03:15,570 --> 00:03:16,920
+You also get in for free.
+
+66
+00:03:16,920 --> 00:03:19,500
+But if you're 30, you have to pay.
+
+67
+00:03:19,530 --> 00:03:26,640
+So if we were to rewrite this without using the logical operator, it would be something like If age
+
+68
+00:03:26,640 --> 00:03:29,760
+is less than six, you get it for free.
+
+69
+00:03:29,760 --> 00:03:31,910
+And then we could also have an else.
+
+70
+00:03:31,920 --> 00:03:39,150
+If age is greater than or equal to 65, you get in for free, else you have to pay.
+
+71
+00:03:40,140 --> 00:03:46,320
+So when we use or we can combine multiple pieces into one line or one expression and again, one side
+
+72
+00:03:46,320 --> 00:03:52,140
+is all that is required in order to pass go in order for the expression to be true in our code to run.
+
+73
+00:03:52,440 --> 00:03:56,250
+We can also chain multiple orders together, just like we can with.
+
+74
+00:03:56,250 --> 00:03:58,690
+And let's do a quick example.
+
+75
+00:03:58,710 --> 00:04:04,560
+There are many, many colors out there in the world, but fans of mine or longtime students know the
+
+76
+00:04:04,560 --> 00:04:07,440
+best color of all time is, without a doubt, purple.
+
+77
+00:04:07,770 --> 00:04:14,940
+So let's write some code that checks to see if a color is purple or if it's a shade of purple like orchid
+
+78
+00:04:15,360 --> 00:04:17,730
+or violets.
+
+79
+00:04:18,060 --> 00:04:19,470
+We'll go with three to start.
+
+80
+00:04:19,470 --> 00:04:22,590
+So if it's one of those, we'll consider that log.
+
+81
+00:04:22,710 --> 00:04:23,580
+Congrats.
+
+82
+00:04:23,580 --> 00:04:25,530
+You picked purple or something like that.
+
+83
+00:04:25,530 --> 00:04:26,760
+So we need a variable.
+
+84
+00:04:26,760 --> 00:04:29,550
+We'll go with lit color equals something.
+
+85
+00:04:29,550 --> 00:04:37,440
+We'll fill it in if color is equal to purple or color is equal to.
+
+86
+00:04:38,390 --> 00:04:45,980
+Lilac or color is equal to violet or some other color.
+
+87
+00:04:47,180 --> 00:04:48,730
+Then we'll count that log.
+
+88
+00:04:48,740 --> 00:04:49,970
+Great choice.
+
+89
+00:04:50,480 --> 00:04:53,990
+We could keep changing these on and on and make a very long statement.
+
+90
+00:04:53,990 --> 00:04:56,750
+But as you can see here, color is empty string.
+
+91
+00:04:56,750 --> 00:04:57,680
+We don't get anything.
+
+92
+00:04:57,680 --> 00:04:59,240
+Let's set it to Violet.
+
+93
+00:04:59,720 --> 00:05:00,470
+Great choice.
+
+94
+00:05:00,470 --> 00:05:02,660
+So only one of these has to be true.
+
+95
+00:05:02,660 --> 00:05:06,070
+And in our case, violet color was equal to violet.
+
+96
+00:05:06,080 --> 00:05:08,480
+Even though these were false, this was true.
+
+97
+00:05:08,510 --> 00:05:10,070
+So we print great choice.
+
+98
+00:05:10,250 --> 00:05:15,290
+You can chain them together, although there is a much better way of checking one value.
+
+99
+00:05:15,290 --> 00:05:21,280
+Like if we had a color and we had ten valid options, we wanted to make sure it was one of those options.
+
+100
+00:05:21,290 --> 00:05:23,940
+You would not need to chain this ten times.
+
+101
+00:05:23,960 --> 00:05:28,820
+There are other tools you can use once we talk about arrays and some other built in methods that come
+
+102
+00:05:28,820 --> 00:05:30,740
+with JavaScript that would make your life easier.
+
+103
+00:05:30,740 --> 00:05:31,580
+But we're not there.
+
+104
+00:05:31,580 --> 00:05:33,550
+So we would write it like this.
+
+105
+00:05:33,560 --> 00:05:38,930
+We're still just focusing on or so we've seen and and or they are similar in that they take a left in
+
+106
+00:05:38,930 --> 00:05:39,740
+a right side.
+
+107
+00:05:39,740 --> 00:05:44,900
+We often use them in conditional statements inside the print, but they're very different in how they
+
+108
+00:05:44,900 --> 00:05:46,190
+behave when we have.
+
+109
+00:05:46,190 --> 00:05:52,430
+And both sides must be true in order to move on when we have or just one needs to be true.
+

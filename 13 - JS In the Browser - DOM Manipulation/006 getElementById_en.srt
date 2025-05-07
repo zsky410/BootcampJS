@@ -1,0 +1,404 @@
+1
+00:00:00,210 --> 00:00:00,690
+All right.
+
+2
+00:00:00,690 --> 00:00:05,550
+So now that we've seen the document and all of its craziness, all the methods and properties that it
+
+3
+00:00:05,550 --> 00:00:10,080
+holds inside, obviously we didn't see them all or talk about them all, but you saw how many there
+
+4
+00:00:10,080 --> 00:00:10,590
+are.
+
+5
+00:00:10,620 --> 00:00:15,090
+We're going to start by taking a look at the first batch of methods that you should know, the most
+
+6
+00:00:15,090 --> 00:00:17,850
+important methods that have to do with selecting.
+
+7
+00:00:18,000 --> 00:00:22,590
+So selecting is a really important part of the DOM manipulation process.
+
+8
+00:00:22,620 --> 00:00:27,480
+Typically, we select an element or multiple elements and then do something with them.
+
+9
+00:00:27,660 --> 00:00:33,660
+So here's a simple example with paint cards or paint chips, we select one and then give it a new color
+
+10
+00:00:33,660 --> 00:00:35,280
+or do something with it.
+
+11
+00:00:35,280 --> 00:00:40,110
+We could animate it, we could move it around, we could delete it, we could select something and then
+
+12
+00:00:40,110 --> 00:00:42,570
+add a new child within it, a new element.
+
+13
+00:00:42,570 --> 00:00:45,540
+We could select a form and add two new buttons to it.
+
+14
+00:00:45,540 --> 00:00:50,400
+We can also do things like add events, so we select an element, a button.
+
+15
+00:00:50,400 --> 00:00:56,040
+We did this early on, actually, two videos, three videos ago we selected a button on Google and then
+
+16
+00:00:56,040 --> 00:00:58,800
+when you hover over it, we alerted some text.
+
+17
+00:00:58,800 --> 00:01:04,890
+So when we want to add some events and interactivity, we still start by selecting and there's a bunch
+
+18
+00:01:04,890 --> 00:01:07,590
+of different ways to select using the document.
+
+19
+00:01:07,590 --> 00:01:09,000
+I'm going to show you a couple.
+
+20
+00:01:09,000 --> 00:01:12,360
+The first one we'll tackle is called Get Element by ID.
+
+21
+00:01:12,390 --> 00:01:19,440
+This is a method on the document, so we call it as document get element by ID and it does what it sounds
+
+22
+00:01:19,440 --> 00:01:19,860
+like.
+
+23
+00:01:19,860 --> 00:01:26,430
+It takes an ID and it finds the matching element that contains or that has that ID on it and it returns
+
+24
+00:01:26,430 --> 00:01:27,330
+that object.
+
+25
+00:01:27,540 --> 00:01:30,960
+So if we go back to this simple example, we could have any markup.
+
+26
+00:01:30,960 --> 00:01:37,050
+But the markup I have to keep it easy is from a couple of videos ago it looks like this we have an H
+
+27
+00:01:37,050 --> 00:01:44,520
+one some paragraphs I've got a UL a form and I have an image that has an ID bear dash photo.
+
+28
+00:01:44,610 --> 00:01:48,000
+Let's add one more ID, let's do this paragraph here.
+
+29
+00:01:48,150 --> 00:01:50,910
+ID equals text.
+
+30
+00:01:51,180 --> 00:01:51,420
+No.
+
+31
+00:01:51,420 --> 00:01:52,890
+How about main?
+
+32
+00:01:53,010 --> 00:01:53,610
+Sure.
+
+33
+00:01:53,910 --> 00:01:55,740
+So I have two ids on this page.
+
+34
+00:01:55,740 --> 00:02:02,400
+Now I can select those elements using document dot get element by ID.
+
+35
+00:02:02,430 --> 00:02:07,260
+So it's a method that exists on the document and I pass in an ID as a string.
+
+36
+00:02:07,650 --> 00:02:09,210
+So I have bear photo.
+
+37
+00:02:09,210 --> 00:02:10,169
+That was one.
+
+38
+00:02:10,949 --> 00:02:11,820
+I'll try that.
+
+39
+00:02:12,680 --> 00:02:14,130
+And you can see what I get back.
+
+40
+00:02:14,150 --> 00:02:15,950
+It returns an element to me.
+
+41
+00:02:16,040 --> 00:02:17,060
+What's annoying?
+
+42
+00:02:17,060 --> 00:02:19,040
+I went over this a couple of videos ago.
+
+43
+00:02:19,070 --> 00:02:22,520
+It prints it out as HTML, which is not very useful.
+
+44
+00:02:22,610 --> 00:02:30,070
+But if we save it to a variable just to make it easier, I'll call this image and then console dot die
+
+45
+00:02:30,110 --> 00:02:31,340
+r image.
+
+46
+00:02:31,340 --> 00:02:35,390
+We can see its true object form as we talked about earlier.
+
+47
+00:02:35,420 --> 00:02:37,420
+Here are all the properties I have.
+
+48
+00:02:37,430 --> 00:02:43,160
+So this selects based off of an ID, but it's not returning HTML to me, even though it looks like it
+
+49
+00:02:43,160 --> 00:02:43,610
+is.
+
+50
+00:02:43,640 --> 00:02:49,310
+It's returning an object and this object represents that one image with the ID.
+
+51
+00:02:50,120 --> 00:02:56,870
+And if we scroll down we will see ID is set to bear photo matching this ID right there.
+
+52
+00:02:57,140 --> 00:03:02,480
+We also have properties like the type of the element tag name is set to image.
+
+53
+00:03:03,020 --> 00:03:05,210
+We could find the image source right here.
+
+54
+00:03:05,210 --> 00:03:06,610
+This is the image URL.
+
+55
+00:03:06,620 --> 00:03:13,100
+So when we call document get element by ID, pass in a string if there is a match and only if there
+
+56
+00:03:13,100 --> 00:03:17,420
+is a match for that ID, we get that element back as an object.
+
+57
+00:03:17,420 --> 00:03:20,870
+The DOM representation of that element, this image.
+
+58
+00:03:21,230 --> 00:03:27,110
+Remember, you're only supposed to have one ID on a page or one of each ID, so there shouldn't be multiple
+
+59
+00:03:27,110 --> 00:03:28,130
+bear photos.
+
+60
+00:03:28,130 --> 00:03:33,860
+And if there were, for some reason we still only get the first one that matches, so we'll only ever
+
+61
+00:03:33,860 --> 00:03:35,420
+get one element back.
+
+62
+00:03:35,420 --> 00:03:41,750
+And if we pass it an invalid ID or something that's not on the page, let's do document, get element
+
+63
+00:03:41,750 --> 00:03:45,440
+ID of get element by ID of bear.
+
+64
+00:03:45,440 --> 00:03:47,600
+In all caps we get nothing.
+
+65
+00:03:47,690 --> 00:03:52,070
+So no error, we just get null because there isn't an element with that ID.
+
+66
+00:03:52,190 --> 00:03:53,960
+And we'll do one more example.
+
+67
+00:03:53,990 --> 00:03:58,390
+We have something else with an ID this paragraph the ID is main.
+
+68
+00:03:58,400 --> 00:04:06,830
+If I select that ID using document get element by ID main, I'll save that to a variable called p.
+
+69
+00:04:07,550 --> 00:04:12,740
+We look at P, it looks like it's HTML, but remember it's actually an object console.
+
+70
+00:04:12,940 --> 00:04:20,060
+Dear P here is our object and it contains a lot of the similar properties, a lot of the same methods
+
+71
+00:04:20,060 --> 00:04:22,340
+as our image, but different values.
+
+72
+00:04:22,670 --> 00:04:26,060
+For example, we scroll down all the way down here.
+
+73
+00:04:26,090 --> 00:04:29,330
+We don't have a source attribute because it's not an image.
+
+74
+00:04:29,510 --> 00:04:33,620
+We have tag name set to P because it's a paragraph, it's a P tag.
+
+75
+00:04:34,010 --> 00:04:37,610
+We have the text content, lorem ipsum, blah blah blah.
+
+76
+00:04:37,610 --> 00:04:39,620
+That's the content of this paragraph.
+
+77
+00:04:39,950 --> 00:04:41,640
+And there's a whole bunch of other things.
+
+78
+00:04:41,660 --> 00:04:48,800
+One other important topic that will see a couple of times in this section is that this object here is
+
+79
+00:04:48,800 --> 00:04:50,330
+of a particular type.
+
+80
+00:04:50,450 --> 00:04:54,050
+It is something called an HTML paragraph element.
+
+81
+00:04:54,080 --> 00:04:57,020
+If we look at our image, do I still have it here?
+
+82
+00:04:57,050 --> 00:05:02,660
+Let's do a console dot dear image and we look at what type it is.
+
+83
+00:05:02,720 --> 00:05:04,190
+We scroll down to the bottom.
+
+84
+00:05:04,190 --> 00:05:09,050
+It's called an HTML image element, so they're both HTML elements.
+
+85
+00:05:09,050 --> 00:05:10,400
+But one is an image element.
+
+86
+00:05:10,400 --> 00:05:11,910
+One is a paragraph element.
+
+87
+00:05:11,930 --> 00:05:14,480
+Now, in this course, we haven't talked about prototypes.
+
+88
+00:05:14,480 --> 00:05:17,810
+We haven't talked about constructor functions and classes.
+
+89
+00:05:17,810 --> 00:05:19,730
+So we won't go into much detail here.
+
+90
+00:05:19,730 --> 00:05:25,460
+But all you need to know is that there are different categories of elements on the page, and some of
+
+91
+00:05:25,460 --> 00:05:31,160
+them have their own type, like an HTML paragraph element and an HTML image element.
+
+92
+00:05:31,160 --> 00:05:33,650
+Every image element has a source.
+
+93
+00:05:33,650 --> 00:05:35,960
+For example, a paragraph doesn't.
+
+94
+00:05:35,960 --> 00:05:39,320
+These are just different patterns for these objects.
+
+95
+00:05:39,560 --> 00:05:45,470
+So whenever we get an element by ID or any of the other select methods, we'll see in the next couple
+
+96
+00:05:45,470 --> 00:05:48,830
+of videos they return some sort of element to us.
+
+97
+00:05:48,860 --> 00:05:52,910
+It could be an image element, it could be a paragraph element, it could be something else we haven't
+
+98
+00:05:52,910 --> 00:05:53,540
+seen yet.
+
+99
+00:05:54,020 --> 00:06:00,410
+And that's kind of it for document get element by ID, so we call it on the document, we pass in some
+
+100
+00:06:00,410 --> 00:06:06,140
+ID string and if there's a match, we get that one element represented as an object.
+
+101
+00:06:06,140 --> 00:06:08,090
+If there's not a match, we get null.
+

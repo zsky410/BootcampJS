@@ -1,0 +1,176 @@
+1
+00:00:00,360 --> 00:00:01,970
+Hey, everyone, welcome to the course.
+
+2
+00:00:01,980 --> 00:00:02,969
+My name is Colt.
+
+3
+00:00:03,000 --> 00:00:04,610
+Thank you for joining us.
+
+4
+00:00:04,620 --> 00:00:06,560
+So I'm really excited about this course.
+
+5
+00:00:06,570 --> 00:00:11,400
+Honestly, more excited than I've been about pretty much any Udemy course I've put out so far.
+
+6
+00:00:11,670 --> 00:00:13,980
+I'm excited for a couple of reasons I'll go into.
+
+7
+00:00:14,010 --> 00:00:16,050
+First of all, I just like JavaScript.
+
+8
+00:00:16,050 --> 00:00:17,610
+It's a very fun topic to teach.
+
+9
+00:00:17,610 --> 00:00:21,660
+We can do a lot of really cool things with it and this course covers everything.
+
+10
+00:00:21,660 --> 00:00:22,290
+JavaScript.
+
+11
+00:00:22,290 --> 00:00:28,650
+It's a ton of JavaScript that we talk about from the very basics up to some pretty complex projects.
+
+12
+00:00:28,650 --> 00:00:33,000
+So what I want to start with here is a rough overview of how the course works.
+
+13
+00:00:33,000 --> 00:00:35,880
+The course is pretty unique in how it structured.
+
+14
+00:00:35,880 --> 00:00:37,890
+There are two distinct parts.
+
+15
+00:00:37,890 --> 00:00:43,710
+The first part is a start to finish introduction to JavaScript for beginners, starting from the very,
+
+16
+00:00:43,710 --> 00:00:50,220
+very basics of getting set up variables up to more complex topics like Dom, manipulation and events,
+
+17
+00:00:50,220 --> 00:00:54,810
+all the latest features and JavaScript things like Arrow functions, promises.
+
+18
+00:00:54,810 --> 00:00:59,130
+And then part two of the course is focused exclusively on projects.
+
+19
+00:00:59,130 --> 00:01:05,610
+So those projects include lots of new topics, things like Node or Express or creating your own database,
+
+20
+00:01:05,640 --> 00:01:07,680
+lots of really fun things coming up.
+
+21
+00:01:07,680 --> 00:01:09,330
+But there is a distinction.
+
+22
+00:01:09,540 --> 00:01:11,700
+Here's another visual, the same idea.
+
+23
+00:01:11,700 --> 00:01:17,640
+We've got the building blocks first, starting from the very basics, and then part two is all projects.
+
+24
+00:01:18,730 --> 00:01:21,270
+So to take this course, you have a couple of different options.
+
+25
+00:01:21,280 --> 00:01:26,710
+If you are a complete beginner, you don't really know JavaScript, then start at the beginning.
+
+26
+00:01:26,830 --> 00:01:31,900
+Start with the basics, make your way through the first 20 ish sections and then move on to all the
+
+27
+00:01:31,900 --> 00:01:32,680
+projects.
+
+28
+00:01:32,770 --> 00:01:37,480
+If you're someone who has some JavaScript experience, maybe you've taken one of my courses already
+
+29
+00:01:37,480 --> 00:01:38,710
+or a similar course.
+
+30
+00:01:38,710 --> 00:01:40,930
+You may not need to start at the very beginning.
+
+31
+00:01:40,930 --> 00:01:45,490
+So what you could do is jump right into the projects and just start building something.
+
+32
+00:01:45,490 --> 00:01:50,650
+There's almost 20 hours of projects in this course and if you do happen to hit a wall, you run into
+
+33
+00:01:50,650 --> 00:01:51,280
+trouble.
+
+34
+00:01:51,310 --> 00:01:55,840
+You can go back to the first part of the course and just review the parts that you need to.
+
+35
+00:01:55,870 --> 00:02:01,360
+If you need to review aero functions or async functions or the spread operator or some newer features
+
+36
+00:02:01,360 --> 00:02:06,430
+in JavaScript that that maybe weren't covered in the last course you saw on JavaScript, that's a great
+
+37
+00:02:06,430 --> 00:02:07,060
+option for you.
+
+38
+00:02:07,060 --> 00:02:11,140
+Start with the projects and then reference the first part of the course whenever necessary.
+
+39
+00:02:11,140 --> 00:02:12,790
+So that's how the course is structured.
+
+40
+00:02:12,790 --> 00:02:14,290
+We've got two main parts.
+
+41
+00:02:14,290 --> 00:02:19,690
+I think there's something here for I won't say everyone, there's probably not anything here for someone
+
+42
+00:02:19,690 --> 00:02:24,040
+who doesn't care about JavaScript, but for anyone who is interested in JavaScript, whether you have
+
+43
+00:02:24,040 --> 00:02:29,080
+no experience, whether you've taken one of my courses or Stephen's courses and you're just looking
+
+44
+00:02:29,080 --> 00:02:31,600
+to build projects, there's something here for you.
+

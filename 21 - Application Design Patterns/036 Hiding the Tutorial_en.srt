@@ -1,0 +1,100 @@
+1
+00:00:00,760 --> 00:00:05,290
+The next thing we have to do is to make sure that whenever we click on a video inside of our autocomplete,
+
+2
+00:00:05,290 --> 00:00:10,270
+we should hide this tutorial right here and start to show some summary information about that movie
+
+3
+00:00:10,270 --> 00:00:13,360
+on the appropriate side, either the left side or the right side.
+
+4
+00:00:13,780 --> 00:00:16,870
+So let's first take care of making sure that we just hide this thing.
+
+5
+00:00:17,470 --> 00:00:22,660
+To do so, I'm going to go back over I'm going to go up into my config object and I'm going to find
+
+6
+00:00:22,660 --> 00:00:25,150
+where we have the callback of on option select.
+
+7
+00:00:25,180 --> 00:00:26,140
+Here it is right here.
+
+8
+00:00:26,530 --> 00:00:30,310
+So I'm going to replace on option select or excuse me, I'm going to add to the code inside of it.
+
+9
+00:00:30,760 --> 00:00:34,750
+I'm going to get a selector for that kind of tutorial window that we just added in.
+
+10
+00:00:35,080 --> 00:00:37,390
+So inside my HTML file, here it is right here.
+
+11
+00:00:37,780 --> 00:00:42,790
+So I'm going to get a selector for a div with the class of tutorial and then we're going to add a class
+
+12
+00:00:42,790 --> 00:00:44,980
+to it that's going to hide that thing on the screen.
+
+13
+00:00:45,520 --> 00:00:48,340
+So inside of on option select, I'll do a document.
+
+14
+00:00:50,000 --> 00:00:51,140
+Where he selector.
+
+15
+00:00:52,760 --> 00:00:54,590
+With Dot tutorial.
+
+16
+00:00:55,750 --> 00:00:57,910
+I'm going to look at its class list.
+
+17
+00:00:58,310 --> 00:01:03,400
+I'm going to add in a class of is dash hidden like so.
+
+18
+00:01:04,000 --> 00:01:07,590
+This is another one of those classes that is coming from the Boma CSS framework.
+
+19
+00:01:07,600 --> 00:01:13,180
+So by just adding on that class, that div that is containing the tutorial should be hidden on the screen.
+
+20
+00:01:13,720 --> 00:01:17,020
+Let's do a save and a quick test so I'll flip back over.
+
+21
+00:01:17,590 --> 00:01:18,220
+Refresh.
+
+22
+00:01:18,220 --> 00:01:20,800
+Look for Avengers click and the thing is gone.
+
+23
+00:01:21,400 --> 00:01:22,450
+That was an easy one.
+
+24
+00:01:22,870 --> 00:01:26,770
+Another quick pause right here and we'll continue with showing the two tutorials on both sides in just
+
+25
+00:01:26,770 --> 00:01:27,400
+a moment.
+

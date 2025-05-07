@@ -1,0 +1,468 @@
+1
+00:00:00,150 --> 00:00:00,870
+Welcome back.
+
+2
+00:00:00,900 --> 00:00:04,170
+Next, we'll get a bit more practice with async and await.
+
+3
+00:00:04,320 --> 00:00:07,930
+So I'm using code that I wrote back in the Promises section.
+
+4
+00:00:07,950 --> 00:00:13,620
+I know I've said this in pretty much every video so far in this async section, but if you did not watch
+
+5
+00:00:13,620 --> 00:00:17,520
+the promises section, highly, highly recommend you go back and check it out, or at least look at
+
+6
+00:00:17,520 --> 00:00:18,810
+the code in more detail.
+
+7
+00:00:18,840 --> 00:00:23,730
+Remember that everything we're seeing here with async and await, it's all promises underneath there,
+
+8
+00:00:23,730 --> 00:00:24,600
+behind the scenes.
+
+9
+00:00:24,600 --> 00:00:28,650
+It's just a little wallpaper on top or makeup on top or paint or who knows?
+
+10
+00:00:28,650 --> 00:00:31,770
+It's something on top to decorate it, to make it nice and pretty.
+
+11
+00:00:31,800 --> 00:00:37,290
+So this function that we created a couple of sections ago is called Move X, Move X, Returns a promise.
+
+12
+00:00:37,410 --> 00:00:44,370
+And in this promise it will move an element, a certain number of pixels horizontally or along the x
+
+13
+00:00:44,370 --> 00:00:48,570
+axis, left or right, depending on the number you pass in positive or negative.
+
+14
+00:00:48,570 --> 00:00:50,490
+And then it uses a delay.
+
+15
+00:00:50,490 --> 00:00:55,680
+So it waits 1/2 or 3 seconds before it actually does that operation.
+
+16
+00:00:55,680 --> 00:00:59,180
+So it returns promise set time out with a delay.
+
+17
+00:00:59,190 --> 00:01:07,410
+I'm using 1/2 for all of them and then it moves some element that number of pixels using transform unless
+
+18
+00:01:07,410 --> 00:01:09,360
+we don't have enough room to keep moving.
+
+19
+00:01:09,720 --> 00:01:12,080
+So at that point the promise is rejected.
+
+20
+00:01:12,090 --> 00:01:16,170
+If we do have enough room, the element is moved and the promise is resolved.
+
+21
+00:01:16,590 --> 00:01:18,030
+So we end up with something like this.
+
+22
+00:01:18,030 --> 00:01:19,440
+If I shrink my window down.
+
+23
+00:01:20,150 --> 00:01:21,650
+We can move a couple of times.
+
+24
+00:01:22,340 --> 00:01:24,120
+And then the promise is rejected.
+
+25
+00:01:24,140 --> 00:01:30,290
+We caught it with our catch down here and we concealed that, logged some information about the error.
+
+26
+00:01:31,520 --> 00:01:32,750
+This is what we had before.
+
+27
+00:01:32,780 --> 00:01:37,760
+This massive mess of callbacks, success and failure, callbacks, promises really helped us clean it
+
+28
+00:01:37,760 --> 00:01:38,180
+up.
+
+29
+00:01:38,300 --> 00:01:42,130
+Now we'll see how we can continue to clean it up using async functions.
+
+30
+00:01:42,140 --> 00:01:44,390
+We won't have to write any of these events.
+
+31
+00:01:44,810 --> 00:01:48,220
+So what we'll start with is calling move x.
+
+32
+00:01:48,260 --> 00:01:49,700
+I guess I'll just comment this out.
+
+33
+00:01:50,720 --> 00:01:51,670
+We'll keep the button.
+
+34
+00:01:51,680 --> 00:01:52,700
+We do need that.
+
+35
+00:01:53,720 --> 00:01:56,120
+I'll duplicate it just so we have a record of the original.
+
+36
+00:01:57,080 --> 00:02:02,450
+We need to select the button and we'll call Move X, but I'm going to do it from inside an async function,
+
+37
+00:02:02,600 --> 00:02:04,460
+so I'll call this function.
+
+38
+00:02:04,610 --> 00:02:06,170
+How about animate?
+
+39
+00:02:06,170 --> 00:02:06,960
+Right.
+
+40
+00:02:06,980 --> 00:02:11,130
+It's not really a nice animation because it's so choppy, but we'll call it animate, right?
+
+41
+00:02:11,150 --> 00:02:13,130
+We'll make it an async function.
+
+42
+00:02:14,260 --> 00:02:16,150
+And we'll pass in an element.
+
+43
+00:02:17,290 --> 00:02:22,210
+Then inside of here we will call move x, which returns a promise.
+
+44
+00:02:22,240 --> 00:02:23,710
+I'll pass in that element.
+
+45
+00:02:24,490 --> 00:02:26,230
+I'll pass in an amount.
+
+46
+00:02:26,650 --> 00:02:33,310
+So let's just hard code this as 100 pixels at a time every second 1000 milliseconds.
+
+47
+00:02:33,730 --> 00:02:37,200
+This returns a promise so I can await it.
+
+48
+00:02:37,210 --> 00:02:42,280
+And if I want to wait for this to finish before I run the next move x I don't need.
+
+49
+00:02:42,460 --> 00:02:46,510
+Then I can just await this first one and then do it again.
+
+50
+00:02:46,540 --> 00:02:47,650
+Fingers crossed.
+
+51
+00:02:47,680 --> 00:02:52,870
+Hopefully we move twice as long as we pass in the correct button to animate.
+
+52
+00:02:52,870 --> 00:02:53,490
+Right.
+
+53
+00:02:53,500 --> 00:02:54,670
+So we'll call animate.
+
+54
+00:02:54,670 --> 00:02:55,330
+Right.
+
+55
+00:02:55,900 --> 00:02:56,740
+BTN.
+
+56
+00:02:57,770 --> 00:02:58,610
+Refresh.
+
+57
+00:02:59,490 --> 00:03:01,410
+One jump to jump.
+
+58
+00:03:01,740 --> 00:03:02,460
+Awesome.
+
+59
+00:03:03,030 --> 00:03:07,890
+So if we wanted to move this many times, we could do the exact same thing.
+
+60
+00:03:07,890 --> 00:03:11,100
+We just duplicate this every time and we await.
+
+61
+00:03:11,340 --> 00:03:12,810
+We say wait and tell.
+
+62
+00:03:12,810 --> 00:03:19,680
+That promise that is returned from Move X has been resolved, and if it's resolved, then move on to
+
+63
+00:03:19,680 --> 00:03:20,370
+the next one.
+
+64
+00:03:20,700 --> 00:03:22,680
+However, right now we're not catching any errors.
+
+65
+00:03:22,680 --> 00:03:27,690
+So if we do hit that boundary and the promise is rejected, you'll see we get an error.
+
+66
+00:03:29,100 --> 00:03:30,030
+We'll take a look.
+
+67
+00:03:30,510 --> 00:03:31,380
+Good.
+
+68
+00:03:31,410 --> 00:03:34,170
+It's waiting every time for that promise to be resolved.
+
+69
+00:03:34,290 --> 00:03:37,560
+And then, boom, uncut error.
+
+70
+00:03:37,800 --> 00:03:39,510
+We did not catch this anywhere.
+
+71
+00:03:39,600 --> 00:03:42,000
+We just talked about how we can catch errors.
+
+72
+00:03:42,240 --> 00:03:45,690
+We could add a try catch in our function.
+
+73
+00:03:45,810 --> 00:03:48,570
+What I would probably do is right here.
+
+74
+00:03:49,380 --> 00:03:54,900
+Just add a catch for that error and then we could just console.log.
+
+75
+00:03:54,900 --> 00:03:55,680
+All done.
+
+76
+00:03:56,130 --> 00:03:57,330
+Let's see if it works.
+
+77
+00:03:59,500 --> 00:04:00,190
+Okay.
+
+78
+00:04:00,190 --> 00:04:01,120
+Continue.
+
+79
+00:04:01,390 --> 00:04:02,050
+Awesome.
+
+80
+00:04:02,050 --> 00:04:03,700
+And all done.
+
+81
+00:04:03,850 --> 00:04:04,690
+Perfect.
+
+82
+00:04:06,040 --> 00:04:11,140
+So if we take a look at this compared to what we had here, I mean, it's not a massive improvement.
+
+83
+00:04:11,470 --> 00:04:13,090
+We don't have to write all the dot then.
+
+84
+00:04:13,090 --> 00:04:18,100
+So we don't need these unnecessary callbacks anymore, which I think is definitely worth it.
+
+85
+00:04:18,430 --> 00:04:21,850
+And all we have to do is add in a weight in async.
+
+86
+00:04:22,390 --> 00:04:24,550
+Now, this is relatively simple logic we're doing.
+
+87
+00:04:24,640 --> 00:04:25,660
+It's not much logic at all.
+
+88
+00:04:25,660 --> 00:04:27,190
+It's the same thing every time.
+
+89
+00:04:27,940 --> 00:04:30,430
+So it maybe isn't as clear.
+
+90
+00:04:30,670 --> 00:04:35,860
+But when we talk about making sequential requests, which is what we'll see next, making Axios or fetch
+
+91
+00:04:35,860 --> 00:04:41,230
+requests one after another where they depend on each other using async await makes it much easier to
+
+92
+00:04:41,230 --> 00:04:43,070
+read and understand what's going on.
+
+93
+00:04:43,090 --> 00:04:44,410
+Not to mention shorter.
+
+94
+00:04:45,070 --> 00:04:48,670
+So why don't we wrap this up instead of just animating to the right?
+
+95
+00:04:48,790 --> 00:04:54,160
+Why don't we also, once we hit the end, animate back to the left?
+
+96
+00:04:54,670 --> 00:04:58,780
+So we could change this, animate right to accept an amount.
+
+97
+00:04:58,780 --> 00:05:02,620
+And then any time I'm passing in 100 there, I'll replace it with amount.
+
+98
+00:05:03,610 --> 00:05:09,430
+And then here, when we get that error, when we've hit the edge, why don't we consider that log and
+
+99
+00:05:09,430 --> 00:05:10,750
+move the other direction?
+
+100
+00:05:10,930 --> 00:05:12,010
+So console.log.
+
+101
+00:05:12,010 --> 00:05:12,820
+All done.
+
+102
+00:05:12,820 --> 00:05:14,980
+And then we can call animate, right?
+
+103
+00:05:16,230 --> 00:05:17,520
+Same element.
+
+104
+00:05:17,820 --> 00:05:18,750
+BTN.
+
+105
+00:05:19,110 --> 00:05:23,030
+This time here we need to say we're moving 100 pixels.
+
+106
+00:05:23,040 --> 00:05:26,010
+This time let's move -100 pixels.
+
+107
+00:05:26,940 --> 00:05:28,140
+Let's see if that works.
+
+108
+00:05:28,140 --> 00:05:31,770
+So we move to the right and we're going to hit that edge.
+
+109
+00:05:33,290 --> 00:05:36,410
+We get all done and now we're moving back to the left.
+
+110
+00:05:36,470 --> 00:05:41,180
+Now, we don't really have any error handling for the left side, so we're just going to keep moving
+
+111
+00:05:41,180 --> 00:05:47,810
+off the screen because our logic right now in animate or in Move X is just checking the right boundary.
+
+112
+00:05:47,990 --> 00:05:50,720
+So I guess that's a bit of an oversight.
+
+113
+00:05:50,720 --> 00:05:56,630
+But we now have this async function here that we can call it returns a promise within it.
+
+114
+00:05:56,630 --> 00:06:01,730
+We can await any other thing that returns a promise and mimic synchronous code.
+
+115
+00:06:01,730 --> 00:06:06,410
+So next we'll see how we can do this with requests, how can we have sequential requests?
+
+116
+00:06:06,410 --> 00:06:11,660
+And we'll also talk about parallel requests, which is another way of sending multiple requests where
+
+117
+00:06:11,660 --> 00:06:13,880
+we don't have to wait for one to come back first.
+

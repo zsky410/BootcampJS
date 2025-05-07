@@ -1,0 +1,632 @@
+1
+00:00:01,000 --> 00:00:03,580
+All right, my friends, in this video, we're going to start writing some code.
+
+2
+00:00:03,610 --> 00:00:08,710
+The first thing we're going to do is to make sure that we can reach out to the IMDB API and do a search
+
+3
+00:00:08,710 --> 00:00:10,130
+for some different movies.
+
+4
+00:00:10,150 --> 00:00:13,960
+That's a very core operation inside of our app, so we should probably make sure that we can get that
+
+5
+00:00:13,960 --> 00:00:16,900
+working right away to make use of this free API.
+
+6
+00:00:16,930 --> 00:00:21,160
+I'm going to first navigate to IMDB API inside my browser.
+
+7
+00:00:22,010 --> 00:00:27,170
+Once here, we first have to sign up for the API and get what is called an API key.
+
+8
+00:00:27,680 --> 00:00:32,270
+The API key essentially identifies us to the API whenever we make a request.
+
+9
+00:00:32,420 --> 00:00:37,880
+We can think of it as like an email and password that our code is sending over to the API.
+
+10
+00:00:38,630 --> 00:00:43,190
+To get an API key, we're going to go up to the very top menu and find the section that says API key.
+
+11
+00:00:45,110 --> 00:00:47,060
+It is free to generate an API key.
+
+12
+00:00:47,090 --> 00:00:49,610
+All we have to do is enter in our email address.
+
+13
+00:00:49,610 --> 00:00:52,010
+So I'm going to select the free option right here.
+
+14
+00:00:53,580 --> 00:00:55,590
+And then I will enter in my email.
+
+15
+00:00:55,620 --> 00:00:59,460
+It does have to be a valid email because they're going to email us our key.
+
+16
+00:01:00,030 --> 00:01:05,640
+So I'll put in my email, my name and for use right here, we're just being asked to enter a description
+
+17
+00:01:05,640 --> 00:01:06,750
+of what we are building.
+
+18
+00:01:06,750 --> 00:01:09,930
+So I'm just going to say that this is API practice.
+
+19
+00:01:10,140 --> 00:01:11,880
+It doesn't really matter what we put in there.
+
+20
+00:01:12,690 --> 00:01:16,110
+I'll then submit this and then I'll be told that.
+
+21
+00:01:16,380 --> 00:01:17,160
+There we go.
+
+22
+00:01:17,190 --> 00:01:20,430
+I'm going to be sent a verification link to my email.
+
+23
+00:01:21,060 --> 00:01:26,010
+So you're going to now open up your email account and you're going to find an email that was just sent
+
+24
+00:01:26,010 --> 00:01:26,610
+to you.
+
+25
+00:01:27,600 --> 00:01:29,160
+So I'm going to pull up my email really quickly.
+
+26
+00:01:29,160 --> 00:01:30,150
+Here it is right here.
+
+27
+00:01:30,600 --> 00:01:32,640
+You'll see that I am given my API key.
+
+28
+00:01:32,640 --> 00:01:37,440
+That is essentially my password right there and it identifies me to the API.
+
+29
+00:01:38,100 --> 00:01:43,020
+Before we can use that key, we do have to click the link at the bottom of the email, so make sure
+
+30
+00:01:43,020 --> 00:01:44,820
+that you do click that link right there.
+
+31
+00:01:45,830 --> 00:01:47,960
+Now I'm told that Mikey has been activated.
+
+32
+00:01:48,880 --> 00:01:49,110
+Okay.
+
+33
+00:01:49,120 --> 00:01:49,810
+Very good.
+
+34
+00:01:49,990 --> 00:01:52,670
+So make sure you keep that key up on your screen.
+
+35
+00:01:52,690 --> 00:01:55,670
+We're going to use it in just a moment before we use the key.
+
+36
+00:01:55,690 --> 00:02:00,730
+However, let's take another look at the documentation for this API and get a better idea of how we
+
+37
+00:02:00,730 --> 00:02:02,350
+do a search operation.
+
+38
+00:02:03,170 --> 00:02:06,650
+So I'm going to go back to the main page and then scroll down a little bit.
+
+39
+00:02:08,690 --> 00:02:13,250
+So to access the API, we're going to make a request to that URL right there.
+
+40
+00:02:13,670 --> 00:02:17,900
+When we make the request, we have to include the API key that we just signed up with.
+
+41
+00:02:18,750 --> 00:02:24,060
+In order to customize the request, we're going to also pass in some number of different query string
+
+42
+00:02:24,060 --> 00:02:24,990
+parameters.
+
+43
+00:02:25,700 --> 00:02:30,000
+Remember, parameters are essentially added on to the very end of a URL.
+
+44
+00:02:30,360 --> 00:02:34,890
+We're going to be using a library that is going to add in these different parameters for us automatically.
+
+45
+00:02:35,980 --> 00:02:37,360
+But to do a search operation.
+
+46
+00:02:37,360 --> 00:02:39,190
+We'll scroll down to the search section.
+
+47
+00:02:39,460 --> 00:02:45,400
+And we are being told right here that if we add in a query string parameter called SW and assign it
+
+48
+00:02:45,400 --> 00:02:51,190
+some string, that is going to be interpreted as the movie title that we are trying to search for.
+
+49
+00:02:52,230 --> 00:02:56,400
+So this documentation is not the most clear in the world, but that's okay.
+
+50
+00:02:56,430 --> 00:03:00,630
+Well, let's go back over to our code editor and we're going to start to write out some code to make
+
+51
+00:03:00,630 --> 00:03:01,560
+a search request.
+
+52
+00:03:01,560 --> 00:03:04,770
+And this documentation will very quickly start to make sense.
+
+53
+00:03:05,910 --> 00:03:06,200
+Okay.
+
+54
+00:03:06,210 --> 00:03:07,710
+So back inside my code editor.
+
+55
+00:03:07,710 --> 00:03:10,290
+I've already opened up my index JS file.
+
+56
+00:03:11,860 --> 00:03:14,680
+So I'm going to delete that console log that was inside there by default.
+
+57
+00:03:15,760 --> 00:03:18,310
+We're going to be making a network request here.
+
+58
+00:03:18,340 --> 00:03:22,510
+Remember that with JavaScript there are many different ways that we can make a network request.
+
+59
+00:03:22,600 --> 00:03:27,940
+We can use the built in fetch function that is included inside the browser, or we can make use of third
+
+60
+00:03:27,940 --> 00:03:32,680
+party libraries like the Axios library that makes making requests just a little bit easier.
+
+61
+00:03:33,340 --> 00:03:35,350
+In this case, we're going to be using Axios.
+
+62
+00:03:35,380 --> 00:03:39,850
+Again, just because it makes our life a little bit easier than using fetch directly.
+
+63
+00:03:40,450 --> 00:03:42,810
+Axios has already been wired up to this project.
+
+64
+00:03:42,820 --> 00:03:47,410
+You can find it referenced in a script tag inside of the indexed HTML file.
+
+65
+00:03:48,480 --> 00:03:53,670
+So in order to make our request, I'm going to first define a helper function that I'm going to call
+
+66
+00:03:53,670 --> 00:03:54,690
+fetch data.
+
+67
+00:03:56,830 --> 00:04:01,000
+I'm going to want to use the async await syntax with this thing when we make our request.
+
+68
+00:04:01,000 --> 00:04:03,580
+So I'm going to mark the function as async.
+
+69
+00:04:04,300 --> 00:04:11,650
+And then inside the function body I will write out Collins response is await Axios dot get.
+
+70
+00:04:12,520 --> 00:04:17,230
+So remember, the first argument to the Axios target function is going to be the URL that we want to
+
+71
+00:04:17,230 --> 00:04:22,960
+retrieve whenever we make a network request that is an asynchronous operation and we essentially have
+
+72
+00:04:22,960 --> 00:04:27,790
+to wait before we get some kind of response to continue running the lines of code directly underneath
+
+73
+00:04:27,790 --> 00:04:28,290
+that.
+
+74
+00:04:28,300 --> 00:04:30,520
+And that's why we have the await keyword right there.
+
+75
+00:04:31,090 --> 00:04:36,160
+We're going to eventually get back a response object that is an object that represents all the information
+
+76
+00:04:36,160 --> 00:04:39,220
+related to this request in response that we just made.
+
+77
+00:04:39,460 --> 00:04:43,810
+And inside of that response object is the data that we should be getting back from our API.
+
+78
+00:04:45,040 --> 00:04:50,770
+So as the first argument to Axios Doggett, I'm going to go back over to the API documentation.
+
+79
+00:04:52,380 --> 00:04:56,910
+I'm going to find where it says usage and I'm going to put in this URL right here.
+
+80
+00:04:57,270 --> 00:04:58,310
+Now, really important.
+
+81
+00:04:58,320 --> 00:05:05,700
+We're not going to copy in the API key part just yet, so I'm just going to get HTTP oh IMDB API.
+
+82
+00:05:07,140 --> 00:05:11,220
+So I'm just going to copy that and then put it in as the first argument.
+
+83
+00:05:11,220 --> 00:05:14,820
+So again, make sure you only have dotcom inside there like so.
+
+84
+00:05:15,990 --> 00:05:22,050
+Then to specify all the different parameters here, like our API key or the search string that we want
+
+85
+00:05:22,050 --> 00:05:22,740
+to use.
+
+86
+00:05:23,190 --> 00:05:26,550
+We're going to use some automated functionality inside of Axios.
+
+87
+00:05:26,820 --> 00:05:31,350
+So we could manually type out question mark, API key, blah, blah, blah right there.
+
+88
+00:05:31,350 --> 00:05:37,110
+But instead using Axios, we can write this out a lot more neatly by putting in a second argument of
+
+89
+00:05:37,110 --> 00:05:37,950
+an object.
+
+90
+00:05:38,930 --> 00:05:44,120
+Inside the second argument, we're going to put in a property called params.
+
+91
+00:05:45,660 --> 00:05:50,100
+And inside this thing, we're going to list out all the different query string parameters that we want
+
+92
+00:05:50,100 --> 00:05:51,750
+to pass along with the request.
+
+93
+00:05:52,230 --> 00:05:57,510
+So we can imagine that this object right here is going to be turned into a string and appended to the
+
+94
+00:05:57,510 --> 00:05:58,710
+end of that URL.
+
+95
+00:05:59,880 --> 00:06:03,870
+Inside a params, we're going to first list out our API key.
+
+96
+00:06:04,700 --> 00:06:07,430
+A really important notice that we have a lowercase key on here.
+
+97
+00:06:07,430 --> 00:06:10,310
+It is not uppercase, so everything is lowercase.
+
+98
+00:06:10,790 --> 00:06:14,990
+And then I'm going to put in the API key that I just got from my email a moment ago.
+
+99
+00:06:16,270 --> 00:06:18,160
+So here's the API key.
+
+100
+00:06:19,590 --> 00:06:20,160
+Right there.
+
+101
+00:06:20,160 --> 00:06:22,980
+I'm going to copy it and paste it in.
+
+102
+00:06:24,910 --> 00:06:29,830
+I'm also going to specify that SE property se essentially stands for search.
+
+103
+00:06:29,830 --> 00:06:32,710
+That is the property we just looked up on the API documentation.
+
+104
+00:06:32,860 --> 00:06:36,580
+So this is going to be a string of the movie that we want to search for.
+
+105
+00:06:36,970 --> 00:06:41,080
+I'm going to first try looking for The Avengers, so I'll put in Avengers like so.
+
+106
+00:06:42,800 --> 00:06:42,970
+Okay.
+
+107
+00:06:43,130 --> 00:06:43,940
+And that should be it.
+
+108
+00:06:43,940 --> 00:06:45,950
+That should be all we need to make our request.
+
+109
+00:06:45,980 --> 00:06:49,690
+Now, if this params object right here is a bit mysterious, don't sweat it.
+
+110
+00:06:49,700 --> 00:06:54,140
+As soon as we make the request and look at it inside of our browser, you're going to very quickly understand
+
+111
+00:06:54,140 --> 00:06:55,640
+what that part is all about.
+
+112
+00:06:56,550 --> 00:06:56,830
+Okay.
+
+113
+00:06:56,850 --> 00:07:02,190
+So after we make the request, I'll then do a console.log of response data.
+
+114
+00:07:02,400 --> 00:07:07,050
+Again, remember that whenever we make a request with Axios, this is an object that has a lot of different
+
+115
+00:07:07,050 --> 00:07:10,380
+properties inside of it that describe the request in response we just issued.
+
+116
+00:07:10,800 --> 00:07:15,360
+The only property that we usually care about is the data property, and that's the actual information
+
+117
+00:07:15,360 --> 00:07:17,190
+that we just got back from that API.
+
+118
+00:07:19,300 --> 00:07:21,580
+All right, so I'll save this one last thing.
+
+119
+00:07:21,580 --> 00:07:23,650
+Let's make sure we call fetch data at the bottom.
+
+120
+00:07:23,800 --> 00:07:26,500
+So I'm going to save this now flip back over to the browser.
+
+121
+00:07:28,450 --> 00:07:31,150
+I'm going to go back to my indexed HTML page.
+
+122
+00:07:31,630 --> 00:07:33,010
+I'm going to open up my console.
+
+123
+00:07:33,800 --> 00:07:35,120
+And then refresh.
+
+124
+00:07:35,510 --> 00:07:38,480
+And sure enough, right away I see a response from that API.
+
+125
+00:07:38,870 --> 00:07:43,280
+Now, if you do not see a response right here, if you instead see some kind of error message, make
+
+126
+00:07:43,280 --> 00:07:48,620
+sure, first off, that you have in fact activated your API key so that you went into your email and
+
+127
+00:07:48,620 --> 00:07:49,640
+clicked on that link.
+
+128
+00:07:49,910 --> 00:07:53,510
+Secondly, make sure that you've got a lowercase API key right here.
+
+129
+00:07:53,960 --> 00:07:56,060
+Make sure that you've got the correct URL right there.
+
+130
+00:07:56,060 --> 00:07:59,120
+And essentially just do a direct comparison of this file.
+
+131
+00:07:59,980 --> 00:08:05,050
+So in sight of this response object that we got back, we have a search property and inside there are
+
+132
+00:08:05,050 --> 00:08:08,710
+all the different movies that match the search string that we just provided.
+
+133
+00:08:08,950 --> 00:08:13,120
+So I'm seeing a lot of different movies with the word Avengers in the title.
+
+134
+00:08:13,910 --> 00:08:17,570
+One thing I want to point out here is that you'll notice that we are just getting back a couple of different
+
+135
+00:08:17,570 --> 00:08:18,980
+properties about each movie.
+
+136
+00:08:18,980 --> 00:08:24,800
+So I'm only seeing the title, the type, whether it is a movie, a TV show or something similar.
+
+137
+00:08:25,130 --> 00:08:31,700
+The year that it was released, the idea of the movie and then very interestingly right here, a link
+
+138
+00:08:31,700 --> 00:08:36,830
+to the image for the movie as well, if I copy that and throw it into my browser really quickly.
+
+139
+00:08:38,500 --> 00:08:39,630
+We'll see the poster.
+
+140
+00:08:39,640 --> 00:08:43,000
+So this is what we're going to eventually show for each individual movie.
+
+141
+00:08:44,540 --> 00:08:47,640
+Now, one last thing I want to show you inside of my network request log.
+
+142
+00:08:47,660 --> 00:08:54,110
+If I open that up, I can search by air requests and this will show me only the request that my JavaScript
+
+143
+00:08:54,110 --> 00:08:55,250
+code have issued.
+
+144
+00:08:55,760 --> 00:08:58,040
+So there's the request that we just made to the API.
+
+145
+00:08:58,730 --> 00:09:02,510
+If I click on headers right here, it will show me the full request URL.
+
+146
+00:09:03,020 --> 00:09:08,870
+So you'll notice that Axios took that params object that we passed in to that configuration object.
+
+147
+00:09:08,900 --> 00:09:15,530
+It took the API key property and its value and the SW property and its value and it stuck them automatically
+
+148
+00:09:15,530 --> 00:09:18,110
+into the URL as a query string.
+
+149
+00:09:18,530 --> 00:09:21,610
+So again, this is what is kind of nice about using Axios.
+
+150
+00:09:21,620 --> 00:09:26,420
+If we were using fetch, we would have had to form that string by ourselves, by hand.
+
+151
+00:09:26,540 --> 00:09:30,950
+Not the worst thing in the world, but again, just a nice little benefit to using the Axios library.
+
+152
+00:09:31,850 --> 00:09:31,990
+Okay.
+
+153
+00:09:32,090 --> 00:09:33,070
+So now we've got some data.
+
+154
+00:09:33,080 --> 00:09:34,360
+I know this is a long video.
+
+155
+00:09:34,370 --> 00:09:34,970
+Don't worry.
+
+156
+00:09:34,970 --> 00:09:37,280
+Future videos will definitely be shorter for the most part.
+
+157
+00:09:37,280 --> 00:09:41,270
+So let's take a pause right here, and we're going to start to investigate our data that we just fetched
+
+158
+00:09:41,270 --> 00:09:42,230
+a little bit more.
+

@@ -1,0 +1,272 @@
+1
+00:00:00,150 --> 00:00:00,600
+All right.
+
+2
+00:00:00,600 --> 00:00:05,840
+So right now, the code works for these three ratings, specifically three, two and one.
+
+3
+00:00:05,850 --> 00:00:08,510
+But what if the rating is something else entirely?
+
+4
+00:00:08,520 --> 00:00:11,780
+Like zero would be an easy one or 23.
+
+5
+00:00:11,790 --> 00:00:16,280
+But what if it's also a or good something like that?
+
+6
+00:00:16,290 --> 00:00:17,550
+We're not accounting for it.
+
+7
+00:00:17,550 --> 00:00:19,530
+We won't print anything out at all.
+
+8
+00:00:19,530 --> 00:00:24,270
+It's just ignored and our code doesn't really display anything or doesn't display anything, period,
+
+9
+00:00:24,270 --> 00:00:25,080
+to the user.
+
+10
+00:00:25,110 --> 00:00:28,380
+To fix this, we can add in a third piece to our conditional.
+
+11
+00:00:28,380 --> 00:00:35,820
+We have if else if and we have else else is kind of like the otherwise part of the conditional.
+
+12
+00:00:35,850 --> 00:00:37,170
+It's the thing that runs.
+
+13
+00:00:37,170 --> 00:00:42,240
+If nothing else was true before it, then the code inside of else will be executed.
+
+14
+00:00:42,360 --> 00:00:47,680
+So you can see down here we don't specify a condition and set of parentheses like we do for if and else
+
+15
+00:00:47,700 --> 00:00:50,700
+if, because it just runs no matter what.
+
+16
+00:00:50,700 --> 00:00:57,180
+If nothing else ran first so we can add in and else down here just looks like this.
+
+17
+00:00:57,990 --> 00:01:03,120
+And in our situation, if rating is not three, two or one else will run.
+
+18
+00:01:03,120 --> 00:01:06,120
+If rating is three, two or one else will not run.
+
+19
+00:01:06,120 --> 00:01:09,210
+Just like if rating is three, nothing else runs.
+
+20
+00:01:09,210 --> 00:01:12,030
+If rating is two, nothing else runs after it and so on.
+
+21
+00:01:12,030 --> 00:01:13,620
+Else is the fallback.
+
+22
+00:01:13,620 --> 00:01:15,780
+It is the final piece of your conditional.
+
+23
+00:01:15,810 --> 00:01:21,660
+You don't have to have an else, but if you want to have one, you must have an if it doesn't make sense
+
+24
+00:01:21,660 --> 00:01:24,210
+to have an otherwise if there is no initial.
+
+25
+00:01:24,210 --> 00:01:28,350
+If so, we'll just cancel that log invalid rating.
+
+26
+00:01:30,060 --> 00:01:35,460
+We'll save, refresh the page and we end up with invalid rating.
+
+27
+00:01:35,790 --> 00:01:41,520
+If we have anything other than three to or one, we get invalid if we go back to two.
+
+28
+00:01:42,030 --> 00:01:43,230
+Oh, that's a string.
+
+29
+00:01:43,230 --> 00:01:48,780
+So that won't work because we're comparing with triple equals for exactly the number two.
+
+30
+00:01:48,930 --> 00:01:52,350
+But if we go back to the number two, it works just fine.
+
+31
+00:01:52,350 --> 00:01:57,150
+So often we do have an if and elseif or multiple else, ifs and else.
+
+32
+00:01:57,390 --> 00:02:02,430
+And by the way, I forgot to mention we can only have one else per if it doesn't make sense to have
+
+33
+00:02:02,430 --> 00:02:03,120
+more than one.
+
+34
+00:02:03,120 --> 00:02:08,669
+Otherwise we can have as many ifs as we want and we have one if at the beginning.
+
+35
+00:02:09,330 --> 00:02:14,970
+So sometimes we have all of them together, but often we'll just have a yes or no, a simple if and
+
+36
+00:02:14,970 --> 00:02:15,600
+an else.
+
+37
+00:02:15,600 --> 00:02:16,890
+So here's an example.
+
+38
+00:02:16,890 --> 00:02:20,220
+I have a high score variable and a user score.
+
+39
+00:02:20,220 --> 00:02:25,680
+So the idea is that we have a game or something where we have a high score, like an old arcade cabinet
+
+40
+00:02:25,680 --> 00:02:30,420
+where it stores the highest score ever on that cabinet and then the current user score.
+
+41
+00:02:30,540 --> 00:02:37,230
+And we could write a conditional that just checks if the user score is greater then we could even do
+
+42
+00:02:37,230 --> 00:02:38,040
+equal to.
+
+43
+00:02:38,280 --> 00:02:41,700
+I'm not sure what happens if you equal the high score on a game.
+
+44
+00:02:41,700 --> 00:02:43,530
+Do you then become the high score?
+
+45
+00:02:43,560 --> 00:02:45,090
+Let's let's say that's how it works.
+
+46
+00:02:45,090 --> 00:02:51,090
+So if user score is greater than or equal to the current high score, we will cancel that log.
+
+47
+00:02:51,090 --> 00:02:53,820
+Let's do a template literal.
+
+48
+00:02:54,300 --> 00:03:03,840
+Congrats you have the new high score of and then let's add it in and we'll show user score.
+
+49
+00:03:04,290 --> 00:03:08,490
+Then we could also update high score to now equal user score.
+
+50
+00:03:09,150 --> 00:03:14,910
+If what the user scored is higher than the current high score, then high scores should become that
+
+51
+00:03:14,910 --> 00:03:15,510
+score.
+
+52
+00:03:16,590 --> 00:03:20,040
+And then we can add in an else and we'll console.log.
+
+53
+00:03:20,790 --> 00:03:29,370
+Another template literal good game your score of and then user score with our dollar sign to interpolate.
+
+54
+00:03:29,370 --> 00:03:37,380
+It did not beat the high score of and then high score.
+
+55
+00:03:38,580 --> 00:03:39,270
+All right.
+
+56
+00:03:39,330 --> 00:03:43,170
+So if we run this right now, refresh, we get good game.
+
+57
+00:03:43,170 --> 00:03:46,470
+Your score of 1200 did not beat the high score of 1430.
+
+58
+00:03:46,470 --> 00:03:49,110
+If we change this to now be 1600.
+
+59
+00:03:50,740 --> 00:03:51,340
+Congrats.
+
+60
+00:03:51,340 --> 00:03:53,510
+You have the new high score of 1600.
+
+61
+00:03:53,530 --> 00:03:55,930
+So here we have a simple yes or no.
+
+62
+00:03:55,960 --> 00:03:59,290
+It's either this, and if it's not, then it's this.
+
+63
+00:03:59,830 --> 00:04:02,140
+There is no scenario where we won't have.
+
+64
+00:04:02,140 --> 00:04:04,650
+Well, I guess you could write code that breaks.
+
+65
+00:04:04,660 --> 00:04:06,780
+You could write something that causes an error.
+
+66
+00:04:06,790 --> 00:04:11,050
+But assuming that doesn't happen, one of these is going to run.
+
+67
+00:04:11,050 --> 00:04:12,520
+We don't have a bunch of else ifs.
+
+68
+00:04:12,520 --> 00:04:14,740
+We just have a simple if and an else.
+

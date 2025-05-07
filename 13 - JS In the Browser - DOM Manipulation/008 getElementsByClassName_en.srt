@@ -1,0 +1,316 @@
+1
+00:00:00,090 --> 00:00:02,710
+Next up, a third way of selecting.
+
+2
+00:00:02,730 --> 00:00:06,270
+Not by ID, not by tag name, but by class name.
+
+3
+00:00:06,360 --> 00:00:11,700
+So we use a lot of classes traditionally in our markup so we can style them with CSS.
+
+4
+00:00:11,850 --> 00:00:17,460
+And if we want to select based off of those classes, we have a special method to do just that.
+
+5
+00:00:17,490 --> 00:00:20,360
+Document dot get elements.
+
+6
+00:00:20,370 --> 00:00:25,320
+It's plural again not singular like id get elements by class name.
+
+7
+00:00:25,320 --> 00:00:26,430
+And that s right there.
+
+8
+00:00:26,430 --> 00:00:32,400
+The plural sized s on elements tells us that we'll get a collection back, we'll get multiple elements,
+
+9
+00:00:32,400 --> 00:00:37,950
+or we could get one element, but it will be in a collection just like we had in the last video.
+
+10
+00:00:38,460 --> 00:00:40,470
+So what classes do I have?
+
+11
+00:00:40,740 --> 00:00:48,180
+I've got a class called Special on two Liz So I could use that and I think that's the only class I have.
+
+12
+00:00:48,450 --> 00:00:51,390
+Maybe I'll add something to my h one here.
+
+13
+00:00:51,390 --> 00:00:53,910
+Let's go with class equals header.
+
+14
+00:00:55,380 --> 00:00:55,910
+Okay.
+
+15
+00:00:55,920 --> 00:00:59,310
+And I will refresh my page to get that change.
+
+16
+00:00:59,370 --> 00:01:03,510
+Now if I run document get elements by class name of header.
+
+17
+00:01:04,860 --> 00:01:08,520
+We get that each one notice it's in an HTML collection.
+
+18
+00:01:08,520 --> 00:01:11,070
+Once again, another array imposter.
+
+19
+00:01:11,220 --> 00:01:14,520
+It looks like an array, but we don't get any of those array methods.
+
+20
+00:01:14,640 --> 00:01:16,530
+We could also select multiple.
+
+21
+00:01:16,560 --> 00:01:20,160
+So we have this class called special.
+
+22
+00:01:20,490 --> 00:01:22,380
+If we select using that class name.
+
+23
+00:01:23,050 --> 00:01:24,520
+We get two elements.
+
+24
+00:01:24,520 --> 00:01:31,240
+Each one, once again is an object, has a bunch of stuff in it, and if I select something that is
+
+25
+00:01:31,240 --> 00:01:36,400
+not found like the class name of chickens, nothing has that class name.
+
+26
+00:01:36,400 --> 00:01:40,720
+We get an empty collection if I try and select based off of an ID.
+
+27
+00:01:40,960 --> 00:01:43,300
+We had an ID called What Do We Have?
+
+28
+00:01:43,300 --> 00:01:45,400
+Main It's not going to work.
+
+29
+00:01:45,910 --> 00:01:47,920
+There's nothing with the class name of Main.
+
+30
+00:01:47,950 --> 00:01:52,870
+There's something with the idea of Main, different methods, different goals, and that's pretty much
+
+31
+00:01:52,870 --> 00:01:53,050
+it.
+
+32
+00:01:53,080 --> 00:01:54,040
+Get elements by class.
+
+33
+00:01:54,040 --> 00:01:55,840
+Name does what it sounds like.
+
+34
+00:01:56,350 --> 00:02:01,960
+It's very similar to get elements by tag name, except it uses a different criteria tag name versus
+
+35
+00:02:01,960 --> 00:02:02,530
+class name.
+
+36
+00:02:02,530 --> 00:02:04,930
+We can iterate over it using a for loop.
+
+37
+00:02:05,230 --> 00:02:07,600
+You could use a regular for loop a for of loop.
+
+38
+00:02:07,600 --> 00:02:09,340
+One last thing I'll show you.
+
+39
+00:02:09,550 --> 00:02:14,800
+It has to do with all of the methods we've seen so far is that you don't have to call them only on the
+
+40
+00:02:14,800 --> 00:02:15,520
+document.
+
+41
+00:02:15,640 --> 00:02:22,540
+If I had a very complex document, let's say, with like thousands and thousands of elements, if I
+
+42
+00:02:22,540 --> 00:02:28,600
+wanted to select one element and then further search within that one element, I could do that.
+
+43
+00:02:28,750 --> 00:02:30,280
+So here's an example.
+
+44
+00:02:30,280 --> 00:02:34,990
+Let's say I have the class of special somewhere else on my page.
+
+45
+00:02:36,130 --> 00:02:37,090
+Let's do it.
+
+46
+00:02:37,090 --> 00:02:37,480
+I don't know.
+
+47
+00:02:37,480 --> 00:02:38,500
+I'll just put it here.
+
+48
+00:02:38,980 --> 00:02:44,860
+I'll make a paragraph with the class of special and just put some stuff in there.
+
+49
+00:02:45,700 --> 00:02:50,740
+Refresh my page if I want to search for elements with the class of special.
+
+50
+00:02:51,010 --> 00:02:55,690
+If I do document, get elements by class, name special, I'm getting all three.
+
+51
+00:02:56,110 --> 00:03:05,170
+If I only want to get the element with that class inside of this UL, I can first select the UL so I
+
+52
+00:03:05,170 --> 00:03:15,970
+can do that with get elements by tag name, get element by tag name and I want UL that gives me a list.
+
+53
+00:03:16,300 --> 00:03:21,820
+So I'm going to take the first one from that collection and save it to a variable called UL.
+
+54
+00:03:22,060 --> 00:03:30,820
+So now I have this variable UL, which is an object and it has its own copy of Get Elements by class
+
+55
+00:03:30,820 --> 00:03:37,300
+name or tag name so I could search within this UL and pass in special.
+
+56
+00:03:39,100 --> 00:03:44,530
+And now I only get those two lies that have the class of special because I narrowed it down.
+
+57
+00:03:44,530 --> 00:03:51,160
+I narrowed my search first to the UL, I stored it in a variable and then I searched for special as
+
+58
+00:03:51,160 --> 00:03:54,670
+a class within that UL versus earlier.
+
+59
+00:03:54,670 --> 00:04:01,360
+I looked for all elements in the document with that class and I got three so I could mix it up and use
+
+60
+00:04:01,360 --> 00:04:04,060
+tag name again instead of the UL ul.
+
+61
+00:04:04,270 --> 00:04:13,150
+Get elements by tag name and then pass in ly and I get the same thing.
+
+62
+00:04:13,150 --> 00:04:16,269
+And now I get three elements because there are three lies.
+
+63
+00:04:16,269 --> 00:04:20,589
+I'm not using class, I'm looking for any lie in the UL.
+
+64
+00:04:20,709 --> 00:04:26,470
+One very important note here is that get element by ID does not work this way because IDs are supposed
+
+65
+00:04:26,470 --> 00:04:28,990
+to be unique across the entire document.
+
+66
+00:04:28,990 --> 00:04:32,650
+There should only be one element with whatever id bear photo.
+
+67
+00:04:33,040 --> 00:04:36,370
+There's no functionality to search within another element.
+
+68
+00:04:36,850 --> 00:04:37,720
+You don't need that.
+
+69
+00:04:37,720 --> 00:04:40,000
+You just search based off of the entire document.
+
+70
+00:04:40,000 --> 00:04:49,510
+So we don't have access to UL get element by ID, we only have well, a mistyped ID if I type get element,
+
+71
+00:04:49,540 --> 00:04:52,450
+you can see get elements by class name and by tag name.
+
+72
+00:04:52,450 --> 00:04:54,070
+We don't have ID.
+
+73
+00:04:54,490 --> 00:04:55,030
+All right.
+
+74
+00:04:55,030 --> 00:04:56,470
+So you can winnow it down like that.
+
+75
+00:04:56,470 --> 00:05:01,540
+You can find one element, save it to a variable search within that if you need to.
+
+76
+00:05:01,960 --> 00:05:07,540
+And that's it for these three basic ways of selecting get element by ID, get elements by class name,
+
+77
+00:05:07,540 --> 00:05:08,980
+get elements by tag name.
+
+78
+00:05:08,980 --> 00:05:14,800
+Next, we're going to see a whole new way of doing it, a little bit of an improvement, a nicer way
+
+79
+00:05:14,800 --> 00:05:17,140
+of selecting where you only need one method.
+

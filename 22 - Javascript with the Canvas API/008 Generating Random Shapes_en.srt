@@ -1,0 +1,628 @@
+1
+00:00:00,790 --> 00:00:05,080
+Last thing I want to do to replicate that little demo we were looking at over here is to just make sure
+
+2
+00:00:05,080 --> 00:00:07,960
+that we can show a bunch of different shapes at the same time.
+
+3
+00:00:08,230 --> 00:00:10,060
+And there's not really any magic to this.
+
+4
+00:00:10,060 --> 00:00:12,570
+And that's why I want to show you how to do it in a little demo.
+
+5
+00:00:12,580 --> 00:00:16,510
+When I say that there's no magic to it, I mean, essentially we're going to do the same thing as what
+
+6
+00:00:16,510 --> 00:00:17,410
+we did before.
+
+7
+00:00:17,440 --> 00:00:20,620
+We're just going to create a bunch of different rectangles and add them into the world.
+
+8
+00:00:20,650 --> 00:00:21,430
+That's it.
+
+9
+00:00:22,150 --> 00:00:25,960
+So I'm going to find where we're creating that one single lone rectangle by itself right now.
+
+10
+00:00:26,500 --> 00:00:29,980
+I'm going to get a little comment right above it that says something like random.
+
+11
+00:00:30,710 --> 00:00:31,580
+Shapes.
+
+12
+00:00:31,700 --> 00:00:36,320
+Again, just to remind myself of what this code right here is about to do, and then I'll set up a four
+
+13
+00:00:36,320 --> 00:00:37,820
+loop around that statement.
+
+14
+00:00:38,420 --> 00:00:44,930
+So I'll say four, let I starting at zero i less than 20 I plus plus.
+
+15
+00:00:47,150 --> 00:00:49,160
+And I'll throw that in there like so.
+
+16
+00:00:51,050 --> 00:00:51,890
+Let's save this.
+
+17
+00:00:51,890 --> 00:00:56,780
+This should create 20 rectangles all on the exact same spot with the same size.
+
+18
+00:00:57,350 --> 00:01:02,010
+So if I go back over and refresh, we're going to see very quickly that they kind of like spread out.
+
+19
+00:01:02,030 --> 00:01:07,190
+That's because matter just wants to allow all these shapes to just contact each other on the edges.
+
+20
+00:01:07,580 --> 00:01:12,140
+When we create a bunch of different shapes on the exact same point, Maddox freaks out and tries to
+
+21
+00:01:12,140 --> 00:01:14,570
+distribute those all around the screen.
+
+22
+00:01:14,570 --> 00:01:17,180
+And that's why we end up seeing them all kind of stack up like so.
+
+23
+00:01:17,570 --> 00:01:23,360
+So a slightly better way to handle this would be to slightly randomize the starting positions of 202
+
+24
+00:01:23,360 --> 00:01:23,930
+hundred.
+
+25
+00:01:24,670 --> 00:01:29,800
+In order to randomize those starting positions, we can multiply the starting position by.
+
+26
+00:01:31,830 --> 00:01:35,030
+The width and the height of the canvas overall.
+
+27
+00:01:35,040 --> 00:01:39,960
+And that should give us some even distribution all around the screen to make sure that I multiply by
+
+28
+00:01:39,960 --> 00:01:41,660
+the width and the height correctly.
+
+29
+00:01:41,670 --> 00:01:46,200
+I'm going to define the width and the height up here at the top as constants.
+
+30
+00:01:46,890 --> 00:01:48,930
+They'll say width is 800.
+
+31
+00:01:49,870 --> 00:01:51,880
+And height is 600.
+
+32
+00:01:52,790 --> 00:01:57,350
+So now down here at options, I can replace the numbers with just width and height.
+
+33
+00:01:57,350 --> 00:02:01,400
+And because the keys and the values are the same, I can leave it just like that.
+
+34
+00:02:01,400 --> 00:02:05,810
+And those will be expanded to width is width and height is height.
+
+35
+00:02:07,560 --> 00:02:10,600
+You might be curious why we're pulling out these separate variables right here.
+
+36
+00:02:10,620 --> 00:02:15,330
+Well, it's because I essentially want to refer to the white height and width later on down the file.
+
+37
+00:02:16,050 --> 00:02:21,810
+If we start to reproduce numbers like 608 hundred down here on this line of code, it might be hard
+
+38
+00:02:21,810 --> 00:02:25,860
+later on to figure out exactly why we are using the numbers 806 hundred.
+
+39
+00:02:26,220 --> 00:02:30,810
+And so by defining a constant at the very top, that means that if we ever want to change these values,
+
+40
+00:02:30,810 --> 00:02:32,460
+we can change them in one location.
+
+41
+00:02:32,460 --> 00:02:34,800
+And that will make updates all throughout the file.
+
+42
+00:02:35,070 --> 00:02:39,180
+This is a technique that we're going to use quite a bit when we start working on the Maze version of
+
+43
+00:02:39,180 --> 00:02:40,560
+this app in just a moment.
+
+44
+00:02:41,390 --> 00:02:45,020
+So now we can use those two variables to do some random placement.
+
+45
+00:02:46,190 --> 00:02:52,730
+So for the position on the x axis, I'm going to say math random times with.
+
+46
+00:02:54,860 --> 00:02:58,250
+And then for the position on the y axis, I'll do math.
+
+47
+00:02:58,580 --> 00:02:59,270
+Random.
+
+48
+00:02:59,970 --> 00:03:05,160
+Time's height and I'll save just to get that all down to multi lined like so.
+
+49
+00:03:07,680 --> 00:03:07,950
+Okay.
+
+50
+00:03:07,950 --> 00:03:11,710
+So that should now give us some random distribution about the entire canvas.
+
+51
+00:03:11,730 --> 00:03:14,190
+So let's now save this, go back over refresh.
+
+52
+00:03:14,370 --> 00:03:15,330
+And there we go.
+
+53
+00:03:15,330 --> 00:03:19,290
+That's a little bit closer to the demo we saw over here where they all get kind of randomized.
+
+54
+00:03:20,930 --> 00:03:21,140
+All right.
+
+55
+00:03:21,140 --> 00:03:24,830
+So now the last thing that we need to do is to just try to create some different kinds of shapes instead
+
+56
+00:03:24,830 --> 00:03:25,970
+of just squares.
+
+57
+00:03:26,570 --> 00:03:30,890
+So for that inside of our for loop, we can add in a little if statement.
+
+58
+00:03:31,740 --> 00:03:33,300
+I'm going to create a random number.
+
+59
+00:03:33,300 --> 00:03:35,100
+So again, math random.
+
+60
+00:03:35,700 --> 00:03:37,380
+Remember when we called math random?
+
+61
+00:03:37,380 --> 00:03:39,810
+That's going to create a number between zero and one.
+
+62
+00:03:40,260 --> 00:03:44,520
+I'm going to check to see if that is greater than 0.5.
+
+63
+00:03:45,200 --> 00:03:49,400
+If it's greater than 0.5, then I'm going to go ahead and create a rectangle.
+
+64
+00:03:50,280 --> 00:03:52,980
+Otherwise I'm going to create a different shape altogether.
+
+65
+00:03:53,970 --> 00:04:00,240
+So if we don't create a rectangle and we have a value less than 0.5, I'm going to instead try to create
+
+66
+00:04:00,240 --> 00:04:01,080
+a circle.
+
+67
+00:04:01,470 --> 00:04:03,120
+So I'll do another world add.
+
+68
+00:04:04,230 --> 00:04:06,030
+I'm going to add a shape to the world.
+
+69
+00:04:06,850 --> 00:04:10,750
+And then as the second argument, I'll put in bodies dot circle.
+
+70
+00:04:11,720 --> 00:04:15,020
+The Circle method right here is very similar nature to rectangle.
+
+71
+00:04:15,470 --> 00:04:20,600
+The first two arguments are going to be numbers that represent where we want to put the circle in the
+
+72
+00:04:20,600 --> 00:04:26,960
+world, and we have to put in those two values as XY coordinates so we can use the same trick we use
+
+73
+00:04:26,970 --> 00:04:27,620
+right above.
+
+74
+00:04:27,650 --> 00:04:28,580
+So I'll say.
+
+75
+00:04:29,580 --> 00:04:31,940
+Math at random times with.
+
+76
+00:04:33,270 --> 00:04:34,620
+And math random.
+
+77
+00:04:35,540 --> 00:04:36,500
+Times height.
+
+78
+00:04:37,810 --> 00:04:40,090
+Then the third argument is a little bit different.
+
+79
+00:04:40,450 --> 00:04:43,480
+The third argument is going to be the radius of the circle.
+
+80
+00:04:43,930 --> 00:04:45,220
+So in this case, I'll do.
+
+81
+00:04:45,250 --> 00:04:49,480
+How about a slightly larger circle than the rectangles we're adding right now?
+
+82
+00:04:49,720 --> 00:04:51,100
+So I'll do a radius of.
+
+83
+00:04:51,100 --> 00:04:53,680
+Well, actually, technically, it'd be like, how about 35 or so?
+
+84
+00:04:53,950 --> 00:04:54,880
+That's the radius.
+
+85
+00:04:54,880 --> 00:04:59,560
+So the entire diameter or like the full width of the circle will be 75, which will be just a little
+
+86
+00:04:59,560 --> 00:05:01,720
+bit larger than the rectangles we're adding in.
+
+87
+00:05:02,910 --> 00:05:04,260
+It's all save this as well.
+
+88
+00:05:04,290 --> 00:05:05,190
+Refresh.
+
+89
+00:05:05,190 --> 00:05:06,150
+And there we go.
+
+90
+00:05:07,370 --> 00:05:10,310
+Now, if you want to, we can adjust the number of shapes we're adding in.
+
+91
+00:05:10,940 --> 00:05:14,060
+So instead of the 20 right there, we could do like say 50.
+
+92
+00:05:14,600 --> 00:05:18,500
+Just make sure that you don't add in too many shapes because otherwise your browser is going to lock
+
+93
+00:05:18,500 --> 00:05:23,060
+up due to the processing power from trying to figure out what to do with all these shapes.
+
+94
+00:05:24,680 --> 00:05:26,810
+So I'd say that's pretty close to the demo we just saw.
+
+95
+00:05:27,290 --> 00:05:30,720
+Now you will notice that these the demo over here has those little lines.
+
+96
+00:05:30,740 --> 00:05:33,830
+The lines are meant to indicate the orientation of each shape.
+
+97
+00:05:33,950 --> 00:05:37,550
+We can easily add those in by just adding in another option or two.
+
+98
+00:05:37,580 --> 00:05:38,840
+We will worry about that just yet.
+
+99
+00:05:38,840 --> 00:05:42,020
+But there is one other option I thought you might be curious about.
+
+100
+00:05:42,110 --> 00:05:46,280
+Right now we are operating the entire canvas in what is called wireframe mode.
+
+101
+00:05:47,040 --> 00:05:47,940
+In wireframe mode.
+
+102
+00:05:47,940 --> 00:05:50,160
+That means that we just see the outline of each shape.
+
+103
+00:05:50,640 --> 00:05:51,720
+But if we want to.
+
+104
+00:05:52,830 --> 00:05:54,870
+We can go back up to where we create our render.
+
+105
+00:05:55,500 --> 00:05:56,460
+Here it is right here.
+
+106
+00:05:57,370 --> 00:06:01,630
+And to the options object we can put in wireframe is false.
+
+107
+00:06:02,450 --> 00:06:06,410
+So that means try to render a solid shape as opposed to just the outline.
+
+108
+00:06:07,170 --> 00:06:08,650
+And we do a wireframe at false.
+
+109
+00:06:09,030 --> 00:06:09,450
+Excuse me.
+
+110
+00:06:09,450 --> 00:06:11,100
+I think it's capital F.
+
+111
+00:06:11,220 --> 00:06:11,970
+Let's try that.
+
+112
+00:06:12,270 --> 00:06:12,600
+Nope.
+
+113
+00:06:12,600 --> 00:06:13,440
+I'm totally wrong.
+
+114
+00:06:14,340 --> 00:06:15,390
+Wireframes.
+
+115
+00:06:15,390 --> 00:06:16,350
+That's what it is.
+
+116
+00:06:16,530 --> 00:06:17,920
+Sorry, I was going off of memory here.
+
+117
+00:06:17,940 --> 00:06:19,710
+Lowercase, f, plural.
+
+118
+00:06:20,100 --> 00:06:20,850
+That's better.
+
+119
+00:06:21,160 --> 00:06:21,510
+Okay.
+
+120
+00:06:21,510 --> 00:06:26,520
+So when we set wireframes to false, we're going to get solid shapes and the colors for them will be
+
+121
+00:06:26,520 --> 00:06:27,570
+picked at random.
+
+122
+00:06:28,140 --> 00:06:28,800
+There we go.
+
+123
+00:06:30,040 --> 00:06:34,840
+So now you can even see that the bordering shapes or the bordering rectangles are solid as well.
+
+124
+00:06:35,760 --> 00:06:39,960
+Personally, I like the wireframe just a little bit more, but when we eventually put the mace together,
+
+125
+00:06:39,960 --> 00:06:43,920
+I think you're going to find that showing the maze with some solid shapes instead of wireframes just
+
+126
+00:06:43,920 --> 00:06:45,840
+makes the maze look a little bit more interesting.
+
+127
+00:06:46,680 --> 00:06:50,250
+Last thing I want to mention is that we can customize the color that is being used.
+
+128
+00:06:50,280 --> 00:06:52,530
+If we go to where each shape is being created.
+
+129
+00:06:52,540 --> 00:06:57,060
+So let's say that for each circle, maybe we want them all to be the color red.
+
+130
+00:06:57,540 --> 00:06:59,190
+We can find where we create the circle.
+
+131
+00:07:00,370 --> 00:07:02,410
+So that's the body start circle right here.
+
+132
+00:07:02,770 --> 00:07:06,580
+And then as the last argument, we can put in an options object.
+
+133
+00:07:07,280 --> 00:07:11,740
+And inside there we can add in a little render property.
+
+134
+00:07:11,750 --> 00:07:15,260
+So this is going to customize how the circle gets rendered onto the screen.
+
+135
+00:07:15,770 --> 00:07:19,820
+So inside of this new render object, we can add in fill style.
+
+136
+00:07:20,730 --> 00:07:23,410
+And that can be any valid CSS color.
+
+137
+00:07:23,430 --> 00:07:25,480
+So it can be like a normal color, like red.
+
+138
+00:07:25,500 --> 00:07:27,570
+It could be a hex value and so on.
+
+139
+00:07:28,310 --> 00:07:29,780
+I'll try out Red really quickly.
+
+140
+00:07:30,110 --> 00:07:32,060
+So I'll save now all the circles are red.
+
+141
+00:07:32,600 --> 00:07:34,310
+Or I can do, say green.
+
+142
+00:07:35,900 --> 00:07:37,670
+And now I've got a bunch of green circles.
+
+143
+00:07:38,860 --> 00:07:39,160
+All right.
+
+144
+00:07:39,160 --> 00:07:43,750
+So that's pretty much it for the demo we've seen, basically, believe it or not, just about everything
+
+145
+00:07:43,750 --> 00:07:46,390
+that you need to see to build out the maze.
+
+146
+00:07:46,390 --> 00:07:50,320
+There's only one or two additional topics that we need to be aware of when it comes to matter.
+
+147
+00:07:50,650 --> 00:07:52,870
+That is to actually build the maze out.
+
+148
+00:07:52,870 --> 00:07:57,130
+And that's really just understanding how to control a single shape using the keyboard instead of the
+
+149
+00:07:57,130 --> 00:07:57,730
+mouse.
+
+150
+00:07:58,120 --> 00:07:59,110
+So we'll figure that out.
+
+151
+00:07:59,110 --> 00:08:01,240
+Honestly, that's not the worst thing in the world at all.
+
+152
+00:08:01,240 --> 00:08:04,120
+It's actually rather easy to add in the keyboard controls.
+
+153
+00:08:04,540 --> 00:08:08,230
+So most of the stuff around the maze that we're going to be doing is just discussing the algorithm we're
+
+154
+00:08:08,230 --> 00:08:10,930
+going to use to calculate the shape of the maze.
+
+155
+00:08:12,070 --> 00:08:12,340
+All right.
+
+156
+00:08:12,340 --> 00:08:13,470
+So let's take a pause right here.
+
+157
+00:08:13,480 --> 00:08:16,720
+We'll come back to the next video and start working on our Maze code.
+

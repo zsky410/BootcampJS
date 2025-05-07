@@ -1,0 +1,232 @@
+1
+00:00:00,150 --> 00:00:05,430
+Let's try writing another function this time, something that doesn't just print grumpy text over and
+
+2
+00:00:05,430 --> 00:00:06,240
+over and over.
+
+3
+00:00:06,270 --> 00:00:08,290
+Let's do something with some variation.
+
+4
+00:00:08,310 --> 00:00:12,300
+How about generating a random dice roll or a single die roll?
+
+5
+00:00:12,570 --> 00:00:14,160
+So a number from zero?
+
+6
+00:00:14,190 --> 00:00:14,600
+Nope.
+
+7
+00:00:14,610 --> 00:00:15,820
+There's no zero die.
+
+8
+00:00:15,840 --> 00:00:17,010
+1 to 6.
+
+9
+00:00:18,030 --> 00:00:21,030
+And we'll name this function something that makes sense.
+
+10
+00:00:21,030 --> 00:00:22,560
+Like roll die.
+
+11
+00:00:23,490 --> 00:00:27,870
+So we need function, space, roll, die, curly braces.
+
+12
+00:00:27,870 --> 00:00:31,410
+And now we need the logic to generate a random number from 0 to 6.
+
+13
+00:00:31,410 --> 00:00:34,980
+So let's roll equal.
+
+14
+00:00:35,130 --> 00:00:37,620
+And then we'll do math at random.
+
+15
+00:00:37,740 --> 00:00:40,260
+You know how much I'm not a fan of this syntax.
+
+16
+00:00:40,260 --> 00:00:42,060
+Math at random times six.
+
+17
+00:00:42,060 --> 00:00:45,950
+And then we need to floor that math floor.
+
+18
+00:00:46,800 --> 00:00:49,260
+Remember, math at random gives us a decimal.
+
+19
+00:00:49,410 --> 00:00:51,330
+So it would be like 0.2.
+
+20
+00:00:51,510 --> 00:00:55,230
+And then we multiply it by six in order to get a larger range.
+
+21
+00:00:55,230 --> 00:00:57,420
+So we're no longer just from 0 to 1.
+
+22
+00:00:57,420 --> 00:01:03,960
+We're going from zero to, I guess right below six because the largest decimal will generate is 0.9
+
+23
+00:01:03,960 --> 00:01:08,400
+something we multiply by six and then we floor it to get rid of that decimal.
+
+24
+00:01:08,580 --> 00:01:15,060
+So now we have a number from 0 to 5, but our dice roll or die roll should be from 1 to 6.
+
+25
+00:01:15,060 --> 00:01:16,290
+So we add one.
+
+26
+00:01:17,520 --> 00:01:20,370
+The logic is not all that important really.
+
+27
+00:01:20,370 --> 00:01:24,660
+We're still focusing on the fact that every time we call roll die, this code runs.
+
+28
+00:01:24,930 --> 00:01:33,090
+This code happens to make a number from 1 to 6, a random number, and then let's cancel that log rolled
+
+29
+00:01:33,870 --> 00:01:40,500
+and then string template literal the rule, refresh the page.
+
+30
+00:01:40,500 --> 00:01:45,930
+Nothing happens because we never executed this, we just registered it, we told JavaScript about it.
+
+31
+00:01:46,350 --> 00:01:53,610
+So we will now execute it once we get rolled, two, rolled, three, four or five.
+
+32
+00:01:53,640 --> 00:01:54,270
+Cool.
+
+33
+00:01:54,540 --> 00:01:57,240
+And we can do this within a loop if we wanted to.
+
+34
+00:01:57,270 --> 00:02:00,660
+We can even call functions within other functions.
+
+35
+00:02:00,840 --> 00:02:06,360
+So some games we'll have you roll a bunch of dice at the same time, like Yahtzee.
+
+36
+00:02:06,360 --> 00:02:08,550
+I think you roll five or six.
+
+37
+00:02:09,389 --> 00:02:15,180
+I know there's a bunch of other games, not much of a gambler, but let's make up a function called
+
+38
+00:02:15,450 --> 00:02:21,720
+How about throw dice and throw dice will simply call roll die.
+
+39
+00:02:23,520 --> 00:02:25,020
+How about six times?
+
+40
+00:02:25,800 --> 00:02:26,730
+We could do it like this.
+
+41
+00:02:26,730 --> 00:02:28,140
+Or we could do it with a loop.
+
+42
+00:02:28,140 --> 00:02:34,080
+But just to make it simple and clear that it's running six times, I'll do it manually by writing it
+
+43
+00:02:34,080 --> 00:02:39,270
+out six times a loop would probably make more sense if we wanted to have throw dice in the future,
+
+44
+00:02:39,270 --> 00:02:41,010
+potentially change the number of rolls.
+
+45
+00:02:41,010 --> 00:02:45,570
+So we could have throw dice to throw dice six for different games.
+
+46
+00:02:45,570 --> 00:02:46,590
+But this is good enough.
+
+47
+00:02:46,590 --> 00:02:47,490
+We're not there yet.
+
+48
+00:02:48,030 --> 00:02:49,350
+We'll refresh the page.
+
+49
+00:02:49,560 --> 00:02:50,730
+Nothing happens.
+
+50
+00:02:51,570 --> 00:02:54,270
+And that's because I haven't executed either function.
+
+51
+00:02:54,270 --> 00:03:03,000
+So I'm going to call throw dice if I can spell it, which in turn calls roll die six different times
+
+52
+00:03:03,000 --> 00:03:06,420
+each time this code runs and we get some number printed out.
+
+53
+00:03:07,230 --> 00:03:08,040
+There we go.
+
+54
+00:03:08,040 --> 00:03:10,080
+Four, six, one, four, two, two.
+
+55
+00:03:10,770 --> 00:03:14,310
+So we've seen more repetition of how we define a function.
+
+56
+00:03:14,310 --> 00:03:19,320
+But also the new component here is that we can call functions from inside other functions.
+
+57
+00:03:19,320 --> 00:03:21,810
+We can call them in loops, you can call them in conditionals.
+
+58
+00:03:21,810 --> 00:03:23,490
+We can call them pretty much anywhere.
+

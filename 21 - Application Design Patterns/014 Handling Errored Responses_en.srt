@@ -1,0 +1,336 @@
+1
+00:00:00,800 --> 00:00:05,230
+I was able to successfully search for some videos at the very end of last video and then show them as
+
+2
+00:00:05,240 --> 00:00:07,790
+a list on the screen along with the title of each.
+
+3
+00:00:08,060 --> 00:00:12,650
+However, as I was typing out Avengers, I saw little air up here at my console right here.
+
+4
+00:00:12,860 --> 00:00:17,820
+So this is an error that you might or might not be seeing right now if you're not seeing it.
+
+5
+00:00:17,840 --> 00:00:20,960
+Let me show you how you can get that same error very quickly.
+
+6
+00:00:20,990 --> 00:00:26,960
+Try refreshing your app and select your search bar right there and then enter in a long, random string
+
+7
+00:00:26,960 --> 00:00:27,830
+of characters.
+
+8
+00:00:28,190 --> 00:00:31,130
+And as soon as you do, you're probably going to see an error just like that.
+
+9
+00:00:31,370 --> 00:00:32,840
+So what's going on here?
+
+10
+00:00:33,320 --> 00:00:35,030
+We are successfully making our request.
+
+11
+00:00:35,030 --> 00:00:37,490
+You can see that if you still have your network tab open.
+
+12
+00:00:37,490 --> 00:00:41,630
+But we definitely are seeing something around movies not being iterable.
+
+13
+00:00:42,300 --> 00:00:46,830
+Well, let's take a look at the actual response that we're getting back inside this request and we can
+
+14
+00:00:46,830 --> 00:00:48,420
+figure out why we're getting this error.
+
+15
+00:00:48,960 --> 00:00:52,890
+So if you select that, you're going to see a response object that looks like that right there.
+
+16
+00:00:52,890 --> 00:00:55,560
+It has an air property and a response.
+
+17
+00:00:56,010 --> 00:01:01,560
+So essentially we entered in a search term for a movie that has no results whatsoever.
+
+18
+00:01:02,480 --> 00:01:07,400
+So rather than giving us some kind of response that says, hey, here's the list of movies that we found
+
+19
+00:01:07,400 --> 00:01:09,170
+zero, like an empty array.
+
+20
+00:01:09,200 --> 00:01:14,120
+This API chose to tell us inside of this kind of inner message right here that no movies were found
+
+21
+00:01:14,120 --> 00:01:15,050
+whatsoever.
+
+22
+00:01:15,560 --> 00:01:20,780
+So we need to make sure that we go back over to our fetch data function or somewhere inside of our code
+
+23
+00:01:20,780 --> 00:01:26,150
+and handle this case in which we make request and don't get any results whatsoever.
+
+24
+00:01:26,850 --> 00:01:31,680
+One other thing I want to mention at this time as well is that the search functionality with these API
+
+25
+00:01:31,680 --> 00:01:34,170
+is not quite as great as you might expect.
+
+26
+00:01:34,440 --> 00:01:39,660
+So for example, we've seen several times that we can put in Avengers and get the correct result.
+
+27
+00:01:40,050 --> 00:01:46,230
+But if I only put in the word like a VPN, a VPN like so unfortunately.
+
+28
+00:01:46,830 --> 00:01:49,270
+Well, that one happened to like actually turn out.
+
+29
+00:01:49,290 --> 00:01:49,850
+There we go.
+
+30
+00:01:49,860 --> 00:01:57,120
+So if I do AV E and G, it's only part of the word Avengers on any normal search engine or search functionality.
+
+31
+00:01:57,120 --> 00:02:01,260
+I would still expect that to give me some results of like The Avengers, because that's part of the
+
+32
+00:02:01,260 --> 00:02:01,800
+word.
+
+33
+00:02:01,920 --> 00:02:08,789
+But unfortunately, this API doesn't really consider partial terms like AV, E and G, so it doesn't
+
+34
+00:02:08,789 --> 00:02:10,680
+match that with the movie Avengers.
+
+35
+00:02:10,889 --> 00:02:13,610
+And so when I put that in, I still get the same kind of response.
+
+36
+00:02:13,620 --> 00:02:15,420
+It says Movie Not Found.
+
+37
+00:02:16,510 --> 00:02:18,250
+So that's just something we need to be aware of.
+
+38
+00:02:18,280 --> 00:02:22,930
+As we are testing out our application, we really do have to put in a reasonable title of a movie in
+
+39
+00:02:22,930 --> 00:02:25,180
+order to see any kind of results whatsoever.
+
+40
+00:02:26,060 --> 00:02:26,320
+Okay.
+
+41
+00:02:26,330 --> 00:02:30,530
+So let's go back over to our code and we're going to figure out some way to fix up our code and handle
+
+42
+00:02:30,530 --> 00:02:32,690
+the case in which we don't get any results at all.
+
+43
+00:02:34,230 --> 00:02:35,190
+So back over here.
+
+44
+00:02:35,490 --> 00:02:40,050
+I think the most reasonable way to handle this would be to go to our fetch data function.
+
+45
+00:02:40,800 --> 00:02:47,550
+So inside of fetch data right here, right after we make our request, let's try to look at the response.
+
+46
+00:02:47,670 --> 00:02:52,890
+We're going to inspect response to data and we're going to see if there was an error that we're getting
+
+47
+00:02:52,890 --> 00:02:54,600
+back when we made the request.
+
+48
+00:02:55,020 --> 00:02:59,130
+One thing I want to kind of mention here is that the errors that we're talking about right now are not
+
+49
+00:02:59,130 --> 00:03:01,110
+like actual request errors.
+
+50
+00:03:01,230 --> 00:03:06,630
+A real request error would be like if we typed in an incorrect URL and we didn't get any kind of response
+
+51
+00:03:06,630 --> 00:03:07,470
+whatsoever.
+
+52
+00:03:07,470 --> 00:03:09,060
+That's not what is happening here.
+
+53
+00:03:09,060 --> 00:03:12,360
+In this case, the request is being issued successfully.
+
+54
+00:03:12,360 --> 00:03:17,370
+We're getting back a status code of 200, which means that everything with the request went A-OK.
+
+55
+00:03:17,820 --> 00:03:21,450
+So this is not really an error in the strictest sense of the word.
+
+56
+00:03:21,750 --> 00:03:25,020
+So in my opinion, this is not the best designed API.
+
+57
+00:03:25,050 --> 00:03:26,940
+Nonetheless, it's what we're working with.
+
+58
+00:03:27,420 --> 00:03:32,250
+So rather than handling an error in a classic sense, we're just going to check to see if the response
+
+59
+00:03:32,250 --> 00:03:33,600
+has an error property.
+
+60
+00:03:33,600 --> 00:03:38,130
+And if it does, then we're just going to return an empty array and say, well, turns out we didn't
+
+61
+00:03:38,130 --> 00:03:39,660
+find any results whatsoever.
+
+62
+00:03:40,670 --> 00:03:41,690
+So back over here.
+
+63
+00:03:41,840 --> 00:03:47,030
+I'm going to say if response dot data dot air like so.
+
+64
+00:03:47,030 --> 00:03:51,380
+And again, notice that we have a capital E because that is what the response is giving us.
+
+65
+00:03:51,770 --> 00:03:58,130
+So if there is an error, let's just return an empty array and essentially say we didn't get any movies
+
+66
+00:03:58,130 --> 00:03:59,780
+whatsoever to show to the user.
+
+67
+00:04:01,690 --> 00:04:01,990
+Okay.
+
+68
+00:04:01,990 --> 00:04:03,370
+So now let's try this again.
+
+69
+00:04:05,970 --> 00:04:10,560
+I'm going to refresh and I'm going to put in a very strange search term here.
+
+70
+00:04:10,560 --> 00:04:11,940
+So just a bunch of characters.
+
+71
+00:04:12,330 --> 00:04:15,510
+Now, I don't see anything on the screen and I don't have an air either.
+
+72
+00:04:15,510 --> 00:04:17,790
+So this is definitely what I would really expect.
+
+73
+00:04:17,790 --> 00:04:21,060
+If I don't get any results, I don't show any content whatsoever.
+
+74
+00:04:21,600 --> 00:04:22,590
+That might seem a little bit odd.
+
+75
+00:04:22,590 --> 00:04:24,720
+But remember, this is kind of the.
+
+76
+00:04:25,720 --> 00:04:27,790
+And a system that we agreed with right here.
+
+77
+00:04:27,790 --> 00:04:32,290
+We had said that if a user finishes typing and we find no results, we're just not going to show any
+
+78
+00:04:32,290 --> 00:04:33,040
+content.
+
+79
+00:04:33,130 --> 00:04:37,390
+In a perfect world, we would show the user some kind of error message and tell them that, or like
+
+80
+00:04:37,390 --> 00:04:41,650
+a warning or something like that and tell them, Hey, we didn't find any content, but right now this
+
+81
+00:04:41,650 --> 00:04:42,880
+is definitely good enough.
+
+82
+00:04:43,820 --> 00:04:44,060
+Okay.
+
+83
+00:04:44,060 --> 00:04:45,440
+So that we got that ear fixed up.
+
+84
+00:04:45,440 --> 00:04:48,200
+So another quick pause right here and we'll continue in just a moment.
+

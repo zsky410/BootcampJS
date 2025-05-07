@@ -1,0 +1,276 @@
+1
+00:00:00,270 --> 00:00:03,590
+Next up, we have a new loop called the four of Loop.
+
+2
+00:00:03,600 --> 00:00:07,670
+So it's new to us in this course, but it's also new to JavaScript.
+
+3
+00:00:07,680 --> 00:00:13,890
+It's only been around a couple of years and unfortunately it is not supported in Internet Explorer.
+
+4
+00:00:13,920 --> 00:00:19,110
+If we go to MD and scroll down to the bottom, there's a whole line of red right there for Internet
+
+5
+00:00:19,110 --> 00:00:19,890
+Explorer.
+
+6
+00:00:20,160 --> 00:00:24,560
+So again, it's not a reason to ignore it or to stop using four of.
+
+7
+00:00:24,570 --> 00:00:25,970
+It's just something to be aware of.
+
+8
+00:00:25,980 --> 00:00:31,050
+It's not going to work automatically in every single browser, but Chrome, Firefox, Safari, they
+
+9
+00:00:31,050 --> 00:00:31,920
+all support it.
+
+10
+00:00:32,250 --> 00:00:38,430
+So four of is a really simple syntax and it addresses a common use case for a loop where we want to
+
+11
+00:00:38,430 --> 00:00:43,840
+iterate over an iterable and iterable could be something like an array or a string.
+
+12
+00:00:43,860 --> 00:00:46,850
+There are other items that are iterable in JavaScript.
+
+13
+00:00:46,870 --> 00:00:49,030
+That's something we'll talk about later as well.
+
+14
+00:00:49,050 --> 00:00:50,790
+I hate saying that, but it's true.
+
+15
+00:00:50,820 --> 00:00:55,350
+For now, we'll work with arrays and strings so the syntax is super clean.
+
+16
+00:00:55,470 --> 00:01:00,240
+Instead of creating a for loop, a regular for loop where we generate a variable.
+
+17
+00:01:00,450 --> 00:01:02,250
+Let's say I set to zero.
+
+18
+00:01:02,280 --> 00:01:04,920
+We add one to each time we keep going.
+
+19
+00:01:04,920 --> 00:01:06,990
+While is less than the array dot length.
+
+20
+00:01:06,990 --> 00:01:14,130
+Instead of that we simply write four and then some variable of iterable so of array.
+
+21
+00:01:14,130 --> 00:01:21,000
+And that variable we assign will store each individual element of the array or of the string.
+
+22
+00:01:21,120 --> 00:01:22,290
+So here's an example.
+
+23
+00:01:22,440 --> 00:01:28,440
+We have an array called subreddits, just some strings of different Reddit subreddits using a regular
+
+24
+00:01:28,440 --> 00:01:29,430
+old for loop.
+
+25
+00:01:29,580 --> 00:01:37,140
+I would have to make a variable I while I is less than subreddits dot length C++ and then let's just
+
+26
+00:01:37,140 --> 00:01:39,750
+console.log each individual element.
+
+27
+00:01:39,750 --> 00:01:41,730
+So that would be subreddits of I.
+
+28
+00:01:42,810 --> 00:01:46,330
+So we're only using AI here to access each element.
+
+29
+00:01:46,350 --> 00:01:47,710
+It's kind of a lot of work.
+
+30
+00:01:47,730 --> 00:01:53,610
+It's not very attractive or clean to look at, especially if we're only if we only care about soccer,
+
+31
+00:01:53,610 --> 00:01:54,750
+pop heads, cringe and books.
+
+32
+00:01:54,750 --> 00:01:56,280
+We don't care about the numbers.
+
+33
+00:01:56,280 --> 00:01:57,750
+We don't care about the indices.
+
+34
+00:01:57,750 --> 00:02:00,840
+We just need them in order to access those elements.
+
+35
+00:02:01,080 --> 00:02:07,500
+So another alternative is the four of and that looks like this for lit and then we decide on a variable
+
+36
+00:02:07,500 --> 00:02:11,280
+name and this variable is going to represent each element.
+
+37
+00:02:11,280 --> 00:02:14,200
+So the name, it doesn't matter again, just like AI.
+
+38
+00:02:14,220 --> 00:02:17,700
+You could use AI, but that's generally not a good idea.
+
+39
+00:02:17,730 --> 00:02:23,370
+Most people, when they see AI are going to imagine or assume that it's a number, an index.
+
+40
+00:02:23,670 --> 00:02:35,190
+So I would go with something like sub or subreddit or element l, I'll go with sub of subreddits console.log
+
+41
+00:02:36,450 --> 00:02:37,290
+sub.
+
+42
+00:02:37,440 --> 00:02:43,740
+So we don't have to access the array using square brackets and a number sub is going to automatically
+
+43
+00:02:43,740 --> 00:02:47,370
+have each element it's stored in at each time through the loop.
+
+44
+00:02:47,400 --> 00:02:53,040
+If I run my code over here, we loop twice the first time using a for loop, the second time using a
+
+45
+00:02:53,040 --> 00:02:54,060
+four of loop.
+
+46
+00:02:54,360 --> 00:02:56,870
+Hopefully you can see this is a dramatic improvement.
+
+47
+00:02:56,880 --> 00:02:58,520
+It's a lot easier to read.
+
+48
+00:02:58,530 --> 00:03:04,710
+It kind of approximates English instead of this where we're generating these random or not random,
+
+49
+00:03:04,710 --> 00:03:08,340
+but these ugly indices and we're not using them in any way.
+
+50
+00:03:08,460 --> 00:03:11,910
+So I much prefer four of which is why I was added in.
+
+51
+00:03:11,940 --> 00:03:16,860
+Not because I prefer it, but because it's such a common scenario where you need to iterate over elements
+
+52
+00:03:16,860 --> 00:03:21,600
+in an array or a string and you don't need those numbers, so why bother?
+
+53
+00:03:21,630 --> 00:03:27,360
+So this was added in it was proposed and added in to the spec and for of we'll work on anything that
+
+54
+00:03:27,360 --> 00:03:29,220
+is iterable in JavaScript.
+
+55
+00:03:29,220 --> 00:03:32,130
+Another example of an iterable is a string.
+
+56
+00:03:32,340 --> 00:03:38,880
+So we could do a four let character or char car of and then some string.
+
+57
+00:03:38,880 --> 00:03:42,570
+How about hello everyone.
+
+58
+00:03:42,570 --> 00:03:46,290
+Actually, you know that's let's do let's do -- a doodle do.
+
+59
+00:03:46,290 --> 00:03:49,650
+I don't know if that's how you spell that noise, that sound.
+
+60
+00:03:49,650 --> 00:03:57,030
+And then let's just cancel that log character and let's do car cha two uppercase.
+
+61
+00:03:58,020 --> 00:04:05,490
+So each time we're going to uppercase that character and there we go, -- a doodle do so we can iterate
+
+62
+00:04:05,490 --> 00:04:09,660
+over each character in a string, each element in an array.
+
+63
+00:04:09,690 --> 00:04:12,090
+We don't need an indices or an index.
+
+64
+00:04:12,090 --> 00:04:13,110
+We don't need a number.
+
+65
+00:04:13,110 --> 00:04:15,090
+We don't have to do any of this logic.
+
+66
+00:04:15,090 --> 00:04:22,980
+All we do is say for each thing in subreddit so let sub of subreddits let item plot element let character
+
+67
+00:04:22,980 --> 00:04:24,030
+let letter.
+
+68
+00:04:24,030 --> 00:04:24,870
+It's up to you.
+
+69
+00:04:25,260 --> 00:04:27,600
+It's a lot cleaner and a lot easier to work with.
+

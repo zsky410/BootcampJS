@@ -1,0 +1,472 @@
+1
+00:00:00,640 --> 00:00:04,660
+Now that we have created those starting data arrays that are going to keep track of the state of our
+
+2
+00:00:04,660 --> 00:00:07,240
+maze, we can start to implement our actual algorithm.
+
+3
+00:00:07,330 --> 00:00:12,050
+So step one is to pick a random starting cell, to pick a random starting cell.
+
+4
+00:00:12,070 --> 00:00:17,170
+We essentially need some starting dimensions or index that points into the grid array.
+
+5
+00:00:18,030 --> 00:00:23,910
+So if this is our maze right here, we currently have three rows and three columns.
+
+6
+00:00:24,420 --> 00:00:28,740
+So to pick a random starting cell, I need the index of some row in column inside of here.
+
+7
+00:00:28,740 --> 00:00:33,170
+So that essentially means we just have to generate a value between zero and two.
+
+8
+00:00:33,180 --> 00:00:34,890
+So maybe we start off with zero.
+
+9
+00:00:35,590 --> 00:00:37,720
+And then we need another zero and two.
+
+10
+00:00:37,750 --> 00:00:40,120
+So maybe we start off with zero as well.
+
+11
+00:00:40,690 --> 00:00:43,480
+So this would mean row zero and column zero.
+
+12
+00:00:43,480 --> 00:00:44,470
+So that would be right there.
+
+13
+00:00:45,570 --> 00:00:49,860
+If we instead got something like a row of two.
+
+14
+00:00:50,590 --> 00:00:53,530
+And a column of one.
+
+15
+00:00:53,890 --> 00:00:58,330
+Then we would go to row two, which is right there, and column one which is right there.
+
+16
+00:00:59,200 --> 00:01:03,190
+Remember, we're starting off at zero here because we're using a ray index notation.
+
+17
+00:01:03,190 --> 00:01:09,370
+And so with a ray index notation, we have zero one and two and zero one and two.
+
+18
+00:01:10,230 --> 00:01:14,010
+So to generate these numbers, we essentially just have to take a look at that cells variable that we
+
+19
+00:01:14,010 --> 00:01:14,820
+just created.
+
+20
+00:01:15,000 --> 00:01:19,620
+We're going to multiply it by a random number and then we're going to take the OR round that number
+
+21
+00:01:19,620 --> 00:01:21,390
+down to the lowest integer.
+
+22
+00:01:21,510 --> 00:01:22,680
+So let's get to it.
+
+23
+00:01:23,400 --> 00:01:24,540
+Back inside my editor.
+
+24
+00:01:26,120 --> 00:01:30,950
+Right after we create the horizontals array, I'm going to create a new variable called Start Row,
+
+25
+00:01:31,520 --> 00:01:33,920
+and that's going to be a math floor.
+
+26
+00:01:34,930 --> 00:01:36,790
+Of math random.
+
+27
+00:01:37,510 --> 00:01:39,550
+Times sells.
+
+28
+00:01:40,830 --> 00:01:45,960
+And I'm going to repeat that same calculation for my starting column as well.
+
+29
+00:01:47,230 --> 00:01:49,360
+So now if we console.log out those variables.
+
+30
+00:01:50,530 --> 00:01:55,420
+Of start row and start column that's going to tell us exactly where we're going to start our iteration
+
+31
+00:01:55,420 --> 00:01:55,870
+at.
+
+32
+00:01:56,170 --> 00:01:57,850
+So, as usual, a quick test here.
+
+33
+00:01:57,850 --> 00:01:58,600
+Refresh.
+
+34
+00:01:59,510 --> 00:02:01,040
+And we get one and three.
+
+35
+00:02:01,270 --> 00:02:01,930
+Now, that's okay.
+
+36
+00:02:01,940 --> 00:02:05,900
+If you recall just a second ago, I had changed cells up here to five.
+
+37
+00:02:05,930 --> 00:02:10,039
+I'm going to take that back down to three really quickly, just to stay in line with the diagram that
+
+38
+00:02:10,039 --> 00:02:10,940
+I just showed you.
+
+39
+00:02:11,300 --> 00:02:14,960
+So now if I save this again, now we are going to get some realistic values.
+
+40
+00:02:14,960 --> 00:02:19,460
+So this would mean start iteration at zero zero 0 to 1 zero and so on.
+
+41
+00:02:19,460 --> 00:02:22,730
+We can keep refreshing and it's going to show us these different starting points.
+
+42
+00:02:24,420 --> 00:02:25,480
+So that's a good start.
+
+43
+00:02:25,500 --> 00:02:27,780
+So now that we've got that starting point.
+
+44
+00:02:28,940 --> 00:02:34,310
+I'm going to define a function that we're going to call over and over with the starting row and starting
+
+45
+00:02:34,310 --> 00:02:34,880
+column.
+
+46
+00:02:35,330 --> 00:02:39,920
+And inside that function, we're going to go through this algorithm where we're going to go through
+
+47
+00:02:39,920 --> 00:02:42,050
+each of these steps that we just discussed right here.
+
+48
+00:02:42,940 --> 00:02:44,260
+So I'm going to make a function.
+
+49
+00:02:45,730 --> 00:02:49,480
+Called Step Through Cell.
+
+50
+00:02:49,540 --> 00:02:52,580
+That's a ridiculous name if you think of a better name for it.
+
+51
+00:02:52,600 --> 00:02:54,040
+Feel free to do so.
+
+52
+00:02:54,430 --> 00:02:58,570
+In my original notes for this, I called it recursive because we're going to eventually do some recursion,
+
+53
+00:02:58,570 --> 00:03:00,390
+but honestly, call it whatever you want.
+
+54
+00:03:00,400 --> 00:03:04,660
+Just make sure that it's kind of clear that this is going to be iterating through our maze or a collection
+
+55
+00:03:04,660 --> 00:03:06,130
+of cells or whatever else.
+
+56
+00:03:07,200 --> 00:03:12,780
+So when we call this function, we're going to pass in some row in column that we want to visit inside
+
+57
+00:03:12,780 --> 00:03:13,500
+of our grid.
+
+58
+00:03:14,320 --> 00:03:18,460
+So then right after step three sell, I'm going to make sure that I call it right away with start row
+
+59
+00:03:18,460 --> 00:03:19,450
+and start column.
+
+60
+00:03:19,810 --> 00:03:21,130
+So I'll do step.
+
+61
+00:03:22,250 --> 00:03:23,240
+Through cell.
+
+62
+00:03:24,320 --> 00:03:27,590
+And I'll pass in my start row and start column.
+
+63
+00:03:28,490 --> 00:03:32,180
+So then inside of here is where we're going to start to put together all of our logic.
+
+64
+00:03:32,690 --> 00:03:36,590
+I'm going to first begin by putting a couple of comments inside of here just to guide myself and make
+
+65
+00:03:36,590 --> 00:03:39,200
+sure that I put down the correct sequence of steps.
+
+66
+00:03:39,940 --> 00:03:44,050
+I'm going to generally be using this right here as a template for what I need to do inside of this function.
+
+67
+00:03:45,530 --> 00:03:53,150
+So to get started, I'm going to first say if I have visited these cell at row column.
+
+68
+00:03:53,900 --> 00:03:54,940
+Then return.
+
+69
+00:03:54,950 --> 00:03:58,100
+So remember, if we visit a cell already, then we should return early.
+
+70
+00:03:58,100 --> 00:04:00,830
+We don't want to do anything if we've already visited this cell.
+
+71
+00:04:01,960 --> 00:04:08,290
+So if we get past that little check right there, then we'll say, mark this cell as being visited.
+
+72
+00:04:08,830 --> 00:04:13,090
+Remember to keep track of what cells we visited, we have the grid array.
+
+73
+00:04:13,690 --> 00:04:19,600
+So if we look at the grid at some index and we have a value of false, that means it has not been visited.
+
+74
+00:04:19,990 --> 00:04:24,220
+So when we say that we want to mark the cell as visited, that means that we want to go into that grid
+
+75
+00:04:24,220 --> 00:04:27,220
+array and update some element inside of it to true.
+
+76
+00:04:27,250 --> 00:04:29,890
+That's what makes a cell being marked as visited.
+
+77
+00:04:32,000 --> 00:04:38,840
+Then after that, we're going to assemble randomly ordered list of neighbors.
+
+78
+00:04:41,190 --> 00:04:43,410
+Then for each neighbor.
+
+79
+00:04:43,410 --> 00:04:45,960
+So I bet you can guess that we're going to do some iteration there.
+
+80
+00:04:45,960 --> 00:04:48,630
+So for each neighbor, we're going to do a series of steps.
+
+81
+00:04:49,950 --> 00:04:52,290
+First off, we went to check to see.
+
+82
+00:04:53,740 --> 00:04:56,500
+If that neighbor is out of bounds.
+
+83
+00:04:57,100 --> 00:05:02,080
+So at some point in time, with all this logic inside of here, we might end up trying to visit, like
+
+84
+00:05:02,080 --> 00:05:03,910
+or be out of cells, say, right here.
+
+85
+00:05:04,120 --> 00:05:09,010
+And if we try to look at all the neighbors around us, well, obviously there's above into the right.
+
+86
+00:05:09,010 --> 00:05:14,440
+But we might also kind of accidentally write into our code that there is a cell below or to the left
+
+87
+00:05:14,440 --> 00:05:16,180
+when, of course, there isn't one at all.
+
+88
+00:05:16,630 --> 00:05:21,130
+So to handle the case in which we accidentally try to visit some cell that doesn't exist, well, we
+
+89
+00:05:21,130 --> 00:05:25,300
+just need to make sure that we add in some code to check and make sure that we don't try to go in some
+
+90
+00:05:25,300 --> 00:05:26,530
+direction that doesn't exist.
+
+91
+00:05:26,530 --> 00:05:28,420
+So that's what this step right here is going to do.
+
+92
+00:05:30,260 --> 00:05:34,430
+After that, we will check to see if we have visited.
+
+93
+00:05:36,980 --> 00:05:38,960
+Visited that neighbor.
+
+94
+00:05:39,690 --> 00:05:41,550
+Continue to next neighbor.
+
+95
+00:05:41,940 --> 00:05:45,370
+So we're going to end up with two checks to see if we have visited a cell.
+
+96
+00:05:45,390 --> 00:05:47,520
+That's just to a little bit defensive coding.
+
+97
+00:05:47,520 --> 00:05:49,890
+We don't really have to add in two separate checks.
+
+98
+00:05:49,890 --> 00:05:51,210
+This is just for our benefit.
+
+99
+00:05:51,210 --> 00:05:55,860
+In case we ever make a mistake, we can eventually remove one of the two checks if we really want to.
+
+100
+00:05:57,780 --> 00:06:01,530
+So then after that, if we've gotten past these two checks.
+
+101
+00:06:03,500 --> 00:06:05,960
+Then we're going to go ahead and visit that next cell.
+
+102
+00:06:05,960 --> 00:06:09,800
+So we're going to say visit that next cell.
+
+103
+00:06:10,340 --> 00:06:17,120
+And of course, before that, we need to make sure that we remove a wall from either the horizontal
+
+104
+00:06:17,150 --> 00:06:17,690
+array.
+
+105
+00:06:18,490 --> 00:06:23,560
+Or the verticals array, and that depends upon whether we are moving to left, right, up or down.
+
+106
+00:06:24,700 --> 00:06:29,500
+And then when we say right here, visit that next cell, that essentially means call our step through
+
+107
+00:06:29,500 --> 00:06:30,670
+cell function again.
+
+108
+00:06:32,040 --> 00:06:36,360
+And pass in the row and column of the cell that we are now trying to visit.
+
+109
+00:06:37,080 --> 00:06:37,950
+So that is it.
+
+110
+00:06:37,950 --> 00:06:40,070
+That is the entire algorithm right there.
+
+111
+00:06:40,080 --> 00:06:41,580
+That's pretty much all the steps.
+
+112
+00:06:41,580 --> 00:06:43,200
+So we're really just going to come back through.
+
+113
+00:06:43,200 --> 00:06:48,030
+And for each of these different comments, we're going to add in like 1 to 3 or four lines of code.
+
+114
+00:06:48,180 --> 00:06:51,900
+So at the end of the day, like I said, the algorithm is really not the worst thing in the world.
+
+115
+00:06:51,900 --> 00:06:55,950
+As long as you've got a sheet of paper that you can use to kind of diagram out what we're doing at each
+
+116
+00:06:55,950 --> 00:06:56,370
+step.
+
+117
+00:06:57,060 --> 00:07:01,470
+So now that we've got some guiding comments here, let's take a pause and start to fill in our implementation
+
+118
+00:07:01,470 --> 00:07:02,490
+in the next video.
+

@@ -1,0 +1,268 @@
+1
+00:00:00,150 --> 00:00:06,630
+There's a special keyword in JavaScript called Brake, which we can use inside of loops to break out
+
+2
+00:00:06,630 --> 00:00:12,600
+of that loop to stop its execution whenever JavaScript encounters break, that loop that it's enclosed
+
+3
+00:00:12,600 --> 00:00:13,740
+in is done.
+
+4
+00:00:14,310 --> 00:00:17,030
+So you can use this technically in a for loop.
+
+5
+00:00:17,040 --> 00:00:20,280
+It's pretty uncommon, but we could.
+
+6
+00:00:20,280 --> 00:00:25,830
+And the reason it's uncommon is that for loop, you're writing the exact rules, you're writing how
+
+7
+00:00:25,830 --> 00:00:27,120
+many times it should run.
+
+8
+00:00:27,120 --> 00:00:29,070
+So four are equals zero.
+
+9
+00:00:29,220 --> 00:00:30,120
+Less than ten.
+
+10
+00:00:30,420 --> 00:00:30,690
+Plus.
+
+11
+00:00:30,690 --> 00:00:31,380
+Plus.
+
+12
+00:00:31,530 --> 00:00:33,930
+I know how many times this is going to run.
+
+13
+00:00:34,320 --> 00:00:41,280
+Let's say I'll cancel that log each time and then I'll break when I is equal to five.
+
+14
+00:00:41,310 --> 00:00:49,710
+If I equals five, I'll call break and this breaks out of that loop.
+
+15
+00:00:49,890 --> 00:00:51,210
+Let's see what happens.
+
+16
+00:00:52,020 --> 00:00:53,580
+Zero one, two, three, four, five.
+
+17
+00:00:53,580 --> 00:00:56,390
+We encounter the break and the loop is done.
+
+18
+00:00:56,400 --> 00:01:01,740
+Like I said, it's not very commonly used in a for loop because why not just write this for loop to
+
+19
+00:01:01,740 --> 00:01:06,030
+go from 0 to 5 instead of zero through ten and then stopping halfway through.
+
+20
+00:01:06,360 --> 00:01:08,190
+But it is something that you can do.
+
+21
+00:01:08,370 --> 00:01:14,460
+Also, I should mention if you have multiple loops and you break in one of the nested loops, it does
+
+22
+00:01:14,460 --> 00:01:17,040
+not stop all loops from executing.
+
+23
+00:01:17,040 --> 00:01:21,390
+It will only stop the inner loop or the current loop that break is located in.
+
+24
+00:01:21,390 --> 00:01:26,190
+But like I said, not that common in a for loop, but it can be common in a while loop.
+
+25
+00:01:26,280 --> 00:01:31,140
+In fact, using break we can restructure our wild loop from earlier.
+
+26
+00:01:31,140 --> 00:01:35,760
+This one where we had a guessing game wasn't much of a game for us, but for the computer.
+
+27
+00:01:35,760 --> 00:01:40,980
+Maybe guessing a random number over and over until the guest match the target.
+
+28
+00:01:40,980 --> 00:01:44,070
+We could rewrite that using break and a while loop.
+
+29
+00:01:44,160 --> 00:01:52,230
+And this might seem odd to write this loop right here while true, but we can do this as long as we
+
+30
+00:01:52,230 --> 00:01:53,640
+break out at some point.
+
+31
+00:01:53,940 --> 00:01:56,580
+So this is basically saying loop forever.
+
+32
+00:01:56,580 --> 00:01:59,580
+But then in the loop we're going to say not so fast.
+
+33
+00:01:59,580 --> 00:02:02,220
+If this condition is true, break out of the loop.
+
+34
+00:02:02,220 --> 00:02:06,900
+If we wanted to get this exact same logic going, I'll just uncomment most of this.
+
+35
+00:02:07,050 --> 00:02:09,660
+We will pick our target and a guess.
+
+36
+00:02:10,050 --> 00:02:17,700
+And then, while true, if target equals guess, we will break.
+
+37
+00:02:18,360 --> 00:02:20,490
+Otherwise we will make a new guess.
+
+38
+00:02:22,890 --> 00:02:30,720
+Guess equals math for math random and at the bottom we'll print the target and the guess.
+
+39
+00:02:30,720 --> 00:02:32,610
+Once you've won, congrats you win.
+
+40
+00:02:32,610 --> 00:02:37,740
+And then let's also print it here so we can see what's going on and I can get rid of my original while
+
+41
+00:02:37,770 --> 00:02:38,160
+loop.
+
+42
+00:02:39,060 --> 00:02:44,340
+So we still have our logic to get the two random numbers and then we have this loop that seems crazy.
+
+43
+00:02:44,430 --> 00:02:48,720
+It seems like it should be an infinite loop, while true, just a loop forever.
+
+44
+00:02:48,720 --> 00:02:52,590
+But then we have our condition that says if target is the same as guess break.
+
+45
+00:02:52,590 --> 00:02:58,320
+Now if that break doesn't happen, we'll print out target and guess and then we'll get a new guess and
+
+46
+00:02:58,320 --> 00:03:00,900
+the loop starts over because it's still true.
+
+47
+00:03:00,900 --> 00:03:03,540
+While true, it's going to go forever until we break.
+
+48
+00:03:03,960 --> 00:03:06,930
+If I run this, you can see it still works.
+
+49
+00:03:06,930 --> 00:03:11,370
+Target is nine guesses seven target nine guess one guess was nine.
+
+50
+00:03:11,460 --> 00:03:14,490
+So the loop broke right there and then we print.
+
+51
+00:03:14,490 --> 00:03:15,510
+Congrats, you win.
+
+52
+00:03:16,110 --> 00:03:20,010
+Now I'm not such a big fan of this approach because of two main reasons.
+
+53
+00:03:20,010 --> 00:03:26,190
+One, it can be easy to end up with infinite loops, but the main reason I don't like it is writing,
+
+54
+00:03:26,190 --> 00:03:31,260
+while true, is just not very it's not very explanatory or informational.
+
+55
+00:03:31,260 --> 00:03:39,450
+If you look at it, I would prefer to write something that was maybe while game not or maybe not game
+
+56
+00:03:39,450 --> 00:03:39,840
+over.
+
+57
+00:03:39,840 --> 00:03:40,950
+I think that's better.
+
+58
+00:03:41,190 --> 00:03:46,620
+And have a boolean called game over and you could change boolean or change who came over from true to
+
+59
+00:03:46,620 --> 00:03:48,030
+false or false to true.
+
+60
+00:03:48,480 --> 00:03:54,150
+So for me, when I look at this loop here, you can change this and structure it in a better way while
+
+61
+00:03:54,150 --> 00:03:58,560
+still using break, but I just don't find it as intuitive to look at.
+
+62
+00:03:58,560 --> 00:04:02,160
+But I did want to show you break because it is used occasionally.
+
+63
+00:04:02,160 --> 00:04:07,410
+Again, it will break out of the loop it's located in, but if there are nested loops, it will not
+
+64
+00:04:07,410 --> 00:04:08,490
+break all of them.
+
+65
+00:04:08,490 --> 00:04:10,260
+It breaks out of its current loop.
+
+66
+00:04:10,260 --> 00:04:16,019
+It stops its execution cold in its tracks, even if it was set to go off 1000 more times.
+
+67
+00:04:16,019 --> 00:04:18,360
+If it encounters break, then it's done.
+

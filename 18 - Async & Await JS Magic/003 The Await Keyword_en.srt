@@ -1,0 +1,296 @@
+1
+00:00:00,090 --> 00:00:02,490
+Next up, we move on to part two.
+
+2
+00:00:02,520 --> 00:00:04,640
+The second key word await.
+
+3
+00:00:04,650 --> 00:00:08,070
+So we have async, which we use to declare an async function.
+
+4
+00:00:08,100 --> 00:00:11,940
+It basically is a fancy way of wrapping that function in a promise.
+
+5
+00:00:12,090 --> 00:00:14,640
+But a wait is really magical.
+
+6
+00:00:14,670 --> 00:00:21,270
+We put the await keyword inside of an async function and it will pause the execution of the function
+
+7
+00:00:21,270 --> 00:00:27,210
+while it waits for a promise to be resolved so it will await something without having to use a dot.
+
+8
+00:00:27,240 --> 00:00:33,430
+Next, we can run code after an asynchronous operation without having to nest things with callbacks.
+
+9
+00:00:33,450 --> 00:00:34,680
+So here's an example.
+
+10
+00:00:35,070 --> 00:00:38,190
+Let's use Axios, which I already have included.
+
+11
+00:00:38,250 --> 00:00:43,950
+Just do the same old dumb planet API from Swampy and I have Axios.
+
+12
+00:00:43,950 --> 00:00:51,060
+As you can see here we have get that returns a promise instead of returning a promise myself from a
+
+13
+00:00:51,060 --> 00:01:00,500
+function let's call this get planets return Axios dot get like that and then doing get planet dot.
+
+14
+00:01:00,510 --> 00:01:05,310
+Then let's say I want to cancel that log the planet's after the fact.
+
+15
+00:01:05,310 --> 00:01:08,400
+So get planet dot then rez.
+
+16
+00:01:10,950 --> 00:01:13,440
+Console.log Rez dot data.
+
+17
+00:01:14,010 --> 00:01:15,450
+So hopefully this works.
+
+18
+00:01:15,450 --> 00:01:17,100
+No async function involved.
+
+19
+00:01:17,130 --> 00:01:17,820
+There we go.
+
+20
+00:01:17,820 --> 00:01:20,940
+We get the data so we return a promise.
+
+21
+00:01:20,940 --> 00:01:27,630
+Then we have to use dot then and wait until the callback is actually executed and our code gets broken
+
+22
+00:01:27,630 --> 00:01:28,010
+up.
+
+23
+00:01:28,020 --> 00:01:29,510
+It's a little harder to read.
+
+24
+00:01:29,520 --> 00:01:34,770
+It's still much better than passing in a bunch of callbacks to a function since we're using promises.
+
+25
+00:01:34,980 --> 00:01:40,800
+But the easier way is to declare an async function, get planet.
+
+26
+00:01:42,480 --> 00:01:46,860
+We'll do our Axios dot, get pass in the URL.
+
+27
+00:01:47,490 --> 00:01:55,800
+And the craziest part right here is await Axios dot get and we'll save the value that the promise is
+
+28
+00:01:55,800 --> 00:01:57,320
+resolved with to a variable.
+
+29
+00:01:57,330 --> 00:01:58,590
+I'll call this rez.
+
+30
+00:02:00,030 --> 00:02:03,990
+And then I'll put a line after here console.log rez dot data.
+
+31
+00:02:04,020 --> 00:02:05,280
+Same thing I had here.
+
+32
+00:02:06,540 --> 00:02:08,280
+So this looks like it's synchronous.
+
+33
+00:02:08,280 --> 00:02:09,449
+This is going to happen.
+
+34
+00:02:09,690 --> 00:02:10,889
+It doesn't matter how long it takes.
+
+35
+00:02:10,889 --> 00:02:12,960
+We'll get some response value.
+
+36
+00:02:12,960 --> 00:02:13,920
+We'll call it Rez.
+
+37
+00:02:13,920 --> 00:02:17,850
+Then this will run after that promise is resolved.
+
+38
+00:02:17,850 --> 00:02:19,470
+Only after it's resolved.
+
+39
+00:02:19,470 --> 00:02:24,330
+So we don't have to use dot then it looks like a nice, cute synchronous function.
+
+40
+00:02:24,330 --> 00:02:27,840
+One thing happens, it finishes, the next thing happens and it finishes.
+
+41
+00:02:27,960 --> 00:02:30,330
+And that is what the awake keyword does.
+
+42
+00:02:30,480 --> 00:02:32,490
+But let's verify that it actually does.
+
+43
+00:02:32,490 --> 00:02:36,030
+So let's do get planet refresh over here.
+
+44
+00:02:37,220 --> 00:02:37,880
+Awesome.
+
+45
+00:02:38,390 --> 00:02:41,330
+So this returns a promise, as we've seen before.
+
+46
+00:02:41,360 --> 00:02:45,830
+If I just run it over here, we get whoops, copy the wrong part.
+
+47
+00:02:46,040 --> 00:02:49,220
+If I just run the Axios, get that, returns a promise.
+
+48
+00:02:49,580 --> 00:02:53,120
+Normally without a wait, we console.log data.
+
+49
+00:02:53,120 --> 00:02:54,200
+We'll get an error.
+
+50
+00:02:55,700 --> 00:02:57,920
+Now, while we don't get an error, we get undefined.
+
+51
+00:02:58,250 --> 00:03:03,470
+There is no data property because this is a promise that is returned and it's not yet resolved when
+
+52
+00:03:03,470 --> 00:03:04,190
+this runs.
+
+53
+00:03:04,190 --> 00:03:07,960
+But by putting a wait here, JavaScript will wait.
+
+54
+00:03:07,970 --> 00:03:11,480
+It will not move on until this promise is resolved.
+
+55
+00:03:11,900 --> 00:03:13,610
+So the promise will be resolved.
+
+56
+00:03:13,610 --> 00:03:16,310
+That value is resolved with that's normally passed to.
+
+57
+00:03:16,520 --> 00:03:22,700
+Then we'll just be stored in this variable and then we have access to it on the very next line.
+
+58
+00:03:23,180 --> 00:03:26,920
+It's important to know, though, you can only use a weight instead of an async function.
+
+59
+00:03:26,930 --> 00:03:28,520
+This will not work.
+
+60
+00:03:28,640 --> 00:03:30,210
+I get a nice error.
+
+61
+00:03:30,230 --> 00:03:31,870
+A weight is a reserved word.
+
+62
+00:03:31,880 --> 00:03:34,760
+I cannot do it unless I'm in an async function.
+
+63
+00:03:35,000 --> 00:03:41,030
+So even for just one single request like we have here, this is still much easier to read.
+
+64
+00:03:41,480 --> 00:03:44,600
+We don't have to do dot then we don't need an extra callback.
+
+65
+00:03:44,900 --> 00:03:48,440
+It's not horrible to do that and to work with promises.
+
+66
+00:03:48,440 --> 00:03:50,440
+But this is so nice, right?
+
+67
+00:03:50,480 --> 00:03:52,400
+It's just syntactic sugar.
+
+68
+00:03:52,400 --> 00:03:54,720
+So it still uses promises behind the scenes.
+
+69
+00:03:54,740 --> 00:03:57,560
+It just kind of hides it from you and it makes it look synchronous.
+
+70
+00:03:57,650 --> 00:03:59,590
+But it's still easier to read.
+
+71
+00:03:59,600 --> 00:04:00,800
+It's easier to write.
+
+72
+00:04:00,800 --> 00:04:05,390
+And as you'll see, when we start making more requests or doing more asynchronous operations, it's
+
+73
+00:04:05,390 --> 00:04:08,690
+very easy to see what happens first, then second and third and so on.
+
+74
+00:04:08,690 --> 00:04:09,950
+So we'll get some more practice.
+

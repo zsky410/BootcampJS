@@ -1,0 +1,476 @@
+1
+00:00:00,640 --> 00:00:05,140
+Last thing we have to do is to make sure that we remove the wall whenever we are traveling up or down,
+
+2
+00:00:05,140 --> 00:00:06,220
+left or right.
+
+3
+00:00:06,520 --> 00:00:11,560
+So I want to first get a quick reminder by taking a look at a diagram at how we're going to update horizontals
+
+4
+00:00:11,560 --> 00:00:12,700
+and verticals.
+
+5
+00:00:13,000 --> 00:00:17,230
+Before I show you the diagram, however, or before we walk through it, I just want to remind you that
+
+6
+00:00:17,230 --> 00:00:20,380
+inside this function, we have access to a couple of different variables.
+
+7
+00:00:20,710 --> 00:00:22,750
+First, we have access to the row and column.
+
+8
+00:00:22,750 --> 00:00:25,390
+That is the current row and column that we're working on.
+
+9
+00:00:25,630 --> 00:00:30,160
+We also have access to the next row and next column, and that's where we are traveling to.
+
+10
+00:00:30,460 --> 00:00:35,260
+So just keep specifically the row and column variables in your head for right now, because we're going
+
+11
+00:00:35,260 --> 00:00:38,620
+to use those quite heavily in this last block of code that we write right here.
+
+12
+00:00:39,240 --> 00:00:40,480
+Okay, so let's get to it.
+
+13
+00:00:40,510 --> 00:00:45,460
+So what I want to focus on is how we're going to update the horizontals and the verticals array.
+
+14
+00:00:45,490 --> 00:00:48,430
+We're going to first consider how we're going to update horizontals.
+
+15
+00:00:48,910 --> 00:00:54,790
+So we're going to imagine that we're at this center cell right here, which means that our initial row
+
+16
+00:00:54,790 --> 00:00:55,690
+is one.
+
+17
+00:00:56,510 --> 00:00:59,450
+And our initial column is one as well.
+
+18
+00:01:00,960 --> 00:01:05,099
+And then we're going to imagine that we move only left or right.
+
+19
+00:01:05,099 --> 00:01:07,200
+So only thinking about verticals right now.
+
+20
+00:01:07,320 --> 00:01:13,770
+As a reminder, verticals are that that all these walls that I'm circling right now.
+
+21
+00:01:14,840 --> 00:01:16,190
+So verticals in general.
+
+22
+00:01:18,780 --> 00:01:21,570
+Is always going to be, remember, a two dimensional array.
+
+23
+00:01:22,080 --> 00:01:24,230
+It's always going to have three rows.
+
+24
+00:01:24,240 --> 00:01:27,750
+So row one, two and three.
+
+25
+00:01:28,510 --> 00:01:29,620
+So here's row one.
+
+26
+00:01:29,620 --> 00:01:30,520
+Row two.
+
+27
+00:01:31,380 --> 00:01:32,760
+And three.
+
+28
+00:01:33,180 --> 00:01:36,120
+And then they all start off as false inside their.
+
+29
+00:01:39,310 --> 00:01:43,430
+So this false right here corresponds to that element right there.
+
+30
+00:01:43,450 --> 00:01:46,780
+This false corresponds to that right there and so on.
+
+31
+00:01:47,080 --> 00:01:51,730
+So what we really want to determine when we are deciding to go either left or right, right here from
+
+32
+00:01:51,730 --> 00:01:56,430
+the center element is whether we are flipping that to true or that to true.
+
+33
+00:01:56,440 --> 00:01:57,910
+That is the big question here.
+
+34
+00:01:57,910 --> 00:02:03,910
+And we need to decide which of these to flip based upon the direction we are traveling and our current
+
+35
+00:02:03,910 --> 00:02:05,080
+row and column.
+
+36
+00:02:05,500 --> 00:02:10,690
+So let's figure out how to take the current row and column and the direction and translate it into some
+
+37
+00:02:10,690 --> 00:02:15,580
+index that we can use to access the vertical array and update the appropriate element.
+
+38
+00:02:16,830 --> 00:02:17,160
+Okay.
+
+39
+00:02:17,160 --> 00:02:22,410
+So the actual row that we're going to update, that's actually pretty easy.
+
+40
+00:02:22,560 --> 00:02:25,350
+The row that we're going to update inside the verticals array.
+
+41
+00:02:27,920 --> 00:02:29,690
+We put Roe right here.
+
+42
+00:02:30,390 --> 00:02:35,610
+It's always going to be whatever the current row is that we're looking at because we're always staying
+
+43
+00:02:35,610 --> 00:02:36,630
+inside of the same row.
+
+44
+00:02:36,630 --> 00:02:40,470
+So row is never going to change when we update verticals or whenever we move left or right.
+
+45
+00:02:40,800 --> 00:02:43,230
+However, the same is not true of column.
+
+46
+00:02:43,590 --> 00:02:49,380
+So whenever we decide to move left or right, the column index that we want to update is going to be
+
+47
+00:02:49,380 --> 00:02:52,320
+either zero or one.
+
+48
+00:02:52,320 --> 00:02:54,780
+So either that element or that element.
+
+49
+00:02:55,690 --> 00:02:57,400
+If we are moving to the left.
+
+50
+00:02:58,160 --> 00:03:01,880
+And we want to update the element at column zero.
+
+51
+00:03:01,910 --> 00:03:03,590
+That would be that one right there.
+
+52
+00:03:03,590 --> 00:03:08,120
+So that's if we were going that way, we want to dump this element right here.
+
+53
+00:03:08,750 --> 00:03:15,110
+So that means we need to access the verticals array at column zero and update what is ever right there
+
+54
+00:03:15,110 --> 00:03:15,920
+to a true.
+
+55
+00:03:17,020 --> 00:03:21,940
+On the other hand, if we are moving to the right, then we want to update this thing right here and
+
+56
+00:03:21,940 --> 00:03:23,310
+flip it from true to false.
+
+57
+00:03:23,320 --> 00:03:25,510
+So that would be this element right here.
+
+58
+00:03:25,720 --> 00:03:27,460
+So if we are going to the right.
+
+59
+00:03:29,790 --> 00:03:36,450
+That means that we want to return an index of one because we want to get index of one and update this
+
+60
+00:03:36,450 --> 00:03:36,930
+guy.
+
+61
+00:03:38,490 --> 00:03:42,510
+So it's pretty clear here that when we are moving left or right, the row is always going to stay the
+
+62
+00:03:42,510 --> 00:03:42,900
+same.
+
+63
+00:03:42,900 --> 00:03:49,050
+But depending upon whether we are going left or right, we need to either assess verticals at zero or
+
+64
+00:03:49,050 --> 00:03:49,560
+one.
+
+65
+00:03:49,590 --> 00:03:51,270
+That's all I'm trying to establish here.
+
+66
+00:03:51,780 --> 00:03:55,440
+So now that we understand that, let's go back over to our editor and start to write out this logic.
+
+67
+00:03:56,570 --> 00:03:56,760
+Okay.
+
+68
+00:03:56,780 --> 00:03:58,940
+So I've got my statement right here.
+
+69
+00:03:58,940 --> 00:04:02,990
+We want to remove a wall from either horizontals or verticals, so we're going to first think about
+
+70
+00:04:02,990 --> 00:04:04,430
+moving left or right.
+
+71
+00:04:04,610 --> 00:04:07,010
+So let's say if direction.
+
+72
+00:04:07,010 --> 00:04:11,300
+Remember, we've got the direction variable that we stuffed into the neighbors array.
+
+73
+00:04:12,600 --> 00:04:16,140
+If that is left, then I want to access verticals.
+
+74
+00:04:17,140 --> 00:04:21,399
+At the exact same row that we were working on, because, remember, the road doesn't change at all.
+
+75
+00:04:21,399 --> 00:04:23,050
+It's only the column that changes.
+
+76
+00:04:23,500 --> 00:04:27,460
+So if we're going to the left, we're going to look at columns minus one.
+
+77
+00:04:29,100 --> 00:04:32,130
+And it's minus one, because remember, we start off with a column of one.
+
+78
+00:04:32,130 --> 00:04:33,810
+That's the column that we're at right now.
+
+79
+00:04:35,170 --> 00:04:37,840
+So we're going to take one off to get zero.
+
+80
+00:04:39,800 --> 00:04:44,300
+And then if we are, we're going to set that to true, which means there is an opening here so we can
+
+81
+00:04:44,300 --> 00:04:45,860
+handle the else if case.
+
+82
+00:04:46,950 --> 00:04:49,260
+Otherwise if direction is right.
+
+83
+00:04:50,010 --> 00:04:56,940
+And we want to look at verticals again still on the same row, but in this case at the same exact column,
+
+84
+00:04:57,510 --> 00:04:59,040
+we're going to update that to true.
+
+85
+00:04:59,430 --> 00:05:00,660
+And I apologize.
+
+86
+00:05:00,660 --> 00:05:06,780
+I typed in a columns right here that should be column singular like so column in both cases.
+
+87
+00:05:07,830 --> 00:05:08,750
+And that's pretty much it.
+
+88
+00:05:08,760 --> 00:05:13,050
+So in both cases we've got the same exact row we're updating, but if we're going left, we're going
+
+89
+00:05:13,050 --> 00:05:15,410
+to update at column minus one.
+
+90
+00:05:15,420 --> 00:05:18,960
+Otherwise, if we're going right, we're going to update at the current column to true.
+
+91
+00:05:20,070 --> 00:05:20,430
+All right.
+
+92
+00:05:20,430 --> 00:05:23,380
+So now it would really be nice to test this out.
+
+93
+00:05:23,400 --> 00:05:24,720
+So to test this out.
+
+94
+00:05:25,880 --> 00:05:28,820
+I'm going to go back up to where we establish all of our neighbors.
+
+95
+00:05:29,510 --> 00:05:32,630
+And I'm going to comment out the first three cases.
+
+96
+00:05:32,630 --> 00:05:36,110
+So I'm going to say the only possibility here is that we can travel left.
+
+97
+00:05:36,860 --> 00:05:38,330
+And then going to go back down.
+
+98
+00:05:38,990 --> 00:05:40,280
+And make sure that I'm still calling.
+
+99
+00:05:40,280 --> 00:05:43,460
+Step three sell with a fixed value of one and one.
+
+100
+00:05:44,380 --> 00:05:45,220
+And I'll save this.
+
+101
+00:05:45,250 --> 00:05:47,050
+Go back over to the browser refresh.
+
+102
+00:05:47,530 --> 00:05:53,590
+I'm going to print out the verticals variable and now I can see that I have correctly updated that element
+
+103
+00:05:53,590 --> 00:05:55,690
+like this one right here.
+
+104
+00:05:55,720 --> 00:05:56,980
+That one got updated to.
+
+105
+00:05:56,980 --> 00:05:57,550
+True.
+
+106
+00:05:58,160 --> 00:05:59,320
+So that definitely worked out correctly.
+
+107
+00:05:59,320 --> 00:06:01,180
+And that was for a move to the left.
+
+108
+00:06:01,660 --> 00:06:05,980
+So now we can repeat that same process, but I'll comment out everything but a movement to the right.
+
+109
+00:06:07,360 --> 00:06:09,160
+So now I'm going to only be able to move to the right.
+
+110
+00:06:09,160 --> 00:06:10,870
+So I'll save this refresh.
+
+111
+00:06:12,070 --> 00:06:13,210
+Burnt out verticals.
+
+112
+00:06:14,630 --> 00:06:19,970
+And now I see right there awesome updated to true because I was moving to the right and once again that's
+
+113
+00:06:19,970 --> 00:06:25,700
+because we wanted to update that one right there to true to represent an opening in that wall right
+
+114
+00:06:25,700 --> 00:06:26,210
+there.
+
+115
+00:06:27,430 --> 00:06:27,740
+Okay.
+
+116
+00:06:27,760 --> 00:06:30,340
+So I think that we've got our verticals put together.
+
+117
+00:06:30,340 --> 00:06:31,710
+So let's take a quick pause right here.
+
+118
+00:06:31,720 --> 00:06:35,750
+We're then going to repeat the same exact process, but with our horizontals instead.
+
+119
+00:06:35,770 --> 00:06:37,960
+So quick, follow us and I'll see you in just a minute.
+

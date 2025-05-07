@@ -1,0 +1,864 @@
+1
+00:00:00,240 --> 00:00:00,720
+All right.
+
+2
+00:00:00,720 --> 00:00:05,280
+So we've established that there are tons and tons of different events we can work with in our JavaScript
+
+3
+00:00:05,280 --> 00:00:05,820
+code.
+
+4
+00:00:05,850 --> 00:00:12,480
+They range from super common things like clicks and drags and hovers, scrolls, key presses to some
+
+5
+00:00:12,480 --> 00:00:19,500
+pretty obscure events like a printing event or a before print or an after print or even a mouse wheel.
+
+6
+00:00:19,710 --> 00:00:21,690
+They all follow the same pattern.
+
+7
+00:00:21,690 --> 00:00:27,830
+So even though the triggers of the event are different, whether it's a user typing the key enter or
+
+8
+00:00:27,840 --> 00:00:33,930
+return, versus the user hovering or dragging or dropping, the triggers are different, but the way
+
+9
+00:00:33,930 --> 00:00:37,380
+we incorporate these events into our code follows the same pattern.
+
+10
+00:00:37,950 --> 00:00:39,930
+We essentially have a thing.
+
+11
+00:00:39,960 --> 00:00:43,740
+We'll call it the thing that we're listening for an event on.
+
+12
+00:00:43,950 --> 00:00:49,740
+We're listening to see when this event occurs on a given thing or with a given thing like a click on
+
+13
+00:00:49,740 --> 00:00:52,580
+a button, a drag of an image.
+
+14
+00:00:52,590 --> 00:00:55,010
+Then we have the event itself.
+
+15
+00:00:55,020 --> 00:01:01,770
+So the event type, I'll call that event type and then we tell JavaScript, here is the code.
+
+16
+00:01:01,770 --> 00:01:02,850
+I want you to run.
+
+17
+00:01:02,850 --> 00:01:04,330
+The code to run.
+
+18
+00:01:04,349 --> 00:01:10,350
+This is all extremely unofficial language, but as an example, you might have a single button.
+
+19
+00:01:10,530 --> 00:01:17,160
+We want to listen or wait for a click on that button, and then when a user clicks that button, we
+
+20
+00:01:17,160 --> 00:01:23,880
+could change the color, we could have a text input.
+
+21
+00:01:24,210 --> 00:01:30,080
+And when a user hits return or types return, what do we want to do?
+
+22
+00:01:30,090 --> 00:01:32,270
+We have some code that we want to run.
+
+23
+00:01:32,280 --> 00:01:39,540
+It could be something as simple as clearing the input, or it could be get search results where we're
+
+24
+00:01:39,540 --> 00:01:41,820
+working with an API or a database.
+
+25
+00:01:41,910 --> 00:01:48,510
+We could have an image as the thing and the event would be a hover, which is actually called a mouse
+
+26
+00:01:48,510 --> 00:01:49,050
+over.
+
+27
+00:01:49,050 --> 00:01:56,520
+When you mouse over a particular image, we want to display the image caption or we want to make the
+
+28
+00:01:56,520 --> 00:02:00,420
+color image turn black and white as a nice little visual effect.
+
+29
+00:02:00,570 --> 00:02:02,220
+But they all follow this pattern.
+
+30
+00:02:02,220 --> 00:02:09,060
+We have to find a thing, an element, an event type, and then code we want to run when that event
+
+31
+00:02:09,060 --> 00:02:10,169
+actually happens.
+
+32
+00:02:10,440 --> 00:02:12,600
+So there are multiple ways.
+
+33
+00:02:12,600 --> 00:02:14,130
+There are three different syntax.
+
+34
+00:02:14,130 --> 00:02:17,040
+I'll show you for how we can actually achieve this.
+
+35
+00:02:17,040 --> 00:02:22,170
+But I'm telling you right up front, two of them you should probably not use, but I'm going to show
+
+36
+00:02:22,170 --> 00:02:27,240
+them to you because they are simple, but you'll also see them in bad tutorials.
+
+37
+00:02:27,240 --> 00:02:32,040
+You'll see them sometimes, you'll see them on the docs, they have to talk about it, but then we'll
+
+38
+00:02:32,040 --> 00:02:37,320
+see the third and the best option for how we can achieve this, how we can add events or event listeners
+
+39
+00:02:37,320 --> 00:02:39,390
+to elements in the next video.
+
+40
+00:02:39,390 --> 00:02:44,850
+So let's take a look at a very simple type of an event, a click, and we need to start by adding something
+
+41
+00:02:44,850 --> 00:02:46,500
+to click on right now.
+
+42
+00:02:46,500 --> 00:02:51,030
+I mean, I guess we could listen for a click on the body, but let's not do that.
+
+43
+00:02:51,030 --> 00:02:52,680
+Let's add in a button or two.
+
+44
+00:02:52,680 --> 00:02:55,260
+So we'll have a button that says Click me.
+
+45
+00:02:55,290 --> 00:03:04,500
+Let's also put in a hmm, how about a form with an input of type range.
+
+46
+00:03:04,500 --> 00:03:11,820
+So a range input and we'll give it a min of ten, a max of 50.
+
+47
+00:03:12,960 --> 00:03:13,130
+Okay.
+
+48
+00:03:13,260 --> 00:03:17,400
+So we have at least two things that we can now listen for clicks on.
+
+49
+00:03:17,490 --> 00:03:23,430
+And the first syntax I'll show you involves actually putting our code right in the element, which is
+
+50
+00:03:23,430 --> 00:03:25,500
+not a good idea for the same reason.
+
+51
+00:03:25,500 --> 00:03:28,620
+It's not a good idea to add a bunch of inline styles.
+
+52
+00:03:28,620 --> 00:03:31,200
+You end up with super cluttered HTML.
+
+53
+00:03:31,230 --> 00:03:36,450
+Your JavaScript is spread out all over the place or in the case of style, your CSS is spread out all
+
+54
+00:03:36,450 --> 00:03:36,990
+over the place.
+
+55
+00:03:36,990 --> 00:03:40,830
+It's not in a centralized CSS file or a style sheet.
+
+56
+00:03:40,830 --> 00:03:42,210
+Same thing with JavaScript.
+
+57
+00:03:42,210 --> 00:03:45,600
+We don't want to do this, but I'm just going to show it to you to run code.
+
+58
+00:03:45,600 --> 00:03:52,170
+When we click on this button, we can add an attribute called on click and then we need to write some
+
+59
+00:03:52,170 --> 00:03:52,800
+code in here.
+
+60
+00:03:52,860 --> 00:03:55,200
+Something as simple as an alert.
+
+61
+00:03:55,200 --> 00:03:56,460
+You clicked me.
+
+62
+00:03:58,850 --> 00:04:04,490
+Notice we're having to write our JavaScript in a string, which is bizarre to begin with, especially
+
+63
+00:04:04,490 --> 00:04:06,200
+if you have to worry about quotes.
+
+64
+00:04:06,230 --> 00:04:07,890
+Here I had to use single quotes.
+
+65
+00:04:07,910 --> 00:04:12,410
+This is a very simple one liner, but it's pretty gross already.
+
+66
+00:04:12,830 --> 00:04:18,860
+Normally what you would see if you were to take this seriously and actually use inline events like I'm
+
+67
+00:04:18,860 --> 00:04:24,860
+doing here, you would write a function and call the function from right here, but still it's not worth
+
+68
+00:04:24,860 --> 00:04:25,490
+doing.
+
+69
+00:04:25,730 --> 00:04:26,840
+But let's make sure it works.
+
+70
+00:04:26,840 --> 00:04:31,280
+If I refresh my page, I'll zoom in a bit so we can see a bit better.
+
+71
+00:04:31,280 --> 00:04:33,410
+And I will click.
+
+72
+00:04:33,560 --> 00:04:34,260
+There we go.
+
+73
+00:04:34,280 --> 00:04:35,150
+You clicked me.
+
+74
+00:04:36,650 --> 00:04:37,400
+All right.
+
+75
+00:04:37,400 --> 00:04:41,200
+So that's our first event interaction that we have going on.
+
+76
+00:04:41,210 --> 00:04:47,870
+We added an event listener to the button, and we said, when a click occurs, run this code.
+
+77
+00:04:48,110 --> 00:04:51,980
+And if I have another button without the on click.
+
+78
+00:04:52,790 --> 00:04:56,240
+Just so we're very clear here, nothing happens.
+
+79
+00:04:56,960 --> 00:04:59,350
+So we're not adding that to every button.
+
+80
+00:04:59,360 --> 00:05:07,250
+We're simply registering an event listener for this one button that does this one thing when it is clicked.
+
+81
+00:05:08,710 --> 00:05:16,720
+As you can see there, if I added a on click to my second button you clicked me to.
+
+82
+00:05:18,990 --> 00:05:20,670
+And I refresh the page.
+
+83
+00:05:20,670 --> 00:05:22,380
+This one gives me one alert.
+
+84
+00:05:22,380 --> 00:05:23,320
+You clicked me.
+
+85
+00:05:23,340 --> 00:05:25,350
+This one gives me a different alert.
+
+86
+00:05:25,380 --> 00:05:26,640
+You clicked me too.
+
+87
+00:05:26,760 --> 00:05:31,020
+So they have nothing to do with one another other than the fact that they're both buttons.
+
+88
+00:05:31,020 --> 00:05:34,770
+And we can also add an on click to something else like this.
+
+89
+00:05:34,770 --> 00:05:39,180
+Input on Click Equals Will Alert.
+
+90
+00:05:39,360 --> 00:05:41,100
+Why don't we console.log instead?
+
+91
+00:05:41,100 --> 00:05:45,450
+Console.log clicked the input.
+
+92
+00:05:47,850 --> 00:05:48,310
+Okay.
+
+93
+00:05:48,330 --> 00:05:51,360
+Once again, I have to pay attention to my quotes, which is obnoxious.
+
+94
+00:05:51,390 --> 00:05:52,960
+We'll refresh the page.
+
+95
+00:05:52,980 --> 00:05:54,690
+What happens when I click on this?
+
+96
+00:05:55,680 --> 00:05:56,500
+There you go.
+
+97
+00:05:56,520 --> 00:05:58,260
+I'm getting clicked to the input.
+
+98
+00:05:59,340 --> 00:06:00,780
+Very fancy stuff.
+
+99
+00:06:01,290 --> 00:06:05,880
+We also have other events, as I mentioned, back in our JavaScript file.
+
+100
+00:06:06,090 --> 00:06:07,770
+I deleted my little table here.
+
+101
+00:06:07,800 --> 00:06:13,590
+Right now we are doing one event type which is click, but we have other event types that we can work
+
+102
+00:06:13,590 --> 00:06:14,100
+with.
+
+103
+00:06:14,130 --> 00:06:15,690
+You can see them all here.
+
+104
+00:06:16,050 --> 00:06:18,030
+So we're doing on click.
+
+105
+00:06:18,060 --> 00:06:20,130
+The event name is just click.
+
+106
+00:06:20,130 --> 00:06:25,980
+We have other events and if we want to use them in line like we're doing right now, we preface them
+
+107
+00:06:25,980 --> 00:06:26,970
+with on.
+
+108
+00:06:27,270 --> 00:06:29,460
+So what's another one with a mouse?
+
+109
+00:06:29,460 --> 00:06:31,240
+So here are some other mouse events.
+
+110
+00:06:31,260 --> 00:06:33,660
+Why don't we try mouse over?
+
+111
+00:06:33,840 --> 00:06:35,560
+So mouse over right here.
+
+112
+00:06:35,580 --> 00:06:41,220
+It fires when we move our mouse over a particular element in order to make that work.
+
+113
+00:06:41,250 --> 00:06:47,970
+We need to change this either from on click and adapt it to be on mouse over.
+
+114
+00:06:49,090 --> 00:06:51,940
+Or we could add a second attribute.
+
+115
+00:06:51,940 --> 00:06:54,970
+We could have an on click and an on mouse over.
+
+116
+00:06:55,360 --> 00:06:57,730
+But let's see what happens when I mouse over this.
+
+117
+00:06:57,760 --> 00:06:58,660
+There we go.
+
+118
+00:06:59,480 --> 00:07:00,400
+Mouse over.
+
+119
+00:07:00,800 --> 00:07:02,330
+You can see it's working.
+
+120
+00:07:02,960 --> 00:07:06,710
+Very annoying to have an alert so often, especially just from a hover.
+
+121
+00:07:06,830 --> 00:07:12,050
+All of these follow this pattern on and then the event name equals do something.
+
+122
+00:07:13,250 --> 00:07:13,560
+Okay.
+
+123
+00:07:13,640 --> 00:07:17,860
+So this is the first example of something that I recommend you never do.
+
+124
+00:07:17,870 --> 00:07:21,530
+Adding these inline event handlers, it clutters your markup.
+
+125
+00:07:21,560 --> 00:07:25,910
+It's really hard to keep organized and to understand where everything is coming from.
+
+126
+00:07:25,910 --> 00:07:29,630
+You just don't want to put all that JavaScript directly into your elements.
+
+127
+00:07:29,870 --> 00:07:35,990
+So instead there's another way of doing this where we select an element first in JavaScript, and then
+
+128
+00:07:35,990 --> 00:07:38,840
+we can add an on click or an on mouse over.
+
+129
+00:07:38,990 --> 00:07:41,000
+So I'll keep one of these.
+
+130
+00:07:41,840 --> 00:07:43,490
+Let's get rid of, I'll keep both of them.
+
+131
+00:07:43,490 --> 00:07:48,440
+I guess I'll add a new button here and this button will have an ID so I can select it.
+
+132
+00:07:48,440 --> 00:07:54,350
+We'll call this clicker and the text will just be clicker.
+
+133
+00:07:55,370 --> 00:08:00,560
+All right, now let's go to our JavaScript file, which I've included here as a script at the bottom.
+
+134
+00:08:01,100 --> 00:08:04,940
+And I'm going to start by selecting that button document.
+
+135
+00:08:04,940 --> 00:08:10,400
+I could do get element by ID, I could do a query selector, I'll do query selector.
+
+136
+00:08:10,640 --> 00:08:17,720
+The ID was clicker and I'll save that to a variable BTN button clicker, whatever we want to call it.
+
+137
+00:08:17,720 --> 00:08:26,600
+And why don't we go take a look and our console here, if I look at BTN console that deer BTN, I want
+
+138
+00:08:26,600 --> 00:08:33,260
+to see all the properties, open it up, scroll down and you've probably noticed this before all of
+
+139
+00:08:33,260 --> 00:08:41,720
+these on properties on mouse over on selection change on click these now probably make a bit more sense.
+
+140
+00:08:41,720 --> 00:08:46,760
+These are properties we can set inline, which we've already done or we can add them in.
+
+141
+00:08:46,760 --> 00:08:50,510
+We can set a function as a value in our JavaScript.
+
+142
+00:08:50,510 --> 00:08:56,810
+So if we select the first button with that horrible mouse over event, we'll do document dot query selector
+
+143
+00:08:56,810 --> 00:08:57,500
+button.
+
+144
+00:09:00,100 --> 00:09:03,820
+And just get the first one, save that to a variable cost first.
+
+145
+00:09:03,820 --> 00:09:08,530
+BTN And we do our console air first.
+
+146
+00:09:08,560 --> 00:09:14,080
+BTN Open it up if we find our on mouse over there it is.
+
+147
+00:09:14,110 --> 00:09:18,910
+Notice it's not null, it has a value and that's coming from our HTML.
+
+148
+00:09:18,940 --> 00:09:22,630
+So this is one way of adding in one of those event handlers.
+
+149
+00:09:22,630 --> 00:09:27,850
+This is one way of saying this is what I want to happen on Mouse Over, but we can also do it through
+
+150
+00:09:27,850 --> 00:09:28,690
+JavaScript.
+
+151
+00:09:29,440 --> 00:09:31,330
+We just set that same property.
+
+152
+00:09:31,330 --> 00:09:38,140
+So BTN dot let's do on click first and then we need to set it to a function or give it something.
+
+153
+00:09:38,170 --> 00:09:41,620
+If instead we just wrote alert right here.
+
+154
+00:09:43,580 --> 00:09:43,950
+Alert.
+
+155
+00:09:43,970 --> 00:09:44,630
+Hi.
+
+156
+00:09:45,140 --> 00:09:46,400
+What do you think will happen?
+
+157
+00:09:47,840 --> 00:09:49,670
+Let's try refreshing our page.
+
+158
+00:09:49,870 --> 00:09:50,350
+Ha!
+
+159
+00:09:50,360 --> 00:09:52,280
+I get alert high right away.
+
+160
+00:09:52,400 --> 00:09:53,780
+So why does that happen?
+
+161
+00:09:53,960 --> 00:09:58,190
+Remember that JavaScript is just going to go through this code and encounter.
+
+162
+00:09:58,190 --> 00:10:02,480
+This will say, all right, we're going to update the property on click.
+
+163
+00:10:02,510 --> 00:10:05,810
+Set it equal to the result of executing alert.
+
+164
+00:10:05,810 --> 00:10:06,410
+Hi.
+
+165
+00:10:06,680 --> 00:10:13,700
+So it runs this line and whatever alert returns which I'm pretty sure is just undefined alert.
+
+166
+00:10:13,730 --> 00:10:14,300
+Hi.
+
+167
+00:10:14,300 --> 00:10:16,160
+Or H what do we get back.
+
+168
+00:10:16,910 --> 00:10:17,690
+Undefined.
+
+169
+00:10:17,690 --> 00:10:23,870
+So then it sets on click to undefined when we do it in our inline html.
+
+170
+00:10:23,960 --> 00:10:29,630
+It seems deceiving, but what happens is that the DOM is just going to take this string, turn it into
+
+171
+00:10:29,630 --> 00:10:36,340
+JavaScript, but wrap it in a function so that it only runs when you actually mouse over or you on click.
+
+172
+00:10:36,350 --> 00:10:40,760
+So if we want to make this work through JavaScript, we need to write a function.
+
+173
+00:10:40,970 --> 00:10:44,420
+We could do a regular function expression function.
+
+174
+00:10:44,420 --> 00:10:45,920
+We don't have to even give it a name.
+
+175
+00:10:46,340 --> 00:10:50,180
+And in here we could say alert or console.log.
+
+176
+00:10:50,360 --> 00:10:51,920
+Let's do a console.log.
+
+177
+00:10:51,920 --> 00:10:56,270
+You clicked me go away.
+
+178
+00:10:56,780 --> 00:10:59,150
+All of them are basically saying the same thing.
+
+179
+00:10:59,150 --> 00:11:02,310
+You click to me, click the input doesn't matter.
+
+180
+00:11:02,360 --> 00:11:05,000
+This is still not the way you want to be doing this.
+
+181
+00:11:05,360 --> 00:11:10,730
+Remember, this is educational, but but this is not the approach that we want to take.
+
+182
+00:11:10,730 --> 00:11:17,750
+So BTN on Click equals this function, we're saying the button that we selected, that's the thing.
+
+183
+00:11:17,750 --> 00:11:23,690
+When the click happens or a click happens on that button, not just anywhere but on this one button,
+
+184
+00:11:23,870 --> 00:11:25,670
+this is the code to run.
+
+185
+00:11:25,670 --> 00:11:27,560
+It will execute this function.
+
+186
+00:11:27,560 --> 00:11:29,030
+So let's try it out.
+
+187
+00:11:29,030 --> 00:11:31,700
+Refresh the page, click on my button.
+
+188
+00:11:31,700 --> 00:11:32,360
+There we go.
+
+189
+00:11:32,360 --> 00:11:33,950
+You clicked me go away.
+
+190
+00:11:34,670 --> 00:11:37,730
+And I could instead change this to a different type of event.
+
+191
+00:11:37,730 --> 00:11:41,870
+Or I could add a second event listener to that same element.
+
+192
+00:11:42,140 --> 00:11:43,640
+So we have on click.
+
+193
+00:11:44,090 --> 00:11:45,560
+What about double click?
+
+194
+00:11:45,800 --> 00:11:47,870
+Is it double or is it double?
+
+195
+00:11:48,200 --> 00:11:49,790
+It is double click.
+
+196
+00:11:50,000 --> 00:11:55,640
+I rarely I don't know if I've ever used that, but we can just look it up if we ever need it.
+
+197
+00:11:55,820 --> 00:12:02,540
+So on double click, let's go double click as our console.log.
+
+198
+00:12:03,470 --> 00:12:04,550
+Refresh the page.
+
+199
+00:12:04,550 --> 00:12:07,580
+Here is a single click and a double click.
+
+200
+00:12:08,690 --> 00:12:14,630
+Okay, so we now have two different events that we're listening for on the same button and it follows
+
+201
+00:12:14,630 --> 00:12:16,100
+this exact same pattern.
+
+202
+00:12:16,100 --> 00:12:22,970
+We select something, we select the event, and if we're doing it with these on properties, it's on.
+
+203
+00:12:22,970 --> 00:12:26,210
+And then the event name on, click on double click.
+
+204
+00:12:26,210 --> 00:12:30,980
+But we'll soon see a much better way in the very next video that makes it easier.
+
+205
+00:12:30,980 --> 00:12:33,650
+We don't have to keep track of all of these different property names.
+
+206
+00:12:33,650 --> 00:12:37,670
+We use one method, so that's kind of it for this video.
+
+207
+00:12:37,700 --> 00:12:41,750
+Two different ways of adding events, both of which are kind of frowned upon.
+
+208
+00:12:41,750 --> 00:12:47,240
+And I'm not recommending, but it's a good introduction, so we could do it inline in our HTML using
+
+209
+00:12:47,240 --> 00:12:48,590
+the exact same names.
+
+210
+00:12:48,590 --> 00:12:53,300
+So on some event, all lowercase, which is also very confusing.
+
+211
+00:12:53,300 --> 00:12:55,670
+I don't know why it's all lowercase, but it is.
+
+212
+00:12:55,670 --> 00:12:58,070
+Everything else in JavaScript is camel case.
+
+213
+00:12:58,070 --> 00:13:04,730
+So on mouse over on click on Key Press, which will take a look at some key press events later on.
+
+214
+00:13:04,730 --> 00:13:12,020
+Then in your JavaScript, you could also instead set the property by first selecting an element, adding
+
+215
+00:13:12,020 --> 00:13:18,140
+in the on click or the on double click or the on mouse over and setting it equal to a function.
+
+216
+00:13:18,140 --> 00:13:21,320
+And that function will execute when the event occurs.
+

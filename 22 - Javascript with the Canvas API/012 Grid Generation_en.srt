@@ -1,0 +1,608 @@
+1
+00:00:00,560 --> 00:00:04,059
+In this video, we're going to start to implement those three different rates we just discussed.
+
+2
+00:00:04,070 --> 00:00:06,710
+We're going to first take care of the grid array.
+
+3
+00:00:06,740 --> 00:00:11,480
+I want to first begin by giving you just a very quick reminder on what the grid array does, because
+
+4
+00:00:11,480 --> 00:00:14,090
+there's a very particular way that we're going to initialize it.
+
+5
+00:00:14,090 --> 00:00:17,780
+And if you don't really understand what the grid array does well, a lot of the stuff that we're going
+
+6
+00:00:17,780 --> 00:00:19,850
+to right here is not going to make a lot of sense.
+
+7
+00:00:20,420 --> 00:00:27,200
+So we're going to have one array called grid and this is going to be a two dimensional array.
+
+8
+00:00:27,770 --> 00:00:29,240
+It'll be a two DH array.
+
+9
+00:00:30,730 --> 00:00:34,390
+And every value inside of it is going to start off as false.
+
+10
+00:00:36,430 --> 00:00:37,900
+The reason that we're going to start off as false.
+
+11
+00:00:37,900 --> 00:00:42,730
+Remember, the purpose of the grid array is to record whether or not we have visited each individual
+
+12
+00:00:42,730 --> 00:00:43,330
+cell.
+
+13
+00:00:43,630 --> 00:00:48,040
+So when we first initialize this thing, it's going to start off as a 2D array.
+
+14
+00:00:48,250 --> 00:00:53,920
+If this is the maze that we are going to be building, then we're going to have three rows and three
+
+15
+00:00:53,920 --> 00:00:54,760
+columns.
+
+16
+00:00:55,240 --> 00:00:56,860
+So here are my three rows.
+
+17
+00:00:58,620 --> 00:01:00,630
+I'm going to have three columns inside.
+
+18
+00:01:01,660 --> 00:01:04,090
+And every element is going to start off as false.
+
+19
+00:01:04,090 --> 00:01:06,970
+So I'm going to put in an F for each one.
+
+20
+00:01:08,660 --> 00:01:10,670
+We're then going to pick a cell at random.
+
+21
+00:01:10,670 --> 00:01:14,210
+So maybe the first cell that we pick is this one right here.
+
+22
+00:01:15,270 --> 00:01:19,800
+We would now say that we have visited the cell because we have essentially done some processing work
+
+23
+00:01:19,800 --> 00:01:20,460
+on it.
+
+24
+00:01:20,460 --> 00:01:24,120
+Because we have visited this, we need to update our grid array.
+
+25
+00:01:24,360 --> 00:01:27,660
+So I'm going to find the element inside the grid array that corresponds to that cell.
+
+26
+00:01:27,660 --> 00:01:30,600
+So in this case, it would be that element right there.
+
+27
+00:01:30,990 --> 00:01:35,640
+So I'm going to take that false and I'm going to update it to be true instead.
+
+28
+00:01:36,610 --> 00:01:39,460
+We can then imagine that we start to go through the algorithm.
+
+29
+00:01:39,460 --> 00:01:43,660
+Remember, the primary step of the algorithm is to take a look at all the different neighbors.
+
+30
+00:01:44,170 --> 00:01:48,120
+So that one, that one and that one, and then pick one at random and visit it.
+
+31
+00:01:48,130 --> 00:01:52,150
+So let's imagine that I go off to the right like so, and I'm now at this cell.
+
+32
+00:01:53,060 --> 00:01:57,110
+So I would now find the element inside of my grid array that corresponds to that cell.
+
+33
+00:01:57,350 --> 00:02:00,200
+It is this one right here.
+
+34
+00:02:01,420 --> 00:02:02,870
+So I would take that false.
+
+35
+00:02:02,890 --> 00:02:05,680
+Remove it and update it to be true instead.
+
+36
+00:02:06,480 --> 00:02:07,880
+Yes, that's the purpose of the grid rate.
+
+37
+00:02:07,890 --> 00:02:10,070
+Let's just focus on creating this array first.
+
+38
+00:02:10,080 --> 00:02:15,090
+So at the end of the day, what we really want is a two dimensional array that starts off with all false
+
+39
+00:02:15,090 --> 00:02:16,200
+values inside of it.
+
+40
+00:02:16,410 --> 00:02:23,160
+And if right now we're going to imagine that we are building a maze that has three rows and three columns,
+
+41
+00:02:23,160 --> 00:02:26,640
+so we're going to hard code those threes in four right now, but we're going to update those to be a
+
+42
+00:02:26,640 --> 00:02:28,230
+lot more flexible in just a moment.
+
+43
+00:02:29,130 --> 00:02:31,440
+So to get started, I'm going to go back over to my code.
+
+44
+00:02:32,820 --> 00:02:37,350
+I'm going to put a little comment header here that says Maize Generation, again, just to guide myself
+
+45
+00:02:37,350 --> 00:02:38,190
+through this file.
+
+46
+00:02:38,820 --> 00:02:41,140
+There's a couple of different ways that we can create this grid array.
+
+47
+00:02:41,160 --> 00:02:45,150
+I'm going to first show you a very basic way and then we'll refactor it into a little bit more fancy
+
+48
+00:02:45,150 --> 00:02:45,780
+style.
+
+49
+00:02:46,170 --> 00:02:52,890
+So a very basic way to do this would be to define a grid array and then iterate using a double nested
+
+50
+00:02:52,890 --> 00:02:54,570
+for loop so I could save four.
+
+51
+00:02:54,570 --> 00:02:56,250
+Let I equals zero.
+
+52
+00:02:56,680 --> 00:03:01,440
+Lesson three plus plus and I'll set up another four loop inside there.
+
+53
+00:03:02,090 --> 00:03:07,190
+So for let j equals zero j Lesson three j plus plus.
+
+54
+00:03:08,020 --> 00:03:10,420
+Then in the outer loop, I'm going to use this.
+
+55
+00:03:11,540 --> 00:03:13,550
+To push in each individual row.
+
+56
+00:03:14,320 --> 00:03:19,120
+And then inside the inner loop, I'm going to process each of those rows and add in starting values
+
+57
+00:03:19,120 --> 00:03:19,870
+of false.
+
+58
+00:03:20,230 --> 00:03:23,050
+So I'll say grid at I.
+
+59
+00:03:24,380 --> 00:03:27,050
+Dot push false like so.
+
+60
+00:03:28,100 --> 00:03:29,840
+So I'm then going to console.log this.
+
+61
+00:03:31,180 --> 00:03:31,990
+I'll save this.
+
+62
+00:03:31,990 --> 00:03:34,150
+I'll go back over and I'll do a quick test.
+
+63
+00:03:35,070 --> 00:03:37,650
+So as soon as I reload, I can see the console log right here.
+
+64
+00:03:37,770 --> 00:03:41,850
+I definitely have the correct structure to start off with, so I've got false plus false false sales,
+
+65
+00:03:41,850 --> 00:03:42,810
+false and so on.
+
+66
+00:03:43,710 --> 00:03:45,990
+So this is definitely one way to approach this.
+
+67
+00:03:45,990 --> 00:03:50,760
+But any time that we start using for loops like this, well, life gets a little bit challenging because
+
+68
+00:03:50,760 --> 00:03:55,200
+now we've got all these different values and symbols floating around, as we've seen several times throughout
+
+69
+00:03:55,200 --> 00:03:55,860
+this course.
+
+70
+00:03:55,860 --> 00:04:01,590
+Usually using a for loop like the one we have right here is not the best way of achieving just about
+
+71
+00:04:01,590 --> 00:04:02,220
+anything.
+
+72
+00:04:02,820 --> 00:04:06,510
+So we're going to instead use a little trick to initialize the grid array.
+
+73
+00:04:06,630 --> 00:04:10,890
+At the end of the day, the code we're about to use is 100% equivalent to what we currently have, but
+
+74
+00:04:10,890 --> 00:04:12,570
+it's going to be a lot more concise.
+
+75
+00:04:12,810 --> 00:04:14,220
+So here's what we're going to do.
+
+76
+00:04:15,520 --> 00:04:20,079
+I'm going to say that cost grid is array of three.
+
+77
+00:04:20,079 --> 00:04:25,030
+So this means create an empty array that has three possible places in it.
+
+78
+00:04:25,450 --> 00:04:30,820
+And when we create an array like this, we don't get some imaginary or we don't get some actual values
+
+79
+00:04:30,820 --> 00:04:31,930
+initialized in there.
+
+80
+00:04:32,260 --> 00:04:36,790
+So the array is told that it's going to have capacity for three elements, but right now there's no
+
+81
+00:04:36,790 --> 00:04:37,600
+elements inside there.
+
+82
+00:04:37,600 --> 00:04:42,940
+So if we were to run a four loop or a four of loop on this or a four each, it would not do anything
+
+83
+00:04:42,940 --> 00:04:43,450
+at all.
+
+84
+00:04:43,900 --> 00:04:49,150
+So we have to actually finish initializing this array by calling fill and then putting some default
+
+85
+00:04:49,150 --> 00:04:50,230
+value inside there.
+
+86
+00:04:50,770 --> 00:04:55,300
+So in this case, to initialize this thing, we can throw any old value in and I'll show you why we
+
+87
+00:04:55,300 --> 00:04:57,160
+can put any value in at just a moment.
+
+88
+00:04:57,160 --> 00:04:58,900
+Right now, I'm going to put in null.
+
+89
+00:05:00,880 --> 00:05:04,840
+So let me do a console log here and you'll see what we get out of this.
+
+90
+00:05:06,280 --> 00:05:07,110
+So I've now got.
+
+91
+00:05:07,120 --> 00:05:07,840
+No, no, no.
+
+92
+00:05:07,870 --> 00:05:08,620
+Like, so.
+
+93
+00:05:08,980 --> 00:05:15,430
+So we now want to replace each of those null values with another array that has false values inside
+
+94
+00:05:15,430 --> 00:05:15,940
+of it.
+
+95
+00:05:16,330 --> 00:05:19,270
+So to do so, we're now going to map over this array.
+
+96
+00:05:19,510 --> 00:05:25,210
+And for each element inside of here, we're going to return an array of length three that has the values
+
+97
+00:05:25,210 --> 00:05:26,550
+of false inside of it.
+
+98
+00:05:26,560 --> 00:05:30,550
+So that's why it doesn't really matter what value we put inside of here to start.
+
+99
+00:05:30,550 --> 00:05:34,030
+It doesn't matter that we throw in null because we're just going to replace it right away with a mapping
+
+100
+00:05:34,030 --> 00:05:34,750
+statement.
+
+101
+00:05:36,600 --> 00:05:37,770
+So we'll come back here.
+
+102
+00:05:38,430 --> 00:05:40,470
+I'm going to chain on a mapping statement.
+
+103
+00:05:41,070 --> 00:05:44,740
+So I'm going to say for each element inside there, throw away the value of null.
+
+104
+00:05:44,760 --> 00:05:45,850
+We don't care about that.
+
+105
+00:05:45,870 --> 00:05:52,110
+Instead, return a brand new array that has three elements of false.
+
+106
+00:05:52,410 --> 00:05:54,360
+So to do so, I'm going to use a very similar statement.
+
+107
+00:05:54,360 --> 00:06:02,040
+I'll say create a new array that has length three and fill every value inside there with false like
+
+108
+00:06:02,040 --> 00:06:02,520
+so.
+
+109
+00:06:04,510 --> 00:06:04,640
+Okay.
+
+110
+00:06:04,690 --> 00:06:05,860
+So let's save this now.
+
+111
+00:06:05,890 --> 00:06:07,000
+We'll go back over.
+
+112
+00:06:07,510 --> 00:06:10,480
+And now you can see that we've got the exact structure that we're looking for.
+
+113
+00:06:11,810 --> 00:06:16,190
+You might be kind of curious, why do we have the map statement here as opposed to just like throwing
+
+114
+00:06:16,190 --> 00:06:21,740
+in with a Phil, like, why can't we just put in false, false, false like so?
+
+115
+00:06:22,040 --> 00:06:27,350
+Well, the reason is, in this case, we are creating one single array and then throwing it in at every
+
+116
+00:06:27,350 --> 00:06:29,270
+location inside of grid.
+
+117
+00:06:29,630 --> 00:06:32,270
+So in memory, there's only one inner array.
+
+118
+00:06:32,270 --> 00:06:35,930
+And if we made a change to this inner array, it would affect every index.
+
+119
+00:06:35,970 --> 00:06:39,390
+Let me show you that really quickly, because it's actually a really neat little trick.
+
+120
+00:06:39,410 --> 00:06:42,320
+To do this, you would not expect it to happen.
+
+121
+00:06:42,320 --> 00:06:43,430
+So here's our Ray.
+
+122
+00:06:44,430 --> 00:06:47,990
+Those three inter arrays are the same exact arrays in memory.
+
+123
+00:06:48,000 --> 00:06:55,350
+So if I do grid at zero and I push in a value of true and then I print out grid again, take a look
+
+124
+00:06:55,350 --> 00:06:55,860
+at that.
+
+125
+00:06:55,860 --> 00:07:00,600
+It added it to apparently each of these well it didn't add it to each it add it to just the one, but
+
+126
+00:07:00,600 --> 00:07:01,980
+it's the same array in memory.
+
+127
+00:07:01,980 --> 00:07:03,900
+So modifying one modifies all.
+
+128
+00:07:04,140 --> 00:07:06,240
+So that's why we can't just do a direct fill like.
+
+129
+00:07:06,240 --> 00:07:08,940
+So instead we have to do the map statement.
+
+130
+00:07:09,830 --> 00:07:15,080
+And when we do the map statement, that's going to run the inner function three times and each time
+
+131
+00:07:15,080 --> 00:07:17,480
+we're going to generate a brand new and different array.
+
+132
+00:07:18,850 --> 00:07:19,120
+All right.
+
+133
+00:07:19,120 --> 00:07:23,080
+So we're going to using this trick right here several times, because at the end of the day, even though
+
+134
+00:07:23,080 --> 00:07:28,240
+right now it might be kind of hard to read, it ends up being a lot easier in the long run to understand.
+
+135
+00:07:28,240 --> 00:07:32,260
+And it also makes it a lot easier to come back and adjust the different values to change the size of
+
+136
+00:07:32,260 --> 00:07:32,920
+the array.
+
+137
+00:07:33,010 --> 00:07:37,480
+If we ever want to add more rows to our grid, that we're going to change that value of three right
+
+138
+00:07:37,480 --> 00:07:37,930
+there.
+
+139
+00:07:38,170 --> 00:07:41,710
+And if we ever want to add more columns, we'll change that three right there.
+
+140
+00:07:42,340 --> 00:07:46,210
+So imagine for a second that we decide that we want to instead have a.
+
+141
+00:07:47,160 --> 00:07:49,680
+Extra column on here like so.
+
+142
+00:07:49,680 --> 00:07:54,630
+So let's say that we want to have a rectangular maze, so we want that to be the starting point.
+
+143
+00:07:54,630 --> 00:07:56,040
+To get something like that.
+
+144
+00:07:56,160 --> 00:08:00,630
+We would come back here, we would change the inner arrays to length for instead.
+
+145
+00:08:00,630 --> 00:08:05,400
+So now we've got four columns instead of the previous three.
+
+146
+00:08:05,430 --> 00:08:08,970
+So now I could save this refresh and now I can see one, two, three, four.
+
+147
+00:08:09,770 --> 00:08:13,190
+So, like I said, much more convenient way to create our nested arrays.
+
+148
+00:08:13,610 --> 00:08:14,880
+All right, so that's it for the grid.
+
+149
+00:08:14,900 --> 00:08:16,130
+We're going to take a pause right here.
+
+150
+00:08:16,160 --> 00:08:16,930
+Come back to the next video.
+
+151
+00:08:16,940 --> 00:08:20,290
+We're going to tackle the verticals and horizontals, arrays as well.
+
+152
+00:08:20,300 --> 00:08:22,400
+So quick pause and I'll see you in just a minute.
+

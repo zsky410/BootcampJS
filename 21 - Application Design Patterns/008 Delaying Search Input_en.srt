@@ -1,0 +1,532 @@
+1
+00:00:00,670 --> 00:00:04,590
+In the last video we saw that we were making search requests to our API way too often.
+
+2
+00:00:04,600 --> 00:00:07,750
+So in this video we're going to figure out how to somehow fix this behavior.
+
+3
+00:00:07,900 --> 00:00:10,420
+Just make sure it's really crystal clear what we're going to try to do.
+
+4
+00:00:10,450 --> 00:00:12,310
+Let me show you a couple of quick diagrams.
+
+5
+00:00:12,640 --> 00:00:14,560
+So this is our current behavior right now.
+
+6
+00:00:14,560 --> 00:00:18,030
+Every single time there is a key press, we do a search to our API.
+
+7
+00:00:18,040 --> 00:00:19,210
+And this is not ideal.
+
+8
+00:00:19,210 --> 00:00:20,620
+This is not what we want.
+
+9
+00:00:20,920 --> 00:00:25,420
+So instead, this is a little bit closer to the experience that we want to have inside of our application.
+
+10
+00:00:25,900 --> 00:00:30,520
+We want to allow the user to press the key inside that input as many times as they want.
+
+11
+00:00:30,820 --> 00:00:37,450
+And only after we go through about 1/2 or so of nothing happening do we want to eventually call the
+
+12
+00:00:37,450 --> 00:00:38,320
+search function.
+
+13
+00:00:38,500 --> 00:00:41,560
+So in other words, let the user press as many times as they want.
+
+14
+00:00:41,560 --> 00:00:45,220
+If they then stop for 1/2, then go ahead and call search.
+
+15
+00:00:46,580 --> 00:00:48,910
+There's two ways that we can implement this functionality.
+
+16
+00:00:48,920 --> 00:00:54,410
+We can add either add in a JavaScript library that will do this for us automatically, or we can write
+
+17
+00:00:54,410 --> 00:00:57,680
+out some code where we will just figure out how to do it ourselves.
+
+18
+00:00:57,680 --> 00:00:59,390
+And I bet you can guess which we're going to do.
+
+19
+00:00:59,420 --> 00:01:02,540
+We're going to figure out how to implement this from scratch on our own.
+
+20
+00:01:02,810 --> 00:01:07,400
+It's actually a little bit simpler than you might think, but to implement this, we first need to get
+
+21
+00:01:07,400 --> 00:01:10,460
+a little bit of background on the set time out function.
+
+22
+00:01:10,730 --> 00:01:14,600
+Chances are you've already taken a look at the set timeout and function in JavaScript before.
+
+23
+00:01:14,600 --> 00:01:18,290
+But I just want to give you a quick recap on how set timeout works in general.
+
+24
+00:01:19,080 --> 00:01:22,200
+So I'm going to write out a little bit of test code inside my console.
+
+25
+00:01:22,200 --> 00:01:23,100
+Back over here.
+
+26
+00:01:24,050 --> 00:01:28,490
+So inside my console, inside my browser, I'm going to use the set timeout function.
+
+27
+00:01:28,910 --> 00:01:30,980
+I can use it by calling set timeout.
+
+28
+00:01:31,550 --> 00:01:35,600
+I'm going to pass in an arrow function to it as the first argument.
+
+29
+00:01:35,930 --> 00:01:38,930
+And inside of that arrow function, I'll do a console log of.
+
+30
+00:01:38,960 --> 00:01:39,920
+Hi there.
+
+31
+00:01:40,340 --> 00:01:41,030
+Like so.
+
+32
+00:01:41,980 --> 00:01:45,460
+The second argument to the set timeout function is a delay.
+
+33
+00:01:45,460 --> 00:01:49,790
+That's going to specify how long we want to wait before we run that function right there.
+
+34
+00:01:49,810 --> 00:01:51,220
+The one with console.log.
+
+35
+00:01:52,980 --> 00:01:58,080
+So as the second argument to set time out, I'm going to put in 1000, which means that I want to wait
+
+36
+00:01:58,080 --> 00:02:02,400
+1/2 or 1000 milliseconds before executing that function.
+
+37
+00:02:02,730 --> 00:02:08,520
+So if I run that, I'll wait for about a second and then I see hi there appear I can adjust it up to
+
+38
+00:02:08,520 --> 00:02:12,360
+5 seconds and that will wait 5 seconds before that function is invoked.
+
+39
+00:02:13,650 --> 00:02:18,210
+The important thing to keep in mind around set time out is that any time we call it, we get back an
+
+40
+00:02:18,210 --> 00:02:19,560
+integer value.
+
+41
+00:02:19,800 --> 00:02:23,160
+So in the first case we got out of set time out a value of one.
+
+42
+00:02:23,640 --> 00:02:25,830
+In the next case, we got out a value of two.
+
+43
+00:02:26,400 --> 00:02:32,010
+These numbers are essentially identifiers and they identify the timer that we just created.
+
+44
+00:02:32,430 --> 00:02:38,640
+If we want to, we can call the clear timeout function to stop that pending timer and prevent that function
+
+45
+00:02:38,640 --> 00:02:39,630
+from being called.
+
+46
+00:02:40,450 --> 00:02:44,590
+So I'm going to set up another timeout and I'm going to give it a timeout of 10 seconds.
+
+47
+00:02:44,590 --> 00:02:50,260
+Like, so that's going to give me more than enough time to write out some code very quickly to clear
+
+48
+00:02:50,260 --> 00:02:52,600
+the timer that I set up with this line of code.
+
+49
+00:02:53,590 --> 00:02:54,940
+So I'm going to run that.
+
+50
+00:02:54,940 --> 00:02:58,090
+And then very quickly write out clear time out with three likes.
+
+51
+00:02:58,090 --> 00:02:58,540
+So.
+
+52
+00:02:59,110 --> 00:03:04,690
+When I call clear time out of three, that means look at the timer that was created with the idea of
+
+53
+00:03:04,690 --> 00:03:05,200
+three.
+
+54
+00:03:05,620 --> 00:03:09,160
+So the timer that was created with an idea of three was this one right here.
+
+55
+00:03:09,550 --> 00:03:16,030
+So I'm saying stop that running timer and don't call that function ever even after 10 seconds pass.
+
+56
+00:03:16,920 --> 00:03:20,460
+So that's just a quick reminder on how set timeout and clear timeout work.
+
+57
+00:03:20,790 --> 00:03:25,290
+Now that we understand or have a quick reminder on that, let's go back over to our code and we're going
+
+58
+00:03:25,290 --> 00:03:28,860
+to add in a little bit of code to add in this behavior right here.
+
+59
+00:03:30,330 --> 00:03:30,710
+Okay.
+
+60
+00:03:30,720 --> 00:03:35,790
+So back inside my index file, I'm going to go down to where we added that event listener.
+
+61
+00:03:37,320 --> 00:03:42,810
+So the function that we kind of want to prevent from being executed is this whole function right here.
+
+62
+00:03:42,810 --> 00:03:45,090
+We want to stop that from ever running.
+
+63
+00:03:45,420 --> 00:03:47,850
+If a user is pressing on the keyboard too often.
+
+64
+00:03:49,220 --> 00:03:54,020
+So to add that in, I'm going to first assign that function to a new variable.
+
+65
+00:03:54,410 --> 00:03:57,260
+I'm going to cut the function out right above.
+
+66
+00:03:57,290 --> 00:04:02,690
+I'm going to create a new variable called on input and assign that function to it.
+
+67
+00:04:03,860 --> 00:04:05,510
+I'll then pass that variable.
+
+68
+00:04:06,740 --> 00:04:09,170
+As the second argument into the event listener.
+
+69
+00:04:09,440 --> 00:04:11,450
+So on input like so.
+
+70
+00:04:12,400 --> 00:04:16,089
+So what we have right here is 100% equivalent to the code we had before.
+
+71
+00:04:16,790 --> 00:04:21,470
+Now we can add in some logic to actually make sure that we don't call it input too often.
+
+72
+00:04:22,430 --> 00:04:29,150
+So to do so inside of an input, I'm going to first write above the function to clear a variable that
+
+73
+00:04:29,150 --> 00:04:31,250
+I'll call a timeout ID like.
+
+74
+00:04:31,250 --> 00:04:37,070
+So we're eventually going to take one of those IDs so we get from calling set timeout like the ones
+
+75
+00:04:37,070 --> 00:04:38,870
+we saw back over here, one, two and three.
+
+76
+00:04:38,870 --> 00:04:41,780
+And we're going to assign one of those IDs to this variable.
+
+77
+00:04:43,220 --> 00:04:47,630
+Then inside this function, we're going to wrap the fetch data call with a set timeout.
+
+78
+00:04:47,630 --> 00:04:49,310
+So I'll say set timeout.
+
+79
+00:04:50,800 --> 00:04:51,610
+Like so.
+
+80
+00:04:52,710 --> 00:04:56,070
+I'll move my call to fetch data into the timeout function.
+
+81
+00:04:57,750 --> 00:05:02,130
+Then as the second argument to set time out, I'm going to put in 1000 milliseconds.
+
+82
+00:05:02,760 --> 00:05:08,130
+So if we ran our code right now, the only effect would be to make sure that we introduce a delay of
+
+83
+00:05:08,130 --> 00:05:13,890
+1000 seconds, 1000 milliseconds between typing something and actually calling fetch data.
+
+84
+00:05:13,890 --> 00:05:15,990
+That's the only change that would occur right now.
+
+85
+00:05:16,350 --> 00:05:21,780
+But we want to make sure that we don't run any code until the user stops typing for some amount of time.
+
+86
+00:05:22,170 --> 00:05:27,120
+So to implement that behavior, I'm going to take the timer that gets returned from calling set timeout
+
+87
+00:05:27,120 --> 00:05:29,310
+and assign assign it to timeout.
+
+88
+00:05:29,310 --> 00:05:30,360
+ID like so.
+
+89
+00:05:31,730 --> 00:05:35,060
+Now here's the magic line of code right above that.
+
+90
+00:05:35,060 --> 00:05:40,690
+So between on input and where we assign that timeout ID, I'm going to add in an if statement.
+
+91
+00:05:40,700 --> 00:05:41,810
+I'm going to say if.
+
+92
+00:05:42,550 --> 00:05:43,510
+I married.
+
+93
+00:05:44,280 --> 00:05:45,290
+Then clear.
+
+94
+00:05:45,300 --> 00:05:46,290
+Timeout.
+
+95
+00:05:46,650 --> 00:05:47,470
+Timeout ID.
+
+96
+00:05:47,550 --> 00:05:49,530
+That's the magic part right there.
+
+97
+00:05:50,460 --> 00:05:53,130
+Now you can kind of imagine what is going on behind the scenes here.
+
+98
+00:05:53,670 --> 00:05:57,070
+We're going to be calling on input many, many times in a row.
+
+99
+00:05:57,090 --> 00:06:00,370
+Just imagine a user typing in to the input like the word Avengers.
+
+100
+00:06:00,390 --> 00:06:04,920
+However many characters that is, we're going to call on input that number of times.
+
+101
+00:06:05,490 --> 00:06:09,540
+The very first time that on input is going to be called, we're going to enter this function.
+
+102
+00:06:09,840 --> 00:06:13,560
+We're going to take a look and see if timeout ID is defined.
+
+103
+00:06:14,220 --> 00:06:18,600
+The very first time that we call this function timeout ID is going to be undefined.
+
+104
+00:06:18,600 --> 00:06:21,480
+So we're going to skip over this if statement entirely.
+
+105
+00:06:22,050 --> 00:06:28,590
+We're going to go down to set timeout and set up a timer and say in 1/2, call fetch data.
+
+106
+00:06:29,890 --> 00:06:31,660
+So that's the very first key press.
+
+107
+00:06:32,020 --> 00:06:35,950
+We're then going to assign that timer to time out ID.
+
+108
+00:06:36,770 --> 00:06:39,680
+The users, then going to press on the second key on their keyboard.
+
+109
+00:06:39,980 --> 00:06:43,400
+The second time they press the key, we're going to once again enter this function.
+
+110
+00:06:43,730 --> 00:06:48,340
+And now when we hit the if statement, timeout ID will be defined.
+
+111
+00:06:48,350 --> 00:06:52,790
+So we're going to enter the if statement and we're going to stop that pending timer.
+
+112
+00:06:53,950 --> 00:06:57,250
+So we're going to stop the existing one and we're going to set up a brand new one.
+
+113
+00:06:57,250 --> 00:07:01,750
+But the brand new one is going to have a new value that it's going to call fetch data with.
+
+114
+00:07:02,490 --> 00:07:07,590
+That process is then going to repeat itself over and over and over again until we eventually go for
+
+115
+00:07:07,590 --> 00:07:11,250
+a full second before calling on input again.
+
+116
+00:07:11,760 --> 00:07:14,280
+In that scenario, we're not going to call a clear timeout.
+
+117
+00:07:14,280 --> 00:07:17,790
+This timeout is going to execute and fetch data.
+
+118
+00:07:17,790 --> 00:07:18,750
+We'll be called.
+
+119
+00:07:19,270 --> 00:07:22,710
+So let's save this and test out our code and see how it's doing.
+
+120
+00:07:24,240 --> 00:07:27,120
+I'm going to go back over to the network tab over here.
+
+121
+00:07:27,120 --> 00:07:32,100
+I'm going to search for Avengers again, so I'll put in Avengers like so, and I have to wait for about
+
+122
+00:07:32,100 --> 00:07:37,650
+a second after my last key press before I actually see a request being issued, which is exactly what
+
+123
+00:07:37,650 --> 00:07:38,310
+we want.
+
+124
+00:07:38,970 --> 00:07:43,620
+So now a user can be typing in here, they can make as many typos as they want, and we're not burning
+
+125
+00:07:43,620 --> 00:07:45,870
+through all of our credits on our API.
+
+126
+00:07:47,950 --> 00:07:49,030
+That looks pretty good.
+
+127
+00:07:49,690 --> 00:07:53,830
+Now, last thing I want to mention is that we can very easily make sure that we execute the search a
+
+128
+00:07:53,830 --> 00:07:58,660
+little bit more quickly by just adjusting that 1000 milliseconds right there so we can instead go to
+
+129
+00:07:58,660 --> 00:07:59,530
+500.
+
+130
+00:07:59,950 --> 00:08:04,150
+And now we are going to do the search twice as quickly after the user stops typing.
+
+131
+00:08:04,520 --> 00:08:07,810
+Now I can put in Avengers and I'll see the search up here right away.
+
+132
+00:08:08,680 --> 00:08:09,640
+So this looks pretty good.
+
+133
+00:08:10,300 --> 00:08:12,970
+Let's take a quick pause right here and continue in the next video.
+

@@ -1,0 +1,536 @@
+1
+00:00:00,800 --> 00:00:04,970
+The next thing we have to do is to make sure that we adjust our dash offset value by something more
+
+2
+00:00:04,970 --> 00:00:06,400
+precise than negative one.
+
+3
+00:00:06,410 --> 00:00:10,370
+So let's take a look at a couple of diagrams and really understand the math that we have to do.
+
+4
+00:00:11,000 --> 00:00:11,270
+Okay.
+
+5
+00:00:11,270 --> 00:00:12,590
+So here's the general idea.
+
+6
+00:00:12,590 --> 00:00:18,110
+When everything first starts are in our side of our animation, we want our dash array value of our
+
+7
+00:00:18,110 --> 00:00:20,330
+circle element to be equal to perimeter.
+
+8
+00:00:20,660 --> 00:00:25,310
+That is what is going to give us that big round circle when everything first starts out.
+
+9
+00:00:27,110 --> 00:00:31,130
+When the animation ends, we still want the dash array to be equal to perimeter.
+
+10
+00:00:31,220 --> 00:00:34,580
+But what's really going to change over time is the dash offset.
+
+11
+00:00:34,610 --> 00:00:37,040
+The dash offset will start out off at zero.
+
+12
+00:00:37,040 --> 00:00:39,580
+So that's what's going to give us the kind of nice circle right here.
+
+13
+00:00:39,590 --> 00:00:44,780
+And then over time, we want to make it more and more negative as the dash offset gets more negative.
+
+14
+00:00:44,810 --> 00:00:50,030
+We're going to get additional white space from the top going around the clockwise direction.
+
+15
+00:00:50,600 --> 00:00:56,270
+So by the end, we want to have a dash offset equal to negative one times perimeter.
+
+16
+00:00:56,660 --> 00:01:03,440
+So the real question here becomes how do we start with a dash offset of zero and then effectively over
+
+17
+00:01:03,440 --> 00:01:10,190
+the span of our entire timer and in very equal increments go from a value of zero to negative perimeter.
+
+18
+00:01:11,070 --> 00:01:16,590
+We make that happen, we're essentially going to say if our perimeter is, say, a circle of 100 units.
+
+19
+00:01:17,710 --> 00:01:20,590
+And we have total 50 different TIC events.
+
+20
+00:01:20,950 --> 00:01:27,460
+Then each individual tic would need to adjust that offset by negative one times 100 divided by 50.
+
+21
+00:01:27,490 --> 00:01:28,960
+That gives us negative two.
+
+22
+00:01:29,460 --> 00:01:32,740
+Let me show you a better diagram to really illustrate how this formula works.
+
+23
+00:01:33,340 --> 00:01:35,080
+So here's the formula that we need.
+
+24
+00:01:35,530 --> 00:01:37,360
+So we're going to calculate offset.
+
+25
+00:01:37,390 --> 00:01:43,090
+This is going to be how much we're going to change that stroke dash offset property for every tic.
+
+26
+00:01:43,660 --> 00:01:45,010
+So that's the general formula.
+
+27
+00:01:45,720 --> 00:01:50,790
+We can start to plug in the start and end values inside of it to figure out or make sure that actually
+
+28
+00:01:50,790 --> 00:01:51,630
+makes sense.
+
+29
+00:01:52,050 --> 00:01:58,800
+So our offset at the very start would be p times, the time remaining, which would for us be 30 seconds
+
+30
+00:01:58,800 --> 00:02:02,070
+divided by the total duration, which would also be 30 seconds.
+
+31
+00:02:02,400 --> 00:02:04,380
+And then we would subtract by the perimeter.
+
+32
+00:02:06,100 --> 00:02:12,220
+The 30 divided by 30 would turn into one, so we'd end up with P minus P, and so offset at the very
+
+33
+00:02:12,220 --> 00:02:13,720
+start would be equal to zero.
+
+34
+00:02:15,050 --> 00:02:17,720
+And so that matches up with our initial requirement over here.
+
+35
+00:02:18,850 --> 00:02:24,280
+Then at the very end our dash offset is equal to zero, or that's our dash offset.
+
+36
+00:02:24,310 --> 00:02:26,650
+We want to be equal to a negative perimeter.
+
+37
+00:02:26,800 --> 00:02:31,810
+So at the very end, we're going to have a time remaining of zero divided by 30.
+
+38
+00:02:31,930 --> 00:02:33,570
+So we get zero divided by 30.
+
+39
+00:02:33,580 --> 00:02:39,100
+That's going to end up zeroing out and we are left with just negative P and that once again matches
+
+40
+00:02:39,100 --> 00:02:40,810
+up with what we just discussed over here.
+
+41
+00:02:41,570 --> 00:02:46,280
+So this is pretty much the formula that we have to increment or implement inside of our on tick function.
+
+42
+00:02:46,310 --> 00:02:48,920
+There's just one problem with it.
+
+43
+00:02:49,580 --> 00:02:56,180
+Our intake function doesn't really have any idea of how much time is remaining or the total duration.
+
+44
+00:02:56,480 --> 00:02:58,250
+That's not a big problem.
+
+45
+00:02:58,250 --> 00:03:03,470
+Kind of let me show you a real small change that we can make to our code to make sure that the authentic
+
+46
+00:03:03,470 --> 00:03:04,490
+function that we have.
+
+47
+00:03:04,730 --> 00:03:08,570
+So this function right here can get access to the time remaining.
+
+48
+00:03:09,140 --> 00:03:11,750
+If you want to do that, we could go back over to time or JS.
+
+49
+00:03:13,400 --> 00:03:16,160
+I'm going to find my tic function here is right here.
+
+50
+00:03:16,490 --> 00:03:17,120
+Inside there.
+
+51
+00:03:17,120 --> 00:03:20,150
+I'll find where we call on tick and inside of it.
+
+52
+00:03:20,150 --> 00:03:24,320
+When we call on tick, I will simply pass in this time remaining.
+
+53
+00:03:26,500 --> 00:03:32,290
+So now back inside of our index dogs file on tick is going to receive the time remaining.
+
+54
+00:03:33,760 --> 00:03:34,640
+So that's not bad.
+
+55
+00:03:34,660 --> 00:03:39,430
+So we now have one of the values inside of our formula that we need to determine what the offset should
+
+56
+00:03:39,430 --> 00:03:40,630
+be at each tick.
+
+57
+00:03:41,170 --> 00:03:45,310
+Now, there is a second problem here, and that is the total duration value.
+
+58
+00:03:45,340 --> 00:03:48,340
+We need to know the entire duration of the timer.
+
+59
+00:03:48,340 --> 00:03:53,800
+So if we set it for 30 seconds and hit start, we need to know that starting time right now, there
+
+60
+00:03:53,800 --> 00:03:57,310
+is absolutely nothing inside of our application to track that value.
+
+61
+00:03:57,340 --> 00:03:58,980
+In other words, there is no input.
+
+62
+00:03:58,990 --> 00:04:04,270
+There is no value inside of our timer class, nothing that tracks the total duration of the timer.
+
+63
+00:04:04,810 --> 00:04:09,790
+But by using one of the callbacks we implemented, we can start to track it ourselves.
+
+64
+00:04:11,080 --> 00:04:16,240
+So we're going to say that whenever we call on start, we're going to pass in an argument that represents
+
+65
+00:04:16,240 --> 00:04:19,450
+how much time is going to take for this entire timer to run.
+
+66
+00:04:20,990 --> 00:04:23,150
+Well, then receive that argument right here and store it.
+
+67
+00:04:23,150 --> 00:04:28,130
+So then later on inside of on tick, we can use that value to figure out what the total duration is
+
+68
+00:04:28,130 --> 00:04:28,880
+going to be.
+
+69
+00:04:29,790 --> 00:04:32,200
+So let's write out some code, because I know this is confusing.
+
+70
+00:04:32,220 --> 00:04:33,420
+Let's write out some code.
+
+71
+00:04:33,420 --> 00:04:35,520
+You're going to see where we're going with this really quickly.
+
+72
+00:04:35,520 --> 00:04:37,200
+So I'm going to go back over to my timer.
+
+73
+00:04:38,160 --> 00:04:43,230
+I'm going to find where we call on START, which is inside the start function and when we call it,
+
+74
+00:04:43,230 --> 00:04:47,160
+I'm going to pass in the value of this time remaining.
+
+75
+00:04:47,730 --> 00:04:52,470
+So when we first start our timer this time remaining, that value is going to be how long the timer
+
+76
+00:04:52,470 --> 00:04:53,910
+is going to run in total.
+
+77
+00:04:54,990 --> 00:04:58,440
+So in on start we can receive that.
+
+78
+00:04:59,550 --> 00:05:02,790
+As an argument that I will refer to as total duration.
+
+79
+00:05:05,120 --> 00:05:10,040
+So then it's back over here rather than storing something like current offset right there and going
+
+80
+00:05:10,040 --> 00:05:11,060
+to delete that.
+
+81
+00:05:11,060 --> 00:05:14,120
+And I'm going to make a new variable called simply duration.
+
+82
+00:05:14,960 --> 00:05:19,430
+And it will set the value to total duration whenever the OnStar function is called.
+
+83
+00:05:19,430 --> 00:05:22,070
+So we'll say duration is total duration.
+
+84
+00:05:24,060 --> 00:05:29,790
+So then finally inside of on tick, we can actually implement the correct offset when we update the
+
+85
+00:05:29,790 --> 00:05:31,350
+stroke dash offset.
+
+86
+00:05:32,190 --> 00:05:34,980
+So we no longer have to make a change over time.
+
+87
+00:05:34,980 --> 00:05:37,900
+So I'm going to delete that line instead at every tick.
+
+88
+00:05:37,920 --> 00:05:39,570
+We're going to take the time remaining.
+
+89
+00:05:39,570 --> 00:05:41,490
+We're going to take the total duration.
+
+90
+00:05:42,000 --> 00:05:44,400
+And we're going to take our perimeter.
+
+91
+00:05:45,280 --> 00:05:48,370
+And we'll use it to figure out exactly what the offset value should be.
+
+92
+00:05:48,790 --> 00:05:50,380
+So I'm going to delete current offset right there.
+
+93
+00:05:50,380 --> 00:05:53,520
+I'm going to give myself a little bit of space and we'll write in our formula.
+
+94
+00:05:54,130 --> 00:05:56,620
+So remember right above, we already defined our perimeter.
+
+95
+00:05:56,770 --> 00:05:58,600
+So we'll say perimeter.
+
+96
+00:06:00,310 --> 00:06:08,020
+Time's time remaining divided by the duration, and we'll subtract from that the perimeter.
+
+97
+00:06:09,160 --> 00:06:10,210
+And that's it.
+
+98
+00:06:10,600 --> 00:06:15,280
+Now I know this, like, explanation of all the math is really nasty, but when it really comes down
+
+99
+00:06:15,280 --> 00:06:17,110
+to it, this is what's really going on.
+
+100
+00:06:18,210 --> 00:06:19,260
+So I'm going to save this.
+
+101
+00:06:19,260 --> 00:06:21,170
+And we can do one last test.
+
+102
+00:06:21,180 --> 00:06:22,410
+I can make sure I save both files.
+
+103
+00:06:22,410 --> 00:06:23,100
+Of course.
+
+104
+00:06:23,130 --> 00:06:25,200
+Flip back over, I'll hit start.
+
+105
+00:06:25,590 --> 00:06:28,380
+And now we can see the timer working as expected.
+
+106
+00:06:29,240 --> 00:06:33,620
+By the way, the animation is always going to play a little bit more smoothly if you close your console.
+
+107
+00:06:33,830 --> 00:06:37,040
+So close your chrome console if it seems like it's a little bit laggy.
+
+108
+00:06:37,610 --> 00:06:39,620
+So now we can wait for this to count down all the way to zero.
+
+109
+00:06:39,620 --> 00:06:45,440
+And when it hits zero, we should see the animation finishing like right there at the very top end point.
+
+110
+00:06:45,740 --> 00:06:47,390
+So nine, eight, seven.
+
+111
+00:06:47,390 --> 00:06:48,650
+Well, you can count.
+
+112
+00:06:49,130 --> 00:06:52,880
+So I'm going to wait for this thing to finish up and make sure that it finishes at the correct location.
+
+113
+00:06:54,540 --> 00:06:55,440
+And there we go.
+
+114
+00:06:55,470 --> 00:07:00,360
+So by the time it hits zero, we have cleared out that entire circle perfectly every time.
+
+115
+00:07:01,290 --> 00:07:06,150
+Now of course I can always update the timer to say 3 seconds hit start and it's going to play it again.
+
+116
+00:07:07,540 --> 00:07:07,840
+Okay.
+
+117
+00:07:07,840 --> 00:07:08,200
+Well, let's see.
+
+118
+00:07:08,200 --> 00:07:09,220
+This looks pretty good.
+
+119
+00:07:09,460 --> 00:07:11,320
+Now, the only thing that we might change here.
+
+120
+00:07:11,560 --> 00:07:14,560
+When I use three, you'll notice it still looks a little bit choppy.
+
+121
+00:07:14,560 --> 00:07:19,950
+So if you want to, you can always go back over and adjust the interval that we do this update at.
+
+122
+00:07:19,960 --> 00:07:23,110
+So instead of 50 right here, we could always take it down to say 20.
+
+123
+00:07:23,320 --> 00:07:27,340
+But if you update it right there, just make sure that you update how much we change time remaining
+
+124
+00:07:27,340 --> 00:07:28,540
+by for every tick.
+
+125
+00:07:28,780 --> 00:07:34,300
+So if we take that to 20, we would want to subtract 0.02 from time remaining.
+
+126
+00:07:34,810 --> 00:07:35,950
+So I'll save this.
+
+127
+00:07:35,980 --> 00:07:36,790
+I'll refresh.
+
+128
+00:07:36,820 --> 00:07:38,620
+I'll try again with 3 seconds.
+
+129
+00:07:38,620 --> 00:07:40,810
+Yeah, that definitely looks a little bit more smooth.
+
+130
+00:07:41,800 --> 00:07:42,070
+Okay.
+
+131
+00:07:42,070 --> 00:07:43,390
+Well, this looks pretty good overall.
+
+132
+00:07:43,390 --> 00:07:47,680
+So now the last thing we have to do is just a little bit of styling to make sure that the input, the
+
+133
+00:07:47,680 --> 00:07:51,580
+start and pause button, all that stuff shows up inside of the circle.
+
+134
+00:07:51,910 --> 00:07:54,370
+So let's take care of some styling in just a moment.
+

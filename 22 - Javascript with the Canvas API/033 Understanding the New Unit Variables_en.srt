@@ -1,0 +1,228 @@
+1
+00:00:00,760 --> 00:00:01,800
+All right, let's get to it.
+
+2
+00:00:01,810 --> 00:00:05,050
+We're going to start to discuss some of the different variables we need to change inside of here to
+
+3
+00:00:05,050 --> 00:00:06,970
+get our map to display correctly.
+
+4
+00:00:07,540 --> 00:00:09,100
+So a quick diagram.
+
+5
+00:00:09,610 --> 00:00:11,950
+So this is the kind of maze we want to allow the user to have.
+
+6
+00:00:11,950 --> 00:00:17,740
+Now, I want to not only allow the entire canvas to be rectangular, but I want the number of cells
+
+7
+00:00:17,740 --> 00:00:21,160
+in the horizontal and vertical direction to be able to vary as well.
+
+8
+00:00:22,020 --> 00:00:26,910
+So we're going to introduce two new variables that are going to replace the single cells variable that
+
+9
+00:00:26,910 --> 00:00:27,750
+we have right now.
+
+10
+00:00:28,020 --> 00:00:30,480
+Remember, cells right now tells us the number of cells.
+
+11
+00:00:30,480 --> 00:00:33,540
+So we want to have both in the horizontal and vertical direction.
+
+12
+00:00:34,160 --> 00:00:37,970
+But now I want to to have a variable number in the horizontal.
+
+13
+00:00:38,730 --> 00:00:40,560
+And vertical instead.
+
+14
+00:00:41,100 --> 00:00:44,220
+So we're going to introduce a variable called cells.
+
+15
+00:00:45,450 --> 00:00:46,260
+Horizontal.
+
+16
+00:00:49,040 --> 00:00:54,020
+In this case, it would be equal to four because I want to have one, two, three, four cells going
+
+17
+00:00:54,020 --> 00:00:55,040
+from left to right.
+
+18
+00:00:55,490 --> 00:00:57,260
+We're also going to have cells.
+
+19
+00:00:58,080 --> 00:00:58,830
+Vertical.
+
+20
+00:01:00,160 --> 00:01:03,280
+And in this case, as you would guess, one, two, three.
+
+21
+00:01:04,290 --> 00:01:07,910
+Let's create both those variables right now and we'll discuss exactly how we're going to actually use
+
+22
+00:01:07,910 --> 00:01:08,240
+them.
+
+23
+00:01:09,640 --> 00:01:10,500
+It's about over here.
+
+24
+00:01:10,510 --> 00:01:16,060
+I'm going to remove the cells variable and I'm going to create cells horizontal.
+
+25
+00:01:16,900 --> 00:01:22,630
+Well started off as four and cells vertical and I'll start that off as three.
+
+26
+00:01:23,600 --> 00:01:26,810
+The next variable I want to point out to you is unit length right here.
+
+27
+00:01:26,840 --> 00:01:32,030
+Remember, that was supposed to be the length of one side of a given cell, either the height or the
+
+28
+00:01:32,030 --> 00:01:33,890
+width, because they were always identical.
+
+29
+00:01:35,340 --> 00:01:40,500
+Now that you're allowing for a very different number of cells in the horizontal and vertical direction
+
+30
+00:01:40,500 --> 00:01:44,580
+and the actual screen space allocated to this can be variable as well.
+
+31
+00:01:44,610 --> 00:01:52,590
+We need to calculate the horizontal difference or distance of a cell differently from the vertical height
+
+32
+00:01:52,620 --> 00:01:53,370
+of a cell.
+
+33
+00:01:53,670 --> 00:01:56,410
+So we're going to introduce two other variables as well.
+
+34
+00:01:56,430 --> 00:01:59,990
+One will be unit length.
+
+35
+00:02:01,290 --> 00:02:04,980
+X and the other will be unit length.
+
+36
+00:02:06,520 --> 00:02:07,310
+Why?
+
+37
+00:02:07,480 --> 00:02:13,930
+And as you would guess, that's going to be the X direction or the width of a cell and the height of
+
+38
+00:02:13,930 --> 00:02:14,500
+a cell.
+
+39
+00:02:15,660 --> 00:02:21,000
+You can calculate both of these by taking advantage of the height and width of the overall canvas and
+
+40
+00:02:21,000 --> 00:02:25,020
+dividing that by the number of cells on the horizontal and the vertical direction.
+
+41
+00:02:26,890 --> 00:02:27,670
+So back over here.
+
+42
+00:02:27,670 --> 00:02:33,220
+I'm going to change the existing unit length to unit length Y and then to calculate that we're going
+
+43
+00:02:33,220 --> 00:02:38,770
+to take the overall width of our canvas and divide by the number of cells in the horizontal direction.
+
+44
+00:02:38,770 --> 00:02:40,990
+So that is cells horizontal.
+
+45
+00:02:41,950 --> 00:02:43,360
+So I'll say it sells.
+
+46
+00:02:44,340 --> 00:02:46,050
+Horizontal like so.
+
+47
+00:02:47,100 --> 00:02:53,250
+Then for the unit length in the Y direction, I'll create unit length Y, and that's going to be the
+
+48
+00:02:53,250 --> 00:02:57,420
+overall height of the canvas divided by cells vertical.
+
+49
+00:02:58,660 --> 00:02:59,770
+And that's pretty much it.
+
+50
+00:03:00,950 --> 00:03:01,250
+Okay.
+
+51
+00:03:01,250 --> 00:03:05,030
+So now that we've established the meaning of these different variables, we're going to start to go
+
+52
+00:03:05,030 --> 00:03:11,420
+around this file and update all the different references we had previously to unit length or cells to
+
+53
+00:03:11,420 --> 00:03:15,470
+either use cells horizontal vertical or unit length X or y.
+
+54
+00:03:16,400 --> 00:03:18,410
+That refactor is going to be just a little bit painful.
+
+55
+00:03:18,410 --> 00:03:20,690
+And I want to put all of it into one single video.
+
+56
+00:03:20,690 --> 00:03:25,400
+So pause right here, come back to the next video and we'll do the entire refactor, hopefully in one
+
+57
+00:03:25,400 --> 00:03:26,240
+single go.
+

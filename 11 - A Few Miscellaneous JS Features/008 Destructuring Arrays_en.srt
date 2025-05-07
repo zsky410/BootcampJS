@@ -1,0 +1,356 @@
+1
+00:00:00,150 --> 00:00:03,030
+The next new feature we'll see is called De Structuring.
+
+2
+00:00:03,060 --> 00:00:09,540
+Now, de structuring is a really nice, clean way to unpack values from data structures, from arrays
+
+3
+00:00:09,540 --> 00:00:13,360
+or from objects into their own separate, distinct variables.
+
+4
+00:00:13,380 --> 00:00:19,680
+I really liked this clip art that I found showing this man unpacking, taking a piece, one box out
+
+5
+00:00:19,680 --> 00:00:21,110
+of this cluttered mess.
+
+6
+00:00:21,120 --> 00:00:23,780
+It's kind of, I guess, a visual metaphor.
+
+7
+00:00:23,790 --> 00:00:24,750
+I also like this one.
+
+8
+00:00:24,750 --> 00:00:26,260
+I couldn't decide which one was better.
+
+9
+00:00:26,280 --> 00:00:27,810
+Here we're doing the same thing.
+
+10
+00:00:27,810 --> 00:00:33,750
+We have a collection in that van, and then we are removing one piece or a couple of pieces individually.
+
+11
+00:00:33,750 --> 00:00:37,380
+We're selecting them and, I don't know, creating variables with them.
+
+12
+00:00:37,500 --> 00:00:40,020
+That's what you're supposed to think based off of this image.
+
+13
+00:00:40,020 --> 00:00:44,340
+D Structuring is kind of like spread in that we can use it in different ways.
+
+14
+00:00:44,340 --> 00:00:49,350
+So I'm going to break it into a few short videos and the first one will see the first option when we
+
+15
+00:00:49,350 --> 00:00:52,170
+do structure is to de structure arrays.
+
+16
+00:00:52,170 --> 00:00:58,710
+When we d structure an array, we can unpack specific values out of that array into new variables.
+
+17
+00:00:58,710 --> 00:01:06,150
+So here I have an array of marathon results from the men's 2016 marathon at the Olympics and they're
+
+18
+00:01:06,150 --> 00:01:06,810
+in order.
+
+19
+00:01:06,810 --> 00:01:10,440
+So the gold medal went to Elliot Kipchoge all the way down.
+
+20
+00:01:10,440 --> 00:01:13,680
+I think I go to sixth place here for Jared Ward.
+
+21
+00:01:13,800 --> 00:01:20,670
+If I wanted to create variables for, let's say, the first three and I wanted to make a variable called
+
+22
+00:01:20,670 --> 00:01:25,080
+gold and make it set to Elliot Kipchoge I could do it this way.
+
+23
+00:01:25,530 --> 00:01:37,170
+Cost gold equals race results of zero and then duplicate that and do silver here equals race results
+
+24
+00:01:37,170 --> 00:01:41,310
+of one and bronze equals race results of two.
+
+25
+00:01:41,940 --> 00:01:42,780
+And that works.
+
+26
+00:01:42,780 --> 00:01:45,990
+Of course, that's sort of standard array stuff we've seen before.
+
+27
+00:01:46,020 --> 00:01:49,380
+Pre structuring, this was the only option.
+
+28
+00:01:49,380 --> 00:01:52,290
+This was how you created variables based off of an array.
+
+29
+00:01:52,290 --> 00:01:56,790
+You referenced a specific index and you saved it to a new variable.
+
+30
+00:01:57,120 --> 00:02:03,420
+But now we have a much cleaner, shorter syntax where we can unpack the values all at once in a single
+
+31
+00:02:03,420 --> 00:02:03,900
+line.
+
+32
+00:02:03,900 --> 00:02:12,090
+Here's what it would look like equivalent to this we would write const array brackets and then we write
+
+33
+00:02:12,090 --> 00:02:19,200
+our variable names in here gold, silver and bronze equals race results.
+
+34
+00:02:20,440 --> 00:02:26,650
+So what this will do right here is go into race results and use the order that we wrote them in right
+
+35
+00:02:26,650 --> 00:02:27,100
+here.
+
+36
+00:02:27,130 --> 00:02:31,750
+These new variables will be created in this order based off of their position.
+
+37
+00:02:31,750 --> 00:02:36,940
+So gold will be set to the first item in race results, which is Elliott Kipchoge.
+
+38
+00:02:37,420 --> 00:02:41,580
+Silver will be set to I'm sorry if I'm butchering these names.
+
+39
+00:02:41,590 --> 00:02:49,750
+Faiza, Alissa and Bronze will be set to Galen, Galen Rupp and we'll have three new variables, so
+
+40
+00:02:49,750 --> 00:02:54,940
+we won't have new variables for these, the final three results or the final three elements, but the
+
+41
+00:02:54,940 --> 00:02:57,970
+first three will each be assigned to a new variable.
+
+42
+00:02:58,150 --> 00:03:04,870
+So I commented out the original version, but if I look in my console, I still have gold, I have silver
+
+43
+00:03:04,870 --> 00:03:06,310
+and I have bronze.
+
+44
+00:03:07,810 --> 00:03:10,320
+The race results array is unchanged.
+
+45
+00:03:10,330 --> 00:03:16,240
+I'm simply making a variable referencing the value at each index, just like we had before here.
+
+46
+00:03:16,270 --> 00:03:18,480
+This doesn't change race results in any way.
+
+47
+00:03:18,490 --> 00:03:20,650
+We're just accessing and making new variables.
+
+48
+00:03:20,650 --> 00:03:21,730
+Same thing here.
+
+49
+00:03:21,760 --> 00:03:23,110
+So the position matters.
+
+50
+00:03:23,110 --> 00:03:26,230
+If I were to swap them and do silver and then gold.
+
+51
+00:03:27,980 --> 00:03:31,580
+I would end up with Silver as Eliot Kipchoge.
+
+52
+00:03:32,090 --> 00:03:35,300
+That's the first index in our structuring statement.
+
+53
+00:03:35,300 --> 00:03:41,330
+So we get that first index in the array and gold would be set to face the LISA.
+
+54
+00:03:41,930 --> 00:03:44,150
+So this is the basics of structuring.
+
+55
+00:03:44,150 --> 00:03:48,800
+We could do a variable for each element, but there are some other things that we can do as well.
+
+56
+00:03:49,010 --> 00:03:57,230
+If we wanted to skip an index, let's say I want the first and the fourth results and I want a variable
+
+57
+00:03:57,230 --> 00:03:58,400
+called first.
+
+58
+00:03:58,700 --> 00:03:59,930
+I could do that.
+
+59
+00:03:59,930 --> 00:04:01,070
+Race results.
+
+60
+00:04:01,460 --> 00:04:05,510
+That one is easy enough because we know first is going to be the first element.
+
+61
+00:04:06,020 --> 00:04:09,110
+If we take a look at first, we have Eliot Kipchoge again.
+
+62
+00:04:09,110 --> 00:04:15,440
+But if I want fourth, if I just write fourth here, we're going to end up with Faisal Alisa as the
+
+63
+00:04:15,440 --> 00:04:16,519
+fourth variable.
+
+64
+00:04:16,670 --> 00:04:23,840
+But if I add extra commas, so the first extra comma is going to skip one index and go to Galen Rupp.
+
+65
+00:04:24,410 --> 00:04:29,870
+If I take a look now, fourth is set to Galen Rupp, which is actually the third element.
+
+66
+00:04:29,870 --> 00:04:33,620
+So I could add another comma to get the fourth element.
+
+67
+00:04:33,980 --> 00:04:37,730
+And now fourth is set to Girmay Gebrselassie.
+
+68
+00:04:38,990 --> 00:04:46,610
+And another thing we can do is actually use the rest dot, dot, dot inside of our structuring between
+
+69
+00:04:46,610 --> 00:04:52,170
+the array races in order to collect the rest of an array into a new variable.
+
+70
+00:04:52,190 --> 00:04:56,810
+I could make a variable called winner to get Eliot Kipchoge and then everything else.
+
+71
+00:04:56,810 --> 00:05:01,390
+All the other five strings in this array could be collected into a new variable.
+
+72
+00:05:01,400 --> 00:05:06,260
+It would look like this constant winner comma and then dot, dot, dot.
+
+73
+00:05:06,530 --> 00:05:08,090
+Let's go with others.
+
+74
+00:05:08,210 --> 00:05:09,260
+It's not the best name.
+
+75
+00:05:09,260 --> 00:05:13,460
+It's kind of minimizing their accomplishments, the winner and then the others.
+
+76
+00:05:13,490 --> 00:05:18,380
+Meanwhile, all these people ran like two, two hour, ten minute marathons or faster.
+
+77
+00:05:18,380 --> 00:05:20,240
+But let's just go with others.
+
+78
+00:05:20,540 --> 00:05:21,620
+Race results.
+
+79
+00:05:23,910 --> 00:05:31,290
+And we'll have winner set to Elliott Kipchoge and others is an array of five elements, the other five
+
+80
+00:05:31,290 --> 00:05:40,380
+in that array and I could combine these so if I wanted to skip for some reason, if I use Lisa now,
+
+81
+00:05:40,380 --> 00:05:46,110
+others is going to contain four elements and we didn't capture the face of the LISA in a variable at
+
+82
+00:05:46,110 --> 00:05:48,060
+all, so I'll undo that.
+
+83
+00:05:48,060 --> 00:05:51,090
+But that's pretty much it for D structuring arrays.
+
+84
+00:05:51,120 --> 00:05:56,310
+You just come up with variable names, you assign them in one line like I have here, and you could
+
+85
+00:05:56,310 --> 00:06:00,270
+break it up if there's a super long line, but most of the time it fits in one line.
+
+86
+00:06:00,270 --> 00:06:05,520
+You set it equal to whatever array you're trying to unpack, and then you single out the elements you
+
+87
+00:06:05,520 --> 00:06:07,440
+want based off of the position.
+
+88
+00:06:07,440 --> 00:06:13,500
+You can use commas to skip elements and you can use dot, dot, dot, the rest operator to collect the
+
+89
+00:06:13,500 --> 00:06:16,620
+remaining or the rest of the array into a variable.
+

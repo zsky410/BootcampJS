@@ -1,0 +1,256 @@
+1
+00:00:00,120 --> 00:00:03,390
+Next up, we'll see one of my favorite new features in JavaScript.
+
+2
+00:00:03,420 --> 00:00:04,680
+Async functions.
+
+3
+00:00:04,680 --> 00:00:05,910
+So async functions.
+
+4
+00:00:05,910 --> 00:00:09,730
+And this entire section depends extremely heavily on promises.
+
+5
+00:00:09,750 --> 00:00:12,570
+Make sure that you are comfortable with promises.
+
+6
+00:00:12,570 --> 00:00:13,320
+And if you're not.
+
+7
+00:00:13,350 --> 00:00:19,320
+Go through the previous, I think two sections ago, the promises section because at their core async
+
+8
+00:00:19,320 --> 00:00:23,890
+functions are just a nice syntactical sugar for promises.
+
+9
+00:00:23,910 --> 00:00:28,800
+It's a nice, clean, easy syntax to work with promises, but you still have to understand promises.
+
+10
+00:00:28,830 --> 00:00:29,160
+All right.
+
+11
+00:00:29,160 --> 00:00:33,990
+So let's start with a quick intro to the main idea behind async functions.
+
+12
+00:00:34,380 --> 00:00:38,280
+If we have some regular old function, let's call it get data.
+
+13
+00:00:40,170 --> 00:00:43,140
+And get data makes a request using Axios.
+
+14
+00:00:43,170 --> 00:00:44,770
+I already have Axios included.
+
+15
+00:00:44,790 --> 00:00:49,110
+Or we could use fetch or even an XR if we are a bit psycho.
+
+16
+00:00:49,770 --> 00:00:52,540
+Let's do Axios dot get i have a URL.
+
+17
+00:00:52,560 --> 00:00:53,190
+It doesn't matter.
+
+18
+00:00:53,190 --> 00:00:59,040
+We're not building anything with this, but I'm fetching some information using Axios in a regular function.
+
+19
+00:00:59,070 --> 00:01:07,620
+If I tried to console.log something afterwards, let's say I wanted a variable called data and I want
+
+20
+00:01:07,620 --> 00:01:09,870
+to set it equal to the result of running Axios.
+
+21
+00:01:10,080 --> 00:01:13,920
+Get this URL and then console that log data.
+
+22
+00:01:14,430 --> 00:01:15,960
+What will we see when I run?
+
+23
+00:01:15,960 --> 00:01:16,710
+Get data.
+
+24
+00:01:17,890 --> 00:01:18,310
+Okay.
+
+25
+00:01:18,340 --> 00:01:19,420
+Let's try it out.
+
+26
+00:01:20,470 --> 00:01:23,110
+It's not going to work to give us the data.
+
+27
+00:01:23,410 --> 00:01:25,630
+All that we see is a promise.
+
+28
+00:01:26,410 --> 00:01:28,930
+So X don't get returned to promise.
+
+29
+00:01:28,930 --> 00:01:30,970
+And we console.log that promise.
+
+30
+00:01:31,390 --> 00:01:32,960
+The promise was pending.
+
+31
+00:01:32,980 --> 00:01:35,350
+Now it's hopefully resolved, but it doesn't matter.
+
+32
+00:01:35,350 --> 00:01:39,430
+We don't have access to that resolved value anyway because we're not waiting.
+
+33
+00:01:39,430 --> 00:01:40,120
+We're not using.
+
+34
+00:01:40,360 --> 00:01:45,460
+Then, as we've seen with promises in order to run code when the promise is resolved.
+
+35
+00:01:45,670 --> 00:01:52,270
+So it would be nice if we could write code like this where we could just write one line and act as if
+
+36
+00:01:52,270 --> 00:01:57,820
+JavaScript was synchronous, meaning that this code would not run until this finished.
+
+37
+00:01:58,030 --> 00:02:05,830
+But instead we've got to do this then as we've seen data and then we console.log data.
+
+38
+00:02:07,380 --> 00:02:12,960
+So we'll see our first console.log of data which should print out a promise if I run it.
+
+39
+00:02:13,620 --> 00:02:14,460
+There we go.
+
+40
+00:02:14,460 --> 00:02:16,320
+And then we see what we get back.
+
+41
+00:02:16,470 --> 00:02:17,910
+So nothing new here.
+
+42
+00:02:18,060 --> 00:02:24,870
+Just reiterating the fact that we can't write code like this where we expect this thing to be done first.
+
+43
+00:02:25,260 --> 00:02:32,280
+If we have code that relies on an asynchronous operation like an Axios get method call we need to use,
+
+44
+00:02:32,550 --> 00:02:38,400
+then assuming it returns a promise which Axios don't get, does otherwise we would pass in a callback.
+
+45
+00:02:38,910 --> 00:02:40,380
+So this is nothing new.
+
+46
+00:02:40,650 --> 00:02:41,880
+This does not work.
+
+47
+00:02:41,880 --> 00:02:43,330
+But it would be nice if it did right.
+
+48
+00:02:43,350 --> 00:02:48,690
+It's kind of obnoxious that we have to worry about callbacks and then and that is the entire point of
+
+49
+00:02:48,690 --> 00:02:50,660
+the async and await keywords.
+
+50
+00:02:50,670 --> 00:02:55,030
+So there are two new keywords to pieces to making this work.
+
+51
+00:02:55,050 --> 00:02:56,550
+Two pieces of the puzzle.
+
+52
+00:02:56,790 --> 00:03:01,650
+And by the end of this section, you'll see how we could write a function that looks pretty much like
+
+53
+00:03:01,650 --> 00:03:02,760
+this, with no doubt.
+
+54
+00:03:02,790 --> 00:03:09,120
+Then really no explicit mention of promises or callbacks, and the function will look like it's a synchronous
+
+55
+00:03:09,120 --> 00:03:09,780
+function.
+
+56
+00:03:09,930 --> 00:03:14,030
+Like this happens first and then as soon as it finishes this runs.
+
+57
+00:03:14,040 --> 00:03:19,120
+But behind the scenes there will be promises involved and thens and promises being resolved.
+
+58
+00:03:19,140 --> 00:03:23,490
+Thanks to the magic, the syntactical sugar of async and await.
+
+59
+00:03:23,760 --> 00:03:25,080
+So that's the whole goal.
+
+60
+00:03:25,120 --> 00:03:28,500
+Doesn't give us anything we can't already do with promises.
+
+61
+00:03:28,680 --> 00:03:35,100
+It just makes it easier and cleaner to work with promises and create synchronous looking asynchronous
+
+62
+00:03:35,100 --> 00:03:35,670
+code.
+
+63
+00:03:35,820 --> 00:03:37,740
+So let's see how it works in the next video.
+
+64
+00:03:37,740 --> 00:03:39,840
+We'll start with the async keyword.
+

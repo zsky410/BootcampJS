@@ -1,0 +1,628 @@
+1
+00:00:01,260 --> 00:00:05,710
+You now have a bit better idea of how an SVG element works along with circle elements.
+
+2
+00:00:05,730 --> 00:00:09,720
+So now in this video, I want to tell you a little bit more about circles and some special properties
+
+3
+00:00:09,720 --> 00:00:10,410
+around them.
+
+4
+00:00:10,410 --> 00:00:14,370
+And this is going to start to help us understand how we're going to finally implement that animation.
+
+5
+00:00:14,940 --> 00:00:15,270
+Okay.
+
+6
+00:00:15,270 --> 00:00:18,060
+So a couple of things I want you to understand about circles.
+
+7
+00:00:18,450 --> 00:00:23,580
+When we draw out a circle using an SVG element, there are really two parts to the circle.
+
+8
+00:00:23,670 --> 00:00:29,940
+The inside of the circle are kind of like the content inside we refer to as the fill the border, going
+
+9
+00:00:29,940 --> 00:00:33,150
+around the outside the circle, rather than calling it simply a border.
+
+10
+00:00:33,150 --> 00:00:34,890
+We instead call it a stroke.
+
+11
+00:00:35,450 --> 00:00:41,480
+We can change the colour of the fill and the stroke by adding in some additional HTML properties to
+
+12
+00:00:41,480 --> 00:00:42,680
+our circle element.
+
+13
+00:00:42,830 --> 00:00:47,390
+We can also change the width of the stroke or the border as well at the same time.
+
+14
+00:00:47,870 --> 00:00:49,690
+So let's go back over to our HTML file.
+
+15
+00:00:49,700 --> 00:00:53,060
+We're going to start to play around with these different properties a little bit and see what effect
+
+16
+00:00:53,060 --> 00:00:54,530
+it actually has on our circle.
+
+17
+00:00:56,180 --> 00:00:56,480
+Okay.
+
+18
+00:00:56,480 --> 00:00:58,370
+So I'm going to go back to my HTML file.
+
+19
+00:00:58,520 --> 00:01:03,290
+I'm going to first change the dimensions of the circle just slightly so we can see these changes to
+
+20
+00:01:03,290 --> 00:01:05,390
+the fill and stroke a little bit more easily.
+
+21
+00:01:05,990 --> 00:01:08,210
+So I'm going to increase the radius to 90.
+
+22
+00:01:08,900 --> 00:01:13,400
+I'm going to take my C to 100 and see Y to 100 as well.
+
+23
+00:01:14,040 --> 00:01:17,630
+Let's save this and refresh our app just to see the effect it has.
+
+24
+00:01:18,430 --> 00:01:18,620
+Okay.
+
+25
+00:01:18,640 --> 00:01:20,080
+So that's what it looks like now.
+
+26
+00:01:20,470 --> 00:01:22,390
+Now, quick reminder, just really quickly.
+
+27
+00:01:22,390 --> 00:01:24,670
+Remember, I run my browser very far, zoomed in.
+
+28
+00:01:24,670 --> 00:01:27,700
+So you probably see something a little bit closer to that right there.
+
+29
+00:01:29,890 --> 00:01:30,180
+Okay.
+
+30
+00:01:30,190 --> 00:01:32,920
+So let's try changing the fill and the stroke.
+
+31
+00:01:33,250 --> 00:01:36,760
+I'm going to first give myself a little bit of space to work with because we're going to eventually
+
+32
+00:01:36,760 --> 00:01:38,560
+add in several different properties here.
+
+33
+00:01:41,390 --> 00:01:46,850
+So I'm going to put in a fill of red and a stroke of blue.
+
+34
+00:01:47,240 --> 00:01:50,180
+I'm also going to set the stroke with property as well.
+
+35
+00:01:50,180 --> 00:01:54,080
+So stroke, dash width and I'll pass in ten for that.
+
+36
+00:01:54,470 --> 00:01:57,350
+So this means make the center of the circle blue or something.
+
+37
+00:01:57,470 --> 00:02:00,620
+Make the center of the circle red, make the border blue.
+
+38
+00:02:00,620 --> 00:02:04,610
+And the border should be about ten pixels wide or ten pixels thick.
+
+39
+00:02:05,180 --> 00:02:06,350
+So let's save this.
+
+40
+00:02:06,380 --> 00:02:08,449
+Go back over and see what happens.
+
+41
+00:02:08,479 --> 00:02:10,039
+Well, yep, that's pretty much it.
+
+42
+00:02:10,280 --> 00:02:12,950
+So now we've got the red interior, the blue exterior.
+
+43
+00:02:13,520 --> 00:02:19,130
+If we start to increase the stroke width here to say like 50, the borders can get that much larger.
+
+44
+00:02:20,590 --> 00:02:23,920
+I'm going to stick with ten for now because it's a little bit easier on the eyes.
+
+45
+00:02:24,790 --> 00:02:29,380
+There's another very interesting value for Phil that we can use for our application, and it's really
+
+46
+00:02:29,380 --> 00:02:31,040
+relevant to what we are trying to do.
+
+47
+00:02:31,060 --> 00:02:37,420
+For the Phil, we could specify a color of transparent, which means make the center of the circle see
+
+48
+00:02:37,420 --> 00:02:37,900
+through.
+
+49
+00:02:38,260 --> 00:02:43,000
+So if we use a fill of transparent, that means we could very easily start to see some timer elements
+
+50
+00:02:43,000 --> 00:02:45,040
+behind this thing or something like that.
+
+51
+00:02:45,700 --> 00:02:50,770
+So I'll set Phil to Transparent and now the center totally gone and I can see directly through it.
+
+52
+00:02:53,170 --> 00:02:53,350
+Okay.
+
+53
+00:02:53,350 --> 00:02:56,590
+So that's some basic additional properties around a circle.
+
+54
+00:02:57,500 --> 00:03:02,060
+Now there's a couple more that are going to help us modify or play around with that stroke.
+
+55
+00:03:02,330 --> 00:03:06,320
+So let's take a look at a couple more diagrams and understand what these other properties are that are
+
+56
+00:03:06,320 --> 00:03:09,380
+going to allow us to modify the border around the exterior.
+
+57
+00:03:10,630 --> 00:03:15,580
+So the first additional property I want you to understand is stroke, dash, dash array.
+
+58
+00:03:16,210 --> 00:03:22,000
+We're going to give this a number of value and it's going to specify the length of a dash around the
+
+59
+00:03:22,000 --> 00:03:24,730
+perimeter or essentially for the border of the circle.
+
+60
+00:03:25,150 --> 00:03:28,660
+Let's try adding in this property and playing around with it just a little bit.
+
+61
+00:03:29,890 --> 00:03:33,760
+So I'll go back over to my HTML file and I'm going to add in a stroke.
+
+62
+00:03:33,790 --> 00:03:35,950
+Dash, dash array.
+
+63
+00:03:38,020 --> 00:03:39,640
+And I'll start out with ten.
+
+64
+00:03:40,390 --> 00:03:46,510
+So that means give me a dashboard order and I want each segment of the dash to be ten pixels long and
+
+65
+00:03:46,510 --> 00:03:50,440
+then a ten pixel gap before the next dash segment.
+
+66
+00:03:50,680 --> 00:03:51,430
+So I'll save this.
+
+67
+00:03:51,460 --> 00:03:52,990
+Go back over and refresh.
+
+68
+00:03:53,650 --> 00:03:59,680
+So this means or I can see very easily now I've got about ten pixels of dash and then a ten pixel gap,
+
+69
+00:03:59,710 --> 00:04:03,460
+then ten pixels dash, ten pixels gap and so on around the exterior.
+
+70
+00:04:04,740 --> 00:04:08,250
+The statutory property technically accepts two different values.
+
+71
+00:04:08,250 --> 00:04:11,340
+If we only pass in one, then ten will be used for two.
+
+72
+00:04:11,490 --> 00:04:12,960
+For both the different values.
+
+73
+00:04:13,940 --> 00:04:19,160
+The first value we pass in is going to be the length of the dash, and if we pass in a second, it is
+
+74
+00:04:19,160 --> 00:04:20,029
+totally optional.
+
+75
+00:04:20,060 --> 00:04:23,960
+It will be used as the spacing in between each dash segment.
+
+76
+00:04:24,780 --> 00:04:30,180
+So for example, if I put in a ten and then a five, that means give me dash lengths of ten and then
+
+77
+00:04:30,180 --> 00:04:32,820
+spacing in between each of those dashes of five.
+
+78
+00:04:34,470 --> 00:04:37,020
+So we can save this, go back over and now we'll see.
+
+79
+00:04:37,020 --> 00:04:40,950
+We've got about ten units of dash and five units of spacing in between.
+
+80
+00:04:43,080 --> 00:04:47,790
+But again, if we just put in the one number, that means give us give us identical dash lengths and
+
+81
+00:04:47,790 --> 00:04:48,840
+gaps as well.
+
+82
+00:04:49,320 --> 00:04:51,150
+So I'm going to leave it at ten for right now.
+
+83
+00:04:52,450 --> 00:04:52,780
+Okay.
+
+84
+00:04:52,780 --> 00:04:53,870
+So this looks good.
+
+85
+00:04:53,890 --> 00:04:58,300
+I want to remind you of something about properties of circles in general.
+
+86
+00:04:58,720 --> 00:05:03,490
+So if we take a circle and we measure its radius, so that's going to be from the very center point
+
+87
+00:05:03,490 --> 00:05:04,660
+to the outside edge.
+
+88
+00:05:04,660 --> 00:05:07,960
+We can calculate the entire perimeter of the circle.
+
+89
+00:05:07,960 --> 00:05:14,230
+So the total length of the outside edge by using the formula two times pi times the radius.
+
+90
+00:05:14,710 --> 00:05:17,440
+Now the radius that we just changed our circle to is 90.
+
+91
+00:05:17,530 --> 00:05:21,820
+So if we do two times PI times 90, we end up with 565.
+
+92
+00:05:22,240 --> 00:05:27,970
+So that means that the total length of the outside edge of the circle is about 565 pixels.
+
+93
+00:05:28,770 --> 00:05:35,160
+So with that calculation in mind, we can start to draw like a quarter or like a half segment of border
+
+94
+00:05:35,160 --> 00:05:36,600
+around the circle.
+
+95
+00:05:37,200 --> 00:05:39,480
+Let me show you in my terminal.
+
+96
+00:05:40,590 --> 00:05:47,430
+I'm going to calculate two times math pi times 90 and then divide that by two.
+
+97
+00:05:47,580 --> 00:05:49,530
+So that gives me about 282.
+
+98
+00:05:49,980 --> 00:05:57,330
+So if we enter in a dash array of 282, that means that we want to have about half the circle, have
+
+99
+00:05:57,330 --> 00:06:00,780
+a dash, and then have the half the circle not have a dash.
+
+100
+00:06:02,230 --> 00:06:02,440
+Yes.
+
+101
+00:06:02,440 --> 00:06:06,640
+I'm going to go back over and try updating the dash array to about 282.
+
+102
+00:06:07,610 --> 00:06:10,310
+So if I now save that and then refresh.
+
+103
+00:06:10,520 --> 00:06:11,090
+There we go.
+
+104
+00:06:11,090 --> 00:06:14,420
+So I've now got half the circle with a dash, half without it.
+
+105
+00:06:15,390 --> 00:06:16,680
+We can do something very similar.
+
+106
+00:06:16,680 --> 00:06:18,780
+So two times pi times 90.
+
+107
+00:06:18,780 --> 00:06:20,370
+And then this time I will.
+
+108
+00:06:20,400 --> 00:06:21,930
+How about multiply?
+
+109
+00:06:23,280 --> 00:06:25,890
+By one quarter SOE 0.25.
+
+110
+00:06:26,040 --> 00:06:30,060
+So now I would have just a quarter segment if I use that 141.
+
+111
+00:06:31,210 --> 00:06:36,940
+So now I get a quarter, half a quarter of no dash, half a quarter a dash, half a quarter of no dash.
+
+112
+00:06:37,540 --> 00:06:39,730
+And then, of course, last thing I want to show you.
+
+113
+00:06:40,710 --> 00:06:45,960
+Around this perimeter is that if we do the full five, 65 or just slightly less than it, that should
+
+114
+00:06:45,960 --> 00:06:51,180
+give us just about the entire length of the thing and then leave us just a little bit of a gap.
+
+115
+00:06:51,750 --> 00:06:55,410
+So I'll do right around 560 and just leave a little bit of a gap.
+
+116
+00:06:55,770 --> 00:07:00,720
+So now I can see I get a whole bunch of border and then just a tiny little gap at the very edge.
+
+117
+00:07:01,650 --> 00:07:06,420
+So the next thing I want to tell you about this circle is that the border is always started, started
+
+118
+00:07:06,420 --> 00:07:10,110
+drawn from the right hand side, and then it draws around clockwise.
+
+119
+00:07:10,230 --> 00:07:14,910
+And we can see that very easily with the border dash array or the stroke dash array that we just added
+
+120
+00:07:14,910 --> 00:07:15,390
+on.
+
+121
+00:07:15,840 --> 00:07:21,420
+So it's very clear that the border starts right there and then travels around clockwise until it decides
+
+122
+00:07:21,420 --> 00:07:23,220
+to hit an empty spot.
+
+123
+00:07:24,590 --> 00:07:27,740
+We can start to play around with that value of dash array.
+
+124
+00:07:27,770 --> 00:07:29,260
+It's not going to change it really quickly here.
+
+125
+00:07:29,270 --> 00:07:33,140
+Several times it's going to start to decrease it to say 550.
+
+126
+00:07:34,740 --> 00:07:36,810
+And I can see that the gap is a little bit larger.
+
+127
+00:07:37,050 --> 00:07:39,540
+I can go to 520 little larger.
+
+128
+00:07:39,870 --> 00:07:43,470
+I go to 480 a little larger yet.
+
+129
+00:07:44,790 --> 00:07:45,030
+Okay.
+
+130
+00:07:45,030 --> 00:07:49,380
+So that's how we can get like a just about full border but have a gap at the very end.
+
+131
+00:07:49,530 --> 00:07:52,140
+So now there's just one last thing I want to show you.
+
+132
+00:07:52,560 --> 00:07:56,640
+I'm going to change the dash array back to the full about 560 or so.
+
+133
+00:07:57,530 --> 00:08:01,850
+The last property I want to show you is called the Dash Offset.
+
+134
+00:08:02,510 --> 00:08:05,960
+Now, the dash offset is a really tricky property to understand.
+
+135
+00:08:06,200 --> 00:08:11,460
+Suffice it to say, if we have a border that goes just about around the entire outside edge.
+
+136
+00:08:11,480 --> 00:08:15,920
+Dash Offset will introduce an extra little spacing right there.
+
+137
+00:08:16,620 --> 00:08:20,190
+Let's play around with Dash Offset just to get a sense of what's going on with it.
+
+138
+00:08:21,440 --> 00:08:28,640
+So back on my circle element, I'm going to add on stroke dash, dash offset and I'll start it off at
+
+139
+00:08:28,640 --> 00:08:29,210
+ten.
+
+140
+00:08:29,780 --> 00:08:35,570
+So this means in addition to that little space we have right there, give us another extra ten units
+
+141
+00:08:35,570 --> 00:08:36,799
+of spacing as well.
+
+142
+00:08:36,799 --> 00:08:40,789
+So that's going to give us a little ten extra units of a white space right there.
+
+143
+00:08:41,360 --> 00:08:46,280
+So I'll save this refresh and I can clearly see ten extra units or about ten extra units.
+
+144
+00:08:46,280 --> 00:08:49,310
+I don't actually know what ten units looks like, but hey, there's ten right there.
+
+145
+00:08:50,880 --> 00:08:54,120
+So now if I start to increase that value to, say, 20.
+
+146
+00:08:55,210 --> 00:08:55,960
+Some more.
+
+147
+00:08:55,990 --> 00:08:58,780
+If I go to say 40, I get more.
+
+148
+00:08:58,780 --> 00:09:04,000
+Yet if I go to 100 140, that should be about a quarter.
+
+149
+00:09:05,380 --> 00:09:11,380
+And then if I go to about to what was it, 80 or so to 82, that's going to be about half.
+
+150
+00:09:11,380 --> 00:09:16,960
+And I can eventually essentially unravel the entire thing by specifying about 560.
+
+151
+00:09:17,320 --> 00:09:22,060
+And so that's going to give me extra white space all the way around that outside edge back to around
+
+152
+00:09:22,060 --> 00:09:22,840
+right there.
+
+153
+00:09:24,360 --> 00:09:24,620
+Okay.
+
+154
+00:09:24,660 --> 00:09:30,660
+So the dash array and the dash offset properties are how we're going to actually pull off this animation.
+
+155
+00:09:31,170 --> 00:09:33,420
+So let's take a pause right here in the next video.
+
+156
+00:09:33,450 --> 00:09:37,260
+We're going to take another look at these properties and I'll explain exactly how we're going to use
+
+157
+00:09:37,260 --> 00:09:40,140
+them to actually show the animation on the screen.
+

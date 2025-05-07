@@ -1,0 +1,488 @@
+1
+00:00:00,810 --> 00:00:05,610
+Whenever I start working on a new project, either a personal project or a professional one, I really
+
+2
+00:00:05,610 --> 00:00:10,950
+like to sit down and identify some of the big problems that I anticipate that I'll run into as I'm working
+
+3
+00:00:10,950 --> 00:00:12,020
+on that project.
+
+4
+00:00:12,030 --> 00:00:13,200
+So I want to do that right now.
+
+5
+00:00:13,200 --> 00:00:17,760
+Really quickly, we're going to identify some of the more challenging aspects of this application and
+
+6
+00:00:17,760 --> 00:00:20,070
+get an idea on how to solve each one.
+
+7
+00:00:20,670 --> 00:00:24,390
+I've already gone through and thought up some of the big kind of challenging things that we're probably
+
+8
+00:00:24,390 --> 00:00:26,370
+going to have to wrestle with as we build this app.
+
+9
+00:00:26,760 --> 00:00:30,570
+So we're going to talk about some of these big challenges and then go over some possible solutions to
+
+10
+00:00:30,570 --> 00:00:31,500
+each of them as well.
+
+11
+00:00:32,290 --> 00:00:36,340
+So the first thing we need to think about is where we're going to actually get some information about
+
+12
+00:00:36,340 --> 00:00:37,300
+different movies.
+
+13
+00:00:37,420 --> 00:00:40,240
+I want to show real data inside of this application.
+
+14
+00:00:40,240 --> 00:00:43,120
+I don't want to just like make up movies or anything like that.
+
+15
+00:00:43,570 --> 00:00:48,070
+There's probably two obvious ways that we could handle getting some information about movies into our
+
+16
+00:00:48,070 --> 00:00:48,880
+application.
+
+17
+00:00:49,180 --> 00:00:55,390
+The first obvious way, and this is probably not a good one, would be to write in or hard code some
+
+18
+00:00:55,390 --> 00:00:59,410
+information about a bunch of different movies right into our JavaScript file.
+
+19
+00:00:59,920 --> 00:01:05,920
+So we could create a really big array and write in some movies like maybe the hundred most popular movies
+
+20
+00:01:05,920 --> 00:01:08,050
+out there directly into that array.
+
+21
+00:01:08,560 --> 00:01:12,970
+That's not really a good solution, however, because it means that any time that we wanted to add in
+
+22
+00:01:12,970 --> 00:01:16,840
+more movies, we would have to make a change to the source code of our application.
+
+23
+00:01:16,840 --> 00:01:19,480
+In general, that's not really a good thing to do.
+
+24
+00:01:20,080 --> 00:01:25,750
+So instead, I think that we should attempt to fetch some data about movies inside of our JavaScript
+
+25
+00:01:25,750 --> 00:01:26,290
+code.
+
+26
+00:01:26,620 --> 00:01:31,390
+When I say fetch, I mean let's make a network request to some outside API.
+
+27
+00:01:31,780 --> 00:01:38,290
+So we should try to find some outside API or essentially a server that will give our application a list
+
+28
+00:01:38,290 --> 00:01:41,230
+of movies that we can search over or show details from.
+
+29
+00:01:43,260 --> 00:01:49,170
+So for that, we're going to be making use of an API called the IMDB API.
+
+30
+00:01:49,500 --> 00:01:53,730
+This is a free API that we can use to get information about different movies.
+
+31
+00:01:54,300 --> 00:01:58,080
+I'm going to open up a new browser tab and it navigate over there right away.
+
+32
+00:01:59,560 --> 00:01:59,880
+Okay.
+
+33
+00:01:59,890 --> 00:02:01,870
+So you can read over the documentation here.
+
+34
+00:02:01,900 --> 00:02:06,100
+This API essentially exposes two different endpoints for us to use.
+
+35
+00:02:06,640 --> 00:02:11,230
+If we scroll down a little bit, we can see parameters right here and this will describe the different
+
+36
+00:02:11,230 --> 00:02:13,810
+ways that we can access movie information.
+
+37
+00:02:14,470 --> 00:02:16,330
+We can either search for movies.
+
+38
+00:02:16,330 --> 00:02:20,260
+So that would be reading from this by search category right here.
+
+39
+00:02:20,500 --> 00:02:26,710
+Or alternatively, we can look up very specific movies if we know the ID or the title of a movie.
+
+40
+00:02:27,400 --> 00:02:31,360
+So these two operations match up with our application really, really well.
+
+41
+00:02:31,510 --> 00:02:33,010
+Just think about it for a second.
+
+42
+00:02:33,400 --> 00:02:39,610
+If we go back over to our mockups over here, there's really two different operations that are going
+
+43
+00:02:39,610 --> 00:02:41,830
+on around these movies inside of our application.
+
+44
+00:02:42,100 --> 00:02:46,780
+The first distinct operation is when we do a search with the autocomplete.
+
+45
+00:02:47,020 --> 00:02:51,940
+So when a user types in there, we need to essentially try to find movies that match a given search
+
+46
+00:02:51,940 --> 00:02:52,510
+term.
+
+47
+00:02:52,750 --> 00:02:55,000
+So that's really a searching operation.
+
+48
+00:02:55,000 --> 00:02:59,530
+We want to find a big list of different movies that match that particular term.
+
+49
+00:03:01,240 --> 00:03:07,180
+When a user finds the appropriate movie and clicks on it, we then want to fetch some additional information
+
+50
+00:03:07,180 --> 00:03:09,670
+about that very particular movie right there.
+
+51
+00:03:10,210 --> 00:03:13,210
+And then we're going to take that additional information and show it on the screen.
+
+52
+00:03:13,740 --> 00:03:16,050
+So again, it's really a two step operation.
+
+53
+00:03:16,050 --> 00:03:21,660
+We first are going to do a search and then we're going to do a very distinct lookup.
+
+54
+00:03:22,350 --> 00:03:27,660
+Now, you might be curious why we have to do both a search and a lookup and not just a search by itself.
+
+55
+00:03:28,200 --> 00:03:32,130
+In other words, if we're already doing a search for a bunch of movies and getting information about
+
+56
+00:03:32,130 --> 00:03:37,350
+like ten different movies as we are putting in results into that autocomplete, can't we just use that
+
+57
+00:03:37,350 --> 00:03:40,140
+same data that we just fetched to put on the screen?
+
+58
+00:03:40,560 --> 00:03:45,750
+Well, as a quick side note here, the way that a lot of API's work is to give different sets of data
+
+59
+00:03:45,750 --> 00:03:51,990
+depending upon whether you're doing a listing action or a show action or trying to get information about
+
+60
+00:03:51,990 --> 00:03:52,860
+one record.
+
+61
+00:03:53,130 --> 00:03:54,510
+Let me tell you more about what I mean.
+
+62
+00:03:56,130 --> 00:04:02,250
+So in this diagram, I've got some imaginary search results from two different operations on an API.
+
+63
+00:04:02,520 --> 00:04:07,950
+On the left hand side is the set of information that we might get back if we do a search or a listing
+
+64
+00:04:07,950 --> 00:04:10,860
+or what we refer to as an index operation.
+
+65
+00:04:11,340 --> 00:04:14,400
+So this is what we would see if we tried to get a list of different movies.
+
+66
+00:04:14,400 --> 00:04:20,730
+We might just get a very limited set of attributes about every movie, like just the ID of the movie
+
+67
+00:04:20,730 --> 00:04:21,959
+and just the title.
+
+68
+00:04:22,530 --> 00:04:27,840
+So when we do an index or a search operation, we very frequently don't get the full listing of information
+
+69
+00:04:27,840 --> 00:04:29,670
+about every individual record.
+
+70
+00:04:30,180 --> 00:04:34,890
+Instead, if we want to get the full listing and we want to understand every attribute that a movie
+
+71
+00:04:34,890 --> 00:04:41,220
+has, we usually end up having to do a follow up request where we say, Hey, give me some details about
+
+72
+00:04:41,220 --> 00:04:47,670
+the movie with ID number one, and then the API will probably respond with a full set of attributes,
+
+73
+00:04:47,670 --> 00:04:51,450
+essentially everything that it knows about that particular movie.
+
+74
+00:04:52,420 --> 00:04:56,110
+A very easy way to understand this is to just think about Google search results.
+
+75
+00:04:56,110 --> 00:04:59,590
+When you do a Google search, you don't see an entire Web page.
+
+76
+00:04:59,620 --> 00:05:05,680
+Instead, Google just shows you some high level attributes of every Web page that it founds that excuse
+
+77
+00:05:05,680 --> 00:05:07,720
+me, that it finds that matches your query.
+
+78
+00:05:08,230 --> 00:05:12,140
+If you want to actually get some details about any given Web page, you actually have to click it.
+
+79
+00:05:12,160 --> 00:05:15,670
+And so that would be like a selection or a show operation.
+
+80
+00:05:16,180 --> 00:05:19,140
+So it's going to be the exact same thing with the API we are using.
+
+81
+00:05:19,150 --> 00:05:26,170
+We're going to have to do initially a search to find some records that match the user search term and
+
+82
+00:05:26,170 --> 00:05:31,720
+then a follow up request to get information about the very particular movie that a user selected.
+
+83
+00:05:33,140 --> 00:05:33,380
+Okay.
+
+84
+00:05:33,380 --> 00:05:34,070
+So that's big challenge.
+
+85
+00:05:34,070 --> 00:05:35,120
+Number one, don't worry.
+
+86
+00:05:35,120 --> 00:05:37,460
+The other challenges are a little bit easier to understand.
+
+87
+00:05:38,880 --> 00:05:43,470
+So the second big thing that we're going to have to do is to build an autocomplete widget from scratch.
+
+88
+00:05:43,500 --> 00:05:48,300
+There's definitely some pre completed or pre-built widgets out there online that we could download and
+
+89
+00:05:48,300 --> 00:05:49,560
+use inside of our code.
+
+90
+00:05:49,590 --> 00:05:54,930
+However, it would be a really good learning opportunity to put together our own autocomplete, so I
+
+91
+00:05:54,930 --> 00:05:56,760
+think we should do that inside of our project.
+
+92
+00:05:57,240 --> 00:06:01,830
+Now, I don't really have a lot to say about this challenge until we really start tackling it and writing
+
+93
+00:06:01,830 --> 00:06:02,340
+code.
+
+94
+00:06:02,340 --> 00:06:08,280
+But I think that at least at a minimum, you and I should really sit down and really agree on how an
+
+95
+00:06:08,280 --> 00:06:10,290
+autocomplete widget works in general.
+
+96
+00:06:10,710 --> 00:06:16,170
+If we just try to write out some autocomplete logic right away, well, you and I might have really
+
+97
+00:06:16,170 --> 00:06:19,140
+different ideas about how an autocomplete works.
+
+98
+00:06:19,140 --> 00:06:24,420
+And even like you personally, you might have some idea about how an autocomplete works, and then you
+
+99
+00:06:24,420 --> 00:06:28,260
+might start writing some code and then realize that the code you're writing doesn't really match up
+
+100
+00:06:28,260 --> 00:06:31,660
+with what you thought personally about an autocomplete.
+
+101
+00:06:31,710 --> 00:06:36,780
+So in other words, I think that we really just need to sit down and say, this is how an autocomplete
+
+102
+00:06:36,780 --> 00:06:37,650
+widget works.
+
+103
+00:06:37,650 --> 00:06:39,480
+So we're going to do that in a separate video.
+
+104
+00:06:40,580 --> 00:06:40,850
+Okay.
+
+105
+00:06:40,850 --> 00:06:41,770
+Last thing here.
+
+106
+00:06:41,780 --> 00:06:44,250
+The app would definitely look a lot better with styling and CSS.
+
+107
+00:06:44,270 --> 00:06:49,130
+Like I mentioned, the starter kit that we're using has a CSS, a little bit of CSS written into it,
+
+108
+00:06:49,130 --> 00:06:53,120
+and it also makes use of a CSS framework called CSS.
+
+109
+00:06:53,450 --> 00:06:55,730
+So this is stuff that has already been wired up for you.
+
+110
+00:06:55,760 --> 00:07:00,740
+We're going to have a quick discussion or two about CSS as it pertains to this application.
+
+111
+00:07:00,740 --> 00:07:05,460
+In particular, we're going to take a little look at MOMA, CSS, just really as a side topic.
+
+112
+00:07:05,480 --> 00:07:07,210
+Again, this is a course about JavaScript.
+
+113
+00:07:07,220 --> 00:07:09,200
+Nonetheless, you might be curious about it.
+
+114
+00:07:09,200 --> 00:07:13,100
+So we'll do a little quick aside just to understand what's happening with this thing.
+
+115
+00:07:14,510 --> 00:07:14,750
+Okay.
+
+116
+00:07:14,780 --> 00:07:15,290
+So that's it.
+
+117
+00:07:15,290 --> 00:07:16,460
+That's our big challenges.
+
+118
+00:07:16,460 --> 00:07:18,020
+So let's take a pause right here.
+
+119
+00:07:18,020 --> 00:07:22,220
+Now that we have a better idea of what we're trying to build, we've identified some of the hard things
+
+120
+00:07:22,220 --> 00:07:23,150
+about this project.
+
+121
+00:07:23,150 --> 00:07:25,820
+We're going to get started writing code in the next video.
+
+122
+00:07:25,820 --> 00:07:28,100
+So quick pause and I'll see you in just a minute.
+

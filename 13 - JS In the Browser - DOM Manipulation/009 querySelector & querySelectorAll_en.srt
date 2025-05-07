@@ -1,0 +1,720 @@
+1
+00:00:00,060 --> 00:00:03,630
+So we just saw three different methods that we can use to select elements.
+
+2
+00:00:03,630 --> 00:00:07,140
+But there's actually a fourth method that rules them all.
+
+3
+00:00:07,170 --> 00:00:08,850
+It's called query selector.
+
+4
+00:00:08,850 --> 00:00:14,190
+And I put an image of a Swiss Army knife here because query selector is like the Swiss Army knife of
+
+5
+00:00:14,190 --> 00:00:15,330
+DOM selectors.
+
+6
+00:00:15,390 --> 00:00:18,450
+It can select everything that we used.
+
+7
+00:00:19,900 --> 00:00:23,260
+It can replicate the functionality of all of these selectors here.
+
+8
+00:00:23,260 --> 00:00:28,690
+We can select by an ID or a tag name or a class name or many other criteria.
+
+9
+00:00:29,050 --> 00:00:37,510
+The way it works is that we pass in a CSS style selector so we can select a ID using CSS where we pass
+
+10
+00:00:37,510 --> 00:00:41,350
+in the hash symbol or a class, we use a dot.
+
+11
+00:00:41,380 --> 00:00:46,390
+We can select an element just by writing the name of the element, just like we do in CSS.
+
+12
+00:00:46,690 --> 00:00:48,550
+Over here in my stylesheet.
+
+13
+00:00:48,670 --> 00:00:49,810
+Where are you?
+
+14
+00:00:49,840 --> 00:00:50,560
+Here we are.
+
+15
+00:00:50,860 --> 00:00:53,470
+We're selecting by ID, we're selecting H one.
+
+16
+00:00:53,470 --> 00:00:54,910
+So we're selecting by class.
+
+17
+00:00:54,910 --> 00:00:56,480
+We can select by attribute.
+
+18
+00:00:56,500 --> 00:00:59,170
+We can do the same thing using query selector.
+
+19
+00:00:59,710 --> 00:01:03,670
+So query selector has not been a thing from the get go.
+
+20
+00:01:03,850 --> 00:01:10,270
+It hasn't been around as long as things like get element by ID, which is why the other ones exist because
+
+21
+00:01:10,270 --> 00:01:11,680
+this one is so much more versatile.
+
+22
+00:01:11,710 --> 00:01:17,860
+Query selector seems like it's all you would ever need and you can use it for everything.
+
+23
+00:01:17,890 --> 00:01:23,260
+It just hasn't been around as long, but it is supported in all the modern browsers, including Internet
+
+24
+00:01:23,260 --> 00:01:23,980
+Explorer.
+
+25
+00:01:24,010 --> 00:01:28,540
+It does work there, unlike a lot of other features that we wish would work.
+
+26
+00:01:28,540 --> 00:01:31,060
+And there are two versions of query selector.
+
+27
+00:01:31,210 --> 00:01:32,390
+What we're looking at here.
+
+28
+00:01:32,410 --> 00:01:39,490
+Query selector and also query selector all which does the same thing except it returns a collection
+
+29
+00:01:39,490 --> 00:01:40,650
+query selector.
+
+30
+00:01:40,660 --> 00:01:44,290
+This slide only returns a single element at most.
+
+31
+00:01:44,470 --> 00:01:46,900
+So let's try it out over here.
+
+32
+00:01:46,900 --> 00:01:52,480
+If we want to select the H one on the page, we could do document dot, query selector.
+
+33
+00:01:53,930 --> 00:02:00,950
+H one and we pass in the string h one and we get that h one right there.
+
+34
+00:02:01,970 --> 00:02:07,460
+If we wanted to select the paragraph, the first paragraph, we could do it this way.
+
+35
+00:02:07,550 --> 00:02:12,470
+But remember, it only gives us the first match and there are two paragraphs on this page.
+
+36
+00:02:12,590 --> 00:02:14,600
+So we only get the first one.
+
+37
+00:02:14,840 --> 00:02:22,670
+I could also select the first input and this is essentially replicating get elements by tag name.
+
+38
+00:02:22,910 --> 00:02:25,100
+Except we're getting the first match.
+
+39
+00:02:25,100 --> 00:02:30,710
+Remember that get elements by tag name gives us a array like list versus query selector.
+
+40
+00:02:30,710 --> 00:02:33,510
+Just gives us the first item, the first match.
+
+41
+00:02:33,530 --> 00:02:37,130
+But we can do more complex things we could select by an ID.
+
+42
+00:02:37,190 --> 00:02:44,120
+We have to use the hash sign in order to select an ID, just like we do when we're writing CSS.
+
+43
+00:02:44,120 --> 00:02:48,050
+So I have better photo I think if I can remember.
+
+44
+00:02:48,050 --> 00:02:48,320
+Yep.
+
+45
+00:02:48,410 --> 00:02:50,320
+That's our ID for the image here.
+
+46
+00:02:50,330 --> 00:02:52,760
+I also had a different ID.
+
+47
+00:02:52,790 --> 00:02:55,070
+What were you main?
+
+48
+00:02:55,070 --> 00:03:00,050
+We could select the second paragraph by using hash and then main.
+
+49
+00:03:01,070 --> 00:03:05,390
+So this is just like document get element by ID main.
+
+50
+00:03:05,510 --> 00:03:08,750
+But here we don't say it's an ID, we just pass in a string.
+
+51
+00:03:08,750 --> 00:03:10,100
+It's assumed it's an ID.
+
+52
+00:03:10,220 --> 00:03:13,010
+When we use query selector, we have to be more specific.
+
+53
+00:03:13,010 --> 00:03:15,740
+We pass in the CSS style selector.
+
+54
+00:03:16,070 --> 00:03:18,710
+So I'm getting the same paragraph now.
+
+55
+00:03:18,710 --> 00:03:21,020
+What does query selector actually return to us?
+
+56
+00:03:21,020 --> 00:03:23,420
+Why don't we save both of those to a variable?
+
+57
+00:03:23,660 --> 00:03:31,820
+So the first one I'll save to a variable called main one and then the second one where we use get element
+
+58
+00:03:31,820 --> 00:03:38,540
+by ID, I'll save to main two, I'll clear my screen and then let's do the annoying console.
+
+59
+00:03:38,780 --> 00:03:40,640
+Dear Main one.
+
+60
+00:03:41,510 --> 00:03:42,410
+Open it up.
+
+61
+00:03:43,640 --> 00:03:44,570
+It looks like an object.
+
+62
+00:03:44,570 --> 00:03:45,440
+It is an object.
+
+63
+00:03:45,440 --> 00:03:47,930
+It's an HTML paragraph element.
+
+64
+00:03:48,290 --> 00:03:50,690
+Let's do the same thing for main two.
+
+65
+00:03:51,740 --> 00:03:53,030
+It looks like an object.
+
+66
+00:03:53,300 --> 00:03:54,020
+Scroll down.
+
+67
+00:03:54,020 --> 00:03:57,200
+It is an object and it's also an HTML paragraph element.
+
+68
+00:03:57,470 --> 00:04:00,110
+All right, so they both give us the same thing.
+
+69
+00:04:00,110 --> 00:04:03,200
+In this case, it's just two different ways of selecting.
+
+70
+00:04:03,830 --> 00:04:05,810
+We can also select by class.
+
+71
+00:04:06,050 --> 00:04:10,400
+If I wanted to select these elements, I can only pick one, remember.
+
+72
+00:04:10,400 --> 00:04:12,890
+But this class is used in three different places.
+
+73
+00:04:12,890 --> 00:04:15,650
+It's called What is it special?
+
+74
+00:04:16,339 --> 00:04:19,070
+So I can do a document query selector.
+
+75
+00:04:20,959 --> 00:04:25,850
+Of the ID special where I need to use a period to signify it's an ID.
+
+76
+00:04:26,210 --> 00:04:29,180
+So that gives me the first match this paragraph here.
+
+77
+00:04:29,180 --> 00:04:33,530
+But because I can pass in a CSS selector, I can get more complex.
+
+78
+00:04:33,530 --> 00:04:39,050
+I can say the first lie with the class of special and this is just valid CSS.
+
+79
+00:04:39,050 --> 00:04:43,220
+So this is no new syntax, assuming that you have some experience with CSS.
+
+80
+00:04:43,220 --> 00:04:47,630
+And that's why I did that whole video about making sure you're cool with HTML CSS.
+
+81
+00:04:47,630 --> 00:04:51,290
+Anyway, let's go ahead and try something a little more complex.
+
+82
+00:04:51,290 --> 00:04:57,470
+I'll add in a second UL with a couple of allies, but instead of doing it just out in the open, inside
+
+83
+00:04:57,470 --> 00:05:01,940
+the body, all come down to the end and add in another UL.
+
+84
+00:05:01,940 --> 00:05:07,010
+But I'll put it inside of a section tag and then I'll have my UL and a couple of lines.
+
+85
+00:05:07,010 --> 00:05:09,110
+I'll do vegetables, I guess.
+
+86
+00:05:09,140 --> 00:05:15,200
+Carrots, peas and broccoli.
+
+87
+00:05:16,650 --> 00:05:18,720
+Broccoli is there to season that?
+
+88
+00:05:19,350 --> 00:05:20,490
+Yeah, I think so.
+
+89
+00:05:20,520 --> 00:05:21,900
+I don't know if I'm wrong.
+
+90
+00:05:21,900 --> 00:05:23,220
+I'm really sorry.
+
+91
+00:05:23,670 --> 00:05:25,050
+Okay, so you've got those in there.
+
+92
+00:05:25,170 --> 00:05:28,110
+Let's give peas the class of special as well.
+
+93
+00:05:28,830 --> 00:05:35,610
+So if I want to select this lie right here using query selector, I need to refresh my page and I want
+
+94
+00:05:35,610 --> 00:05:39,120
+to select that lie right there with query selector.
+
+95
+00:05:39,630 --> 00:05:45,090
+It's not going to work just by selecting the class of special because we're getting the first special
+
+96
+00:05:45,090 --> 00:05:51,210
+which is up here, and it's not going to work to say lie with the class of special because we have this
+
+97
+00:05:51,210 --> 00:05:54,990
+first one that has an ally or it is an ally with the class of special.
+
+98
+00:05:55,800 --> 00:05:57,690
+So how could I get more specific?
+
+99
+00:05:57,690 --> 00:06:03,570
+Well, this one is located inside of a section tag so I could do this.
+
+100
+00:06:03,570 --> 00:06:07,920
+This is valid CSS section, like special.
+
+101
+00:06:08,670 --> 00:06:10,080
+I could even get more specific.
+
+102
+00:06:10,090 --> 00:06:14,910
+It won't make a difference here, but it's also nested in a UL instead of a section.
+
+103
+00:06:14,910 --> 00:06:21,270
+So this is saying find me a list item with the class of special that is nested somewhere in a UL that
+
+104
+00:06:21,270 --> 00:06:23,760
+is itself nested somewhere in a section tag.
+
+105
+00:06:23,760 --> 00:06:28,380
+I mean, I could even do this if I really wanted to body and get extra specific.
+
+106
+00:06:28,710 --> 00:06:31,350
+So that's another variation of query selector.
+
+107
+00:06:31,350 --> 00:06:34,260
+That's just a valid CSS selector syntax.
+
+108
+00:06:34,260 --> 00:06:36,930
+We can also select based off of attributes.
+
+109
+00:06:36,930 --> 00:06:42,750
+So if I want to get this password input right now, if I do document that query selector of input,
+
+110
+00:06:42,750 --> 00:06:43,920
+you know what will happen.
+
+111
+00:06:43,920 --> 00:06:45,240
+We have multiple inputs.
+
+112
+00:06:45,240 --> 00:06:49,170
+We only get the first one which is right here type set to text.
+
+113
+00:06:49,200 --> 00:06:56,940
+If I want that second one, I can do input where type equals and then password.
+
+114
+00:06:57,120 --> 00:07:01,260
+So this is using the CSS attribute selector syntax.
+
+115
+00:07:01,260 --> 00:07:06,240
+And now I get that input and we saw this syntax a couple of videos ago with CSS.
+
+116
+00:07:06,240 --> 00:07:07,500
+We did the same thing.
+
+117
+00:07:07,500 --> 00:07:09,420
+It's the identical selector.
+
+118
+00:07:09,420 --> 00:07:13,620
+We just moved it into a JavaScript string and passed it into query selector.
+
+119
+00:07:14,040 --> 00:07:17,970
+So we're not styling anything using this, we're purely selecting.
+
+120
+00:07:17,970 --> 00:07:20,850
+All right, so we've seen that query selector is pretty powerful.
+
+121
+00:07:20,850 --> 00:07:22,680
+We can get a lot more specific.
+
+122
+00:07:23,040 --> 00:07:28,170
+We can even ignoring that, ignoring the fact that we can get more specific and detailed, we can use
+
+123
+00:07:28,170 --> 00:07:31,200
+query selector in place of all those other methods we saw.
+
+124
+00:07:31,200 --> 00:07:38,580
+And then we have query selector all which uses the exact same syntax, except it returns to us a collection.
+
+125
+00:07:38,910 --> 00:07:40,530
+So not just the first result.
+
+126
+00:07:40,530 --> 00:07:44,460
+So if I do document query selector of input, I get the first input.
+
+127
+00:07:44,460 --> 00:07:50,100
+If I do query selector all, I get all inputs that match and there's three of them.
+
+128
+00:07:50,580 --> 00:07:57,090
+If I did document query selector all dot, let's do the class of special.
+
+129
+00:07:57,330 --> 00:07:58,950
+We have four items.
+
+130
+00:07:58,950 --> 00:08:03,390
+The paragraph was special and then the three ls if I do lie.
+
+131
+00:08:04,690 --> 00:08:07,810
+We get six of them because there's six total lies on this page.
+
+132
+00:08:08,260 --> 00:08:13,140
+If I do something like the ID of did we have one called Main?
+
+133
+00:08:13,150 --> 00:08:13,810
+I think so.
+
+134
+00:08:14,170 --> 00:08:16,690
+This paragraph or this paragraph is the idea of Main.
+
+135
+00:08:16,960 --> 00:08:20,290
+We still get a collection just with one item in it.
+
+136
+00:08:20,620 --> 00:08:22,840
+Notice something kind of odd.
+
+137
+00:08:23,080 --> 00:08:27,040
+This result that we're getting back is a node list.
+
+138
+00:08:27,190 --> 00:08:31,630
+But when we do document dot, let's do get elements by tag name.
+
+139
+00:08:32,620 --> 00:08:36,340
+Elements by tag name of Liz.
+
+140
+00:08:37,000 --> 00:08:40,120
+We get an HTML collection here.
+
+141
+00:08:40,120 --> 00:08:42,220
+We got something called a node list.
+
+142
+00:08:42,640 --> 00:08:44,070
+So what is a node list?
+
+143
+00:08:44,080 --> 00:08:46,510
+It's another type of a collection.
+
+144
+00:08:46,510 --> 00:08:48,550
+You don't need to worry about it too much here.
+
+145
+00:08:48,550 --> 00:08:55,330
+But if we look at what the node list contains, this paragraph is still an HTML paragraph element.
+
+146
+00:08:55,330 --> 00:08:58,390
+It's just put in a different container from query selector all.
+
+147
+00:08:58,390 --> 00:08:59,560
+That's how it works.
+
+148
+00:08:59,560 --> 00:09:05,800
+A node list is another array like object, and if we play around with it, we can save it to a variable.
+
+149
+00:09:05,800 --> 00:09:08,560
+So let's get all of the which one should we do?
+
+150
+00:09:08,560 --> 00:09:12,880
+Let's save all of the special class elements to a variable.
+
+151
+00:09:12,880 --> 00:09:18,160
+We'll call it specials and I'll clear my console, make some more room.
+
+152
+00:09:18,160 --> 00:09:19,540
+So we have specials.
+
+153
+00:09:19,840 --> 00:09:21,700
+It is an array like object.
+
+154
+00:09:21,700 --> 00:09:23,620
+So I can do specials of zero.
+
+155
+00:09:24,310 --> 00:09:27,280
+I can do specials dot length.
+
+156
+00:09:28,110 --> 00:09:33,960
+And then if we do specials dot and then look at what else we have, there's really not much else, but
+
+157
+00:09:33,960 --> 00:09:35,370
+we do have four each.
+
+158
+00:09:35,370 --> 00:09:39,110
+So this was not available to us with a HTML collection.
+
+159
+00:09:39,120 --> 00:09:42,390
+It is available with a node list, but don't get bogged down.
+
+160
+00:09:42,390 --> 00:09:43,350
+Don't worry about it.
+
+161
+00:09:43,350 --> 00:09:45,840
+Honestly, it's not a big deal at this point.
+
+162
+00:09:45,840 --> 00:09:48,360
+I just wanted to highlight that there is a slight difference.
+
+163
+00:09:48,360 --> 00:09:53,810
+They're not the exact same type, but they're not the exact same collection that we get back or the
+
+164
+00:09:53,820 --> 00:09:54,870
+container is different.
+
+165
+00:09:54,870 --> 00:09:58,380
+Both of them are fake lightweight versions of a race.
+
+166
+00:09:58,530 --> 00:10:01,380
+So that is one difference when you use query selector.
+
+167
+00:10:01,710 --> 00:10:06,840
+And also another difference to know about query selector is that it is a little less performant.
+
+168
+00:10:06,840 --> 00:10:11,760
+It's really not a big deal for the stuff we're doing, but as you can imagine, depending on the selector
+
+169
+00:10:11,760 --> 00:10:12,720
+you pass it in.
+
+170
+00:10:13,140 --> 00:10:18,990
+It could have to do a lot of work compared to some of these older versions, like Get Element by ID
+
+171
+00:10:18,990 --> 00:10:20,820
+or get elements by tag name.
+
+172
+00:10:20,940 --> 00:10:24,180
+Generally those are a little bit more optimized or a little faster.
+
+173
+00:10:24,180 --> 00:10:29,580
+But I definitely, definitely would recommend you go with query selector and it's not a good enough
+
+174
+00:10:29,580 --> 00:10:33,900
+reason, it's not a good enough difference to not use or to avoid query selector.
+
+175
+00:10:33,990 --> 00:10:34,440
+All right.
+
+176
+00:10:34,440 --> 00:10:37,470
+So query selector, query selector, all very useful.
+
+177
+00:10:37,470 --> 00:10:41,700
+It's what I'll be using for most of the course here, because we can get more specific.
+
+178
+00:10:41,700 --> 00:10:45,870
+But also it's just nice to use one method and not have to worry about those other methods.
+
+179
+00:10:45,870 --> 00:10:51,990
+You pass in a CSS selector as a string and you get back either the first match if you're using query
+
+180
+00:10:51,990 --> 00:10:57,180
+selector or you get back a collection of all matches if you use query selector all.
+

@@ -1,0 +1,488 @@
+1
+00:00:00,300 --> 00:00:04,390
+So we just saw how to use a while loop essentially to recreate a for loop.
+
+2
+00:00:04,410 --> 00:00:08,220
+We printed the number zero through five two different ways and that's great.
+
+3
+00:00:08,220 --> 00:00:11,190
+You can do that with a while loop, but that's not how I use them.
+
+4
+00:00:11,190 --> 00:00:12,950
+That's not how most people use them.
+
+5
+00:00:12,960 --> 00:00:20,910
+You would just use a for loop if you need to generate a set range of numbers 0 to 10, 100 to 10, whatever.
+
+6
+00:00:21,060 --> 00:00:26,550
+Where a while loop really excels is when you're writing a loop where you don't know exactly how many
+
+7
+00:00:26,550 --> 00:00:27,960
+times it's going to run.
+
+8
+00:00:28,200 --> 00:00:30,990
+We don't know that we're going from 0 to 10.
+
+9
+00:00:30,990 --> 00:00:33,870
+We don't know we want this to run exactly 20 times.
+
+10
+00:00:33,870 --> 00:00:41,070
+Instead, it might be something like the 2048 game example I showed you or a chess game where you continue
+
+11
+00:00:41,070 --> 00:00:44,640
+to have your game logic loop until there is a game over.
+
+12
+00:00:44,640 --> 00:00:48,630
+And for a good player, that might happen in the case of 2048.
+
+13
+00:00:48,630 --> 00:00:53,730
+It might happen after hundreds or thousands of turns in a bad player like when I was playing.
+
+14
+00:00:54,060 --> 00:00:57,450
+It might happen in 100 turns or ten or 20 turns.
+
+15
+00:00:57,600 --> 00:01:00,390
+So you don't code that in, you use a while loop.
+
+16
+00:01:00,390 --> 00:01:13,110
+And essentially it would look like while not game over or while still alive or lives left is greater
+
+17
+00:01:13,110 --> 00:01:13,920
+than zero.
+
+18
+00:01:14,670 --> 00:01:20,460
+So you don't know exactly how many times it will run, but at some point in this loop you will be changing
+
+19
+00:01:20,460 --> 00:01:24,390
+lives left or you will be setting game over to be true.
+
+20
+00:01:24,780 --> 00:01:31,620
+A simple version of this would be to make a number game and a guessing game where we won't even be guessing
+
+21
+00:01:31,620 --> 00:01:32,130
+ourselves.
+
+22
+00:01:32,130 --> 00:01:36,330
+Our computer or JavaScript will generate a random number from 1 to 10.
+
+23
+00:01:36,330 --> 00:01:37,440
+That will be the target.
+
+24
+00:01:37,440 --> 00:01:39,720
+We're trying to guess, let's say nine.
+
+25
+00:01:39,990 --> 00:01:46,830
+Then we'll make a second random number, which will also be from 1 to 10 and we're trying to hit nine.
+
+26
+00:01:47,130 --> 00:01:49,080
+So maybe the first guess will be five.
+
+27
+00:01:49,080 --> 00:01:54,480
+We'll have a wild loop that runs while the guess is not equal to the target.
+
+28
+00:01:54,990 --> 00:02:00,270
+And then as soon as they are equal, meaning that we've guessed correctly, the loop is over.
+
+29
+00:02:00,780 --> 00:02:03,120
+So let's start by generating a target number.
+
+30
+00:02:03,120 --> 00:02:08,460
+So let's target and that can be a constant equals.
+
+31
+00:02:08,460 --> 00:02:14,220
+And if you can recall back to how we do this, we start with math at random that gives us a decimal
+
+32
+00:02:14,220 --> 00:02:19,350
+between zero and one like 0.9 or 0.95 or point six.
+
+33
+00:02:19,350 --> 00:02:26,130
+And then I'm going to multiply it by ten and then we floor that to chop off the decimal.
+
+34
+00:02:26,130 --> 00:02:28,830
+That will give us a whole number.
+
+35
+00:02:29,490 --> 00:02:33,300
+If you need some review, you can go back and and watch the video where we covered this.
+
+36
+00:02:33,750 --> 00:02:35,130
+I think I said this then.
+
+37
+00:02:35,130 --> 00:02:38,910
+I am not a fan of how we generate random integers in JavaScript.
+
+38
+00:02:38,910 --> 00:02:39,870
+This is annoying.
+
+39
+00:02:39,870 --> 00:02:45,600
+Many other languages have a simple method like rand int, but JavaScript does not.
+
+40
+00:02:46,500 --> 00:02:48,450
+So this gives us a target number.
+
+41
+00:02:48,450 --> 00:02:57,030
+Let's just verify that console.log target we get six OC we do it again, we get nine.
+
+42
+00:02:57,030 --> 00:03:00,630
+Now let's duplicate this and generate a guess.
+
+43
+00:03:00,630 --> 00:03:07,380
+So we'll call this guess and I'm going to make this a let variable, not a constant, because we're
+
+44
+00:03:07,380 --> 00:03:12,990
+probably going to have to guess again, meaning that the value will change that is stored and guess
+
+45
+00:03:12,990 --> 00:03:15,300
+target will stay the same so we can make it cost.
+
+46
+00:03:15,480 --> 00:03:20,190
+Guess is most likely going to change unless we guess it right the very first time.
+
+47
+00:03:20,190 --> 00:03:22,290
+So now we should have two variables.
+
+48
+00:03:22,440 --> 00:03:25,530
+We have target and we have guess.
+
+49
+00:03:25,980 --> 00:03:27,540
+Guess is not the same.
+
+50
+00:03:27,540 --> 00:03:29,220
+We did not guess it correctly.
+
+51
+00:03:29,490 --> 00:03:31,470
+So now we can implement our logic.
+
+52
+00:03:32,100 --> 00:03:37,830
+Our loop is going to look like while guess is not equal to target.
+
+53
+00:03:39,240 --> 00:03:44,610
+So while we have not guessed or generated the correct random number, what do we need to do?
+
+54
+00:03:44,910 --> 00:03:47,460
+Well, this is the really important part of any well loop.
+
+55
+00:03:47,460 --> 00:03:52,410
+You need to eventually have a way of making this condition false so that the loop will stop.
+
+56
+00:03:52,410 --> 00:03:57,630
+Otherwise you end up with an infinite loop, which we've seen before with for loops is not good, not
+
+57
+00:03:57,630 --> 00:03:58,470
+desirable.
+
+58
+00:03:58,500 --> 00:04:04,320
+We need some way of making this false eventually so we can break out, and in our case it just means
+
+59
+00:04:04,350 --> 00:04:05,550
+guessing again.
+
+60
+00:04:05,820 --> 00:04:07,410
+So how would we guess again?
+
+61
+00:04:07,410 --> 00:04:09,240
+We would just copy this.
+
+62
+00:04:11,070 --> 00:04:13,740
+We don't need let because we're not trying to re declare.
+
+63
+00:04:13,740 --> 00:04:15,330
+We're not trying to make a new variable.
+
+64
+00:04:15,330 --> 00:04:17,910
+We're trying to update the existing guess.
+
+65
+00:04:19,019 --> 00:04:27,090
+So now we'll get a new random and let's console.log guess in here each time and just see what we get.
+
+66
+00:04:28,260 --> 00:04:34,410
+I'm going to refresh and it should loop a couple of times until eventually we guess the correct answer.
+
+67
+00:04:34,740 --> 00:04:37,080
+Let's at the bottom verify it.
+
+68
+00:04:37,080 --> 00:04:39,570
+We'll console.log target
+
+69
+00:04:41,940 --> 00:04:49,860
+and we'll put the variable target right there using a template literal and then guess and we'll do the
+
+70
+00:04:49,860 --> 00:04:50,580
+same thing.
+
+71
+00:04:53,880 --> 00:04:54,660
+All right.
+
+72
+00:04:56,020 --> 00:04:59,400
+And you can see we started with our guest being eight.
+
+73
+00:04:59,410 --> 00:05:00,250
+That was incorrect.
+
+74
+00:05:00,250 --> 00:05:02,980
+So we made a new guess that time we got seven.
+
+75
+00:05:02,980 --> 00:05:04,420
+So this was still true.
+
+76
+00:05:04,450 --> 00:05:05,710
+They were not equal.
+
+77
+00:05:05,890 --> 00:05:07,260
+So we printed out seven.
+
+78
+00:05:07,270 --> 00:05:12,530
+We made a new guess this time guess was one and that was the target.
+
+79
+00:05:12,550 --> 00:05:14,330
+We can see here what was printed out.
+
+80
+00:05:14,350 --> 00:05:15,850
+Target one guess one.
+
+81
+00:05:15,850 --> 00:05:19,660
+That means this is now false and it's done running.
+
+82
+00:05:19,870 --> 00:05:24,040
+So we go down to this line and that prints out target one guess one.
+
+83
+00:05:25,030 --> 00:05:25,720
+Awesome.
+
+84
+00:05:25,720 --> 00:05:26,860
+So that works.
+
+85
+00:05:27,070 --> 00:05:28,930
+I would change this up a little bit.
+
+86
+00:05:28,960 --> 00:05:32,160
+It would be nice to see each guess the entire way through.
+
+87
+00:05:32,170 --> 00:05:35,110
+So right here I'll print this out here so we can see it.
+
+88
+00:05:35,110 --> 00:05:43,900
+And then at the bottom I'll instead say Congrats, you win, even though the user is not doing anything.
+
+89
+00:05:43,900 --> 00:05:47,860
+And let's also print out this down at the bottom.
+
+90
+00:05:50,210 --> 00:05:56,090
+One more time, because right now what's happening is when you do guess correctly or when the guess
+
+91
+00:05:56,090 --> 00:05:58,790
+is updated correctly, this loop does not run.
+
+92
+00:05:58,790 --> 00:06:00,440
+So this line never prints out.
+
+93
+00:06:00,440 --> 00:06:02,930
+So we don't see what the target is and what the guess is.
+
+94
+00:06:02,930 --> 00:06:08,000
+So I'm putting it down here again and there we go.
+
+95
+00:06:08,240 --> 00:06:09,320
+So we have six.
+
+96
+00:06:09,320 --> 00:06:09,830
+What's the target?
+
+97
+00:06:09,830 --> 00:06:10,690
+The whole time?
+
+98
+00:06:10,760 --> 00:06:12,680
+Eight was the first guess, then nine.
+
+99
+00:06:12,680 --> 00:06:14,030
+Then we got six.
+
+100
+00:06:14,120 --> 00:06:18,230
+This line is printed after the loop right here and then congrats, you win.
+
+101
+00:06:18,770 --> 00:06:21,140
+And that's pretty much it for this example.
+
+102
+00:06:21,140 --> 00:06:22,880
+This is a really common pattern.
+
+103
+00:06:22,880 --> 00:06:27,920
+So if I were to break down this pattern we have while some condition
+
+104
+00:06:30,800 --> 00:06:40,970
+in the loop update or attempt to make that condition false, which is what we did here, we attempted
+
+105
+00:06:41,450 --> 00:06:43,970
+to eventually make this condition false.
+
+106
+00:06:43,970 --> 00:06:50,180
+It might take 100 tries, it might take 1000 tries, just like the 2048 game or a chess game.
+
+107
+00:06:50,180 --> 00:06:54,200
+You could play for hundreds of moves or it could happen really quickly.
+
+108
+00:06:54,200 --> 00:06:56,690
+And a four loop doesn't easily accommodate that.
+
+109
+00:06:56,690 --> 00:07:02,210
+A four loop is great when you are just trying to generate numbers from one index or one start point
+
+110
+00:07:02,210 --> 00:07:03,350
+to a stop point.
+
+111
+00:07:03,350 --> 00:07:08,180
+It's not as great when you have this uncertainty around how many times something will run.
+
+112
+00:07:08,540 --> 00:07:10,790
+So that's one I like to use while loops.
+
+113
+00:07:10,880 --> 00:07:17,900
+Just remember, if you do not update something that has the chance of making this false, you'll get
+
+114
+00:07:17,900 --> 00:07:18,920
+an infinite loop.
+
+115
+00:07:19,580 --> 00:07:24,410
+If we didn't change, guess and we only guessed one time this would go on forever.
+
+116
+00:07:24,650 --> 00:07:25,850
+And that's it for now.
+
+117
+00:07:25,880 --> 00:07:30,170
+There is a small change you could make potentially here.
+
+118
+00:07:30,170 --> 00:07:34,880
+You can see I'm duplicating the guess, the initial guess, and this guess down here.
+
+119
+00:07:35,120 --> 00:07:39,560
+I could just make guess undefined at the beginning and that would work.
+
+120
+00:07:39,560 --> 00:07:44,810
+Although my first console.log would also print out undefined here, which is not what we want.
+
+121
+00:07:44,900 --> 00:07:47,210
+So I'm just going to duplicate that code.
+
+122
+00:07:47,780 --> 00:07:48,500
+It's okay.
+

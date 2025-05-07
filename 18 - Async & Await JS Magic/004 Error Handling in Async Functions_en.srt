@@ -1,0 +1,252 @@
+1
+00:00:00,120 --> 00:00:00,720
+All right.
+
+2
+00:00:00,960 --> 00:00:07,320
+So this is great, very short and easy way to wait for an asynchronous operation to complete before
+
+3
+00:00:07,320 --> 00:00:08,520
+running the next line.
+
+4
+00:00:08,520 --> 00:00:12,490
+But what if the asynchronous operation, if that promise is not resolved?
+
+5
+00:00:12,510 --> 00:00:13,770
+What if it's rejected?
+
+6
+00:00:14,040 --> 00:00:16,020
+Right now it's working out.
+
+7
+00:00:16,079 --> 00:00:17,190
+I have Internet.
+
+8
+00:00:17,520 --> 00:00:24,840
+I'm not requesting an invalid URL, but if I change that, this endpoint should give me a 404.
+
+9
+00:00:24,870 --> 00:00:27,990
+Axios is going to reject the promise.
+
+10
+00:00:28,440 --> 00:00:29,550
+I don't have a catch.
+
+11
+00:00:29,550 --> 00:00:32,759
+I don't have any sort of error handling what happens.
+
+12
+00:00:32,790 --> 00:00:33,660
+Let's see.
+
+13
+00:00:34,800 --> 00:00:35,460
+Hmm.
+
+14
+00:00:35,760 --> 00:00:37,200
+Anchored in promise.
+
+15
+00:00:37,230 --> 00:00:38,560
+Error request.
+
+16
+00:00:38,580 --> 00:00:42,250
+I don't have any code that I'm running either to catch that error.
+
+17
+00:00:42,270 --> 00:00:43,320
+Maybe to make it different.
+
+18
+00:00:43,320 --> 00:00:46,290
+Request to tell the user something went wrong.
+
+19
+00:00:46,560 --> 00:00:48,540
+I am not handling it at all.
+
+20
+00:00:49,020 --> 00:00:50,780
+We have a couple of options.
+
+21
+00:00:50,790 --> 00:00:55,620
+The first is to chain on a catch to my Get Planet to call.
+
+22
+00:00:55,620 --> 00:00:57,720
+Remember Get planets is an async function.
+
+23
+00:00:57,720 --> 00:01:01,740
+It returns a promise if I catch get planets.
+
+24
+00:01:03,400 --> 00:01:04,120
+Error.
+
+25
+00:01:05,620 --> 00:01:08,770
+Console.log in catch.
+
+26
+00:01:10,120 --> 00:01:12,640
+And then let's console that, log the error as well.
+
+27
+00:01:14,290 --> 00:01:15,490
+Let's see what happens now.
+
+28
+00:01:16,760 --> 00:01:17,230
+Och.
+
+29
+00:01:17,240 --> 00:01:17,870
+There we go.
+
+30
+00:01:17,870 --> 00:01:18,770
+In catch.
+
+31
+00:01:18,770 --> 00:01:19,900
+Here's my error.
+
+32
+00:01:19,910 --> 00:01:20,690
+I caught it.
+
+33
+00:01:21,200 --> 00:01:22,730
+We have another option, though.
+
+34
+00:01:22,970 --> 00:01:31,250
+If you don't want to have to use sketch and pass in a callback, can comment that out in my async function.
+
+35
+00:01:31,250 --> 00:01:32,750
+I'll keep this original one.
+
+36
+00:01:33,020 --> 00:01:37,550
+I can add a try and catch block which looks like this.
+
+37
+00:01:37,640 --> 00:01:38,870
+Try something.
+
+38
+00:01:40,100 --> 00:01:41,570
+Otherwise catch the error.
+
+39
+00:01:42,710 --> 00:01:44,750
+So here's what I would want to try.
+
+40
+00:01:46,310 --> 00:01:51,200
+And if something goes wrong, if an exception is raised, if there's an error, don't freak out.
+
+41
+00:01:51,200 --> 00:02:00,170
+Just run this code and I'll console.log in catch comma or e not error.
+
+42
+00:02:02,310 --> 00:02:03,480
+Let's see what happens now.
+
+43
+00:02:03,840 --> 00:02:04,410
+I need to call.
+
+44
+00:02:04,410 --> 00:02:05,520
+Get it still.
+
+45
+00:02:06,950 --> 00:02:08,509
+Get planets.
+
+46
+00:02:08,840 --> 00:02:09,430
+Great.
+
+47
+00:02:09,440 --> 00:02:10,400
+Let's try it out.
+
+48
+00:02:12,130 --> 00:02:13,260
+Same output.
+
+49
+00:02:13,270 --> 00:02:19,000
+Well we said in catch I think what we have before in catch with three exclamation points this time we
+
+50
+00:02:19,000 --> 00:02:21,100
+have one so we get the same behavior.
+
+51
+00:02:21,100 --> 00:02:23,110
+But these are technically different.
+
+52
+00:02:23,200 --> 00:02:29,920
+They're different because this is going to catch any errors, any issues within this one async function.
+
+53
+00:02:29,920 --> 00:02:35,920
+Here, I could have multiple functions that are returning promises I could have thens.
+
+54
+00:02:35,920 --> 00:02:42,550
+And as we've seen before, the callback in our catch will run for any of them if the promise is rejected.
+
+55
+00:02:42,970 --> 00:02:46,090
+So when we have one function we're calling, it doesn't really matter.
+
+56
+00:02:46,360 --> 00:02:47,980
+We're just doing one thing.
+
+57
+00:02:47,980 --> 00:02:51,190
+There's one place, one promise where the error could be raised.
+
+58
+00:02:51,430 --> 00:02:54,190
+So it's not a big difference, but there is a difference.
+
+59
+00:02:54,190 --> 00:02:58,930
+This is more of a backup to catch multiple potential errors here.
+
+60
+00:02:58,960 --> 00:03:05,170
+It's more specific to what we're trying to do, and we can be more detailed in how we handled it, but
+
+61
+00:03:05,170 --> 00:03:06,640
+I'm not going to deal with that right now.
+
+62
+00:03:06,640 --> 00:03:13,150
+Next, what I'd like to show you is how we can make multiple requests or multiple asynchronous operations
+
+63
+00:03:13,150 --> 00:03:18,250
+in a single async function using await and async async await.
+

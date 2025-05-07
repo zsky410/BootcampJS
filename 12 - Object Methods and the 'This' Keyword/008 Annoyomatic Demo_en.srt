@@ -1,0 +1,896 @@
+1
+00:00:00,090 --> 00:00:03,810
+Next up, I'd like to expand upon arrow functions and this.
+
+2
+00:00:03,810 --> 00:00:08,880
+Why do Arrow functions not get their own this and how can it be useful sometimes?
+
+3
+00:00:09,090 --> 00:00:10,790
+So we're going to make a little example.
+
+4
+00:00:10,800 --> 00:00:15,170
+I'm calling it the annoying matic or the annoying or annoying Tron.
+
+5
+00:00:15,180 --> 00:00:18,510
+It's going to have a list of annoying phrases.
+
+6
+00:00:18,930 --> 00:00:21,030
+These phrases, these drive me insane.
+
+7
+00:00:22,020 --> 00:00:27,300
+Literally cray cray I can't even totes yolo and can't stop, won't stop.
+
+8
+00:00:27,300 --> 00:00:28,320
+They don't drive me insane.
+
+9
+00:00:28,320 --> 00:00:32,340
+That's a bit over the top, but I'm not a fan of these phrases, so we're going to make this little
+
+10
+00:00:32,340 --> 00:00:33,660
+annoying to that.
+
+11
+00:00:33,660 --> 00:00:40,110
+Every second, every 2 seconds, every 500 milliseconds prints one of these random phrases to the console,
+
+12
+00:00:40,110 --> 00:00:43,980
+and we just fill up the entire console with a bunch of annoying phrases.
+
+13
+00:00:44,220 --> 00:00:47,430
+And the way we're going to structure it is by using an object.
+
+14
+00:00:47,430 --> 00:00:49,350
+So I'm going to make an object here.
+
+15
+00:00:49,800 --> 00:00:57,270
+I'll call it a Noyer and I'm going to add this array and you could put whatever array you want in there
+
+16
+00:00:57,270 --> 00:00:58,800
+if you like some of these phrases.
+
+17
+00:00:58,800 --> 00:01:02,550
+I am very sorry if I'm offending you here, please pick your own phrases.
+
+18
+00:01:02,550 --> 00:01:07,740
+I'm sure you can find a good number of annoying phrases to draw upon just from my own courses.
+
+19
+00:01:08,220 --> 00:01:14,730
+I say at the end of the day, pretty much every video, no matter what time of day it is, or essentially
+
+20
+00:01:14,730 --> 00:01:17,580
+basically, oh gosh, I can't listen to my own videos.
+
+21
+00:01:17,640 --> 00:01:25,290
+Okay, so I'm going to add phrases as a key here into my object and then I'm going to add a method.
+
+22
+00:01:25,290 --> 00:01:30,450
+The idea is that I'll have a method called Start and another one called Stop, and I want to be able
+
+23
+00:01:30,450 --> 00:01:37,560
+to call another dot start and that will start printing one of these every second and I can call, annoy
+
+24
+00:01:37,560 --> 00:01:39,990
+or stop to stop it.
+
+25
+00:01:40,620 --> 00:01:45,480
+So to do this, we'll take advantage of a built in function called set interval.
+
+26
+00:01:45,720 --> 00:01:49,470
+Set interval is a global it's located on the window.
+
+27
+00:01:49,470 --> 00:01:52,980
+If we look at the window, it comes in your browser for free.
+
+28
+00:01:53,520 --> 00:01:59,250
+If we scroll way down all the way down to SE, where are you set interval right there.
+
+29
+00:01:59,250 --> 00:02:04,170
+So it's a function we call it, and we have to pass in a couple of things set interval.
+
+30
+00:02:04,410 --> 00:02:09,660
+We need to give it a func to run and a time or the interval.
+
+31
+00:02:10,229 --> 00:02:12,270
+So for us we'll start something.
+
+32
+00:02:12,270 --> 00:02:15,870
+We'll start with something easy, like 3000 milliseconds.
+
+33
+00:02:15,990 --> 00:02:20,220
+So whatever function I put here will run every 3 seconds.
+
+34
+00:02:21,120 --> 00:02:25,680
+So I'm going to delete that and instead add a method called start.
+
+35
+00:02:26,190 --> 00:02:31,170
+So after my phrases I'll add a method called Start.
+
+36
+00:02:31,170 --> 00:02:32,340
+I need a comma here.
+
+37
+00:02:34,450 --> 00:02:36,280
+Which will be a function.
+
+38
+00:02:37,240 --> 00:02:41,520
+And then actually I'll use a shorthand, get rid of the function keyword.
+
+39
+00:02:41,530 --> 00:02:42,380
+That's nicer.
+
+40
+00:02:42,400 --> 00:02:47,920
+I'm also going to add a method called pick or choose phrase or something so that we can easily get one
+
+41
+00:02:47,920 --> 00:02:48,550
+of these.
+
+42
+00:02:48,910 --> 00:02:50,670
+So I'll define that first.
+
+43
+00:02:50,680 --> 00:02:52,780
+How about just pick phrase?
+
+44
+00:02:54,820 --> 00:03:01,360
+And and here I'm going to reference this dot phrases which we've seen that works as long as I'm calling
+
+45
+00:03:01,360 --> 00:03:08,380
+this as a noise or pick phrase or something, dot pick phrase, I just don't want to be calling it as
+
+46
+00:03:08,380 --> 00:03:09,790
+a non method.
+
+47
+00:03:09,790 --> 00:03:14,050
+So this dot phrases will be the phrases, that's the entire array.
+
+48
+00:03:14,260 --> 00:03:19,090
+To pick one randomly, what I need to do is get the length of this array.
+
+49
+00:03:19,120 --> 00:03:20,620
+I'm going to need to do a math.
+
+50
+00:03:20,890 --> 00:03:21,610
+Random.
+
+51
+00:03:22,580 --> 00:03:28,940
+Multiply that by this phrase length and I'll probably make this its own variable.
+
+52
+00:03:28,940 --> 00:03:39,230
+Const phrases equals this dot phrases or d structure it const phrases equals this.
+
+53
+00:03:39,860 --> 00:03:43,040
+So math, random times phrases length.
+
+54
+00:03:43,970 --> 00:03:45,980
+And then I need to floor that.
+
+55
+00:03:45,980 --> 00:03:48,500
+So math dot floor.
+
+56
+00:03:49,830 --> 00:03:52,860
+And then I'll call this concert index.
+
+57
+00:03:53,100 --> 00:03:56,850
+So that gives me a random index from this array.
+
+58
+00:03:57,360 --> 00:04:04,170
+If we add two more to phrases, this will reflect to update that when I call phrases or pick phrase,
+
+59
+00:04:04,290 --> 00:04:08,010
+this dot phrases will reference the current version of phrases.
+
+60
+00:04:08,410 --> 00:04:10,400
+Okay, so that gives me that.
+
+61
+00:04:10,410 --> 00:04:16,560
+But then I need to access it out of phrases using that index and I'll return that.
+
+62
+00:04:18,529 --> 00:04:23,810
+So I used restructuring here just so I didn't have to reference this phrase, this length and this dot
+
+63
+00:04:23,810 --> 00:04:25,340
+phrases of index.
+
+64
+00:04:25,520 --> 00:04:30,440
+Maybe it's overkill, but we also just learned restructuring, so it's always good to get some reinforcement
+
+65
+00:04:30,440 --> 00:04:30,830
+there.
+
+66
+00:04:31,340 --> 00:04:38,630
+If I run this code right now, oh my gosh, I'm going to clear my console if it will stop lagging the
+
+67
+00:04:38,630 --> 00:04:38,930
+window.
+
+68
+00:04:38,930 --> 00:04:40,760
+Object made it very unhappy.
+
+69
+00:04:40,760 --> 00:04:41,300
+All right.
+
+70
+00:04:41,300 --> 00:04:42,470
+It should be back to normal.
+
+71
+00:04:42,710 --> 00:04:43,910
+Refresh my code.
+
+72
+00:04:43,910 --> 00:04:50,720
+Another dot pick phrase we got yolo and then cray cray.
+
+73
+00:04:50,720 --> 00:04:52,130
+I can't even YOLO.
+
+74
+00:04:52,130 --> 00:04:54,380
+Literally, I can't even totes.
+
+75
+00:04:54,410 --> 00:04:57,710
+Okay, so we're getting a random element each time.
+
+76
+00:04:57,740 --> 00:04:59,210
+Can't stop, won't stop.
+
+77
+00:04:59,240 --> 00:04:59,900
+Great.
+
+78
+00:05:00,140 --> 00:05:00,980
+I will stop.
+
+79
+00:05:01,160 --> 00:05:07,220
+What we're going to do now is call pick phrases instead of start using set interval.
+
+80
+00:05:07,220 --> 00:05:12,020
+So remember set interval takes two arguments.
+
+81
+00:05:12,020 --> 00:05:13,940
+The thing that we want it to call.
+
+82
+00:05:13,940 --> 00:05:22,310
+So I'll just write an anonymous function here and I'll start by just console logging some random letters.
+
+83
+00:05:22,610 --> 00:05:28,580
+And then the second argument is how often I want it to repeat, we'll do 3000 milliseconds.
+
+84
+00:05:28,820 --> 00:05:30,890
+So right now we're not using pick phrase.
+
+85
+00:05:30,890 --> 00:05:33,680
+I'm just constantly logging some gibberish.
+
+86
+00:05:33,680 --> 00:05:37,970
+And if I execute a newer dot start.
+
+87
+00:05:39,910 --> 00:05:41,050
+Wait 3 seconds.
+
+88
+00:05:41,850 --> 00:05:42,390
+Come on.
+
+89
+00:05:42,390 --> 00:05:42,840
+There we go.
+
+90
+00:05:42,840 --> 00:05:43,830
+We got our first one.
+
+91
+00:05:43,830 --> 00:05:45,030
+Three more seconds.
+
+92
+00:05:45,270 --> 00:05:48,570
+We get our second one, three more seconds, we get the third one.
+
+93
+00:05:48,570 --> 00:05:52,170
+But what I want to do is console that log pick phrase.
+
+94
+00:05:52,590 --> 00:05:58,650
+Now, this is where the keyword this comes in because we know instead of a method start, I can use
+
+95
+00:05:58,650 --> 00:06:03,690
+this to refer to the object so I could call this pick phrase.
+
+96
+00:06:03,690 --> 00:06:09,750
+So if we just tried it once up top here in the method console.log this pick phrase.
+
+97
+00:06:11,330 --> 00:06:16,820
+And I run this annoying start we get literally, and that works.
+
+98
+00:06:17,000 --> 00:06:19,550
+And then the set interval kicks in.
+
+99
+00:06:19,550 --> 00:06:26,900
+But if I want to call this code, this function instead of constant logging, I will do the exact same
+
+100
+00:06:26,900 --> 00:06:30,020
+thing console.log this pick phrase.
+
+101
+00:06:30,020 --> 00:06:33,740
+But if I move it in this function, everything changes.
+
+102
+00:06:36,160 --> 00:06:40,000
+The first one works because it's up top, but then we get an error.
+
+103
+00:06:40,180 --> 00:06:42,310
+This stop pick phrase is not a function.
+
+104
+00:06:42,610 --> 00:06:44,710
+So why is this different?
+
+105
+00:06:44,740 --> 00:06:46,260
+We're inside of this function.
+
+106
+00:06:46,270 --> 00:06:47,620
+Why is it not working?
+
+107
+00:06:48,130 --> 00:06:49,830
+Well, let's look at this.
+
+108
+00:06:49,840 --> 00:06:52,390
+What do you think the value of this is right here?
+
+109
+00:06:53,140 --> 00:06:55,360
+One more time, annoy your start.
+
+110
+00:06:56,020 --> 00:06:56,830
+Cray cray.
+
+111
+00:06:56,860 --> 00:06:58,510
+That's coming from line 11.
+
+112
+00:06:58,750 --> 00:07:01,150
+And then this is set to the window.
+
+113
+00:07:01,690 --> 00:07:03,460
+So why is this right here?
+
+114
+00:07:03,460 --> 00:07:04,390
+Set to the object.
+
+115
+00:07:04,390 --> 00:07:08,170
+But inside another function, it's set to the window.
+
+116
+00:07:08,770 --> 00:07:11,540
+Remember, this change is depending on how it's called.
+
+117
+00:07:11,560 --> 00:07:12,880
+Now we're executing.
+
+118
+00:07:12,880 --> 00:07:15,850
+Start ourselves as an object or as a method.
+
+119
+00:07:15,850 --> 00:07:22,630
+We're doing this annoy or start, but this function is being executed not by us, but by set interval.
+
+120
+00:07:23,020 --> 00:07:28,840
+It source code calls this function every 3 seconds or whatever number we have here, so we're not calling
+
+121
+00:07:28,840 --> 00:07:29,190
+it.
+
+122
+00:07:29,200 --> 00:07:34,570
+And that means that this, because of the way it's called, is set to be the window object.
+
+123
+00:07:34,570 --> 00:07:40,120
+Just like if we had a random function and we called this, we'd done this a couple of times in the past
+
+124
+00:07:40,120 --> 00:07:40,870
+few videos.
+
+125
+00:07:40,870 --> 00:07:46,090
+If we don't execute it as a method on an object, this is set to the global scope to the window.
+
+126
+00:07:46,600 --> 00:07:51,790
+So all of this has been set up to talk about arrow functions in the past.
+
+127
+00:07:51,790 --> 00:07:53,640
+Before, error functions were a thing.
+
+128
+00:07:53,650 --> 00:08:00,250
+If we wanted to make this work, if I want to have a reference to the object, the version of this we
+
+129
+00:08:00,250 --> 00:08:05,680
+have right here, I want to be able to call this dot pick phrase in this function, the nested function.
+
+130
+00:08:05,680 --> 00:08:10,000
+What some people would do is make a variable and store it.
+
+131
+00:08:10,030 --> 00:08:14,320
+You'd see things like const that equals this.
+
+132
+00:08:15,470 --> 00:08:18,500
+So we have a reference to this, which is the object.
+
+133
+00:08:18,500 --> 00:08:26,410
+And if I console.log that and I call a start, we'll still get an error because we're doing this stop
+
+134
+00:08:26,420 --> 00:08:27,170
+pick phrase.
+
+135
+00:08:27,170 --> 00:08:34,640
+But that is a reference to the previous this from the level above from the start function.
+
+136
+00:08:36,000 --> 00:08:38,250
+So this is not ideal writing it this way.
+
+137
+00:08:38,280 --> 00:08:41,610
+Also, they wouldn't have used cost because it wasn't a thing.
+
+138
+00:08:41,640 --> 00:08:45,270
+You would have seen var still not a great approach.
+
+139
+00:08:45,300 --> 00:08:50,220
+Once we talk about bind, call and apply, there are other ways of getting this to work.
+
+140
+00:08:50,220 --> 00:08:56,730
+But now that we have arrow functions, it's actually easier if we instead use an arrow function here.
+
+141
+00:08:57,270 --> 00:08:59,210
+We avoid the problem entirely.
+
+142
+00:08:59,220 --> 00:09:01,290
+Remember that arrow functions don't get their own.
+
+143
+00:09:01,290 --> 00:09:08,100
+This the this in an arrow function won't change from the this of its parent or of its nearest this the
+
+144
+00:09:08,100 --> 00:09:10,770
+local execution context that we have up here.
+
+145
+00:09:11,190 --> 00:09:12,720
+This has a value.
+
+146
+00:09:12,750 --> 00:09:13,840
+We've already seen it.
+
+147
+00:09:13,860 --> 00:09:19,590
+If I type this right here, it's referencing the object because I'm not using an arrow function.
+
+148
+00:09:19,590 --> 00:09:20,970
+I'm getting a new this.
+
+149
+00:09:20,970 --> 00:09:28,390
+But if I turn this into an arrow function instead like that, now we have no problem.
+
+150
+00:09:28,410 --> 00:09:29,670
+It shouldn't be an issue.
+
+151
+00:09:29,970 --> 00:09:35,280
+This is going to be the same in this arrow function because arrow functions don't get their own special
+
+152
+00:09:35,280 --> 00:09:35,820
+this.
+
+153
+00:09:36,210 --> 00:09:40,050
+That means it just relies on the this we have from start.
+
+154
+00:09:41,070 --> 00:09:46,770
+Let's make sure we'll run it and come on.
+
+155
+00:09:48,460 --> 00:09:49,420
+I can't even.
+
+156
+00:09:50,070 --> 00:09:52,380
+And 3 seconds later, can't stop.
+
+157
+00:09:52,380 --> 00:09:53,120
+Won't stop.
+
+158
+00:09:53,130 --> 00:09:54,110
+Oh, so annoying.
+
+159
+00:09:54,120 --> 00:09:55,120
+Who built this thing?
+
+160
+00:09:55,140 --> 00:09:56,100
+Cray cray.
+
+161
+00:09:56,920 --> 00:09:59,470
+And literally it's working.
+
+162
+00:10:00,100 --> 00:10:05,200
+So that's really what I want to focus on in this video is showing you that sometimes arrow functions
+
+163
+00:10:05,200 --> 00:10:08,530
+are better to use because you don't want a new this.
+
+164
+00:10:08,530 --> 00:10:14,680
+But the other side of that coin is that they suck as regular methods on an object because you don't
+
+165
+00:10:14,680 --> 00:10:20,050
+get access to the this referencing the object you're this references the window.
+
+166
+00:10:20,410 --> 00:10:26,500
+So that's nice in a situation like we have here because we will use the this from start but it's not
+
+167
+00:10:26,500 --> 00:10:26,890
+nice.
+
+168
+00:10:26,890 --> 00:10:31,900
+If I had tried to write start as an arrow function instead of a regular function expression.
+
+169
+00:10:32,440 --> 00:10:35,310
+Now, one other thing that's just not related to this.
+
+170
+00:10:35,320 --> 00:10:37,710
+This interval is going on and on and on.
+
+171
+00:10:37,720 --> 00:10:40,540
+It will keep going until I refresh the page or close the window.
+
+172
+00:10:40,630 --> 00:10:46,180
+It's best practice to provide a way to stop that interval, to stop something from repeating over and
+
+173
+00:10:46,180 --> 00:10:51,250
+over, not to mention the fact that it's incredibly annoying whoever built this evil piece of code.
+
+174
+00:10:51,580 --> 00:10:56,070
+What we can do is save the return value from set interval.
+
+175
+00:10:56,080 --> 00:11:03,340
+Set interval will return a ID and there's another function we can call called stop interval or no clear
+
+176
+00:11:03,340 --> 00:11:06,580
+interval, which will stop the interval from running.
+
+177
+00:11:06,880 --> 00:11:10,330
+So how could I do this if I wanted to have a stop method?
+
+178
+00:11:11,050 --> 00:11:18,420
+I want to call clear interval, but I need to pass in an ID, but I'm getting the ID from here.
+
+179
+00:11:18,430 --> 00:11:24,830
+This is going to return it if I just make a variable like const id equals set interval.
+
+180
+00:11:24,850 --> 00:11:27,340
+I have no access to ID over here.
+
+181
+00:11:28,360 --> 00:11:35,860
+What I can do is add it to this this dot timer ID, let's call it that equals set interval.
+
+182
+00:11:37,050 --> 00:11:40,800
+Let's take a look at what happens now if we inspect a neuer.
+
+183
+00:11:41,460 --> 00:11:42,420
+Open this up.
+
+184
+00:11:43,340 --> 00:11:44,690
+Well, I haven't executed.
+
+185
+00:11:44,990 --> 00:11:47,840
+I haven't called start, so I need to run that.
+
+186
+00:11:47,960 --> 00:11:56,090
+But now if we look at a neuer, we do have a timer ID that wasn't there before, but the code ran,
+
+187
+00:11:56,090 --> 00:11:57,590
+start was executed.
+
+188
+00:11:57,620 --> 00:12:00,320
+This is set to the object.
+
+189
+00:12:00,320 --> 00:12:05,870
+So this timer ID added a new property called timer ID just like we had done this.
+
+190
+00:12:05,870 --> 00:12:09,380
+Except the ID is not hardcoded as one.
+
+191
+00:12:09,380 --> 00:12:12,050
+If we have multiple timers, we have different IDs.
+
+192
+00:12:12,500 --> 00:12:18,110
+So to stop it, my method called stop would just call clear interval.
+
+193
+00:12:19,960 --> 00:12:22,150
+This dot timer ID.
+
+194
+00:12:23,650 --> 00:12:25,600
+So set interval, clear interval.
+
+195
+00:12:25,600 --> 00:12:27,640
+That's not really the focus of this video.
+
+196
+00:12:27,640 --> 00:12:33,850
+If you're struggling with the syntax, it's more about this and error functions and context and all
+
+197
+00:12:33,850 --> 00:12:34,810
+that fun stuff.
+
+198
+00:12:35,230 --> 00:12:37,750
+Let's add a quick console.log at the end.
+
+199
+00:12:37,750 --> 00:12:38,230
+Phew.
+
+200
+00:12:38,230 --> 00:12:41,590
+Thank heavens that is over.
+
+201
+00:12:41,950 --> 00:12:44,290
+Okay, so I'm going to run my code.
+
+202
+00:12:44,320 --> 00:12:47,710
+I'll do another dot start.
+
+203
+00:12:49,980 --> 00:12:51,990
+And eventually I will stop it.
+
+204
+00:12:51,990 --> 00:12:53,020
+I won't run it yet.
+
+205
+00:12:53,040 --> 00:12:54,330
+We'll get a few of them.
+
+206
+00:12:55,190 --> 00:13:01,640
+One more, one more other than cray cray and it stops iterating or it stops interval.
+
+207
+00:13:02,270 --> 00:13:06,560
+I don't think that's the right terminology, but it's not printing out those annoying phrases anymore.
+
+208
+00:13:07,190 --> 00:13:07,760
+All right.
+
+209
+00:13:07,760 --> 00:13:13,280
+So kind of an obscure demo, but hopefully this illustrates that sometimes arrow functions are great
+
+210
+00:13:13,280 --> 00:13:17,210
+to use because of the very fact that they don't get their own this.
+
+211
+00:13:17,210 --> 00:13:22,790
+So what seems like potentially a shortcoming and what is a shortcoming when it comes to defining methods
+
+212
+00:13:22,790 --> 00:13:28,970
+is an advantage when you have to deal with nested functions and callbacks and different execution contexts
+
+213
+00:13:28,970 --> 00:13:31,280
+where this gets really annoying.
+
+214
+00:13:31,460 --> 00:13:36,260
+Use an arrow function and you don't have to worry about it because this will be identical to the this
+
+215
+00:13:36,260 --> 00:13:39,140
+of the parent function of start in our case.
+
+216
+00:13:39,800 --> 00:13:43,390
+Oh, this is just just a joy to teach.
+
+217
+00:13:43,400 --> 00:13:46,550
+Hopefully you're still there, you're still alive, you're surviving.
+
+218
+00:13:46,550 --> 00:13:47,410
+And you're with me.
+
+219
+00:13:47,420 --> 00:13:50,660
+Next, we're going to see some examples of using this in methods.
+
+220
+00:13:50,660 --> 00:13:55,970
+And we'll talk more about why you would even bother creating methods, why organize our functions like
+
+221
+00:13:55,970 --> 00:13:56,360
+this?
+
+222
+00:13:56,360 --> 00:13:59,660
+We could have just written a function called Start and Stop.
+
+223
+00:13:59,660 --> 00:14:01,910
+We could have had a global variable called phrases.
+
+224
+00:14:01,910 --> 00:14:03,800
+So we'll talk about that in the next video.
+

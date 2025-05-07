@@ -1,0 +1,784 @@
+1
+00:00:00,630 --> 00:00:06,210
+In the last video we recapped on why the value of this inside of a method inside of a class is so important.
+
+2
+00:00:06,300 --> 00:00:11,400
+If we ever want to call some other method inside of a class or reference some instance variable or whatever
+
+3
+00:00:11,400 --> 00:00:15,300
+else, the value of this must be set equal to the instance of the class.
+
+4
+00:00:15,390 --> 00:00:21,060
+Right now, when we call this start from our button event listener, the value of this is not what we
+
+5
+00:00:21,060 --> 00:00:22,030
+expect it to be.
+
+6
+00:00:22,050 --> 00:00:28,020
+It has been overridden and the value of this inside that method is instead equal to our button that
+
+7
+00:00:28,020 --> 00:00:32,520
+we are clicking on, which definitely doesn't have a method called important method to call.
+
+8
+00:00:32,940 --> 00:00:35,910
+So we need to essentially make that error message right there go away.
+
+9
+00:00:36,210 --> 00:00:41,550
+So to make that go away, we're going to review the three different ways that we can determine the value
+
+10
+00:00:41,550 --> 00:00:43,650
+of this inside of a method.
+
+11
+00:00:44,720 --> 00:00:45,660
+So let's get to it.
+
+12
+00:00:45,680 --> 00:00:47,810
+Let's review those three different ways.
+
+13
+00:00:48,720 --> 00:00:49,040
+Okay.
+
+14
+00:00:49,050 --> 00:00:53,160
+So the way that we're going to interpret this diagram right here, whenever we want to determine what
+
+15
+00:00:53,160 --> 00:00:58,350
+the value of this is going to be inside of a function, we're going to ask ourselves this question first.
+
+16
+00:00:58,350 --> 00:01:02,430
+We're going to ask ourselves, did we define the function with an arrow function?
+
+17
+00:01:02,520 --> 00:01:06,060
+If so, that is the answer to what the value of this is.
+
+18
+00:01:06,720 --> 00:01:09,530
+If this is not true, we're going to move on to question two.
+
+19
+00:01:09,540 --> 00:01:14,580
+If that is not true, we're going to fall down to the kind of all other cases category here.
+
+20
+00:01:14,580 --> 00:01:20,400
+So essentially we go down the list and we stop at the first place that we can answer yes to.
+
+21
+00:01:22,800 --> 00:01:27,210
+So let's first review what it means to use an arrow function and what the value of this inside there
+
+22
+00:01:27,210 --> 00:01:29,220
+will be if we do use an arrow function.
+
+23
+00:01:29,820 --> 00:01:35,790
+So if we define a function with an arrow function and then we access this inside that arrow function,
+
+24
+00:01:35,790 --> 00:01:38,470
+here's what we can determine what the value of this will be.
+
+25
+00:01:38,490 --> 00:01:39,780
+We can use a little trick.
+
+26
+00:01:39,990 --> 00:01:47,130
+So right above our arrow function, we're going to find the first valid line and write console.log this
+
+27
+00:01:47,130 --> 00:01:48,630
+on that first valid line.
+
+28
+00:01:49,230 --> 00:01:54,810
+Then the value of this inside the arrow function will be equal to whatever was console logged from that
+
+29
+00:01:54,810 --> 00:01:56,220
+console log that we added in.
+
+30
+00:01:56,580 --> 00:02:00,150
+Let me give you a very quick demonstration of this, because this rule will actually make a lot of sense
+
+31
+00:02:00,240 --> 00:02:02,460
+once you see a practical demonstration of it.
+
+32
+00:02:04,640 --> 00:02:04,830
+Okay.
+
+33
+00:02:04,880 --> 00:02:05,750
+So back over here.
+
+34
+00:02:05,750 --> 00:02:09,470
+I'm going to go down to the bottom of the file and we're going to write out a couple of examples really
+
+35
+00:02:09,470 --> 00:02:10,070
+quickly.
+
+36
+00:02:10,729 --> 00:02:12,950
+First, I'm going to comment out timer start.
+
+37
+00:02:12,950 --> 00:02:17,870
+So we don't get any kind of erroneous console.log messages that will kind of throw off this demonstration
+
+38
+00:02:17,870 --> 00:02:18,710
+we're going to do.
+
+39
+00:02:19,680 --> 00:02:24,120
+So then down here, I'm going to write out an arrow function called print this.
+
+40
+00:02:25,200 --> 00:02:29,250
+And inside of here, I bet, as you would guess, we'll do a console.log of this.
+
+41
+00:02:29,970 --> 00:02:35,340
+So here's the question what is the value of this going to be equal to inside of here whenever we call
+
+42
+00:02:35,340 --> 00:02:36,210
+it, print this?
+
+43
+00:02:36,510 --> 00:02:41,190
+Well, if we want to determine what this console log will result in or what the value of this is, we
+
+44
+00:02:41,190 --> 00:02:42,870
+can take a look at the arrow function.
+
+45
+00:02:43,230 --> 00:02:47,250
+We're going to find the first valid line of code above the arrow function.
+
+46
+00:02:47,250 --> 00:02:48,870
+So that would be like this right here.
+
+47
+00:02:48,870 --> 00:02:50,250
+That's the first valid line.
+
+48
+00:02:50,700 --> 00:02:54,270
+And right there, we will add in a console log of this.
+
+49
+00:02:55,240 --> 00:03:00,220
+So now the value of this inside the function is going to be equal to the value of this.
+
+50
+00:03:00,220 --> 00:03:04,300
+Outside the function, these two console logs will be absolutely identical.
+
+51
+00:03:04,840 --> 00:03:07,870
+And so we could check that by calling print this.
+
+52
+00:03:09,330 --> 00:03:15,030
+I'm going to save this file, flip back over, refresh, and we'll see that in both cases we get window,
+
+53
+00:03:15,030 --> 00:03:20,280
+which is essentially the global context inside of JavaScript when we're executing code inside the browser.
+
+54
+00:03:20,670 --> 00:03:23,550
+So this definitely means that this first rule worked out correctly.
+
+55
+00:03:23,910 --> 00:03:28,770
+Let's take a look at a little bit more complex example of how to use this little trick around arrow
+
+56
+00:03:28,770 --> 00:03:29,550
+functions.
+
+57
+00:03:30,410 --> 00:03:33,400
+So I'm going to define a new object that I'll call.
+
+58
+00:03:33,410 --> 00:03:34,730
+How about colors?
+
+59
+00:03:36,080 --> 00:03:39,920
+Inside of here, I'm going to define a method called print color.
+
+60
+00:03:42,270 --> 00:03:46,860
+And then we're going to eventually inside of here define a function called this once again.
+
+61
+00:03:47,510 --> 00:03:50,810
+And inside there I'll do a console.log of this.
+
+62
+00:03:51,440 --> 00:03:54,440
+And then immediately after it I will run, print this.
+
+63
+00:03:54,950 --> 00:03:59,420
+So now, once again, in order to determine what the value of this is going to be inside there, we
+
+64
+00:03:59,420 --> 00:04:02,270
+could add a console.log on the line right above.
+
+65
+00:04:02,300 --> 00:04:06,770
+So right above the arrow function, I'm going to add in console.log this.
+
+66
+00:04:06,980 --> 00:04:11,720
+And once again, the value of this is going to be identical between those two console.log statements.
+
+67
+00:04:12,200 --> 00:04:17,390
+Let's first comment out that little block right there and just run print color by itself and see what
+
+68
+00:04:17,390 --> 00:04:19,220
+the console.log normally would be.
+
+69
+00:04:19,790 --> 00:04:22,670
+So down here I'll do colors, print color.
+
+70
+00:04:23,850 --> 00:04:24,990
+I'm going to save this.
+
+71
+00:04:26,410 --> 00:04:27,790
+Look back over refresh.
+
+72
+00:04:27,790 --> 00:04:32,980
+And so normally the value of this inside of that method would be the object itself, like the entire
+
+73
+00:04:32,980 --> 00:04:35,740
+object that we just created this colors object.
+
+74
+00:04:36,310 --> 00:04:39,550
+So that means that inside of that arrow function, the value of this.
+
+75
+00:04:41,610 --> 00:04:44,250
+Is going to be equal to the colors object as well.
+
+76
+00:04:44,550 --> 00:04:50,760
+So I'll save this now with all that stuff on commented refresh, run it again and we'll see the identical
+
+77
+00:04:50,760 --> 00:04:52,470
+console.log in both cases.
+
+78
+00:04:53,220 --> 00:04:53,410
+Okay.
+
+79
+00:04:53,430 --> 00:04:57,840
+So again, that is the rule for determining the value of this inside of an arrow function.
+
+80
+00:04:58,590 --> 00:05:03,300
+So let's now take a look at the second way or kind of if we don't define a function with an arrow function,
+
+81
+00:05:03,300 --> 00:05:06,600
+how then do we decide what the value of this is going to be inside there?
+
+82
+00:05:08,200 --> 00:05:13,180
+So the second check we're going to do, we're going to see, did we call the function with bind, call
+
+83
+00:05:13,180 --> 00:05:19,810
+or apply when we invoked it as a quick reminder, bind, call and apply our built in functions that
+
+84
+00:05:19,810 --> 00:05:25,420
+belong to all functions inside a JavaScript that we create, we can use, bind, call, and apply to
+
+85
+00:05:25,420 --> 00:05:27,400
+call a function in a very special way.
+
+86
+00:05:27,880 --> 00:05:33,490
+The first argument to all three of bind, call and apply is going to be the value of this that we want
+
+87
+00:05:33,490 --> 00:05:35,050
+to execute the function with.
+
+88
+00:05:35,650 --> 00:05:40,000
+Now, this note right here is really confusing, so let's just write a real quick code example right
+
+89
+00:05:40,000 --> 00:05:40,450
+away.
+
+90
+00:05:42,560 --> 00:05:48,530
+I'm going to delete the colors example and I will replace it with a new function that I will call print
+
+91
+00:05:48,530 --> 00:05:53,570
+this and this time I'm going to define it with a function keyword because if I defined it with an arrow
+
+92
+00:05:53,570 --> 00:05:57,350
+function, then we would use that rule and set a second one.
+
+93
+00:05:58,560 --> 00:06:02,190
+So then inside of here, I'll do a console.log of this, as usual.
+
+94
+00:06:03,230 --> 00:06:07,070
+And now I'm going to invoke this function right here by using call.
+
+95
+00:06:07,400 --> 00:06:10,100
+So I'm going to call print this.
+
+96
+00:06:10,990 --> 00:06:14,590
+I'm going to invoke it using call instead of calling it directly.
+
+97
+00:06:14,800 --> 00:06:20,920
+And now the first argument to call right here is going to be the value of this inside of the function.
+
+98
+00:06:22,460 --> 00:06:23,660
+So I'm going to put in here.
+
+99
+00:06:23,660 --> 00:06:27,680
+How about a object with a color of red?
+
+100
+00:06:29,900 --> 00:06:31,850
+So now in print this gets executed.
+
+101
+00:06:32,060 --> 00:06:36,470
+The value of this inside of it is going to be equal to that object right there.
+
+102
+00:06:36,920 --> 00:06:38,000
+So I'll save this.
+
+103
+00:06:38,360 --> 00:06:41,900
+I'm going to go back over, refresh and sure enough, there we go.
+
+104
+00:06:42,380 --> 00:06:43,890
+So, again, if we make use of call.
+
+105
+00:06:43,910 --> 00:06:47,240
+First argument is going to override the value of this inside there.
+
+106
+00:06:47,840 --> 00:06:50,450
+We can do the same thing with apply as well.
+
+107
+00:06:51,230 --> 00:06:52,320
+So I'll save this as well.
+
+108
+00:06:52,340 --> 00:06:52,870
+Refresh.
+
+109
+00:06:52,880 --> 00:06:54,470
+We get the same exact result.
+
+110
+00:06:55,720 --> 00:06:58,180
+If we don't call the function with apply.
+
+111
+00:06:58,840 --> 00:07:03,340
+So if we just call the function directly, the value of this is going to be a little bit more unpredictable.
+
+112
+00:07:03,640 --> 00:07:07,300
+So let's refresh and we see that in this case it is equal to the window.
+
+113
+00:07:09,120 --> 00:07:14,400
+So again, it is very clear that if we call the function with bind, call or apply, that is going to
+
+114
+00:07:14,400 --> 00:07:16,890
+override the value of this inside the function.
+
+115
+00:07:16,890 --> 00:07:19,140
+So that is the second check that we always do.
+
+116
+00:07:19,800 --> 00:07:21,660
+So now we fall on to the last case here.
+
+117
+00:07:21,660 --> 00:07:26,430
+If we don't define the function with an arrow function and if we don't use blind color apply, we fall
+
+118
+00:07:26,430 --> 00:07:28,440
+into all other cases.
+
+119
+00:07:28,770 --> 00:07:33,060
+And in order to determine what the value of this is going to be inside the function, we take a look
+
+120
+00:07:33,060 --> 00:07:34,890
+at where we invoke the function.
+
+121
+00:07:35,160 --> 00:07:39,630
+We take a look at whatever is to the left of the dot inside of the function call, and that is what
+
+122
+00:07:39,630 --> 00:07:41,760
+the value of this is going to be equal to.
+
+123
+00:07:42,270 --> 00:07:45,510
+Now, this is another scenario where the note I have right here is a little confusing.
+
+124
+00:07:45,510 --> 00:07:47,220
+So let's do a quick example again.
+
+125
+00:07:48,110 --> 00:07:49,580
+So I'm going to delete this example.
+
+126
+00:07:51,340 --> 00:07:53,860
+I'm going to create a new object again called Colors.
+
+127
+00:07:55,640 --> 00:07:57,950
+Inside of here, I'll make a method called print color.
+
+128
+00:07:58,840 --> 00:08:01,900
+And inside there, I'll do a council log of this.
+
+129
+00:08:02,690 --> 00:08:02,900
+Now.
+
+130
+00:08:02,900 --> 00:08:05,310
+How would we run the method print color?
+
+131
+00:08:05,330 --> 00:08:09,050
+To run that method, we would call colors print color.
+
+132
+00:08:09,900 --> 00:08:10,800
+So now here's the trick.
+
+133
+00:08:10,800 --> 00:08:14,940
+We're going to take a look at these rules right here to determine what the value of this is going to
+
+134
+00:08:14,940 --> 00:08:16,560
+be inside of this function.
+
+135
+00:08:16,560 --> 00:08:20,140
+When we call it so, we first say, do we have an arrow function?
+
+136
+00:08:20,160 --> 00:08:21,570
+Nope, definitely don't.
+
+137
+00:08:22,050 --> 00:08:24,300
+Are we calling the function with bind color apply?
+
+138
+00:08:24,330 --> 00:08:24,810
+Nope.
+
+139
+00:08:24,810 --> 00:08:25,770
+Definitely not.
+
+140
+00:08:26,280 --> 00:08:28,650
+So we fall into this other case right here.
+
+141
+00:08:29,100 --> 00:08:33,120
+So in order to determine what the value of this is going to be inside of this function, when we call
+
+142
+00:08:33,120 --> 00:08:39,059
+it, we take a look at the period to the left of the function name, that period right there.
+
+143
+00:08:39,059 --> 00:08:42,190
+And we look at whatever variable is to the left of it.
+
+144
+00:08:42,210 --> 00:08:44,540
+In this case, the colors object.
+
+145
+00:08:45,360 --> 00:08:48,160
+Because the colors object is to the left of that period.
+
+146
+00:08:48,180 --> 00:08:53,820
+The value of this inside of print color is going to be equal to colors.
+
+147
+00:08:54,150 --> 00:08:56,880
+So this right here is what this is going to be.
+
+148
+00:08:58,620 --> 00:09:01,440
+So let's save this and we can verify that really easily.
+
+149
+00:09:01,710 --> 00:09:02,690
+So I'll refresh again.
+
+150
+00:09:02,700 --> 00:09:04,440
+And sure enough, I see print color.
+
+151
+00:09:05,550 --> 00:09:09,960
+We can really abuse this rule right here to really demonstrate how it works very easily.
+
+152
+00:09:10,080 --> 00:09:11,790
+So let me give you a quick example.
+
+153
+00:09:11,970 --> 00:09:17,370
+I'm going to create another object right underneath colors, and I'll call this one like random object.
+
+154
+00:09:19,370 --> 00:09:23,060
+And I'll give it a property of like a is one like so.
+
+155
+00:09:25,520 --> 00:09:31,520
+I'm then going to assign random object, a new property called print color.
+
+156
+00:09:32,230 --> 00:09:37,270
+And I'm going to assign to that property right there the print color function from the colors object.
+
+157
+00:09:37,660 --> 00:09:39,400
+So I'll say colors print.
+
+158
+00:09:40,190 --> 00:09:40,760
+Color.
+
+159
+00:09:42,500 --> 00:09:45,650
+Now notice here I am not calling print color, it's not being invoked.
+
+160
+00:09:45,650 --> 00:09:50,810
+I'm just taking the function and assigning it to the random object on a property called print color.
+
+161
+00:09:50,810 --> 00:09:57,470
+So this line of code right here is equivalent to if I just copy pasted that function down like so totally
+
+162
+00:09:57,470 --> 00:09:58,190
+equivalent.
+
+163
+00:09:59,910 --> 00:10:02,910
+So let's now try to call random object print color.
+
+164
+00:10:02,910 --> 00:10:05,520
+So random object dot print color.
+
+165
+00:10:06,800 --> 00:10:11,240
+So now we're going to define a method that is defined inside of the colors object.
+
+166
+00:10:11,540 --> 00:10:16,310
+But what this method is defined inside of doesn't govern the value of this inside the function.
+
+167
+00:10:16,340 --> 00:10:19,850
+Instead, the rule that we fall into is this one right here.
+
+168
+00:10:19,850 --> 00:10:22,700
+And two, to determine the value of this inside the method call.
+
+169
+00:10:22,730 --> 00:10:27,040
+We take a look at whatever is to the left of the dot when we invoke the method.
+
+170
+00:10:27,050 --> 00:10:28,550
+So here's we invoke the method.
+
+171
+00:10:28,790 --> 00:10:31,780
+We're going to take a look at the dot and what is to the left.
+
+172
+00:10:31,790 --> 00:10:33,500
+It is random object.
+
+173
+00:10:33,620 --> 00:10:38,420
+So now when we call a print color right here, we're not going to see a value of this being console.log.
+
+174
+00:10:38,420 --> 00:10:39,620
+That is the color's object.
+
+175
+00:10:39,620 --> 00:10:42,320
+Instead, we're going to see the random object.
+
+176
+00:10:42,860 --> 00:10:43,940
+So I'll save this.
+
+177
+00:10:44,120 --> 00:10:45,530
+Go back over, refresh.
+
+178
+00:10:45,530 --> 00:10:46,430
+And there we go.
+
+179
+00:10:46,430 --> 00:10:50,750
+We see a console log of the random object, not the colors one.
+
+180
+00:10:52,080 --> 00:10:52,380
+Okay.
+
+181
+00:10:52,380 --> 00:10:53,070
+So that is it.
+
+182
+00:10:53,070 --> 00:10:55,470
+That is our three big rules right here.
+
+183
+00:10:55,470 --> 00:10:57,480
+This is how we determine the value of this.
+
+184
+00:10:58,830 --> 00:11:02,460
+So now the inevitable question is, how does this solve our problem?
+
+185
+00:11:02,460 --> 00:11:02,920
+Right?
+
+186
+00:11:02,940 --> 00:11:08,580
+How are we going to fix the issue we have where we need to call starts and have it always give us the
+
+187
+00:11:08,580 --> 00:11:10,260
+same value of this?
+
+188
+00:11:10,800 --> 00:11:15,060
+Well, in order to make sure that we can enforce the value of this inside the start function, we're
+
+189
+00:11:15,060 --> 00:11:19,430
+going to just simply make sure that we fall into case one or two.
+
+190
+00:11:19,440 --> 00:11:23,850
+So in other words, in order to make sure that the value of this inside of start is always the instance
+
+191
+00:11:23,850 --> 00:11:29,730
+of timer that we want it to be, we're going to define that function using an arrow function or we're
+
+192
+00:11:29,730 --> 00:11:32,520
+going to call it using bind, call or apply.
+
+193
+00:11:33,090 --> 00:11:34,620
+So that's how we're going to fix this problem.
+
+194
+00:11:35,040 --> 00:11:37,560
+Let's take a quick pause right here, because this is a very long video.
+
+195
+00:11:37,560 --> 00:11:42,450
+We're going to come back the next section or next video and wrap all this this stuff up rather quickly.
+
+196
+00:11:42,450 --> 00:11:44,490
+So quick pause and I'll see you in just a minute.
+

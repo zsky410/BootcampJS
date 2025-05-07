@@ -1,0 +1,352 @@
+1
+00:00:01,070 --> 00:00:05,600
+We've now got a good understanding of how to make requests to that outside API and get some information
+
+2
+00:00:05,600 --> 00:00:06,770
+about some different movies.
+
+3
+00:00:06,770 --> 00:00:10,610
+So we're now going to turn our focus a little bit and start to think about how we're going to put together
+
+4
+00:00:10,610 --> 00:00:12,020
+that autocomplete widget.
+
+5
+00:00:12,170 --> 00:00:17,470
+Once we understand the autocomplete will then be able to just about go straight from start to finish
+
+6
+00:00:17,480 --> 00:00:19,160
+on writing out the code for this project.
+
+7
+00:00:19,160 --> 00:00:20,930
+So just one last little video here.
+
+8
+00:00:22,130 --> 00:00:26,030
+I put together a diagram on the behavior of this autocomplete widget.
+
+9
+00:00:26,060 --> 00:00:29,710
+This is a kind of confusing diagram, so we're going to go through it step by step.
+
+10
+00:00:29,720 --> 00:00:34,550
+But my intent here is to really clarify exactly how this autocomplete widget is going to work.
+
+11
+00:00:34,970 --> 00:00:39,830
+Once again, I really recommend that on your own personal projects, you go through a kind of process
+
+12
+00:00:39,830 --> 00:00:45,110
+like what I'm about to show you to make sure that you personally are 100% aware about the requirements
+
+13
+00:00:45,110 --> 00:00:48,440
+of the different things that you need to build inside of your application.
+
+14
+00:00:48,980 --> 00:00:53,240
+Once you start building diagrams like this, or you even have to make a diagram, just to be clear,
+
+15
+00:00:53,240 --> 00:00:57,500
+once you just start thinking through it, I can just about guarantee you that you're going to very quickly
+
+16
+00:00:57,500 --> 00:01:02,840
+start to realize there are quarter cases that are a lot easier to solve upfront, as opposed to if you
+
+17
+00:01:02,840 --> 00:01:06,800
+were just start to write code and then kind of run into some issue along the way.
+
+18
+00:01:07,970 --> 00:01:08,100
+Okay.
+
+19
+00:01:08,270 --> 00:01:12,110
+So we're going to start off this diagram on the very top left hand side, and we're going to think about
+
+20
+00:01:12,110 --> 00:01:15,470
+all the different ways that a user can interact with this widget.
+
+21
+00:01:16,490 --> 00:01:20,320
+So this is what the widget is going to look like when a user first loads up the page.
+
+22
+00:01:20,330 --> 00:01:23,180
+We're going to show them just a simple empty input.
+
+23
+00:01:23,510 --> 00:01:25,550
+We would refer to this as the default state.
+
+24
+00:01:25,550 --> 00:01:30,260
+In other words, this is what it looks like by default when the application first starts up.
+
+25
+00:01:31,070 --> 00:01:34,730
+At some point in time, the user is then going to start typing inside that input.
+
+26
+00:01:35,090 --> 00:01:38,990
+As soon as the user enters in some kind of full string and stops typing.
+
+27
+00:01:39,620 --> 00:01:43,760
+We're going to take that search string and make a request off to the API.
+
+28
+00:01:44,090 --> 00:01:49,070
+We're going to do a search request, get back some list of results like we just saw a moment ago.
+
+29
+00:01:49,190 --> 00:01:55,040
+We're going to take all those search results, open up a little menu underneath that input and render
+
+30
+00:01:55,040 --> 00:01:58,760
+out all the possible movies that the user might have been looking for.
+
+31
+00:01:59,210 --> 00:02:02,960
+As a quick reminder at these boxes with an X in them represent an image.
+
+32
+00:02:03,140 --> 00:02:07,460
+So that would be the movie poster for the movie The Dark Knight made in 2012.
+
+33
+00:02:09,199 --> 00:02:09,860
+Right away.
+
+34
+00:02:09,860 --> 00:02:12,450
+There is one other case we need to be aware of here.
+
+35
+00:02:12,470 --> 00:02:18,380
+It is entirely possible that a user user will enter in a search string, will do a search and not find
+
+36
+00:02:18,380 --> 00:02:19,940
+any results whatsoever.
+
+37
+00:02:20,480 --> 00:02:25,280
+So if we don't find any results, we're just going to say that we're going to close that menu entirely.
+
+38
+00:02:25,640 --> 00:02:30,380
+It might be a little bit better to show us some kind of error message to the user and tell them, Hey,
+
+39
+00:02:30,380 --> 00:02:34,490
+sorry, but we couldn't find any movies with that search term, but right now we're not going to worry
+
+40
+00:02:34,490 --> 00:02:35,470
+about that right away.
+
+41
+00:02:35,480 --> 00:02:38,510
+So we're going to say if we don't find any results, just hide the menu.
+
+42
+00:02:41,170 --> 00:02:45,790
+So that's kind of like step one, understanding what happens in the instant that the user starts to
+
+43
+00:02:45,790 --> 00:02:46,900
+type stuff in.
+
+44
+00:02:47,320 --> 00:02:52,510
+So now I want to kind of go further along the flow and think about the different ways that a user can
+
+45
+00:02:52,540 --> 00:02:53,710
+then interact with the widget.
+
+46
+00:02:53,710 --> 00:02:59,110
+After we show them that menu, the first thing they could do is press enter, thinking that that will
+
+47
+00:02:59,110 --> 00:03:01,600
+select some kind of record or something like that.
+
+48
+00:03:02,020 --> 00:03:06,820
+In this case, we're going to require a user to actually click on an element here to select it.
+
+49
+00:03:06,820 --> 00:03:12,850
+So we want to see a user click on like that movie or that movie or that movie to indicate which one
+
+50
+00:03:12,850 --> 00:03:13,930
+they want to select.
+
+51
+00:03:14,500 --> 00:03:19,780
+So we're going to require them to click on a movie and pressing the enter key is not going to do anything.
+
+52
+00:03:20,170 --> 00:03:24,340
+This is another one of those scenarios where you kind of have to sit down and think these things through
+
+53
+00:03:24,370 --> 00:03:28,870
+because otherwise you might build the widget and then press the inner key, expecting something to happen
+
+54
+00:03:28,870 --> 00:03:31,250
+and see that it does nothing and be kind of surprised.
+
+55
+00:03:31,270 --> 00:03:36,340
+So I'm saying from the get go that I don't want anything to happen if a user presses the enter key.
+
+56
+00:03:37,920 --> 00:03:41,320
+The next possible interaction is that a user does what we want.
+
+57
+00:03:41,340 --> 00:03:43,110
+They might click on an entry.
+
+58
+00:03:43,530 --> 00:03:46,530
+So if they click on an entry, that means that they have made their selection.
+
+59
+00:03:46,950 --> 00:03:52,980
+In that case, we're going to update the text inside of the input to the exact text of the title of
+
+60
+00:03:52,980 --> 00:03:54,540
+the movie that they just clicked on.
+
+61
+00:03:54,930 --> 00:04:01,110
+So, for example, if the user had searched for Dark Knight and then they clicked on The Dark Knight
+
+62
+00:04:01,110 --> 00:04:05,970
+with proper capitalization, we're going to take that full movie title right there, just the title,
+
+63
+00:04:05,970 --> 00:04:07,180
+not the year it was made.
+
+64
+00:04:07,200 --> 00:04:09,870
+We're just showing the year for convenience sake, for the user.
+
+65
+00:04:10,530 --> 00:04:15,450
+We're going to take that full title and stick it back into the input so that it's crystal clear exactly
+
+66
+00:04:15,450 --> 00:04:17,010
+what movie they were looking at.
+
+67
+00:04:18,670 --> 00:04:23,260
+Now there's one last possible way of interacting with this thing that we need to be aware of after a
+
+68
+00:04:23,260 --> 00:04:24,670
+user enters a search term.
+
+69
+00:04:25,300 --> 00:04:30,760
+If they enter a term and we open up that dropdown menu and show them all the options, they might decide
+
+70
+00:04:30,760 --> 00:04:32,750
+that they don't want to pick any movie.
+
+71
+00:04:32,770 --> 00:04:34,510
+They might decide, Yeah, I'm kind of done with this.
+
+72
+00:04:34,510 --> 00:04:35,590
+I don't want to select a movie.
+
+73
+00:04:35,590 --> 00:04:38,410
+I want to work on some other part of this application or something.
+
+74
+00:04:38,920 --> 00:04:43,780
+If that's the case and they click outside of the menu after it's been opened, then we're going to make
+
+75
+00:04:43,780 --> 00:04:46,510
+sure that we close the menu and do nothing else.
+
+76
+00:04:46,870 --> 00:04:51,580
+So this is one more of those scenarios where we really have to think through the lifecycle of the entire
+
+77
+00:04:51,580 --> 00:04:54,880
+widget, and it's helpful to do so before we start writing any code.
+
+78
+00:04:55,820 --> 00:04:56,060
+Okay.
+
+79
+00:04:56,090 --> 00:04:56,600
+So that's it.
+
+80
+00:04:56,600 --> 00:04:59,570
+That's the entire life cycle of this little autocomplete.
+
+81
+00:04:59,570 --> 00:05:02,960
+These are all the different scenarios that we really have to be thinking about now.
+
+82
+00:05:02,960 --> 00:05:07,640
+There definitely are one or two kind of other corner cases inside of this widget that we need to be
+
+83
+00:05:07,640 --> 00:05:13,460
+aware of that I kind of purposely did not add into this diagram because I want us to kind of run into
+
+84
+00:05:13,460 --> 00:05:17,570
+these little mysterious scenarios and point them out as kind of a learning experience.
+
+85
+00:05:17,570 --> 00:05:21,440
+So we might see one or two unexpected things crop up along the way.
+
+86
+00:05:23,310 --> 00:05:23,640
+All right.
+
+87
+00:05:23,640 --> 00:05:27,360
+Now that we understand what we're trying to do here and we understand the interaction with this widget,
+
+88
+00:05:27,360 --> 00:05:30,630
+let's take one more pause and then start writing some code in the next video.
+

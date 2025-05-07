@@ -1,0 +1,636 @@
+1
+00:00:00,540 --> 00:00:04,470
+Now that we understand the general algorithm, I want to give you a couple more details that's really
+
+2
+00:00:04,470 --> 00:00:08,550
+going to flesh out how we're going to implement this in our version of building out this maze.
+
+3
+00:00:09,000 --> 00:00:14,430
+So as I said just a moment ago, we're going to end up having a grid of sorts and this great is going
+
+4
+00:00:14,430 --> 00:00:17,250
+to be a two dimensional array.
+
+5
+00:00:18,860 --> 00:00:20,330
+It's going to have some number of rows.
+
+6
+00:00:20,330 --> 00:00:27,020
+In this case, it would have three rows because there's one, two, three, and there would be three
+
+7
+00:00:27,050 --> 00:00:27,950
+columns.
+
+8
+00:00:29,120 --> 00:00:31,110
+He goes one, two and three.
+
+9
+00:00:31,910 --> 00:00:36,590
+Having the grid alone is not quite enough or not the most convenient way of writing out this algorithm,
+
+10
+00:00:36,590 --> 00:00:37,160
+however.
+
+11
+00:00:37,160 --> 00:00:41,810
+So we're going to introduce one other data structure or really technically to other structures inside
+
+12
+00:00:41,810 --> 00:00:46,310
+of here to kind of keep track of how we're going to actually generate this entire grid.
+
+13
+00:00:46,700 --> 00:00:50,420
+So when we spoke about how are we going to build this thing out in the last video, I said several times,
+
+14
+00:00:50,420 --> 00:00:53,630
+Oh yeah, we're going to remove this wall between two different cells.
+
+15
+00:00:53,750 --> 00:00:58,580
+So the real question here is how are we going to track where there is a wall and where there is not
+
+16
+00:00:58,580 --> 00:00:59,180
+a wall?
+
+17
+00:00:59,810 --> 00:01:04,220
+Well, to keep track of where there are walls and not, we're going to add in two different pieces of
+
+18
+00:01:04,220 --> 00:01:05,120
+terminology.
+
+19
+00:01:05,360 --> 00:01:10,790
+We're going to say that if there is a wall between two different cells that are right next to each other
+
+20
+00:01:10,820 --> 00:01:12,530
+on the same row.
+
+21
+00:01:13,600 --> 00:01:18,850
+So this wall right here, we're going to call that wall a vertical wall.
+
+22
+00:01:20,980 --> 00:01:25,120
+If there is ever a wall between two cells in a column.
+
+23
+00:01:25,120 --> 00:01:29,980
+So like this one and this one right here, we're going to call this wall right here.
+
+24
+00:01:30,010 --> 00:01:31,540
+A horizontal.
+
+25
+00:01:33,970 --> 00:01:38,710
+So there are two types of walls that we're going to be concerned with, vertical and horizontal.
+
+26
+00:01:39,460 --> 00:01:41,830
+To keep track of where there are any walls.
+
+27
+00:01:41,830 --> 00:01:44,080
+We're going to add in two additional arrays.
+
+28
+00:01:44,110 --> 00:01:48,160
+These are also going to be two dimensional arrays that we're going to keep track of in addition to the
+
+29
+00:01:48,160 --> 00:01:48,880
+grid one.
+
+30
+00:01:49,000 --> 00:01:53,950
+So we're going to introduce another variable or another to array here called verticals.
+
+31
+00:01:55,920 --> 00:01:59,160
+And that's going to keep track of wherever there is a vertical wall.
+
+32
+00:01:59,970 --> 00:02:03,870
+And another one called, as you would probably guess, horizontals.
+
+33
+00:02:04,670 --> 00:02:08,150
+And this is going to keep track of wherever there is a horizontal wall.
+
+34
+00:02:08,750 --> 00:02:14,180
+Now, you can just about guarantee 100% that you're going to get confused by the terminology, verticals
+
+35
+00:02:14,180 --> 00:02:17,220
+and horizontals several times as we are writing out this code.
+
+36
+00:02:17,240 --> 00:02:23,930
+So please right now really committed to memory that the verticals array is going to keep track of walls
+
+37
+00:02:23,930 --> 00:02:29,840
+that go up and down and the horizontal array is going to keep track of walls that go side to side like
+
+38
+00:02:29,840 --> 00:02:30,290
+so.
+
+39
+00:02:32,100 --> 00:02:33,540
+Inside of both these arrays.
+
+40
+00:02:33,540 --> 00:02:37,440
+Like I said, they're going to be two dimensional and they're going to contain a bunch of different
+
+41
+00:02:37,440 --> 00:02:38,820
+Boolean values.
+
+42
+00:02:39,120 --> 00:02:42,150
+Each of these Boolean values is going to be either true or false.
+
+43
+00:02:42,480 --> 00:02:44,310
+A value of true.
+
+44
+00:02:45,440 --> 00:02:48,310
+Means there is no wall.
+
+45
+00:02:48,320 --> 00:02:53,430
+So a value of true inside of verticals or horizontals essentially can be interpreted as true.
+
+46
+00:02:53,450 --> 00:02:55,460
+This is like an open space.
+
+47
+00:02:56,320 --> 00:02:57,100
+Pulse.
+
+48
+00:02:58,030 --> 00:03:01,050
+It means that there is a wall.
+
+49
+00:03:02,750 --> 00:03:06,890
+So now with this knowledge, we can start to take a look at some different sample mazes and get a sense
+
+50
+00:03:06,890 --> 00:03:11,780
+of the different verticals and horizontals array so we create to represent each one.
+
+51
+00:03:12,470 --> 00:03:14,150
+So I'm going to do a little bit of your racing here.
+
+52
+00:03:18,420 --> 00:03:24,390
+And now I want to imagine how we would build up the vertical array and the horizontal array.
+
+53
+00:03:24,420 --> 00:03:29,010
+If I start to make a couple of changes to this little demo maze that I have right here.
+
+54
+00:03:31,410 --> 00:03:31,640
+Sorry.
+
+55
+00:03:31,650 --> 00:03:33,600
+Give me just one minute to clean this thing up.
+
+56
+00:03:33,840 --> 00:03:34,270
+There we go.
+
+57
+00:03:34,290 --> 00:03:34,950
+That's better.
+
+58
+00:03:35,820 --> 00:03:36,150
+Okay.
+
+59
+00:03:36,150 --> 00:03:40,470
+So I want to imagine for a second how I would build out the horizontals array and the verticals.
+
+60
+00:03:40,470 --> 00:03:46,560
+One, if I remove that that about that one right there.
+
+61
+00:03:47,780 --> 00:03:51,020
+That will drop just a few more.
+
+62
+00:03:52,980 --> 00:03:53,930
+Like so.
+
+63
+00:03:53,940 --> 00:03:56,640
+So this right here would represent a valid maze.
+
+64
+00:03:57,030 --> 00:04:02,610
+So now I want to imagine how I would generate or what the different verticals and the horizontals arrays
+
+65
+00:04:02,610 --> 00:04:03,390
+would look like.
+
+66
+00:04:03,420 --> 00:04:05,490
+Let's first consider the horizontals.
+
+67
+00:04:10,650 --> 00:04:12,930
+So again, this would be a two dimensional array.
+
+68
+00:04:13,440 --> 00:04:15,450
+So I'll put in my outer brackets like so.
+
+69
+00:04:16,579 --> 00:04:23,120
+And then I'm going to have and this is critical to in-air arrays that represent the two kind of lines
+
+70
+00:04:23,120 --> 00:04:25,550
+of horizontal bars or walls that I can have.
+
+71
+00:04:25,580 --> 00:04:27,200
+The first one is right here.
+
+72
+00:04:27,200 --> 00:04:29,990
+That is one line of horizontal walls.
+
+73
+00:04:30,020 --> 00:04:32,480
+There's the second one right there.
+
+74
+00:04:33,810 --> 00:04:36,590
+So in this case, remember false means there is a wall.
+
+75
+00:04:36,600 --> 00:04:38,220
+True means there is no wall.
+
+76
+00:04:38,490 --> 00:04:39,880
+So right here there is a wall.
+
+77
+00:04:39,900 --> 00:04:44,340
+So I would do false and I'll split f or false and then open.
+
+78
+00:04:44,340 --> 00:04:44,860
+Open.
+
+79
+00:04:45,000 --> 00:04:46,170
+So true.
+
+80
+00:04:46,710 --> 00:04:47,370
+True.
+
+81
+00:04:48,050 --> 00:04:48,980
+Then down here.
+
+82
+00:04:49,190 --> 00:04:49,820
+Open.
+
+83
+00:04:49,820 --> 00:04:50,600
+Closed.
+
+84
+00:04:50,600 --> 00:04:51,290
+Open.
+
+85
+00:04:51,660 --> 00:04:52,000
+So.
+
+86
+00:04:52,010 --> 00:04:52,760
+True.
+
+87
+00:04:52,790 --> 00:04:53,750
+False.
+
+88
+00:04:53,780 --> 00:04:54,530
+True.
+
+89
+00:04:55,220 --> 00:04:59,240
+So that's how we get from having these different gaps into this horizontals array.
+
+90
+00:05:00,660 --> 00:05:04,950
+So now we can repeat the same process and consider what this would look like for the vertical array.
+
+91
+00:05:05,340 --> 00:05:08,040
+So again, let me delete some of this stuff on here very quickly.
+
+92
+00:05:14,860 --> 00:05:16,270
+And there we go.
+
+93
+00:05:16,270 --> 00:05:17,890
+That's about good enough right there.
+
+94
+00:05:18,690 --> 00:05:20,910
+So now we can consider the vertical array.
+
+95
+00:05:20,940 --> 00:05:22,260
+What would this look like?
+
+96
+00:05:22,470 --> 00:05:24,690
+Well, once again, this is going to be a two dimensional array.
+
+97
+00:05:25,200 --> 00:05:28,230
+It's going to have two inner rows inside of it.
+
+98
+00:05:30,220 --> 00:05:35,260
+The first one, the first row of verticals is going to represent this spacing right here.
+
+99
+00:05:35,680 --> 00:05:38,050
+And there's the second row right there.
+
+100
+00:05:38,410 --> 00:05:43,290
+Now I'm using the row, the term row here because I'm talking about like this row and this row.
+
+101
+00:05:43,300 --> 00:05:47,260
+I'm not talking about like that line because I would really call that a column.
+
+102
+00:05:47,620 --> 00:05:52,360
+So I'm really talking I'm saying that like this space right here would be the first element.
+
+103
+00:05:52,450 --> 00:05:54,490
+Then that is the second element.
+
+104
+00:05:54,970 --> 00:05:56,470
+Third one and so on.
+
+105
+00:05:58,460 --> 00:05:58,730
+Okay.
+
+106
+00:05:58,730 --> 00:06:02,090
+So now let's consider how we would fill out the verticals for this case.
+
+107
+00:06:02,210 --> 00:06:05,750
+So we have open, closed, open.
+
+108
+00:06:05,900 --> 00:06:07,340
+So that's true.
+
+109
+00:06:08,070 --> 00:06:08,820
+False.
+
+110
+00:06:09,470 --> 00:06:10,160
+True.
+
+111
+00:06:10,990 --> 00:06:14,830
+And then over here we once again have open, closed, open.
+
+112
+00:06:15,340 --> 00:06:16,330
+So true.
+
+113
+00:06:16,960 --> 00:06:18,910
+False and true.
+
+114
+00:06:20,270 --> 00:06:21,860
+So that is the general idea.
+
+115
+00:06:21,890 --> 00:06:23,540
+Oops, I misspelled verticals, by the way.
+
+116
+00:06:23,600 --> 00:06:26,720
+So that's the general idea of how we're going to keep track of these different walls.
+
+117
+00:06:26,720 --> 00:06:28,460
+So we have three data structures in total.
+
+118
+00:06:28,490 --> 00:06:32,660
+We've got the grid to track all the different actual cells that we have.
+
+119
+00:06:34,160 --> 00:06:40,360
+So we have nine cells, then we have horizontals to keep track of the walls that run from left to right.
+
+120
+00:06:40,370 --> 00:06:43,220
+So like along that line right there and that line right there.
+
+121
+00:06:43,370 --> 00:06:47,920
+And then we have verticals to keep track of the different walls that go from top to bottom.
+
+122
+00:06:47,930 --> 00:06:53,000
+So right there and right there, one of the most challenging things to understand about this is that
+
+123
+00:06:53,000 --> 00:06:57,950
+the verticals, horizontals versus the grid array are going to have different dimensions.
+
+124
+00:06:58,430 --> 00:07:04,730
+So notice that the grid array in this case would have would be a three by three because there are three
+
+125
+00:07:04,730 --> 00:07:06,740
+columns and three rows.
+
+126
+00:07:07,720 --> 00:07:10,760
+But the verticals are going to have some very different dimensions.
+
+127
+00:07:10,780 --> 00:07:13,540
+The verticals are going to have two rows.
+
+128
+00:07:13,570 --> 00:07:18,490
+So here's row one, row two and three columns inside there.
+
+129
+00:07:18,490 --> 00:07:19,900
+So one, two, three over.
+
+130
+00:07:20,910 --> 00:07:26,400
+So a three by two or a two by three versus a three by three for the grid.
+
+131
+00:07:27,820 --> 00:07:28,120
+All right.
+
+132
+00:07:28,120 --> 00:07:29,680
+So this is another one of those topics.
+
+133
+00:07:29,680 --> 00:07:30,900
+We're done with all the diagrams.
+
+134
+00:07:30,910 --> 00:07:35,020
+This is another one of those topics where obviously, as I'm telling you, this stuff, it's probably
+
+135
+00:07:35,020 --> 00:07:35,860
+really complicated.
+
+136
+00:07:35,860 --> 00:07:38,440
+And you might be sitting there thinking, what in the world is going on here?
+
+137
+00:07:38,440 --> 00:07:40,570
+And by the way, Stephen, I can't read your handwriting.
+
+138
+00:07:41,200 --> 00:07:42,040
+Totally fine.
+
+139
+00:07:42,070 --> 00:07:42,970
+Totally fine.
+
+140
+00:07:43,000 --> 00:07:44,170
+We're going to write out the code here.
+
+141
+00:07:44,170 --> 00:07:49,210
+And as we write the code, I got to tell you, the algorithm actually ends up being kind of clear about
+
+142
+00:07:49,210 --> 00:07:50,230
+what is going on.
+
+143
+00:07:50,230 --> 00:07:51,760
+So we're going to write out all of our code.
+
+144
+00:07:51,760 --> 00:07:56,770
+And I really think that rather quickly you're going to get a good understanding of how this maze is
+
+145
+00:07:56,770 --> 00:07:57,970
+really being put together.
+
+146
+00:07:58,210 --> 00:08:02,680
+I can tell you right now from building this thing out several times and figuring out the best way to
+
+147
+00:08:02,680 --> 00:08:07,510
+explain it, the hardest part to understand about this is the different dimensions between the grid
+
+148
+00:08:07,510 --> 00:08:14,340
+array or the array that keeps track of which cells we've actually visited and the verticals and horizontals
+
+149
+00:08:14,350 --> 00:08:14,650
+array.
+
+150
+00:08:14,650 --> 00:08:19,690
+That is by far the biggest challenging thing, just understanding that there are different dimensions
+
+151
+00:08:19,690 --> 00:08:21,490
+for each one that we need to be aware of.
+
+152
+00:08:21,820 --> 00:08:25,300
+So understand that we're going to come back to drawings like this several times as we start to write
+
+153
+00:08:25,300 --> 00:08:29,440
+out that code and just make sure that every step along the way it is really, really clear where all
+
+154
+00:08:29,440 --> 00:08:31,000
+these different numbers are coming from.
+
+155
+00:08:32,610 --> 00:08:33,490
+So that's pretty much it.
+
+156
+00:08:33,510 --> 00:08:34,770
+Let's take a quick pause right here.
+
+157
+00:08:34,770 --> 00:08:38,610
+When we come back, the next video, we're going to start to write out some code to create the grid
+
+158
+00:08:38,610 --> 00:08:41,789
+array, the vertical array and the horizontal array as well.
+
+159
+00:08:41,909 --> 00:08:43,620
+So I'll see you in just a minute.
+

@@ -1,0 +1,524 @@
+1
+00:00:00,150 --> 00:00:02,050
+Next up, we have a big one.
+
+2
+00:00:02,070 --> 00:00:08,189
+Not necessarily difficult, but just a really commonly used part of JavaScript and strings in particular
+
+3
+00:00:08,189 --> 00:00:10,080
+something called template literals.
+
+4
+00:00:10,080 --> 00:00:11,480
+String template literals.
+
+5
+00:00:11,490 --> 00:00:18,270
+Essentially, these are special strings where we can add in information, expressions, other variables,
+
+6
+00:00:18,270 --> 00:00:23,160
+data inside the string and spit out one string by the end.
+
+7
+00:00:23,250 --> 00:00:25,110
+So here's a simple example.
+
+8
+00:00:25,260 --> 00:00:31,650
+Don't worry about the syntax just yet, but I have a string I counted, and then some weird characters
+
+9
+00:00:31,650 --> 00:00:33,330
+three plus four sheep.
+
+10
+00:00:33,330 --> 00:00:36,810
+And it's turned into I counted seven sheep.
+
+11
+00:00:37,440 --> 00:00:42,840
+So the first thing you need to know about template literals in general is we use back tick characters
+
+12
+00:00:42,840 --> 00:00:44,160
+around the string.
+
+13
+00:00:44,190 --> 00:00:49,560
+It's hard to tell, but those are not single quotation marks right here, this and this.
+
+14
+00:00:49,560 --> 00:00:54,870
+Those are both back ticket characters, which are usually located above the tab key.
+
+15
+00:00:54,870 --> 00:00:56,610
+On a typical keyboard that I've used.
+
+16
+00:00:56,610 --> 00:01:00,420
+At least it is where the tilde key is a little squiggly line.
+
+17
+00:01:00,420 --> 00:01:02,850
+The NIA is that what is called in Spanish?
+
+18
+00:01:02,880 --> 00:01:08,550
+I might just be completely making that up, but it's above the tab key so we can make a string with
+
+19
+00:01:08,550 --> 00:01:12,690
+back ticks just like that, and it gives us a resulting string.
+
+20
+00:01:12,690 --> 00:01:19,170
+So this is another way that you could escape characters or escape quotation marks if you wanted to do.
+
+21
+00:01:19,200 --> 00:01:20,970
+He said lol.
+
+22
+00:01:21,240 --> 00:01:25,890
+I don't have to worry about single or double quotes because I'm not using either one.
+
+23
+00:01:26,040 --> 00:01:30,180
+I'm using back ticks around the string so I could put double and single quotes in there.
+
+24
+00:01:30,180 --> 00:01:31,080
+No problem.
+
+25
+00:01:31,080 --> 00:01:38,160
+For example, that's a valid string if I use back ticks, but the real meat of these expressions of
+
+26
+00:01:38,160 --> 00:01:41,640
+template literals is that we can embed information.
+
+27
+00:01:41,820 --> 00:01:49,290
+And the trick, the secret is this set of characters right here, dollar sign and then curly braces.
+
+28
+00:01:49,650 --> 00:01:51,990
+So on its own that will break JavaScript.
+
+29
+00:01:51,990 --> 00:01:58,740
+It doesn't like you, but if you put that inside of back tick characters, dollar sign, curly braces,
+
+30
+00:01:58,980 --> 00:02:01,680
+this is going to evaluate to something.
+
+31
+00:02:01,890 --> 00:02:07,140
+So whatever is in here, like one plus five will be run first.
+
+32
+00:02:07,140 --> 00:02:12,480
+This will be turned into a string once it is finished, and then we end up with one string like this
+
+33
+00:02:12,480 --> 00:02:13,500
+string six.
+
+34
+00:02:13,770 --> 00:02:16,770
+Usually we don't just have a string like this.
+
+35
+00:02:16,770 --> 00:02:22,080
+Usually we have other information or characters in there you owe me.
+
+36
+00:02:22,200 --> 00:02:31,770
+And then we could have dollar sign, curly braces, 100 plus that money you owe me 20 219,037.
+
+37
+00:02:32,460 --> 00:02:33,960
+So this is a secret.
+
+38
+00:02:33,960 --> 00:02:37,950
+Once again, back ticks, curly braces with a dollar sign in front.
+
+39
+00:02:37,950 --> 00:02:40,320
+This will not work in a regular string.
+
+40
+00:02:40,320 --> 00:02:48,000
+So if I tried it one plus three, I end up with the string dollar sign, curly braces, one plus three,
+
+41
+00:02:48,000 --> 00:02:48,990
+not ideal.
+
+42
+00:02:49,290 --> 00:02:50,550
+If we use back ticks.
+
+43
+00:02:50,550 --> 00:02:52,800
+This is kind of like an escape character.
+
+44
+00:02:52,800 --> 00:02:58,770
+It gets out of the context of the string and JavaScript, treats it as such and evaluates it in this
+
+45
+00:02:58,770 --> 00:03:01,830
+case as a math expression, as an addition.
+
+46
+00:03:01,830 --> 00:03:03,570
+But we can do anything in there.
+
+47
+00:03:03,750 --> 00:03:05,070
+Well, almost anything.
+
+48
+00:03:05,070 --> 00:03:07,800
+You don't want to write super, super long pieces of code.
+
+49
+00:03:07,860 --> 00:03:09,930
+But here's a really common example.
+
+50
+00:03:09,930 --> 00:03:16,860
+If you have a variable and you want to spit out that variable as part of a string like Welcome back,
+
+51
+00:03:16,890 --> 00:03:18,240
+Ziggy 31.
+
+52
+00:03:18,450 --> 00:03:19,830
+We can do it like this.
+
+53
+00:03:20,340 --> 00:03:22,290
+So I'll show you another example.
+
+54
+00:03:22,320 --> 00:03:25,710
+Let's say we have two variables animal and sound.
+
+55
+00:03:25,830 --> 00:03:29,520
+So animal will be pig and sound will be oink.
+
+56
+00:03:30,480 --> 00:03:33,780
+I can create a template literal that follows this pattern.
+
+57
+00:03:33,780 --> 00:03:38,970
+Animal says sound, so pig says oink or pigs say oink or something like that.
+
+58
+00:03:39,180 --> 00:03:45,360
+If I wanted to do that, I would need to add in the variable animal first instead of those back ticks
+
+59
+00:03:45,360 --> 00:03:48,660
+and then a lot of space so that we have a space after the string.
+
+60
+00:03:48,660 --> 00:03:55,470
+You can see my result down here already and then I'll add in just the word says, pig says.
+
+61
+00:03:55,470 --> 00:03:59,910
+And then another dollar sign curly braces sound.
+
+62
+00:04:00,810 --> 00:04:02,340
+Pig says oink.
+
+63
+00:04:02,670 --> 00:04:06,360
+Now string template literals are new ish and JavaScript.
+
+64
+00:04:06,390 --> 00:04:08,460
+A couple of years ago they weren't an option.
+
+65
+00:04:08,550 --> 00:04:12,700
+We had to resort to concatenating strings together, which really sucked.
+
+66
+00:04:12,720 --> 00:04:14,640
+It would look like this animal.
+
+67
+00:04:14,730 --> 00:04:21,600
+Plus space says space plus sound.
+
+68
+00:04:22,290 --> 00:04:24,510
+So we always had to break up our quotes.
+
+69
+00:04:24,990 --> 00:04:30,450
+And if we wanted to add something afterwards, like an exclamation point, I would then do sound plus
+
+70
+00:04:30,480 --> 00:04:32,700
+quote Exclamation point.
+
+71
+00:04:33,090 --> 00:04:34,250
+Pig says oink.
+
+72
+00:04:34,260 --> 00:04:39,450
+But if I go back to my string template literal with the up arrow, I can just add an exclamation point
+
+73
+00:04:39,450 --> 00:04:40,230
+right there.
+
+74
+00:04:40,350 --> 00:04:42,450
+So it's really easy to read.
+
+75
+00:04:42,450 --> 00:04:43,500
+It's easy to write.
+
+76
+00:04:43,620 --> 00:04:47,140
+You don't have to worry about opening and closing your quotes and plus signs.
+
+77
+00:04:47,160 --> 00:04:50,040
+You just use those dollar sign, curly braces.
+
+78
+00:04:50,040 --> 00:04:53,430
+And what you're doing here is something called interpolating.
+
+79
+00:04:53,430 --> 00:04:56,700
+You are interpolating data inside of a string.
+
+80
+00:04:56,880 --> 00:05:03,180
+So we have a regular string like something says, and then we interpolate sound, which is a variable.
+
+81
+00:05:03,510 --> 00:05:08,920
+And as the examples show, you can also do more than just put a variable in there as is.
+
+82
+00:05:08,940 --> 00:05:11,160
+You can run some simple code.
+
+83
+00:05:11,190 --> 00:05:15,450
+Again, you don't want to put super long stuff in here, but there's nothing stopping you from it.
+
+84
+00:05:15,480 --> 00:05:19,850
+We could do a username to uppercase or I could do Animal.
+
+85
+00:05:19,860 --> 00:05:28,320
+Let's just recall this line again right here and do sound to uppercase like that.
+
+86
+00:05:29,100 --> 00:05:33,120
+And we get pig says, Oh, now here's another example.
+
+87
+00:05:33,150 --> 00:05:35,010
+This one's a little more complex.
+
+88
+00:05:35,010 --> 00:05:36,630
+I have three variables.
+
+89
+00:05:36,630 --> 00:05:43,410
+I have an item which is cucumbers, a price which is 199 and a quantity which is four.
+
+90
+00:05:43,470 --> 00:05:47,490
+And I wanted to print out a string that says you bought four cucumbers.
+
+91
+00:05:47,490 --> 00:05:52,800
+If that's what quantity is, the total price is $7.96.
+
+92
+00:05:53,010 --> 00:05:56,250
+Using a template literal, it's really easy.
+
+93
+00:05:56,550 --> 00:06:01,500
+The one thing I'll point out is that I have $2 signs here because the first one or the second one,
+
+94
+00:06:01,500 --> 00:06:07,740
+rather, is used to interpolate price times quantity that will go away, leaving a number, and then
+
+95
+00:06:07,740 --> 00:06:12,200
+the original dollar sign up front will be left as an actual dollar sign in the string.
+
+96
+00:06:12,210 --> 00:06:13,740
+So here's one more example.
+
+97
+00:06:13,770 --> 00:06:20,310
+Let's say that we're opening up a bar in the U.S. or something where you have to be 21 years old to
+
+98
+00:06:20,310 --> 00:06:20,910
+enter.
+
+99
+00:06:21,150 --> 00:06:24,210
+And I want to print out a string using these variables.
+
+100
+00:06:24,210 --> 00:06:25,920
+So we have men age and your age.
+
+101
+00:06:25,920 --> 00:06:30,750
+And I wanted to follow the pattern of you must be 21 to enter.
+
+102
+00:06:30,780 --> 00:06:32,310
+You're currently 19.
+
+103
+00:06:32,310 --> 00:06:36,660
+Please come back in two years or whatever the correct age range is.
+
+104
+00:06:36,660 --> 00:06:38,190
+So I could do something like this.
+
+105
+00:06:38,190 --> 00:06:39,120
+Back ticks.
+
+106
+00:06:40,480 --> 00:06:42,070
+You must be.
+
+107
+00:06:42,280 --> 00:06:47,560
+And then dollar sign min age to enter.
+
+108
+00:06:47,920 --> 00:06:50,080
+And then we'll just do come back in.
+
+109
+00:06:50,080 --> 00:06:51,910
+And then another dollar sign.
+
+110
+00:06:51,910 --> 00:07:00,340
+Curly braces will take min age and subtract your age from it and then add the word years afterwards.
+
+111
+00:07:00,820 --> 00:07:08,320
+So you must be 21 to let's do 21 or older to enter come back in two years.
+
+112
+00:07:08,320 --> 00:07:12,400
+And I know this seems like a lot of work for something stupid.
+
+113
+00:07:12,400 --> 00:07:18,370
+Not that exciting to do with age and min age or animals and noises, pigs and drinking.
+
+114
+00:07:18,430 --> 00:07:21,730
+But once we get to more complex things, think about it this way.
+
+115
+00:07:21,730 --> 00:07:27,400
+If we were making a Reddit application where we had or let's just say comments on a blog, every comment
+
+116
+00:07:27,400 --> 00:07:36,850
+follows the same pattern where we probably have something like posted X minutes ago by and then user.
+
+117
+00:07:37,330 --> 00:07:44,470
+So we would have potentially a template literal like this posted X minutes ago and then X instead of
+
+118
+00:07:44,470 --> 00:07:53,890
+calling it X, we would go with minutes or elapsed time or something by user and we would do this for
+
+119
+00:07:53,890 --> 00:07:56,470
+every single comment that we were trying to display.
+
+120
+00:07:56,470 --> 00:08:01,510
+So we would have a list of them, maybe 100 comments, and for each one we would put them through this
+
+121
+00:08:01,510 --> 00:08:02,110
+template.
+
+122
+00:08:02,110 --> 00:08:03,580
+And we haven't seen how to do that yet.
+
+123
+00:08:03,580 --> 00:08:09,160
+We haven't talked about looping or collections of data, but that is when these become especially useful,
+
+124
+00:08:09,160 --> 00:08:12,280
+it's when you're defining an actual template you're reusing.
+
+125
+00:08:12,400 --> 00:08:17,380
+So these are kind of silly examples, I know, but I promise they become really, really useful later
+
+126
+00:08:17,380 --> 00:08:17,800
+on.
+
+127
+00:08:17,800 --> 00:08:18,910
+So template literals.
+
+128
+00:08:18,910 --> 00:08:25,690
+The main takeaway is again back ticks, not single quotes and we use dollar sign curly braces inside
+
+129
+00:08:25,690 --> 00:08:30,430
+in order to write expressions which are just treated as regular JavaScript.
+
+130
+00:08:30,430 --> 00:08:36,370
+It's treated as if you were not inside a string at all, and then whatever that evaluates to is turned
+
+131
+00:08:36,370 --> 00:08:39,370
+into a string and put inside the resulting string.
+

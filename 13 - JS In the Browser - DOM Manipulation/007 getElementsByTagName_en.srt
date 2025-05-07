@@ -1,0 +1,484 @@
+1
+00:00:00,150 --> 00:00:05,100
+Next up, we have another method on the document to select elements but slightly different.
+
+2
+00:00:05,100 --> 00:00:07,190
+It's called Get Elements by tag name.
+
+3
+00:00:07,200 --> 00:00:13,770
+And once again, it does what it sounds like rather than selecting by an ID we select by a type of element.
+
+4
+00:00:14,040 --> 00:00:18,030
+I want all the images or the paragraphs or the ones on a page.
+
+5
+00:00:18,030 --> 00:00:20,670
+So to use it, it's exactly the same.
+
+6
+00:00:20,670 --> 00:00:24,780
+We do document dot and then the name of the method.
+
+7
+00:00:24,780 --> 00:00:29,910
+So instead of get element by ID, we want get elements with an s by tag name.
+
+8
+00:00:29,910 --> 00:00:36,510
+And that S is significant because we will get more than one element or potentially we could, and that
+
+9
+00:00:36,510 --> 00:00:40,110
+means that the elements returned are going to be stored in a list.
+
+10
+00:00:40,110 --> 00:00:46,500
+We're not going to get a single element back like we got from get element by ID, so let's try it.
+
+11
+00:00:46,500 --> 00:00:47,520
+What do we have in our page?
+
+12
+00:00:47,520 --> 00:00:50,760
+We've got a couple of paragraphs, we have a couple of inputs.
+
+13
+00:00:50,760 --> 00:00:51,900
+Why don't we start with that?
+
+14
+00:00:51,900 --> 00:00:53,610
+Let's get all the inputs.
+
+15
+00:00:53,850 --> 00:00:59,130
+So I pass in the name of the element as a string and there we go.
+
+16
+00:00:59,130 --> 00:01:01,350
+I'm getting three inputs returned.
+
+17
+00:01:01,350 --> 00:01:02,850
+It looks like an array.
+
+18
+00:01:02,880 --> 00:01:05,580
+It is not an array, but we'll come back to that.
+
+19
+00:01:05,910 --> 00:01:11,010
+And if I look at each one of these elements once again, they are dom objects.
+
+20
+00:01:11,010 --> 00:01:16,980
+We have an HTML input element this time instead of a paragraph element or an image element.
+
+21
+00:01:16,980 --> 00:01:23,640
+If we try the same thing with a different type, like a P tag, we now get the different paragraphs
+
+22
+00:01:23,640 --> 00:01:24,780
+we have in our page.
+
+23
+00:01:24,780 --> 00:01:25,530
+So there we go.
+
+24
+00:01:25,530 --> 00:01:32,490
+We have two paragraphs, the first one and the second one, if I try it instead with what else do we
+
+25
+00:01:32,490 --> 00:01:35,940
+have a bunch of lies on the page I get three lies.
+
+26
+00:01:35,940 --> 00:01:37,530
+Each one is an object.
+
+27
+00:01:37,560 --> 00:01:43,320
+If I try it on an element that is not on the page like an H three, there are no H threes.
+
+28
+00:01:43,800 --> 00:01:50,220
+We get an empty collection back and if I instead try it on something where there's only one on the page
+
+29
+00:01:50,220 --> 00:01:54,330
+like h one, we have 1h1 on the page right here.
+
+30
+00:01:54,750 --> 00:01:58,290
+I still get a collection, it just has one element in it.
+
+31
+00:01:58,470 --> 00:02:04,950
+So we don't get we don't ever get one element back on its own like we did with get element by ID it
+
+32
+00:02:04,950 --> 00:02:11,580
+returned the actual object, not a collection, but because we're getting multiple potentially, we
+
+33
+00:02:11,580 --> 00:02:13,200
+always get a collection back.
+
+34
+00:02:13,470 --> 00:02:15,150
+Now let's talk about this collection.
+
+35
+00:02:15,150 --> 00:02:17,130
+What is this h HTML collection?
+
+36
+00:02:17,280 --> 00:02:20,940
+It is an array like object that is not an array.
+
+37
+00:02:20,970 --> 00:02:27,030
+So think of the arguments object that we saw a couple of sections ago instead of a function.
+
+38
+00:02:27,030 --> 00:02:30,030
+Every function has this arguments array like object.
+
+39
+00:02:30,030 --> 00:02:31,980
+That is not actually an array.
+
+40
+00:02:32,340 --> 00:02:34,050
+It's a similar idea here.
+
+41
+00:02:34,080 --> 00:02:36,000
+This is a collection of objects.
+
+42
+00:02:36,000 --> 00:02:37,920
+It's called an HTML collection.
+
+43
+00:02:37,920 --> 00:02:41,700
+It is something that it's a type in the DOM, it's a type of collection.
+
+44
+00:02:41,700 --> 00:02:43,170
+You get back frequently.
+
+45
+00:02:43,170 --> 00:02:47,370
+It is not an array, but we can do some array ish things.
+
+46
+00:02:47,370 --> 00:02:49,350
+So let's save one of these to a variable.
+
+47
+00:02:49,350 --> 00:02:51,030
+Let's select the inputs.
+
+48
+00:02:51,030 --> 00:02:59,460
+So I'll just go back to this line, save it to a variable cost inputs, and now I have my input variable.
+
+49
+00:02:59,850 --> 00:03:04,530
+Let's clear this and let's try accessing the first input.
+
+50
+00:03:05,260 --> 00:03:06,070
+That works.
+
+51
+00:03:06,070 --> 00:03:10,490
+We can use array indices and brackets, same syntax.
+
+52
+00:03:10,510 --> 00:03:11,740
+It looks like an array.
+
+53
+00:03:12,100 --> 00:03:19,450
+I can get the second element, the third element, and there is no element at index of three.
+
+54
+00:03:20,230 --> 00:03:24,820
+I can do input dot length and I do get a length.
+
+55
+00:03:25,300 --> 00:03:28,930
+But if I want to try using array methods like pop.
+
+56
+00:03:29,560 --> 00:03:30,520
+No luck.
+
+57
+00:03:30,550 --> 00:03:35,560
+Same thing with push with includes with index of.
+
+58
+00:03:35,680 --> 00:03:38,430
+We really don't have much at our disposal.
+
+59
+00:03:38,440 --> 00:03:42,280
+In fact, if we look at inputs and you just type dot in the dev tools.
+
+60
+00:03:42,430 --> 00:03:43,780
+Here's what we've got.
+
+61
+00:03:43,810 --> 00:03:44,950
+We've got length.
+
+62
+00:03:45,370 --> 00:03:46,620
+We've got a couple methods.
+
+63
+00:03:46,630 --> 00:03:50,350
+These actually come from objects and nothing else.
+
+64
+00:03:51,240 --> 00:03:53,250
+So what do we have here?
+
+65
+00:03:53,250 --> 00:03:58,950
+It's just a bare bones collection that allows us to access elements using indices.
+
+66
+00:03:58,950 --> 00:04:02,540
+And fortunately we can also iterate and that's it.
+
+67
+00:04:02,550 --> 00:04:05,670
+It's not supposed to be some useful data structure.
+
+68
+00:04:05,670 --> 00:04:09,060
+It's a very lightweight structure that stores elements.
+
+69
+00:04:09,060 --> 00:04:11,370
+So if you wanted to, you could turn it into an array.
+
+70
+00:04:11,370 --> 00:04:13,980
+You could also just iterate over it like this.
+
+71
+00:04:14,100 --> 00:04:18,450
+Let's do four lit inputs of inputs.
+
+72
+00:04:19,860 --> 00:04:23,940
+Why don't we just cancel that log input for now?
+
+73
+00:04:26,340 --> 00:04:27,120
+There you go.
+
+74
+00:04:27,150 --> 00:04:28,830
+We're printing out each input.
+
+75
+00:04:29,190 --> 00:04:31,080
+Remember, this is not what they look like.
+
+76
+00:04:31,080 --> 00:04:32,520
+They're actual objects.
+
+77
+00:04:32,550 --> 00:04:35,420
+I hate that the browser does this chrome devtools.
+
+78
+00:04:35,430 --> 00:04:37,690
+I don't understand who why.
+
+79
+00:04:37,710 --> 00:04:40,200
+It just doesn't seem that useful to me most of the time.
+
+80
+00:04:40,200 --> 00:04:45,390
+We want to look at the object, but maybe that's just because I'm a teacher and I need to show the objects.
+
+81
+00:04:45,390 --> 00:04:45,990
+Who knows?
+
+82
+00:04:46,230 --> 00:04:46,560
+All right.
+
+83
+00:04:46,560 --> 00:04:48,140
+So we can iterate over them.
+
+84
+00:04:48,150 --> 00:04:52,980
+And since it's an iterable, that means we can also use our friend spread.
+
+85
+00:04:53,250 --> 00:04:59,330
+So if I wanted to get these three inputs, the inputs HTML collection, it's not an array.
+
+86
+00:04:59,340 --> 00:05:03,480
+If I want to turn it into an array, I can spread it into an array.
+
+87
+00:05:04,590 --> 00:05:08,390
+If you skip the videos on spread, probably go back, check those out.
+
+88
+00:05:08,400 --> 00:05:12,020
+So now I'll just call this array equals inputs.
+
+89
+00:05:12,030 --> 00:05:16,230
+If we look at array, it's an actual array of those inputs.
+
+90
+00:05:16,740 --> 00:05:21,900
+But honestly, at the end of the day, a lot of the time what we end up doing is just looping over things
+
+91
+00:05:21,900 --> 00:05:27,840
+and doing some sort of or making some sort of change to each input or each element that could be adding
+
+92
+00:05:27,840 --> 00:05:28,650
+a style.
+
+93
+00:05:28,680 --> 00:05:31,560
+It could be reading its current value.
+
+94
+00:05:31,560 --> 00:05:33,990
+If this is a form a user clicks submit.
+
+95
+00:05:34,200 --> 00:05:39,960
+If we were using JavaScript, we could intercept the form and get the values out what a user had typed
+
+96
+00:05:39,960 --> 00:05:46,170
+in and then do something with them so we could select all inputs and then loop over the inputs and look
+
+97
+00:05:46,170 --> 00:05:47,580
+at input value.
+
+98
+00:05:47,970 --> 00:05:53,820
+We can actually try that right now if you want, we'll just do console.log input dot value.
+
+99
+00:05:53,820 --> 00:06:03,180
+And before I do that, why don't I put some values in here so bear name will go with Maxim must Maximus.
+
+100
+00:06:03,180 --> 00:06:04,230
+That's a good bear name.
+
+101
+00:06:04,560 --> 00:06:10,230
+I'll put a password in there just gibberish password and take a look.
+
+102
+00:06:10,320 --> 00:06:17,670
+We looped over all those inputs and I console that log input value that is a property on each input
+
+103
+00:06:17,670 --> 00:06:18,030
+element.
+
+104
+00:06:18,030 --> 00:06:23,880
+It has a value and I get Maximus from the first one as well from the second one.
+
+105
+00:06:24,030 --> 00:06:27,000
+And the third one is actually a button as well.
+
+106
+00:06:27,270 --> 00:06:30,060
+And that button does not have a value.
+
+107
+00:06:30,060 --> 00:06:35,400
+And if I look at inputs of two, that last one, it's that button type set to submit.
+
+108
+00:06:35,400 --> 00:06:37,230
+It does not have a value.
+
+109
+00:06:37,830 --> 00:06:40,050
+So that's just a is what it is.
+
+110
+00:06:40,170 --> 00:06:41,310
+We don't get a value.
+
+111
+00:06:41,400 --> 00:06:43,470
+Okay, so let's get elements by tag name.
+
+112
+00:06:43,470 --> 00:06:45,870
+Remember it returns this array like object.
+
+113
+00:06:45,870 --> 00:06:48,990
+It's not an actual array, but we can iterate over it.
+
+114
+00:06:49,230 --> 00:06:55,710
+Each element in that array like object is an element, it's an actual object and it has a bunch of properties.
+
+115
+00:06:55,710 --> 00:06:56,820
+We can do things with it.
+
+116
+00:06:56,820 --> 00:07:03,000
+And when we call document get elements by tag name, we passed in a string representing a tag name you
+
+117
+00:07:03,000 --> 00:07:04,710
+pass in an invalid tag.
+
+118
+00:07:05,040 --> 00:07:06,990
+You won't get anything, no error.
+
+119
+00:07:06,990 --> 00:07:09,840
+It's just not going to find anything with that type of tag name.
+
+120
+00:07:10,140 --> 00:07:13,950
+So we've seen get element by ID, we've seen get elements by tag name.
+
+121
+00:07:13,950 --> 00:07:15,930
+Next, we have another way of selecting.
+

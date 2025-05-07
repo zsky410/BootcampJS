@@ -1,0 +1,348 @@
+1
+00:00:00,420 --> 00:00:02,730
+All right, let's continue working on our widget here.
+
+2
+00:00:02,760 --> 00:00:07,530
+The last thing we have to do is make a couple of updates inside of on input to refer to the elements
+
+3
+00:00:07,530 --> 00:00:11,010
+that we just selected instead of some elements that we just deleted, actually.
+
+4
+00:00:11,010 --> 00:00:15,330
+So like, for example, right now, as we loop over all of our different movies and create some divs,
+
+5
+00:00:15,330 --> 00:00:21,540
+we're trying to append them to document query selector ID of target so that element doesn't exist anymore.
+
+6
+00:00:21,540 --> 00:00:25,680
+Remember we said that we want to take all these different elements that we create and put them inside
+
+7
+00:00:25,680 --> 00:00:27,330
+of that div right there.
+
+8
+00:00:27,780 --> 00:00:30,690
+So we just have to update a couple of different references, that's all.
+
+9
+00:00:32,110 --> 00:00:32,380
+Okay.
+
+10
+00:00:32,380 --> 00:00:38,530
+So to get started right before the for loop, we're going to take a look at the dropdown element, as
+
+11
+00:00:38,530 --> 00:00:43,000
+we just discussed in the last video, to make sure that we open up the menu, we have to add the is
+
+12
+00:00:43,000 --> 00:00:45,100
+active class to that element right there.
+
+13
+00:00:45,490 --> 00:00:52,720
+So right above the for loop, I'll say dropdown dot class list add and we're going to add on the class
+
+14
+00:00:52,750 --> 00:00:54,430
+is dash active.
+
+15
+00:00:55,360 --> 00:00:58,510
+So we're going to do that right after we fetch all of our data successfully.
+
+16
+00:00:58,510 --> 00:01:02,860
+So we're going to fetch all of our data, open up the dropdown, and then add in all of our movies to
+
+17
+00:01:02,860 --> 00:01:03,280
+it.
+
+18
+00:01:04,370 --> 00:01:06,290
+So then inside of our for loop.
+
+19
+00:01:07,360 --> 00:01:10,420
+As I just mentioned, this element right here doesn't exist anymore.
+
+20
+00:01:10,450 --> 00:01:16,870
+Instead, we want to apply or append all these different divs that we create to the results wrapper.
+
+21
+00:01:16,870 --> 00:01:19,540
+And the results wrapper is that thing right there?
+
+22
+00:01:21,340 --> 00:01:27,040
+So on the query selector, I'm going to delete the query selector and I will replace it with results
+
+23
+00:01:27,040 --> 00:01:27,790
+wrapper.
+
+24
+00:01:29,480 --> 00:01:29,780
+All right.
+
+25
+00:01:29,780 --> 00:01:31,160
+Just one or two more changes.
+
+26
+00:01:31,160 --> 00:01:37,490
+If we go back over to the Burma documentation, you'll recall that as we show each individual item inside
+
+27
+00:01:37,490 --> 00:01:41,960
+the dropdown, they're supposed to be anchor elements with a class of dropdown item.
+
+28
+00:01:42,600 --> 00:01:47,370
+Right now, as we loop through all of our different videos or our different movies, we are creating
+
+29
+00:01:47,370 --> 00:01:48,480
+a dive element.
+
+30
+00:01:48,480 --> 00:01:49,530
+So that's not quite correct.
+
+31
+00:01:49,530 --> 00:01:52,140
+We need to update that to be an anchor element instead.
+
+32
+00:01:52,780 --> 00:01:58,420
+So to do so, I'm going to update the document create element to make an anchor tag or a instead of
+
+33
+00:01:58,420 --> 00:01:58,930
+div.
+
+34
+00:02:00,150 --> 00:02:04,680
+And then to be complete, we should probably update the div variable name since we're technically not
+
+35
+00:02:04,680 --> 00:02:06,030
+creating a div anymore.
+
+36
+00:02:06,880 --> 00:02:11,350
+A name for this could be like anchor because we are creating an anchor element, but that doesn't really
+
+37
+00:02:11,350 --> 00:02:13,690
+convey the context of the code we're writing here.
+
+38
+00:02:14,140 --> 00:02:16,300
+I personally kind of like the name option.
+
+39
+00:02:16,840 --> 00:02:21,670
+Option might seem a little bit weird, but the idea here is that we are creating like a dropdown or
+
+40
+00:02:21,670 --> 00:02:22,870
+in autocomplete.
+
+41
+00:02:22,870 --> 00:02:28,000
+And inside there we're going to show a lot of different options of movies that users can click to select
+
+42
+00:02:28,000 --> 00:02:28,750
+one of these.
+
+43
+00:02:29,020 --> 00:02:31,900
+So I think the term option kind of makes sense in that context.
+
+44
+00:02:32,760 --> 00:02:38,430
+So I'm now going to go through and update div right there and right there as well to refer to the option
+
+45
+00:02:38,430 --> 00:02:40,470
+variable since Div doesn't exist anymore.
+
+46
+00:02:41,190 --> 00:02:44,610
+They'll change that to option and on append child.
+
+47
+00:02:44,610 --> 00:02:46,110
+I'll change it to option as well.
+
+48
+00:02:47,810 --> 00:02:48,050
+Okay.
+
+49
+00:02:48,080 --> 00:02:52,560
+Just one or two more quick changes inside of the option element.
+
+50
+00:02:52,580 --> 00:02:58,160
+We currently have the image, which is definitely good, but we have the movie text inside of an H one,
+
+51
+00:02:58,160 --> 00:03:00,050
+which might be just slightly too large.
+
+52
+00:03:00,170 --> 00:03:03,710
+So I'm just going to take off the H one, the opening and the closing tag.
+
+53
+00:03:05,030 --> 00:03:05,360
+All right.
+
+54
+00:03:05,360 --> 00:03:08,150
+So there should be just one last little thing to do here.
+
+55
+00:03:08,450 --> 00:03:10,100
+Right above the option element.
+
+56
+00:03:10,910 --> 00:03:14,990
+As we were just looking at the Wal-Mart documentation, remember I just said that we have to add in
+
+57
+00:03:14,990 --> 00:03:18,230
+a class of dropdown item to get everything to style nicely.
+
+58
+00:03:18,440 --> 00:03:21,070
+So right above where we set enriched HTML.
+
+59
+00:03:21,110 --> 00:03:24,890
+I'm going to also do an option class list add.
+
+60
+00:03:26,310 --> 00:03:28,830
+Drop down item like so.
+
+61
+00:03:30,440 --> 00:03:31,460
+And that should be it.
+
+62
+00:03:31,700 --> 00:03:35,900
+So I'm going to save this and we should be ready to flip back over to our browser and test this out.
+
+63
+00:03:36,590 --> 00:03:40,610
+So I'm going to go back over, I'm going to refresh, and right away you're going to see that this looks
+
+64
+00:03:40,610 --> 00:03:42,440
+a lot better than how it looked before.
+
+65
+00:03:42,470 --> 00:03:47,630
+We've got the nicely bolded label and the input looks a lot better as well because we added in a class
+
+66
+00:03:47,630 --> 00:03:48,770
+of input to that thing.
+
+67
+00:03:49,560 --> 00:03:53,190
+So now inside of here, I'm going to do a search for Avengers.
+
+68
+00:03:54,380 --> 00:04:00,230
+And as soon as I do so, I see this nice dropdown open and so I can kind of hover over each of these.
+
+69
+00:04:00,230 --> 00:04:02,180
+I get the nice and a hover effect.
+
+70
+00:04:02,180 --> 00:04:03,860
+I got the nice finger right there.
+
+71
+00:04:03,890 --> 00:04:06,890
+All the styling that you're seeing here is coming from Boma.
+
+72
+00:04:07,070 --> 00:04:11,300
+And so I know that working with Boma and having to understand this dropdown stuff was kind of probably
+
+73
+00:04:11,300 --> 00:04:11,810
+annoying.
+
+74
+00:04:11,810 --> 00:04:15,680
+But I think you can agree with me that this looks pretty awesome right here.
+
+75
+00:04:15,680 --> 00:04:17,329
+Like this definitely looks really good.
+
+76
+00:04:17,899 --> 00:04:21,769
+Now, as good as it looks, there's definitely still some things we have to do to make our widget work
+
+77
+00:04:21,769 --> 00:04:22,730
+as expected.
+
+78
+00:04:22,970 --> 00:04:27,350
+In particular, you might recall that we spoke about all the different ways in which our.
+
+79
+00:04:28,140 --> 00:04:29,580
+Dropdown is going to behave.
+
+80
+00:04:30,550 --> 00:04:35,320
+Remember we had said stuff like, Oh yeah, if a user clicks outside the dropdown, close the menu.
+
+81
+00:04:35,560 --> 00:04:38,980
+Well, right now, if I click outside the dropdown, that thing stays open.
+
+82
+00:04:38,980 --> 00:04:40,540
+So definitely not appropriate.
+
+83
+00:04:40,870 --> 00:04:45,550
+In addition, if I do another search, so let's say that I look up Dark Knight.
+
+84
+00:04:47,160 --> 00:04:53,010
+I'm going to see as I scroll down that all those results get appended to the very end of the list.
+
+85
+00:04:53,400 --> 00:04:54,870
+So we still have a little bit of work to do.
+
+86
+00:04:54,870 --> 00:04:58,950
+So let's take a quick pause right here and continue solving a couple of these little issues in the next
+
+87
+00:04:58,950 --> 00:04:59,520
+video.
+

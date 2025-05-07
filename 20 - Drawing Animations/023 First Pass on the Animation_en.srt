@@ -1,0 +1,436 @@
+1
+00:00:00,640 --> 00:00:05,530
+Now that we've got the entire story, let's start to work on the actual implementation of this animation.
+
+2
+00:00:05,620 --> 00:00:10,360
+The first thing we're going to do is change some of the dimensions of the SVG and the circle element.
+
+3
+00:00:10,570 --> 00:00:15,850
+Right now, if I zoom all the way out to 100%, that timer that we have right here is really small.
+
+4
+00:00:15,850 --> 00:00:20,110
+So I want to basically double the size of the timer, just sort of fills up the screen a little bit
+
+5
+00:00:20,110 --> 00:00:20,890
+more nicely.
+
+6
+00:00:21,520 --> 00:00:24,020
+So to get started, I'm going to find my SVG element.
+
+7
+00:00:24,040 --> 00:00:27,490
+I'm going to change the height to 400, the width to 400.
+
+8
+00:00:28,340 --> 00:00:30,520
+I'm going to change the radius as well.
+
+9
+00:00:30,530 --> 00:00:32,960
+We're going to use a radius of 190.
+
+10
+00:00:34,930 --> 00:00:41,260
+We're going to leave the C or C at 202 hundred, but we are going to have to come back and adjust those
+
+11
+00:00:41,260 --> 00:00:42,270
+in just a little bit.
+
+12
+00:00:42,280 --> 00:00:43,780
+You'll see why very shortly.
+
+13
+00:00:45,580 --> 00:00:47,800
+We will leave the fill of Transparent.
+
+14
+00:00:48,930 --> 00:00:49,470
+The stroke.
+
+15
+00:00:49,470 --> 00:00:51,000
+I'm going to leave as blue.
+
+16
+00:00:51,710 --> 00:00:56,240
+I'm going to do a slightly adjust the stroke width, make it just a little bit thicker at 15.
+
+17
+00:00:57,080 --> 00:01:01,190
+And then finally I'm going to take out the dash array and the dash offset.
+
+18
+00:01:01,220 --> 00:01:06,230
+We're going to calculate both those values on the fly using the radius, because otherwise, like I
+
+19
+00:01:06,230 --> 00:01:11,060
+just mentioned, if we ever decide to change the radius again, chances are we might not remember how
+
+20
+00:01:11,060 --> 00:01:12,260
+dash array is calculated.
+
+21
+00:01:12,260 --> 00:01:16,790
+Remember, it's supposed to be the parameter value, so we're going to calculate that value on the fly
+
+22
+00:01:16,790 --> 00:01:19,040
+using the radius just so we don't have to remember.
+
+23
+00:01:19,040 --> 00:01:22,070
+Oh yeah, two times pi times the radius to figure this out.
+
+24
+00:01:23,900 --> 00:01:25,650
+So in total, we're going to double check here.
+
+25
+00:01:25,670 --> 00:01:30,290
+We should have our CSI fill stroke, stroke with and transform.
+
+26
+00:01:30,920 --> 00:01:31,520
+One last thing.
+
+27
+00:01:31,520 --> 00:01:33,480
+I apologize here on rotate.
+
+28
+00:01:33,500 --> 00:01:38,270
+We need to adjust that to 200 200 to specify the new center point.
+
+29
+00:01:39,530 --> 00:01:39,820
+Okay.
+
+30
+00:01:39,830 --> 00:01:41,900
+So let's save this now and see how we're doing.
+
+31
+00:01:43,080 --> 00:01:43,440
+Okay.
+
+32
+00:01:43,440 --> 00:01:44,820
+Well, that looks pretty good.
+
+33
+00:01:45,700 --> 00:01:47,440
+Definitely a little bit better sized.
+
+34
+00:01:48,070 --> 00:01:51,850
+We're going to make sure that the text input and the start and pause buttons eventually show up inside
+
+35
+00:01:51,850 --> 00:01:52,030
+there.
+
+36
+00:01:52,030 --> 00:01:54,070
+But let's just work on the animation to get started.
+
+37
+00:01:54,950 --> 00:01:57,680
+So now I want to go back over to our index dogs file.
+
+38
+00:01:58,670 --> 00:02:00,050
+And down by our timer.
+
+39
+00:02:00,080 --> 00:02:04,850
+We're going to eventually write a bunch of different code inside of here to work with the timer and
+
+40
+00:02:04,850 --> 00:02:10,190
+make sure that every time we get a tick, we kind of clean up a little bit or really kind of change
+
+41
+00:02:10,190 --> 00:02:12,770
+some of the different properties of that circle element.
+
+42
+00:02:13,700 --> 00:02:18,890
+So to get started at the very top with all these other query selectors, I'm going to add in a selector
+
+43
+00:02:18,890 --> 00:02:20,420
+to find that circle element.
+
+44
+00:02:21,020 --> 00:02:23,000
+So I'll say const circle.
+
+45
+00:02:24,380 --> 00:02:27,890
+Is document query selector circle.
+
+46
+00:02:29,890 --> 00:02:35,110
+And after that we will immediately read off the value of R or the radius and we'll use it to calculate
+
+47
+00:02:35,110 --> 00:02:35,790
+the parameter.
+
+48
+00:02:36,300 --> 00:02:43,870
+To find the radius of the circle, we can use circle, dot, get attribute, and then we put in the
+
+49
+00:02:43,870 --> 00:02:46,780
+name of the attribute that we want to find in this case are.
+
+50
+00:02:47,640 --> 00:02:54,990
+So to calculate the perimeter, it will be the radius times two times math pi.
+
+51
+00:02:55,200 --> 00:02:57,690
+And notice how pi right here is all capitals.
+
+52
+00:02:58,690 --> 00:03:01,870
+So I'm going to assign that to a variable that I will call perimeter.
+
+53
+00:03:04,070 --> 00:03:09,900
+Then immediately after that, we're going to set the dash array value on the circle equal to the perimeter.
+
+54
+00:03:09,920 --> 00:03:14,120
+Remember, that is what is going to get us the full big circle like you see right here.
+
+55
+00:03:15,890 --> 00:03:23,540
+So I'll say circle set attribute, and we're going to try to set stroke, dash, dash array and we're
+
+56
+00:03:23,540 --> 00:03:25,670
+going to set it equal to the perimeter.
+
+57
+00:03:28,170 --> 00:03:28,310
+Okay.
+
+58
+00:03:28,440 --> 00:03:29,430
+So it looks pretty good.
+
+59
+00:03:31,600 --> 00:03:35,890
+So now the next thing we're going to do is to make sure that every single time our timer ticks, we're
+
+60
+00:03:35,890 --> 00:03:37,780
+going to once again set an attribute.
+
+61
+00:03:37,780 --> 00:03:43,090
+But this time we're going to set our stroke offset property, which is what's going to give us that
+
+62
+00:03:43,090 --> 00:03:48,670
+white space up here on the starting on the top edge and then go around in the clockwise direction.
+
+63
+00:03:49,890 --> 00:03:52,950
+So inside of authentic, I'm going to delete that console log.
+
+64
+00:03:54,330 --> 00:03:56,190
+And I'll replace it with circle.
+
+65
+00:03:56,760 --> 00:03:58,260
+Set attribute.
+
+66
+00:04:00,590 --> 00:04:02,280
+We're going to set the stroke.
+
+67
+00:04:02,300 --> 00:04:05,450
+Dash, dash, offset property.
+
+68
+00:04:05,810 --> 00:04:10,370
+And we need to provide a value right here that's going to start off as zero and go more and more negative
+
+69
+00:04:10,370 --> 00:04:14,450
+over time, ideally by the time our entire loop finishes.
+
+70
+00:04:14,450 --> 00:04:19,820
+So by the time the timer like ticks down to zero set or the stroke dash offset right here should be
+
+71
+00:04:19,820 --> 00:04:21,410
+equal to the perimeter.
+
+72
+00:04:21,589 --> 00:04:22,760
+That would be ideal.
+
+73
+00:04:24,710 --> 00:04:25,940
+So to make that happen.
+
+74
+00:04:27,390 --> 00:04:30,870
+For right now, we're going to declare a little variable right above our timer.
+
+75
+00:04:32,240 --> 00:04:35,060
+That will call current offset.
+
+76
+00:04:36,030 --> 00:04:37,530
+And I'll initialize it at zero.
+
+77
+00:04:39,440 --> 00:04:45,260
+Then inside of the set attribute are inside the on tick right here I'm going to say current offset.
+
+78
+00:04:48,160 --> 00:04:51,970
+And during every tick will update the value of current offset.
+
+79
+00:04:52,510 --> 00:04:54,820
+So we'll say current offset will be current offset.
+
+80
+00:04:56,150 --> 00:04:57,880
+-50 and I apologize.
+
+81
+00:04:57,890 --> 00:05:01,700
+I actually want that line to be underneath these set attributes like so.
+
+82
+00:05:02,780 --> 00:05:06,290
+So we'll set the attribute and then subtract a little bit off the current offset.
+
+83
+00:05:07,330 --> 00:05:07,600
+Okay.
+
+84
+00:05:07,600 --> 00:05:09,790
+So let's say this and see how we're doing right now.
+
+85
+00:05:09,970 --> 00:05:11,200
+So I'm going to flip back over.
+
+86
+00:05:11,500 --> 00:05:12,580
+I'm going to refresh.
+
+87
+00:05:13,150 --> 00:05:14,440
+I'm going to hit start.
+
+88
+00:05:15,660 --> 00:05:17,730
+And now we can see the things starting to tick down.
+
+89
+00:05:18,300 --> 00:05:19,170
+Well, look at that.
+
+90
+00:05:19,170 --> 00:05:20,310
+It actually works.
+
+91
+00:05:20,640 --> 00:05:20,940
+Okay.
+
+92
+00:05:20,940 --> 00:05:22,410
+Well, that's definitely not bad at all.
+
+93
+00:05:23,190 --> 00:05:27,960
+The only problem right now is that it is a very kind of like blocky animation because remember, we
+
+94
+00:05:27,960 --> 00:05:33,180
+are only taking once every second and then every second we are counting off by exactly 50.
+
+95
+00:05:33,390 --> 00:05:36,150
+So that's what's resulting in this really blocky looking animation.
+
+96
+00:05:36,660 --> 00:05:40,860
+The other issue is that as soon as we start to get down to right there, well, unfortunately, because
+
+97
+00:05:40,860 --> 00:05:47,160
+we are just subtracting 50 units every time we're going to eventually roll around that entire property
+
+98
+00:05:47,160 --> 00:05:49,500
+or that entire value of stroke dash offset.
+
+99
+00:05:49,500 --> 00:05:52,170
+So it's going to eventually get greater than the perimeter.
+
+100
+00:05:53,040 --> 00:05:54,600
+So definitely what we have right now works.
+
+101
+00:05:54,600 --> 00:05:55,920
+But there are a couple of things about it.
+
+102
+00:05:55,920 --> 00:06:00,000
+We need to improve, so we need to make sure that the animation is a lot smoother.
+
+103
+00:06:00,000 --> 00:06:05,670
+We also need to make sure that rather than using this just -50 right here, we should adjust by a very
+
+104
+00:06:05,670 --> 00:06:06,780
+even increment.
+
+105
+00:06:06,780 --> 00:06:12,060
+So essentially the number of ticks or really our perimeter divided by the number of ticks, so that
+
+106
+00:06:12,060 --> 00:06:16,950
+by the time it gets down to zero or the timer gets down to zero, we should end up right there and not
+
+107
+00:06:16,950 --> 00:06:18,690
+go over to the next edge.
+
+108
+00:06:19,480 --> 00:06:21,000
+So definitely still a little bit of work.
+
+109
+00:06:21,010 --> 00:06:23,680
+So let's get started on that in the next video.
+

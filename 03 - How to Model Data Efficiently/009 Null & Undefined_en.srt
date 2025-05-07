@@ -1,0 +1,260 @@
+1
+00:00:00,120 --> 00:00:04,370
+We go way back to one of the first videos where we talked about primitive types.
+
+2
+00:00:04,380 --> 00:00:06,450
+I just gave you a brief overview of them.
+
+3
+00:00:06,450 --> 00:00:09,670
+We've now covered number string boolean.
+
+4
+00:00:09,690 --> 00:00:12,990
+We haven't really talked about null or undefined at all.
+
+5
+00:00:12,990 --> 00:00:16,800
+We've seen undefined once or twice now we're just going to quickly run through them.
+
+6
+00:00:16,800 --> 00:00:22,890
+They are very simple as far as primitive types go, but they can be confusing for beginners as far as
+
+7
+00:00:22,890 --> 00:00:25,530
+what what they each do and how they're different.
+
+8
+00:00:25,530 --> 00:00:32,910
+Both of them represent the idea of nothingness or something not being there or the lack of a value,
+
+9
+00:00:32,910 --> 00:00:34,830
+but there is a distinction between them.
+
+10
+00:00:34,830 --> 00:00:41,100
+So both are primitives and we can just type them in the browser and the console null undefined.
+
+11
+00:00:41,100 --> 00:00:44,970
+We could make a variable and set it explicitly to them if we wanted to.
+
+12
+00:00:45,000 --> 00:00:46,890
+But let's talk about the main difference.
+
+13
+00:00:47,010 --> 00:00:48,480
+NULL is a value.
+
+14
+00:00:48,480 --> 00:00:49,470
+It's a primitive type.
+
+15
+00:00:49,470 --> 00:00:55,920
+That is the intentional absence of any value and you assign it yourself so you can make a variable and
+
+16
+00:00:55,920 --> 00:00:56,820
+set it to null.
+
+17
+00:00:57,450 --> 00:00:59,100
+So here's an example of that.
+
+18
+00:00:59,100 --> 00:01:05,010
+We might have a variable called logged in user and at the beginning of our application there is no logged
+
+19
+00:01:05,010 --> 00:01:05,730
+in user.
+
+20
+00:01:05,730 --> 00:01:08,370
+So you will explicitly set it to null.
+
+21
+00:01:08,370 --> 00:01:09,540
+You make it nothing.
+
+22
+00:01:09,540 --> 00:01:14,430
+You're telling JavaScript there is a value here, it's just the value of nothing.
+
+23
+00:01:14,700 --> 00:01:18,420
+And then if someone logs in, you could set it to Alan Rickman.
+
+24
+00:01:18,780 --> 00:01:22,710
+And then if Alan Rickman logs out, rest in peace, I think.
+
+25
+00:01:22,710 --> 00:01:23,370
+Is he dead?
+
+26
+00:01:23,370 --> 00:01:24,180
+I think he is.
+
+27
+00:01:24,360 --> 00:01:25,320
+Yes, he is.
+
+28
+00:01:25,320 --> 00:01:26,460
+Rest in peace, Alan.
+
+29
+00:01:26,730 --> 00:01:29,220
+We could then reset it to NULL afterwards.
+
+30
+00:01:29,220 --> 00:01:33,780
+So it is the explicit value of nothingness, of emptiness.
+
+31
+00:01:33,780 --> 00:01:34,950
+It's null.
+
+32
+00:01:35,340 --> 00:01:37,020
+Undefined is different.
+
+33
+00:01:37,410 --> 00:01:44,520
+Undefined is a value that represents a variable that does not have a value assigned to it.
+
+34
+00:01:44,520 --> 00:01:48,330
+So it's kind of semantically annoying to explain.
+
+35
+00:01:48,480 --> 00:01:54,360
+But if you think about when we've seen undefined so far, if we tried to access a string like LOL square
+
+36
+00:01:54,360 --> 00:01:56,820
+brackets of four, we get undefined.
+
+37
+00:01:56,820 --> 00:01:58,680
+There is nothing defined there.
+
+38
+00:01:58,710 --> 00:02:06,060
+We don't usually set something to be undefined our self and technically we can const you equals undefined
+
+39
+00:02:06,840 --> 00:02:08,850
+if we look at you it's undefined.
+
+40
+00:02:09,120 --> 00:02:14,100
+Normally though undefined is a value we get back from JavaScript.
+
+41
+00:02:14,310 --> 00:02:21,090
+Like if we initialize a variable let's color but we don't give it a value so we declare it.
+
+42
+00:02:21,090 --> 00:02:22,740
+Sorry, we don't initialize it.
+
+43
+00:02:23,220 --> 00:02:26,940
+If we look at color it exists, but the value is undefined.
+
+44
+00:02:26,940 --> 00:02:28,860
+We never defined a value for it.
+
+45
+00:02:28,890 --> 00:02:31,500
+Compare that with something like current user.
+
+46
+00:02:32,700 --> 00:02:37,350
+We could explicitly set that to nothing and then change it later on if needed.
+
+47
+00:02:37,350 --> 00:02:40,770
+So both of them represent kind of similar concepts.
+
+48
+00:02:40,770 --> 00:02:45,270
+So we manually or explicitly assign the value of null to a variable.
+
+49
+00:02:45,360 --> 00:02:50,250
+Again, it's the intentional absence of any value when you want something to be empty.
+
+50
+00:02:50,520 --> 00:02:55,170
+Undefined is not necessarily saying something is intentionally empty.
+
+51
+00:02:55,170 --> 00:02:58,740
+It means that there is no defined value and it's nuanced.
+
+52
+00:02:58,740 --> 00:03:00,150
+But that is different.
+
+53
+00:03:00,150 --> 00:03:03,150
+Now, if you're confused about this, you don't feel super great about it.
+
+54
+00:03:03,150 --> 00:03:05,430
+You will see undefined all the time.
+
+55
+00:03:05,580 --> 00:03:06,570
+We've already seen it before.
+
+56
+00:03:06,570 --> 00:03:12,180
+As I mentioned, trying to access characters that don't exist or indices that don't exist in a string.
+
+57
+00:03:12,180 --> 00:03:14,970
+We'll see it when we get to arrays and objects.
+
+58
+00:03:14,970 --> 00:03:22,470
+It's very common to see null is something you yourself used, you set something to null and it's not
+
+59
+00:03:22,470 --> 00:03:26,670
+totally uncommon, but you won't deal with it as often as you'll see undefined.
+
+60
+00:03:27,060 --> 00:03:28,590
+So don't panic about those.
+
+61
+00:03:28,590 --> 00:03:31,590
+But those are the last two primitive types we had on our list.
+
+62
+00:03:31,590 --> 00:03:37,320
+We've now covered numbers a lot about strings, a little about booleans and a little about null and
+
+63
+00:03:37,320 --> 00:03:38,070
+undefined.
+
+64
+00:03:38,070 --> 00:03:40,050
+Next, we're going to Boolean Land.
+
+65
+00:03:40,050 --> 00:03:43,830
+We have a lot to talk about as far as adding logic to our applications.
+

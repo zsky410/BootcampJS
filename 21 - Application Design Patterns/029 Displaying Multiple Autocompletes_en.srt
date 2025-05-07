@@ -1,0 +1,580 @@
+1
+00:00:00,760 --> 00:00:04,660
+Now that we have a better idea of how we're going to make our code more reusable, let's start writing
+
+2
+00:00:04,660 --> 00:00:05,470
+out some code.
+
+3
+00:00:05,800 --> 00:00:09,220
+Now, understanding this entire flow from the get go is kind of challenging.
+
+4
+00:00:09,220 --> 00:00:13,540
+So rather than trying to do this entire refactor all at once, we're going to set ourselves a little
+
+5
+00:00:13,540 --> 00:00:15,160
+bit more immediate goal.
+
+6
+00:00:15,250 --> 00:00:20,320
+We're going to try to say that rather than defining all these different options right away inside of
+
+7
+00:00:20,320 --> 00:00:25,030
+some config object, we're just going to try to pass in some root element.
+
+8
+00:00:25,030 --> 00:00:28,450
+So this is going to be some element that the autocomplete should be rendered into.
+
+9
+00:00:28,690 --> 00:00:33,670
+So the immediate goal that we're going to focus on is just having the ability to show multiple different
+
+10
+00:00:33,670 --> 00:00:35,890
+auto completes on the screen at the same time.
+
+11
+00:00:36,370 --> 00:00:41,740
+So we should be able to create multiple different config objects and pass each of them into some autocomplete
+
+12
+00:00:41,740 --> 00:00:42,430
+function.
+
+13
+00:00:42,610 --> 00:00:47,170
+The autocomplete function should then create the autocomplete in those different route elements.
+
+14
+00:00:48,120 --> 00:00:49,710
+So again, that's the immediate goal.
+
+15
+00:00:49,710 --> 00:00:51,600
+That's what we're going to try to do from the get go.
+
+16
+00:00:52,020 --> 00:00:56,850
+So to get started, I'm going to first go back over to my editor inside of my route project directory.
+
+17
+00:00:56,850 --> 00:01:00,210
+I'll create a new file called Autocomplete JS.
+
+18
+00:01:01,110 --> 00:01:05,489
+Inside of here, I'm going to define a function called create autocomplete.
+
+19
+00:01:06,360 --> 00:01:10,350
+So we're going to call this function multiple different times and eventually it's going to have a bunch
+
+20
+00:01:10,350 --> 00:01:11,880
+of reusable code inside of it.
+
+21
+00:01:12,390 --> 00:01:17,520
+Whenever we call this function, we're going to pass in some kind of configuration object, and that
+
+22
+00:01:17,520 --> 00:01:22,740
+config object is going to have all the kind of custom functions that specify how the autocomplete should
+
+23
+00:01:22,740 --> 00:01:25,710
+work inside of our specific application.
+
+24
+00:01:26,100 --> 00:01:31,830
+So that config object is essentially where we put all of our references to movies and how the movies
+
+25
+00:01:31,830 --> 00:01:35,010
+should be rendered and what to do when one gets clicked and so on.
+
+26
+00:01:36,130 --> 00:01:42,100
+And then going to make sure that I wire up that autocomplete JS file inside of my indexed HTML file.
+
+27
+00:01:43,610 --> 00:01:45,590
+So inside of here, I'll go down to the very bottom.
+
+28
+00:01:46,550 --> 00:01:51,770
+I'm going to duplicate one of the script tags and then change the Z to autocomplete.
+
+29
+00:01:51,770 --> 00:01:54,020
+So now that file will actually be executed.
+
+30
+00:01:55,110 --> 00:02:00,350
+You make sure that you've got utils and then autocomplete and then index dogs.
+
+31
+00:02:00,770 --> 00:02:06,320
+If index dog's is listed first, then the code inside there will run first and it will try to call the
+
+32
+00:02:06,320 --> 00:02:08,870
+autocomplete function before it has been created.
+
+33
+00:02:10,500 --> 00:02:10,639
+Okay.
+
+34
+00:02:10,770 --> 00:02:14,910
+So I'll save that file and we're going to start to do the big refactor.
+
+35
+00:02:15,600 --> 00:02:18,570
+So the big refactor, we're going to go into indexed indexes.
+
+36
+00:02:19,680 --> 00:02:25,680
+And I'm going to take as much of the autocomplete related code as possible that is supposed to be reusable
+
+37
+00:02:25,680 --> 00:02:29,820
+in nature and move it over to the autocomplete JS file.
+
+38
+00:02:30,940 --> 00:02:36,070
+That's going to start from about line 16 or so where I have construit right there.
+
+39
+00:02:36,890 --> 00:02:40,640
+I'm going to go from that line and I'm going to select everything down.
+
+40
+00:02:42,630 --> 00:02:45,600
+To the end of document ad event listener.
+
+41
+00:02:46,640 --> 00:02:48,900
+That's about line 65 or so for me.
+
+42
+00:02:50,210 --> 00:02:52,070
+I'm then going to cut all of that.
+
+43
+00:02:53,760 --> 00:02:55,830
+Go over to Autocomplete JS.
+
+44
+00:02:57,030 --> 00:02:58,770
+And paste it into the function.
+
+45
+00:03:02,170 --> 00:03:02,630
+Okay.
+
+46
+00:03:03,370 --> 00:03:06,640
+So now all we have to do is start to repair the code inside of here.
+
+47
+00:03:06,670 --> 00:03:11,890
+We're going to make sure that some of the stuff that is application specific is being taken from this
+
+48
+00:03:11,890 --> 00:03:16,060
+config object instead of being placed directly inside this file.
+
+49
+00:03:16,360 --> 00:03:20,410
+So the first and best example of that is going to be the root element right here.
+
+50
+00:03:20,890 --> 00:03:26,260
+Normally, when all this code runs, it assumes that our document is going to have a diff or some other
+
+51
+00:03:26,260 --> 00:03:28,690
+element with a class of autocomplete.
+
+52
+00:03:29,080 --> 00:03:34,600
+If that were the case, then we would only be able to call create autocomplete exactly one time, because
+
+53
+00:03:34,600 --> 00:03:38,530
+there's probably only one element that we're going to be able to select with this statement.
+
+54
+00:03:39,190 --> 00:03:43,960
+So instead of trying to figure out what element we should be rendering into inside of this reusable
+
+55
+00:03:43,960 --> 00:03:48,700
+function, we're going to instead accept this as a configurable property.
+
+56
+00:03:49,760 --> 00:03:53,870
+So we're going to make sure that our config object has a root property, and that's going to be the
+
+57
+00:03:53,870 --> 00:03:56,270
+element that the autocomplete should be rendered into.
+
+58
+00:03:57,300 --> 00:04:02,820
+So in other words, this config object right there, I'm going to expect to have a root element.
+
+59
+00:04:03,600 --> 00:04:05,940
+So I'm going to de structure.
+
+60
+00:04:06,870 --> 00:04:08,610
+Out a property called root like.
+
+61
+00:04:08,610 --> 00:04:12,870
+So make sure you get those curly braces because we are structuring that property out.
+
+62
+00:04:13,750 --> 00:04:18,700
+So now, because this is being provided as an option, the create autocomplete function no longer on
+
+63
+00:04:18,700 --> 00:04:23,290
+its own has to figure out where to render the autocomplete so we can now delete that first statement
+
+64
+00:04:23,290 --> 00:04:23,950
+right there.
+
+65
+00:04:26,330 --> 00:04:27,010
+All right.
+
+66
+00:04:27,020 --> 00:04:32,260
+One or two other quick changes inside of here on lines 12 or 14 or so.
+
+67
+00:04:32,270 --> 00:04:35,900
+We're we've got all those different references to input dropdown and so on.
+
+68
+00:04:36,140 --> 00:04:41,690
+Those are trying to find just some input in the document or some element with the class of dropdown
+
+69
+00:04:41,690 --> 00:04:42,590
+and so on.
+
+70
+00:04:42,770 --> 00:04:44,120
+We don't want that to be the case.
+
+71
+00:04:44,120 --> 00:04:51,110
+Instead, we want to try to find the input, the dropdown and results that are inside of that root element.
+
+72
+00:04:51,110 --> 00:04:56,960
+In other words, that one right there, that input and that results element as well.
+
+73
+00:04:57,200 --> 00:05:01,160
+So to make sure that we get those elements, we can update the query selector right here.
+
+74
+00:05:01,160 --> 00:05:06,740
+Instead of looking at the entire document, we're going to look specifically inside of the root element.
+
+75
+00:05:06,740 --> 00:05:09,650
+So root, root and root.
+
+76
+00:05:12,570 --> 00:05:12,870
+All right.
+
+77
+00:05:12,870 --> 00:05:16,800
+That's probably just about everything we have to do inside of create autocomplete for right now.
+
+78
+00:05:17,190 --> 00:05:22,080
+So now we can go back over to our indexed JS file and we're going to try to call it create autocomplete
+
+79
+00:05:22,080 --> 00:05:23,570
+multiple different times.
+
+80
+00:05:23,580 --> 00:05:24,390
+Every single time.
+
+81
+00:05:24,390 --> 00:05:28,590
+We're going to form up a different configuration object that has a different root element to render
+
+82
+00:05:28,590 --> 00:05:29,730
+the autocomplete into.
+
+83
+00:05:30,610 --> 00:05:37,120
+So back inside of indexes, I'm going to call create autocomplete and I'll pass in my configuration
+
+84
+00:05:37,120 --> 00:05:37,780
+object.
+
+85
+00:05:39,300 --> 00:05:41,350
+This thing is going to have a root element.
+
+86
+00:05:41,370 --> 00:05:46,170
+Let's first go back over to our indexed HTML file and make sure that there are different elements so
+
+87
+00:05:46,170 --> 00:05:48,840
+we can render these separate autocomplete into.
+
+88
+00:05:50,080 --> 00:05:51,940
+Inside of indexed HTML.
+
+89
+00:05:52,710 --> 00:05:55,680
+Right now we've got that one div with the class of autocomplete.
+
+90
+00:05:56,280 --> 00:06:01,410
+I'm going to duplicate that down twice, so I'm going to try to render three different autocomplete
+
+91
+00:06:01,410 --> 00:06:02,550
+into my application.
+
+92
+00:06:02,550 --> 00:06:03,810
+One into that one.
+
+93
+00:06:03,840 --> 00:06:05,430
+That one and that one.
+
+94
+00:06:06,610 --> 00:06:10,720
+I need to make sure that I give them class names just to make sure that they are easier to select.
+
+95
+00:06:11,140 --> 00:06:18,160
+So on the second one, I'll do Autocomplete Dash two and Autocomplete Dash three like so.
+
+96
+00:06:19,060 --> 00:06:21,010
+We'll eventually get some better class names than this.
+
+97
+00:06:21,010 --> 00:06:23,410
+But for right now, that's good enough for testing purposes.
+
+98
+00:06:24,520 --> 00:06:26,980
+So finally, we can go back over to indexes.
+
+99
+00:06:27,010 --> 00:06:30,760
+And I'm going to say that I want to create one instance of an autocomplete widget.
+
+100
+00:06:31,490 --> 00:06:36,620
+At a root element of document query selector dot autocomplete.
+
+101
+00:06:38,340 --> 00:06:40,710
+Then I'm going to duplicate this down twice.
+
+102
+00:06:40,710 --> 00:06:42,030
+So one and two.
+
+103
+00:06:42,830 --> 00:06:46,280
+And I'll change the query selectors for those two other divs that we just added in.
+
+104
+00:06:46,580 --> 00:06:50,990
+So the second one right there is going to get autocomplete dash two.
+
+105
+00:06:51,500 --> 00:06:55,700
+So Autocomplete Dash two and then dash three.
+
+106
+00:06:56,380 --> 00:06:57,370
+And that should be it.
+
+107
+00:06:58,530 --> 00:06:58,740
+Yes.
+
+108
+00:06:58,740 --> 00:06:59,400
+Let's save this.
+
+109
+00:06:59,400 --> 00:07:02,220
+We'll test it and then do a quick wrap up on the changes we made.
+
+110
+00:07:04,060 --> 00:07:07,360
+So go back over refresh and now I see the three different inputs.
+
+111
+00:07:07,600 --> 00:07:10,870
+I'll first go down to the bottom one, I'll search for Avengers.
+
+112
+00:07:11,530 --> 00:07:12,130
+There we go.
+
+113
+00:07:12,130 --> 00:07:15,130
+And I can click it and select it and it gets selected on the screen.
+
+114
+00:07:16,620 --> 00:07:17,970
+Well, then go to the second one.
+
+115
+00:07:18,000 --> 00:07:20,160
+I'll try searching for Dark Knight.
+
+116
+00:07:20,700 --> 00:07:21,030
+Yup.
+
+117
+00:07:21,030 --> 00:07:22,140
+That one works as well.
+
+118
+00:07:22,810 --> 00:07:24,200
+That one gets selected on the screen.
+
+119
+00:07:24,220 --> 00:07:25,900
+Now, why is it getting selected here?
+
+120
+00:07:25,930 --> 00:07:32,080
+Well, remember, right now our create autocomplete function has a reference to just one single element
+
+121
+00:07:32,080 --> 00:07:33,190
+to show the output in.
+
+122
+00:07:33,220 --> 00:07:36,490
+It's that summary right there inside of on Movie Select.
+
+123
+00:07:37,060 --> 00:07:41,890
+So that is the only location right now where we can render some output to whenever a user clicks on
+
+124
+00:07:41,890 --> 00:07:42,520
+an element.
+
+125
+00:07:42,520 --> 00:07:47,320
+And that's why we are seeing essentially the same summary element being overwritten every single time
+
+126
+00:07:47,320 --> 00:07:48,940
+that we click on a movie.
+
+127
+00:07:48,940 --> 00:07:52,080
+So obviously that's something that's definitely going to eventually have to be fixed up.
+
+128
+00:07:52,090 --> 00:07:56,890
+But again, for right now, we were just worried about trying to make sure that we could show the same
+
+129
+00:07:56,890 --> 00:08:01,540
+root element or show the same autocomplete in different root elements.
+
+130
+00:08:02,430 --> 00:08:03,630
+So finally, one more test here.
+
+131
+00:08:03,630 --> 00:08:05,910
+On the first one, I'll look for Avengers.
+
+132
+00:08:06,930 --> 00:08:08,310
+It and that works as well.
+
+133
+00:08:09,230 --> 00:08:09,380
+Okay.
+
+134
+00:08:09,540 --> 00:08:10,370
+So that's pretty much it.
+
+135
+00:08:10,380 --> 00:08:16,500
+We can now clearly show multiple different autocomplete widgets on the screen, whereas before we definitely
+
+136
+00:08:16,500 --> 00:08:18,180
+could only show one at a time.
+
+137
+00:08:19,070 --> 00:08:24,020
+So the big summary here and the process that we're going to start to duplicate again and again in the
+
+138
+00:08:24,020 --> 00:08:26,300
+next couple of videos as we continue this refactor.
+
+139
+00:08:27,200 --> 00:08:31,700
+Is that we are trying to be able to create multiple different auto completes and we're going to centralize
+
+140
+00:08:31,700 --> 00:08:38,120
+all the logic around creating each one inside of index dogs and inside of autocomplete dogs.
+
+141
+00:08:38,150 --> 00:08:42,950
+We're going to have just the logic inside of here that is reusable between different projects.
+
+142
+00:08:43,100 --> 00:08:45,650
+So it will not have any references to movies.
+
+143
+00:08:45,650 --> 00:08:47,900
+It will have no idea what a movie object is.
+
+144
+00:08:47,900 --> 00:08:51,110
+We'll have no idea of the different properties it has and so on.
+
+145
+00:08:52,090 --> 00:08:55,360
+So let's take a pause right here and continue our refactor in the next video.
+

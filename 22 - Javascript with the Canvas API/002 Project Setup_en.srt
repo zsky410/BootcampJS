@@ -1,0 +1,180 @@
+1
+00:00:00,940 --> 00:00:02,940
+All right, let's do a little bit of project setup.
+
+2
+00:00:02,950 --> 00:00:06,010
+I'm inside of a workspace directory of sorts inside of here.
+
+3
+00:00:06,010 --> 00:00:08,710
+I'm going to make a new directory called Maze.
+
+4
+00:00:09,100 --> 00:00:13,210
+I'll then change into that directory and then start up my code editor inside there.
+
+5
+00:00:15,260 --> 00:00:20,240
+Our project set up is going to involve a simple HTML file and a JavaScript file, which is where we're
+
+6
+00:00:20,240 --> 00:00:22,400
+going to write all of our application code.
+
+7
+00:00:22,670 --> 00:00:27,830
+So inside this new project directory, I'll first make a new file called Indexed HTML.
+
+8
+00:00:28,940 --> 00:00:31,100
+And I'll throw a little bit of boilerplate in there.
+
+9
+00:00:31,850 --> 00:00:33,620
+So get my HTML tag.
+
+10
+00:00:35,090 --> 00:00:36,080
+I'll get ahead.
+
+11
+00:00:37,290 --> 00:00:38,370
+And a body.
+
+12
+00:00:40,860 --> 00:00:45,240
+And then a script tag with a source of index dot js.
+
+13
+00:00:46,130 --> 00:00:46,880
+Like so.
+
+14
+00:00:49,350 --> 00:00:52,420
+I'm also going to add in a script tag inside the head element.
+
+15
+00:00:52,440 --> 00:00:57,120
+We're going to use this additional script tag to get access to the matter.
+
+16
+00:00:57,120 --> 00:00:58,140
+JS Library.
+
+17
+00:00:58,500 --> 00:01:02,790
+So I need to make sure that I provide a source right here to the Matter Jar Library to get that, I'm
+
+18
+00:01:02,790 --> 00:01:04,500
+going to go back over to my browser.
+
+19
+00:01:04,890 --> 00:01:08,250
+I'm going to navigate to see an JSP.
+
+20
+00:01:10,310 --> 00:01:13,370
+And then once here I'll search for simply matter.
+
+21
+00:01:13,970 --> 00:01:15,230
+And I should see it matter.
+
+22
+00:01:15,230 --> 00:01:17,720
+Dash jazz as one of the first results.
+
+23
+00:01:18,170 --> 00:01:22,580
+So there's a link to the library, so I can highlight that and copy it.
+
+24
+00:01:24,670 --> 00:01:26,860
+And then put it into the script tag right here.
+
+25
+00:01:30,080 --> 00:01:32,660
+Let's also make sure we create the index case file.
+
+26
+00:01:34,610 --> 00:01:39,020
+They'll do a quick console.log and say hi there once again, as usual, just to make sure that everything
+
+27
+00:01:39,020 --> 00:01:40,490
+is linked up correctly.
+
+28
+00:01:41,420 --> 00:01:42,140
+So that should be it.
+
+29
+00:01:42,170 --> 00:01:45,860
+Now we can go ahead and open up that indexed HTML file.
+
+30
+00:01:46,760 --> 00:01:47,960
+Inside of our browser.
+
+31
+00:01:49,230 --> 00:01:50,820
+So I'll go back over to my browser.
+
+32
+00:01:52,020 --> 00:01:54,270
+Open up the HTML file.
+
+33
+00:01:55,530 --> 00:02:00,900
+Check my console and just make sure that the console log that I added to the indexed HTML file or indexed
+
+34
+00:02:01,230 --> 00:02:02,280
+file is there.
+
+35
+00:02:02,310 --> 00:02:02,700
+Yep.
+
+36
+00:02:02,700 --> 00:02:03,900
+Definitely looks like it is.
+
+37
+00:02:04,520 --> 00:02:04,800
+Okay.
+
+38
+00:02:04,800 --> 00:02:07,300
+So that's all the setup we have to do, believe it or not.
+
+39
+00:02:07,320 --> 00:02:07,650
+Yep.
+
+40
+00:02:07,650 --> 00:02:09,449
+Not a lot of stuff going on in that regard.
+
+41
+00:02:09,449 --> 00:02:11,070
+So let's take a quick pause right here.
+
+42
+00:02:11,070 --> 00:02:15,010
+When we come back, the next video, we're going to start to discuss the matter JS Library.
+
+43
+00:02:15,030 --> 00:02:19,170
+We're going to write out a pretty quick example over the next couple of videos to get a better idea
+
+44
+00:02:19,170 --> 00:02:20,040
+of how it works.
+
+45
+00:02:20,040 --> 00:02:22,590
+And then we'll start to focus on building this maze.
+

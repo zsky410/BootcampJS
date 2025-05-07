@@ -1,0 +1,388 @@
+1
+00:00:00,150 --> 00:00:02,920
+Next up, I'm grouping two array methods together.
+
+2
+00:00:02,940 --> 00:00:05,280
+They were called every and some.
+
+3
+00:00:05,370 --> 00:00:08,189
+So both of these methods are boolean methods.
+
+4
+00:00:08,189 --> 00:00:10,590
+They return true or false at the end of the day.
+
+5
+00:00:10,590 --> 00:00:13,140
+After they run, you get true or false.
+
+6
+00:00:13,560 --> 00:00:18,960
+So every is going to accept a callback which itself needs to be a boolean callback.
+
+7
+00:00:18,960 --> 00:00:20,600
+It returns true or false.
+
+8
+00:00:20,610 --> 00:00:26,580
+It's a test and it runs that function on every or with every element in the array.
+
+9
+00:00:26,850 --> 00:00:33,000
+And if it gets true for every element, then the whole function, the whole method of every returns
+
+10
+00:00:33,000 --> 00:00:33,570
+true.
+
+11
+00:00:34,020 --> 00:00:36,510
+So it's a way of verifying or checking.
+
+12
+00:00:36,510 --> 00:00:43,050
+Does every element in this array have three letters or does every element end with the letter G.
+
+13
+00:00:43,950 --> 00:00:46,260
+So as an example, let's try this out.
+
+14
+00:00:46,260 --> 00:00:47,820
+We have a word array over here.
+
+15
+00:00:47,850 --> 00:00:53,370
+If I wanted to check if every word has a length of three, I would do words dot every.
+
+16
+00:00:53,700 --> 00:00:56,260
+And then I pass in my boolean function.
+
+17
+00:00:56,280 --> 00:01:00,750
+This function, also called the test function, needs to return true or false.
+
+18
+00:01:00,750 --> 00:01:02,460
+So I'll say for every word.
+
+19
+00:01:03,030 --> 00:01:06,510
+Does that word length equal three?
+
+20
+00:01:07,050 --> 00:01:11,730
+And I'll save this to a variable called all three letters or something.
+
+21
+00:01:12,480 --> 00:01:14,610
+Not the most graceful variable name.
+
+22
+00:01:15,030 --> 00:01:16,920
+Let's run it and see what we get.
+
+23
+00:01:17,520 --> 00:01:23,850
+All three lets is true, but as soon as I change one of these to be four letters or two letters and
+
+24
+00:01:23,850 --> 00:01:25,920
+I run it again, it's false.
+
+25
+00:01:25,920 --> 00:01:31,770
+This function has to return true for every single element in order for every to return true.
+
+26
+00:01:32,010 --> 00:01:33,720
+So let's go back to what we had.
+
+27
+00:01:33,990 --> 00:01:38,450
+We could do another test if they all end with the letter G.
+
+28
+00:01:38,460 --> 00:01:45,270
+So that would be words dot every and I'll do this on multiple lines just so that we have some diversity
+
+29
+00:01:45,270 --> 00:01:52,560
+here for every word that will be our parameter, let's calculate the last index so we'll go with last
+
+30
+00:01:53,100 --> 00:01:58,290
+equals and then word length minus one that gives us the last index.
+
+31
+00:01:58,290 --> 00:02:04,080
+Remember, length is always one more than the last index and then we'll use that to return.
+
+32
+00:02:04,770 --> 00:02:09,240
+Word of last triple equals G.
+
+33
+00:02:10,800 --> 00:02:16,170
+So we're getting the last index which for all of these there are only three letters, so the last index
+
+34
+00:02:16,170 --> 00:02:17,220
+will be two.
+
+35
+00:02:17,220 --> 00:02:23,280
+And then we're saying is word of two equal to the letter G and save that to a variable.
+
+36
+00:02:23,640 --> 00:02:33,780
+Let's go with const all g, all end in G and if we check over here, all end in G, it's true.
+
+37
+00:02:33,780 --> 00:02:39,690
+But of course if I change one of them to be backed with a T, it's no longer true.
+
+38
+00:02:40,830 --> 00:02:44,040
+So that's every it takes a boolean function.
+
+39
+00:02:44,040 --> 00:02:46,140
+It runs it on every element in the array.
+
+40
+00:02:46,140 --> 00:02:51,480
+And if it always gets true for the entire array, then every itself returns true.
+
+41
+00:02:51,990 --> 00:02:55,290
+Next we have some some is similar.
+
+42
+00:02:55,290 --> 00:03:01,470
+It does kind of the same process, but it only cares if any of those elements pass the test.
+
+43
+00:03:01,470 --> 00:03:07,950
+So if there's at least one element in the array that passed the test that returned true, then the entire
+
+44
+00:03:07,950 --> 00:03:09,870
+method of sum returns true.
+
+45
+00:03:09,870 --> 00:03:17,280
+So with this example array of words, if I wanted to check if some of the words start with D, it would
+
+46
+00:03:17,280 --> 00:03:24,630
+be words some and then word will do word of zero equals D.
+
+47
+00:03:24,630 --> 00:03:27,420
+So this is a boolean function we pass in.
+
+48
+00:03:27,420 --> 00:03:34,020
+It has to be a true or false returning function and some will call it once per elements and as long
+
+49
+00:03:34,020 --> 00:03:34,920
+as it gets one.
+
+50
+00:03:34,920 --> 00:03:36,870
+True, that's all that matters.
+
+51
+00:03:36,870 --> 00:03:40,470
+Words, not some will return true or the sum method.
+
+52
+00:03:40,470 --> 00:03:41,730
+So we'll go with.
+
+53
+00:03:42,690 --> 00:03:43,590
+Oh, I don't know.
+
+54
+00:03:43,590 --> 00:03:49,440
+These variables are really hard to name const some start with D.
+
+55
+00:03:49,440 --> 00:03:51,870
+That is quite the lengthy name.
+
+56
+00:03:52,410 --> 00:03:53,580
+Let's check it out.
+
+57
+00:03:53,580 --> 00:03:55,160
+Some start with D.
+
+58
+00:03:55,170 --> 00:03:56,760
+Yes, that is true.
+
+59
+00:03:57,060 --> 00:03:59,610
+We have two elements that start with D.
+
+60
+00:03:59,640 --> 00:04:11,400
+If I instead did words dot every word starts with D we'll call this every or all start with D we get
+
+61
+00:04:11,400 --> 00:04:12,210
+false.
+
+62
+00:04:13,320 --> 00:04:17,850
+As you can see here versus some start is true.
+
+63
+00:04:17,880 --> 00:04:23,100
+So the only difference here was some in every sum needs just one element to return.
+
+64
+00:04:23,100 --> 00:04:26,520
+True, every needs all of them to return true.
+
+65
+00:04:26,790 --> 00:04:27,780
+Let's try one more.
+
+66
+00:04:27,780 --> 00:04:30,480
+Every we'll do words dot every.
+
+67
+00:04:30,480 --> 00:04:36,150
+Actually, let's bring our books back and let's try a couple more examples with our good friend, this
+
+68
+00:04:36,150 --> 00:04:37,050
+book array.
+
+69
+00:04:37,320 --> 00:04:47,220
+Let's write some code to check if every book is at least 3.5 stars or 3.5 whatever rating or higher.
+
+70
+00:04:47,880 --> 00:04:52,800
+So we would call books dot every for each book.
+
+71
+00:04:53,100 --> 00:04:58,050
+We want to know if book dot rating is greater than 3.5.
+
+72
+00:04:59,040 --> 00:05:00,930
+And we'll save this to a variable.
+
+73
+00:05:01,110 --> 00:05:03,840
+All good books.
+
+74
+00:05:04,170 --> 00:05:04,950
+Let's take a look.
+
+75
+00:05:04,950 --> 00:05:06,630
+All good books is true.
+
+76
+00:05:06,930 --> 00:05:09,450
+If I instead did 4.5 and higher.
+
+77
+00:05:12,470 --> 00:05:16,490
+That's false because we have plenty of books that are not 4.5 or higher.
+
+78
+00:05:17,630 --> 00:05:20,180
+So let's go back to let's leave it at four.
+
+79
+00:05:20,540 --> 00:05:22,900
+At 3.5, I think all of these books are good.
+
+80
+00:05:22,910 --> 00:05:26,120
+I would feel bad saying that one of them is not good.
+
+81
+00:05:26,390 --> 00:05:30,050
+Some of these older books, Lord of the Flies, people always rate them lower.
+
+82
+00:05:30,290 --> 00:05:34,850
+And let's write one more to see if any of these books have two authors.
+
+83
+00:05:35,150 --> 00:05:36,860
+So that would be KONST.
+
+84
+00:05:37,790 --> 00:05:40,490
+Let's go with any two authors.
+
+85
+00:05:40,880 --> 00:05:41,870
+Equals books.
+
+86
+00:05:41,900 --> 00:05:43,310
+DOT some.
+
+87
+00:05:45,320 --> 00:05:50,210
+Book book authors dot length equals to.
+
+88
+00:05:51,480 --> 00:05:54,540
+So we're passing in our function, the test function.
+
+89
+00:05:54,570 --> 00:05:59,370
+It will return true if a given book has exactly two authors.
+
+90
+00:05:59,910 --> 00:06:05,070
+Author's length is two and we're using some, so we just need one of them to be true.
+
+91
+00:06:05,520 --> 00:06:06,390
+We'll run it.
+
+92
+00:06:06,630 --> 00:06:08,940
+Any two authors is true.
+
+93
+00:06:09,840 --> 00:06:11,040
+So that is some.
+
+94
+00:06:11,040 --> 00:06:12,030
+And every.
+
+95
+00:06:12,060 --> 00:06:15,210
+They follow a similar pattern, but they behave differently.
+
+96
+00:06:15,210 --> 00:06:18,150
+Every needs, every element to pass this test.
+
+97
+00:06:18,150 --> 00:06:20,010
+Some just needs one to pass.
+

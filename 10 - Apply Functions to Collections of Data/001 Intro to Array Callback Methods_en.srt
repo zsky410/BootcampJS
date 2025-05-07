@@ -1,0 +1,140 @@
+1
+00:00:00,120 --> 00:00:05,910
+In the last section, we talked a lot about passing functions as arguments to other functions with the
+
+2
+00:00:05,910 --> 00:00:11,190
+expectation that the outer function will call your argument function, which we call a callback.
+
+3
+00:00:11,190 --> 00:00:15,510
+And I said, I'm showing this to you because callbacks are central to JavaScript.
+
+4
+00:00:15,510 --> 00:00:19,710
+In fact, tons of built in methods expect you to pass a callback function.
+
+5
+00:00:19,710 --> 00:00:24,690
+So in this section we'll see some of those methods, some of the most useful builtin methods that expect
+
+6
+00:00:24,690 --> 00:00:26,460
+you to pass a function in.
+
+7
+00:00:26,700 --> 00:00:28,920
+And these all have to do with arrays.
+
+8
+00:00:29,010 --> 00:00:34,470
+That's not to say there aren't other types of callback methods in JavaScript, but this section is focused
+
+9
+00:00:34,470 --> 00:00:37,710
+on array methods that expect you to pass in a callback.
+
+10
+00:00:38,310 --> 00:00:39,420
+So there's tons of them.
+
+11
+00:00:39,420 --> 00:00:44,670
+We saw a bunch of built in array methods early on, but we didn't cover these because we haven't talked
+
+12
+00:00:44,670 --> 00:00:45,990
+about functions at that point.
+
+13
+00:00:45,990 --> 00:00:47,550
+We didn't know what a callback was.
+
+14
+00:00:47,550 --> 00:00:51,690
+It's a lot to throw at you at the very beginning when you're still wrapping your head around arrays.
+
+15
+00:00:51,690 --> 00:00:58,530
+So we saw things like dot reverse or includes index of these methods we'll see are different.
+
+16
+00:00:58,530 --> 00:00:59,670
+They're quite a bit different.
+
+17
+00:00:59,670 --> 00:01:06,150
+We pass in a function and the general pattern here is that we're going to run a function once per every
+
+18
+00:01:06,150 --> 00:01:08,760
+element in an array, but we'll have different goals.
+
+19
+00:01:08,760 --> 00:01:11,940
+Maybe we want to filter out certain values from an array.
+
+20
+00:01:11,970 --> 00:01:15,420
+Maybe we want to create a new array from an existing array.
+
+21
+00:01:15,450 --> 00:01:20,490
+Maybe we want to check if every single element in an array meets a given condition.
+
+22
+00:01:20,490 --> 00:01:25,650
+What they have in common is that we are trying to run a function once per element in the array.
+
+23
+00:01:25,860 --> 00:01:28,680
+So these functions we're about to see are extremely useful.
+
+24
+00:01:28,680 --> 00:01:34,050
+I know I've said that a million times, but really the methods we'll see here are used all the time,
+
+25
+00:01:34,050 --> 00:01:37,620
+far more often than things like Index of or Reverse.
+
+26
+00:01:37,740 --> 00:01:40,080
+So our goals are pretty straightforward.
+
+27
+00:01:40,080 --> 00:01:46,620
+We want to talk about the built in methods for arrays that require callbacks for each map filter, find,
+
+28
+00:01:46,620 --> 00:01:48,480
+reduce some and every.
+
+29
+00:01:48,690 --> 00:01:54,720
+And our gameplan here is to cover a couple of the easier ones, then take a break to talk about a different
+
+30
+00:01:54,720 --> 00:01:58,200
+function syntax we haven't seen yet called arrow functions.
+
+31
+00:01:58,200 --> 00:02:03,570
+Arrow functions are a new ish way of writing functions that are just shorter, cleaner, easier when
+
+32
+00:02:03,570 --> 00:02:05,880
+you need to pass a function in as an argument.
+
+33
+00:02:05,880 --> 00:02:10,020
+So we'll use them a lot for the rest of these methods that we'll cover.
+
+34
+00:02:10,020 --> 00:02:14,340
+So we'll cover a couple of these arrow functions and then the rest of these methods.
+
+35
+00:02:14,340 --> 00:02:17,100
+So in the next video we'll start off with for each.
+

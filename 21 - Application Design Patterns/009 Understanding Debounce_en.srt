@@ -1,0 +1,264 @@
+1
+00:00:00,750 --> 00:00:05,130
+In the last video, we added in some code to make sure that we only call our search function after the
+
+2
+00:00:05,130 --> 00:00:09,250
+user stops pressing on their key inside that input for about 1/2 or so.
+
+3
+00:00:09,300 --> 00:00:13,080
+This entire process right here is referred to as D bouncing an input.
+
+4
+00:00:13,290 --> 00:00:19,380
+So this is when we are going to wait for some amount of time to pass after this last event before we
+
+5
+00:00:19,380 --> 00:00:20,910
+actually run some function.
+
+6
+00:00:21,450 --> 00:00:26,130
+There's actually many different scenarios in which we might want to d bounce some event inside of a
+
+7
+00:00:26,130 --> 00:00:28,860
+web application, not just for text inputs.
+
+8
+00:00:28,890 --> 00:00:33,570
+So there might be some other scenarios that we want to limit how often we call it in order for performance
+
+9
+00:00:33,570 --> 00:00:34,200
+reasons.
+
+10
+00:00:34,200 --> 00:00:36,810
+Exactly like what we just did for our API.
+
+11
+00:00:37,690 --> 00:00:42,340
+Because of that, I think that it might be useful to think of some way to refactor the code that we
+
+12
+00:00:42,340 --> 00:00:45,070
+just wrote right here and make it more reusable in nature.
+
+13
+00:00:45,370 --> 00:00:49,690
+Because like I just said, it might turn out that we have to balance other things inside of our application
+
+14
+00:00:49,690 --> 00:00:51,160
+at some future point in time.
+
+15
+00:00:51,550 --> 00:00:55,930
+And I don't know about you, but this code right here is kind of hard to read and hard to understand.
+
+16
+00:00:55,930 --> 00:01:01,600
+So it would be nice to make this more reusable and kind of hide the complexity or hide the implementation
+
+17
+00:01:01,600 --> 00:01:03,760
+of the actual bouncing logic.
+
+18
+00:01:04,239 --> 00:01:05,860
+So that's exactly what we're going to do.
+
+19
+00:01:05,890 --> 00:01:10,870
+We're going to refactor this into some more reusable fashion so that we don't have to think about these
+
+20
+00:01:10,870 --> 00:01:14,950
+like really complicated set time out and clear time out calls and whatnot.
+
+21
+00:01:16,500 --> 00:01:20,250
+Now, before we start to write this code, I want to show you a diagram to just help you understand
+
+22
+00:01:20,250 --> 00:01:24,300
+how this refactor is going to work, because it is going to be slightly complicated.
+
+23
+00:01:25,110 --> 00:01:26,400
+So here's what we're going to do.
+
+24
+00:01:26,940 --> 00:01:32,250
+Right now, we are essentially trying to de bounce the on input event or the on input function.
+
+25
+00:01:32,250 --> 00:01:38,190
+We're saying that we don't want to receive any notifications of a change to that input after until after
+
+26
+00:01:38,190 --> 00:01:39,960
+some amount of time occurs.
+
+27
+00:01:40,380 --> 00:01:44,040
+So we kind of want to guard access to the on input function.
+
+28
+00:01:44,490 --> 00:01:49,860
+So to make that happen, we're going to create a new helper function called the D bounce function.
+
+29
+00:01:50,460 --> 00:01:55,860
+This D bounce function is going to be a little bit complicated for exactly one reason.
+
+30
+00:01:56,430 --> 00:02:01,500
+We're going to pass a callback or a function into this D bounce function.
+
+31
+00:02:01,800 --> 00:02:07,140
+The thing that makes it complicated is that the bounce function itself is going to return a function
+
+32
+00:02:07,140 --> 00:02:07,890
+as well.
+
+33
+00:02:08,070 --> 00:02:10,320
+That's what is complicated in my opinion.
+
+34
+00:02:10,320 --> 00:02:14,130
+Maybe that's really easy to understand, but I think it's kind of hard to grasp the very first time
+
+35
+00:02:14,130 --> 00:02:14,790
+you see it.
+
+36
+00:02:15,880 --> 00:02:19,330
+Now, like I said, we're going to pass a function into the bounce function.
+
+37
+00:02:19,330 --> 00:02:23,260
+That is something that is probably not going to be a big shock to you throughout this course.
+
+38
+00:02:23,260 --> 00:02:27,880
+We've seen several times already where we pass callback functions to other functions and heck, we're
+
+39
+00:02:27,880 --> 00:02:28,420
+already doing it.
+
+40
+00:02:28,420 --> 00:02:33,910
+Back over here we are passing a function into add event listener so that on input can be called at some
+
+41
+00:02:33,910 --> 00:02:37,630
+point in time in the future when the user inputs something into our text input.
+
+42
+00:02:38,360 --> 00:02:41,990
+So that part passing a function into another function, not that bad.
+
+43
+00:02:42,020 --> 00:02:47,270
+The only hard part to understand here is understanding that the balance is going to return a new function.
+
+44
+00:02:47,600 --> 00:02:50,780
+So this green box right here represents a new function.
+
+45
+00:02:50,780 --> 00:02:56,540
+It's like a wrapper of sorts that's going to restrict calls to the original on input.
+
+46
+00:02:56,540 --> 00:03:00,710
+So this input input right here is the same function as that one.
+
+47
+00:03:01,490 --> 00:03:05,720
+So again, this green box, it just restricts access to on input.
+
+48
+00:03:06,260 --> 00:03:09,260
+It might be better to visualize this using a slightly different diagram.
+
+49
+00:03:09,710 --> 00:03:14,360
+So in this diagram we still have the green box that represents kind of like a wrapper function of sorts
+
+50
+00:03:14,360 --> 00:03:15,890
+that restricts access.
+
+51
+00:03:15,920 --> 00:03:20,750
+So you can imagine that the green function, this wrapper kind of has like a shield of sorts, and it's
+
+52
+00:03:20,750 --> 00:03:25,430
+going to guard against repetitive, instantaneous calls to on input.
+
+53
+00:03:25,460 --> 00:03:30,050
+So if we start to call on input very quickly several times in a row, the shield is going to step in
+
+54
+00:03:30,050 --> 00:03:31,960
+and say, sorry, you can't get through.
+
+55
+00:03:31,970 --> 00:03:35,420
+You have to wait some amount of time before I'm actually going to execute your call.
+
+56
+00:03:36,400 --> 00:03:40,930
+So we can imagine that maybe 1/2 passes and we end up like down here.
+
+57
+00:03:40,930 --> 00:03:45,970
+And at that point in time, the shield is going to say, okay, you know what, most recent call to
+
+58
+00:03:45,970 --> 00:03:50,830
+on input, I'm going to actually let you through because 1/2 did pass and you were the last person to
+
+59
+00:03:50,830 --> 00:03:51,460
+call this.
+
+60
+00:03:51,460 --> 00:03:52,900
+So I'm going to let you through.
+
+61
+00:03:53,440 --> 00:03:57,640
+So again, we can imagine the green function right here as being like that little shield that's going
+
+62
+00:03:57,640 --> 00:03:59,620
+to deflect all those other calls.
+
+63
+00:04:00,350 --> 00:04:01,260
+So that's the idea.
+
+64
+00:04:01,710 --> 00:04:03,270
+So let's take a quick pause right here.
+
+65
+00:04:03,270 --> 00:04:07,920
+When we come back, the next video, we're going to refactor our code and build out this balance helper
+
+66
+00:04:07,920 --> 00:04:08,610
+function.
+

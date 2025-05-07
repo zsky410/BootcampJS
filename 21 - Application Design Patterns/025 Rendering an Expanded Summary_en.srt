@@ -1,0 +1,480 @@
+1
+00:00:00,520 --> 00:00:04,840
+Like I just mentioned, now that we've got this expanded piece of information about the movie, we're
+
+2
+00:00:04,840 --> 00:00:09,670
+going to start to write out a lot of different HTML to get that kind of structure right there.
+
+3
+00:00:09,820 --> 00:00:13,990
+We're going to end up printing out several different properties about the movie that are not shown inside
+
+4
+00:00:13,990 --> 00:00:14,710
+this mockup.
+
+5
+00:00:14,950 --> 00:00:18,830
+So in reality, we're not going to only show the box office taken critic rating.
+
+6
+00:00:18,850 --> 00:00:24,070
+We're also going to show stuff like the awards that the movie won and the number of votes that it's
+
+7
+00:00:24,070 --> 00:00:27,850
+gotten on IMDB, the rating on IMDB and so on.
+
+8
+00:00:27,850 --> 00:00:31,270
+So a couple of other elements besides what is just pictured inside of here.
+
+9
+00:00:32,290 --> 00:00:37,030
+Now I'm going to tell you right up front that we're going to write out a lot of HTML to get this structure
+
+10
+00:00:37,030 --> 00:00:38,080
+inside this video.
+
+11
+00:00:38,110 --> 00:00:42,970
+All the HTML that we are about to write in, all the class names are essentially taken directly from
+
+12
+00:00:42,970 --> 00:00:44,860
+the Boma CSS framework.
+
+13
+00:00:44,890 --> 00:00:48,330
+Remember, we discussed that this project is using this framework a little bit ago.
+
+14
+00:00:48,340 --> 00:00:53,740
+So essentially I went through, I took a look at all the documentation and I figured out some HTML structure
+
+15
+00:00:53,740 --> 00:00:57,330
+and class names that would give us something that looks like this right here.
+
+16
+00:00:57,340 --> 00:01:01,000
+So I'm not making up all these class names and whatnot off the top of my head.
+
+17
+00:01:01,000 --> 00:01:06,070
+Instead, these are all corresponding to styling sets that are included inside of Boma.
+
+18
+00:01:07,030 --> 00:01:08,200
+So let's go back over.
+
+19
+00:01:09,000 --> 00:01:10,500
+Yours on Movie Select right here.
+
+20
+00:01:10,500 --> 00:01:14,670
+That's where we just got our response with all the information about one particular movie.
+
+21
+00:01:14,670 --> 00:01:19,470
+So we're going to take that object right there, pull off a ton of different properties from it and
+
+22
+00:01:19,470 --> 00:01:21,810
+stick it into some big HTML snippets.
+
+23
+00:01:22,200 --> 00:01:24,360
+This is going to end up being a lot of HTML.
+
+24
+00:01:24,360 --> 00:01:29,040
+So rather than stuffing it all inside of on Movie Select, I'm going to instead make another helper
+
+25
+00:01:29,040 --> 00:01:32,010
+function called Movie Template.
+
+26
+00:01:34,980 --> 00:01:39,360
+I'm going to receive an argument to this function that I will call movie detail.
+
+27
+00:01:39,780 --> 00:01:41,540
+I'm calling it movie detail right here.
+
+28
+00:01:41,550 --> 00:01:48,090
+Just to be clear, that argument is going to be this really big object with all the specific properties
+
+29
+00:01:48,090 --> 00:01:52,410
+of a movie, just to distinguish between the movie object that we had back up here.
+
+30
+00:01:52,410 --> 00:01:54,990
+This movie object right here is more like a movie summary.
+
+31
+00:01:54,990 --> 00:02:00,300
+It just has the title, the poster and like yea and one or two other properties, that's pretty much
+
+32
+00:02:00,300 --> 00:02:00,540
+it.
+
+33
+00:02:00,540 --> 00:02:05,610
+So I just want to have these two different variable names, movie versus movie detail, to indicate
+
+34
+00:02:05,610 --> 00:02:09,750
+that this is just like an abbreviated object of all the different movie properties.
+
+35
+00:02:09,750 --> 00:02:13,590
+This is like the detailed object about all the different movies properties.
+
+36
+00:02:14,540 --> 00:02:18,000
+Then I'm going to Inside of here movie template.
+
+37
+00:02:18,020 --> 00:02:20,450
+I'm going to return a multi-line string.
+
+38
+00:02:20,450 --> 00:02:22,310
+So once again, set it back ticks.
+
+39
+00:02:22,520 --> 00:02:26,330
+And inside there we're going to write out a whole bunch of HTML.
+
+40
+00:02:26,330 --> 00:02:30,500
+And again, this is all about getting that content right there on the screen.
+
+41
+00:02:30,500 --> 00:02:31,490
+So let's get to it.
+
+42
+00:02:31,490 --> 00:02:32,300
+A lot of writing.
+
+43
+00:02:32,480 --> 00:02:34,370
+So we're going to write that out rather quickly.
+
+44
+00:02:34,370 --> 00:02:37,190
+Please triple check your spelling as you're going through this.
+
+45
+00:02:37,730 --> 00:02:40,910
+So I'm going to do an article with a class of media.
+
+46
+00:02:42,560 --> 00:02:43,760
+I'll close off the article.
+
+47
+00:02:44,540 --> 00:02:50,120
+I'll put in a figure with the class of media left close off the figure.
+
+48
+00:02:51,520 --> 00:02:54,760
+I'm going to do a paragraph element with a class of image.
+
+49
+00:02:57,290 --> 00:03:00,740
+And inside there is an image with a Z.
+
+50
+00:03:01,040 --> 00:03:05,210
+I'm going to put in the double quotes because remember, we need those when we are trying to stick some
+
+51
+00:03:05,210 --> 00:03:10,870
+image source inside of this tag and then we're going to get the poster property of the movie detail.
+
+52
+00:03:10,880 --> 00:03:13,610
+So here's that object that we're working with right now.
+
+53
+00:03:13,760 --> 00:03:16,760
+We want that poster property right there with the capital P.
+
+54
+00:03:18,020 --> 00:03:25,160
+So for the sauce I'll do dollar sign, curly braces and then movie detail dot poster with a capital
+
+55
+00:03:25,190 --> 00:03:25,670
+P.
+
+56
+00:03:27,210 --> 00:03:29,370
+Then I'll close off the image tag like so.
+
+57
+00:03:31,360 --> 00:03:31,600
+Okay.
+
+58
+00:03:31,600 --> 00:03:32,830
+So that's the first block.
+
+59
+00:03:33,190 --> 00:03:37,430
+Now we're going to add on something after the closing figure tag.
+
+60
+00:03:37,450 --> 00:03:42,340
+So after the closing figure tag, I'll do a div with the class of media dash content.
+
+61
+00:03:43,420 --> 00:03:45,480
+Was off the div inside there.
+
+62
+00:03:45,490 --> 00:03:51,670
+I'll do a div with the class of content clothes off the div and inside there I'll do an h one.
+
+63
+00:03:53,480 --> 00:03:55,850
+I'm going to reference once again a JavaScript variable.
+
+64
+00:03:55,850 --> 00:03:59,810
+So dollar sign, curly braces, I'll get movie detailed title.
+
+65
+00:03:59,810 --> 00:04:02,500
+So that's going be the title of the movie as usual.
+
+66
+00:04:02,510 --> 00:04:04,340
+Notice the capital T for title.
+
+67
+00:04:06,110 --> 00:04:12,140
+I'll then do an H for and inside their movie detailed genre.
+
+68
+00:04:12,140 --> 00:04:13,550
+So that's going to be the genre of the movie.
+
+69
+00:04:13,550 --> 00:04:18,350
+So is it an action movie, a mystery, horror, suspense, drama, whatever else?
+
+70
+00:04:19,269 --> 00:04:22,200
+And then after the H for a paragraph.
+
+71
+00:04:23,640 --> 00:04:26,610
+With dollar sign curly brace and you want just to be consistent.
+
+72
+00:04:26,610 --> 00:04:29,220
+This really should be on the same or a single line.
+
+73
+00:04:29,550 --> 00:04:33,000
+So dollar sign, curly braces, movie, dot plot.
+
+74
+00:04:33,050 --> 00:04:35,370
+That's going to be a plot summary of the movie.
+
+75
+00:04:36,780 --> 00:04:41,940
+I want to remind you that all these movie detail properties, so poster titles, genre and plot should
+
+76
+00:04:41,940 --> 00:04:44,040
+all have starting capital letters.
+
+77
+00:04:44,760 --> 00:04:46,220
+Let's save this really quickly.
+
+78
+00:04:46,790 --> 00:04:48,970
+We're going to try to call movie template.
+
+79
+00:04:48,980 --> 00:04:53,570
+We're going to pass in our movie detail that we just got back from the API up here and then we're going
+
+80
+00:04:53,570 --> 00:04:55,580
+to append that somewhere into the DOM.
+
+81
+00:04:55,820 --> 00:04:59,070
+So we're essentially just going to test out just that snippet right there.
+
+82
+00:04:59,090 --> 00:05:03,260
+We're not done with all the HTML that we need, but we've got enough that we should just do a very quick
+
+83
+00:05:03,260 --> 00:05:05,720
+test to make sure that we don't have anything too crazy.
+
+84
+00:05:07,160 --> 00:05:07,570
+Okay.
+
+85
+00:05:07,580 --> 00:05:11,780
+So the first thing we need to do is to make sure that we have somewhere to render this template inside
+
+86
+00:05:11,780 --> 00:05:12,560
+of our DOM.
+
+87
+00:05:12,860 --> 00:05:16,010
+So I'm going to go back into my index.html file.
+
+88
+00:05:16,680 --> 00:05:22,950
+Right after my autocomplete element, I'm going to put in a div with an ID of summary.
+
+89
+00:05:24,640 --> 00:05:28,240
+We are going to eventually replace this element, but we're just going to leave it here for now for
+
+90
+00:05:28,240 --> 00:05:29,350
+testing purposes.
+
+91
+00:05:30,580 --> 00:05:34,600
+And then back inside of indexes I will find on movie select.
+
+92
+00:05:35,840 --> 00:05:37,670
+I'm going to delete the console log.
+
+93
+00:05:39,500 --> 00:05:42,110
+I'll do a document query selector.
+
+94
+00:05:43,430 --> 00:05:47,570
+And we're going to do a selector of pound and get that element that we just put in there.
+
+95
+00:05:47,570 --> 00:05:48,290
+Summary.
+
+96
+00:05:51,540 --> 00:05:58,320
+And then I'll say iner, each HTML will be essentially that string right there.
+
+97
+00:05:58,320 --> 00:06:02,010
+So to get that string, we're going to call movie template.
+
+98
+00:06:02,940 --> 00:06:08,850
+And we'll pass in response data, which is that big movie object that we just saw at our console just
+
+99
+00:06:08,850 --> 00:06:09,600
+a moment ago.
+
+100
+00:06:11,130 --> 00:06:12,730
+All right, so let's save this.
+
+101
+00:06:12,750 --> 00:06:15,270
+We'll go back over and just do a quick test.
+
+102
+00:06:15,270 --> 00:06:19,230
+Again, this is just to make sure that we don't have any errors in the HTML that we just wrote out.
+
+103
+00:06:19,860 --> 00:06:25,980
+So I will again go for Avengers, click it and I think I've got a typo somewhere because it says here
+
+104
+00:06:25,980 --> 00:06:27,210
+movie is not defined.
+
+105
+00:06:27,210 --> 00:06:31,110
+So I definitely accidentally wrote out movie instead of Oh yep, right there.
+
+106
+00:06:31,110 --> 00:06:32,070
+My mistake.
+
+107
+00:06:32,160 --> 00:06:34,260
+I put movie instead of movie detail.
+
+108
+00:06:34,290 --> 00:06:34,920
+That's better.
+
+109
+00:06:36,850 --> 00:06:37,990
+It's going to save that.
+
+110
+00:06:38,020 --> 00:06:38,950
+Let's try it again.
+
+111
+00:06:40,450 --> 00:06:40,990
+Avengers.
+
+112
+00:06:40,990 --> 00:06:41,690
+Click it.
+
+113
+00:06:41,710 --> 00:06:42,610
+There we go.
+
+114
+00:06:42,880 --> 00:06:47,020
+All right, so we've got something on the screen and it looks kind of reasonable right now, kind of
+
+115
+00:06:47,020 --> 00:06:50,890
+looks very similar or somewhat similar to what we said we were trying to build right there.
+
+116
+00:06:51,640 --> 00:06:53,020
+So this is good progress.
+
+117
+00:06:53,020 --> 00:06:54,250
+Let's take a quick pause right here.
+
+118
+00:06:54,250 --> 00:06:58,480
+When we come back, the next video, we're going to start to write out another block of HTML to show
+
+119
+00:06:58,480 --> 00:07:01,620
+all the stats about the movie underneath what we have so far.
+
+120
+00:07:01,630 --> 00:07:03,790
+So quick pause and I'll see you in just a minute.
+

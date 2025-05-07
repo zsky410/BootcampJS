@@ -1,0 +1,392 @@
+1
+00:00:00,120 --> 00:00:04,440
+Next up, we'll see a group of properties that I'm struggling to come up with a name for.
+
+2
+00:00:04,470 --> 00:00:09,920
+They're all kind of, I guess you could say traversal or neighbor properties.
+
+3
+00:00:09,930 --> 00:00:16,500
+It's a way of accessing the parent or the children or the nearest sibling of a given element.
+
+4
+00:00:16,500 --> 00:00:21,930
+So it's this group right here, parent element, children, next sibling, previous sibling, they allow
+
+5
+00:00:21,930 --> 00:00:26,100
+you to access other elements based off of the current element that you're working with.
+
+6
+00:00:26,850 --> 00:00:29,250
+So this is actually surprisingly common.
+
+7
+00:00:29,250 --> 00:00:34,230
+You don't do it all the time, but there are situations where, especially when we get to events, when
+
+8
+00:00:34,230 --> 00:00:40,650
+a user might click somewhere and based off of that click, you'll have an element selected and you want
+
+9
+00:00:40,650 --> 00:00:44,670
+to then select some other element based off of this element.
+
+10
+00:00:44,940 --> 00:00:51,780
+If I was making a much a good example here, let's say I was making a checklist and I had checkboxes
+
+11
+00:00:51,780 --> 00:00:59,790
+in here, the click would occur on the checkbox and if I wanted to delete this entire lie, I would
+
+12
+00:00:59,790 --> 00:01:02,310
+need to access the parent of the checkbox.
+
+13
+00:01:02,310 --> 00:01:03,690
+Or if I wanted it.
+
+14
+00:01:03,840 --> 00:01:07,680
+For some reason I wanted to delete this entire form.
+
+15
+00:01:07,680 --> 00:01:11,670
+When I click on Submit, I would need to select from that button.
+
+16
+00:01:11,670 --> 00:01:17,220
+I would need to access the parent or there's plenty of other things we could do where we're accessing
+
+17
+00:01:17,640 --> 00:01:18,870
+the next sibling.
+
+18
+00:01:18,870 --> 00:01:22,280
+So these would be siblings here, so I'll just show you how they work.
+
+19
+00:01:22,290 --> 00:01:24,450
+Let's take a look at any given element.
+
+20
+00:01:24,630 --> 00:01:28,530
+Let's select something that has some siblings and some parents.
+
+21
+00:01:28,530 --> 00:01:32,280
+Let's go for this lie, the very first lie on the page.
+
+22
+00:01:32,280 --> 00:01:39,390
+So document dot or good friend query selector lie and save that to a variable.
+
+23
+00:01:39,390 --> 00:01:41,100
+We'll call it first lie.
+
+24
+00:01:42,030 --> 00:01:51,540
+Okay, so we have first lie and from there if we just inspect it console dear first lie you'll see that
+
+25
+00:01:51,540 --> 00:01:52,590
+we have some properties.
+
+26
+00:01:52,590 --> 00:01:56,550
+The first of which we'll see is called Parent Element Elm.
+
+27
+00:01:56,550 --> 00:01:58,320
+A.P. Here we go.
+
+28
+00:01:58,350 --> 00:02:05,550
+Parent Element is referencing a UL that parent you will we selected this lie right here.
+
+29
+00:02:05,580 --> 00:02:07,560
+The parent is that UL.
+
+30
+00:02:07,650 --> 00:02:10,620
+So this is a connection pointing upwards.
+
+31
+00:02:10,620 --> 00:02:13,350
+This is how we can find the parent from a given element.
+
+32
+00:02:13,350 --> 00:02:14,760
+I don't know why I just closed that.
+
+33
+00:02:14,790 --> 00:02:17,010
+I meant to just hide this, okay?
+
+34
+00:02:17,010 --> 00:02:21,120
+So I could access it by like parent.
+
+35
+00:02:21,400 --> 00:02:24,150
+I still have ally or it's called first lie isn't it.
+
+36
+00:02:24,390 --> 00:02:32,250
+First line dot parent elements and I get that ul and if I hover you can see the dev tools displays the
+
+37
+00:02:32,250 --> 00:02:38,700
+entire UL for me I also could do first like parent element dot parent element again.
+
+38
+00:02:38,700 --> 00:02:42,570
+And what do you think will see the parent of that UL is the body.
+
+39
+00:02:42,930 --> 00:02:44,280
+How about one more time?
+
+40
+00:02:44,280 --> 00:02:48,570
+But if I chain it on again, this time we get XHTML.
+
+41
+00:02:48,810 --> 00:02:55,740
+So we went from this li what was its parent this ul what is this ul nested inside of well, its parent
+
+42
+00:02:55,740 --> 00:03:00,270
+is the entire body and this body is nested inside of the HTML.
+
+43
+00:03:00,960 --> 00:03:05,280
+And if we tried one more time, we get nothing.
+
+44
+00:03:05,280 --> 00:03:08,400
+No, there is no parent of the HTML element.
+
+45
+00:03:08,990 --> 00:03:10,350
+Okay, so that's parent element.
+
+46
+00:03:10,350 --> 00:03:12,150
+You can use that to work backwards.
+
+47
+00:03:12,150 --> 00:03:15,300
+Back up the tree, find out a parent from a given element.
+
+48
+00:03:15,300 --> 00:03:16,920
+We also have the opposite.
+
+49
+00:03:16,920 --> 00:03:18,150
+We have children.
+
+50
+00:03:18,150 --> 00:03:23,760
+So instead of using the lie because our ally doesn't really have any children, as you can see here,
+
+51
+00:03:24,240 --> 00:03:27,510
+it's just text in there which actually will come back to in a moment.
+
+52
+00:03:28,290 --> 00:03:29,760
+We'll go select.
+
+53
+00:03:29,850 --> 00:03:30,240
+Hmm.
+
+54
+00:03:30,300 --> 00:03:32,700
+How about we select the UL?
+
+55
+00:03:32,730 --> 00:03:35,370
+I guess it's kind of boring, but we'll select the UL.
+
+56
+00:03:35,370 --> 00:03:43,680
+So const ul equals document dot query selector of ul.
+
+57
+00:03:43,680 --> 00:03:45,000
+We'll take the first one.
+
+58
+00:03:45,030 --> 00:03:45,570
+Okay.
+
+59
+00:03:45,600 --> 00:03:47,190
+So we have our UL right there.
+
+60
+00:03:47,190 --> 00:03:51,570
+I also could have just done first ll parent, but we have our UL.
+
+61
+00:03:51,930 --> 00:03:55,950
+I'll clear my console if I access UL children.
+
+62
+00:03:57,030 --> 00:04:04,380
+This is another array like object similar to what we get back from our selection methods and it contains
+
+63
+00:04:04,380 --> 00:04:06,300
+the children elements of this.
+
+64
+00:04:06,300 --> 00:04:13,200
+UL so here's the first one there in order of appearance in the DOM so li with the class of special,
+
+65
+00:04:13,200 --> 00:04:17,459
+then just a plain ly and another ly with the class of special.
+
+66
+00:04:17,760 --> 00:04:23,700
+So this is a way of accessing children, going the opposite direction, finding things that are nested
+
+67
+00:04:23,700 --> 00:04:27,930
+inside of a given element instead of what the given element is nested inside of.
+
+68
+00:04:28,680 --> 00:04:33,210
+So our allies don't really have children, but we could access one of them if we did.
+
+69
+00:04:33,240 --> 00:04:41,190
+UL children, if I want the first child I could do of zero and now I'm working with that lie and I could
+
+70
+00:04:41,190 --> 00:04:42,420
+do something to it, right?
+
+71
+00:04:42,420 --> 00:04:44,040
+I could access inner text.
+
+72
+00:04:44,040 --> 00:04:44,730
+Sure.
+
+73
+00:04:45,480 --> 00:04:47,010
+And we get first thing.
+
+74
+00:04:47,400 --> 00:04:52,530
+Now we also have a couple of different options we have next and previous siblings.
+
+75
+00:04:52,920 --> 00:04:55,350
+So what if we select the ally that we have?
+
+76
+00:04:55,350 --> 00:04:58,470
+It's called first lie right there.
+
+77
+00:04:58,470 --> 00:04:59,880
+The very first lie that.
+
+78
+00:04:59,980 --> 00:05:00,730
+Was from earlier.
+
+79
+00:05:00,730 --> 00:05:05,530
+We selected it before the UL if I accessed first like next.
+
+80
+00:05:06,460 --> 00:05:11,740
+Element sibling, we get the next sibling, which is second thing.
+
+81
+00:05:12,280 --> 00:05:17,620
+If I did one more next element sibling, we get this lie down here.
+
+82
+00:05:18,010 --> 00:05:20,760
+So siblings are on the same level.
+
+83
+00:05:20,770 --> 00:05:22,180
+They share a parent.
+
+84
+00:05:22,990 --> 00:05:25,180
+We also have previous sibling.
+
+85
+00:05:25,450 --> 00:05:30,550
+So if I were to save this to a variable, we'll call this concept third lie.
+
+86
+00:05:31,480 --> 00:05:34,630
+So third lie is this lie right here.
+
+87
+00:05:35,620 --> 00:05:38,150
+So you can see when I hover, I could go the other way.
+
+88
+00:05:38,170 --> 00:05:44,530
+Third, like previous element, sibling gives me this lie the one before it.
+
+89
+00:05:44,560 --> 00:05:48,700
+So now we have a way of not only doing parent to get the parent element.
+
+90
+00:05:48,700 --> 00:05:50,620
+We have children to get any children.
+
+91
+00:05:50,620 --> 00:05:54,160
+We have next element sibling and previous element sibling.
+
+92
+00:05:54,160 --> 00:05:59,440
+And with those different properties, we can access whatever we need from a given element.
+
+93
+00:05:59,440 --> 00:06:04,350
+We could work upwards, find multiple siblings away, we could find children, find parents.
+
+94
+00:06:04,360 --> 00:06:10,120
+Usually we don't need to do anything crazy because if we wanted to find within children, if we needed
+
+95
+00:06:10,120 --> 00:06:14,740
+to find something and there was hundreds of children, as we've already seen, we can actually call
+
+96
+00:06:14,740 --> 00:06:18,220
+query selector on an element instead of on the document.
+
+97
+00:06:18,220 --> 00:06:20,770
+So you can continue to search within something.
+
+98
+00:06:20,770 --> 00:06:27,010
+But if you just need the parent or the first child or the next sibling, you can use these nice properties.
+

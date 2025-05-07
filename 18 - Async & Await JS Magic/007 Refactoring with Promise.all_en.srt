@@ -1,0 +1,244 @@
+1
+00:00:00,120 --> 00:00:00,570
+All right.
+
+2
+00:00:00,570 --> 00:00:06,780
+The last thing we'll take a look at is a nice and clean way of what we did here, sending requests in
+
+3
+00:00:06,780 --> 00:00:10,720
+parallel and just waiting until they were all back before we did something.
+
+4
+00:00:10,740 --> 00:00:16,890
+This code down here won't run until we have a resolved value from this first promise, second one and
+
+5
+00:00:16,890 --> 00:00:17,370
+third one.
+
+6
+00:00:17,370 --> 00:00:20,370
+But the requests are still being sent at roughly the same time.
+
+7
+00:00:20,790 --> 00:00:25,590
+So if I don't want to have to type all of this stuff, it's kind of annoying having to make these different
+
+8
+00:00:25,590 --> 00:00:26,460
+variables.
+
+9
+00:00:26,460 --> 00:00:35,220
+What we can do is use a promise helper method called promise with a capital P dot all and promise that
+
+10
+00:00:35,220 --> 00:00:38,400
+all accepts an array of promises.
+
+11
+00:00:38,520 --> 00:00:40,860
+So these are all promises that we get back.
+
+12
+00:00:41,070 --> 00:00:52,410
+So I could just pass those in to promised all prom one, prom two, prom three and then await that I
+
+13
+00:00:52,410 --> 00:00:58,770
+could call this concert results equals await promised all I'll get rid of the original one.
+
+14
+00:00:59,790 --> 00:01:02,550
+Now let's take a look at results afterwards.
+
+15
+00:01:02,550 --> 00:01:09,450
+Console.log results thanks to the magic of async functions and await I can just write it directly beneath
+
+16
+00:01:09,450 --> 00:01:11,520
+even though this may take a while.
+
+17
+00:01:11,760 --> 00:01:17,580
+If my internet sucks, if the internet's not on or if the API is down, I'm not catching the errors.
+
+18
+00:01:17,580 --> 00:01:21,390
+But we could also do that as we've seen earlier, so I wouldn't spend time on that.
+
+19
+00:01:21,630 --> 00:01:24,120
+So this is much cleaner than what we had before.
+
+20
+00:01:24,120 --> 00:01:26,280
+Assuming it works, let's make sure it does.
+
+21
+00:01:26,280 --> 00:01:27,270
+I refresh.
+
+22
+00:01:27,630 --> 00:01:28,920
+This is what we get back.
+
+23
+00:01:29,730 --> 00:01:35,940
+Another array containing three response objects, which is the values that those promises are returned
+
+24
+00:01:35,940 --> 00:01:37,650
+with thanks to Axios.
+
+25
+00:01:37,650 --> 00:01:43,920
+So if I was awaiting something else, I would get whatever the resolved values were in a results array.
+
+26
+00:01:44,490 --> 00:01:46,890
+So this returns a promise itself.
+
+27
+00:01:47,310 --> 00:01:52,770
+This promise is resolved when its own promises in this array are all resolved.
+
+28
+00:01:53,430 --> 00:01:56,610
+Then we're awaiting promised that all to be resolved.
+
+29
+00:01:56,610 --> 00:01:58,110
+Take that resolved value.
+
+30
+00:01:58,110 --> 00:02:00,900
+It's now stored in results and then we move on.
+
+31
+00:02:01,230 --> 00:02:07,700
+As soon as this is done, this code runs, so then we could print out something for each one, you know,
+
+32
+00:02:07,890 --> 00:02:15,150
+how about just make a separate function print pokemon and pass in results?
+
+33
+00:02:17,370 --> 00:02:20,360
+Then I can just define a regular function called print Pokémon.
+
+34
+00:02:20,370 --> 00:02:21,780
+It doesn't need to be async.
+
+35
+00:02:22,680 --> 00:02:24,780
+This will be past results.
+
+36
+00:02:24,930 --> 00:02:34,860
+So in here I would just do four let pokemon of results and we want the data dot.
+
+37
+00:02:34,860 --> 00:02:36,120
+I think it's name.
+
+38
+00:02:36,150 --> 00:02:37,230
+Why don't we just do that.
+
+39
+00:02:37,230 --> 00:02:37,560
+Data.
+
+40
+00:02:37,770 --> 00:02:38,250
+Name.
+
+41
+00:02:38,670 --> 00:02:40,680
+Console.log data.
+
+42
+00:02:41,010 --> 00:02:41,490
+Name.
+
+43
+00:02:42,600 --> 00:02:44,300
+Pokémon data name.
+
+44
+00:02:47,020 --> 00:02:48,250
+Let's test it out.
+
+45
+00:02:48,820 --> 00:02:49,390
+There we go.
+
+46
+00:02:49,420 --> 00:02:49,920
+Bulbasaur.
+
+47
+00:02:49,930 --> 00:02:51,340
+I've saw Venusaur.
+
+48
+00:02:52,030 --> 00:02:55,910
+So not the most useful actual request that we're making.
+
+49
+00:02:55,930 --> 00:03:01,450
+But this is much nicer than what we had before, where we were awaiting each promise individually.
+
+50
+00:03:01,840 --> 00:03:05,080
+A weight from one, a weight prompt to a weight from three.
+
+51
+00:03:05,110 --> 00:03:12,190
+Here we put them in an array and then we can await that entire promise at all and then move on.
+
+52
+00:03:12,550 --> 00:03:16,510
+This code will only run when all of these promises have been resolved.
+
+53
+00:03:17,200 --> 00:03:19,830
+So that's kind of it for async functions.
+
+54
+00:03:19,840 --> 00:03:26,170
+We use async to declare the function as an async function and then we use a weight to await a resolved
+
+55
+00:03:26,170 --> 00:03:28,510
+value within an async function.
+
+56
+00:03:28,510 --> 00:03:34,450
+We can't use a weight outside of an async function only inside, but the combination of the two helps
+
+57
+00:03:34,450 --> 00:03:39,610
+us write code that looks like it is synchronous, but it still is behaving asynchronously.
+
+58
+00:03:39,760 --> 00:03:41,370
+It's just much easier to read.
+
+59
+00:03:41,380 --> 00:03:45,610
+Remember, it's all built on top of promises and it's just syntactic sugar.
+
+60
+00:03:45,610 --> 00:03:51,190
+So we'll get tons of practice later in the project portion of this course, we'll work with Axios and
+
+61
+00:03:51,190 --> 00:03:56,050
+make a lot of requests and write our own async functions and use a inside already.
+

@@ -1,0 +1,224 @@
+1
+00:00:00,950 --> 00:00:02,440
+Our OnStar callback is all done.
+
+2
+00:00:02,450 --> 00:00:04,700
+Let's do the same for authentic and on complete.
+
+3
+00:00:04,939 --> 00:00:10,820
+So inside of Pontiac I'm going to put in a quick console.log and say timer just ticked down.
+
+4
+00:00:12,450 --> 00:00:17,970
+And then inside of on complete I'll do a console.log and say timer is completed.
+
+5
+00:00:19,400 --> 00:00:22,470
+So now we need to receive these inside of our constructor as well.
+
+6
+00:00:22,490 --> 00:00:27,140
+We're going to assign them to an instance variable and eventually invoke them during some very specific
+
+7
+00:00:27,140 --> 00:00:29,360
+point in time of our timer's lifecycle.
+
+8
+00:00:30,080 --> 00:00:34,610
+Well, first, go back up to the constructor once again inside of this callbacks.
+
+9
+00:00:34,610 --> 00:00:35,210
+Check.
+
+10
+00:00:36,570 --> 00:00:41,850
+We'll do this dot on tic will be callbacks on tic.
+
+11
+00:00:42,740 --> 00:00:48,500
+We'll also do this on complete in-store reference to callbacks on complete as well.
+
+12
+00:00:50,300 --> 00:00:50,470
+Okay.
+
+13
+00:00:50,510 --> 00:00:53,120
+So we've now stored a reference to both of those callbacks.
+
+14
+00:00:53,120 --> 00:00:56,540
+So now we need to make sure that we call both them at some very specific points in time.
+
+15
+00:00:57,020 --> 00:01:02,990
+So we would need to take a look at our code and figure out where the most appropriate time is to invoke
+
+16
+00:01:02,990 --> 00:01:04,010
+those callbacks.
+
+17
+00:01:04,450 --> 00:01:08,660
+Well, I think that in the case of on tick where we want to call this thing, every time we tick down
+
+18
+00:01:08,660 --> 00:01:14,300
+our timer, chances are the most appropriate time for that would be like right here inside the case
+
+19
+00:01:14,300 --> 00:01:15,650
+of our tick function.
+
+20
+00:01:16,770 --> 00:01:20,400
+So inside the case, that means that we are going to like tick down the timer.
+
+21
+00:01:20,820 --> 00:01:26,670
+So for that right after subtracting, I'll say if this dot on tick.
+
+22
+00:01:28,510 --> 00:01:32,080
+So if we were given that callback, let's go ahead and call it.
+
+23
+00:01:34,740 --> 00:01:37,570
+So now we can repeat the same process for on complete as well.
+
+24
+00:01:37,590 --> 00:01:40,020
+Where would be the most appropriate time to call this?
+
+25
+00:01:40,170 --> 00:01:42,900
+We want to call that function any time that the timer is done.
+
+26
+00:01:42,900 --> 00:01:45,060
+So in other words, when it has reached zero.
+
+27
+00:01:45,600 --> 00:01:48,060
+So for that, we might go down to tick once again.
+
+28
+00:01:48,240 --> 00:01:54,780
+And right after calling this pause, we could do a quick check, see if this dot on complete was provided
+
+29
+00:01:54,780 --> 00:01:57,900
+and if it was once again, we will call it.
+
+30
+00:02:00,770 --> 00:02:00,980
+Okay.
+
+31
+00:02:01,040 --> 00:02:02,410
+So this is looking pretty good.
+
+32
+00:02:02,420 --> 00:02:03,500
+So let's now save this.
+
+33
+00:02:03,500 --> 00:02:07,640
+We're going to do another quick test inside the browser and we're going to take a look at our console
+
+34
+00:02:07,640 --> 00:02:11,870
+and make sure that these console logs show up at all the appropriate times.
+
+35
+00:02:11,870 --> 00:02:14,930
+So we should see a console log occur when our timer starts.
+
+36
+00:02:15,260 --> 00:02:20,570
+We should see some tick messages as the timer counts down and we should see one on complete when the
+
+37
+00:02:20,570 --> 00:02:21,620
+timer is all done.
+
+38
+00:02:23,040 --> 00:02:23,310
+Yes.
+
+39
+00:02:23,310 --> 00:02:24,240
+I'll go back over.
+
+40
+00:02:25,450 --> 00:02:26,350
+Well, refresh.
+
+41
+00:02:26,530 --> 00:02:28,680
+I'm going to change this down to just 3 seconds again.
+
+42
+00:02:28,690 --> 00:02:31,250
+I'll hit start and I see timer started.
+
+43
+00:02:31,270 --> 00:02:31,990
+Tick down.
+
+44
+00:02:31,990 --> 00:02:32,740
+Tick down.
+
+45
+00:02:32,740 --> 00:02:33,580
+Completed.
+
+46
+00:02:34,690 --> 00:02:35,230
+Excellent.
+
+47
+00:02:35,230 --> 00:02:36,910
+That is exactly what we want.
+
+48
+00:02:37,150 --> 00:02:41,320
+So once again, these little console logs right here, these are proof that we can essentially tell
+
+49
+00:02:41,320 --> 00:02:46,030
+the outside world all the code outside of our class that something important just occurred.
+
+50
+00:02:46,330 --> 00:02:50,830
+And so, again, we're going to eventually take a look at those callbacks and we're going to add in
+
+51
+00:02:50,830 --> 00:02:55,810
+some code to draw the border, to update the border and eventually reset it as well.
+
+52
+00:02:56,700 --> 00:02:59,640
+So that's pretty much it for our timer implementation for right now.
+
+53
+00:02:59,670 --> 00:03:04,380
+We are going to have to come back to this once again in just a little bit and add in one little more
+
+54
+00:03:04,380 --> 00:03:07,140
+piece of code, but we'll get to that in just a little bit.
+
+55
+00:03:07,590 --> 00:03:09,060
+So let's take a quick pause right here.
+
+56
+00:03:09,060 --> 00:03:13,200
+We're going to start working on all this animated border stuff in the next video.
+

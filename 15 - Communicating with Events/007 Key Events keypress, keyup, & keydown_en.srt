@@ -1,0 +1,812 @@
+1
+00:00:00,090 --> 00:00:02,550
+Next up, let's talk more about key events.
+
+2
+00:00:02,640 --> 00:00:05,460
+So I'm going to start by adding in a simple input.
+
+3
+00:00:05,490 --> 00:00:09,840
+So we have something to work with here, something that we can type into.
+
+4
+00:00:10,110 --> 00:00:21,030
+I'll give it an ID of username, give it a placeholder of username, and let's also give it a type of
+
+5
+00:00:21,030 --> 00:00:21,720
+text.
+
+6
+00:00:23,170 --> 00:00:23,740
+Okay.
+
+7
+00:00:25,270 --> 00:00:27,290
+So I've got my input element.
+
+8
+00:00:27,310 --> 00:00:28,270
+Here it is.
+
+9
+00:00:28,270 --> 00:00:30,310
+It's a bit small, but it will work.
+
+10
+00:00:30,580 --> 00:00:36,430
+And we're going to see that there are at least three different options for listening, for a key press
+
+11
+00:00:36,430 --> 00:00:40,270
+or a key down or a key up in this input.
+
+12
+00:00:40,930 --> 00:00:43,120
+So I'm going to select it in my JavaScript.
+
+13
+00:00:43,120 --> 00:00:48,070
+I'll do const input equals document dot query selector.
+
+14
+00:00:49,510 --> 00:00:55,090
+We used an ID of username and then we'll add our first event listener.
+
+15
+00:00:55,090 --> 00:01:04,540
+So input add event listener let's do key down and we will want the event object because that object
+
+16
+00:01:04,540 --> 00:01:08,440
+will contain information about which key in particular was pressed.
+
+17
+00:01:08,440 --> 00:01:13,900
+But why don't we just start by ignoring it and console that logging key down?
+
+18
+00:01:15,100 --> 00:01:21,490
+All right, so let's open up our console, refresh the page, and if I type a key in this input, I'm
+
+19
+00:01:21,490 --> 00:01:22,510
+going to hit P.
+
+20
+00:01:22,810 --> 00:01:23,590
+It fires.
+
+21
+00:01:23,590 --> 00:01:24,460
+We got key down.
+
+22
+00:01:24,460 --> 00:01:29,110
+If I type L, we get key down I what if I hit shift?
+
+23
+00:01:29,470 --> 00:01:33,370
+That's a key down a number is the key down caps lock.
+
+24
+00:01:33,370 --> 00:01:34,450
+That's a key down.
+
+25
+00:01:34,450 --> 00:01:38,110
+You can't tell but I am hitting caps lock tab.
+
+26
+00:01:38,290 --> 00:01:39,640
+That's also key down.
+
+27
+00:01:39,850 --> 00:01:44,770
+So it's not just when we're actually typing some character into the input.
+
+28
+00:01:44,770 --> 00:01:46,120
+It could be the control key.
+
+29
+00:01:46,120 --> 00:01:47,230
+The command key.
+
+30
+00:01:47,230 --> 00:01:49,300
+I'm hitting command over and over and over.
+
+31
+00:01:49,360 --> 00:01:55,600
+Any time I press a key down, it's going to fire and it's firing when the key is pressed down.
+
+32
+00:01:55,600 --> 00:02:04,570
+Originally, if we duplicate this and add a second event listener for key up and save or replace this
+
+33
+00:02:04,570 --> 00:02:06,490
+to console.log key up.
+
+34
+00:02:07,060 --> 00:02:10,060
+I'll refresh, I'll click, I'm going to start typing.
+
+35
+00:02:10,060 --> 00:02:19,240
+So I'll hit the letter P and you can see key down fires first and then key up if I hit space, same
+
+36
+00:02:19,240 --> 00:02:21,490
+thing key down then key up.
+
+37
+00:02:21,490 --> 00:02:24,160
+If I hit the right arrow, same thing.
+
+38
+00:02:24,460 --> 00:02:32,200
+And if I hold the key down continuously like I'm going to hold, how about shift 3 to 1?
+
+39
+00:02:32,200 --> 00:02:33,190
+I'm holding it.
+
+40
+00:02:34,010 --> 00:02:35,930
+And then I'm going to release it.
+
+41
+00:02:36,890 --> 00:02:37,820
+There we go.
+
+42
+00:02:37,850 --> 00:02:43,760
+So key up only occurs when the release actually happens, but it also runs just like key down.
+
+43
+00:02:43,760 --> 00:02:49,670
+It runs for any of the potential keys I could press, whether they actually change the input or not.
+
+44
+00:02:50,030 --> 00:02:54,250
+I could hold command option control, the function key.
+
+45
+00:02:54,260 --> 00:02:58,460
+All of these are going to trigger those events which you may or may not want.
+
+46
+00:02:58,460 --> 00:03:04,730
+So there is a third event that will see input add event listener key press.
+
+47
+00:03:04,760 --> 00:03:08,420
+Key Press actually differs a little bit from browser to browser.
+
+48
+00:03:08,420 --> 00:03:14,240
+If you read the docs anywhere online and check out Mtn's explanation, it explains how it's supposed
+
+49
+00:03:14,240 --> 00:03:14,780
+to work.
+
+50
+00:03:14,780 --> 00:03:20,720
+The idea is that for something to be considered a key press, there needs to be a character showing
+
+51
+00:03:20,720 --> 00:03:23,890
+up in this input or a change like space.
+
+52
+00:03:23,900 --> 00:03:29,660
+I'll refresh the page and just as a fun little demo, it's not fun or a demo, but instead of clicking
+
+53
+00:03:29,660 --> 00:03:34,160
+in if I hit tab to select the input, what do you think will show up over here?
+
+54
+00:03:35,500 --> 00:03:41,860
+Only key up because tab when I'm pressing down on that, it's actually moving me into this input.
+
+55
+00:03:41,860 --> 00:03:43,600
+It's focusing on the key down.
+
+56
+00:03:43,600 --> 00:03:50,140
+So that tab event did not occur or the key down event did not occur on the input, but then it focused
+
+57
+00:03:50,140 --> 00:03:54,280
+and then I released or that's the order that things happen in behind the scenes.
+
+58
+00:03:54,280 --> 00:03:57,340
+So I release the tab key once I'm focused in the input.
+
+59
+00:03:58,090 --> 00:03:59,710
+So back to key press.
+
+60
+00:03:59,710 --> 00:04:03,070
+If I type a key like K, we get key down.
+
+61
+00:04:03,070 --> 00:04:03,700
+Nope, I hid.
+
+62
+00:04:03,700 --> 00:04:05,290
+I accidentally hit M as well.
+
+63
+00:04:05,320 --> 00:04:08,200
+We get down and then press and then up.
+
+64
+00:04:08,410 --> 00:04:12,670
+But if I type something like shift, we only get down and up.
+
+65
+00:04:12,790 --> 00:04:17,800
+If nothing is showing up in that input, we're not considering that a key press.
+
+66
+00:04:18,190 --> 00:04:20,140
+What about a capital letter?
+
+67
+00:04:20,140 --> 00:04:22,180
+So shift and then t.
+
+68
+00:04:24,030 --> 00:04:24,840
+There we go.
+
+69
+00:04:25,640 --> 00:04:28,550
+It's hard to see because I have so much going on.
+
+70
+00:04:28,850 --> 00:04:34,820
+But what's happening is that the key press is only occurring after I hit shift and then t and I get
+
+71
+00:04:34,820 --> 00:04:41,330
+this uppercase T versus the key down and the key up are firing both for shift and for T.
+
+72
+00:04:42,260 --> 00:04:48,200
+So those are three different options for listening to events in an input or on the body.
+
+73
+00:04:48,200 --> 00:04:50,600
+For example, there are three different input events.
+
+74
+00:04:50,600 --> 00:04:51,810
+They are different.
+
+75
+00:04:51,830 --> 00:04:54,320
+Generally, I mean, it depends on what you're doing.
+
+76
+00:04:54,770 --> 00:04:59,930
+If you are making a game, for example, and he wanted to have arrow keys to move something around,
+
+77
+00:04:59,930 --> 00:05:01,160
+you probably would not want.
+
+78
+00:05:01,190 --> 00:05:02,090
+Key press.
+
+79
+00:05:02,180 --> 00:05:05,830
+Key press is not going to give you the the impact that you want.
+
+80
+00:05:05,840 --> 00:05:10,340
+If I click here and I hit the right arrow, I'm not getting key press at all.
+
+81
+00:05:10,910 --> 00:05:12,800
+I'm not changing the input.
+
+82
+00:05:13,580 --> 00:05:19,130
+But if I hit L or some some character that's showing up, that key press event fires.
+
+83
+00:05:19,640 --> 00:05:25,400
+So that's one situation where you may not want a key press, but if you want to know when something
+
+84
+00:05:25,400 --> 00:05:30,620
+is actually changing in the input so you don't care if a user is hitting shift, you don't care if they're
+
+85
+00:05:30,620 --> 00:05:31,720
+hitting return.
+
+86
+00:05:31,730 --> 00:05:34,070
+You want to know what's in the input.
+
+87
+00:05:34,070 --> 00:05:36,260
+You could use key press instead.
+
+88
+00:05:36,440 --> 00:05:42,200
+What's interesting about Key Press interesting might be a stretch, but it's important to note that
+
+89
+00:05:42,200 --> 00:05:45,260
+when you hit return, it actually does count as a key press.
+
+90
+00:05:45,290 --> 00:05:50,000
+I just hit return and we got press over here, even though nothing changed in the input.
+
+91
+00:05:50,330 --> 00:05:57,170
+If I type, clearly that's a key press and if I hit delete, which I'll do right now, that is not considered
+
+92
+00:05:57,170 --> 00:05:58,090
+a key press.
+
+93
+00:05:58,100 --> 00:05:59,810
+That's just a up and down.
+
+94
+00:05:59,810 --> 00:06:02,060
+But return is a press.
+
+95
+00:06:02,420 --> 00:06:03,880
+So why am I showing you this?
+
+96
+00:06:03,890 --> 00:06:10,730
+Well, a lot of the time we want to listen for specifically a return press or an enter key press, meaning
+
+97
+00:06:10,730 --> 00:06:15,500
+that the user has typed something in and they're hitting return to submit or to finish.
+
+98
+00:06:15,680 --> 00:06:21,830
+So if we wanted to make a very simple, I wouldn't even call it an application, but a to do list or
+
+99
+00:06:21,830 --> 00:06:24,830
+something, a shopping list where we have an input.
+
+100
+00:06:25,160 --> 00:06:26,300
+Let's do this down here.
+
+101
+00:06:26,300 --> 00:06:32,030
+We'll add an H three shopping list and then we'll add in a UL that will start empty.
+
+102
+00:06:32,060 --> 00:06:35,350
+We'll give it an ID of items.
+
+103
+00:06:35,360 --> 00:06:36,020
+Sure.
+
+104
+00:06:36,380 --> 00:06:38,540
+And then we'll also add in an input.
+
+105
+00:06:39,350 --> 00:06:47,960
+And it will be type equals, text ID equals, what should we call it, add item and we'll give it a
+
+106
+00:06:47,960 --> 00:06:53,960
+placeholder of enter a food or something.
+
+107
+00:06:54,710 --> 00:06:55,270
+Okay.
+
+108
+00:06:55,580 --> 00:06:58,970
+Now from our app JS, I want to select that input.
+
+109
+00:06:59,360 --> 00:07:06,830
+So I'll do const add item input equals document query selector.
+
+110
+00:07:07,520 --> 00:07:14,960
+We have an ID that we added, I think it was add item and I'll also select that UL while we're here
+
+111
+00:07:14,960 --> 00:07:21,410
+const let's call it items UL equals document query selector.
+
+112
+00:07:21,410 --> 00:07:24,980
+Ah, good friend ID of items.
+
+113
+00:07:25,640 --> 00:07:34,640
+Now I'm going to add an event listener to the add item input and I'll do an add event listener of key
+
+114
+00:07:34,640 --> 00:07:35,480
+press.
+
+115
+00:07:35,570 --> 00:07:42,500
+I want to listen for when a user hits return and when they do hit return, we'll take whatever is in
+
+116
+00:07:42,500 --> 00:07:42,650
+here.
+
+117
+00:07:42,650 --> 00:07:49,520
+Let's say fish, I hit return, I'll clear out the input, I'll grab that information and make a new
+
+118
+00:07:49,520 --> 00:07:53,120
+ly with that data, but only on return.
+
+119
+00:07:53,270 --> 00:07:56,540
+So we could do it for key up or key down as well.
+
+120
+00:07:56,750 --> 00:08:03,170
+But I'm not going to because those fires so much, so much more often, for example, if we have shift
+
+121
+00:08:03,170 --> 00:08:11,900
+t like that, that is two key downs or two key ups versus if I'm using key press, I only get one.
+
+122
+00:08:11,900 --> 00:08:16,970
+You're not seeing it show up here, but I'm only getting a key press event when the capital T shows
+
+123
+00:08:16,970 --> 00:08:17,390
+up.
+
+124
+00:08:18,080 --> 00:08:21,650
+So I'm going to go with key press function.
+
+125
+00:08:21,650 --> 00:08:23,360
+And then this part's very important.
+
+126
+00:08:23,360 --> 00:08:28,070
+We want the event object and we're going to start by just console logging.
+
+127
+00:08:28,070 --> 00:08:29,360
+That event object.
+
+128
+00:08:29,960 --> 00:08:34,850
+That object, as we saw very recently, contains the information about the event.
+
+129
+00:08:35,360 --> 00:08:38,480
+So it should contain the key that was pressed.
+
+130
+00:08:38,510 --> 00:08:39,320
+Here we go.
+
+131
+00:08:39,320 --> 00:08:40,820
+We've got a keyboard event.
+
+132
+00:08:41,390 --> 00:08:45,830
+It has a bunch of stuff, but I prefer to stick with key to keep it simple here.
+
+133
+00:08:46,220 --> 00:08:47,480
+We also have code.
+
+134
+00:08:47,900 --> 00:08:51,590
+That's a bigger topic we don't have to go into now, but let's see what we get.
+
+135
+00:08:51,590 --> 00:08:56,240
+I shouldn't have closed that when I hit enter key is set to enter.
+
+136
+00:08:56,660 --> 00:08:57,070
+Okay.
+
+137
+00:08:57,620 --> 00:09:03,620
+Also key code I believe is 113 and 13 for enter so we could use either of those.
+
+138
+00:09:03,620 --> 00:09:06,740
+This key code is standard across all browsers.
+
+139
+00:09:06,740 --> 00:09:10,700
+I'm pretty sure using key is also standard these days.
+
+140
+00:09:10,700 --> 00:09:15,890
+The way I learned when I was learning this stuff was key code, but it's just so annoying to have to
+
+141
+00:09:15,890 --> 00:09:21,170
+use a number as the key that you're typing compared to a key string.
+
+142
+00:09:21,290 --> 00:09:25,040
+And then in here we can simply check if.
+
+143
+00:09:25,150 --> 00:09:28,630
+Eventbrite key equals enter.
+
+144
+00:09:29,980 --> 00:09:34,480
+If that happens, we'll add a new item to list.
+
+145
+00:09:34,870 --> 00:09:36,730
+Otherwise, we don't need to do anything.
+
+146
+00:09:36,730 --> 00:09:37,930
+We don't want to do anything.
+
+147
+00:09:37,930 --> 00:09:40,660
+We just leave a user alone so they can keep typing.
+
+148
+00:09:41,590 --> 00:09:46,150
+But if they do hit enter, we want to grab the value from that input.
+
+149
+00:09:46,720 --> 00:09:48,640
+So what would be the easiest way to do that?
+
+150
+00:09:48,730 --> 00:09:50,570
+Well, we have the input selected.
+
+151
+00:09:50,590 --> 00:09:56,350
+I could also just say this dot value console.log, this value.
+
+152
+00:09:56,380 --> 00:09:57,550
+Why don't we start there?
+
+153
+00:09:58,990 --> 00:09:59,980
+And see what happens.
+
+154
+00:09:59,980 --> 00:10:01,540
+So I'm gonna start typing in here.
+
+155
+00:10:02,410 --> 00:10:04,360
+I need cat food.
+
+156
+00:10:05,290 --> 00:10:06,610
+I'm going to hit enter.
+
+157
+00:10:07,150 --> 00:10:08,130
+Hey, there we go.
+
+158
+00:10:08,140 --> 00:10:09,790
+We've got cat food showing up.
+
+159
+00:10:10,240 --> 00:10:15,790
+I need to get cat litter, and it shows up over here.
+
+160
+00:10:16,240 --> 00:10:20,710
+So we'll grab that value and save it to a variable cost.
+
+161
+00:10:20,890 --> 00:10:25,570
+New item, text or something equals this value.
+
+162
+00:10:26,170 --> 00:10:33,650
+Then we'll select our items UL, which we've actually already selected and we want to append a new ly.
+
+163
+00:10:33,790 --> 00:10:44,290
+So let's make our new item equals document, create element of an ally, and then we'll set new item.
+
+164
+00:10:44,560 --> 00:10:51,700
+Enter text to be this new item text that we grabbed whoops from this value.
+
+165
+00:10:51,700 --> 00:10:55,750
+So we extract the value and then we create a new ally.
+
+166
+00:10:56,140 --> 00:11:02,080
+We use that value we extracted to set the inner text of that ally, and then we should append it.
+
+167
+00:11:02,080 --> 00:11:08,440
+So we have items ul append or append child of new item.
+
+168
+00:11:09,190 --> 00:11:10,420
+Let's see if it works.
+
+169
+00:11:10,420 --> 00:11:12,340
+So we have a UL down here right now.
+
+170
+00:11:12,340 --> 00:11:15,880
+It's empty, but I'll add something in like chicken breast.
+
+171
+00:11:17,710 --> 00:11:18,800
+There we go.
+
+172
+00:11:18,820 --> 00:11:23,770
+We're missing one thing, which is we're not clearing this input, which is very easy to do.
+
+173
+00:11:23,800 --> 00:11:28,000
+We can just call this dot value equals empty string.
+
+174
+00:11:28,540 --> 00:11:36,480
+The input which is this add item input value where we fetched or retrieved the actual value a user entered.
+
+175
+00:11:36,490 --> 00:11:38,430
+We'll now set it to be empty.
+
+176
+00:11:38,440 --> 00:11:40,450
+So every time I hit enter.
+
+177
+00:11:41,020 --> 00:11:41,650
+Awesome.
+
+178
+00:11:42,250 --> 00:11:45,640
+Very simple example, but this is a really common pattern.
+
+179
+00:11:45,670 --> 00:11:50,830
+Listen for an enter key or some other key and do something based off of that.
+
+180
+00:11:51,160 --> 00:11:52,510
+So that's one example.
+
+181
+00:11:52,660 --> 00:11:53,680
+I'll stop here.
+
+182
+00:11:53,710 --> 00:11:57,670
+Let's just recap the difference again between key up, keep down and key press.
+
+183
+00:11:57,790 --> 00:12:02,380
+Key up and key down are going to fire for any key that you touch at all.
+
+184
+00:12:02,740 --> 00:12:04,690
+One will fire when you press it down.
+
+185
+00:12:04,690 --> 00:12:07,150
+The other one doesn't fire until it's released.
+
+186
+00:12:07,150 --> 00:12:11,110
+But it includes things like shift or arrow keys caps lock.
+
+187
+00:12:11,140 --> 00:12:16,660
+A key press does not the way key press is supposed to work, which is not always the case.
+
+188
+00:12:16,660 --> 00:12:22,120
+Sometimes there's some weirdness across browsers, but the intended use for key press is that it only
+
+189
+00:12:22,120 --> 00:12:29,800
+fires when, in the case of an input, something actually shows up like shift k would be one key press
+
+190
+00:12:29,800 --> 00:12:33,970
+instead of two key downs or two key ups, it would be one key press.
+
+191
+00:12:33,970 --> 00:12:36,280
+An arrow key does not count at all.
+
+192
+00:12:36,790 --> 00:12:42,250
+Something needs to show up here or the user hits enter, which now that I'm looking at this, we should
+
+193
+00:12:42,250 --> 00:12:51,070
+probably add in a quick little check and just return early if this dot value.
+
+194
+00:12:52,060 --> 00:12:56,260
+How about if not this top value return?
+
+195
+00:12:56,260 --> 00:13:02,720
+So instead of checking if this dot value is an empty string, we'll just check if it's true or false,
+
+196
+00:13:02,860 --> 00:13:03,490
+actually.
+
+197
+00:13:03,970 --> 00:13:04,570
+And there we go.
+
+198
+00:13:04,570 --> 00:13:05,350
+Nothing happens.
+
+199
+00:13:05,350 --> 00:13:07,510
+But if I have some stuff, it does work.
+
+200
+00:13:07,510 --> 00:13:11,260
+But if I hit enter and there's no value, we're ignoring it.
+
+201
+00:13:11,260 --> 00:13:12,550
+We return early.
+
+202
+00:13:12,550 --> 00:13:14,410
+We just get out of this entire function.
+
+203
+00:13:14,920 --> 00:13:15,370
+Awesome.
+

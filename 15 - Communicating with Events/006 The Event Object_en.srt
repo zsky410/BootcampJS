@@ -1,0 +1,280 @@
+1
+00:00:00,120 --> 00:00:03,810
+Next up, we need to talk about something called the event object.
+
+2
+00:00:04,380 --> 00:00:09,750
+So when this function is called, let's go with the change color function, it's called when we click
+
+3
+00:00:09,750 --> 00:00:14,870
+on a box or a user clicks on a box, we're never executing change color ourself.
+
+4
+00:00:14,880 --> 00:00:19,560
+It's being called for us and it's actually passed a value.
+
+5
+00:00:19,560 --> 00:00:21,570
+It's past an event object.
+
+6
+00:00:21,570 --> 00:00:26,910
+And this event object sometimes is extremely useful to have access to in our callback, in our event
+
+7
+00:00:26,910 --> 00:00:27,540
+handler.
+
+8
+00:00:27,660 --> 00:00:29,280
+So we have access to it.
+
+9
+00:00:29,280 --> 00:00:31,710
+It's automatically passed every single time.
+
+10
+00:00:31,710 --> 00:00:34,320
+We're just not capturing it and change color.
+
+11
+00:00:34,320 --> 00:00:35,280
+We're ignoring it.
+
+12
+00:00:35,280 --> 00:00:39,870
+But if we were to add in a parameter here, you could call it anything.
+
+13
+00:00:40,050 --> 00:00:45,720
+Usually you'll see e or event or ev t any of them is fine.
+
+14
+00:00:45,720 --> 00:00:47,030
+I'll go with ev t.
+
+15
+00:00:47,310 --> 00:00:49,200
+Why don't we just see what it contains?
+
+16
+00:00:49,200 --> 00:00:53,970
+Console.log ev t I'll refresh my page.
+
+17
+00:00:53,970 --> 00:00:55,440
+We click on one of these.
+
+18
+00:00:56,120 --> 00:01:01,440
+And it's an event object which contains information about the particular event.
+
+19
+00:01:01,460 --> 00:01:03,280
+So it's a mouse event.
+
+20
+00:01:03,290 --> 00:01:10,850
+You can see where it occurred on my screen, the screen X and screen Y, we can see what else we have
+
+21
+00:01:10,850 --> 00:01:12,980
+this property path, which is kind of interesting.
+
+22
+00:01:12,980 --> 00:01:15,260
+It shows everything that we clicked on.
+
+23
+00:01:15,260 --> 00:01:20,840
+Yes, we did click on a div with the class of box, but it was inside of a section with the idea of
+
+24
+00:01:20,840 --> 00:01:26,150
+boxes and that's inside the body, inside the HTML element, inside the document, inside the window.
+
+25
+00:01:26,180 --> 00:01:27,710
+We clicked on all of those.
+
+26
+00:01:29,020 --> 00:01:35,290
+There's things like was the shift key to pressed the timestamp for when it happened after the page loaded
+
+27
+00:01:35,290 --> 00:01:38,880
+all that stuff it contained in this one object.
+
+28
+00:01:38,890 --> 00:01:45,280
+If we instead had a different type of event listener set up, why don't we do a keyboard event, a key
+
+29
+00:01:45,280 --> 00:01:47,140
+press or a key up?
+
+30
+00:01:47,140 --> 00:01:48,250
+A key down?
+
+31
+00:01:48,490 --> 00:01:51,100
+Let's add in a simple input here.
+
+32
+00:01:51,340 --> 00:01:54,010
+Or actually, let's even just do it on the body.
+
+33
+00:01:54,010 --> 00:02:00,850
+So if you type any key while you're on this web page, let's alert the key or do something with it.
+
+34
+00:02:01,210 --> 00:02:05,650
+So I'll select document dot body dot add event listener.
+
+35
+00:02:06,400 --> 00:02:09,259
+And we'll do a key press.
+
+36
+00:02:09,280 --> 00:02:14,810
+We'll talk more about these events, the particular key events and form events in the next video.
+
+37
+00:02:14,830 --> 00:02:17,590
+But I just want to show this function.
+
+38
+00:02:18,340 --> 00:02:19,990
+We'll work with the event object.
+
+39
+00:02:19,990 --> 00:02:20,770
+We'll use it.
+
+40
+00:02:20,770 --> 00:02:22,600
+And why don't we just console.log?
+
+41
+00:02:22,600 --> 00:02:24,370
+The event object.
+
+42
+00:02:24,940 --> 00:02:27,880
+So key press on the body of the document.
+
+43
+00:02:27,880 --> 00:02:30,670
+So anywhere on this page if I type a key.
+
+44
+00:02:31,450 --> 00:02:31,830
+Okay.
+
+45
+00:02:31,840 --> 00:02:33,010
+I just typed the key.
+
+46
+00:02:33,700 --> 00:02:34,570
+I typed another one.
+
+47
+00:02:34,570 --> 00:02:40,480
+And the reason I'm showing this key event is that often we need to know which key has been pressed and
+
+48
+00:02:40,480 --> 00:02:43,450
+that information is contained in the event object.
+
+49
+00:02:43,480 --> 00:02:48,560
+We don't say key press of a or key press of Z key.
+
+50
+00:02:48,580 --> 00:02:50,230
+We just say key press.
+
+51
+00:02:50,380 --> 00:02:54,910
+Any key that is pressed will fire this event and call this function.
+
+52
+00:02:55,030 --> 00:02:57,340
+So if we want to know, was it the enter key?
+
+53
+00:02:57,340 --> 00:03:00,280
+Was it the I don't know, w a SD key?
+
+54
+00:03:00,310 --> 00:03:01,610
+Was it an arrow key?
+
+55
+00:03:01,630 --> 00:03:08,770
+Then we use the event object which is automatically passed in and if we open it this time it is a keyboard
+
+56
+00:03:08,770 --> 00:03:10,510
+event, not a mouse event.
+
+57
+00:03:10,900 --> 00:03:16,720
+And we have a bunch of things like key that is a very important one, if you want to know just the basic
+
+58
+00:03:16,720 --> 00:03:18,050
+key that was pressed.
+
+59
+00:03:18,070 --> 00:03:20,770
+Although it doesn't always work the way you might expect.
+
+60
+00:03:20,800 --> 00:03:27,630
+For example, if I press shift, my event is not firing, but if I instead do shift, ah, it does fire.
+
+61
+00:03:27,640 --> 00:03:29,740
+But we'll save that for the next video.
+
+62
+00:03:29,770 --> 00:03:35,560
+All you should know is that we have access to information about the particular key that was pressed
+
+63
+00:03:35,710 --> 00:03:41,560
+so R or w, p, 0iu and so on.
+
+64
+00:03:41,650 --> 00:03:42,250
+Okay.
+
+65
+00:03:42,280 --> 00:03:46,490
+So the event object is very useful part of working with events.
+
+66
+00:03:46,510 --> 00:03:52,810
+If you need information about the events, whether it's what was clicked on or what key was pressed,
+
+67
+00:03:52,810 --> 00:03:55,270
+what time after the page loaded?
+
+68
+00:03:55,270 --> 00:03:56,800
+Where on the screen?
+
+69
+00:03:56,800 --> 00:03:58,330
+The coordinates, exactly.
+
+70
+00:03:58,720 --> 00:04:02,800
+There's a bunch of different pieces of information you can access using that event object.
+

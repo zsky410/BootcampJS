@@ -1,0 +1,224 @@
+1
+00:00:00,800 --> 00:00:06,380
+Attached to this video, you're going to find a zip file called Timer zero 25 template with template
+
+2
+00:00:06,380 --> 00:00:07,580
+in all capitals.
+
+3
+00:00:08,029 --> 00:00:11,840
+There are probably two different files attached to this lecture, so make sure you get the one with
+
+4
+00:00:11,840 --> 00:00:13,100
+the name template inside.
+
+5
+00:00:13,490 --> 00:00:18,590
+Once you get that file, we're going to unzip it and then take a look at the two files inside.
+
+6
+00:00:18,800 --> 00:00:22,010
+So we've got an indexed HTML file and a style CSS.
+
+7
+00:00:22,130 --> 00:00:28,130
+So all I did here was add in a couple of additional HTML elements, some class names and some CSS just
+
+8
+00:00:28,130 --> 00:00:30,530
+to apply a little bit better styling to our timer.
+
+9
+00:00:31,250 --> 00:00:35,810
+The only reason I'm giving you this is that, well, this really is, of course, about JavaScript.
+
+10
+00:00:35,810 --> 00:00:39,230
+And so for the most part, we're going to skip over a lot of styling stuff.
+
+11
+00:00:39,290 --> 00:00:43,130
+I still want you to have some neat looking apps, though, which is why we're usually going to have
+
+12
+00:00:43,130 --> 00:00:45,590
+some HTML and CSS being provided to you.
+
+13
+00:00:46,440 --> 00:00:49,890
+So to use these files, I'm going to open up my editor.
+
+14
+00:00:51,580 --> 00:00:56,320
+And I'm going to first begin by dragging and dropping the indexed HTML file into my editor.
+
+15
+00:00:56,890 --> 00:00:59,200
+So here's the HTML file that we were just given.
+
+16
+00:00:59,560 --> 00:01:03,910
+I'm going to select everything inside of here with a command or control a depending upon your operating
+
+17
+00:01:03,910 --> 00:01:04,540
+system.
+
+18
+00:01:04,840 --> 00:01:06,070
+I'll copy everything.
+
+19
+00:01:06,220 --> 00:01:09,010
+I'm going to go back over to my indexed HTML.
+
+20
+00:01:09,160 --> 00:01:11,590
+So the one that we've been working on for our project.
+
+21
+00:01:12,130 --> 00:01:16,240
+I'm going to select everything inside of here, delete it and then paste.
+
+22
+00:01:18,340 --> 00:01:21,310
+So now as we look through here, we're going to see just about everything is the same.
+
+23
+00:01:21,310 --> 00:01:26,890
+So we still have an SVG element, we still have a circle, the input, the buttons and all that stuff.
+
+24
+00:01:26,890 --> 00:01:28,690
+Just a slightly different structure.
+
+25
+00:01:31,630 --> 00:01:36,280
+Next up, I'm going to create a new file called Style CSS.
+
+26
+00:01:37,600 --> 00:01:40,420
+I'll go back over to where we have those two files from the zip file.
+
+27
+00:01:40,450 --> 00:01:42,760
+I'll find the style case that we just downloaded.
+
+28
+00:01:42,790 --> 00:01:44,770
+I'm going to drag and drop it into my editor.
+
+29
+00:01:45,010 --> 00:01:51,070
+I'll select everything inside, copy it, and then paste it into the styled CSS file that we just created
+
+30
+00:01:51,070 --> 00:01:51,940
+and save.
+
+31
+00:01:53,690 --> 00:01:54,140
+All right.
+
+32
+00:01:54,140 --> 00:01:57,620
+So now that everything is saved in updated, I'll flip back over to my browser.
+
+33
+00:01:57,650 --> 00:02:00,880
+I'll refresh and we get something that looks like this right here.
+
+34
+00:02:00,890 --> 00:02:05,210
+If I zoom back out to 100%, you'll probably see something that looks like basically that.
+
+35
+00:02:06,130 --> 00:02:08,259
+So now I can click in here to run the timer.
+
+36
+00:02:08,500 --> 00:02:10,720
+It's all the exact same logic that we just had.
+
+37
+00:02:10,720 --> 00:02:11,480
+Nothing changed.
+
+38
+00:02:11,500 --> 00:02:14,860
+All the JavaScript code is identical because, well, we didn't change any of it.
+
+39
+00:02:14,860 --> 00:02:15,340
+Right?
+
+40
+00:02:15,880 --> 00:02:18,120
+And now I can click on that thing.
+
+41
+00:02:18,130 --> 00:02:23,920
+It is the actual text input there, so I can click on it and change it to say 30 seconds and then run
+
+42
+00:02:23,920 --> 00:02:24,490
+it down.
+
+43
+00:02:25,000 --> 00:02:31,510
+I can pause it, change it again to say 60 seconds, run it down, and so on.
+
+44
+00:02:32,610 --> 00:02:33,570
+So that's pretty much it.
+
+45
+00:02:34,820 --> 00:02:38,330
+Now, one thing I want to really highlight is that that really is a text input.
+
+46
+00:02:38,360 --> 00:02:45,680
+The only thing we did was some CSIS was make sure that it doesn't display a border and it also doesn't
+
+47
+00:02:45,680 --> 00:02:47,750
+get highlighted when you actually select it.
+
+48
+00:02:47,780 --> 00:02:50,810
+So if I actually do a little bit of fancy stuff here really quickly.
+
+49
+00:02:51,710 --> 00:02:56,240
+You'll see that there is an outline property being set inside the style CSS file of none.
+
+50
+00:02:56,240 --> 00:02:59,660
+So that's why it doesn't really look like an input, but it technically is.
+
+51
+00:03:00,690 --> 00:03:01,080
+All right.
+
+52
+00:03:01,080 --> 00:03:02,780
+Well, I hope you enjoyed this project.
+
+53
+00:03:02,790 --> 00:03:08,190
+We definitely learned a lot along the way about SVG things, handling set intervals, classes, where
+
+54
+00:03:08,190 --> 00:03:10,320
+to store information and all that kind of stuff.
+
+55
+00:03:10,530 --> 00:03:13,800
+We still have a lot of code to write and a lot of projects to work on, however.
+
+56
+00:03:13,800 --> 00:03:17,940
+So let's take a pause right here and start working on our next project in just a moment.
+

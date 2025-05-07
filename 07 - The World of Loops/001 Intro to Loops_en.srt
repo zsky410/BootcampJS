@@ -1,0 +1,356 @@
+1
+00:00:00,180 --> 00:00:00,600
+All right.
+
+2
+00:00:00,600 --> 00:00:01,380
+Welcome back.
+
+3
+00:00:01,410 --> 00:00:06,810
+So if we break down the topics we've covered into the main sort of core central ideas to JavaScript,
+
+4
+00:00:06,810 --> 00:00:12,250
+we had variables, then we had conditionals, then we did data structures, arrays and objects.
+
+5
+00:00:12,270 --> 00:00:16,830
+Now we have another really key piece to any programming language which is looping.
+
+6
+00:00:17,040 --> 00:00:18,480
+How do we repeat code?
+
+7
+00:00:18,480 --> 00:00:21,420
+And it's not just about repeating console.log.
+
+8
+00:00:21,420 --> 00:00:22,980
+Hello, ten times.
+
+9
+00:00:22,980 --> 00:00:27,870
+There are so many different scenarios where we need logic to run multiple times, where we need a game
+
+10
+00:00:27,870 --> 00:00:33,060
+loop to continue to loop and run code over and over and over until game over is true.
+
+11
+00:00:33,090 --> 00:00:38,250
+Until the user wins, we're going to see a bunch of different types of loops, different ways of repeating
+
+12
+00:00:38,250 --> 00:00:41,010
+functionality or repeating logic in our scripts.
+
+13
+00:00:41,010 --> 00:00:42,930
+So we have a couple main goals here.
+
+14
+00:00:42,930 --> 00:00:44,670
+There are different types of loops.
+
+15
+00:00:44,670 --> 00:00:46,830
+We're going to talk about four main loops.
+
+16
+00:00:46,830 --> 00:00:51,840
+First of all, the for loop, we want to be able to write for loops, understand the syntax, do the
+
+17
+00:00:51,840 --> 00:00:54,120
+same thing with while loops at different type of loop.
+
+18
+00:00:54,120 --> 00:01:00,120
+Along the way we'll talk about infinite loops, a very non desirable outcome from a loop, how they
+
+19
+00:01:00,120 --> 00:01:02,580
+arise, how to avoid them, that sort of thing.
+
+20
+00:01:02,580 --> 00:01:06,120
+And then we'll shift our focus to data structures with loops.
+
+21
+00:01:06,120 --> 00:01:08,850
+So how do we loop over an array or an object?
+
+22
+00:01:08,850 --> 00:01:14,820
+How do we do something once per every item in an array or every value in an object?
+
+23
+00:01:14,820 --> 00:01:17,400
+Those are really, really common use cases as well.
+
+24
+00:01:17,400 --> 00:01:22,560
+So these loops that we're going to write are all about doing things repeatedly, taking some block of
+
+25
+00:01:22,560 --> 00:01:24,870
+code and running it over and over and over.
+
+26
+00:01:24,870 --> 00:01:27,780
+And it's not always the same outcome every single time.
+
+27
+00:01:27,780 --> 00:01:32,310
+It could be like if we were printing Hello ten times, we're always constantly logging.
+
+28
+00:01:32,310 --> 00:01:33,030
+Hello.
+
+29
+00:01:33,030 --> 00:01:35,340
+We would use a loop just to shorten up our code.
+
+30
+00:01:35,340 --> 00:01:41,520
+Instead of having to write ten constant logs, we can write one and have it run ten times, but then
+
+31
+00:01:41,520 --> 00:01:45,630
+other times the outcomes or the iterations of the loop are different.
+
+32
+00:01:45,780 --> 00:01:52,440
+Like if we were going to sum every number in an array, we would need to loop or iterate once for each
+
+33
+00:01:52,440 --> 00:01:57,330
+item in the array and add them into a total or a sum variable.
+
+34
+00:01:57,540 --> 00:02:00,630
+So each time the number we're adding in is different.
+
+35
+00:02:00,630 --> 00:02:02,580
+So it's not just constant logging.
+
+36
+00:02:02,580 --> 00:02:03,690
+Hello, ten times.
+
+37
+00:02:03,690 --> 00:02:06,990
+We're still changing what's happening each time through the loop.
+
+38
+00:02:07,320 --> 00:02:12,570
+So there are multiple loop types for and while I mentioned those already, we'll also see two more,
+
+39
+00:02:12,600 --> 00:02:14,940
+the four of loop and the four in loop.
+
+40
+00:02:14,940 --> 00:02:20,760
+And I'll wrap up with this intro video with a quick example or two examples of where loops are used
+
+41
+00:02:20,760 --> 00:02:23,580
+all over the place on the, on the web, on websites.
+
+42
+00:02:23,580 --> 00:02:26,880
+Here is one of my favorite subreddits artisan videos.
+
+43
+00:02:26,880 --> 00:02:33,750
+It's a very relaxing, non stressful, beautiful subreddit I come to when I'm been in a bad mood.
+
+44
+00:02:34,050 --> 00:02:37,320
+It's just videos of people who are really talented at their work.
+
+45
+00:02:37,320 --> 00:02:40,860
+Woodworkers, carvers, calligraphers.
+
+46
+00:02:41,100 --> 00:02:47,670
+Anyway, if you saw the underlying data structure behind each post here, all the data we see on the
+
+47
+00:02:47,670 --> 00:02:53,700
+page there is an array of posts and each post looks something like this.
+
+48
+00:02:53,700 --> 00:02:56,640
+This is a very simplified version, but we have an array of posts.
+
+49
+00:02:56,640 --> 00:03:02,430
+Each post is an object and each post has a title, a link, a user name of the person who submitted
+
+50
+00:03:02,430 --> 00:03:02,820
+it.
+
+51
+00:03:02,820 --> 00:03:05,190
+There's also the number of upvotes.
+
+52
+00:03:05,190 --> 00:03:10,710
+There is all the comment, information, the date it was posted if it's been guilded or not.
+
+53
+00:03:10,710 --> 00:03:17,940
+So all of that information is contained in one object for each post, and then all of those objects
+
+54
+00:03:17,940 --> 00:03:19,770
+are combined into one large array.
+
+55
+00:03:20,220 --> 00:03:25,950
+There is a loop behind the scenes that is going to iterate over every single post in that array and
+
+56
+00:03:25,950 --> 00:03:27,300
+display it on this web page.
+
+57
+00:03:27,300 --> 00:03:32,610
+Make some HTML content for it, put an image there, put the title here, put the upvotes here.
+
+58
+00:03:32,640 --> 00:03:34,440
+That is all done with a loop.
+
+59
+00:03:34,470 --> 00:03:36,060
+None of it is hardcoded.
+
+60
+00:03:36,060 --> 00:03:39,120
+So if there were ten items to display, that loop would run ten times.
+
+61
+00:03:39,120 --> 00:03:43,020
+If there were 1000 posts in that array, it would run 1000 times.
+
+62
+00:03:43,350 --> 00:03:47,070
+So that's one type of loop where you're iterating over something.
+
+63
+00:03:47,070 --> 00:03:49,170
+You're doing something a set number of times.
+
+64
+00:03:49,800 --> 00:03:52,830
+This is another type of loop where we have a game loop.
+
+65
+00:03:53,010 --> 00:03:55,350
+If you've never seen this game, it's called 2048.
+
+66
+00:03:55,350 --> 00:03:59,940
+I wasted way too much of my high school and college classes playing this game in the back.
+
+67
+00:04:00,330 --> 00:04:01,290
+It's really simple.
+
+68
+00:04:01,290 --> 00:04:07,530
+It doesn't really matter how it works, but you combine powers of two together and they form a new number.
+
+69
+00:04:07,530 --> 00:04:12,060
+So if I combine two and two, I get four, four and four, I get eight, eight and eight, I get 16.
+
+70
+00:04:12,240 --> 00:04:15,090
+Anyways, I can keep playing this game.
+
+71
+00:04:15,090 --> 00:04:17,910
+There's logic that runs every time I hit one of these arrow keys.
+
+72
+00:04:17,910 --> 00:04:20,339
+You can't see that I'm doing it, but you might be able to hear it.
+
+73
+00:04:20,339 --> 00:04:25,800
+Every time I hit an arrow key, something happens on the page, but there's going to be a point where
+
+74
+00:04:25,800 --> 00:04:27,000
+I can't move anymore.
+
+75
+00:04:27,000 --> 00:04:30,450
+And at that point, the main loop of the game is over.
+
+76
+00:04:30,750 --> 00:04:37,530
+So the logic of this loop is something like if there are still playable moves, if the board is not
+
+77
+00:04:37,530 --> 00:04:42,780
+completely jammed up and locked, then let the user keep playing and see what happens.
+
+78
+00:04:42,780 --> 00:04:46,740
+Listen for an event for a key press and you can see I just lost.
+
+79
+00:04:46,920 --> 00:04:49,410
+So at this point that logic is done.
+
+80
+00:04:49,410 --> 00:04:54,840
+That loop had been going and in my case I probably had a couple of hundred turns, a couple of hundred
+
+81
+00:04:54,840 --> 00:04:59,970
+arrow presses, but it's possible you could have a much, much longer game or even a quicker game.
+
+82
+00:05:00,600 --> 00:05:01,290
+I don't know, though.
+
+83
+00:05:01,290 --> 00:05:02,680
+I was just hitting it randomly.
+
+84
+00:05:02,700 --> 00:05:06,840
+It's probably a pretty bad strategy, but I'm sure you could lose the game quicker.
+
+85
+00:05:06,960 --> 00:05:10,710
+So the point here is that we're not looping a set number of times.
+
+86
+00:05:10,710 --> 00:05:14,580
+We're not repeating some code 20 times every single time.
+
+87
+00:05:15,060 --> 00:05:21,210
+Instead, it's dynamic and it's a loop that just continues to run some logic until a condition is met.
+
+88
+00:05:21,330 --> 00:05:23,750
+So we'll see how to do both of these types of loops.
+
+89
+00:05:23,760 --> 00:05:26,430
+We're going to start with the For Loop, which is up next.
+

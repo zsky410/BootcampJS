@@ -1,0 +1,300 @@
+1
+00:00:00,150 --> 00:00:00,910
+Welcome back.
+
+2
+00:00:00,930 --> 00:00:05,700
+We saw the first part of a conditional where we can write if and then a condition and some code will
+
+3
+00:00:05,700 --> 00:00:06,270
+run.
+
+4
+00:00:06,420 --> 00:00:10,440
+Next, we're going to talk about a second component, which is called elseif.
+
+5
+00:00:10,470 --> 00:00:14,160
+You can think of ELSEIF as if the first condition was not true.
+
+6
+00:00:14,190 --> 00:00:16,239
+Maybe this other thing will be true.
+
+7
+00:00:16,260 --> 00:00:21,000
+It will only be attempted if the first part if the if was false.
+
+8
+00:00:21,780 --> 00:00:25,860
+So if we try it out over here, I'm in a new file again.
+
+9
+00:00:25,860 --> 00:00:30,510
+I kept my code from the last section or the last video where we're doing a performance review.
+
+10
+00:00:30,540 --> 00:00:32,330
+Let's say this is our guide.
+
+11
+00:00:32,340 --> 00:00:35,880
+If rating is three, that person is a superstar.
+
+12
+00:00:35,910 --> 00:00:39,480
+If rating is two, they meet expectations.
+
+13
+00:00:39,750 --> 00:00:45,060
+So with what we know right now, without else, if we could just write a second condition if rating
+
+14
+00:00:45,060 --> 00:00:53,040
+equals equals to console.log, meet expectations like that.
+
+15
+00:00:53,040 --> 00:00:54,150
+And this does work.
+
+16
+00:00:54,150 --> 00:00:58,760
+If I make rating two, we'll only see meets expectations.
+
+17
+00:00:58,770 --> 00:01:02,010
+But this is not the same thing as using an else.
+
+18
+00:01:02,010 --> 00:01:08,550
+If if we have two separate ifs, there's certain scenarios where both of them could be true instead
+
+19
+00:01:08,550 --> 00:01:11,120
+of checking if rating is equal to three.
+
+20
+00:01:11,130 --> 00:01:18,330
+What if we said if it is, I don't know, equal to three and then this one was greater than or equal
+
+21
+00:01:18,330 --> 00:01:19,080
+to two?
+
+22
+00:01:20,160 --> 00:01:25,650
+If we change rating to three, both of these will be true and we end up with both of them.
+
+23
+00:01:25,650 --> 00:01:26,400
+Print it out.
+
+24
+00:01:26,430 --> 00:01:32,310
+Now, that's kind of an arbitrary example because in our case, rating is really just 3 to 1 or something
+
+25
+00:01:32,310 --> 00:01:32,910
+else.
+
+26
+00:01:32,910 --> 00:01:36,090
+But the point is, this is a different structure.
+
+27
+00:01:36,090 --> 00:01:37,890
+We have two conditionals.
+
+28
+00:01:38,280 --> 00:01:40,500
+This one runs, if it's true, this code runs.
+
+29
+00:01:40,500 --> 00:01:46,320
+And regardless of whether this one actually worked, if this was true or not, the second one will be
+
+30
+00:01:46,320 --> 00:01:47,130
+attempted.
+
+31
+00:01:47,130 --> 00:01:53,660
+But if we change our structure and we use an else, if only one of them will ever run.
+
+32
+00:01:53,670 --> 00:02:00,810
+So if we add else, if it follows the exact same format where we have our parentheses and a condition,
+
+33
+00:02:00,930 --> 00:02:03,270
+we just add else instead of purely.
+
+34
+00:02:03,270 --> 00:02:04,510
+If so else.
+
+35
+00:02:04,560 --> 00:02:12,810
+If rating equals two, we'll console.log meets expectations.
+
+36
+00:02:15,090 --> 00:02:20,400
+Well save refresh the page and when rating is two this prints out.
+
+37
+00:02:21,030 --> 00:02:22,200
+The first one is attempted.
+
+38
+00:02:22,200 --> 00:02:22,980
+It's false.
+
+39
+00:02:22,980 --> 00:02:24,570
+So we try this one.
+
+40
+00:02:24,750 --> 00:02:25,650
+If that one didn't work.
+
+41
+00:02:25,680 --> 00:02:26,400
+Try this.
+
+42
+00:02:26,400 --> 00:02:30,780
+If this one didn't work, we can add in multiple else ifs.
+
+43
+00:02:31,140 --> 00:02:32,130
+I have a side on it.
+
+44
+00:02:32,310 --> 00:02:34,010
+We can have as many as we want.
+
+45
+00:02:34,020 --> 00:02:36,060
+You probably don't want to have a ton of them.
+
+46
+00:02:36,060 --> 00:02:42,350
+Your code can get pretty long and there might be a better way to refactor or rewrite your massive conditional.
+
+47
+00:02:42,360 --> 00:02:46,200
+But it is valid JavaScript so we could add in the same thing.
+
+48
+00:02:46,200 --> 00:02:51,720
+I'm just going to duplicate this, I'll select it and then shift option down arrow and I'll say if rating
+
+49
+00:02:51,720 --> 00:02:56,970
+is equal to one or else if rating is equal to one needs improvement.
+
+50
+00:02:58,300 --> 00:02:59,140
+Refresh.
+
+51
+00:02:59,170 --> 00:03:00,550
+We get the same result.
+
+52
+00:03:00,550 --> 00:03:02,980
+If rating is one we get.
+
+53
+00:03:03,010 --> 00:03:04,020
+Needs improvement.
+
+54
+00:03:04,030 --> 00:03:05,170
+It attempts this.
+
+55
+00:03:05,170 --> 00:03:06,120
+It's false.
+
+56
+00:03:06,130 --> 00:03:07,040
+It moves on.
+
+57
+00:03:07,060 --> 00:03:08,080
+Maybe this one.
+
+58
+00:03:08,080 --> 00:03:08,920
+That's false.
+
+59
+00:03:08,950 --> 00:03:09,790
+It moves on.
+
+60
+00:03:09,820 --> 00:03:10,770
+How about this one?
+
+61
+00:03:10,780 --> 00:03:13,060
+In our case, it's true when rating is one.
+
+62
+00:03:13,060 --> 00:03:14,710
+So we get this printed out.
+
+63
+00:03:14,710 --> 00:03:21,970
+So else if is another option to try after the first one does not work and elseif is only valid if there
+
+64
+00:03:21,970 --> 00:03:23,560
+is an if before it.
+
+65
+00:03:23,800 --> 00:03:27,190
+Otherwise it doesn't make sense in JavaScript will freak out at you.
+
+66
+00:03:27,220 --> 00:03:29,620
+You can see it's highlighting it for me in V code.
+
+67
+00:03:29,740 --> 00:03:34,390
+It's expecting some sort of conditional to come before it, meaning it wants.
+
+68
+00:03:34,390 --> 00:03:36,790
+If so, they have to be paired.
+
+69
+00:03:36,790 --> 00:03:40,540
+We have our if and then optionally a bunch of else ifs.
+
+70
+00:03:41,110 --> 00:03:42,640
+So that's pretty much it for elseif.
+
+71
+00:03:42,640 --> 00:03:44,020
+It's relatively straightforward.
+
+72
+00:03:44,020 --> 00:03:49,540
+If you understand, if it's a same idea, it's just a second option or a third or fourth or however
+
+73
+00:03:49,540 --> 00:03:52,660
+many you need after the first one, if it was false.
+
+74
+00:03:52,660 --> 00:03:54,190
+We have one more piece of the puzzle.
+
+75
+00:03:54,190 --> 00:03:56,530
+We'll talk about it in the next video else.
+

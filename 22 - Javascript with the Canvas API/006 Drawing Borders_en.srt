@@ -1,0 +1,568 @@
+1
+00:00:00,940 --> 00:00:05,380
+Rather than start working on our maze application right away, I first want to try to recreate this
+
+2
+00:00:05,380 --> 00:00:06,610
+demo very quickly.
+
+3
+00:00:06,730 --> 00:00:10,390
+Making this demo is actually gonna be easier than you might think, and it's going to just get us a
+
+4
+00:00:10,390 --> 00:00:14,560
+little bit more familiar with matter just before we dive off the deep end and start worrying about Maze
+
+5
+00:00:14,560 --> 00:00:17,710
+Generation and a bunch of different crazy topics.
+
+6
+00:00:18,190 --> 00:00:22,240
+So in order to create this demo right here, we're going to create a variety of different shapes.
+
+7
+00:00:22,240 --> 00:00:26,140
+We need to make sure that they can all be clicked on and dragged around with the mouse.
+
+8
+00:00:26,710 --> 00:00:32,110
+We also need to make sure that we show four rectangles along the edges of the canvas as well.
+
+9
+00:00:32,350 --> 00:00:36,400
+So I need one on top, one on the right, one on the bottom and one on the left.
+
+10
+00:00:36,820 --> 00:00:41,440
+The purpose of these different rectangles is to just keep our shapes from flying off to the outside
+
+11
+00:00:41,440 --> 00:00:42,010
+world.
+
+12
+00:00:42,430 --> 00:00:47,860
+If we go back over to our application right now and we turn off the is static right there, so I'm going
+
+13
+00:00:47,860 --> 00:00:49,630
+to comment it out and then refresh.
+
+14
+00:00:49,630 --> 00:00:53,470
+We saw that our shape can very easily just fall off the face of the earth.
+
+15
+00:00:53,470 --> 00:00:58,360
+So in order to keep this thing on the screen, we just have to show some rectangles around the border
+
+16
+00:00:58,390 --> 00:01:00,130
+to make sure that it doesn't fall off.
+
+17
+00:01:01,250 --> 00:01:01,430
+Okay.
+
+18
+00:01:01,520 --> 00:01:02,250
+So that's pretty much it.
+
+19
+00:01:02,270 --> 00:01:07,010
+We're going to make sure that we can show a rectangle on the top, right, bottom and left.
+
+20
+00:01:08,420 --> 00:01:11,570
+So to do so, I'm going to go back over to my index case file.
+
+21
+00:01:11,810 --> 00:01:15,560
+I'm going to find where I'm creating a rectangle right now, and I'm going to delete it.
+
+22
+00:01:16,040 --> 00:01:19,790
+And then I will replace that with a comment that says simply Walls.
+
+23
+00:01:20,270 --> 00:01:24,620
+As we start writing matter G's code, we're going to be creating a variety of different shapes inside
+
+24
+00:01:24,620 --> 00:01:27,650
+of our index file over and over again.
+
+25
+00:01:27,680 --> 00:01:32,750
+And so it's usually very good practice to add in some comments to describe the bunch of shapes we're
+
+26
+00:01:32,750 --> 00:01:37,010
+about to add right here, because otherwise it's going to be kind of challenging to remember exactly
+
+27
+00:01:37,010 --> 00:01:38,990
+what code creates, what shapes.
+
+28
+00:01:40,190 --> 00:01:43,580
+So then I'm going to create an array called walls like so.
+
+29
+00:01:43,970 --> 00:01:47,450
+And inside of here, I'm going to create the four different rectangles that we need.
+
+30
+00:01:47,870 --> 00:01:52,970
+I'm going to first start with the top rectangle, so I'll call bodies dot rectangle.
+
+31
+00:01:54,570 --> 00:02:00,360
+Remember that the first two arguments are the x and Y coordinates of the center of the rectangle, and
+
+32
+00:02:00,360 --> 00:02:03,480
+the third and fourth are the width and height of the rectangle.
+
+33
+00:02:04,140 --> 00:02:08,070
+For this very first one, let's take a look at a diagram and just make sure that it's really clear what
+
+34
+00:02:08,100 --> 00:02:09,690
+numbers we're going to put in here.
+
+35
+00:02:10,750 --> 00:02:11,020
+Yes.
+
+36
+00:02:11,020 --> 00:02:15,150
+The rectangle you see right here represents our canvas, as we saw just a moment ago.
+
+37
+00:02:15,160 --> 00:02:18,130
+Our canvas is 800 units wide.
+
+38
+00:02:19,810 --> 00:02:24,280
+The rectangle that we want to show is essentially going to be like this right here.
+
+39
+00:02:25,800 --> 00:02:31,050
+Notice that the rectangle is not completely inside of our canvas, and that's totally okay.
+
+40
+00:02:31,080 --> 00:02:34,980
+That is actually what is going on on the demonstration back over here.
+
+41
+00:02:35,190 --> 00:02:38,670
+We can see that this rectangle is actually only halfway on the screen.
+
+42
+00:02:38,670 --> 00:02:43,020
+And that's evident because that little red line right there, the red line is essentially at the center
+
+43
+00:02:43,020 --> 00:02:44,220
+point of the rectangle.
+
+44
+00:02:44,550 --> 00:02:46,840
+So the rectangle doesn't have to be all the way on the canvas.
+
+45
+00:02:46,860 --> 00:02:48,570
+It can be half on, half off.
+
+46
+00:02:48,570 --> 00:02:52,530
+And that's what we're going to do as well, just to make our code a little bit easier to understand.
+
+47
+00:02:53,420 --> 00:02:57,380
+So we need to first provide the x y coordinate of the center of this rectangle.
+
+48
+00:02:57,380 --> 00:03:01,070
+So the center will be approximately right there or so.
+
+49
+00:03:01,820 --> 00:03:08,420
+So that's going to be 400 units over and it's going to be zero units down.
+
+50
+00:03:08,420 --> 00:03:10,430
+So a Y of essentially zero.
+
+51
+00:03:11,610 --> 00:03:18,090
+Then in total this thing is going to be 800 units wide and its height, well, the height doesn't really
+
+52
+00:03:18,090 --> 00:03:19,020
+make a big difference.
+
+53
+00:03:19,020 --> 00:03:21,690
+We just need to make sure that we have some kind of rectangle there.
+
+54
+00:03:22,080 --> 00:03:26,430
+We might use a height of like 40 or so, but really it's totally up to us.
+
+55
+00:03:26,430 --> 00:03:29,850
+We can have any height whatsoever so long as it has a defined height.
+
+56
+00:03:29,850 --> 00:03:31,020
+It just can't be zero.
+
+57
+00:03:32,070 --> 00:03:32,190
+Okay.
+
+58
+00:03:32,370 --> 00:03:34,740
+So let's now take those values.
+
+59
+00:03:35,800 --> 00:03:36,940
+Back over to our editor.
+
+60
+00:03:38,790 --> 00:03:39,810
+So back over here.
+
+61
+00:03:39,810 --> 00:03:42,000
+I'm going to do a 400.
+
+62
+00:03:42,270 --> 00:03:50,340
+So that's 400 units over zero units down 800 units wide and 40 units tall.
+
+63
+00:03:50,970 --> 00:03:55,860
+And then I'll put on the options object, which is static is true.
+
+64
+00:03:57,410 --> 00:04:01,340
+And then after that, I'm going to make sure that I add this wals array to my world.
+
+65
+00:04:01,580 --> 00:04:07,970
+So just a second ago we saw that we could call world add with lowercase world and then whatever our
+
+66
+00:04:07,970 --> 00:04:08,690
+rectangle was.
+
+67
+00:04:08,690 --> 00:04:11,780
+So like bodies, dot rectangle or whatever.
+
+68
+00:04:12,290 --> 00:04:17,810
+So we can pass either a single shape in to the world add method, or alternatively we could pass in
+
+69
+00:04:17,810 --> 00:04:19,450
+an array of shapes as well.
+
+70
+00:04:19,459 --> 00:04:21,870
+And that's why I created this as a walls array.
+
+71
+00:04:21,890 --> 00:04:25,880
+So I'm going to pass all these different walls that we're going to create in at once.
+
+72
+00:04:27,150 --> 00:04:28,180
+So I'm going to save that.
+
+73
+00:04:30,490 --> 00:04:31,420
+Go back over.
+
+74
+00:04:32,820 --> 00:04:33,630
+Refresh.
+
+75
+00:04:34,420 --> 00:04:36,640
+And now I can see the top wall on there.
+
+76
+00:04:36,850 --> 00:04:38,230
+Okay, so that's a good start.
+
+77
+00:04:38,650 --> 00:04:42,490
+So now we can repeat that same process for the three other walls as well.
+
+78
+00:04:43,370 --> 00:04:46,660
+Only just very quickly draw out what the next two or three are going to be.
+
+79
+00:04:46,670 --> 00:04:51,890
+So for the next one, let me just do a little bit of erasing here just to make sure things are nice
+
+80
+00:04:51,890 --> 00:04:56,570
+and crystal clear, easy to read so we can do the bottom one next.
+
+81
+00:04:57,910 --> 00:04:59,650
+So once again, this is going to be.
+
+82
+00:05:00,480 --> 00:05:01,830
+400 units over.
+
+83
+00:05:02,590 --> 00:05:03,910
+It's going to be.
+
+84
+00:05:04,670 --> 00:05:10,790
+Now 600 units down because remember, our overall canvas is a 100 by 600.
+
+85
+00:05:12,060 --> 00:05:16,380
+It will be 800 wide and once again, we can use 40 tall.
+
+86
+00:05:18,170 --> 00:05:20,270
+So I'm going to call.
+
+87
+00:05:22,340 --> 00:05:24,170
+Body is not rectangle again.
+
+88
+00:05:25,920 --> 00:05:28,590
+We're going to be 400 units over this time.
+
+89
+00:05:28,590 --> 00:05:30,660
+We're going to be 600 units down.
+
+90
+00:05:32,170 --> 00:05:35,410
+We're going to be 800 units wide and 40 tall.
+
+91
+00:05:36,390 --> 00:05:37,470
+Then is static.
+
+92
+00:05:38,340 --> 00:05:39,000
+It's true.
+
+93
+00:05:40,160 --> 00:05:43,760
+So once again, save, refresh, and now I can see the bottom border.
+
+94
+00:05:44,390 --> 00:05:46,760
+Kate, let's get through the last to here really quickly.
+
+95
+00:05:48,070 --> 00:05:49,210
+So I think you get the idea now.
+
+96
+00:05:49,210 --> 00:05:54,160
+But honestly, we're going to have to do all this dimensional stuff so often for this application that
+
+97
+00:05:54,160 --> 00:05:57,940
+it's kind of worth just putting in a little bit of time from the get go to make sure that these different
+
+98
+00:05:57,940 --> 00:05:59,140
+values are really clear.
+
+99
+00:05:59,620 --> 00:06:01,510
+So let's now do our left barrier.
+
+100
+00:06:01,510 --> 00:06:03,220
+So this one will be slightly different.
+
+101
+00:06:03,610 --> 00:06:06,820
+So again, we are 800 by 600 overall.
+
+102
+00:06:07,510 --> 00:06:09,100
+So we're now going to go down.
+
+103
+00:06:10,120 --> 00:06:11,230
+300 units.
+
+104
+00:06:11,560 --> 00:06:13,960
+We're going to go over zero.
+
+105
+00:06:14,970 --> 00:06:20,070
+This thing is going to be 40 units wide now and 600 units tall.
+
+106
+00:06:20,940 --> 00:06:23,520
+And then something very similar for the right hand side.
+
+107
+00:06:26,980 --> 00:06:27,970
+We're going to be.
+
+108
+00:06:29,940 --> 00:06:30,990
+Throwdown.
+
+109
+00:06:34,040 --> 00:06:36,590
+You're going to be 800 over.
+
+110
+00:06:36,590 --> 00:06:38,240
+So 800 to the right.
+
+111
+00:06:39,550 --> 00:06:41,380
+We'll have 600 tall.
+
+112
+00:06:42,310 --> 00:06:44,110
+And 40 wide.
+
+113
+00:06:45,490 --> 00:06:45,700
+Yes.
+
+114
+00:06:45,700 --> 00:06:46,810
+Let's do both of those.
+
+115
+00:06:48,770 --> 00:06:50,480
+Ortiz Dots rectangle.
+
+116
+00:06:51,730 --> 00:06:53,520
+So we'll do the left hand side first.
+
+117
+00:06:53,530 --> 00:06:57,850
+So this one is going to be zero over 300 down.
+
+118
+00:06:59,710 --> 00:07:02,380
+40 wide, 600 tall.
+
+119
+00:07:05,570 --> 00:07:07,340
+And then finally the right hand side.
+
+120
+00:07:10,010 --> 00:07:12,200
+So we'll do 800 over.
+
+121
+00:07:13,570 --> 00:07:14,530
+300 down.
+
+122
+00:07:16,120 --> 00:07:18,640
+40 wide, 600 tall.
+
+123
+00:07:20,690 --> 00:07:22,040
+And I'll get the static.
+
+124
+00:07:22,040 --> 00:07:23,030
+True as well.
+
+125
+00:07:24,230 --> 00:07:24,500
+Okay.
+
+126
+00:07:24,500 --> 00:07:25,190
+So let's save that.
+
+127
+00:07:25,190 --> 00:07:26,420
+Hopefully I didn't make any mistakes.
+
+128
+00:07:26,420 --> 00:07:30,980
+If I did, we'll do a little bit of troubleshooting very quickly, but I'll refresh and okay, it actually
+
+129
+00:07:30,980 --> 00:07:31,850
+all was correct.
+
+130
+00:07:31,850 --> 00:07:34,400
+So I've got top, bottom, left and right.
+
+131
+00:07:34,910 --> 00:07:37,310
+So now if we go back over once again.
+
+132
+00:07:37,990 --> 00:07:42,390
+And I add in one last rectangle, like the same kind of plain rectangle that we had before.
+
+133
+00:07:42,400 --> 00:07:46,480
+And this time, rather than assigning it to a variable, I'll just add it into the world directly.
+
+134
+00:07:46,630 --> 00:07:51,490
+So I'll do a world ad with the world bodies dot rectangle.
+
+135
+00:07:54,000 --> 00:07:58,050
+And this time I'll do 202 hundred 5050.
+
+136
+00:07:59,510 --> 00:08:03,620
+Save this refresh, and now our rectangle falls down.
+
+137
+00:08:03,620 --> 00:08:06,050
+But it hits that other one and it just stops right there.
+
+138
+00:08:06,750 --> 00:08:08,150
+Okay, so that's definitely a good start.
+
+139
+00:08:08,420 --> 00:08:09,620
+So let's take a pause right here.
+
+140
+00:08:09,630 --> 00:08:13,760
+When we come back, the next video, we're going to throw in a ton of other shapes and we'll make sure
+
+141
+00:08:13,760 --> 00:08:15,720
+that we can drag them all around with our mouse.
+
+142
+00:08:15,740 --> 00:08:17,990
+So a quick pause and I'll see you in just a minute.
+

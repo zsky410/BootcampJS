@@ -1,0 +1,488 @@
+1
+00:00:00,180 --> 00:00:05,400
+So the first of these new features we'll see has to do with adding default function parameter values.
+
+2
+00:00:05,790 --> 00:00:07,200
+So we could do this in the past.
+
+3
+00:00:07,200 --> 00:00:10,680
+We just now have a newer, more compact syntax to do it.
+
+4
+00:00:11,370 --> 00:00:12,420
+Here's what I'm talking about.
+
+5
+00:00:12,420 --> 00:00:15,180
+If we have a function, make sure I'm in the right window.
+
+6
+00:00:15,210 --> 00:00:17,040
+We'll just go with our standard.
+
+7
+00:00:17,040 --> 00:00:20,130
+Multiply two parameters x and Y.
+
+8
+00:00:20,160 --> 00:00:22,410
+We return x times Y.
+
+9
+00:00:23,010 --> 00:00:25,890
+Right now, if we call it with two parameters, it works great.
+
+10
+00:00:25,980 --> 00:00:31,680
+Actually, these are arguments we're passing in to arguments, but if we leave one off, we get not
+
+11
+00:00:31,680 --> 00:00:32,280
+a number.
+
+12
+00:00:32,280 --> 00:00:36,730
+And that's because y is set to undefined when we don't specify a value.
+
+13
+00:00:36,750 --> 00:00:42,930
+So if we wanted to have a default value for Y, if a user or another function call or a developer does
+
+14
+00:00:42,930 --> 00:00:46,650
+not pass in a second argument, we want a default value.
+
+15
+00:00:46,680 --> 00:00:48,900
+We could in the past do it this way.
+
+16
+00:00:48,900 --> 00:00:54,780
+We would manually check if type of y equals undefined.
+
+17
+00:00:54,990 --> 00:01:00,650
+And if you don't remember how type of works, it does not return the actual value of undefined.
+
+18
+00:01:00,660 --> 00:01:03,200
+It returns a string containing the type.
+
+19
+00:01:03,210 --> 00:01:07,850
+So if I declare a variable w, the value of w is undefined.
+
+20
+00:01:07,860 --> 00:01:12,720
+If I do type of w, I get the string undefined.
+
+21
+00:01:12,720 --> 00:01:19,440
+So I see people do this sometimes and this won't work because you're always going to get a string back
+
+22
+00:01:19,440 --> 00:01:20,640
+from type of.
+
+23
+00:01:20,670 --> 00:01:22,650
+So we need to make this a string.
+
+24
+00:01:23,160 --> 00:01:27,000
+So if type of y is undefined, then we'll say y equals one.
+
+25
+00:01:27,780 --> 00:01:29,850
+And this is the older way of doing it.
+
+26
+00:01:30,240 --> 00:01:34,800
+If we call multiply a four now we're multiplying four times one and we get four.
+
+27
+00:01:34,800 --> 00:01:39,630
+But if we pass in a value for Y, we get 12 in this case.
+
+28
+00:01:39,630 --> 00:01:42,840
+So this is only happening if there is no Y.
+
+29
+00:01:42,880 --> 00:01:48,660
+There's a shorter way of doing this manual check before we get to the newer way, the newer feature,
+
+30
+00:01:48,810 --> 00:01:59,370
+you could use a ternary operator where you set Y equal to and then we have our condition type of y equals
+
+31
+00:01:59,370 --> 00:02:01,740
+the string undefined question mark.
+
+32
+00:02:01,800 --> 00:02:05,460
+If this is true, we'll set y to be one.
+
+33
+00:02:05,490 --> 00:02:07,800
+Otherwise Y stays as y.
+
+34
+00:02:08,639 --> 00:02:12,510
+So if you pass in a value like five for y, this is false.
+
+35
+00:02:12,690 --> 00:02:14,190
+So this doesn't run.
+
+36
+00:02:14,310 --> 00:02:17,790
+This is what we end up setting y equal to y equals y.
+
+37
+00:02:17,820 --> 00:02:21,300
+If you don't pass something in and it's undefined, this is true.
+
+38
+00:02:21,300 --> 00:02:24,150
+So we end up setting y equal to one.
+
+39
+00:02:25,410 --> 00:02:28,080
+So this works, but it's still pretty clunky.
+
+40
+00:02:28,320 --> 00:02:31,500
+It's not very user friendly or developer friendly.
+
+41
+00:02:31,590 --> 00:02:36,840
+We have a much better way thanks to the new default parameter syntax.
+
+42
+00:02:37,050 --> 00:02:38,550
+It looks like this right here.
+
+43
+00:02:39,000 --> 00:02:44,980
+So we define our function and right inside the parents where we are listing the parameters.
+
+44
+00:02:45,000 --> 00:02:49,140
+We can add a default with equal sign and then a default value.
+
+45
+00:02:49,350 --> 00:02:56,300
+So here is the exact same thing, except with A and B instead of x and y, where B will default to one
+
+46
+00:02:56,310 --> 00:02:58,230
+if a value is not passed in.
+
+47
+00:02:58,500 --> 00:03:00,240
+So I could rewrite this.
+
+48
+00:03:00,720 --> 00:03:03,870
+If I comment it out, get rid of this entire line.
+
+49
+00:03:04,290 --> 00:03:05,520
+Y equals one.
+
+50
+00:03:06,660 --> 00:03:11,340
+And this just means if no y is passed in, if it's undefined, use this value.
+
+51
+00:03:11,760 --> 00:03:13,440
+So I'll run my code again.
+
+52
+00:03:13,440 --> 00:03:14,820
+Make sure it still works.
+
+53
+00:03:15,030 --> 00:03:17,190
+If we only pass an eight, we get eight.
+
+54
+00:03:17,190 --> 00:03:20,340
+If we pass in two and eight, we get 16.
+
+55
+00:03:20,700 --> 00:03:22,400
+Let's do one more example.
+
+56
+00:03:22,410 --> 00:03:27,950
+If we were to define a function called greet, let's do it with an arrow function this time.
+
+57
+00:03:27,960 --> 00:03:37,650
+So const greet equals a function and this function will take a person and then a greeting.
+
+58
+00:03:38,280 --> 00:03:45,570
+And the way I want greet to work is that I can call it like this greet Tim and then some greeting like
+
+59
+00:03:45,570 --> 00:03:46,230
+yo.
+
+60
+00:03:46,620 --> 00:03:50,690
+And it will print out yo Tim with an exclamation point, let's say.
+
+61
+00:03:50,700 --> 00:03:56,550
+But if I just call greet Tim, it should default the greeting to hi the string.
+
+62
+00:03:56,550 --> 00:03:57,030
+Hi.
+
+63
+00:03:57,810 --> 00:04:04,920
+So all we need to do is say greeting equals hi and that will give it a default value if greeting is
+
+64
+00:04:04,920 --> 00:04:05,700
+not passed.
+
+65
+00:04:06,270 --> 00:04:08,310
+So let me move this over, Ted.
+
+66
+00:04:09,030 --> 00:04:11,910
+Let's add in our simple console.log.
+
+67
+00:04:13,320 --> 00:04:19,230
+I'll do a template, literal string, and then we'll add in the person, which is the first parameter
+
+68
+00:04:19,230 --> 00:04:20,850
+and then the second.
+
+69
+00:04:20,850 --> 00:04:23,790
+Actually, I guess we want to say greeting first, right?
+
+70
+00:04:24,060 --> 00:04:24,900
+Yo, Tim.
+
+71
+00:04:24,900 --> 00:04:25,740
+Hi, Tim.
+
+72
+00:04:25,740 --> 00:04:33,150
+So we'll do greeting with our curly braces and then a comma person, exclamation point.
+
+73
+00:04:34,260 --> 00:04:35,280
+Let's try it.
+
+74
+00:04:35,370 --> 00:04:40,860
+We'll do greet of Tim and won't pass anything in and we get.
+
+75
+00:04:40,890 --> 00:04:41,670
+Hi Tim.
+
+76
+00:04:41,850 --> 00:04:44,880
+But if we do greet of Tim and yo.
+
+77
+00:04:45,670 --> 00:04:46,110
+We get.
+
+78
+00:04:46,120 --> 00:04:46,890
+Yo, Tim.
+
+79
+00:04:47,400 --> 00:04:49,360
+Okay, so that's another example.
+
+80
+00:04:49,360 --> 00:04:52,000
+We're using a string this time as the default value.
+
+81
+00:04:52,180 --> 00:04:56,230
+You can also do things with arrays or objects if you wanted to.
+
+82
+00:04:56,620 --> 00:04:58,450
+I'll just make up a dumb example.
+
+83
+00:04:58,600 --> 00:05:07,600
+If we have a function called const blah and let's say there are two parameters and Y will default to
+
+84
+00:05:07,600 --> 00:05:08,050
+the array.
+
+85
+00:05:08,050 --> 00:05:09,010
+One, two, three.
+
+86
+00:05:12,250 --> 00:05:14,830
+Let's just console.log x and y.
+
+87
+00:05:15,700 --> 00:05:17,860
+So this does absolutely nothing.
+
+88
+00:05:17,860 --> 00:05:23,890
+But I just want to show you that we can use an array or an object or any other value in JavaScript as
+
+89
+00:05:23,890 --> 00:05:25,150
+the default value.
+
+90
+00:05:25,450 --> 00:05:32,730
+So let's call blah with one and we can see that x is one, y is the array.
+
+91
+00:05:32,740 --> 00:05:37,540
+But if I pass in one and three, now X is one and y is three.
+
+92
+00:05:37,870 --> 00:05:43,420
+One really important note about default parameters is that the order absolutely matters.
+
+93
+00:05:43,420 --> 00:05:49,330
+So if I add in a third parameter here, let's say for greet, I want a person greeting and then, I
+
+94
+00:05:49,330 --> 00:05:53,590
+don't know, punctuation, which is this exclamation point at the end.
+
+95
+00:05:54,370 --> 00:05:57,940
+If I want it to default to exclamation point, that's fine.
+
+96
+00:05:57,940 --> 00:06:02,770
+I can do this if I call Grete right now and I only pass in.
+
+97
+00:06:02,770 --> 00:06:07,900
+Oh, I need to update this so that I'm actually using the exclamation point or punctuation.
+
+98
+00:06:09,400 --> 00:06:17,410
+If I call greet again and I pass in on you, we get high on you with an exclamation point.
+
+99
+00:06:17,410 --> 00:06:19,990
+So both of those default parameters kicked in.
+
+100
+00:06:19,990 --> 00:06:25,480
+Greeting is high, punctuation is exclamation point, but it does not work.
+
+101
+00:06:25,510 --> 00:06:32,830
+Of course, if I tried to pass in person and punctuation like this, the way that they are interpreted,
+
+102
+00:06:32,830 --> 00:06:38,650
+the way that JavaScript knows which one needs to have a default value is purely based off of the order
+
+103
+00:06:38,650 --> 00:06:39,700
+you pass them in.
+
+104
+00:06:39,700 --> 00:06:47,380
+So there's no way for me to say here I want to pass in person as an you and punctuation as a question
+
+105
+00:06:47,380 --> 00:06:49,750
+mark and use the default greeting.
+
+106
+00:06:50,170 --> 00:06:51,430
+It doesn't work that way.
+
+107
+00:06:51,430 --> 00:06:56,650
+So all the default parameters also need to come at the end of your parameter list.
+
+108
+00:06:56,650 --> 00:07:01,450
+You can't make the first thing default and then have non default parameters afterwards.
+
+109
+00:07:01,630 --> 00:07:09,340
+So if we went back to multiply this example, I couldn't do this x equals one and then just regular
+
+110
+00:07:09,340 --> 00:07:09,970
+y.
+
+111
+00:07:09,970 --> 00:07:19,870
+If I try that and I multiply to what happens here, well x is going to be two and y is undefined.
+
+112
+00:07:20,440 --> 00:07:22,060
+So there's no default for y.
+
+113
+00:07:22,060 --> 00:07:27,580
+If I pass in two numbers, it works fine, but the default is never going to work the way I want it
+
+114
+00:07:27,580 --> 00:07:30,910
+to work unless I'm fine with y being undefined as well.
+
+115
+00:07:31,090 --> 00:07:35,860
+So this is not something you really see and it's not something I recommend you do.
+
+116
+00:07:35,890 --> 00:07:39,430
+Your default parameters come at the end and that's pretty much it.
+
+117
+00:07:39,430 --> 00:07:41,140
+So you can have as many as you want.
+
+118
+00:07:41,470 --> 00:07:46,360
+Although if you're finding yourself adding a ton of defaults to your parameter list, there's probably
+
+119
+00:07:46,360 --> 00:07:49,660
+a better way of writing the function, but it's a really nice addition.
+
+120
+00:07:49,660 --> 00:07:54,820
+Just new syntax compared to doing something like this where you're manually checking for type.
+
+121
+00:07:54,970 --> 00:07:55,750
+So that's it.
+
+122
+00:07:55,750 --> 00:07:58,540
+That's the newer way of adding default parameters.
+
