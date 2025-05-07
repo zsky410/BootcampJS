@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đang xem tài liệu</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/github.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="back-button">← Quay lại danh sách</a>
+      <h1 id="file-title">Đang tải...</h1>
+      <div id="markdown-content" class="markdown-content">
+        <p>Đang tải nội dung...</p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Parse URL parameters to get the file name
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileName = urlParams.get("file");
+
+        if (!fileName) {
+          document.getElementById("markdown-content").innerHTML =
+            "<p>Không tìm thấy tệp. Vui lòng quay lại và chọn một tệp.</p>";
+          return;
+        }
+
+        // Set the page title
+        document.title = `Đang xem: ${fileName}`;
+        document.getElementById("file-title").textContent = fileName.replace(
+          ".md",
+          ""
+        );
+
+        // Configure marked with highlight.js
+        marked.setOptions({
+          highlight: function (code, lang) {
+            const language = hljs.getLanguage(lang) ? lang : "plaintext";
+            return hljs.highlight(code, { language }).value;
+          },
+          langPrefix: "hljs language-", // highlight.js css expects a class of language-*
+          pedantic: false,
+          gfm: true,
+          breaks: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+          xhtml: false,
+        });
+
+        // Fetch and render the Markdown file
+        fetch(fileName)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Không thể tải tệp");
+            }
+            return response.text();
+          })
+          .then((markdownText) => {
+            const htmlContent = marked.parse(markdownText);
+            document.getElementById("markdown-content").innerHTML = htmlContent;
+
+            // Apply syntax highlighting to code blocks
+            document.querySelectorAll("pre code").forEach((block) => {
+              hljs.highlightBlock(block);
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById(
+              "markdown-content"
+            ).innerHTML = `<p>Lỗi khi tải tệp: ${error.message}</p>`;
+          });
+      });
+    </script>
+  </body>
+</html>
